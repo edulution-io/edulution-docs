@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-#project = 'edulutionUI'
+project = 'edulutionUI'
 copyright = '2024 edulution.io '
 author = 'edulution.io'
 
@@ -28,3 +28,7 @@ html_static_path = ['_static']
 html_favicon = '_static/icon.ico'
 html_title = 'edulutionUI - Dokumentation'
 html_logo = '_static/edulution_logo_weiss.png'
+
+html_theme_options = {
+    "logo_only": True
+}

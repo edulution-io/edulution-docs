@@ -6,8 +6,8 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'edulutionUI'
-copyright = 'edulution.io 2024'
+#project = 'edulutionUI'
+copyright = '2024 edulution.io '
 author = 'edulution.io'
 
 # -- General configuration ---------------------------------------------------

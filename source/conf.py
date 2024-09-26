@@ -32,3 +32,7 @@ html_logo = '_static/edulution_logo_weiss.png'
 html_theme_options = {
     "logo_only": True
 }
+
+html_css_files = [
+    'custom.css',
+]

@@ -27,7 +27,7 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 html_favicon = '_static/icon.ico'
 html_title = 'edulutionUI - Dokumentation'
-html_logo = '_static/edulution_logo_weiss.png'
+html_logo = '_static/edulution.io_DOCS.svg'
 
 html_theme_options = {
     "logo_only": True

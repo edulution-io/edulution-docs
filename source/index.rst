@@ -1,9 +1,9 @@
 .. toctree::
    :maxdepth: 2
-   :caption: Dokumentation
+   :caption: EDULUTION-UI
    :hidden:
 
-   installation
+   edulution-ui/installation
 
 edulution.io Dokumentation
-=========================
+==========================

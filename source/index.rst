@@ -4,6 +4,7 @@
    :hidden:
 
    edulution-ui/installation
+   edulution-ui/configure_lmn-server
 
 edulution.io Dokumentation
 ==========================

@@ -12,7 +12,8 @@
     * Port 389 (LDAP) oder 636 (LDAPs) -> LDAPs ist nur mit einem gültigen Zertifikat möglich!
 * Eine Domain, unter der die edulutionUI erreichbar sein soll (bspw. ui.musterschule.de)
 * Eine Verbindung zum Internet während der Installation
-* opt. Das Edulution-Setup-Token aus der Linuxmuster-WebUI (siehe: :doc:`./configure_lmn-server`)
+* Installation der Linuxmuster-API auf dem Linuxmuster-Server (siehe: :doc:`../configure_lmn-server/configure_lmn-server`)
+* opt. Das Edulution-Setup-Token aus der Linuxmuster-WebUI (siehe: :doc:`../configure_lmn-server/configure_lmn-server`)
 
 1.2 Installation
 ****************
@@ -50,9 +51,11 @@
 
 6. Ist der Edulution-Setup-Token gültig, wird der Button "Überprüfen" aktiviert und die Daten können auf der nächsten Seite überprüft werden.
 
-.. image:: installation_3.png   
+.. image:: installation_3.png  
 
-7. Hier sollten die Daten auf Richtigkeit und geprüft bzw. manuell eingegeben werden. Hinweis: Um LDAPs (Port 636) zu verwenden, wird ein gültiges LDAP-Zertifikat benötigt!
+7. Hier sollten die Daten auf Richtigkeit und geprüft bzw. manuell eingegeben werden. 
+    * Um LDAPs (Port 636) zu verwenden, wird ein gültiges LDAP-Zertifikat benötigt!
+    * Unter "Externe Domain der edulutionUI" **muss** die Domain stehen, unter der die edulutionUI erreichbar ist. **Der Zugriff von einer anderen Domain aus ist nicht möglich!**
 
 .. image:: installation_4.png
 

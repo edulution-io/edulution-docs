@@ -1,2 +1,0 @@
-Anpassung am Linuxmuster-Server
-===============================

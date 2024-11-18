@@ -8,7 +8,7 @@ Linuxmuster-API
 Hierzu wird ein Zugriff auf die Konsole des Linuxmuster-Servers über den Hypervisor oder per SSH benötigt. 
 Sollten Sie keinen direkten Zugriff auf den Server haben, fragen Sie Ihren IT-Administrator oder Dienstleister! ::
     
-    apt-get update && apt-get install linuxmuster-api7
+    sudo apt-get update && sudo apt-get install linuxmuster-api7
 
 
 Edulution-Setup-Token

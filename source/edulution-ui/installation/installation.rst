@@ -6,6 +6,7 @@
 
 * Eine Ubuntu 22.04 oder 24.04 Server-Installation (empfohlen wird die Installation in einer VM)
 * Mindestens 2GB Arbeitsspeicher und 10GB freien Festplattenspeicher
+* Bei einer Proxmox-VM auf den Prozessor-Typ "host" achten!
 * Ein Linuxmuster-Server, der über folgende Ports erreichbar sein muss:
     * Port 443 (HTTPs) -> auch über ReverseProxy möglich
     * Port 8001 (Linuxmuster-API)

@@ -1,0 +1,25 @@
+feat: Enhance documentation structure and content
+
+This commit introduces significant improvements to the documentation:
+
+- **Restructured Navigation:**
+    - Main navigation in `index.rst` is now more granular, with new top-level sections: "Grundsystem", "Apps & Features", "Integration: Linuxmuster", and "Edulution Mail".
+    - `conf.py` updated to ensure full navigation is visible on all pages.
+
+- **Improved Installation Section:**
+    - The "Installation" section is now split into logical sub-pages: "Voraussetzungen", "Einrichtung", and "SSL & Reverse-Proxy" for better readability.
+    - Added recommended storage layout and a comprehensive port overview table to "Voraussetzungen".
+    - Corrected numbering in the "Einrichtung" section.
+    - Enhanced the visual presentation of the "Voraussetzungen" page with better headings and a clear introduction.
+
+- **New Edulution Mail Section:**
+    - Introduced a dedicated "Edulution Mail" section with "Installation" (placeholder) and "Administration" sub-sections.
+    - Detailed mail migration process, clearly separating admin and user steps.
+    - Added documentation for Mailcow administration interface.
+    - Included documentation for managing distribution lists (Verteilerlisten) and customizing user email formats via Linuxmuster hooks, now correctly placed under "Edulution Mail" for better thematic grouping.
+
+- **General Improvements:**
+    - Added new screenshots to support various sections.
+    - Moved "Experten-Tipps" to a dedicated page under "Administration" for better organization.
+
+This commit aims to make the documentation more user-friendly, comprehensive, and easier to navigate.

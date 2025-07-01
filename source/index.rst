@@ -4,8 +4,28 @@
    :hidden:
 
    edulution-ui/installation/installation
+
+.. toctree::
+   :maxdepth: 5
+   :caption: Apps & Features
+   :hidden:
+
    edulution-ui/administration/administration
+
+.. toctree::
+   :maxdepth: 5
+   :caption: Integration: Linuxmuster
+   :hidden:
+
    edulution-ui/configure_lmn-server/configure_lmn-server
+
+.. toctree::
+   :maxdepth: 5
+   :caption: Edulution Mail
+   :hidden:
+
+   edulution-mail/installation
+   edulution-mail/administration
 
 edulution.io Dokumentation
 ==========================

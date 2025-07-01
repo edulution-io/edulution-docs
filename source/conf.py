@@ -31,6 +31,7 @@ html_logo = '_static/edulution_docs.png'
 
 html_theme_options = {
     "logo_only": True,
+    'collapse_navigation': False,
     'navigation_depth': 4,
 }
 

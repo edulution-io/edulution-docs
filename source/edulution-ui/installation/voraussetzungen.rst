@@ -47,10 +47,10 @@ Empfohlenes Speicherlayout
 Benötigte Ports
 ---------------
 
-Die edulutionUI und die zugehörigen Dienste benötigen die Freigabe bestimmter Ports. Beachten Sie, dass einige Ports nur intern zugänglich sein sollten.
+Die edulution UI und die zugehörigen Dienste benötigen die Freigabe bestimmter Ports. Beachten Sie, dass einige Ports nur intern zugänglich sein sollten.
 
 .. note::
-   Die Ports für E-Mail-Dienste (SMTP, IMAP, IMAPS) und die Mailcow Administrationsoberfläche (8443) werden nur benötigt, wenn die E-Mail-Funktionalität der edulutionUI genutzt wird.
+   Die Ports für E-Mail-Dienste (SMTP, IMAP, IMAPS) und die Mailcow Administrationsoberfläche (8443) werden nur benötigt, wenn die E-Mail-Funktionalität der edulution UI genutzt wird.
 
 .. list-table::
    :widths: 15 85
@@ -61,7 +61,7 @@ Die edulutionUI und die zugehörigen Dienste benötigen die Freigabe bestimmter 
    * - 80
      - HTTP (für automatische Weiterleitung zu HTTPS, Let's Encrypt Validierung)
    * - 443
-     - HTTPS (edulutionUI Web-Interface, extern zugänglich)
+     - HTTPS (edulution UI Web-Interface, extern zugänglich)
    * - 389
      - LDAP (unverschlüsselte LDAP-Verbindung, primär intern)
    * - 636

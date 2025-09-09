@@ -1,7 +1,7 @@
 Installation
 ============
 
-Die Installation der edulutionUI ist in die folgenden Schritte unterteilt:
+Die Installation der edulution UI ist in die folgenden Schritte unterteilt:
 
 .. toctree::
    :maxdepth: 2

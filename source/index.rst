@@ -36,7 +36,7 @@ Was ist edulution.io?
 *********************
 Alle Informationen zu edulution.io finden Sie auf der Webseite https://edulution.io.
 
-Kann ich die edulutionUI testen?
+Kann ich die edulution UI testen?
 ********************************
 Sehr gerne sogar! Sie finden eine Demo unter https://demo.edulution.io. Um Zugangsdaten zu erhalten, können Sie uns gerne per E-Mail oder Telefon eine Anfrage schicken. Die Kontaktdaten dazu finden Sie unter https://edulution.io
 

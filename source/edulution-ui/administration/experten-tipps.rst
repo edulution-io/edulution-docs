@@ -5,7 +5,7 @@ Experten-Tipps
 
    Für erweiterte Benutzer- und Authentifizierungs-Einstellungen können Sie direkt auf die Keycloak-Administrationsoberfläche zugreifen.
 
-   1.  **Adresse:** Rufen Sie die URL Ihrer edulutionUI gefolgt von ``/auth`` auf. 
+   1.  **Adresse:** Rufen Sie die URL Ihrer edulution UI gefolgt von ``/auth`` auf. 
        *Beispiel:* ``https://ui.musterschule.de/auth``
 
    2.  **Anmeldung:**

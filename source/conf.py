@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'edulutionUI'
-copyright = '2024 edulution.io '
+copyright = '2025 edulution.io '
 author = 'edulution.io'
 
 # -- General configuration ---------------------------------------------------

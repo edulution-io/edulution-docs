@@ -1,12 +1,12 @@
 Voraussetzungen
 ===============
 
-Herzlich willkommen! Bevor Sie mit der Installation der edulutionUI beginnen, stellen Sie bitte sicher, dass Ihr System die folgenden Voraussetzungen erfüllt. Eine sorgfältige Vorbereitung gewährleistet einen reibungslosen Installationsprozess.
+Herzlich willkommen! Bevor Sie mit der Installation der edulution UI beginnen, stellen Sie bitte sicher, dass Ihr System die folgenden Voraussetzungen erfüllt. Eine sorgfältige Vorbereitung gewährleistet einen reibungslosen Installationsprozess.
 
 System-Anforderungen
 --------------------
 
-.. |min-ram| replace:: 2 GB
+.. |min-ram| replace:: 4 GB
 .. |min-disk| replace:: 10 GB
 
 .. list-table::
@@ -38,7 +38,7 @@ Empfohlenes Speicherlayout
    * - Partition
      - Größe
    * - ``/`` (Root)
-     - 32 GB
+     - 50 GB
    * - ``/srv/docker/edulution-ui``
      - 50 GB
    * - ``/srv/docker/edulution-mail``

@@ -25,3 +25,5 @@ Häufig wird die edulution UI nicht direkt aus dem Internet erreichbar sein, son
 In diesem Szenario übernimmt die Firewall oder der Proxy die SSL-Terminierung (die Verschlüsselung). Die edulution UI selbst wird dann unverschlüsselt über HTTP betrieben.
 
 Das System erkennt automatisch, wenn es hinter einem Reverse-Proxy betrieben wird (anhand von ``X-Forwarded-For`` Headern in der Anfrage) und passt sein Verhalten entsprechend an. Während der Installation wird in diesem Fall der Schritt zur SSL-Einrichtung übersprungen.
+Hierbei ist wichtig dass auf der Firewall/Proxy Websocket-Verbindungen erlaubt sind, da die edulutionUI diese für die Kommunikation mit dem Browser benötigt.
+Wo diese Einstellung zu finden ist, hängt vom jeweiligen Produkt ab. 

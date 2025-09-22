@@ -1,7 +1,7 @@
 Administration
 ==============
 
-Dieser Bereich beschreibt die grundlegende Verwaltung und Konfiguration der edulutionUI nach der Installation.
+Dieser Bereich beschreibt die grundlegende Verwaltung und Konfiguration der edulution UI nach der Installation.
 
 .. toctree::
    :maxdepth: 2
@@ -32,14 +32,14 @@ Es ist wichtig, Ihre SSL-Zertifikate regelmäßig zu sichern:
 2.3 Ports und Firewall
 **********************
 
-Die edulutionUI verwendet folgende Ports:
+Die edulution UI verwendet folgende Ports:
 
 +----------+------------------+---------------------------------------+
 | Port     | Protokoll        | Beschreibung                          |
 +==========+==================+=======================================+
 | 80/tcp   | HTTP             | Weiterleitung zu HTTPS                |
 +----------+------------------+---------------------------------------+
-| 443/tcp  | HTTPS            | Web-Interface (edulutionUI)           |
+| 443/tcp  | HTTPS            | Web-Interface (edulution UI)           |
 +----------+------------------+---------------------------------------+
 | 143/tcp  | IMAP             | E-Mail unverschlüsselt (nur intern)   |
 +----------+------------------+---------------------------------------+
@@ -64,15 +64,15 @@ Die edulutionUI verwendet folgende Ports:
 
 .. index:: Updates, docker compose, Snapshot
 
-2.4.1 edulutionUI aktualisieren
+2.4.1 edulution UI aktualisieren
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. danger::
    Erstellen Sie vor jedem Update einen Snapshot Ihrer VM!
 
-Um die edulutionUI zu aktualisieren:
+Um die edulution UI zu aktualisieren:
 
-1. Wechseln Sie in das edulutionUI Verzeichnis:
+1. Wechseln Sie in das edulution UI Verzeichnis:
 
    .. code-block:: bash
 
@@ -97,14 +97,14 @@ Um die edulutionUI zu aktualisieren:
     docker compose ps
 
 .. note::
-   Das Update dauert in der Regel nur wenige Minuten. Die edulutionUI bleibt während des Updates kurz nicht erreichbar.
+   Das Update dauert in der Regel nur wenige Minuten. Die edulution UI bleibt während des Updates kurz nicht erreichbar.
 
 2.4.2 Nach dem Update
 ^^^^^^^^^^^^^^^^^^^^^
 
 Nach einem Update sollten Sie:
 
-1. Die Funktionalität der edulutionUI testen
+1. Die Funktionalität der edulution UI testen
 2. Die Logs auf Fehler prüfen: ``docker compose logs -f --tail=50``
 3. Bei Problemen können Sie über den VM-Snapshot zurückrollen
 
@@ -116,13 +116,13 @@ Nach einem Update sollten Sie:
 2.5.1 Anmeldung als global-admin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Nach der erfolgreichen Installation können Sie sich an der edulutionUI anmelden:
+Nach der erfolgreichen Installation können Sie sich an der edulution UI anmelden:
 
-1. Öffnen Sie einen Webbrowser und navigieren Sie zur edulutionUI-URL
+1. Öffnen Sie einen Webbrowser und navigieren Sie zur edulution UI-URL
 2. Melden Sie sich als **global-admin** an, um Konfigurationen vorzunehmen
 
 .. image:: login.png
-   :alt: edulutionUI Login-Seite
+   :alt: edulution UI Login-Seite
 
 .. warning::
    Verwenden Sie für die erste Anmeldung immer den **global-admin** Account, um alle administrativen Funktionen nutzen zu können.
@@ -133,7 +133,7 @@ Nach der erfolgreichen Installation können Sie sich an der edulutionUI anmelden
 Nach der erfolgreichen Anmeldung gelangen Sie zum Dashboard:
 
 .. image:: dashboard.png
-   :alt: edulutionUI Dashboard
+   :alt: edulution UI Dashboard
 
 Das Dashboard bietet Ihnen:
 
@@ -166,7 +166,7 @@ Der App Store ist der zentrale Ort für die Installation neuer Anwendungen:
 2. Sie sehen eine Übersicht aller verfügbaren Apps
 
 .. image:: appstore.png
-   :alt: edulutionUI App Store
+   :alt: edulution UI App Store
 
 **App-Status verstehen:**
 
@@ -249,7 +249,7 @@ Die App-Berechtigung kann auf verschiedene Weise eingeschränkt werden:
 Das Screenshot zeigt die Berechtigungseinstellungen für das Info Board. Hier können Sie präzise festlegen, welche Benutzergruppen oder Rollen Zugriff auf die jeweilige App haben.
 
 .. note::
-   **Integration mit Linuxmuster:** Die edulutionUI nutzt die vorhandenen Gruppen und Rollen aus Ihrem Linuxmuster-System. Sie müssen keine separaten Berechtigungen pflegen.
+   **Integration mit Linuxmuster:** Die edulution UI nutzt die vorhandenen Gruppen und Rollen aus Ihrem Linuxmuster-System. Sie müssen keine separaten Berechtigungen pflegen.
 
 2.6 App-Typen und Konfiguration
 *******************************
@@ -259,7 +259,7 @@ Das Screenshot zeigt die Berechtigungseinstellungen für das Info Board. Hier k�
 2.6.1 App Frame - Externe Webseiten einbinden
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Mit dem **App Frame** können Sie externe Webseiten direkt in die edulutionUI einbetten.
+Mit dem **App Frame** können Sie externe Webseiten direkt in die edulution UI einbetten.
 
 .. image:: app-frame-speiseplan.png
    :alt: App Frame Konfiguration - Speiseplan Beispiel
@@ -290,7 +290,7 @@ Mit dem **App Frame** können Sie externe Webseiten direkt in die edulutionUI ei
    Testen Sie App Frames zunächst in einem Browser-Tab, um sicherzustellen, dass die Seite korrekt angezeigt wird.
 
 .. seealso::
-   - :doc:`../installation/installation` - Grundinstallation der edulutionUI
+   - :doc:`../installation/installation` - Grundinstallation der edulution UI
    - Weitere App-Dokumentationen (folgen in den nächsten Abschnitten)
 
 .. toctree::

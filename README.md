@@ -1,1 +1,1 @@
-# edulutionUI - Documentation
+# edulution UI - Documentation

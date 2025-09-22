@@ -6,8 +6,8 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'edulutionUI'
-copyright = '2024 edulution.io '
+project = 'edulution UI'
+copyright = '2025 edulution.io '
 author = 'edulution.io'
 
 # -- General configuration ---------------------------------------------------
@@ -26,7 +26,7 @@ language = 'de'
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 html_favicon = '_static/icon.ico'
-html_title = 'edulutionUI - Dokumentation'
+html_title = 'edulution UI - Dokumentation'
 html_logo = '_static/edulution_docs.png'
 
 html_theme_options = {

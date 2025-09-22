@@ -1,7 +1,7 @@
 Verteilerlisten
 ===============
 
-Verteilerlisten in der edulutionUI basieren auf Projekten in Linuxmuster. Dies ermöglicht eine flexible Verwaltung von E-Mail-Verteilern direkt über die Linuxmuster-Oberfläche.
+Verteilerlisten in der edulution UI basieren auf Projekten in Linuxmuster. Dies ermöglicht eine flexible Verwaltung von E-Mail-Verteilern direkt über die Linuxmuster-Oberfläche.
 
 Projekt als Verteiler anlegen
 *****************************

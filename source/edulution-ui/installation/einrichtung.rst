@@ -19,11 +19,11 @@ Einrichtung
 
    .. code-block:: text
 
-      [*] Starte den edulutionUI Web-Installer...
+      [*] Starte den edulution UI Web-Installer...
 
       ########################################################
 
-          edulutionUI Web-Installer
+          edulution UI Web-Installer
           
           Sie erreichen die Oberfläche wie folgt:
           
@@ -48,7 +48,7 @@ Einrichtung
 
    .. warning::
       - Um LDAPs (Port 636) zu verwenden, wird ein gültiges LDAP-Zertifikat benötigt!
-      - Unter "Externe Domain der edulutionUI" **muss** die Domain stehen, unter der die edulutionUI erreichbar ist. **Der Zugriff von einer anderen Domain aus ist nicht möglich!**
+      - Unter "Externe Domain der edulution UI" **muss** die Domain stehen, unter der die edulution UI erreichbar ist. **Der Zugriff von einer anderen Domain aus ist nicht möglich!**
 
 .. image:: installation_4.png
 
@@ -57,7 +57,7 @@ Einrichtung
    Nach der Grundkonfiguration werden Sie nach der SSL-Zertifikat Einrichtung gefragt.
 
    .. note::
-      Falls Ihre edulutionUI hinter einem Reverse-Proxy betrieben wird, der bereits SSL-Terminierung übernimmt, können Sie diesen Schritt überspringen.
+      Falls Ihre edulution UI hinter einem Reverse-Proxy betrieben wird, der bereits SSL-Terminierung übernimmt, können Sie diesen Schritt überspringen.
 
    Sie haben folgende Optionen:
 
@@ -96,7 +96,7 @@ Einrichtung
 
 .. image:: installation_5.png
 
-10. Erscheint in der Konsole folgender Text, ist die Installation abgeschlossen und die edulutionUI kann verwendet werden!
+10. Erscheint in der Konsole folgender Text, ist die Installation abgeschlossen und die edulution UI kann verwendet werden!
 
    .. code-block:: text
 
@@ -108,7 +108,7 @@ Einrichtung
        | |_| | | |_| | (__|   <  \ V  V /| |_| | | | \__ \ (__| | | |_|
        \____|_|\__,_|\___|_|\_\  \_/\_/  \__,_|_| |_|___/\___|_| |_(_)
                                                                       
-          Die Installation der edulutionUI ist abgeschlossen!
+          Die Installation der edulution UI ist abgeschlossen!
 
           Sie erreichen die Oberfläche wie folgt:
           

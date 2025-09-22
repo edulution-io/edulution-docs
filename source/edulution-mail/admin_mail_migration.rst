@@ -6,7 +6,7 @@ Damit Benutzer ihre E-Mails von einem externen IMAP-Server in die edulution Mail
 **Sync-Ziel für externen Mailserver anlegen**
 
 1.  **Navigieren Sie zu den E-Mail-Einstellungen:**
-    Öffnen Sie in der edulutionUI den Pfad ``/settings/mail``.
+    Öffnen Sie in der edulution UI den Pfad ``/settings/mail``.
 
 2.  **Email Sync Konfiguration:**
     Scrollen Sie zum Abschnitt "Email Sync".

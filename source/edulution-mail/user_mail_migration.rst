@@ -4,7 +4,7 @@ Mail-Migration für Benutzer
 Nachdem der Administrator das Sync-Profil angelegt hat, kann jeder Benutzer die Synchronisierung für sein eigenes Postfach individuell starten.
 
 1.  **Zum eigenen Profil navigieren:**
-    Klicken Sie in der edulutionUI unten links auf **"Mein Profil"** und wählen Sie den Reiter **"Mail"**.
+    Klicken Sie in der edulution UI unten links auf **"Mein Profil"** und wählen Sie den Reiter **"Mail"**.
 
 2.  **Zugangsdaten eintragen:**
     Der Benutzer muss hier die Zugangsdaten für sein **altes** Postfach eintragen (Benutzername und Passwort).

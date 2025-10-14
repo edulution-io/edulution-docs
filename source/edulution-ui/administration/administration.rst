@@ -39,7 +39,7 @@ Die edulution UI verwendet folgende Ports:
 +==========+==================+=======================================+
 | 80/tcp   | HTTP             | Weiterleitung zu HTTPS                |
 +----------+------------------+---------------------------------------+
-| 443/tcp  | HTTPS            | Web-Interface (edulution UI)           |
+| 443/tcp  | HTTPS            | Web-Interface (edulution UI)          |
 +----------+------------------+---------------------------------------+
 | 143/tcp  | IMAP             | E-Mail unverschlüsselt (nur intern)   |
 +----------+------------------+---------------------------------------+
@@ -128,7 +128,7 @@ Nach der erfolgreichen Installation können Sie sich an der edulution UI anmelde
    Verwenden Sie für die erste Anmeldung immer den **global-admin** Account, um alle administrativen Funktionen nutzen zu können.
 
 2.5.2 Dashboard-Übersicht
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Nach der erfolgreichen Anmeldung gelangen Sie zum Dashboard:
 
@@ -143,7 +143,7 @@ Das Dashboard bietet Ihnen:
 4. **Navigation** zu den Einstellungen
 
 2.5.3 Einstellungen aufrufen
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Die Einstellungen finden Sie in der rechten Seitenleiste:
 
@@ -158,7 +158,7 @@ Die Einstellungen finden Sie in der rechten Seitenleiste:
 - **Benutzerverwaltung**
 
 2.5.4 App Store - Apps installieren
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Der App Store ist der zentrale Ort für die Installation neuer Anwendungen:
 
@@ -192,7 +192,7 @@ Der App Store ist der zentrale Ort für die Installation neuer Anwendungen:
    Installierte Apps sind sofort über das Dashboard oder die Navigation verfügbar.
 
 2.5.5 App-Installation und Konfiguration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **App installieren:**
 
@@ -257,7 +257,7 @@ Das Screenshot zeigt die Berechtigungseinstellungen für das Info Board. Hier k�
 .. index:: App-Frame, URL-Frame, externe Dienste
 
 2.6.1 App Frame - Externe Webseiten einbinden
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Mit dem **App Frame** können Sie externe Webseiten direkt in die edulution UI einbetten.
 

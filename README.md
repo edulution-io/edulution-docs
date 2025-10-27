@@ -1,41 +1,49 @@
-# Website
+# edulution Dokumentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Offizielle Dokumentation für edulution Produkte, erstellt mit [Docusaurus](https://docusaurus.io/).
 
-## Installation
+## Live-Version
 
-```bash
-yarn
-```
+Die Dokumentation ist verfügbar unter: [docs.edulution.io](https://docs.edulution.io)
 
-## Local Development
+## Lokale Entwicklung
 
-```bash
-yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
+### Installation
 
 ```bash
-yarn build
+npm install
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+### Development Server starten
+
+```bash
+npm start
+```
+
+Dieser Befehl startet einen lokalen Development Server und öffnet ein Browser-Fenster. Die meisten Änderungen werden live übernommen.
+
+### Build
+
+```bash
+npm run build
+```
+
+Dieser Befehl generiert statische Inhalte im `build` Verzeichnis.
+
+## Struktur
+
+- `/docs` - Dokumentationsinhalte
+  - `/edulution-ui` - edulution UI Dokumentation
+  - `/edulution-mail` - edulution Mail Dokumentation
+  - `/edulution-fileproxy` - edulution FileProxy Dokumentation
+- `/changelogs` - Versionshistorie und Änderungsprotokolle
+- `/static` - Statische Assets (Bilder, Icons, etc.)
+- `/src` - Custom React Komponenten und Styles
 
 ## Deployment
 
-Using SSH:
+Die Dokumentation wird automatisch über GitHub Actions deployed, wenn Änderungen auf den `main` Branch gepusht werden.
 
-```bash
-USE_SSH=true yarn deploy
-```
+## Lizenz
 
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Copyright © edulution.io

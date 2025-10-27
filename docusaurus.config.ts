@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://derdennis1012.github.io',
+  url: 'https://docs.edulution.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/edulution-docs-docusaurus/',
+  // For custom domain deployment, this should be '/'
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'derdennis1012', // Usually your GitHub org/user name.
-  projectName: 'edulution-docs-docusaurus', // Usually your repo name.
+  organizationName: 'edulution-io', // Usually your GitHub org/user name.
+  projectName: 'edulution-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 

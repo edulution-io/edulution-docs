@@ -115,6 +115,10 @@ const config: Config = {
               label: 'edulution Mail',
               to: '/docs/category/edulution-mail',
             },
+            {
+                label: 'edulution App',
+                to: '/docs/category/edulution-app'
+            },
           ],
         },
         {

@@ -40,6 +40,7 @@ const Tag: React.FC<{ tag: string }> = ({ tag }) => {
     'edulution-mail': 'bg-[rgba(0,129,198,0.15)] text-[#0081c6] border-[#0081c6]/30',
     'edulution-fileproxy': 'bg-[rgba(220,38,38,0.15)] text-[#dc2626] border-[#dc2626]/30',
     'edulution-backend': 'bg-[rgba(255,215,0,0.15)] text-[#FFD700] border-[#FFD700]/30',
+    'edulution-app': 'bg-[rgba(147,51,234,0.15)] text-[#9333ea] border-[#9333ea]/30',
   };
 
   const colorClass = colors[tag] || 'bg-[rgba(136,216,64,0.15)] text-[#88d840] border-[#88d840]/30';

@@ -2,6 +2,54 @@
 
 ---
 
+
+## v2.1.0 | 2025-10-29 | edulution-app
+
+### Die edulution.io App ist da!
+
+Wir freuen uns, die erste Version der edulution.io Mobile App vorzustellen! Mit der App hast du jederzeit und überall Zugriff auf deine Schulplattform – egal ob du Schüler/in, Lehrer/in oder Administrator/in bist.
+
+#### Was ist die edulution App?
+
+Die edulution App bringt die volle Power der edulution.io-Plattform auf dein Smartphone oder Tablet. Sie verbindet sich nahtlos mit deinem Schulserver und bietet dir alle wichtigen Funktionen direkt in deiner Tasche – sicher, schnell und benutzerfreundlich.
+
+Die App ist für iOS und Android verfügbar und wurde speziell für den Schulalltag entwickelt.
+
+#### Verbesserungen & Features
+
+- **QR-Code Login**: Scanne einfach den QR-Code auf der edulution.io Website und melde dich sofort an – keine komplizierte Einrichtung nötig
+- **Digitaler Ausweis**: Dein Schüler/innen- oder Lehrer/innenausweis immer dabei – dreisprachig (Deutsch, Englisch, Französisch) mit allen wichtigen Infos
+- **Account-Verwaltung**: Mehrere Accounts? Kein Problem! Wechsle mit einem Fingertipp zwischen deinen Profilen (z.B. Lehrer/in und Admin)
+- **Push-Benachrichtigungen**: Verpasse keine wichtigen Termine mehr – die App erinnert dich rechtzeitig an bevorstehende Konferenzen
+- **Vollständiger Plattform-Zugriff**: Zugriff auf alle edulution.io Funktionen direkt aus der App: Dateien, Konferenzen, Whiteboard, Dashboard und mehr
+- **Biometrische Authentifizierung**: Sicherer Login mit Face ID, Touch ID oder Fingerabdruck
+- **Offline-Modus**: Wichtige Informationen bleiben auch ohne Internetverbindung verfügbar
+- **Dark Mode**: Automatische Anpassung an deine Systemeinstellungen für angenehmes Arbeiten bei Tag und Nacht
+
+#### Verfügbarkeit
+
+Die edulution App ist ab sofort verfügbar:
+- **iOS**: Im Apple App Store für iPhone und iPad
+- **Android**: Im Google Play Store für alle Android-Geräte
+
+#### Technische Details
+
+- Native Performance durch React Native
+- End-to-End verschlüsselte Kommunikation
+- Automatische Updates über die App Stores
+- Minimale Systemanforderungen: iOS 14+ / Android 8+
+- Unterstützung für Tablets und Smartphones
+- Datenschutzkonform nach DSGVO
+
+#### Ausblick auf kommende Versionen
+
+- Offline-Datei-Synchronisation für Arbeiten ohne Internet
+- Integrierte Chat-Funktion für direkte Kommunikation
+- Erweitertes Benachrichtigungssystem mit individuellen Einstellungen
+- Widget-Support für iOS und Android Home-Screens
+- Apple Watch und Android Wear Integration
+- Teilen von Dateien zwischen edulution App und anderen Apps
+
 ## v1.5.0 | 2025-08-11 | edulution-ui
 
 ### Kompatibilität & Infrastruktur-Verbesserungen

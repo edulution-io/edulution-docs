@@ -1,0 +1,233 @@
+---
+sidebar_position: 6
+title: Troubleshooting
+description: Häufige Probleme und Lösungen bei der Einrichtung von Mail-Clients
+---
+
+import TroubleshootingFAQ from '@site/src/components/TroubleshootingFAQ';
+import CodeBlock from '@site/src/components/CodeBlock';
+
+# Troubleshooting
+
+Hier finden Sie Lösungen für häufig auftretende Probleme bei der Einrichtung und Nutzung von Mail-Clients mit edulution.io Mail.
+
+## Häufig gestellte Fragen
+
+<TroubleshootingFAQ
+  title="Probleme mit Mail-Clients?"
+  subtitle="Hier finden Sie Antworten auf die häufigsten Fragen zur Einrichtung und Fehlerbehebung."
+  faqs={[
+    {
+      id: "connection-failed",
+      question: "Die Verbindung zum Server schlägt fehl - was kann ich tun?",
+      answer: `
+        <p>Überprüfen Sie zunächst die Server-Einstellungen:</p>
+        <ul>
+          <li><strong>IMAP:</strong> mail.edulution.io Port 993 (SSL/TLS)</li>
+          <li><strong>SMTP:</strong> mail.edulution.io Port 465 (SSL/TLS)</li>
+        </ul>
+        <p>Verwenden Sie die <a href="#imap-verbindung-testen">Diagnose-Befehle</a> weiter unten, um die Verbindung zu testen.</p>
+        <p>Weitere Schritte:</p>
+        <ul>
+          <li>Kontrollieren Sie Ihre Firewall-Einstellungen</li>
+          <li>Prüfen Sie Ihre Internetverbindung</li>
+          <li>Testen Sie mit einem anderen Gerät</li>
+        </ul>
+      `
+    },
+    {
+      id: "wrong-password",
+      question: "Ich erhalte die Fehlermeldung 'Falsches Passwort' obwohl ich sicher bin, dass es korrekt ist",
+      answer: `
+        <p>Mögliche Ursachen:</p>
+        <ul>
+          <li><strong>Caps Lock:</strong> Überprüfen Sie, ob die Feststelltaste aktiviert ist</li>
+          <li><strong>Tastatursprache:</strong> Achten Sie auf die korrekte Tastaturbelegung</li>
+          <li><strong>Sonderzeichen:</strong> Manche Clients haben Probleme mit bestimmten Zeichen</li>
+          <li><strong>Benutzername:</strong> Verwenden Sie die vollständige E-Mail-Adresse</li>
+        </ul>
+        <p>Lösung: Wenden Sie sich an Ihren Administrator für einen Passwort-Reset.</p>
+      `
+    },
+    {
+      id: "emails-not-syncing",
+      question: "Meine E-Mails werden nicht synchronisiert - warum?",
+      answer: `
+        <p>Checkliste zur Fehlerbehebung:</p>
+        <ul>
+          <li><strong>Protokoll:</strong> IMAP verwenden (nicht POP3)</li>
+          <li><strong>Ordner:</strong> Überprüfen Sie die abonnierten IMAP-Ordner</li>
+          <li><strong>Speicherplatz:</strong> Prüfen Sie Gerät und Server-Quota</li>
+          <li><strong>Verbindung:</strong> Testen Sie mit stabiler WLAN-Verbindung</li>
+          <li><strong>Cache:</strong> Löschen Sie den Client-Cache und starten Sie neu</li>
+        </ul>
+        <p>Bei Outlook: Reparieren Sie die OST/PST-Datei über <em>Datei → Kontoeinstellungen → Datendateien → Reparieren</em></p>
+      `
+    },
+    {
+      id: "cannot-send-emails",
+      question: "Ich kann E-Mails empfangen, aber nicht senden",
+      answer: `
+        <p>SMTP-Einstellungen überprüfen:</p>
+        <ul>
+          <li><strong>Server:</strong> mail.edulution.io</li>
+          <li><strong>Port:</strong> 465 (SSL/TLS)</li>
+          <li><strong>Authentifizierung:</strong> Muss aktiviert sein</li>
+          <li><strong>Benutzername:</strong> Vollständige E-Mail-Adresse</li>
+        </ul>
+        <p>Verwenden Sie den <a href="#smtp-verbindung-testen">SMTP-Verbindungstest</a> weiter unten, um die Verbindung zu testen.</p>
+        <p><strong>Hinweis:</strong> Öffentliche WLANs (Hotels, Cafés) blockieren oft SMTP-Ports. Versuchen Sie es über ein anderes Netzwerk.</p>
+      `
+    },
+    {
+      id: "certificate-error",
+      question: "Ich bekomme eine Zertifikatswarnung - ist das gefährlich?",
+      answer: `
+        <p>Häufige Ursachen für Zertifikatswarnungen:</p>
+        <ul>
+          <li><strong>Hostname:</strong> Verwenden Sie <code>mail.edulution.io</code> (nicht die IP-Adresse)</li>
+          <li><strong>Systemzeit:</strong> Stellen Sie Datum und Uhrzeit korrekt ein</li>
+          <li><strong>Proxy/Firewall:</strong> Firmen-Proxies können Zertifikate ersetzen</li>
+          <li><strong>Antivirus:</strong> Manche AV-Programme scannen verschlüsselte Verbindungen</li>
+        </ul>
+        <p>Verwenden Sie den <a href="#ssl-zertifikat-überprüfen">Zertifikat-Check</a> weiter unten, um das Zertifikat zu überprüfen.</p>
+        <p><strong>Warnung:</strong> Akzeptieren Sie nur Zertifikatswarnungen nach Rücksprache mit Ihrem Administrator!</p>
+      `
+    },
+    {
+      id: "slow-performance",
+      question: "Der Mail-Client ist sehr langsam - was kann ich tun?",
+      answer: `
+        <p>Performance-Optimierung:</p>
+        <ul>
+          <li><strong>Internetverbindung:</strong> Verwenden Sie den <a href="#netzwerk-latenz-testen">Ping-Test</a> weiter unten</li>
+          <li><strong>Cache leeren:</strong> Client-Cache und temp-Dateien löschen</li>
+          <li><strong>Synchronisation:</strong> Reduzieren Sie Ordneranzahl oder Zeitraum</li>
+          <li><strong>Postfachgröße:</strong> Archivieren Sie alte E-Mails (> 1 Jahr)</li>
+          <li><strong>Add-Ins:</strong> Deaktivieren Sie nicht benötigte Erweiterungen</li>
+        </ul>
+        <p><strong>Outlook-spezifisch:</strong></p>
+        <ul>
+          <li>Datendatei komprimieren: <em>Datei → Kontoeinstellungen → Datendateien → Einstellungen → Jetzt komprimieren</em></li>
+          <li>PST/OST reparieren: Scanpst.exe (Windows) verwenden</li>
+        </ul>
+      `
+    }
+  ]}
+/>
+
+## Diagnose-Befehle
+
+Verwenden Sie diese Befehle, um Verbindungsprobleme zu diagnostizieren:
+
+### IMAP-Verbindung testen
+
+<CodeBlock
+  title="IMAP Port 993 testen"
+  description="Überprüfen Sie, ob der IMAP-Server erreichbar ist"
+  variants={[
+    {
+      platform: 'Windows',
+      command: 'Test-NetConnection -ComputerName {{mailDomain}} -Port 993',
+      expectedOutput: 'TcpTestSucceeded : True'
+    },
+    {
+      platform: 'Linux',
+      command: 'telnet {{mailDomain}} 993',
+      expectedOutput: 'Trying 123.456.789.0...\nConnected to {{mailDomain}}.\nEscape character is \'^]\'.'
+    },
+    {
+      platform: 'macOS',
+      command: 'nc -zv {{mailDomain}} 993',
+      expectedOutput: 'Connection to {{mailDomain}} port 993 [tcp/imaps] succeeded!'
+    }
+  ]}
+/>
+
+### SMTP-Verbindung testen
+
+<CodeBlock
+  title="SMTP Port 465 testen"
+  description="Überprüfen Sie, ob der SMTP-Server erreichbar ist"
+  variants={[
+    {
+      platform: 'Windows',
+      command: 'Test-NetConnection -ComputerName {{mailDomain}} -Port 465',
+      expectedOutput: 'TcpTestSucceeded : True'
+    },
+    {
+      platform: 'Linux',
+      command: 'telnet {{mailDomain}} 465',
+      expectedOutput: 'Trying 123.456.789.0...\nConnected to {{mailDomain}}.\nEscape character is \'^]\'.'
+    },
+    {
+      platform: 'macOS',
+      command: 'nc -zv {{mailDomain}} 465',
+      expectedOutput: 'Connection to {{mailDomain}} port 465 [tcp/smtps] succeeded!'
+    }
+  ]}
+/>
+
+### SSL-Zertifikat überprüfen
+
+<CodeBlock
+  title="Zertifikat prüfen"
+  description="Zeigt Details des SSL-Zertifikats an"
+  variants={[
+    {
+      platform: 'Windows',
+      command: '$cert = Invoke-WebRequest -Uri https://{{mailDomain}} | Select-Object -ExpandProperty BaseResponse | Select-Object -ExpandProperty ServerCertificate\n$cert | Format-List Subject, Issuer, NotAfter',
+      expectedOutput: 'Subject : CN={{mailDomain}}\nIssuer  : CN=Let\'s Encrypt Authority X3\nNotAfter: [Ablaufdatum]'
+    },
+    {
+      platform: 'Linux',
+      command: 'openssl s_client -connect {{mailDomain}}:993 -showcerts 2>/dev/null | openssl x509 -noout -subject -issuer -dates',
+      expectedOutput: 'subject=CN = {{mailDomain}}\nissuer=C = US, O = Let\'s Encrypt, CN = R3\nnotBefore=[Datum]\nnotAfter=[Datum]'
+    },
+    {
+      platform: 'macOS',
+      command: 'openssl s_client -connect {{mailDomain}}:993 -showcerts 2>/dev/null | openssl x509 -noout -subject -issuer -dates',
+      expectedOutput: 'subject=CN = {{mailDomain}}\nissuer=C = US, O = Let\'s Encrypt, CN = R3\nnotBefore=[Datum]\nnotAfter=[Datum]'
+    }
+  ]}
+/>
+
+### Netzwerk-Latenz testen
+
+<CodeBlock
+  title="Ping Test"
+  description="Misst die Verbindungsgeschwindigkeit zum Server"
+  variants={[
+    {
+      platform: 'Windows',
+      command: 'ping {{mailDomain}} -n 4',
+      expectedOutput: 'Antwort von [IP]: Bytes=32 Zeit<50ms TTL=64'
+    },
+    {
+      platform: 'Linux',
+      command: 'ping -c 4 {{mailDomain}}',
+      expectedOutput: '64 bytes from {{mailDomain}}: icmp_seq=1 ttl=64 time=25.3 ms'
+    },
+    {
+      platform: 'macOS',
+      command: 'ping -c 4 {{mailDomain}}',
+      expectedOutput: '64 bytes from {{mailDomain}}: icmp_seq=1 ttl=64 time=25.3 ms'
+    }
+  ]}
+/>
+
+## Weitere Hilfe
+
+Falls Sie Ihr Problem hier nicht finden konnten, wenden Sie sich bitte an:
+
+- **Support-Team**: [support@edulution.io](mailto:support@edulution.io)
+- **Administrator**: Ihr lokaler IT-Administrator
+- **Community-Forum**: [edulution Community](https://ask.linuxmuster.net/c/edulution/63)
+
+### Weiterführende Dokumentation
+
+- [Outlook einrichten](./outlook)
+- [Thunderbird einrichten](./thunderbird)
+- [Apple Mail einrichten](./apple-mail)
+- [Server-Einstellungen](./server-settings)
+- [Kompatibilitätsmatrix](./compatibility-matrix)

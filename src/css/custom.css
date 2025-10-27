@@ -1,0 +1,444 @@
+/**
+ * edulution.io Documentation - Custom Styling
+ * Based on edulution.io brand colors
+ * Dark mode by default
+ */
+
+/* Responsive Table Wrapper for Mail Client Tables */
+.mail-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.mail-table-wrapper table {
+  width: 100%;
+  margin: 0;
+  border: none;
+}
+
+/* Mail Compatibility Table Styles */
+table.mail-compat-table {
+  width: 100% !important;
+  table-layout: auto !important;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mail-table-wrapper table.mail-compat-table {
+  width: 100% !important;
+  table-layout: auto !important;
+  border: none;
+  margin: 0;
+  border-radius: 0;
+}
+
+table.mail-compat-table thead th {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-font-color-base);
+  padding: 12px 16px;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.75em;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+}
+
+table.mail-compat-table thead th:last-child {
+  border-right: none;
+}
+
+table.mail-compat-table thead th:first-child {
+  width: 30%;
+  text-align: left;
+}
+
+table.mail-compat-table thead th:not(:first-child) {
+  width: 17.5%;
+}
+
+table.mail-compat-table tbody td {
+  padding: 14px 16px;
+  text-align: center;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+}
+
+table.mail-compat-table tbody td:last-child {
+  border-right: none;
+}
+
+table.mail-compat-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+table.mail-compat-table tbody td:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+
+.mail-compat-status {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.mail-compat-check {
+  color: var(--ifm-color-success);
+}
+
+.mail-compat-cross {
+  color: var(--ifm-color-emphasis-500);
+}
+
+.mail-compat-warning {
+  color: var(--ifm-color-warning);
+}
+
+/* Mail Compatibility Matrix Styles */
+.mail-compat-legend {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.mail-compat-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9em;
+}
+
+.mail-compat-legend-icon {
+  font-size: 1.2em;
+  width: 24px;
+  text-align: center;
+}
+
+.mail-compat-table-wrapper {
+  overflow-x: auto;
+  background: var(--ifm-background-surface-color);
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  margin-bottom: 2rem;
+}
+
+.mail-compat-table-wrapper .mail-compat-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+
+.mail-compat-table-wrapper .mail-compat-table thead th {
+  background: var(--ifm-color-emphasis-100);
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.75em;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.mail-compat-table-wrapper .mail-compat-table tbody tr {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  transition: background-color 0.2s ease;
+}
+
+.mail-compat-table-wrapper .mail-compat-table tbody tr:hover:not(.mail-compat-category) {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.mail-compat-table-wrapper .mail-compat-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.mail-compat-table-wrapper .mail-compat-table tbody td {
+  padding: 18px 20px;
+}
+
+.mail-compat-client-name {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.mail-compat-platform {
+  display: inline-block;
+  background: var(--ifm-color-success-contrast-background);
+  color: var(--ifm-color-success);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75em;
+  font-weight: 500;
+  border: 1px solid var(--ifm-color-success-dark);
+}
+
+.mail-compat-platform.not-supported {
+  background: var(--ifm-color-danger-contrast-background);
+  color: var(--ifm-color-danger);
+  border: 1px solid var(--ifm-color-danger-dark);
+}
+
+.mail-compat-note {
+  font-size: 0.85em;
+  color: var(--ifm-color-emphasis-700);
+  margin-top: 4px;
+  display: block;
+}
+
+.mail-compat-note.warning {
+  color: var(--ifm-color-warning-darkest);
+}
+
+.mail-compat-category {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.mail-compat-category td {
+  padding: 14px 20px;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+@media (max-width: 768px) {
+  .mail-compat-legend {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mail-compat-table-wrapper .mail-compat-table {
+    font-size: 0.85em;
+  }
+
+  .mail-compat-table-wrapper .mail-compat-table th,
+  .mail-compat-table-wrapper .mail-compat-table td {
+    padding: 12px 10px;
+  }
+}
+
+/* Light mode colors (fallback) */
+:root {
+  --ifm-color-primary: #88d840;
+  --ifm-color-primary-dark: #7ac639;
+  --ifm-color-primary-darker: #72bd35;
+  --ifm-color-primary-darkest: #5e9b2c;
+  --ifm-color-primary-light: #96dc55;
+  --ifm-color-primary-lighter: #a0e06a;
+  --ifm-color-primary-lightest: #b4e88a;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(136, 216, 64, 0.1);
+
+  /* Edulution colors */
+  --edulution-green: #88d840;
+  --edulution-blue: #0081c6;
+  --edulution-dark-blue: #1A202C;
+  --edulution-light-blue: #66B2DF;
+  --edulution-red: #dc2626;
+  --edulution-yellow: #FFD700;
+  --edulution-gradient: linear-gradient(45deg, #88D840, #0081C6);
+}
+
+/* Dark mode - main theme (default) */
+[data-theme='dark'] {
+  /* Primary colors - edulution green */
+  --ifm-color-primary: #88d840;
+  --ifm-color-primary-dark: #7ac639;
+  --ifm-color-primary-darker: #72bd35;
+  --ifm-color-primary-darkest: #5e9b2c;
+  --ifm-color-primary-light: #96dc55;
+  --ifm-color-primary-lighter: #a0e06a;
+  --ifm-color-primary-lightest: #b4e88a;
+
+  /* Background colors - very dark like edulution.io */
+  --ifm-background-color: #0a0a0a;
+  --ifm-background-surface-color: #1a1a1a;
+  --ifm-navbar-background-color: #0a0a0a;
+  --ifm-footer-background-color: #0a0a0a;
+
+  /* Text colors for better readability */
+  --ifm-font-color-base: #e8e8e8;
+  --ifm-heading-color: #ffffff;
+
+  /* Code highlighting */
+  --docusaurus-highlighted-code-line-bg: rgba(136, 216, 64, 0.15);
+
+  /* Cards and surfaces */
+  --ifm-card-background-color: #1a1a1a;
+  --ifm-hover-overlay: rgba(136, 216, 64, 0.05);
+
+  /* Secondary color - edulution blue */
+  --ifm-color-secondary: #0281c7;
+  --ifm-color-secondary-dark: #0273b3;
+  --ifm-color-secondary-darker: #026ca9;
+  --ifm-color-secondary-darkest: #02598a;
+  --ifm-color-secondary-light: #028fdb;
+  --ifm-color-secondary-lighter: #0295e5;
+  --ifm-color-secondary-lightest: #1aa8ff;
+
+  /* Success color - same as primary (green) */
+  --ifm-color-success: #88d840;
+  --ifm-color-success-dark: #7ac639;
+  --ifm-color-success-darker: #72bd35;
+  --ifm-color-success-darkest: #5e9b2c;
+  --ifm-color-success-light: #96dc55;
+  --ifm-color-success-lighter: #a0e06a;
+  --ifm-color-success-lightest: #b4e88a;
+
+  /* Borders */
+  --ifm-color-emphasis-300: #2a2a2a;
+  --ifm-hr-border-color: #2a2a2a;
+  --ifm-toc-border-color: #2a2a2a;
+}
+
+/* Hero section styling - dark with edulution gradient */
+[data-theme='dark'] .hero--primary {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border-bottom: 2px solid #88d840;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .hero__title {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .hero__subtitle {
+  color: #e8e8e8;
+}
+
+/* Buttons - edulution color scheme with gradient */
+[data-theme='dark'] .button--primary {
+  background: linear-gradient(45deg, #88D840, #0081C6);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+}
+
+[data-theme='dark'] .button--primary:hover {
+  background: linear-gradient(45deg, #96dc55, #0295e5);
+  color: #ffffff;
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(136, 216, 64, 0.3);
+}
+
+[data-theme='dark'] .button--secondary {
+  background-color: #0281c7;
+  color: #ffffff;
+  border: none;
+}
+
+[data-theme='dark'] .button--secondary:hover {
+  background-color: #0295e5;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+/* Links - green accent (primary color) */
+[data-theme='dark'] a {
+  color: #88d840;
+}
+
+[data-theme='dark'] a:hover {
+  color: #96dc55;
+}
+
+/* Code blocks */
+[data-theme='dark'] pre {
+  background-color: #0f0f0f;
+  border: 1px solid #2a2a2a;
+}
+
+[data-theme='dark'] code {
+  background-color: #1a1a1a;
+  color: #88d840;
+  border: 1px solid #2a2a2a;
+}
+
+/* Sidebar */
+[data-theme='dark'] .theme-doc-sidebar-container {
+  background-color: #0a0a0a;
+  border-right: 1px solid #2a2a2a;
+}
+
+[data-theme='dark'] .menu__link {
+  color: #e8e8e8;
+}
+
+[data-theme='dark'] .menu__link:hover,
+[data-theme='dark'] .menu__link--active {
+  color: #88d840;
+  background-color: rgba(136, 216, 64, 0.1);
+}
+
+/* Navbar */
+[data-theme='dark'] .navbar {
+  background-color: #0a0a0a;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+[data-theme='dark'] .navbar__link {
+  color: #e8e8e8;
+}
+
+[data-theme='dark'] .navbar__link:hover,
+[data-theme='dark'] .navbar__link--active {
+  color: #88d840;
+}
+
+/* Footer */
+[data-theme='dark'] .footer {
+  background-color: #0a0a0a;
+  border-top: 1px solid #2a2a2a;
+}
+
+[data-theme='dark'] .footer__link-item {
+  color: #e8e8e8;
+}
+
+[data-theme='dark'] .footer__link-item:hover {
+  color: #88d840;
+}
+
+/* Admonitions (Notes, Warnings, etc.) */
+[data-theme='dark'] .alert {
+  background-color: #1a1a1a;
+  border-left-color: #88d840;
+}
+
+/* Tables */
+[data-theme='dark'] table {
+  border-color: #2a2a2a;
+}
+
+[data-theme='dark'] th {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+[data-theme='dark'] td {
+  border-color: #2a2a2a;
+}
+
+/* Search */
+[data-theme='dark'] .navbar__search-input {
+  background-color: #1a1a1a;
+  color: #e8e8e8;
+  border: 1px solid #2a2a2a;
+}
+
+[data-theme='dark'] .navbar__search-input:focus {
+  border-color: #88d840;
+}

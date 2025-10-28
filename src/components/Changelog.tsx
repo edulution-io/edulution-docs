@@ -208,7 +208,7 @@ function ContentWrapper({ className = '', children }: { className?: string; chil
 // ArticleHeader
 function ArticleHeader({ id, date, tag }: { id: string; date: string; tag?: string }) {
     return (
-        <header className="relative mb-6 xl:mb-0">
+        <header className="relative mb-10 xl:mb-0">
             <div className="pointer-events-none absolute top-0 left-[max(-0.5rem,calc(50%-18.625rem))] z-50 flex h-4 items-center justify-end gap-x-2 lg:left-0 lg:min-w-[180px] xl:h-8">
                 <a href={`#${id}`} className="inline-flex pointer-events-auto">
                     <time className="hidden xl:block text-[0.6875rem] leading-4 font-medium text-white/50">
@@ -266,7 +266,7 @@ export const ChangelogItem: React.FC<{ entry: ChangelogEntry; index: number }> =
             <div ref={heightRef}>
                 <ArticleHeader id={id} date={entry.date} tag={entry.tag} />
                 <ContentWrapper className="relative">
-                    <h2 className="text-2xl font-semibold leading-7 text-white mb-4">
+                    <h2 className="text-2xl font-semibold leading-7 text-white mb-4 mt-6">
                         {entry.title}
                     </h2>
                     {entry.description && (

@@ -5,18 +5,16 @@ description: Alle Updates und Änderungen der edulution Plattform
 
 import { ChangelogFromMarkdown } from '@site/src/components/ChangelogFromMarkdown';
 
-// Automatisch alle .md Dateien aus dem changelogs Verzeichnis laden (inkl. Unterordner)
-const changelogContext = require.context('!!raw-loader!../changelogs/', true, /v\d+\.\d+\.\d+\.md$/);
-
-// Alle Changelog-Inhalte sammeln und nach Dateiname sortieren (neueste zuerst)
-const allChangelogs = changelogContext
-  .keys()
-  .sort((a, b) => b.localeCompare(a)) // Sortierung: v1.5.0 vor v1.4.0
-  .map(key => changelogContext(key).default)
-  .join('\n\n---\n\n');
+export const changelogContext = require.context('!!raw-loader!../changelogs/', true, /v\d+\.\d+\.\d+\.md$/);
 
 # Changelog
 
 Hier findest du alle Updates, neuen Features und Verbesserungen der edulution Plattform.
 
-<ChangelogFromMarkdown markdown={allChangelogs} />
+<ChangelogFromMarkdown
+  markdown={changelogContext
+    .keys()
+    .sort((a, b) => b.localeCompare(a))
+    .map(key => changelogContext(key).default)
+    .join('\n\n---\n\n')}
+/>

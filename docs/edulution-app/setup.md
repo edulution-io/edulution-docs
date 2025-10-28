@@ -10,7 +10,7 @@ Wenn Sie eine App-Version **älter als 2.1.0** verwenden, empfehlen wir dringend
 
 ## App herunterladen
 
-Scanne den QR-Code mit deinem iPhone oder iPad, um direkt zum Apple App Store weitergeleitet zu werden und die neueste Version der edulution.io App herunterzuladen.
+Scanne den QR-Code mit deinem iPhone oder iPad, um direkt zum Apple App Store weitergeleitet zu werden und die neueste Version der edulution App herunterzuladen.
 
 <p align="center">
   <img src="/img/app/iosAppDownloadQrCode.png" alt="QR Code zum App Store" width="200" />

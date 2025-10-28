@@ -248,6 +248,29 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+{
+  type: 'category',
+  label: 'edulution App',
+  collapsed: false,
+  link: {
+    type: 'generated-index',
+    title: 'edulution App',
+    description: 'Die mobile App für die edulution-Plattform.',
+    slug: '/category/edulution-app',
+  },
+  items: [
+    {
+      type: 'doc',
+      id: 'edulution-app/index',
+      label: '📱 Übersicht',
+    },
+    {
+      type: 'doc',
+      id: 'edulution-app/setup',
+      label: '⚙️ Einrichtung',
+    },
+  ],
+},
     {
       type: 'category',
       label: 'Ressourcen',

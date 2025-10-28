@@ -66,6 +66,6 @@ Beim Scannen des QR-Codes werden alle benötigten Daten automatisch übernommen 
 
 ## Account-Einstellungen
 
-Um auf die Einstellungen eines Accounts zuzugreifen, muss die Account-Karte nach links gewischt werden. Es erscheinen dann zwei Optionen:
+Um auf die Einstellungen eines Accounts zuzugreifen, muss die Account-Karte nach links gewischt werden.
 
 ![Account-Einstellungen](../../static/img/app/accountSwipe.png)

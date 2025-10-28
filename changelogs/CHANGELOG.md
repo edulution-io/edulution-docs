@@ -8,11 +8,11 @@ Version 2.1 der Edulution App umfasst eine überarbeitete Benutzeroberfläche un
 
 - **Light & Dark Mode**: Nahtlose Unterstützung für helle und dunkle Darstellung, die sich automatisch an die Systemeinstellungen anpasst
 - **Mehrsprachige Unterstützung**: Vollständige Lokalisierung in Deutsch, Englisch und Französisch
-- **Individuelles Branding**: Anzeige des schulspezifischen Logos für eine personalisierte Nutzererfahrung
+- **Individuelles Branding**: Anzeige des Plattform spezifischen Logos für eine personalisierte Nutzererfahrung
 
 #### Neue Funktionen
 
-- **Digitaler Schülerausweis** [tags: school, ios, android] - Vollständig integrierte Ausweisfunktion mit allen relevanten Informationen
+- **Digitaler Schülerausweis** [tags: school] - Vollständig integrierte Ausweisfunktion mit allen relevanten Informationen
 - **WebDAV-Integration** [tags: ios] - Nahtlose Integration der in der Edulution-Plattform angelegten WebDAV-Shares (Unterstützung für [edulution-fileproxy](https://docs.edulution.io/edulution-ui/edulution-fileproxy/) und Linuxmuster )
 - **Push-Benachrichtigungen**
     - Benachrichtigung beim Start von Konferenzen

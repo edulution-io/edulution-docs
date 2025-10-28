@@ -49,6 +49,7 @@ function getTagLabel(type: string): string {
         business: 'Unternehmen',
         ios: 'iOS',
         android: 'Android',
+        lmn73: 'LMN 7.3',
     };
     return labels[type] || type;
 }

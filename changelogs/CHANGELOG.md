@@ -13,7 +13,7 @@ Version 2.1 der Edulution App umfasst eine überarbeitete Benutzeroberfläche un
 #### Neue Funktionen
 
 - **Digitaler Schülerausweis** [tags: school, ios, android] - Vollständig integrierte Ausweisfunktion mit allen relevanten Informationen
-- **WebDAV-Integration** [tags: school, business, ios] - Nahtlose Integration der in der Edulution-Plattform angelegten WebDAV-Shares (Unterstützung für [edulution-fileproxy](https://docs.edulution.io/edulution-ui/edulution-fileproxy/) und Linuxmuster )
+- **WebDAV-Integration** [tags: ios] - Nahtlose Integration der in der Edulution-Plattform angelegten WebDAV-Shares (Unterstützung für [edulution-fileproxy](https://docs.edulution.io/edulution-ui/edulution-fileproxy/) und Linuxmuster )
 - **Push-Benachrichtigungen**
     - Benachrichtigung beim Start von Konferenzen
     - Automatische Updates bei Erstellung und Bearbeitung von Umfragen

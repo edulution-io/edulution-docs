@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import tagPlugin from "./src/rehype/tagPlugin";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -48,11 +49,13 @@ const config: Config = {
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
           breadcrumbs: true,
+          rehypePlugins: [tagPlugin],
         },
         blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
+
       } satisfies Preset.Options,
     ],
   ],

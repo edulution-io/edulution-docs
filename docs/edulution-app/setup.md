@@ -4,6 +4,18 @@ title: Einrichtung
 ---
 
 # Einrichtung der edulution App
+:::warning Wichtiger Hinweis für bestehende Nutzer
+Wenn Sie eine App-Version **älter als 2.1.0** verwenden, empfehlen wir dringend, die App zu **deinstallieren und neu herunterzuladen**, um Fehler zu vermeiden.
+:::
+
+## App herunterladen
+
+Scanne den QR-Code mit deinem iPhone oder iPad, um direkt zum Apple App Store weitergeleitet zu werden und die neueste Version der edulution App herunterzuladen.
+
+<p align="center">
+  <img src="/img/app/iosAppDownloadQrCode.png" alt="QR Code zum App Store" width="200" />
+</p>
+
 
 ## Account hinzufügen
 
@@ -48,12 +60,22 @@ Beim Scannen des QR-Codes werden alle benötigten Daten automatisch übernommen 
 1. Anmeldung auf der edulution Plattform der Schule
 2. Navigation zu **"Mein Profil"**
 3. Auswahl von **"Mobiler Zugriff"**
-4. Scannen des **zweiten angezeigten QR-Codes**
+4. Scannen des angezeigten **QR-Code**
 
 ---
 
 ## Account-Einstellungen
 
-Um auf die Einstellungen eines Accounts zuzugreifen, muss die Account-Karte nach links gewischt werden. Es erscheinen dann zwei Optionen:
+Um auf die Einstellungen eines Accounts zuzugreifen, muss die Account-Karte nach links gewischt werden.
 
 ![Account-Einstellungen](../../static/img/app/accountSwipe.png)
+
+
+## QR-Login
+Der Login kann alternativ über QR-Code erfolgen:
+
+1. Im Web-Interface auf "Anmelden mit QR-Login" klicken
+2. Den angezeigten QR-Code mit der edulution.io App scannen
+3. Der Login erfolgt automatisch ohne manuelle Eingabe der Zugangsdaten
+
+![qrLogin.png](../../static/img/app/qrLogin.png)

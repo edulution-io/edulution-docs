@@ -24,7 +24,7 @@ Zeig deinen Account jetzt als digitalen Ausweis! Er zeigt alle wichtigen Infos a
 Der Ausweis ist **dreisprachig** (Deutsch, Englisch & Französisch) – so bist du überall auf der sicheren Seite.
 
 ## QR-Login 
-Scanne einfach den QR-Code der edulution.io Website mit der Handykamera – und dein Account ist sofort mobil eingerichtet. Schnell, unkompliziert und sicher.
+Scanne einfach den QR-Code der edulution.io Website mit der Handykamera – und du wirst automatisch bei der Edulution-Plattform angemeldet. Schnell, unkompliziert und sicher.
 
 ## Benachrichtigungen
 
@@ -34,7 +34,7 @@ Bleib immer informiert! Die App benachrichtigt dich automatisch über:
 - Neue oder aktualisierte Umfragen
 - Änderungen am Info Board
 
-## Datei-Integration [tags: school, business, ios]
+## Datei-Integration [tags: ios]
 
 Greife direkt auf deine Dateien aus der edulution.io Plattform zu. Die WebDAV-Integration ermöglicht nahtlosen Zugriff auf alle freigegebenen Ordner und Ressourcen – überall und jederzeit verfügbar.
 

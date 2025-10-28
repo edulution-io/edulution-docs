@@ -53,7 +53,6 @@ const Tag: React.FC<{ tag: string }> = ({ tag }) => {
     );
 };
 
-// Feature Tags for school/ios/android/business
 const FeatureTag: React.FC<{ type: string }> = ({ type }) => {
     const colors: Record<string, string> = {
         school: 'bg-[rgba(33,150,243,0.15)] text-[#2196f3] border-[#2196f3]/30',
@@ -67,6 +66,7 @@ const FeatureTag: React.FC<{ type: string }> = ({ type }) => {
         business: 'Unternehmen',
         ios: 'iOS',
         android: 'Android',
+        lmn73: 'LMN73',
     };
 
     const colorClass = colors[type] || 'bg-[rgba(136,216,64,0.15)] text-[#88d840] border-[#88d840]/30';
@@ -107,26 +107,21 @@ const renderTextWithTags = (text: string) => {
     return renderMarkdown(text);
 };
 
-// Helper function to render simple markdown (bold, italic, links)
 const renderMarkdown = (text: string) => {
     const parts: (string | JSX.Element)[] = [];
     let currentIndex = 0;
     let key = 0;
 
-    // Pattern: Match [link](url), **bold**, *italic*, —
-    // Order matters: links first to avoid conflicts with ** inside links
     const pattern = /(\[.*?\]\(.*?\)|\*\*.*?\*\*|\*(?!\*)[^*]+?\*|—)/g;
     let match;
 
     while ((match = pattern.exec(text)) !== null) {
-        // Add text before match
         if (match.index > currentIndex) {
             parts.push(text.substring(currentIndex, match.index));
         }
 
         const matched = match[0];
 
-        // Link: [text](url) - check first
         if (matched.startsWith('[')) {
             const linkMatch = matched.match(/\[(.*?)\]\((.*?)\)/);
             if (linkMatch) {
@@ -141,10 +136,9 @@ const renderMarkdown = (text: string) => {
                 );
             }
         }
-        // Bold with possible link inside: **[text](url)**
+
         else if (matched.startsWith('**') && matched.endsWith('**')) {
             const inner = matched.slice(2, -2);
-            // Check if inner content has a link
             const linkMatch = inner.match(/\[(.*?)\]\((.*?)\)/);
             if (linkMatch) {
                 parts.push(

@@ -60,7 +60,7 @@ Beim Scannen des QR-Codes werden alle benötigten Daten automatisch übernommen 
 1. Anmeldung auf der edulution Plattform der Schule
 2. Navigation zu **"Mein Profil"**
 3. Auswahl von **"Mobiler Zugriff"**
-4. Scannen des **zweiten angezeigten QR-Codes**
+4. Scannen des angezeigten ** QR-Code**
 
 ---
 

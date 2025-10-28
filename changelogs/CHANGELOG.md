@@ -19,7 +19,9 @@ Version 2.1 der Edulution App umfasst eine überarbeitete Benutzeroberfläche un
     - Automatische Updates bei Erstellung und Bearbeitung von Umfragen
     - Benachrichtigungen über Aktualisierungen am Info Board
 
-
+# Technische Erneuerungen
+- Das App-Framework wurde von Flutter auf React Native mit Expo umgestellt
+- Push-Benachrichtigungen werden über Expo Push Notification Service abgewickelt
 --- 
 
 ## v1.5.0 | 2025-08-11 | edulution-ui

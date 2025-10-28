@@ -60,7 +60,7 @@ Beim Scannen des QR-Codes werden alle benötigten Daten automatisch übernommen 
 1. Anmeldung auf der edulution Plattform der Schule
 2. Navigation zu **"Mein Profil"**
 3. Auswahl von **"Mobiler Zugriff"**
-4. Scannen des angezeigten ** QR-Code**
+4. Scannen des angezeigten **QR-Code**
 
 ---
 
@@ -69,3 +69,13 @@ Beim Scannen des QR-Codes werden alle benötigten Daten automatisch übernommen 
 Um auf die Einstellungen eines Accounts zuzugreifen, muss die Account-Karte nach links gewischt werden.
 
 ![Account-Einstellungen](../../static/img/app/accountSwipe.png)
+
+
+## QR-Login
+Der Login kann alternativ über QR-Code erfolgen:
+
+1. Im Web-Interface auf "Anmelden mit QR-Login" klicken
+2. Den angezeigten QR-Code mit der edulution.io App scannen
+3. Der Login erfolgt automatisch ohne manuelle Eingabe der Zugangsdaten
+
+![qrLogin.png](../../static/img/app/qrLogin.png)

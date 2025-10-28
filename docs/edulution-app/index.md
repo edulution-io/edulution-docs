@@ -24,7 +24,7 @@ Zeig deinen Account jetzt als digitalen Ausweis! Er zeigt alle wichtigen Infos a
 Der Ausweis ist **dreisprachig** (Deutsch, Englisch & Französisch) – so bist du überall auf der sicheren Seite.
 
 ## QR-Login 
-Scanne einfach den QR-Code der edulution.io Website mit der Handykamera – und du wirst automatisch bei Edulution-Plattform angemeldet. Schnell, unkompliziert und sicher.
+Scanne einfach den QR-Code der edulution.io Website mit der Handykamera – und du wirst automatisch bei der Edulution-Plattform angemeldet. Schnell, unkompliziert und sicher.
 
 ## Benachrichtigungen
 

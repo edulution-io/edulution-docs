@@ -34,7 +34,7 @@ Bleib immer informiert! Die App benachrichtigt dich automatisch über:
 - Neue oder aktualisierte Umfragen
 - Änderungen am Info Board
 
-## Datei-Integration [tags: school, business, ios]
+## Datei-Integration [tags: ios]
 
 Greife direkt auf deine Dateien aus der edulution.io Plattform zu. Die WebDAV-Integration ermöglicht nahtlosen Zugriff auf alle freigegebenen Ordner und Ressourcen – überall und jederzeit verfügbar.
 

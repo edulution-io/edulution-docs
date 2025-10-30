@@ -76,9 +76,22 @@ Beim Teilen können Sie festlegen:
 
 ## Wichtige Hinweise
 
-### Dateigröße
-- **Standard (Linuxmuster)**: Max. 50 MB pro Datei
-- **Mit File-Proxy**: Größere Dateien möglich (Dokumentation folgt)
+### Dateigröße {#dateigröße}
+
+Die maximale Upload-Größe hängt davon ab, ob FileProxy eingerichtet ist:
+
+| Methode | Upload-Limit |
+|---------|--------------|
+| **Standard (Linuxmuster)** | ~50 MB pro Datei |
+| **Mit FileProxy** | Unbegrenzt* |
+
+\* *Abhängig von verfügbarem Speicherplatz und Quotas*
+
+**FileProxy einrichten:**
+Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richten Sie den [edulution FileProxy](../../edulution-fileproxy/ui-config.md) ein. Dieser bietet:
+- Unbegrenzte Upload-Größe
+- Deutlich höhere Performance
+- Schnellere Up- und Downloads
 
 ### Speicherplatz
 Überprüfen Sie Ihre Quota im [Dashboard](dashboard.md#quotas)

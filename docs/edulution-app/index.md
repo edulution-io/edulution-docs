@@ -34,6 +34,16 @@ Bleib immer informiert! Die App benachrichtigt dich automatisch über:
 - Neue oder aktualisierte Umfragen
 - Änderungen am Info Board
 
+## Datenschutz und rechtliche Hinweise
+
+:::info Wichtig für Schulen und Organisationen
+Die edulution.io App nutzt Push-Benachrichtigungen über Apple Push Notification Service (APNs). Die **Datenschutzerklärung von edulution.io** bezieht sich ausschließlich auf die Verarbeitung von Daten im Zusammenhang mit diesen Push-Benachrichtigungen.
+
+**Wir empfehlen dringend**, dass Ihre Schule oder Organisation eine **eigene Datenschutzerklärung** in der edulution-Plattform hinterlegt, die alle genutzten Dienste und Funktionen abdeckt.
+
+[→ Anleitung: Impressum und Datenschutzerklärung einrichten](/docs/edulution-ui/features/impressum-datenschutz)
+:::
+
 ## Datei-Integration [tags: ios]
 
 Greife direkt auf deine Dateien aus der edulution.io Plattform zu. Die WebDAV-Integration ermöglicht nahtlosen Zugriff auf alle freigegebenen Ordner und Ressourcen – überall und jederzeit verfügbar.

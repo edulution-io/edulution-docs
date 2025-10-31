@@ -45,11 +45,18 @@ Die Installation erfolgt in 4 Schritten:
 
 ## Voraussetzungen
 
-- Ubuntu 24.04 LTS
+- **Separate VM** mit Ubuntu 24.04 LTS (nicht auf edulution UI Server!)
 - 4 GB RAM, 2 CPU Kerne
 - Zugriff auf LDAP-Server (Port 636/389)
 - Zugriff auf SMB-Server (Port 445)
 - Edulution UI mit Traefik
+
+:::warning Eigene VM empfohlen
+Installieren Sie FileProxy auf einer **separaten virtuellen Maschine**, nicht auf dem edulution UI Server. Dies erhöht:
+- **Sicherheit** - Isolation der Dienste
+- **Performance** - Keine Ressourcen-Konkurrenz
+- **Wartbarkeit** - Unabhängige Updates möglich
+:::
 
 ## Erste Schritte
 

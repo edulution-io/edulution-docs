@@ -8,9 +8,13 @@ FileProxy Server installieren und konfigurieren.
 
 ## Voraussetzungen
 
-- Ubuntu 24.04 LTS VM
+- **Separate VM** mit Ubuntu 24.04 LTS
 - 4 GB RAM, 2 CPU Kerne
 - [Package Server](./package-server) eingerichtet
+
+:::warning Eigene VM verwenden
+FileProxy sollte auf einer **separaten virtuellen Maschine** laufen, nicht auf dem edulution UI Server. Dies gewährleistet bessere Sicherheit, Performance und Wartbarkeit.
+:::
 
 ## Installation
 

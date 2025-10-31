@@ -6,7 +6,7 @@ import tagPlugin from "./src/rehype/tagPlugin";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'edulution UI',
+  title: 'edulution',
   tagline: 'Dokumentation',
   favicon: '_static/icon.ico',
 
@@ -193,6 +193,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'yaml', 'json', 'docker'],
     },
   } satisfies Preset.ThemeConfig,
 };

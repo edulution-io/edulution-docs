@@ -23,7 +23,7 @@ Traefik leitet `/webdav` Anfragen von der edulution UI an den FileProxy-Server w
 Auf der **edulution UI VM**:
 
 ```bash
-sudo nano /opt/edulution/data/traefik/config/webdav.yml
+sudo nano /srv/docker/edulution-ui/data/traefik/config/webdav.yml
 ```
 
 :::info Pfad
@@ -55,52 +55,6 @@ http:
 
 ```bash
 docker-compose restart traefik
-```
-
-## Testen
-
-### Verbindung prüfen
-
-```bash
-curl -k https://ihre-domain.de/webdav/
-```
-
-Sollte eine WebDAV-Antwort zurückgeben.
-
-### Traefik-Logs
-
-```bash
-docker-compose logs -f traefik
-```
-
-## Troubleshooting
-
-### 503 Service Unavailable
-
-**Ursache:** FileProxy nicht erreichbar
-
-**Lösung:**
-```bash
-# FileProxy-Status prüfen
-ssh fileproxy-server
-sudo systemctl status edulution-fileproxy
-
-# Verbindung testen
-curl -k https://10.1.0.5:8443/webdav/
-```
-
-### Bad Gateway
-
-**Ursache:** TLS-Problem
-
-**Lösung:**
-```bash
-# Zertifikat prüfen
-ssh fileproxy-server
-cat /etc/edulution-fileproxy/webdav.pem
-
-# Logs ansehen
-sudo tail -f /var/log/edulution-fileproxy/webdav-server.log
 ```
 
 ## Nächster Schritt

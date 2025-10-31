@@ -18,7 +18,6 @@ Der **edulution FileProxy** bietet gegenüber der Standard-Dateifreigabe entsche
 ## Voraussetzungen
 
 - FileProxy ist [installiert und konfiguriert](./installation)
-- [Traefik ist eingerichtet](./traefik-config)
 - Sie sind als **global-admin** eingeloggt
 
 ## 1. WebDAV-Server hinzufügen
@@ -155,7 +154,6 @@ Ihre Benutzer können jetzt auf ihre Dateien zugreifen:
 1. WebDAV-Server korrekt angelegt? (URL, Port, Typ)
 2. Shares angelegt und Nutzergruppen zugewiesen?
 3. FileProxy läuft? `systemctl status edulution-fileproxy`
-4. Traefik leitet korrekt weiter? `docker-compose logs traefik`
 
 ### Verbindung fehlgeschlagen
 

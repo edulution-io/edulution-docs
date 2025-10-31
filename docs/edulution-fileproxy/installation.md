@@ -115,4 +115,4 @@ sudo tail -f /var/log/edulution-fileproxy/webdav-server.log
 
 ## Nächster Schritt
 
-Konfigurieren Sie [Traefik als Reverse Proxy](./traefik-config) →
+Richten Sie den [FileProxy in der UI](./ui-config) ein →

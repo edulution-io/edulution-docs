@@ -66,14 +66,6 @@ Beim Teilen können Sie festlegen:
 - **Passwortschutz**: Optional Passwort setzen
 - **Ablaufdatum**: Zeitlich begrenzter Zugriff
 
-## Tastenkombinationen
-
-| Aktion | Tastenkombination |
-|--------|-------------------|
-| Alle auswählen | `Strg/Cmd + A` |
-| Löschen | `Entf` |
-| Umbenennen | `F2` |
-
 ## Wichtige Hinweise
 
 ### Dateigröße {#dateigröße}
@@ -101,7 +93,6 @@ Alle Dateiformate sind möglich. Direkt bearbeiten können Sie:
 - Dokumente (.docx, .odt)
 - Tabellen (.xlsx, .ods)
 - Präsentationen (.pptx, .odp)
-- Diagramme (.drawio)
 
 ## Siehe auch
 

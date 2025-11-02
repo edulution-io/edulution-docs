@@ -60,8 +60,15 @@ Klicken Sie für jeden Share auf **+** und tragen Sie folgende Werte ein:
 |------|------|
 | **Anzeigename** | Home |
 | **Server** | FileProxy |
-| **Share-Pfad** | `/webdav/default-school/share/` |
+| **Pfad** | `/webdav/default-school/` |
+| **Pfad-Variable** | `homeDirectory` |
 | **Nutzergruppen** | `all-teachers, all-students, all-admins` |
+
+:::tip Pfad-Variable
+Die Variable `{homeDirectory}` wird automatisch durch das persönliche Home-Verzeichnis des Benutzers ersetzt.
+:::
+
+![Home-Verzeichnis mit Pfad-Variable](/img/fileproxy/webdav-home-variable.png)
 
 #### Share (Gemeinsame Dateien)
 
@@ -69,7 +76,7 @@ Klicken Sie für jeden Share auf **+** und tragen Sie folgende Werte ein:
 |------|------|
 | **Anzeigename** | Share |
 | **Server** | FileProxy |
-| **Share-Pfad** | `/webdav/default-school/share/` |
+| **Pfad** | `/webdav/default-school/share/` |
 | **Nutzergruppen** | `all-teachers, all-students, all-admins` |
 
 #### Projects (Projekt-Ordner)
@@ -78,7 +85,7 @@ Klicken Sie für jeden Share auf **+** und tragen Sie folgende Werte ein:
 |------|------|
 | **Anzeigename** | Projects |
 | **Server** | FileProxy |
-| **Share-Pfad** | `/webdav/default-school/share/projects/` |
+| **Pfad** | `/webdav/default-school/share/projects/` |
 | **Nutzergruppen** | `all-teachers, all-students, all-admins` |
 
 #### Student-Home
@@ -87,7 +94,7 @@ Klicken Sie für jeden Share auf **+** und tragen Sie folgende Werte ein:
 |------|------|
 | **Anzeigename** | Student-Home |
 | **Server** | FileProxy |
-| **Share-Pfad** | `/webdav/default-school/students/` |
+| **Pfad** | `/webdav/default-school/students/` |
 | **Nutzergruppen** | `all-teachers, all-admins` |
 
 #### Teacher-home
@@ -96,7 +103,7 @@ Klicken Sie für jeden Share auf **+** und tragen Sie folgende Werte ein:
 |------|------|
 | **Anzeigename** | Teacher-home |
 | **Server** | FileProxy |
-| **Share-Pfad** | `/webdav/default-school/share/teachers/` |
+| **Pfad** | `/webdav/default-school/share/teachers/` |
 | **Nutzergruppen** | `all-teachers` |
 
 ![WebDAV Einstellungen](/img/fileproxy/webdav-einstellungen.png)

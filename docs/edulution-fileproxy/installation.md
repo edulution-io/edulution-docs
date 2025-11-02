@@ -8,12 +8,13 @@ FileProxy Server installieren und konfigurieren.
 
 ## Voraussetzungen
 
-- **Separate VM** mit Ubuntu 24.04 LTS
-- 4 GB RAM, 2 CPU Kerne
+- **Linuxmuster Fileserver** mit Ubuntu 24.04 LTS
 - [Package Server](./package-server) eingerichtet
 
-:::warning Eigene VM verwenden
-FileProxy sollte auf einer **separaten virtuellen Maschine** laufen, nicht auf dem edulution UI Server. Dies gewährleistet bessere Sicherheit, Performance und Wartbarkeit.
+:::tip Empfehlung
+FileProxy sollte auf dem **gleichen Host wie der Fileserver** installiert werden. Dies ermöglicht direkten Zugriff auf die SMB-Shares und optimale Performance.
+
+→ [Linuxmuster Fileserver installieren](https://docs.linuxmuster.net/de/v7.3/setup/setup-file-server.html)
 :::
 
 ## Installation

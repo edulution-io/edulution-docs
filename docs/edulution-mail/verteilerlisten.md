@@ -32,71 +32,33 @@ hinzugefügt werden, führt dies dazu, dass die E-Mail-Adressen der
 Gruppenmitglieder nicht korrekt synchronisiert werden.
 :::
 
-## Verteiler-E-Mail-Adressen anpassen (Hook)
+## Verteiler-E-Mail-Adressen anpassen
 
 Standardmäßig wird die E-Mail-Adresse des Verteilers als
-`p_projektname@domain` generiert. Wenn Sie dieses Format ändern möchten
-(z.B. nur `projektname@domain`), können Sie dies über einen
-Sophomorix-Hook auf dem Linuxmuster-Server anpassen.
+`p_projektname@domain` generiert. Um dieses Format zu ändern
+(z.B. nur `projektname@domain`), nutzen Sie die **Gruppen-Mail-Synchronisation**.
 
-**Vorgehensweise:**
+:::tip Zwei Varianten möglich
+Sie können das gleiche Skript **manuell** ausführen oder als **Cronjob** (empfohlen) einrichten:
 
-1.  **Hook-Skript erstellen:** Verbinden Sie sich per SSH mit Ihrem
-    Linuxmuster-Server und erstellen Sie eine neue Python-Datei, z.B.
-    `/etc/linuxmuster/sophomorix/hooks/set-mail-group.py`, mit folgendem
-    Inhalt:
+**Manuell:** Für gelegentliche Anpassungen
+**Cronjob:** Automatische Synchronisation alle 5 Minuten
 
-    ``` python
-    from linuxmusterTools.ldapconnector import (
-        LMNLdapReader as lr,
-        ProjectWriter as pw,   #  <-- statt GroupWriter
-    )
+→ Siehe [Gruppen-Mail-Synchronisation](./gruppen-mail-sync.md) für beide Varianten
+:::
 
-    DOMAIN = "schule.demo"  # Passen Sie Ihre Domain an
-    WRITE  = True             # jetzt wirklich schreiben
+### Quick-Start: Manuell ausführen
 
-    projects = lr.get('/projects', attributes=['cn','mail'])
+Falls Sie nur eine einmalige Anpassung benötigen:
 
-    for p in projects:
-       # print(p)
-        cn_attr = p['cn']
-        cn = cn_attr[0] if isinstance(cn_attr, list) else cn_attr
-        proj   = cn[2:] if cn.lower().startswith('p_') else cn
-        mail   = f"{proj.lower()}@{DOMAIN}"
+1. Erstellen Sie das [Skript aus der Gruppen-Mail-Synchronisation](./gruppen-mail-sync.md#1-skript-erstellen)
+2. Führen Sie es manuell aus:
+   ```bash
+   sudo python3 /etc/linuxmuster/sophomorix/hooks/set-mail-group.py
+   ```
 
-        print(f"{cn}  →  {mail}")
-        if WRITE:
-            pw.setattr(cn, data={'mail': mail})
-    ```
+:::info
+Das Skript muss nach jeder Projekt-Änderung **manuell neu ausgeführt** werden, da Sophomorix-Hooks bei Projekten nicht automatisch getriggert werden.
 
-    **Erklärung des Skripts:**
-
-    - `DOMAIN`: Hier müssen Sie Ihre tatsächliche Domain eintragen.
-    - Das Skript liest alle Projekte aus dem LDAP.
-    - Für jedes Projekt wird der Präfix `p_` (falls vorhanden) entfernt,
-      um den gewünschten Projektnamen für die E-Mail-Adresse zu
-      erhalten.
-    - Die neue E-Mail-Adresse wird im Format `projektname@DOMAIN`
-      erstellt.
-    - `pw.setattr(cn, data={'mail': mail})`: Dieser Befehl schreibt die
-      neu generierte E-Mail-Adresse zurück in das LDAP-Attribut des
-      Projekts.
-
-2.  **Hook verknüpfen:** Verknüpfen Sie das Skript mit den
-    Sophomorix-Hooks, damit es bei Änderungen an Projekten automatisch
-    ausgeführt wird:
-
-    ``` bash
-    ln -s /etc/linuxmuster/sophomorix/hooks/set-mail-group.py /etc/linuxmuster/sophomorix/hooks/sophomorix-add.d/
-    ln -s /etc/linuxmuster/sophomorix/hooks/set-mail-group.py /etc/linuxmuster/sophomorix/hooks/sophomorix-update.d/
-    ```
-
-    - Der erste Befehl verknüpft das Skript mit dem
-      `sophomorix-add.d`-Verzeichnis, sodass es ausgeführt wird, wenn
-      ein neues Projekt hinzugefügt wird.
-    - Der zweite Befehl verknüpft es mit dem
-      `sophomorix-update.d`-Verzeichnis, sodass es bei Änderungen an
-      bestehenden Projekten ausgeführt wird.
-
-Nach diesen Schritten werden die E-Mail-Adressen Ihrer Verteilerprojekte
-automatisch im gewünschten Format generiert und aktualisiert.
+**Empfehlung:** Richten Sie den [Cronjob](./gruppen-mail-sync.md#4-cronjob-einrichten) ein für automatische Updates.
+:::

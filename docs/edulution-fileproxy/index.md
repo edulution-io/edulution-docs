@@ -45,17 +45,18 @@ Die Installation erfolgt in 4 Schritten:
 
 ## Voraussetzungen
 
-- **Separate VM** mit Ubuntu 24.04 LTS (nicht auf edulution UI Server!)
-- 4 GB RAM, 2 CPU Kerne
+- **Linuxmuster Fileserver** mit Ubuntu 24.04 LTS
 - Zugriff auf LDAP-Server (Port 636/389)
 - Zugriff auf SMB-Server (Port 445)
 - Edulution UI mit Traefik
 
-:::warning Eigene VM empfohlen
-Installieren Sie FileProxy auf einer **separaten virtuellen Maschine**, nicht auf dem edulution UI Server. Dies erhöht:
-- **Sicherheit** - Isolation der Dienste
-- **Performance** - Keine Ressourcen-Konkurrenz
-- **Wartbarkeit** - Unabhängige Updates möglich
+:::tip Installation auf dem Fileserver
+FileProxy sollte auf dem **gleichen Host wie der Fileserver** installiert werden. Dies bietet:
+- **Optimale Performance** - Direkter Zugriff auf SMB-Shares
+- **Einfache Verwaltung** - Alles an einem Ort
+- **Ressourcen-Effizienz** - Keine zusätzliche VM nötig
+
+→ [Linuxmuster Fileserver Setup](https://docs.linuxmuster.net/de/v7.3/setup/setup-file-server.html)
 :::
 
 ## Erste Schritte

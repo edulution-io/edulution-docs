@@ -1,6 +1,6 @@
 module.exports = {
   insertPragma: false,
-  endOfLine: "lf",
+  endOfLine: 'lf',
   useTabs: false,
   tabWidth: 2,
   printWidth: 120,
@@ -8,35 +8,35 @@ module.exports = {
   bracketSameLine: false,
   singleAttributePerLine: true,
   singleQuote: true,
-  trailingComma: "all",
+  trailingComma: 'all',
   overrides: [
     {
-      files: ["*.ts", "*.tsx"],
+      files: ['*.ts', '*.tsx'],
       options: {
-        parser: "babel-ts",
-        quoteProps: "as-needed",
+        parser: 'babel-ts',
+        quoteProps: 'as-needed',
       },
     },
     {
-      files: ["*.js", "*.jsx"],
+      files: ['*.js', '*.jsx'],
       options: {
-        parser: "babel-flow",
-        quoteProps: "as-needed",
+        parser: 'babel-flow',
+        quoteProps: 'as-needed',
       },
     },
     {
-      files: ["*.ts", "*.js"],
+      files: ['*.ts', '*.js'],
       options: {
         singleQuote: true,
-        quoteProps: "as-needed",
+        quoteProps: 'as-needed',
       },
     },
     {
-      files: ["*.css", "*.html", "*.json"],
+      files: ['*.css', '*.html', '*.json'],
       options: {
         singleQuote: false,
       },
     },
   ],
-  tailwindConfig: "./src/plugins/tailwind-config.js",
+  tailwindConfig: './src/plugins/tailwind-config.js',
 };

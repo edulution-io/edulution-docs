@@ -1,12 +1,12 @@
-import React, { JSX, useEffect, useRef, useState } from "react";
-import "./Changelog.css";
+import React, { JSX, useEffect, useRef, useState } from 'react';
+import './Changelog.css';
 
 export type ContentBlock =
-  | { type: "image"; url: string; alt: string }
-  | { type: "text"; content: string }
-  | { type: "improvements"; title: string; items: string[] }
-  | { type: "link"; text: string; url: string }
-  | { type: "text-with-tags"; text: string; tags: string[] };
+  | { type: 'image'; url: string; alt: string }
+  | { type: 'text'; content: string }
+  | { type: 'improvements'; title: string; items: string[] }
+  | { type: 'link'; text: string; url: string }
+  | { type: 'text-with-tags'; text: string; tags: string[] };
 
 export interface ChangelogEntry {
   version?: string;
@@ -28,30 +28,23 @@ interface ChangelogProps {
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
-  return date.toLocaleDateString("de-DE", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
+  return date.toLocaleDateString('de-DE', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
   });
 };
 
 const Tag: React.FC<{ tag: string }> = ({ tag }) => {
   const colors: Record<string, string> = {
-    "edulution-ui":
-      "bg-[rgba(136,216,64,0.15)] text-[#8FC046] border-[#8FC046]/30",
-    "edulution-mail":
-      "bg-[rgba(0,129,198,0.15)] text-[#0081c6] border-[#0081c6]/30",
-    "edulution-fileproxy":
-      "bg-[rgba(220,38,38,0.15)] text-[#dc2626] border-[#dc2626]/30",
-    "edulution-backend":
-      "bg-[rgba(255,215,0,0.15)] text-[#FFD700] border-[#FFD700]/30",
-    "edulution-app":
-      "bg-[rgba(147,51,234,0.15)] text-[#9333ea] border-[#9333ea]/30",
+    'edulution-ui': 'bg-[rgba(136,216,64,0.15)] text-[#8FC046] border-[#8FC046]/30',
+    'edulution-mail': 'bg-[rgba(0,129,198,0.15)] text-[#0081c6] border-[#0081c6]/30',
+    'edulution-fileproxy': 'bg-[rgba(220,38,38,0.15)] text-[#dc2626] border-[#dc2626]/30',
+    'edulution-backend': 'bg-[rgba(255,215,0,0.15)] text-[#FFD700] border-[#FFD700]/30',
+    'edulution-app': 'bg-[rgba(147,51,234,0.15)] text-[#9333ea] border-[#9333ea]/30',
   };
 
-  const colorClass =
-    colors[tag] ||
-    "bg-[rgba(136,216,64,0.15)] text-[#8FC046] border-[#8FC046]/30";
+  const colorClass = colors[tag] || 'bg-[rgba(136,216,64,0.15)] text-[#8FC046] border-[#8FC046]/30';
 
   return (
     <span
@@ -64,31 +57,25 @@ const Tag: React.FC<{ tag: string }> = ({ tag }) => {
 
 const FeatureTag: React.FC<{ type: string }> = ({ type }) => {
   const colors: Record<string, string> = {
-    school: "bg-[rgba(33,150,243,0.15)] text-[#2196f3] border-[#2196f3]/30",
-    business: "bg-[rgba(255,152,0,0.15)] text-[#ff9800] border-[#ff9800]/30",
-    ios: "bg-[rgba(156,39,176,0.15)] text-[#9c27b0] border-[#9c27b0]/30",
-    android: "bg-[rgba(76,175,80,0.15)] text-[#4caf50] border-[#4caf50]/30",
+    school: 'bg-[rgba(33,150,243,0.15)] text-[#2196f3] border-[#2196f3]/30',
+    business: 'bg-[rgba(255,152,0,0.15)] text-[#ff9800] border-[#ff9800]/30',
+    ios: 'bg-[rgba(156,39,176,0.15)] text-[#9c27b0] border-[#9c27b0]/30',
+    android: 'bg-[rgba(76,175,80,0.15)] text-[#4caf50] border-[#4caf50]/30',
   };
 
   const labels: Record<string, string> = {
-    school: "Schule",
-    business: "Unternehmen",
-    ios: "iOS",
-    android: "Android",
-    lmn73: "LMN73",
+    school: 'Schule',
+    business: 'Unternehmen',
+    ios: 'iOS',
+    android: 'Android',
+    lmn73: 'LMN73',
   };
 
-  const colorClass =
-    colors[type] ||
-    "bg-[rgba(136,216,64,0.15)] text-[#8FC046] border-[#8FC046]/30";
+  const colorClass = colors[type] || 'bg-[rgba(136,216,64,0.15)] text-[#8FC046] border-[#8FC046]/30';
   const label = labels[type] || type;
 
   return (
-    <span
-      className={`inline-block px-2 py-0.5 text-[0.625rem] font-medium rounded border ${colorClass}`}
-    >
-      {label}
-    </span>
+    <span className={`inline-block px-2 py-0.5 text-[0.625rem] font-medium rounded border ${colorClass}`}>{label}</span>
   );
 };
 
@@ -107,17 +94,20 @@ const renderTextWithTags = (text: string) => {
   const tagMatch = text.match(/\[tags:\s*([^\]]+)\]/);
   if (tagMatch) {
     const tags = tagMatch[1]
-      .split(",")
+      .split(',')
       .map((t) => t.trim())
       .filter((t) => t);
-    const cleanText = text.replace(/\[tags:\s*[^\]]+\]/, "").trim();
+    const cleanText = text.replace(/\[tags:\s*[^\]]+\]/, '').trim();
     return (
       <>
         {renderMarkdown(cleanText)}
         {tags.length > 0 && (
           <span className="ml-2 inline-flex gap-1">
             {tags.map((tag, idx) => (
-              <FeatureTag key={idx} type={tag} />
+              <FeatureTag
+                key={idx}
+                type={tag}
+              />
             ))}
           </span>
         )}
@@ -142,7 +132,7 @@ const renderMarkdown = (text: string) => {
 
     const matched = match[0];
 
-    if (matched.startsWith("[")) {
+    if (matched.startsWith('[')) {
       const linkMatch = matched.match(/\[(.*?)\]\((.*?)\)/);
       if (linkMatch) {
         parts.push(
@@ -152,45 +142,50 @@ const renderMarkdown = (text: string) => {
             className="text-sky-400 underline decoration-sky-400/40 underline-offset-2 transition-colors hover:text-white hover:decoration-white/40"
           >
             {linkMatch[1]}
-          </a>
+          </a>,
         );
       }
-    } else if (matched.startsWith("**") && matched.endsWith("**")) {
+    } else if (matched.startsWith('**') && matched.endsWith('**')) {
       const inner = matched.slice(2, -2);
       const linkMatch = inner.match(/\[(.*?)\]\((.*?)\)/);
       if (linkMatch) {
         parts.push(
-          <strong key={key++} className="font-semibold text-white">
+          <strong
+            key={key++}
+            className="font-semibold text-white"
+          >
             <a
               href={linkMatch[2]}
               className="text-sky-400 underline decoration-sky-400/40 underline-offset-2 transition-colors hover:text-white hover:decoration-white/40"
             >
               {linkMatch[1]}
             </a>
-          </strong>
+          </strong>,
         );
       } else {
         parts.push(
-          <strong key={key++} className="font-semibold text-white">
+          <strong
+            key={key++}
+            className="font-semibold text-white"
+          >
             {inner}
-          </strong>
+          </strong>,
         );
       }
     }
     // Italic: *text*
-    else if (
-      matched.startsWith("*") &&
-      matched.endsWith("*") &&
-      !matched.startsWith("**")
-    ) {
+    else if (matched.startsWith('*') && matched.endsWith('*') && !matched.startsWith('**')) {
       parts.push(
-        <em key={key++} className="italic">
+        <em
+          key={key++}
+          className="italic"
+        >
           {matched.slice(1, -1)}
-        </em>
+        </em>,
       );
     }
     // Em dash
-    else if (matched === "—") {
+    else if (matched === '—') {
       parts.push(<span key={key++}> — </span>);
     } else {
       parts.push(matched);
@@ -208,40 +203,25 @@ const renderMarkdown = (text: string) => {
 };
 
 // ContentWrapper - weniger Links-Abstand
-function ContentWrapper({
-  className = "",
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) {
+function ContentWrapper({ className = '', children }: { className?: string; children: React.ReactNode }) {
   return (
     <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
       <div className="lg:ml-48 lg:flex lg:w-full lg:justify-start lg:pl-16">
-        <div
-          className={`mx-auto max-w-3xl lg:mx-0 lg:w-full lg:max-w-3xl ${className}`}
-        >
-          {children}
-        </div>
+        <div className={`mx-auto max-w-3xl lg:mx-0 lg:w-full lg:max-w-3xl ${className}`}>{children}</div>
       </div>
     </div>
   );
 }
 
 // ArticleHeader
-function ArticleHeader({
-  id,
-  date,
-  tag,
-}: {
-  id: string;
-  date: string;
-  tag?: string;
-}) {
+function ArticleHeader({ id, date, tag }: { id: string; date: string; tag?: string }) {
   return (
     <header className="relative mb-10 xl:mb-0">
       <div className="pointer-events-none absolute top-0 left-[max(-0.5rem,calc(50%-18.625rem))] z-50 flex h-4 items-center justify-end gap-x-2 lg:left-0 lg:min-w-[180px] xl:h-8">
-        <a href={`#${id}`} className="inline-flex pointer-events-auto">
+        <a
+          href={`#${id}`}
+          className="inline-flex pointer-events-auto"
+        >
           <time className="hidden xl:block text-[0.6875rem] leading-4 font-medium text-white/50">
             {formatDate(date)}
           </time>
@@ -250,12 +230,15 @@ function ArticleHeader({
       </div>
       <ContentWrapper>
         <div className="flex items-center gap-2 flex-wrap">
-          <a href={`#${id}`} className="inline-flex">
+          <a
+            href={`#${id}`}
+            className="inline-flex"
+          >
             <time className="text-[0.6875rem] leading-4 font-medium text-gray-500 xl:hidden dark:text-white/50">
               {formatDate(date)}
             </time>
           </a>
-          <Tag tag={tag || "edulution-ui"} />
+          <Tag tag={tag || 'edulution-ui'} />
         </div>
       </ContentWrapper>
     </header>
@@ -291,9 +274,7 @@ export const ChangelogItem: React.FC<{
     };
   }, []);
 
-  const id = entry.version
-    ? `v${entry.version}`
-    : entry.date.replace(/\//g, "-");
+  const id = entry.version ? `v${entry.version}` : entry.date.replace(/\//g, '-');
 
   return (
     <article
@@ -302,22 +283,20 @@ export const ChangelogItem: React.FC<{
       style={{ paddingBottom: `${heightAdjustment}px` }}
     >
       <div ref={heightRef}>
-        <ArticleHeader id={id} date={entry.date} tag={entry.tag} />
+        <ArticleHeader
+          id={id}
+          date={entry.date}
+          tag={entry.tag}
+        />
         <ContentWrapper className="relative">
-          <h2 className="text-2xl font-semibold leading-7 text-white mb-4 mt-6">
-            {entry.title}
-          </h2>
-          {entry.description && (
-            <p className="text-base leading-7 text-gray-300 mb-6">
-              {entry.description}
-            </p>
-          )}
+          <h2 className="text-2xl font-semibold leading-7 text-white mb-4 mt-6">{entry.title}</h2>
+          {entry.description && <p className="text-base leading-7 text-gray-300 mb-6">{entry.description}</p>}
 
           {/* Content Blocks */}
           {entry.content && entry.content.length > 0 ? (
             <div className="space-y-6">
               {entry.content.map((block, idx) => {
-                if (block.type === "image") {
+                if (block.type === 'image') {
                   return (
                     <div
                       key={idx}
@@ -333,30 +312,37 @@ export const ChangelogItem: React.FC<{
                   );
                 }
 
-                if (block.type === "text") {
+                if (block.type === 'text') {
                   return (
-                    <p key={idx} className="text-base leading-7 text-gray-300">
+                    <p
+                      key={idx}
+                      className="text-base leading-7 text-gray-300"
+                    >
                       {renderMarkdown(block.content)}
                     </p>
                   );
                 }
 
-                if (block.type === "text-with-tags") {
+                if (block.type === 'text-with-tags') {
                   return (
-                    <div key={idx} className="mb-4">
+                    <div
+                      key={idx}
+                      className="mb-4"
+                    >
                       <div className="flex items-center gap-2 flex-wrap mb-2">
-                        <span className="text-base font-semibold text-white">
-                          {renderMarkdown(block.text)}
-                        </span>
+                        <span className="text-base font-semibold text-white">{renderMarkdown(block.text)}</span>
                         {block.tags.map((tag, tagIdx) => (
-                          <FeatureTag key={tagIdx} type={tag} />
+                          <FeatureTag
+                            key={tagIdx}
+                            type={tag}
+                          />
                         ))}
                       </div>
                     </div>
                   );
                 }
 
-                if (block.type === "improvements") {
+                if (block.type === 'improvements') {
                   return (
                     <div
                       key={idx}
@@ -383,9 +369,12 @@ export const ChangelogItem: React.FC<{
                   );
                 }
 
-                if (block.type === "link") {
+                if (block.type === 'link') {
                   return (
-                    <div key={idx} className="mt-6">
+                    <div
+                      key={idx}
+                      className="mt-6"
+                    >
                       <a
                         href={block.url}
                         className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#8FC046] bg-[#8FC046]/5 rounded-lg border border-[#8FC046]/20 hover:bg-[#8FC046]/10 hover:border-[#8FC046]/40 transition-all duration-200"
@@ -504,35 +493,34 @@ export const ChangelogItem: React.FC<{
 };
 
 export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedTag, setSelectedTag] = useState<string>("all");
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedTag, setSelectedTag] = useState<string>('all');
 
   // Alle verfügbaren Tags sammeln
-  const allTags = Array.from(
-    new Set(entries.map((e) => e.tag).filter(Boolean))
-  ) as string[];
+  const allTags = Array.from(new Set(entries.map((e) => e.tag).filter(Boolean))) as string[];
 
   // Filtern
   const filteredEntries = entries.filter((entry) => {
     const matchesSearch =
-      searchTerm === "" ||
+      searchTerm === '' ||
       entry.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       entry.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      entry.improvements?.some((i) =>
-        i.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      entry.improvements?.some((i) => i.toLowerCase().includes(searchTerm.toLowerCase()));
 
-    const matchesTag = selectedTag === "all" || entry.tag === selectedTag;
+    const matchesTag = selectedTag === 'all' || entry.tag === selectedTag;
 
     return matchesSearch && matchesTag;
   });
 
   return (
-    <div id="tw-scope" className="relative flex-auto">
+    <div
+      id="tw-scope"
+      className="relative flex-auto"
+    >
       {/* Suche und Filter */}
       <div
         className="sticky top-0 z-50 border-b border-gray-800/50 backdrop-blur-xl py-6"
-        style={{ background: "var(--ifm-background-color)" }}
+        style={{ background: 'var(--ifm-background-color)' }}
       >
         <ContentWrapper>
           <div className="flex flex-col md:flex-row gap-4">
@@ -557,24 +545,20 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-12 pr-4 py-3 border border-gray-700/50 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#8FC046] focus:ring-2 focus:ring-[#8FC046]/20 transition-all"
-                style={{ background: "var(--ifm-background-surface-color)" }}
+                style={{ background: 'var(--ifm-background-surface-color)' }}
               />
             </div>
 
             {/* Filter-Buttons */}
             <div className="flex gap-2 flex-wrap">
               <button
-                onClick={() => setSelectedTag("all")}
+                onClick={() => setSelectedTag('all')}
                 className={`px-5 py-3 text-sm font-semibold rounded-xl transition-all duration-200 ${
-                  selectedTag === "all"
-                    ? "bg-[#8FC046] text-black shadow-lg shadow-[#8FC046]/20"
-                    : "text-gray-300 border border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5"
+                  selectedTag === 'all'
+                    ? 'bg-[#8FC046] text-black shadow-lg shadow-[#8FC046]/20'
+                    : 'text-gray-300 border border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5'
                 }`}
-                style={
-                  selectedTag !== "all"
-                    ? { background: "var(--ifm-background-surface-color)" }
-                    : undefined
-                }
+                style={selectedTag !== 'all' ? { background: 'var(--ifm-background-surface-color)' } : undefined}
               >
                 Alle
               </button>
@@ -584,14 +568,10 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
                   onClick={() => setSelectedTag(tag)}
                   className={`px-5 py-3 text-sm font-semibold rounded-xl transition-all duration-200 ${
                     selectedTag === tag
-                      ? "bg-[#8FC046] text-black shadow-lg shadow-[#8FC046]/20"
-                      : "text-gray-300 border border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5"
+                      ? 'bg-[#8FC046] text-black shadow-lg shadow-[#8FC046]/20'
+                      : 'text-gray-300 border border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5'
                   }`}
-                  style={
-                    selectedTag !== tag
-                      ? { background: "var(--ifm-background-surface-color)" }
-                      : undefined
-                  }
+                  style={selectedTag !== tag ? { background: 'var(--ifm-background-surface-color)' } : undefined}
                 >
                   {tag}
                 </button>
@@ -600,10 +580,9 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
           </div>
 
           {/* Ergebnis-Counter */}
-          {(searchTerm || selectedTag !== "all") && (
+          {(searchTerm || selectedTag !== 'all') && (
             <div className="mt-4 text-sm font-medium text-gray-400">
-              {filteredEntries.length}{" "}
-              {filteredEntries.length === 1 ? "Eintrag" : "Einträge"} gefunden
+              {filteredEntries.length} {filteredEntries.length === 1 ? 'Eintrag' : 'Einträge'} gefunden
             </div>
           )}
         </ContentWrapper>
@@ -629,7 +608,11 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
               />
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#changelog-pattern)" />
+          <rect
+            width="100%"
+            height="100%"
+            fill="url(#changelog-pattern)"
+          />
         </svg>
       </div>
 
@@ -649,8 +632,8 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
               <p className="text-gray-400 text-lg">Keine Einträge gefunden</p>
               <button
                 onClick={() => {
-                  setSearchTerm("");
-                  setSelectedTag("all");
+                  setSearchTerm('');
+                  setSelectedTag('all');
                 }}
                 className="mt-4 px-4 py-2 bg-[#8FC046] text-black rounded-lg font-medium hover:bg-[#96dc55] transition-colors"
               >

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy, faCheck } from "@fortawesome/free-solid-svg-icons";
+import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 interface CommandVariant {
-  platform: "Windows" | "Linux" | "macOS" | "All";
+  platform: 'Windows' | 'Linux' | 'macOS' | 'All';
   command: string;
   expectedOutput?: string;
 }
@@ -14,23 +14,17 @@ interface CodeBlockProps {
   description?: string;
 }
 
-const CodeBlock: React.FC<CodeBlockProps> = ({
-  variants,
-  title,
-  description,
-}) => {
-  const [selectedPlatform, setSelectedPlatform] = useState<string>("All");
+const CodeBlock: React.FC<CodeBlockProps> = ({ variants, title, description }) => {
+  const [selectedPlatform, setSelectedPlatform] = useState<string>('All');
   const [copied, setCopied] = useState(false);
-  const [processedCommand, setProcessedCommand] = useState("");
+  const [processedCommand, setProcessedCommand] = useState('');
 
   // Get values from localStorage and replace placeholders
   const replacePlaceholders = (text: string): string => {
     try {
-      const mailDomain =
-        localStorage.getItem("mailDomain") || "mail.edulution.io";
-      const emailAddress =
-        localStorage.getItem("emailAddress") || "benutzer@example.com";
-      const userName = localStorage.getItem("userName") || "benutzer";
+      const mailDomain = localStorage.getItem('mailDomain') || 'mail.edulution.io';
+      const emailAddress = localStorage.getItem('emailAddress') || 'benutzer@example.com';
+      const userName = localStorage.getItem('userName') || 'benutzer';
 
       return text
         .replace(/\{\{mailDomain\}\}/g, mailDomain)
@@ -42,8 +36,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   };
 
   useEffect(() => {
-    const currentVariant =
-      variants.find((v) => v.platform === selectedPlatform) || variants[0];
+    const currentVariant = variants.find((v) => v.platform === selectedPlatform) || variants[0];
     setProcessedCommand(replacePlaceholders(currentVariant.command));
   }, [selectedPlatform, variants]);
 
@@ -53,15 +46,12 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error("Failed to copy:", err);
+      console.error('Failed to copy:', err);
     }
   };
 
-  const currentVariant =
-    variants.find((v) => v.platform === selectedPlatform) || variants[0];
-  const processedOutput = currentVariant.expectedOutput
-    ? replacePlaceholders(currentVariant.expectedOutput)
-    : null;
+  const currentVariant = variants.find((v) => v.platform === selectedPlatform) || variants[0];
+  const processedOutput = currentVariant.expectedOutput ? replacePlaceholders(currentVariant.expectedOutput) : null;
 
   // Only show platform selector if there are multiple platforms
   const showPlatformSelector = variants.length > 1;
@@ -89,14 +79,13 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                   onClick={() => setSelectedPlatform(platform)}
                   className={`px-3 py-1 text-xs font-medium rounded transition-all ${
                     selectedPlatform === platform
-                      ? "bg-white dark:text-white shadow-sm"
-                      : "hover:bg-gray-300 dark:hover:bg-[#3a4557] opacity-60"
+                      ? 'bg-white dark:text-white shadow-sm'
+                      : 'hover:bg-gray-300 dark:hover:bg-[#3a4557] opacity-60'
                   }`}
                   style={
                     selectedPlatform === platform
                       ? {
-                          background:
-                            "linear-gradient(45deg, #8FC046, #0081C6)",
+                          background: 'linear-gradient(45deg, #8FC046, #0081C6)',
                         }
                       : undefined
                   }
@@ -112,15 +101,13 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             onClick={handleCopy}
             className="px-3 py-1.5 text-xs font-semibold rounded bg-gray-200 dark:text-white hover:bg-gray-300 transition-all flex items-center gap-2"
             style={{
-              background: "linear-gradient(45deg, #8FC046, #0081C6)",
+              background: 'linear-gradient(45deg, #8FC046, #0081C6)',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background =
-                "linear-gradient(45deg, #96dc55, #0295e5)";
+              e.currentTarget.style.background = 'linear-gradient(45deg, #96dc55, #0295e5)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background =
-                "linear-gradient(45deg, #8FC046, #0081C6)";
+              e.currentTarget.style.background = 'linear-gradient(45deg, #8FC046, #0081C6)';
             }}
             title="Kopieren"
           >
@@ -128,7 +115,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
               icon={copied ? faCheck : faCopy}
               className="w-3 h-3"
             />
-            {copied ? "Kopiert!" : "Kopieren"}
+            {copied ? 'Kopiert!' : 'Kopieren'}
           </button>
         </div>
       </div>
@@ -136,9 +123,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       {/* Code */}
       <div className="bg-gray-50 dark:bg-[#0f0f0f]">
         <pre className="p-4 overflow-x-auto text-sm">
-          <code className="text-gray-800 dark:text-gray-200">
-            {processedCommand}
-          </code>
+          <code className="text-gray-800 dark:text-gray-200">{processedCommand}</code>
         </pre>
       </div>
 
@@ -146,15 +131,11 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       {processedOutput && (
         <div className="border-t border-gray-300 dark:border-[#2a2a2a]">
           <div className="bg-gray-100 dark:bg-[#1a1a1a] px-4 py-2 border-b border-gray-300 dark:border-[#2a2a2a]">
-            <span className="text-xs font-medium opacity-70">
-              Erwartete Ausgabe:
-            </span>
+            <span className="text-xs font-medium opacity-70">Erwartete Ausgabe:</span>
           </div>
           <div className="bg-gray-50 dark:bg-[#0f0f0f]">
             <pre className="p-4 overflow-x-auto text-sm">
-              <code className="text-green-600 dark:text-[#8FC046]">
-                {processedOutput}
-              </code>
+              <code className="text-green-600 dark:text-[#8FC046]">{processedOutput}</code>
             </pre>
           </div>
         </div>

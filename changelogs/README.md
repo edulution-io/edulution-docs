@@ -37,6 +37,7 @@ npm install --save-dev raw-loader
 Description of the feature or changes.
 
 #### Verbesserungen
+
 - Improvement 1
 - Improvement 2
 - Improvement 3
@@ -72,30 +73,22 @@ import changelogContent from '!!raw-loader!../changelogs/CHANGELOG.md';
 ### Methode 2: Mit JavaScript-Objekten
 
 ```jsx
-import { Changelog } from '@site/src/components/Changelog';
+import { Changelog } from "@site/src/components/Changelog";
 
 <Changelog
   entries={[
     {
-      version: '1.2.0',
-      date: '2024-03-15',
-      title: 'Feature Title',
-      description: 'Description of the feature',
-      tags: [
-        { name: 'edulution-ui' },
-        { name: 'edulution-mail' },
-      ],
-      image: '/img/screenshot.png', // optional
-      improvements: [
-        'Improvement 1',
-        'Improvement 2',
-      ],
-      links: [
-        { text: 'Docs', url: '/docs' },
-      ],
+      version: "1.2.0",
+      date: "2024-03-15",
+      title: "Feature Title",
+      description: "Description of the feature",
+      tags: [{ name: "edulution-ui" }, { name: "edulution-mail" }],
+      image: "/img/screenshot.png", // optional
+      improvements: ["Improvement 1", "Improvement 2"],
+      links: [{ text: "Docs", url: "/docs" }],
     },
   ]}
-/>
+/>;
 ```
 
 ## Markdown-Format
@@ -107,6 +100,7 @@ import { Changelog } from '@site/src/components/Changelog';
 ```
 
 Beispiel:
+
 ```markdown
 ## v2.1.0 | 2025-03-15 | edulution-ui, edulution-mail
 ```
@@ -124,6 +118,7 @@ Dies ist die Beschreibung des Features. Sie kann mehrere Sätze umfassen
 und wird automatisch formatiert.
 
 #### Verbesserungen
+
 - Erste Verbesserung
 - Zweite Verbesserung
 - Dritte Verbesserung
@@ -138,7 +133,7 @@ und wird automatisch formatiert.
 
 Die Komponente erkennt automatisch diese Tags und wendet passende Farben an:
 
-- `edulution-ui` - Grün (#88d840)
+- `edulution-ui` - Grün (#8FC046)
 - `edulution-mail` - Blau (#0081c6)
 - `edulution-fileproxy` - Rot (#dc2626)
 - `edulution-backend` - Gelb (#FFD700)
@@ -148,9 +143,7 @@ Die Komponente erkennt automatisch diese Tags und wendet passende Farben an:
 Du kannst auch eigene Farben definieren:
 
 ```jsx
-tags: [
-  { name: 'custom-tag', color: 'bg-purple-500 text-white' }
-]
+tags: [{ name: "custom-tag", color: "bg-purple-500 text-white" }];
 ```
 
 Die `color`-Property akzeptiert Tailwind-Klassen.
@@ -160,7 +153,7 @@ Die `color`-Property akzeptiert Tailwind-Klassen.
 Die Komponente verwendet das edulution.io Theme mit:
 
 - Dark Mode by default
-- edulution Brand-Farben (#88d840 grün, #0081c6 blau)
+- edulution Brand-Farben (#8FC046 grün, #0081c6 blau)
 - Gradient-Effekte
 - Subtile Animationen
 - Responsive Design
@@ -181,6 +174,7 @@ Falls du das Styling anpassen möchtest, bearbeite `src/components/Changelog.css
 Die erste öffentliche Version der Plattform.
 
 #### Verbesserungen
+
 - Grundlegende Features implementiert
 - Dokumentation erstellt
 
@@ -211,6 +205,7 @@ Neue interaktive Mail-Konfigurationskomponente.
 Große Überarbeitung aller Komponenten.
 
 #### Verbesserungen
+
 - Neue UI
 - Performance-Verbesserungen
 - Bug-Fixes
@@ -251,6 +246,7 @@ docs/
 ## Support
 
 Bei Fragen oder Problemen:
+
 1. Siehe Beispiele in `docs/changelog-example.mdx`
 2. Prüfe das Markdown-Format in `changelogs/CHANGELOG.md`
 3. Schaue dir die Komponentendateien an

@@ -3,7 +3,7 @@ title: Changelog (Beispiel mit direkten Daten)
 description: Beispiel für die Verwendung der Changelog-Komponente mit direkten Daten
 ---
 
-import { Changelog } from '@site/src/components/Changelog';
+import { Changelog } from "@site/src/components/Changelog";
 
 # Changelog Beispiel
 
@@ -12,60 +12,59 @@ Dies ist ein Beispiel, wie man die Changelog-Komponente direkt mit JavaScript-Ob
 <Changelog
   entries={[
     {
-      version: '2.1.0',
-      date: '2025-03-15',
-      title: 'Neue Mail-Konfiguration & Outlook-Unterstützung',
-      description: 'Mit dem neuesten Release haben wir die Mail-Konfiguration komplett überarbeitet und umfassende Outlook-Unterstützung hinzugefügt.',
-      tag: 'edulution-ui',
+      version: "2.1.0",
+      date: "2025-03-15",
+      title: "Neue Mail-Konfiguration & Outlook-Unterstützung",
+      description:
+        "Mit dem neuesten Release haben wir die Mail-Konfiguration komplett überarbeitet und umfassende Outlook-Unterstützung hinzugefügt.",
+      tag: "edulution-ui",
       improvements: [
-        'Interaktive Mail-Konfigurationskomponente mit Live-Vorschau',
-        'Vollständige Outlook-Kompatibilität für alle Plattformen',
-        'Automatische Konfigurationserkennung für gängige Mail-Provider',
-        'Verbesserte Dokumentation mit Schritt-für-Schritt-Anleitungen',
-        'Dark Mode Optimierungen für alle Mail-Komponenten',
+        "Interaktive Mail-Konfigurationskomponente mit Live-Vorschau",
+        "Vollständige Outlook-Kompatibilität für alle Plattformen",
+        "Automatische Konfigurationserkennung für gängige Mail-Provider",
+        "Verbesserte Dokumentation mit Schritt-für-Schritt-Anleitungen",
+        "Dark Mode Optimierungen für alle Mail-Komponenten",
       ],
-      links: [
-        { text: 'Dokumentation ansehen', url: '/docs/edulution-mail' },
-      ],
+      links: [{ text: "Dokumentation ansehen", url: "/docs/edulution-mail" }],
     },
     {
-      version: '2.0.5',
-      date: '2025-02-28',
-      title: 'FileProxy Performance-Update',
-      description: 'Dieses Update bringt signifikante Performance-Verbesserungen für den FileProxy-Service, insbesondere bei der Handhabung großer Dateien und gleichzeitiger Uploads.',
-      tag: 'edulution-fileproxy',
+      version: "2.0.5",
+      date: "2025-02-28",
+      title: "FileProxy Performance-Update",
+      description:
+        "Dieses Update bringt signifikante Performance-Verbesserungen für den FileProxy-Service, insbesondere bei der Handhabung großer Dateien und gleichzeitiger Uploads.",
+      tag: "edulution-fileproxy",
       improvements: [
-        '40% schnellere Upload-Geschwindigkeit für große Dateien',
-        'Optimierter Speicherverbrauch bei gleichzeitigen Uploads',
-        'Verbesserte Traefik-Konfiguration für besseres Load Balancing',
-        'Neue UI mit Drag & Drop Support',
-        'Bug-Fix für Dateinamen mit Sonderzeichen',
+        "40% schnellere Upload-Geschwindigkeit für große Dateien",
+        "Optimierter Speicherverbrauch bei gleichzeitigen Uploads",
+        "Verbesserte Traefik-Konfiguration für besseres Load Balancing",
+        "Neue UI mit Drag & Drop Support",
+        "Bug-Fix für Dateinamen mit Sonderzeichen",
       ],
       links: [
         {
-          text: 'Release Notes',
-          url: 'https://github.com/edulution-io/edulution-fileproxy/releases/tag/v2.0.5',
+          text: "Release Notes",
+          url: "https://github.com/edulution-io/edulution-fileproxy/releases/tag/v2.0.5",
         },
       ],
     },
     {
-      version: '2.0.0',
-      date: '2025-01-20',
-      title: 'Major Release: Docusaurus Migration',
-      description: 'Wir haben die komplette Dokumentation auf Docusaurus v3 migriert und ein neues Design im edulution.io-Stil implementiert.',
-      tag: 'edulution-ui',
+      version: "2.0.0",
+      date: "2025-01-20",
+      title: "Major Release: Docusaurus Migration",
+      description:
+        "Wir haben die komplette Dokumentation auf Docusaurus v3 migriert und ein neues Design im edulution.io-Stil implementiert.",
+      tag: "edulution-ui",
       improvements: [
-        'Migration auf Docusaurus v3 mit React 18',
-        'Neues Dark-Theme mit edulution.io Brand-Farben',
-        'Tailwind CSS Integration für moderne Komponenten',
-        'Responsive Design für alle Geräte optimiert',
-        'Verbesserte Navigation und Suchfunktion',
-        'Interaktive Code-Beispiele mit Live-Preview',
-        'Mehrsprachigkeit-Support vorbereitet',
+        "Migration auf Docusaurus v3 mit React 18",
+        "Neues Dark-Theme mit edulution.io Brand-Farben",
+        "Tailwind CSS Integration für moderne Komponenten",
+        "Responsive Design für alle Geräte optimiert",
+        "Verbesserte Navigation und Suchfunktion",
+        "Interaktive Code-Beispiele mit Live-Preview",
+        "Mehrsprachigkeit-Support vorbereitet",
       ],
-      links: [
-        { text: 'Mehr erfahren', url: '/docs/intro' },
-      ],
+      links: [{ text: "Mehr erfahren", url: "/docs/intro" }],
     },
   ]}
 />
@@ -75,35 +74,30 @@ Dies ist ein Beispiel, wie man die Changelog-Komponente direkt mit JavaScript-Ob
 ### Mit Markdown-Datei
 
 ```jsx
-import { ChangelogFromMarkdown } from '@site/src/components/ChangelogFromMarkdown';
-import changelogContent from '!!raw-loader!../changelogs/CHANGELOG.md';
+import { ChangelogFromMarkdown } from "@site/src/components/ChangelogFromMarkdown";
+import changelogContent from "!!raw-loader!../changelogs/CHANGELOG.md";
 
-<ChangelogFromMarkdown markdown={changelogContent} />
+<ChangelogFromMarkdown markdown={changelogContent} />;
 ```
 
 ### Mit direkten Daten
 
 ```jsx
-import { Changelog } from '@site/src/components/Changelog';
+import { Changelog } from "@site/src/components/Changelog";
 
 <Changelog
   entries={[
     {
-      version: '1.0.0',
-      date: '2025-01-15',
-      title: 'Erste Version',
-      description: 'Beschreibung der ersten Version',
-      tag: 'edulution-ui',
-      improvements: [
-        'Feature 1',
-        'Feature 2',
-      ],
-      links: [
-        { text: 'Mehr Info', url: '/docs' },
-      ],
+      version: "1.0.0",
+      date: "2025-01-15",
+      title: "Erste Version",
+      description: "Beschreibung der ersten Version",
+      tag: "edulution-ui",
+      improvements: ["Feature 1", "Feature 2"],
+      links: [{ text: "Mehr Info", url: "/docs" }],
     },
   ]}
-/>
+/>;
 ```
 
 ## Markdown-Format
@@ -118,6 +112,7 @@ Die Markdown-Datei sollte folgendes Format haben (nur EIN Tag pro Release):
 Description of the feature or changes.
 
 #### Verbesserungen
+
 - Improvement 1
 - Improvement 2
 
@@ -132,7 +127,7 @@ Description of the feature or changes.
 
 ## Verfügbare Tags
 
-- `edulution-ui` - Grün (#88d840)
+- `edulution-ui` - Grün (#8FC046)
 - `edulution-mail` - Blau (#0081c6)
 - `edulution-fileproxy` - Rot (#dc2626)
 - `edulution-backend` - Gelb (#FFD700)

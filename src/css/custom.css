@@ -153,7 +153,10 @@ table.mail-compat-table tbody td:first-child {
   transition: background-color 0.2s ease;
 }
 
-.mail-compat-table-wrapper .mail-compat-table tbody tr:hover:not(.mail-compat-category) {
+.mail-compat-table-wrapper
+  .mail-compat-table
+  tbody
+  tr:hover:not(.mail-compat-category) {
   background-color: var(--ifm-color-emphasis-100);
 }
 
@@ -231,7 +234,7 @@ table.mail-compat-table tbody td:first-child {
 
 /* Light mode colors (fallback) */
 :root {
-  --ifm-color-primary: #88d840;
+  --ifm-color-primary: #8fc046;
   --ifm-color-primary-dark: #7ac639;
   --ifm-color-primary-darker: #72bd35;
   --ifm-color-primary-darkest: #5e9b2c;
@@ -242,19 +245,19 @@ table.mail-compat-table tbody td:first-child {
   --docusaurus-highlighted-code-line-bg: rgba(136, 216, 64, 0.1);
 
   /* Edulution colors */
-  --edulution-green: #88d840;
+  --edulution-green: #8fc046;
   --edulution-blue: #0081c6;
-  --edulution-dark-blue: #1A202C;
-  --edulution-light-blue: #66B2DF;
+  --edulution-dark-blue: #1a202c;
+  --edulution-light-blue: #66b2df;
   --edulution-red: #dc2626;
-  --edulution-yellow: #FFD700;
-  --edulution-gradient: linear-gradient(45deg, #88D840, #0081C6);
+  --edulution-yellow: #ffd700;
+  --edulution-gradient: linear-gradient(45deg, #8fc046, #0081c6);
 }
 
 /* Dark mode - main theme (default) */
-[data-theme='dark'] {
+[data-theme="dark"] {
   /* Primary colors - edulution green */
-  --ifm-color-primary: #88d840;
+  --ifm-color-primary: #8fc046;
   --ifm-color-primary-dark: #7ac639;
   --ifm-color-primary-darker: #72bd35;
   --ifm-color-primary-darkest: #5e9b2c;
@@ -289,7 +292,7 @@ table.mail-compat-table tbody td:first-child {
   --ifm-color-secondary-lightest: #1aa8ff;
 
   /* Success color - same as primary (green) */
-  --ifm-color-success: #88d840;
+  --ifm-color-success: #8fc046;
   --ifm-color-success-dark: #7ac639;
   --ifm-color-success-darker: #72bd35;
   --ifm-color-success-darkest: #5e9b2c;
@@ -304,29 +307,29 @@ table.mail-compat-table tbody td:first-child {
 }
 
 /* Hero section styling - dark with edulution gradient */
-[data-theme='dark'] .hero--primary {
+[data-theme="dark"] .hero--primary {
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-  border-bottom: 2px solid #88d840;
+  border-bottom: 2px solid #8fc046;
   color: #ffffff;
 }
 
-[data-theme='dark'] .hero__title {
+[data-theme="dark"] .hero__title {
   color: #ffffff;
 }
 
-[data-theme='dark'] .hero__subtitle {
+[data-theme="dark"] .hero__subtitle {
   color: #e8e8e8;
 }
 
 /* Buttons - edulution color scheme with gradient */
-[data-theme='dark'] .button--primary {
-  background: linear-gradient(45deg, #88D840, #0081C6);
+[data-theme="dark"] .button--primary {
+  background: linear-gradient(45deg, #8fc046, #0081c6);
   color: #ffffff;
   border: none;
   font-weight: 600;
 }
 
-[data-theme='dark'] .button--primary:hover {
+[data-theme="dark"] .button--primary:hover {
   background: linear-gradient(45deg, #96dc55, #0295e5);
   color: #ffffff;
   opacity: 0.95;
@@ -334,111 +337,111 @@ table.mail-compat-table tbody td:first-child {
   box-shadow: 0 4px 12px rgba(136, 216, 64, 0.3);
 }
 
-[data-theme='dark'] .button--secondary {
+[data-theme="dark"] .button--secondary {
   background-color: #0281c7;
   color: #ffffff;
   border: none;
 }
 
-[data-theme='dark'] .button--secondary:hover {
+[data-theme="dark"] .button--secondary:hover {
   background-color: #0295e5;
   color: #ffffff;
   opacity: 0.9;
 }
 
 /* Links - green accent (primary color) */
-[data-theme='dark'] a {
-  color: #88d840;
+[data-theme="dark"] a {
+  color: #8fc046;
 }
 
-[data-theme='dark'] a:hover {
+[data-theme="dark"] a:hover {
   color: #96dc55;
 }
 
 /* Code blocks */
-[data-theme='dark'] pre {
+[data-theme="dark"] pre {
   background-color: #0f0f0f;
   border: 1px solid #2a2a2a;
 }
 
-[data-theme='dark'] code {
+[data-theme="dark"] code {
   background-color: #1a1a1a;
-  color: #88d840;
+  color: #8fc046;
   border: 1px solid #2a2a2a;
 }
 
 /* Sidebar */
-[data-theme='dark'] .theme-doc-sidebar-container {
+[data-theme="dark"] .theme-doc-sidebar-container {
   background-color: #0a0a0a;
   border-right: 1px solid #2a2a2a;
 }
 
-[data-theme='dark'] .menu__link {
+[data-theme="dark"] .menu__link {
   color: #e8e8e8;
 }
 
-[data-theme='dark'] .menu__link:hover,
-[data-theme='dark'] .menu__link--active {
-  color: #88d840;
+[data-theme="dark"] .menu__link:hover,
+[data-theme="dark"] .menu__link--active {
+  color: #8fc046;
   background-color: rgba(136, 216, 64, 0.1);
 }
 
 /* Navbar */
-[data-theme='dark'] .navbar {
+[data-theme="dark"] .navbar {
   background-color: #0a0a0a;
   border-bottom: 1px solid #2a2a2a;
 }
 
-[data-theme='dark'] .navbar__link {
+[data-theme="dark"] .navbar__link {
   color: #e8e8e8;
 }
 
-[data-theme='dark'] .navbar__link:hover,
-[data-theme='dark'] .navbar__link--active {
-  color: #88d840;
+[data-theme="dark"] .navbar__link:hover,
+[data-theme="dark"] .navbar__link--active {
+  color: #8fc046;
 }
 
 /* Footer */
-[data-theme='dark'] .footer {
+[data-theme="dark"] .footer {
   background-color: #0a0a0a;
   border-top: 1px solid #2a2a2a;
 }
 
-[data-theme='dark'] .footer__link-item {
+[data-theme="dark"] .footer__link-item {
   color: #e8e8e8;
 }
 
-[data-theme='dark'] .footer__link-item:hover {
-  color: #88d840;
+[data-theme="dark"] .footer__link-item:hover {
+  color: #8fc046;
 }
 
 /* Admonitions (Notes, Warnings, etc.) */
-[data-theme='dark'] .alert {
+[data-theme="dark"] .alert {
   background-color: #1a1a1a;
-  border-left-color: #88d840;
+  border-left-color: #8fc046;
 }
 
 /* Tables */
-[data-theme='dark'] table {
+[data-theme="dark"] table {
   border-color: #2a2a2a;
 }
 
-[data-theme='dark'] th {
+[data-theme="dark"] th {
   background-color: #1a1a1a;
   color: #ffffff;
 }
 
-[data-theme='dark'] td {
+[data-theme="dark"] td {
   border-color: #2a2a2a;
 }
 
 /* Search */
-[data-theme='dark'] .navbar__search-input {
+[data-theme="dark"] .navbar__search-input {
   background-color: #1a1a1a;
   color: #e8e8e8;
   border: 1px solid #2a2a2a;
 }
 
-[data-theme='dark'] .navbar__search-input:focus {
-  border-color: #88d840;
+[data-theme="dark"] .navbar__search-input:focus {
+  border-color: #8fc046;
 }

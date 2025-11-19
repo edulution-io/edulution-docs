@@ -17,7 +17,7 @@ Der **edulution FileProxy** bietet gegenüber der Standard-Dateifreigabe entsche
 
 ## Voraussetzungen
 
-- FileProxy ist [installiert und konfiguriert](./installation)
+- FileProxy ist [installiert und konfiguriert](../installation)
 - Sie sind als **global-admin** eingeloggt
 
 ## 1. WebDAV-Server hinzufügen

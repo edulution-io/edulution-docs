@@ -19,66 +19,103 @@ Scanne den QR-Code mit deinem iPhone oder iPad, um direkt zum Apple App Store we
 
 ## Account hinzufügen
 
-### Wie richtet man einen Account ein?
-
 <img src="/img/app/setupAccount.png" alt="Account hinzufügen" width="50%" />
 
 Wenn die App zum ersten Mal geöffnet wird, muss zunächst ein Account hinzugefügt werden, um den vollen Funktionsumfang der App nutzen zu können.
 
-Klicke auf den Button **"Account hinzufügen"**, um den Einrichtungsprozess zu starten.
-
 ### Voraussetzungen
 
-Bevor du einen Account hinzufügst, stelle sicher, dass du folgende Informationen bereithältst:
+Stelle sicher, dass du folgende Informationen bereithältst:
 
 - Deine Zugangsdaten (Benutzername und Passwort)
 - Die Server-Adresse deiner Schule
 - Optional: QR-Code für die schnelle Einrichtung
 
----
-
-## Account hinzufügen
+### Login-Methoden
 
 Nach dem Klick auf "Account hinzufügen" erscheint ein Auswahlmenü mit zwei Möglichkeiten:
 
 <img src="/img/app/selectLoginMethod.png" alt="Account hinzufügen Optionen" width="50%" />
 
-### 1. Manuell eingeben
-
-Manuelle Eingabe der Zugangsdaten:
-
+**Option 1: Manuell eingeben**
 - Schulserver-Adresse
 - Benutzername
 - Passwort
 
-### 2. QR-Code scannen
+**Option 2: QR-Code scannen** (empfohlen)
 
 Beim Scannen des QR-Codes werden alle benötigten Daten automatisch übernommen - nur noch das Passwort muss eingegeben werden.
 
-**So lässt sich der QR-Code finden:**
-
-1. Anmeldung auf der edulution Plattform der Schule
-2. Navigation zu **"Mein Profil"**
-3. Auswahl von **"Mobiler Zugriff"**
-4. Scannen des angezeigten **QR-Code**
+So findest du den QR-Code:
+1. Melde dich auf der edulution Plattform deiner Schule an
+2. Navigiere zu **"Mein Profil"**
+3. Wähle **"Mobiler Zugriff"**
+4. Scanne den angezeigten QR-Code mit der App
 
 ---
 
-## Account-Einstellungen
+## Account-Einstellungen öffnen
 
-Um auf die Einstellungen eines Accounts zuzugreifen, muss die Account-Karte nach links gewischt werden.
+Um auf die Einstellungen eines Accounts zuzugreifen, wische die Account-Karte nach links und tippe auf das Einstellungen-Symbol.
 
-<img src="/img/app/accountSwipe.png" alt="Account-Einstellungen" width="50%" />
+<img src="/img/app/accountSwipe.png" alt="Account-Einstellungen öffnen" width="50%" />
 
+Hier kannst du verschiedene Funktionen verwalten:
+- **Profil aktivieren/deaktivieren** - Nutze diesen Account für alle Aktionen
+- **Passwort ändern** - Aktualisiere dein Passwort
+- **File System** - Verwalte Zugriff auf Dateien (siehe unten)
 
-## QR-Login
-Der Login kann alternativ über QR-Code erfolgen:
+---
 
-1. Im Web-Interface auf "Anmelden mit QR-Login" klicken
-2. Den angezeigten QR-Code mit der edulution.io App scannen
-3. Der Login erfolgt automatisch ohne manuelle Eingabe der Zugangsdaten
+## QR-Login für Web-Interface
 
-![qrLogin.png](../../static/img/app/qrLogin.png)
+Schneller Login ohne Passwort-Eingabe:
+
+1. Öffne das Web-Interface deiner Schule
+2. Klicke auf **"Anmelden mit QR-Login"**
+3. Scanne den angezeigten QR-Code mit der edulution App
+4. Du wirst automatisch angemeldet
+
+<img src="/img/app/qrLogin.png" alt="QR-Login im Web-Interface" width="50%" />
+
+---
+
+## Dateien in iOS Files-App integrieren [tags: ios]
+
+Greife auf deine edulution-Dateien direkt über die iOS Files-App zu, indem du Freigaben (Shares) hinzufügst.
+
+### Schritt 1: Einstellungen öffnen
+
+1. Öffne die edulution App
+2. Wische die Account-Karte nach links
+3. Tippe auf das **Einstellungen-Symbol**
+
+### Schritt 2: Share zur Files-App hinzufügen
+
+In den Account-Einstellungen findest du den Bereich **"File System"**:
+
+<img src="/img/app/fileSystemInactive.png" alt="File System Einstellungen" width="50%" />
+
+1. Unter **"Choose which shares to display in the Files app"** siehst du alle verfügbaren Freigaben
+2. Wähle den gewünschten Share (z.B. "netzint-teacher Home")
+3. Tippe auf **"Add Share"**
+4. Der Status wechselt von **"Inaktiv"** zu **"Aktiv"**
+
+<img src="/img/app/fileSystemActive.png" alt="Aktiver Share" width="50%" />
+
+### Schritt 3: Dateien nutzen
+
+Öffne die iOS **Files-App** - deine edulution-Shares tauchen dort automatisch auf:
+1. Du findest deine hinzugefügten Shares direkt in der Files-App
+2. Tippe auf den Share-Namen
+3. Du hast jetzt direkten Zugriff auf alle Dateien
+
+### Share-Verwaltung
+
+In den Account-Einstellungen stehen folgende Optionen zur Verfügung:
+
+- **Synchronize** - Gleicht Dateien mit dem Server ab
+- **Remove Share** - Entfernt die Freigabe aus der Files-App (Dateien auf dem Server bleiben erhalten)
 
 ---
 

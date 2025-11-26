@@ -10,11 +10,18 @@ Wenn Sie eine App-Version **älter als 2.1.0** verwenden, empfehlen wir dringend
 
 ## App herunterladen
 
-Scanne den QR-Code mit deinem iPhone oder iPad, um direkt zum Apple App Store weitergeleitet zu werden und die neueste Version der edulution App herunterzuladen.
+Wähle den QR-Code für dein Betriebssystem und scanne ihn, um die edulution App herunterzuladen
 
-<p align="center">
-  <img src="/img/app/iosAppDownloadQrCode.png" alt="QR Code zum App Store" width="200" />
-</p>
+<div style={{display: 'flex', justifyContent: 'center', gap: '40px'}}>
+  <div style={{textAlign: 'center'}}>
+    <img src="/img/app/iosAppDownloadQrCode.png" alt="QR Code zum App Store" width="200" />
+    <p>iOS</p>
+  </div>
+  <div style={{textAlign: 'center'}}>
+    <img src="/img/app/androidAppDownloadQrCode.png" alt="QR Code zum Play Store" width="200" />
+    <p>Android</p>
+  </div>
+</div>
 
 
 ## Account hinzufügen

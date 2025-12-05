@@ -67,6 +67,25 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
+          label: 'Upgrade',
+          collapsed: true,
+          items: [
+            {
+              type: 'category',
+              label: 'Keycloak',
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'edulution-ui/upgrade/keycloak/to-26',
+                  label: '25 auf 26.4',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
           label: 'Nutzerhandbuch',
           collapsed: false,
           items: [

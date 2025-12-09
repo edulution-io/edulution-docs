@@ -25,7 +25,7 @@ WebDAV-zu-SMB Proxy für sicheren, plattformübergreifenden Dateizugriff auf Win
 
 Die mobile App für iOS und Android - edulution immer dabei.
 
-### [edulution OnlyOffice](/docs/edulution-onlyoffice/installation)
+### [edulution OnlyOffice](/docs/edulution-onlyoffice/)
 
 OnlyOffice-Integration für die Dateiverwaltung
 

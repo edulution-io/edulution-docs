@@ -1,7 +1,7 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import tagPlugin from "./src/rehype/tagPlugin";
+import tagPlugin from './src/rehype/tagPlugin';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -44,8 +44,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl:
-            'https://github.com/edulution-io/edulution-docs/tree/main/',
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
           breadcrumbs: true,
@@ -55,7 +53,6 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-
       } satisfies Preset.Options,
     ],
   ],
@@ -119,8 +116,12 @@ const config: Config = {
               to: '/docs/category/edulution-mail',
             },
             {
-                label: 'edulution App',
-                to: '/docs/category/edulution-app'
+              label: 'edulution App',
+              to: '/docs/category/edulution-app',
+            },
+            {
+              label: 'edulution OnlyOffice',
+              to: '/docs/category/edulution-onlyoffice',
             },
           ],
         },

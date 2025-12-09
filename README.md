@@ -33,9 +33,12 @@ Dieser Befehl generiert statische Inhalte im `build` Verzeichnis.
 ## Struktur
 
 - `/docs` - Dokumentationsinhalte
+
   - `/edulution-ui` - edulution UI Dokumentation
   - `/edulution-mail` - edulution Mail Dokumentation
   - `/edulution-fileproxy` - edulution FileProxy Dokumentation
+  - `/edulution-onlyoffice` - edulution OnlyOffice Dokumentation
+
 - `/changelogs` - Versionshistorie und Änderungsprotokolle
 - `/static` - Statische Assets (Bilder, Icons, etc.)
 - `/src` - Custom React Komponenten und Styles

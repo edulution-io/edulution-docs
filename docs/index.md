@@ -10,16 +10,24 @@ Alle Informationen zu edulution.io finden Sie auf der Webseite
 ## Produkte
 
 ### [edulution UI](/docs/edulution-ui/installation/voraussetzungen)
+
 Die zentrale Plattform für digitales Lernen - mit Dateiverwaltung, Konferenzen, Whiteboard und mehr.
 
 ### [edulution Mail](/docs/edulution-mail/installation)
+
 E-Mail-Lösung basierend auf Mailcow - vollständig integriert mit edulution UI und Linuxmuster.
 
 ### [edulution FileProxy](/docs/edulution-fileproxy/)
+
 WebDAV-zu-SMB Proxy für sicheren, plattformübergreifenden Dateizugriff auf Windows-Shares.
 
 ### [edulution App](/docs/edulution-app/)
+
 Die mobile App für iOS und Android - edulution immer dabei.
+
+### [edulution OnlyOffice](/docs/edulution-onlyoffice/installation)
+
+OnlyOffice-Integration für die Dateiverwaltung
 
 ## Kann ich die edulution UI testen?
 

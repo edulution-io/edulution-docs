@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -268,29 +268,47 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-{
-  type: 'category',
-  label: 'edulution App',
-  collapsed: false,
-  link: {
-    type: 'generated-index',
-    title: 'edulution App',
-    description: 'Die mobile App für die edulution-Plattform.',
-    slug: '/category/edulution-app',
-  },
-  items: [
     {
-      type: 'doc',
-      id: 'edulution-app/index',
-      label: '📱 Übersicht',
+      type: 'category',
+      label: 'edulution App',
+      collapsed: false,
+      link: {
+        type: 'generated-index',
+        title: 'edulution App',
+        description: 'Die mobile App für die edulution-Plattform.',
+        slug: '/category/edulution-app',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-app/index',
+          label: '📱 Übersicht',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-app/setup',
+          label: '⚙️ Einrichtung',
+        },
+      ],
     },
     {
-      type: 'doc',
-      id: 'edulution-app/setup',
-      label: '⚙️ Einrichtung',
+      type: 'category',
+      label: 'edulution OnlyOffice',
+      collapsed: false,
+      link: {
+        type: 'generated-index',
+        title: 'edulution OnlyOffice',
+        description: 'OnlyOffice-Integration für die Dateiansicht.',
+        slug: '/category/edulution-onlyoffice',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-onlyoffice/index',
+          label: '📱 Installation',
+        },
+      ],
     },
-  ],
-},
     {
       type: 'category',
       label: 'Ressourcen',

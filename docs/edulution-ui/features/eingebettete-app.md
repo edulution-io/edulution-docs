@@ -1,12 +1,12 @@
-# Ressourcen-Bibliothek
+# Eingebettete App
 
-Die Ressourcen-Bibliothek ermöglicht das Erstellen und Teilen von Webinhalten sowie das Hochladen eigener Web-Anwendungen.
+Die Eingebettete App ermöglicht das Erstellen und Teilen von Webinhalten sowie das Hochladen eigener Web-Anwendungen.
 
-![Ressourcen-Bibliothek](/img/features/ressourcen-bib.jpeg)
+![Eingebettete App](/img/features/ressourcen-bib.jpeg)
 
 ## Übersicht
 
-Die Ressourcen-Bibliothek ist ein vielseitiges Tool zum:
+Die Eingebettete App ist ein vielseitiges Tool zum:
 - Erstellen eigener Webanwendungen
 - Hochladen von HTML/JS/CSS-Dateien
 - Einbetten von interaktiven Inhalten
@@ -14,7 +14,7 @@ Die Ressourcen-Bibliothek ist ein vielseitiges Tool zum:
 
 ## Modi
 
-### Sparstes Layout
+### Separates Layout
 
 Der Inhalt wird als eigenständige Seite angezeigt, ähnlich wie ein Fenster innerhalb der Anwendung. Dieser Modus eignet sich für:
 - Einfache Inhalte
@@ -120,7 +120,7 @@ h1 {
 
 ## Integration mit Etherpad & Frame
 
-Die Ressourcen-Bibliothek arbeitet eng mit anderen edulution-Features zusammen:
+Die Eingebettete App arbeitet eng mit anderen edulution-Features zusammen:
 
 ### Etherpad
 - Kollaboratives Bearbeiten von Inhalten

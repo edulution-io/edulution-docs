@@ -97,7 +97,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/features/whiteboard',
             'edulution-ui/features/app-store',
             'edulution-ui/features/impressum-datenschutz',
-            'edulution-ui/features/ressourcen-bibliothek',
+            'edulution-ui/features/eingebettete-app',
             'edulution-ui/features/mobile-app',
             'edulution-ui/features/sicherheit',
             'edulution-ui/features/weitere-features',

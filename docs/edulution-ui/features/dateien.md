@@ -98,4 +98,4 @@ Alle Dateiformate sind möglich. Direkt bearbeiten können Sie:
 
 - [Dashboard](dashboard.md) - Speichernutzung anzeigen
 - [Mobile App](mobile-app.md) - Dateien mobil synchronisieren
-- [Ressourcen-Bibliothek](ressourcen-bibliothek.md) - HTML/JS/CSS hochladen
+- [Eingebettete App](eingebettete-app.md) - HTML/JS/CSS hochladen

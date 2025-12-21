@@ -34,7 +34,7 @@ Verhalten von Linuxmuster zu erweitern und anzupassen.
 
     teachers = lr.get('/roles/teacher', attributes=['cn', 'givenName', 'sn'])
 
-    domain = "kepler-freiburg.de" # Passen Sie Ihre Domain an
+    domain = "mydomain.schule.de" # Passen Sie Ihre Domain an
 
     # Email template lastname-firstname@mydomain.school
     for teacher in teachers:
@@ -53,12 +53,12 @@ Verhalten von Linuxmuster zu erweitern und anzupassen.
     - `lr.get('/roles/teacher', attributes=['cn', 'givenName', 'sn'])`:
       Dieses Beispiel holt alle Lehrer mit ihren Common Name (cn),
       Vornamen (givenName) und Nachnamen (sn).
-    - `domain = "kepler-freiburg.de"`: **Wichtig:** Passen Sie hier Ihre
+    - `domain = "mydomain.schule.de"`: **Wichtig:** Passen Sie hier Ihre
       tatsächliche Domain an.
     - `email = f"{teacher['givenName'][0].lower()}_{teacher['sn'].lower()}@{domain}"`:
       Dies ist die Logik für das E-Mail-Format. Im Beispiel wird
       `ersterBuchstabeVorname_nachname@domain` generiert (z.B.
-      `m_mustermann@kepler-freiburg.de`).
+      `m_mustermann@mydomain.schule.de`).
     - `uw.setattr(teacher['cn'], data={'mail':email})`: Schreibt die
       generierte E-Mail-Adresse in das `mail`-Attribut des Benutzers im
       LDAP.

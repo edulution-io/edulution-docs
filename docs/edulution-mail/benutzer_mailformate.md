@@ -1,5 +1,9 @@
 # Benutzer-E-Mail-Formate anpassen (Hook)
 
+:::caution Linuxmuster 7.3 Update
+Mit **Linuxmuster 7.3** hat sich die API für LDAP-Schreiboperationen geändert. Bitte verwenden Sie das passende Skript für Ihre Version. Die 7.3-Version ist unten als Standard dokumentiert.
+:::
+
 Standardmäßig generiert Linuxmuster E-Mail-Adressen für Benutzer nach
 einem bestimmten Schema. Wenn Sie ein anderes Format wünschen (z.B.
 `vorname.nachname@domain` oder `nachname-vorname@domain`), können Sie
@@ -18,8 +22,49 @@ Verhalten von Linuxmuster zu erweitern und anzupassen.
     Inhalt:
 
     ``` python
-    #! /usr/bin/env python3
+    #!/usr/bin/env python3
+    """
+    E-Mail-Adressen für Lehrer aktualisieren.
+    Format: ersterBuchstabeVorname_nachname@domain
+    """
 
+    from linuxmusterTools.ldapconnector import TeacherManager
+
+    # === KONFIGURATION ===
+    DOMAIN = "mydomain.schule.de"  # Ihre Domain hier eintragen
+
+    teachers = TeacherManager()
+
+    for cn, teacher in teachers.items():
+        data = teacher.data
+
+        lastname = data["lastname_ascii"].lower()
+        first_char = data["firstname_ascii"][0].lower()
+
+        email = f"{first_char}_{lastname}@{DOMAIN}"
+
+        # Schreibe ins LDAP
+        teacher.setattr({"mail": email})
+    ```
+
+    **Erklärung des Skripts:**
+
+    - `TeacherManager()`: Liefert alle Lehrer als Dictionary (cn → Objekt).
+    - `teacher.data`: Enthält die Benutzerdaten wie `lastname_ascii`, `firstname_ascii`.
+    - `DOMAIN = "mydomain.schule.de"`: **Wichtig:** Passen Sie hier Ihre
+      tatsächliche Domain an.
+    - `email = f"{first_char}_{lastname}@{DOMAIN}"`:
+      Dies ist die Logik für das E-Mail-Format. Im Beispiel wird
+      `ersterBuchstabeVorname_nachname@domain` generiert (z.B.
+      `m_mustermann@mydomain.schule.de`).
+    - `teacher.setattr({"mail": email})`: Schreibt die
+      generierte E-Mail-Adresse in das `mail`-Attribut des Benutzers im LDAP.
+
+    <details>
+    <summary>Skript für Linuxmuster 7.2 (Legacy)</summary>
+
+    ``` python
+    #! /usr/bin/env python3
     """
     Script to update all email addresses in the attribute proxyAddresses
     with the template lastname-firstname@mydomain.school.
@@ -27,41 +72,16 @@ Verhalten von Linuxmuster zu erweitern und anzupassen.
 
     from linuxmusterTools.ldapconnector import LMNLdapReader as lr, UserWriter as uw
 
-    # Get a list of all teachers
-    # (only the attributes cn, givenName and sn -
-    # to get a list of all teachers with all attributes, just use
-    # lr.get('/roles/teachers')
-
     teachers = lr.get('/roles/teacher', attributes=['cn', 'givenName', 'sn'])
 
-    domain = "mydomain.schule.de" # Passen Sie Ihre Domain an
+    domain = "mydomain.schule.de"  # Passen Sie Ihre Domain an
 
-    # Email template lastname-firstname@mydomain.school
     for teacher in teachers:
         email = f"{teacher['givenName'][0].lower()}_{teacher['sn'].lower()}@{domain}"
         uw.setattr(teacher['cn'], data={'mail':email})
-        #print(email)
-        #print(teacher['cn'])
     ```
 
-    **Erklärung des Skripts:**
-
-    - `LMNLdapReader as lr`: Liest Daten aus dem LDAP (Benutzer,
-      Gruppen, Rollen).
-    - `UserWriter as uw`: Schreibt Änderungen an Benutzerobjekten ins
-      LDAP.
-    - `lr.get('/roles/teacher', attributes=['cn', 'givenName', 'sn'])`:
-      Dieses Beispiel holt alle Lehrer mit ihren Common Name (cn),
-      Vornamen (givenName) und Nachnamen (sn).
-    - `domain = "mydomain.schule.de"`: **Wichtig:** Passen Sie hier Ihre
-      tatsächliche Domain an.
-    - `email = f"{teacher['givenName'][0].lower()}_{teacher['sn'].lower()}@{domain}"`:
-      Dies ist die Logik für das E-Mail-Format. Im Beispiel wird
-      `ersterBuchstabeVorname_nachname@domain` generiert (z.B.
-      `m_mustermann@mydomain.schule.de`).
-    - `uw.setattr(teacher['cn'], data={'mail':email})`: Schreibt die
-      generierte E-Mail-Adresse in das `mail`-Attribut des Benutzers im
-      LDAP.
+    </details>
 
 2.  **Hook verknüpfen:** Verknüpfen Sie das Skript mit den
     Sophomorix-Hooks, damit es bei Benutzeraktionen automatisch
@@ -86,19 +106,25 @@ E-Mail-Formate zu generieren:
 
 - **Vorname.Nachname@domain:**
   ```python
-  email = f"{teacher['givenName'].lower()}.{teacher['sn'].lower()}@{domain}"
+  firstname = data["firstname_ascii"].lower()
+  lastname = data["lastname_ascii"].lower()
+  email = f"{firstname}.{lastname}@{DOMAIN}"
   # Beispiel: max.mustermann@domain
   ```
 
 - **Nachname-Vorname@domain:**
   ```python
-  email = f"{teacher['sn'].lower()}-{teacher['givenName'].lower()}@{domain}"
+  firstname = data["firstname_ascii"].lower()
+  lastname = data["lastname_ascii"].lower()
+  email = f"{lastname}-{firstname}@{DOMAIN}"
   # Beispiel: mustermann-max@domain
   ```
 
 - **Initialen@domain:**
   ```python
-  email = f"{teacher['givenName'][0].lower()}{teacher['sn'][0].lower()}@{domain}"
+  first_char = data["firstname_ascii"][0].lower()
+  last_char = data["lastname_ascii"][0].lower()
+  email = f"{first_char}{last_char}@{DOMAIN}"
   # Beispiel: mm@domain
   ```
 

@@ -43,12 +43,12 @@ E-Mail-Adressen für Linuxmuster-Projekte automatisch korrigieren.
 Entfernt 'p_' Präfix und setzt korrekte Domain.
 """
 
-from linuxmusterTools.ldapconnector import ProjectManager
+from linuxmusterTools.ldapconnector import LMNProjects
 
 # === KONFIGURATION ===
 DOMAIN = "schule.de"  # Ihre Domain hier eintragen
 
-projects = ProjectManager()
+projects = LMNProjects()
 total = len(projects)
 
 for index, (cn, project) in enumerate(projects.items(), start=1):

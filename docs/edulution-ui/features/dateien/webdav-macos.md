@@ -8,16 +8,14 @@ Diese Anleitung zeigt, wie Sie Ihre edulution-Dateien im macOS Finder einbinden.
 
 ## Voraussetzungen
 
-Öffnen Sie zunächst die **Dateien**-App in edulution und klicken Sie auf **WebDAV-Zugang**. Dort finden Sie:
+Öffnen Sie zunächst die **Dateien**-App in edulution und klicken Sie auf **WebDAV-Zugang**.
 
-- **WebDAV-URL** (z.B. `davs://ui.schule.de/webdav2/`)
-- **Benutzername** (Ihr Schul-Account)
+![WebDAV-Zugang Button](/img/dateien/dateien-webdav-zugang.png)
 
-:::tip URL-Format für macOS
-macOS unterstützt das `davs://`-Format direkt. Sie können die URL aus der Dateien-App unverändert verwenden.
+Dort finden Sie:
 
-Alternativ funktioniert auch `https://` - der Finder erkennt WebDAV automatisch.
-:::
+- **WebDAV-URL (Windows / macOS)**: Die URL für macOS (z.B. `https://ui.schule.de/webdav2/`)
+- **Benutzername**: Ihr Schul-Account
 
 ## Mit Server verbinden
 

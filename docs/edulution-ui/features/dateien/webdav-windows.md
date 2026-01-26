@@ -8,16 +8,14 @@ Diese Anleitung zeigt, wie Sie Ihre edulution-Dateien als Netzlaufwerk im Window
 
 ## Voraussetzungen
 
-Öffnen Sie zunächst die **Dateien**-App in edulution und klicken Sie auf **WebDAV-Zugang**. Dort finden Sie:
+Öffnen Sie zunächst die **Dateien**-App in edulution und klicken Sie auf **WebDAV-Zugang**.
 
-- **WebDAV-URL** (z.B. `davs://ui.schule.de/webdav2/`)
-- **Benutzername** (Ihr Schul-Account)
+![WebDAV-Zugang Button](/img/dateien/dateien-webdav-zugang.png)
 
-:::tip URL-Format für Windows
-Windows benötigt das Format `https://` statt `davs://`. Ersetzen Sie einfach `davs://` durch `https://` in der URL.
+Dort finden Sie:
 
-Beispiel: `davs://ui.schule.de/webdav2/` wird zu `https://ui.schule.de/webdav2/`
-:::
+- **WebDAV-URL (Windows / macOS)**: Die URL für Windows (z.B. `https://ui.schule.de/webdav2/`)
+- **Benutzername**: Ihr Schul-Account
 
 ## Netzlaufwerk verbinden
 

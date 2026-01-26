@@ -96,9 +96,12 @@ Alle Dateiformate sind möglich. Direkt bearbeiten können Sie:
 
 ## WebDAV-Zugang
 
+![WebDAV-Zugang Button](/img/dateien/dateien-webdav-zugang.png)
+
 Sie können Ihre Dateien auch direkt über den Dateimanager Ihres Betriebssystems öffnen. In der Dateien-App finden Sie unter **WebDAV-Zugang** die benötigten Verbindungsdaten:
 
-- **WebDAV-URL**: Die Adresse für die Verbindung (z.B. `davs://server.schule/webdav2/`)
+- **WebDAV-URL (Windows / macOS)**: URL im `https://`-Format
+- **WebDAV-URL (Linux)**: URL im `davs://`-Format
 - **Benutzername**: Ihr Schul-Benutzername
 - **Passwort**: Ihr normales Anmeldepasswort
 

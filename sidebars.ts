@@ -91,7 +91,20 @@ const sidebars: SidebarsConfig = {
           items: [
             'edulution-ui/benutzer/mein-profil',
             'edulution-ui/features/dashboard',
-            'edulution-ui/features/dateien',
+            {
+              type: 'category',
+              label: 'Dateien',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'edulution-ui/features/dateien/index',
+              },
+              items: [
+                'edulution-ui/features/dateien/webdav-windows',
+                'edulution-ui/features/dateien/webdav-macos',
+                'edulution-ui/features/dateien/webdav-linux',
+              ],
+            },
             'edulution-ui/features/klassenzimmer',
             'edulution-ui/features/konferenzen',
             'edulution-ui/features/whiteboard',

@@ -80,13 +80,13 @@ Die maximale Upload-Größe hängt davon ab, ob FileProxy eingerichtet ist:
 \* *Abhängig von verfügbarem Speicherplatz und Quotas*
 
 **FileProxy einrichten:**
-Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richten Sie den [edulution FileProxy](../../edulution-fileproxy/ui-config.md) ein. Dieser bietet:
+Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richten Sie den [edulution FileProxy](../../../edulution-fileproxy/ui-config.md) ein. Dieser bietet:
 - Unbegrenzte Upload-Größe
 - Deutlich höhere Performance
 - Schnellere Up- und Downloads
 
 ### Speicherplatz
-Überprüfen Sie Ihre Quota im [Dashboard](dashboard.md#quotas)
+Überprüfen Sie Ihre Quota im [Dashboard](../dashboard.md#quotas)
 
 ### Unterstützte Formate
 Alle Dateiformate sind möglich. Direkt bearbeiten können Sie:
@@ -94,8 +94,22 @@ Alle Dateiformate sind möglich. Direkt bearbeiten können Sie:
 - Tabellen (.xlsx, .ods)
 - Präsentationen (.pptx, .odp)
 
+## WebDAV-Zugang
+
+Sie können Ihre Dateien auch direkt über den Dateimanager Ihres Betriebssystems öffnen. In der Dateien-App finden Sie unter **WebDAV-Zugang** die benötigten Verbindungsdaten:
+
+- **WebDAV-URL**: Die Adresse für die Verbindung (z.B. `davs://server.schule/webdav2/`)
+- **Benutzername**: Ihr Schul-Benutzername
+- **Passwort**: Ihr normales Anmeldepasswort
+
+### Anleitungen nach Betriebssystem
+
+- [Windows Datei-Explorer](./webdav-windows.md) - Netzlaufwerk einbinden
+- [macOS Finder](./webdav-macos.md) - Mit Server verbinden
+- [Linux Dateimanager](./webdav-linux.md) - GNOME, KDE und andere
+
 ## Siehe auch
 
-- [Dashboard](dashboard.md) - Speichernutzung anzeigen
-- [Mobile App](mobile-app.md) - Dateien mobil synchronisieren
-- [Eingebettete App](eingebettete-app.md) - HTML/JS/CSS hochladen
+- [Dashboard](../dashboard.md) - Speichernutzung anzeigen
+- [Mobile App](../mobile-app.md) - Dateien mobil synchronisieren
+- [Eingebettete App](../eingebettete-app.md) - HTML/JS/CSS hochladen

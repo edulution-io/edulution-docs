@@ -12,7 +12,7 @@ Mit **Linuxmuster 7.3** hat sich die API für LDAP-Schreiboperationen geändert.
 
 ## Warum ein Cronjob?
 
-Der [Sophomorix-Hook](./verteilerlisten.md#verteiler-e-mail-adressen-anpassen-hook) wird bei **Projekten nicht automatisch getriggert**.
+Der [Sophomorix-Hook](./verteilerlisten.md#verteiler-e-mail-adressen-anpassen) wird bei **Projekten nicht automatisch getriggert**.
 
 :::warning Wichtig
 Sophomorix-Hooks funktionieren nur für Benutzer und Gruppen, **nicht für Projekte**. Für Projekte ist ein **Cronjob zwingend erforderlich**.

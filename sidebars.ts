@@ -104,6 +104,7 @@ const sidebars: SidebarsConfig = {
                 'edulution-ui/features/dateien/webdav-windows',
                 'edulution-ui/features/dateien/webdav-macos',
                 'edulution-ui/features/dateien/webdav-linux',
+                'edulution-ui/features/goodnotes',
               ],
             },
             'edulution-ui/features/klassenzimmer',

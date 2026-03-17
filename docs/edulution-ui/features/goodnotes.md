@@ -4,7 +4,7 @@ Diese Anleitung zeigt, wie Sie GoodNotes auf dem iPad so einrichten, dass Ihre N
 
 ## Voraussetzungen
 
-- GoodNotes 6 auf Ihrem iPad installiert
+- GoodNotes auf Ihrem iPad installiert
 - Zugang zu Ihrer edulution-Instanz
 - Ihre WebDAV-URL und Zugangsdaten
 

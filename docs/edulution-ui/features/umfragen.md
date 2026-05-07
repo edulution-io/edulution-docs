@@ -17,44 +17,44 @@ Die Umfragen-App basiert auf SurveyJS. Da SurveyJS sehr umfangreich ist, beschr�
 
 ### Teilnahme
 
-![Offene Umfragen - Teilnahme buttons](Screenshot_20260506_120801-1.png)
+![Offene Umfragen - Teilnahme buttons](/img/umfragen/Screenshot_20260506_120801-1.png)
 
-![Teilnahme an umfrage](Screenshot_20260506_121125.png)
+![Teilnahme an umfrage](/img/umfragen/Screenshot_20260506_121125.png)
 
 #### Sichtbarkeit der Umfragen
 
 Eine Umfrage kann beim [Speichern](#umfrage-speichern) als Öffentlich deklariert werden.
 
-![Sichtbarkeit der Umfragen](Screenshot_20260506_121918.png)
+![Sichtbarkeit der Umfragen](/img/umfragen/Screenshot_20260506_121918.png)
 
 #### Öffentliche Teilnahme {#oeffentliche-teilnahme}
 
-![Umfrage Teilen Fenster](Screenshot_20260506_121229.png)
+![Umfrage Teilen Fenster](/img/umfragen/Screenshot_20260506_121229.png)
 
-![Oeffentlicher login](Screenshot_20260506_121454.png)
+![Oeffentlicher login](/img/umfragen/Screenshot_20260506_121454.png)
 
 Wenn die Antwort veränderbar ist oder eine erneute Teilnahme möglich ist, wird am Schluss eine öffentliche TeilnahmeId angelegt und ausgegeben, damit die Verknüpfung für kommende Änderungen funktioniert.
 Ob eine frühere Antwort geändert werden kann oder der Nutzer mehrmals an der Umfrage teilnehmen darf, wird beim [Speichern der Umfrage](#umfrage-speichern) festgelegt.
 
-![Oeffentlicher user login](Screenshot_20260506_122450.png)
+![Oeffentlicher user login](/img/umfragen/Screenshot_20260506_122450.png)
 
 ## Schon beantwortet
 
-![Beantwortete Umfragen](Screenshot_20260506_120916.png)
+![Beantwortete Umfragen](/img/umfragen/Screenshot_20260506_120916.png)
 
 Hier kannst du das Ergebnis einer Umfrage einsehen.
 
 #### Tabelle
 
-![Ergebniseinsicht - Tabelle](Screenshot_20260506_112655.png)
+![Ergebniseinsicht - Tabelle](/img/umfragen/Screenshot_20260506_112655.png)
 
 #### Schaubild
 
-![Ergebniseinsicht - Schaubild](Screenshot_20260506_120623.png)
+![Ergebniseinsicht - Schaubild](/img/umfragen/Screenshot_20260506_120623.png)
 
 ## Eigene Umfragen
 
-![Eigene Umfragen - floating buttons](Screenshot_20260506_121020.png)
+![Eigene Umfragen - floating buttons](/img/umfragen/Screenshot_20260506_121020.png)
 
 Umfragen, die du selbst erstellt hast, kannst du im [Editor](#editor) anpassen oder auch wieder löschen.
 
@@ -76,13 +76,13 @@ Wir haben einige standardmäßige Vorlagen vordefiniert, an denen du dich orient
 
 #### User Ansicht
 
-![Vorlagen - Kachel-Ansicht - User](Screenshot_20260506_113106.png)
+![Vorlagen - Kachel-Ansicht - User](/img/umfragen/Screenshot_20260506_113106.png)
 
 Wenn du das Grid öffnest, kannst du eine der Vorlagen nutzen, um ein Grundgerüst zu haben, an dem du dich orientieren kannst.
 
 #### Admin Ansicht
 
-![Vorlagen - Kachel-Ansicht - User](Screenshot_20260506_113129.png)
+![Vorlagen - Kachel-Ansicht - User](/img/umfragen/Screenshot_20260506_113129.png)
 
 Im Gegensatz zum Standard-Nutzer kann ein Admin die Vorlage aktivieren bzw. deaktivieren.
 
@@ -90,7 +90,7 @@ Der Admin kann auch Vorlagen bearbeiten. Dazu muss die Vorlage ausgewählt werde
 
 ### Umfrage Bearbeiten
 
-![Umfragen Editor](Screenshot_20260506_112841.png)
+![Umfragen Editor](/img/umfragen/Screenshot_20260506_112841.png)
 
 :::i Teste die Eingabe der Felder im Vorschau-Tab
 Wenn du denkst, dass der Teilnehmer mehr Platz braucht, als das einzelne Feld hergibt, nutze stattdessen den Fragen-Typ **Kommentar**.
@@ -100,7 +100,7 @@ Wenn du denkst, dass der Teilnehmer mehr Platz braucht, als das einzelne Feld he
 
 #### User view
 
-![Umfrage speichern - user view](Screenshot_20260506_143511.png)
+![Umfrage speichern - user view](/img/umfragen/Screenshot_20260506_143511.png)
 
 - **Teilnehmer**: Hier können bestimmte Benutzer ausgewählt werden, die an der Umfrage teilnehmen sollen.
 - **Gruppen**: Hier können ganze Benutzergruppen ausgewählt werden, deren Mitglieder an der Umfrage teilnehmen sollen.
@@ -113,7 +113,7 @@ Wenn du denkst, dass der Teilnehmer mehr Platz braucht, als das einzelne Feld he
 
 #### Admin view
 
-![Umfrage speichern - admin view](Screenshot_20260506_143406.png)
+![Umfrage speichern - admin view](/img/umfragen/Screenshot_20260506_143406.png)
 
 Als Admin kannst du die Umfrage, die aktuell bearbeitet wird, auch als Vorlage speichern.
 
@@ -134,9 +134,9 @@ Für diese Fragetypen haben wir die neue Funktionalität der Backend-Limiter ers
 
 #### Backend-Limiters {#backend-limiters}
 
-![Open Fragen Menu](Screenshot_20260506_140821.png)
+![Open Fragen Menu](/img/umfragen/Screenshot_20260506_140821.png)
 
-![Edit Backend-Limiters](Screenshot_20260506_140749.png)
+![Edit Backend-Limiters](/img/umfragen/Screenshot_20260506_140749.png)
 
 Backend-Limiter werden serverseitig gespeichert.
 
@@ -154,9 +154,24 @@ Auf diese Weise ist es möglich, dass sich die Nutzer selbst einschreiben, bis d
 :::w Was wenn das Backend nicht erreichbar ist?
 Wenn sich die Backend-Limiter nicht laden lassen, werden die vordefinierten Auswahlmöglichkeiten geladen.
 
-![backend limiters - backend not reachable](Screenshot_20260506_140251.png)
+![backend limiters - backend not reachable](/img/umfragen/Screenshot_20260506_140251.png)
 
 :::
+
+![Backend-Limiter - Sonstiges](/img/umfragen/Screenshot_20260507_122812.png)
+
+Wie bei den Auswahlsmoeglichkeiten ohne Backend Limiter ist es hier auch moeglich dem Nutzer die Option "Sonstiges" anzubieten. Damit wird dem Nutzer erlaubt  eigene Optionen hinzuzufuegen. Das Limit wie oft die Option Standartmaesig das Limit auf '1' gesetzt.
+
+:::i Beispiel
+Fuer ein vergnueglichen Abend wird jeder gebeten etwas mitzubringen und dies in der Umfrage einzutragen. Dann macht es bei einer Menge von 10 Leuten vielleicht Sinn alles zwei mal zu erlauben. So koennte die Option "Kartoffelsalat" maximal zweimal ausgewaehlt werden und es wird sicher gestellt, dass jeder einen Kartoffelsalat mitbringt. Und wenn Nun ein Teilnehmer denkt dass die Guten Optionen schon vergriffen sind, dann kann er eigene vorschlaege machen.
+:::
+
+:::w Problem
+
+Wir koennen nicht ausschliessen, dass sich ein Nutzer einen Spass daraus macht den "Erdaepfelsalat" hinzuzufuegen, was auch nur ein weniger gelaeufiges Wort fuer "Kartoffelsalat" ist.
+
+:::
+
 
 ### Bilder Typen
 

@@ -98,9 +98,13 @@ Die Volltextsuche öffnen Sie über das Filterfeld in der Seitenleiste (mit Ente
 Ist eine Freigabe vorübergehend nicht erreichbar (z.B. wegen Wartungsarbeiten), erscheint oberhalb der Trefferliste der Hinweis **Teilergebnisse angezeigt** mit der Liste der nicht verfügbaren Freigaben. Die Suche liefert dann nur Treffer aus den verfügbaren Wikis.
 :::
 
-## Seiten und Ordner löschen
+## Seiten löschen
 
-Über **Löschen** (Papierkorb-Symbol) in der Werkzeugleiste lassen sich Seiten und Ordner entfernen. Vor dem Löschen erscheint ein Bestätigungsdialog. Beim Löschen eines Ordners werden alle enthaltenen Unterseiten und Unterordner mit gelöscht.
+Über **Löschen** (Papierkorb-Symbol) in der Werkzeugleiste lässt sich die aktuell geöffnete Seite entfernen. Vor dem Löschen erscheint ein Bestätigungsdialog.
+
+:::note Ordner löschen
+Das Entfernen ganzer Ordner ist über die Wiki-Oberfläche derzeit nicht möglich – über die Werkzeugleiste lassen sich nur einzelne Seiten löschen. Leere Ordner und nicht mehr benötigte Unterstrukturen können über den direkten Zugriff auf die zugrundeliegende WebDAV-Freigabe (siehe [Dateien](dateien/index.md)) entfernt werden.
+:::
 
 :::caution Unwiderruflich
 Gelöschte Wiki-Seiten können nicht aus der Anwendung wiederhergestellt werden. Bei Bedarf wenden Sie sich an Ihren Global-Admin – Wiki-Inhalte werden auf der zugrundeliegenden WebDAV-Freigabe gespeichert und sind ggf. über das Backup wiederherstellbar.

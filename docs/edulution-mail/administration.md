@@ -48,7 +48,7 @@ zugänglich sein, ist es unerlässlich, das Standardpasswort sofort zu
 - **Spam- und Antivirus-Einstellungen:** Anpassung der Schutzmechanismen
 - **Systemstatus:** Überwachung der Mailserver-Leistung und -Gesundheit
 
-## Webmail (SOGo) {#webmail-sogo}
+## Webmail (SOGo)
 
 Das Webmail-Interface basiert auf SOGo und ist über `https://mail.ihre-domain.de/SOGo` erreichbar.
 

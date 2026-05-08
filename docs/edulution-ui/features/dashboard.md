@@ -147,7 +147,7 @@ Das Dashboard kann in den Einstellungen angepasst werden:
 Die Anpassungsmöglichkeiten können je nach Benutzerrolle variieren. Global-Admins haben erweiterte Optionen.
 :::
 
-<!-- TODO: Link zu Einstellungen/Dashboard-Konfiguration einfügen -->
+{/* TODO: Link zu Einstellungen/Dashboard-Konfiguration einfügen */}
 
 ## Tipps für die Nutzung
 

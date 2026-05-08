@@ -68,7 +68,7 @@ Beim Teilen können Sie festlegen:
 
 ## Wichtige Hinweise
 
-### Dateigröße {#dateigröße}
+### Dateigröße
 
 Die maximale Upload-Größe hängt davon ab, ob FileProxy eingerichtet ist:
 

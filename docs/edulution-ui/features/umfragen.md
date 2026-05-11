@@ -31,12 +31,12 @@ Eine Umfrage kann beim [Speichern](#umfrage-speichern) als Öffentlich deklarier
 
 ![Umfrage Teilen Fenster](/img/umfragen/Screenshot_20260506_121229.png)
 
-![Oeffentlicher login](/img/umfragen/Screenshot_20260506_121454.png)
+![Öffentlicher login](/img/umfragen/Screenshot_20260506_121454.png)
 
 Wenn die Antwort veränderbar ist oder eine erneute Teilnahme möglich ist, wird am Schluss eine öffentliche TeilnahmeId angelegt und ausgegeben, damit die Verknüpfung für kommende Änderungen funktioniert.
 Ob eine frühere Antwort geändert werden kann oder der Nutzer mehrmals an der Umfrage teilnehmen darf, wird beim [Speichern der Umfrage](#umfrage-speichern) festgelegt.
 
-![Oeffentlicher user login](/img/umfragen/Screenshot_20260506_122450.png)
+![Öffentlicher user login](/img/umfragen/Screenshot_20260506_122450.png)
 
 ## Schon beantwortet
 
@@ -58,15 +58,15 @@ Hier kannst du das Ergebnis einer Umfrage einsehen.
 
 Umfragen, die du selbst erstellt hast, kannst du im [Editor](#editor) anpassen oder auch wieder löschen.
 
-## Editor {#editor}
-
-### Erstellen
+## Erstellen
 
 1. Klicke auf "Editor" in der Umfragen-App.
 2. Wähle eine Vorlage oder erstelle eine "Neue Umfrage".
 3. Füge Fragen hinzu und passe die Optionen der Fragen an deine Bedürfnisse an.
 4. Klicke auf "Speichern".
 5. Veröffentliche und teile die Umfrage.
+
+## Editor {#editor}
 
 ### Vorlagen (Kachelansicht)
 
@@ -92,45 +92,78 @@ Der Admin kann auch Vorlagen bearbeiten. Dazu muss die Vorlage ausgewählt werde
 
 ![Umfragen Editor](/img/umfragen/Screenshot_20260506_112841.png)
 
+## Fragetypen und ihre Optionen
+
+### Benutzereingabe
+
+:::t Fragen bei denen es um Bilder geht
+**Eingabefeld**; **Kommentar**; **Wahrheitswert**
+:::
+
+#### Eingabefelder
+
+Fragen bei denen nur eine sehr kurze/knappe Antwort erwartet wird
+
+:::t Für das Eingabefeld gibt es folgende Unterkategorien:
+  **Farbe**; **Datum**; **Datum und Uhrzeit**; **E-Mail**; **Monat**; **Zahl**; **Passwort**; **Bereich**; **Telefonnummer**; **Text**; **Zeit**; **Web-URL**; **Woche**
+:::
+
+![alt text](/img/umfragen/Screenshot_20260507_151914.png)
+
 :::i Teste die Eingabe der Felder im Vorschau-Tab
 Wenn du denkst, dass der Teilnehmer mehr Platz braucht, als das einzelne Feld hergibt, nutze stattdessen den Fragen-Typ **Kommentar**.
 :::
 
-### Umfrage Speichern {#umfrage-speichern}
+##### Eingabe Masken
 
-#### User view
+| Typ | Eingabe Maske |
+|-------------------|:---------------------------------:|
+| **Farbe** | ![Eingabefeld > Farbe](/img/umfragen/Screenshot_20260507_151707_cropped.png) |
+| **Datum** | ![Eingabefeld > Datum](/img/umfragen/Screenshot_20260507_151714_cropped.png) |
+| **Datum und Uhrzeit** | ![alt text](/img/umfragen/Screenshot_20260507_151739_cropped.png) |
+| **E-Mail** | ![alt text](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
+| **Monat** | ![alt text](/img/umfragen/Screenshot_20260507_151820_cropped.png) |
+| **Zahl** | ![alt text](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
+| **Passwort** | ![alt text](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
+| **Bereich** | ![alt text](/img/umfragen/Screenshot_20260507_151849_cropped.png) |
+| **Telefonnummer** | ![alt text](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
+| **Text** | ![alt text](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
+| **Zeit** | ![alt text](/img/umfragen/Screenshot_20260507_151922_cropped.png) |
+| **Web-URL** | ![alt text](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
+| **Woche** | ![alt text](/img/umfragen/Screenshot_20260507_151943_cropped.png) |
 
-![Umfrage speichern - user view](/img/umfragen/Screenshot_20260506_143511.png)
+#### Kommentar
 
-- **Teilnehmer**: Hier können bestimmte Benutzer ausgewählt werden, die an der Umfrage teilnehmen sollen.
-- **Gruppen**: Hier können ganze Benutzergruppen ausgewählt werden, deren Mitglieder an der Umfrage teilnehmen sollen.
-- **Ablaufdatum**: Ab diesem Datum ist die Teilnahme an der Umfrage nicht mehr möglich.
+![alt text](/img/umfragen/Screenshot_20260507_152435.png)
 
-- **Anonym**: Soll die Antwort der Teilnehmer anonymisiert werden? In diesem Fall ist keine Verknüpfung zwischen Antwort und Teilnehmer möglich.
-- **Öffentlich**: Öffentliche Umfragen können mit und von allen geteilt werden, und die Teilnahme ist auch ohne Benutzerkonto möglich. Siehe [Öffentliche Teilnahme](#oeffentliche-teilnahme).
-- **Mehrmals Antworten**: Dies ermöglicht demselben Nutzer die wiederholte Teilnahme an der Umfrage.
-- **Editierbare Antworten**: Die vorherige Abgabe kann nachträglich verändert werden.
+#### Text (mehrzeilig)
 
-#### Admin view
-
-![Umfrage speichern - admin view](/img/umfragen/Screenshot_20260506_143406.png)
-
-Als Admin kannst du die Umfrage, die aktuell bearbeitet wird, auch als Vorlage speichern.
-
-- **Name der Vorlage**: Unter diesem Namen wird die Vorlage in der Kachelansicht angezeigt.
-- **Zugriffsgruppen**: Die Vorlage wird in der Kachelansicht nur den Benutzern angezeigt, die Mitglied in mindestens einer der ausgewählten Gruppen sind.
-
-Auf diesem Weg kann der Admin auch Vorlagen bearbeiten. Dazu muss die entsprechende Vorlage ausgewählt werden. Beim [Speichern der Umfrage](#umfrage-speichern) muss der Admin dann den Haken an der Checkbox "Als Vorlage speichern" setzen.
-
-## Spezielle Fragetypen
+![alt text](/img/umfragen/Screenshot_20260507_152456.png)
 
 ### Auswahlmöglichkeiten
 
 :::t Fragen, bei denen gewählt werden muss
-**Option** (RadioGroup), **Auswahl** (Checkbox), **Dropdown** (Aufklappmenü)
+**Option** (RadioGroup); **Auswahl** (Checkbox); **Dropdown** (Aufklappmenü)
 :::
 
 Für diese Fragetypen haben wir die neue Funktionalität der Backend-Limiter erstellt.
+
+**Dropdown** (Aufklappmenü):
+
+![Dropdown](/img/umfragen/Screenshot_20260507_151316.png)
+
+- **Label**: Durch ein klicken auf das Label wird dieses ausgewählt und kann angepasst werden.
+- **Blaues Plus**: Um die Option hinzuzufügen.
+- **Rotes Minus**: Um die Option zu streichen.
+- **Nichts trifft zu**: Damit der Teilnehmer sagen kann wenn nichts zutrifft.
+- **Sonstiges (bitte Angeben)**: Damit der Teilnehmer eigene von ihm definierte Optionen hinzufügen kann
+
+Similar **Option** und **Auswahl**
+(nur dass hier auch mehr als eine Option ausgewählt werden können)
+
+| Option | Auswahl |
+|:---------------------------------:|:---------------------------------:|
+| ![Option](/img/umfragen/Screenshot_20260507_150908_croped_2.png) | ![Auswahl](/img/umfragen/Screenshot_20260507_150957_croped_2.png) |
 
 #### Backend-Limiters {#backend-limiters}
 
@@ -160,30 +193,159 @@ Wenn sich die Backend-Limiter nicht laden lassen, werden die vordefinierten Ausw
 
 ![Backend-Limiter - Sonstiges](/img/umfragen/Screenshot_20260507_122812.png)
 
-Wie bei den Auswahlsmoeglichkeiten ohne Backend Limiter ist es hier auch moeglich dem Nutzer die Option "Sonstiges" anzubieten. Damit wird dem Nutzer erlaubt  eigene Optionen hinzuzufuegen. Das Limit wie oft die Option Standartmaesig das Limit auf '1' gesetzt.
+Wie bei den Auswahlmöglichkeiten ohne Backend Limiter ist es hier auch möglich dem Nutzer die Option "Sonstiges" anzubieten. Damit wird dem Nutzer erlaubt eigene Optionen hinzuzufügen. Das Limit ist hierbei Standartmäsig auf '1' gesetzt.
 
 :::i Beispiel
-Fuer ein vergnueglichen Abend wird jeder gebeten etwas mitzubringen und dies in der Umfrage einzutragen. Dann macht es bei einer Menge von 10 Leuten vielleicht Sinn alles zwei mal zu erlauben. So koennte die Option "Kartoffelsalat" maximal zweimal ausgewaehlt werden und es wird sicher gestellt, dass jeder einen Kartoffelsalat mitbringt. Und wenn Nun ein Teilnehmer denkt dass die Guten Optionen schon vergriffen sind, dann kann er eigene vorschlaege machen.
+Für einen vergnüglichen Abend wird jeder gebeten etwas mitzubringen und dies in der Umfrage einzutragen. Dann macht es bei einer Menge von 10 Leuten vielleicht Sinn alles zweimal zu erlauben. So könnte die Option "Kartoffelsalat" maximal zweimal ausgewählt werden und es wird sichergestellt, dass jeder einen Kartoffelsalat mitbringt. Und wenn nun ein Teilnehmer denkt dass die guten Optionen schon vergriffen sind, dann kann er eigene Vorschläge machen.
 :::
 
 :::w Problem
 
-Wir koennen nicht ausschliessen, dass sich ein Nutzer einen Spass daraus macht den "Erdaepfelsalat" hinzuzufuegen, was auch nur ein weniger gelaeufiges Wort fuer "Kartoffelsalat" ist.
+Wir können nicht ausschließen, dass sich ein Nutzer einen Spaß daraus macht den "Erdäpfelsalat" hinzuzufügen, was auch nur ein weniger geläufiges Wort für "Kartoffelsalat" ist.
 
 :::
 
+### Meinung/Gewichtung 
 
-### Bilder Typen
-
-:::t Bilder Fragen
-**Bild** (Image), **Bildauswahl** (ImagePicker)
+:::t Gewichtungs Fragen
+**Bewertung**; **Reihenfolge**
 :::
 
-Bilder, die hochgeladen werden, werden serverseitig in das WebP-Format (.webp) konvertiert und komprimiert.
+#### Bewertung
+
+:::t Für die Bewertung gibt es folgende Unterkategorien:
+  **Beschriftung**; **Sterne**; **Smileys**
+:::
+
+![Bewertung > Beschriftung](/img/umfragen/Screenshot_20260507_151417.png)
+![Bewertung > Sterne](/img/umfragen/Screenshot_20260507_151439.png)
+![Bewertung > Smileys](/img/umfragen/Screenshot_20260507_151449.png)
+
+#### Reihenfolge
+
+![Reihenfolge](/img/umfragen/Screenshot_20260507_151606.png)
+
+Vom Teilnehmer wird erwartet, dass er die Objekte anordnet. Ob nach Zeit, Vorlieben oder einem anderen Kriterium muss aus der Fragestellung hervor gehen.
+
+### Upload
+
+:::t Fragen bei denen es um Bilder geht
+**Datei** (File); **Bild** (Image); **Bildauswahl** (ImagePicker)
+:::
 
 :::w Maximale Dateigröße
 Um das Backend nicht zu stark zu belasten, werden keine Dateien größer als **50 MB** akzeptiert.
 :::
+
+**Datei**
+
+![alt text](/img/umfragen/Screenshot_20260507_151539.png)
+
+Es wird erwartet, dass der Teilnehmer eine Datei anhäftet
+
+#### Bilder Typen
+
+:::i Speichern von Bildern im Backend
+Bilder, die hochgeladen werden, werden serverseitig in das WebP-Format (.webp) konvertiert und komprimiert.
+:::
+
+**Bild**
+
+![Bild](/img/umfragen/Screenshot_20260507_152731.png)
+
+Es wird erwartet, dass der Teilnehmer ein Bild anhäftet
+
+**Bildauswahl**
+
+![Bildauswahl](/img/umfragen/Screenshot_20260507_151551.png)
+
+Die Bilder werden vom Ersteller der Umfrage angehäftet.
+
+### Tabellen
+
+:::t Erlaubt das Verschachteln von Fragen
+**Matrix (einfache Auswahl)**; **Matrix (mehrfache Auswahl)**
+:::
+
+![alt text](/img/umfragen/Screenshot_20260511_114648.png)
+
+Die Größe der Tabelle kann im Kontext-menu festgelegt werden. Alternativ, wenn du im Label der letzten Spalte Enter- drückst wird eine neue Spalte hinzugefügt. Similar für die Reihe, wenn im Label der letzten Reihe Enter- gedrückt wird.
+
+#### Matrix (einfache Auswahl)
+
+![alt text](/img/umfragen/Screenshot_20260507_152701.png)
+
+#### Matrix (mehrfache Auswahl)
+
+![alt text](/img/umfragen/Screenshot_20260507_152713.png)
+
+### Strukturierend
+
+:::t Erlaubt das Verschachteln von Fragen
+**Panel**; **Panel (dynamisch)**
+:::
+
+#### Panel
+
+![alt text](/img/umfragen/Screenshot_20260507_152508.png)
+
+Das Panel entspricht einer geschachtelten Frage. Der Ersteller muss die Elemente auswählen, die innerhalb des Panels angezeigt werden sollen.
+
+#### Panel (dynamisch)
+
+![alt text](/img/umfragen/Screenshot_20260507_152635.png)
+
+Ein dynamischen Panel entspricht nicht mehr nur einer einfachen geschachtelten Frage sondern einem Erweiterbaren/Ausklappbaren Feld.
+Die in dem Panel enthaltenen Elemente entsprechen hier einer Vorlage.
+
+![alt text](/img/umfragen/Screenshot_20260511_113205.png)
+
+In dem Kontextmenu der Frage kann der Ersteller der Umfrage festlegen, wie oft das Panel minimal/maximal ausgeklappt werden darf. 
+
+:::t Dynamisch verschachtelte Fragen
+Wird genutzt um Fragen zu erstellen, bei denen der Teilnehmer mehrere antworten geben können soll.
+:::
+
+##### Teilnahme
+
+![alt text](/img/umfragen/Screenshot_20260507_152817.png)
+![alt text](/img/umfragen/Screenshot_20260507_152839.png)
+
+Das Dynamische Panel erlaubt es den Teilnehmern selbst zu entscheiden wie oft der Inhalt angezeigt werden soll, indem er weitere Panel-Vorlagen hinzufügt oder bereits bestehende entfernt.
+
+:::i Beispiel
+Der Teilnehmer soll eigene Vorschläge machen. Dann nutzt der Ersteller der Umfrage das Dynamische Panel und fügt sowohl ein Text feld als auch ein Kommentarfeld der Panel-Vorlagen hinzu. Dann kann der Teilnehmer für jeden Vorschlag eine Weitere Panel-Vorlage aufklappen, um die entsprechend enthaltenen Felder auszufüllen. 
+:::
+
+### Umfrage Speichern {#umfrage-speichern}
+
+:::i Der Vorschau Reiter
+In der Vorschau kannst du die Umfrage einmal durchklicken und schauen ob alles passt.
+:::
+
+#### User view
+
+![Umfrage speichern - user view](/img/umfragen/Screenshot_20260506_143511.png)
+
+- **Teilnehmer**: Hier können bestimmte Benutzer ausgewählt werden, die an der Umfrage teilnehmen sollen.
+- **Gruppen**: Hier können ganze Benutzergruppen ausgewählt werden, deren Mitglieder an der Umfrage teilnehmen sollen.
+- **Ablaufdatum**: Ab diesem Datum ist die Teilnahme an der Umfrage nicht mehr möglich.
+
+- **Anonym**: Soll die Antwort der Teilnehmer anonymisiert werden? In diesem Fall ist keine Verknüpfung zwischen Antwort und Teilnehmer möglich.
+- **Öffentlich**: Öffentliche Umfragen können mit und von allen geteilt werden, und die Teilnahme ist auch ohne Benutzerkonto möglich. Siehe [Öffentliche Teilnahme](#oeffentliche-teilnahme).
+- **Mehrmals Antworten**: Dies ermöglicht demselben Nutzer die wiederholte Teilnahme an der Umfrage.
+- **Editierbare Antworten**: Die vorherige Abgabe kann nachträglich verändert werden.
+
+#### Admin view
+
+![Umfrage speichern - admin view](/img/umfragen/Screenshot_20260506_143406.png)
+
+Als Admin kannst du die Umfrage, die aktuell bearbeitet wird, auch als Vorlage speichern.
+
+- **Name der Vorlage**: Unter diesem Namen wird die Vorlage in der Kachelansicht angezeigt.
+- **Zugriffsgruppen**: Die Vorlage wird in der Kachelansicht nur den Benutzern angezeigt, die Mitglied in mindestens einer der ausgewählten Gruppen sind.
+
+Auf diesem Weg kann der Admin auch Vorlagen bearbeiten. Dazu muss die entsprechende Vorlage ausgewählt werden. Beim [Speichern der Umfrage](#umfrage-speichern) muss der Admin dann den Haken an der Checkbox "Als Vorlage speichern" setzen.
 
 ## Export to PDF
 

@@ -15,9 +15,9 @@ Die Umfragen-App basiert auf SurveyJS. Da SurveyJS sehr umfangreich ist, beschr�
 
 ## Offene Umfragen
 
-### Teilnahme
+### Teilnahme {#teilnahme}
 
-![Offene Umfragen - Teilnahme buttons](/img/umfragen/Screenshot_20260506_120801.png)
+![Offene Umfragen - Teilnahme Buttons](/img/umfragen/Screenshot_20260506_120801.png)
 
 ![Teilnahme an umfrage](/img/umfragen/Screenshot_20260506_121125.png)
 
@@ -31,12 +31,12 @@ Eine Umfrage kann beim [Speichern](#umfrage-speichern) als Öffentlich deklarier
 
 ![Umfrage Teilen Fenster](/img/umfragen/Screenshot_20260506_121229.png)
 
-![Öffentlicher login](/img/umfragen/Screenshot_20260506_121454.png)
+![Öffentlicher Login](/img/umfragen/Screenshot_20260506_121454.png)
 
 Wenn die Antwort veränderbar ist oder eine erneute Teilnahme möglich ist, wird am Schluss eine öffentliche Teilnahme-ID angelegt und ausgegeben, damit die Verknüpfung für kommende Änderungen funktioniert.
 Ob eine frühere Antwort geändert werden kann oder der Nutzer mehrmals an der Umfrage teilnehmen darf, wird beim [Speichern der Umfrage](#umfrage-speichern) festgelegt.
 
-![Öffentlicher user login](/img/umfragen/Screenshot_20260506_122450.png)
+![Öffentlicher User-Login](/img/umfragen/Screenshot_20260506_122450.png)
 
 ## Schon beantwortet
 
@@ -44,19 +44,30 @@ Ob eine frühere Antwort geändert werden kann oder der Nutzer mehrmals an der U
 
 Hier können Sie das Ergebnis einer Umfrage einsehen.
 
-### Tabelle
+### Tabelle {#tabelle}
 
 ![Ergebniseinsicht - Tabelle](/img/umfragen/Screenshot_20260506_112655.png)
 
-### Schaubild
+### Schaubild {#schaubild}
 
 ![Ergebniseinsicht - Schaubild](/img/umfragen/Screenshot_20260506_120623.png)
 
 ## Eigene Umfragen
 
-![Eigene Umfragen - floating buttons](/img/umfragen/Screenshot_20260506_121020.png)
+![Eigene Umfragen - floating Buttons](/img/umfragen/Screenshot_20260506_121020.png)
 
 Umfragen, die Sie selbst erstellt haben, können Sie im [Editor](#editor) anpassen oder auch wieder löschen.
+
+- **Erstellen** - Wechsle zum [Editor](#editor) (öffnet Kachel ansicht der Vorlagen)
+- **Fortfahren** - Wechsle zum [Editor](#editor) (öffnet vorherige Umfrage)
+- **Bearbeiten** - Wechsle zum [Editor](#editor) (öffnet ausgewählte Umfrage)
+- **Delete** - Öffnet einen Bestätigungsdialog ob der Benutzer sicher ist, dass er die ausgewählten Umfragen löschen möchte. 
+- **Antworten** - Öffnet ein Dialog in dem die zuvor abgegebene Antwort angezeigt wird.
+- **Tabelle** - Öffnet einen Dialog in dem alle zuvor abgegebenen Antworten in einer [Tabelle](#tabelle)n-Ansicht enthalten sind.
+- **Schaubild** - Öffnet einen Dialog in dem alle zuvor abgegebenen Antworten in einem [Schaubild](#schaubild) dargestellt werden.
+- **Teilnehmen** - Öffnet das [Teilnahme](#teilnahme) Fenster. 
+
+Je nachdem, ob der Nutzer Umfragen erstellen darf und was für eine Umfrage ausgewählt ist werden die Buttons angezeigt oder ausgeplendet.
 
 ## Erstellen
 
@@ -72,7 +83,7 @@ Umfragen, die Sie selbst erstellt haben, können Sie im [Editor](#editor) anpass
 
 Wenn noch keine Umfrage zum Bearbeiten ausgewählt wurde, bekommen Sie als Landingpage die Kachelansicht der Umfrage-Vorlagen angezeigt.
 
-Wir haben einige standardmäßige Vorlagen vordefiniert, an denen Sie sich orientieren können, zum Beispiel **Event-Planung** (Veranstaltungsorganisation).
+Wir haben einige standardmäßige Vorlagen vordefiniert, an denen Sie sich orientieren können, zum Beispiel **TeilnahmeVeranstaltungLimitiert** (Veranstaltungsorganisation).
 
 #### User Ansicht
 
@@ -167,9 +178,9 @@ Similar **Option** und **Auswahl**
 
 #### Backend-Limiter {#backend-limiter}
 
-![Open Fragen Menu](/img/umfragen/Screenshot_20260506_140821.png)
+![Fragen - geöffnetes Kontext Menu](/img/umfragen/Screenshot_20260506_140821.png)
 
-![Edit Backend-Limiter](/img/umfragen/Screenshot_20260506_140749.png)
+![Bearbeite Backend-Limiter](/img/umfragen/Screenshot_20260506_140749.png)
 
 Backend-Limiter werden serverseitig gespeichert.
 
@@ -185,14 +196,16 @@ Auf diese Weise ist es möglich, dass sich die Nutzer selbst einschreiben, bis d
 :::
 
 :::warning Was wenn das Backend nicht erreichbar ist?
-Wenn sich die Backend-Limiter nicht laden lassen, werden die vordefinierten Auswahlmöglichkeiten geladen.
+Wenn sich die Backend-Limiter nicht aus dem Backend laden lassen, fällt SurveyJS auf die im Editor definierten Auswahlmöglichkeiten zurück.
 
-![backend limiter - Backend nicht erreichbar](/img/umfragen/Screenshot_20260506_140251.png)
+![Backend Limiter - Backend ist nicht erreichbar](/img/umfragen/Screenshot_20260506_140251.png)
 :::
 
 ![Backend-Limiter - Sonstiges](/img/umfragen/Screenshot_20260507_122812.png)
 
-Wie bei den Auswahlmöglichkeiten ohne Backend Limiter ist es hier auch möglich dem Nutzer die Option "Sonstiges" anzubieten. Damit wird dem Nutzer erlaubt eigene Optionen hinzuzufügen. Das Limit ist hierbei Standartmäsig auf '1' gesetzt.
+Wie bei den Auswahlmöglichkeiten ohne Backend Limiter ist es auch hier möglich dem Nutzer die Möglichkeit zu geben Benutzerdefinierte Optionen hinzuzufügen. Hierzu kann einfach die Option "Sonstiges (Bitte angeben)" aktiviert werden.
+Im Kontextmenu wird dies über die "Erlaube Nutzern eigene Optionen hinzuzufügen" Checkbox kontrolliert, welche den Zustand der "Sonstiges (Bitte angeben)" Option spiegelt.
+Das Limit der einzelnen Benutzer definierten antworten ist Standartmäßig auf '1' begrenzt.
 
 :::info Beispiel
 Für einen vergnüglichen Abend wird jeder gebeten etwas mitzubringen und dies in der Umfrage einzutragen. Dann macht es bei einer Menge von 10 Leuten vielleicht Sinn alles zweimal zu erlauben. So könnte die Option "Kartoffelsalat" maximal zweimal ausgewählt werden und es wird sichergestellt, dass jeder einen Kartoffelsalat mitbringt. Und wenn nun ein Teilnehmer denkt dass die guten Optionen schon vergriffen sind, dann kann er eigene Vorschläge machen.
@@ -240,10 +253,11 @@ Um das Backend nicht zu stark zu belasten, werden keine Dateien größer als **5
 
 Es wird erwartet, dass der Teilnehmer eine Datei anhäftet
 
-#### Bilder Typen
+#### Bild-Typen
 
 :::info Speichern von Bildern im Backend
-Bilder, die hochgeladen werden, werden serverseitig in das WebP-Format (.webp) konvertiert und komprimiert.
+Die Bilder werden Serverseitig gespeichert.
+Damit das Backend nun nicht zu sehr belastet wird, werden die Bilder im Frontend in das WebP-Format (.webp) konvertiert und komprimiert bevor sie ans Backend gesendet werden. 
 :::
 
 **Bild**
@@ -305,8 +319,8 @@ Wird genutzt um Fragen zu erstellen, bei denen der Teilnehmer mehrere antworten 
 
 ##### Teilnahme
 
-![Panel dynamisch empty](/img/umfragen/Screenshot_20260507_152817.png)
-![Panel dynamisch add](/img/umfragen/Screenshot_20260507_152839.png)
+![Panel dynamisch - leer](/img/umfragen/Screenshot_20260507_152817.png)
+![Panel dynamisch - hinzufügen](/img/umfragen/Screenshot_20260507_152839.png)
 
 Das Dynamische Panel erlaubt es den Teilnehmern selbst zu entscheiden wie oft der Inhalt angezeigt werden soll, indem er weitere Panel-Vorlagen hinzufügt oder bereits bestehende entfernt.
 
@@ -314,7 +328,16 @@ Das Dynamische Panel erlaubt es den Teilnehmern selbst zu entscheiden wie oft de
 Der Teilnehmer soll eigene Vorschläge machen. Dann nutzt der Ersteller der Umfrage das Dynamische Panel und fügt sowohl ein Text feld als auch ein Kommentarfeld der Panel-Vorlagen hinzu. Dann kann der Teilnehmer für jeden Vorschlag eine Weitere Panel-Vorlage aufklappen, um die entsprechend enthaltenen Felder auszufüllen. 
 :::
 
-### Umfrage Speichern {#umfrage-speichern}
+
+### Sonstiges
+
+#### Unterschrift
+
+![Unterschrift](Screenshot_20260507_152744.png)
+
+Das Unterschrift Feld kann als Authentifizierung benutzt werden. 
+
+### Umfrage Speichern und Benutzern zuweisen {#umfrage-speichern}
 
 :::info Der Vorschau Reiter
 In der Vorschau können Sie die Umfrage einmal durchklicken und schauen ob alles passt.
@@ -328,10 +351,10 @@ In der Vorschau können Sie die Umfrage einmal durchklicken und schauen ob alles
 - **Gruppen**: Hier können ganze Benutzergruppen ausgewählt werden, deren Mitglieder an der Umfrage teilnehmen sollen.
 - **Ablaufdatum**: Ab diesem Datum ist die Teilnahme an der Umfrage nicht mehr möglich.
 
-- **Anonym**: Soll die Antwort der Teilnehmer anonymisiert werden? In diesem Fall ist keine Verknüpfung zwischen Antwort und Teilnehmer möglich.
-- **Öffentlich**: Öffentliche Umfragen können mit und von allen geteilt werden, und die Teilnahme ist auch ohne Benutzerkonto möglich. Siehe [Öffentliche Teilnahme](#oeffentliche-teilnahme).
-- **Mehrmals Antworten**: Dies ermöglicht demselben Nutzer die wiederholte Teilnahme an der Umfrage.
-- **Editierbare Antworten**: Die vorherige Abgabe kann nachträglich verändert werden.
+- **Soll die Umfrage anonym sein?**: Soll die Antwort der Teilnehmer anonymisiert werden? In diesem Fall ist keine Verknüpfung zwischen Antwort und Teilnehmer möglich.
+- **Soll die Umfrage öffentlich sein?**: Öffentliche Umfragen können mit und von allen geteilt werden, und die Teilnahme ist auch ohne Benutzerkonto möglich. Siehe [Öffentliche Teilnahme](#oeffentliche-teilnahme).
+- **Soll ein Teilnehmer die Umfrage mehrmals beantworten können?**: Dies ermöglicht demselben Nutzer die wiederholte Teilnahme an der Umfrage.
+- **Sollen Antworten nachträglich bearbeitbar sein?**: Die vorherige Abgabe kann nachträglich verändert werden.
 
 #### Administrator Ansicht
 
@@ -351,6 +374,6 @@ Es gibt einige Fragetypen, bei denen das PDF-Rendering nicht oder nur eingeschr�
 Zum Beispiel werden die Bilder der **Bildauswahl** nicht angezeigt.
 :::
 
-### Weiterführende Links
+## Weiterführende Links
 
 - [SurveyJS](https://surveyjs.io/)

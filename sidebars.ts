@@ -115,6 +115,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/features/mobile-app',
             'edulution-ui/features/sicherheit',
             'edulution-ui/features/weitere-features',
+            'edulution-ui/features/umfragen',
           ],
         },
         {

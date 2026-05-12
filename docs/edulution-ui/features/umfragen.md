@@ -19,15 +19,11 @@ Die Umfragen-App basiert auf SurveyJS. Da SurveyJS sehr umfangreich ist, beschr�
 
 ![Offene Umfragen - Teilnahme Buttons](/img/umfragen/Screenshot_20260506_120801.png)
 
-![Teilnahme an umfrage](/img/umfragen/Screenshot_20260506_121125.png)
-
-#### Sichtbarkeit der Umfragen
-
-Eine Umfrage kann beim [Speichern](#umfrage-speichern) als Öffentlich deklariert werden.
-
-![Sichtbarkeit der Umfragen](/img/umfragen/Screenshot_20260506_121918.png)
+![Teilnahme an Umfrage](/img/umfragen/Screenshot_20260506_121125.png)
 
 #### Öffentliche Teilnahme {#oeffentliche-teilnahme}
+
+Klicken Sie in der Aktionen-Leiste auf das Teilen-Symbol, um das Teilen-Fenster zu öffnen.
 
 ![Umfrage Teilen Fenster](/img/umfragen/Screenshot_20260506_121229.png)
 
@@ -85,13 +81,13 @@ Wenn noch keine Umfrage zum Bearbeiten ausgewählt wurde, bekommen Sie als Landi
 
 Wir haben einige standardmäßige Vorlagen vordefiniert, an denen Sie sich orientieren können, zum Beispiel **TeilnahmeVeranstaltungLimitiert** (Veranstaltungsorganisation).
 
-#### User Ansicht
+#### Benutzer Ansicht
 
 ![Vorlagen - Kachel-Ansicht - Benutzer](/img/umfragen/Screenshot_20260506_113106.png)
 
 Wenn Sie das Grid öffnen, können Sie eine der Vorlagen nutzen, um ein Grundgerüst zu haben, an dem Sie sich orientieren können.
 
-#### Admin Ansicht
+#### Administrator Ansicht
 
 ![Vorlagen - Kachel-Ansicht - Adminsitrator](/img/umfragen/Screenshot_20260506_113129.png)
 
@@ -198,14 +194,13 @@ Auf diese Weise ist es möglich, dass sich die Nutzer selbst einschreiben, bis d
 :::warning Was wenn das Backend nicht erreichbar ist?
 Wenn sich die Backend-Limiter nicht aus dem Backend laden lassen, fällt SurveyJS auf die im Editor definierten Auswahlmöglichkeiten zurück.
 
-![Backend Limiter - Backend ist nicht erreichbar](/img/umfragen/Screenshot_20260506_140251.png)
+![Backend-Limiter - Backend ist nicht erreichbar](/img/umfragen/Screenshot_20260506_140251.png)
 :::
 
 ![Backend-Limiter - Sonstiges](/img/umfragen/Screenshot_20260507_122812.png)
 
-Wie bei den Auswahlmöglichkeiten ohne Backend Limiter ist es auch hier möglich dem Nutzer die Möglichkeit zu geben Benutzerdefinierte Optionen hinzuzufügen. Hierzu kann einfach die Option "Sonstiges (Bitte angeben)" aktiviert werden.
-Im Kontextmenu wird dies über die "Erlaube Nutzern eigene Optionen hinzuzufügen" Checkbox kontrolliert, welche den Zustand der "Sonstiges (Bitte angeben)" Option spiegelt.
-Das Limit der einzelnen Benutzer definierten antworten ist Standartmäßig auf '1' begrenzt.
+Wie bei den Auswahlmöglichkeiten ohne Backend-Limiter ist es auch hier möglich, dem Teilnehmer eigene Optionen hinzufügen zu lassen. Im Kontextmenü des Editors aktivieren Sie dazu die Checkbox **"Erlaube Nutzern eigene Optionen hinzuzufügen"**. In der Teilnahme-Ansicht rendert SurveyJS diese Option dann als **"Sonstiges (Bitte angeben)"**.
+Das Limit, wie oft die Option ausgewählt werden kann, ist standardmäßig auf 1 gesetzt.
 
 :::info Beispiel
 Für einen vergnüglichen Abend wird jeder gebeten etwas mitzubringen und dies in der Umfrage einzutragen. Dann macht es bei einer Menge von 10 Leuten vielleicht Sinn alles zweimal zu erlauben. So könnte die Option "Kartoffelsalat" maximal zweimal ausgewählt werden und es wird sichergestellt, dass jeder einen Kartoffelsalat mitbringt. Und wenn nun ein Teilnehmer denkt dass die guten Optionen schon vergriffen sind, dann kann er eigene Vorschläge machen.
@@ -256,8 +251,8 @@ Es wird erwartet, dass der Teilnehmer eine Datei anhäftet
 #### Bild-Typen
 
 :::info Speichern von Bildern im Backend
-Die Bilder werden Serverseitig gespeichert.
-Damit das Backend nun nicht zu sehr belastet wird, werden die Bilder im Frontend in das WebP-Format (.webp) konvertiert und komprimiert bevor sie ans Backend gesendet werden. 
+Die Bilder werden serverseitig gespeichert.
+Damit das Backend nicht zu sehr belastet wird, werden Bilder der Formate JPEG, PNG, WebP und GIF bereits im Browser in das WebP-Format (.webp) konvertiert und komprimiert, bevor sie ans Backend gesendet werden. Andere Formate werden unverändert hochgeladen.
 :::
 
 **Bild**
@@ -367,7 +362,15 @@ Als Admin können Sie die Umfrage, die aktuell bearbeitet wird, auch als Vorlage
 
 Auf diesem Weg kann der Admin auch Vorlagen bearbeiten. Dazu muss die entsprechende Vorlage ausgewählt werden. Beim [Speichern der Umfrage](#umfrage-speichern) muss der Admin dann den Haken an der Checkbox "Als Vorlage speichern" setzen.
 
+#### Sichtbarkeit der Umfragen
+
+Eine Umfrage kann beim Speichern als Öffentlich deklariert werden.
+
+![Sichtbarkeit der Umfragen](/img/umfragen/Screenshot_20260506_121918.png)
+
 ## Export to PDF
+
+Klicken Sie in der Aktionen-Leiste auf den "Als PDF exportieren" Button, um die Umfrage als PDF zu exportieren.
 
 :::warning Darstellungsfehler
 Es gibt einige Fragetypen, bei denen das PDF-Rendering nicht oder nur eingeschränkt funktioniert.

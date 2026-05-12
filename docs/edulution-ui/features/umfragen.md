@@ -1,6 +1,6 @@
 # Umfragen
 
-Die Umfragen-App basiert auf SurveyJS. Da SurveyJS sehr umfangreich ist, beschränken wir uns vorerst auf die Kernfunktionen, um dich nicht zu überfordern. Ergänzt wird die App um einige Sicherheitsmerkmale und nützliche Werkzeuge wie z. B. den [Backend-Limiter](#backend-limiter).
+Die Umfragen-App basiert auf SurveyJS. Da SurveyJS sehr umfangreich ist, beschränken wir uns vorerst auf die Kernfunktionen, um Sie nicht zu überfordern. Ergänzt wird die App um einige Sicherheitsmerkmale und nützliche Werkzeuge wie z. B. den [Backend-Limiter](#backend-limiter).
 
 ## Übersicht
 
@@ -58,9 +58,9 @@ Hier können Sie das Ergebnis einer Umfrage einsehen.
 
 Umfragen, die Sie selbst erstellt haben, können Sie im [Editor](#editor) anpassen oder auch wieder löschen.
 
-- **Erstellen** - Wechsle zum [Editor](#editor) (öffnet Kachel ansicht der Vorlagen)
-- **Fortfahren** - Wechsle zum [Editor](#editor) (öffnet vorherige Umfrage)
-- **Bearbeiten** - Wechsle zum [Editor](#editor) (öffnet ausgewählte Umfrage)
+- **Erstellen** - Wechselt zum [Editor](#editor) (öffnet Kachel ansicht der Vorlagen)
+- **Fortfahren** - Wechselt zum [Editor](#editor) (öffnet vorherige Umfrage)
+- **Bearbeiten** - Wechselt zum [Editor](#editor) (öffnet ausgewählte Umfrage)
 - **Delete** - Öffnet einen Bestätigungsdialog ob der Benutzer sicher ist, dass er die ausgewählten Umfragen löschen möchte. 
 - **Antworten** - Öffnet ein Dialog in dem die zuvor abgegebene Antwort angezeigt wird.
 - **Tabelle** - Öffnet einen Dialog in dem alle zuvor abgegebenen Antworten in einer [Tabelle](#tabelle)n-Ansicht enthalten sind.
@@ -71,11 +71,11 @@ Je nachdem, ob der Nutzer Umfragen erstellen darf und was für eine Umfrage ausg
 
 ## Erstellen
 
-1. Klicke auf "Editor" in der Umfragen-App.
-2. Wähle eine Vorlage oder erstelle eine "Neue Umfrage".
-3. Füge Fragen hinzu und passe die Optionen der Fragen an deine Bedürfnisse an.
-4. Klicke auf "Speichern".
-5. Veröffentliche und teile die Umfrage.
+1. Klicken Sie auf "Editor" in der Umfragen-App.
+2. Wählen Sie eine Vorlage oder erstellen Sie eine "Neue Umfrage".
+3. Fügen Sie Fragen hinzu und passen Sie die Optionen der Fragen an Ihre Bedürfnisse an.
+4. Klicken Sie auf "Speichern".
+5. Veröffentlichen und teilen Sie die Umfrage.
 
 ## Editor {#editor}
 
@@ -121,7 +121,7 @@ Fragen bei denen nur eine sehr kurze/knappe Antwort erwartet wird
 
 ![Eingabefeld > Textfeld](/img/umfragen/Screenshot_20260507_151914.png)
 
-:::info Teste die Eingabe der Felder im Vorschau-Tab
+:::info Testen Sie die Eingabe der Felder im Vorschau-Tab
 Wenn Sie denken, dass der Teilnehmer mehr Platz braucht, als das einzelne Feld hergibt, sollten Sie stattdessen den Fragen-Typ **Kommentar** nutzen.
 :::
 

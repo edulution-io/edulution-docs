@@ -174,9 +174,37 @@ Sobald edulution-mail das Mailcow-Netzwerk für edulution-api sichtbar macht, si
 1. Scrollen Sie zum Abschnitt **Docker Anwendungen**
 2. Klicken Sie auf **Starten** bei der edulution-mail Anwendung
 
-Die Installation ist nun abgeschlossen und die E-Mail-Dienste werden gestartet.
-
 ![E-Mail Docker-Anwendung starten](/img/edulution-mail/email-einstellungen.png)
+
+### Schritt 5: Mailserver-Hosts konfigurieren
+
+Damit die edulution-api direkt mit dem Mailserver kommunizieren kann, müssen IMAP- und SMTP-Server auf die internen Mailcow-Hostnamen gesetzt werden.
+
+1. Bleiben Sie in **Einstellungen** → **E-Mails**
+2. Scrollen Sie nach oben zum Abschnitt **Mailserver**
+3. Tragen Sie folgende Werte ein:
+
+| Feld | Wert |
+|------|------|
+| **URL** (Mailcow-API) | `https://mailcowdockerized-nginx-mailcow-1` |
+| **API-Schlüssel** | `***` |
+| **IMAP-Server** | `dovecot` |
+| **IMAP Port** | `993` |
+| **SMTP-Server** | `postfix` |
+| **SMTP Port** | `587` |
+| **Nicht zertifizierte Verbindungen ablehnen** | aus |
+
+4. Klicken Sie oben rechts auf **Speichern**
+
+:::warning[URL-Feld nicht vergessen]
+Ohne den korrekten URL-Wert kann die edulution-UI nicht mit der Mailcow-API kommunizieren — z.B. Mailbox-Status, Sync-Trigger und Admin-Funktionen schlagen dann fehl.
+:::
+
+:::info[Hintergrund]
+`dovecot` und `postfix` sind die internen Service-Namen der Mailcow-Container. Sie sind nur auflösbar, weil edulution-mail den edulution-api Container automatisch in das Mailcow-Netzwerk einbindet (siehe [Versionskopplung](#schritt-3-proxy-konfiguration-hinzufügen)).
+:::
+
+Die Installation ist nun abgeschlossen und die E-Mail-Dienste werden gestartet.
 
 ## Erstkonfiguration
 

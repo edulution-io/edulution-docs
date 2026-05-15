@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Damit Dateien aus edulution korrekt heruntergeladen werden, muss in Ihrem Browser die Download-Berechtigung für die edulution-Seite erlaubt sein. Diese Anleitung zeigt Ihnen, wie Sie die Einstellungen in den gängigsten Browsern anpassen.
 
-:::tip Wann ist das nötig?
+:::tip[Wann ist das nötig?]
 Wenn der Browser Downloads von edulution blockiert oder Sie bei jedem Download um Erlaubnis gefragt werden, müssen die Download-Berechtigungen angepasst werden.
 :::
 
@@ -143,6 +143,6 @@ Wenn Safari einen Download blockiert, erscheint ein Hinweis in der Adressleiste:
 | **Firefox** | Download-Ordner & Pop-ups | Einstellungen > Dateien und Anwendungen & Datenschutz > Pop-up-Ausnahmen |
 | **Safari** | Downloads | Safari > Einstellungen > Websites > Downloads > Erlauben |
 
-:::info Tipp
+:::info[Tipp]
 Wenn nach dem Anpassen der Einstellungen weiterhin Probleme auftreten, laden Sie die edulution-Seite einmal neu (F5 bzw. `⌘ + R`).
 :::

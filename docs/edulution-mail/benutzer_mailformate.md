@@ -1,6 +1,6 @@
 # Benutzer-E-Mail-Formate anpassen (Hook)
 
-:::caution Linuxmuster 7.3 Update
+:::caution[Linuxmuster 7.3 Update]
 Mit **Linuxmuster 7.3** hat sich die API für LDAP-Schreiboperationen geändert. Bitte verwenden Sie das passende Skript für Ihre Version. Die 7.3-Version ist unten als Standard dokumentiert.
 :::
 

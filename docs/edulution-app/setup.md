@@ -4,7 +4,7 @@ title: Einrichtung
 ---
 
 # Einrichtung der edulution App
-:::warning Wichtiger Hinweis für bestehende Nutzer
+:::warning[Wichtiger Hinweis für bestehende Nutzer]
 Wenn Sie eine App-Version **älter als 2.1.0** verwenden, empfehlen wir dringend, die App zu **deinstallieren und neu herunterzuladen**, um Fehler zu vermeiden.
 :::
 
@@ -128,7 +128,7 @@ In den Account-Einstellungen stehen folgende Optionen zur Verfügung:
 
 ## Datenschutzerklärung hinterlegen
 
-:::warning Wichtig für Administratoren
+:::warning[Wichtig für Administratoren]
 Wenn Sie die edulution App für Ihre Schule oder Organisation bereitstellen, sollten Sie eine **eigene Datenschutzerklärung** in der edulution-Plattform hinterlegen.
 
 **Warum?**

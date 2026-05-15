@@ -2,7 +2,7 @@
 
 Das Konferenz-Tool ermöglicht Audio- und Videokonferenzen und unterstützt Präsentationen mit erweiterten Whiteboard-Funktionen.
 
-:::info BigBlueButton erforderlich
+:::info[BigBlueButton erforderlich]
 Konferenzen basieren auf BigBlueButton und müssen erst konfiguriert werden. Die Konfigurationsanleitung folgt noch in einem separaten Dokument.
 :::
 
@@ -80,7 +80,7 @@ Die Konferenz öffnet sich in einem neuen Fenster.
 
 ## Konferenz-Funktionen
 
-:::info BigBlueButton Features
+:::info[BigBlueButton Features]
 Nach dem Beitreten stehen alle BigBlueButton-Funktionen zur Verfügung:
 - Audio und Video
 - Bildschirmfreigabe
@@ -132,7 +132,7 @@ Klicken Sie auf **Spalten** (Dropdown rechts):
 
 ## BigBlueButton Konfiguration
 
-:::caution Konfiguration erforderlich
+:::caution[Konfiguration erforderlich]
 Die Konferenz-Funktion erfordert einen konfigurierten BigBlueButton-Server. Die detaillierte Anleitung zur Einrichtung folgt in einem separaten Administrations-Dokument.
 :::
 

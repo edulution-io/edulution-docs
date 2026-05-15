@@ -19,7 +19,7 @@ Für die Installation von edulution-mail benötigen Sie lediglich:
 - **edulution-UI** bereits installiert und konfiguriert
 - **Ausreichend Speicherplatz** auf dem Server
 
-:::info Automatische Konfiguration
+:::info[Automatische Konfiguration]
 Die Installation über edulution-UI richtet automatisch alle notwendigen Komponenten ein (Docker, Keycloak-Integration, Netzwerk, etc.). Es sind keine manuellen Vorarbeiten erforderlich.
 :::
 
@@ -27,7 +27,7 @@ Die Installation über edulution-UI richtet automatisch alle notwendigen Kompone
 
 Die Installation von edulution-mail erfolgt direkt über die edulution-UI Administrationsoberfläche.
 
-:::info Installationsverzeichnis
+:::info[Installationsverzeichnis]
 Der Installer erstellt automatisch das Verzeichnis `/srv/docker/edulution-mail`, in dem alle Mailcow-Daten, Konfigurationsdateien und Logs gespeichert werden.
 
 **Speicherplatz-Bedarf:**
@@ -57,7 +57,7 @@ Der Installer erstellt automatisch das Verzeichnis `/srv/docker/edulution-mail`,
 
 ![Hostname eingeben und Installation starten](/img/edulution-mail/installation-hostname.png)
 
-:::warning Wichtig
+:::warning[Wichtig]
 Verwenden Sie den Hostname Ihrer edulution-Instanz, NICHT eine separate Mail-Domain wie `mail.ihre-schule.de`. Die E-Mail-Dienste werden über die edulution-URL bereitgestellt.
 :::
 
@@ -73,7 +73,7 @@ Der Installationsassistent kümmert sich vollautomatisch um:
 - **Globales Adressbuch** - Alle Benutzer sehen sich gegenseitig im Adressbuch
 - **Netzwerk-Integration** - Verbindung mit der edulution-Plattform
 
-:::note Installationsdauer
+:::note[Installationsdauer]
 Die Installation dauert etwa **5-10 Minuten**. Der Fortschritt wird in Echtzeit angezeigt.
 :::
 
@@ -97,6 +97,7 @@ http:
       tls: {}
       middlewares:
         - strip-sogo-mail-prefix
+
     edulution-sogo:
       rule: PathPrefix(`/SOGo`)
       service: edulution-sogo
@@ -106,25 +107,29 @@ http:
       middlewares:
         - sogo-headers
         - sogo-buffers
+
     edulution-active-sync:
       rule: PathPrefix(`/Microsoft-Server-ActiveSync`)
       service: edulution-sogo
       entryPoints:
         - websecure
       tls: {}
+
     edulution-autodiscover:
       rule: "(HostRegexp(`autodiscover.*`) || HostRegexp(`autoconfig.*`)) &&
         (PathPrefix(`/mail/config-v1.1.xml`) ||
-        PathPrefix(`/autodiscover/autodiscover.xml`)) "
+        PathPrefix(`/autodiscover/autodiscover.xml`))"
       service: edulution-sogo
       entryPoints:
         - websecure
       tls: {}
+
   middlewares:
     strip-sogo-mail-prefix:
       stripPrefix:
         prefixes:
           - /sogo-mail
+
     sogo-headers:
       headers:
         customRequestHeaders:
@@ -132,6 +137,7 @@ http:
         frameDeny: false
         customResponseHeaders:
           X-Frame-Options: ALLOWALL
+
     sogo-buffers:
       buffering:
         maxRequestBodyBytes: 0
@@ -139,42 +145,28 @@ http:
         maxResponseBodyBytes: 0
         memResponseBodyBytes: 524288
         retryExpression: IsNetworkError() && Attempts() <= 2
+
   services:
     edulution-sogo:
       loadBalancer:
         servers:
           - url: http://nginx/
-tcp:
-  routers:
-    imap:
-      rule: HostSNI(`*`)
-      entryPoints:
-        - imap
-      service: mail-imap
-    imaps:
-      entryPoints:
-        - imaps
-      rule: HostSNI(`edulution-traefik`)
-      service: mail-imap-ssl
-      tls:
-        passthrough: true
-  services:
-    mail-imap:
-      loadBalancer:
-        servers:
-          - address: dovecot-mailcow:143
-    mail-imap-ssl:
-      loadBalancer:
-        servers:
-          - address: dovecot-mailcow:993
 ```
 
 5. Klicken Sie auf **Speichern**
 
 ![Proxy-Konfiguration einfügen](/img/edulution-mail/proxy-konfiguration.png)
 
-:::danger Wichtig
+:::danger[Wichtig]
 Die Proxy-Konfiguration ist zwingend erforderlich! Ohne diese Konfiguration sind die E-Mail-Dienste nicht über die edulution-URL erreichbar.
+:::
+
+:::warning[edulution-mail beim Update mit aktualisieren]
+Beim Update der **edulution-ui/edulution-api Container auf v2.0.156 oder höher** muss **edulution-mail auf v1.1.13 (oder höher) aktualisiert** werden. edulution verbindet sich dann selbstständig mit dem Mailcow-Netzwerk (per `docker network connect` für den edu-api Container).
+:::
+
+:::info[Optionales Aufräumen]
+Sobald edulution-mail das Mailcow-Netzwerk für edulution-api sichtbar macht, sind die alten `imap`/`imaps`-EntryPoints in Traefik und der zugehörige TCP-Block in der dyn. Mail-Konfiguration obsolet und können bereinigt werden. Details siehe [Changelog & Config-Anpassungen](/docs/edulution-mail/changelog-config-anpassungen).
 :::
 
 ### Schritt 4: Docker-Anwendung starten
@@ -200,7 +192,7 @@ https://ihre-server-ip:8443
 - **Benutzername:** `admin`
 - **Passwort:** `moohoo`
 
-:::danger Sicherheitshinweis
+:::danger[Sicherheitshinweis]
 Ändern Sie das Standard-Administratorpasswort **sofort** nach der ersten Anmeldung!
 
 Es wird außerdem dringend empfohlen:
@@ -234,7 +226,7 @@ Nach der erfolgreichen Installation sollten Sie folgende Einstellungen vornehmen
 3. Wählen Sie **Passwort ändern**
 4. Vergeben Sie ein sicheres, neues Passwort
 
-:::danger Kritisch
+:::danger[Kritisch]
 Dies ist der wichtigste Sicherheitsschritt und sollte sofort nach der Installation durchgeführt werden!
 :::
 
@@ -290,7 +282,7 @@ Stellen Sie sicher, dass folgende Ports in Ihrer Firewall freigegeben sind:
 |------|-----------|---------|--------------|
 | 8443 | TCP | Mailcow Admin | Administrationsoberfläche |
 
-:::danger Sicherheitshinweis
+:::danger[Sicherheitshinweis]
 Beschränken Sie den Zugriff auf Port **8443** (Mailcow Admin) unbedingt auf interne Netzwerke oder VPN! Diese Oberfläche sollte NIEMALS öffentlich erreichbar sein.
 :::
 
@@ -310,13 +302,13 @@ Die Oberfläche zeigt Ihnen:
 - Ob diese korrekt konfiguriert sind
 - Wie die Einträge konkret aussehen müssen (MX, SPF, DKIM, DMARC)
 
-:::tip Automatische Generierung
+:::tip[Automatische Generierung]
 Mailcow generiert alle notwendigen DNS-Einträge automatisch. Sie müssen diese nur noch in Ihrer DNS-Verwaltung eintragen.
 :::
 
 ## Theme Switch Setup
 
-:::info Nur für ältere Installationen
+:::info[Nur für ältere Installationen]
 Dieser Abschnitt ist nur relevant, wenn Sie **edulution-installer < v1.0.0** verwendet haben.
 
 Bei neueren Installationen (edulution-installer >= v1.0.0 und edulution-UI >= v1.6.14) ist dieser Schritt bereits automatisch konfiguriert.

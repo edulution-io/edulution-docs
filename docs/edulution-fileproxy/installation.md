@@ -11,7 +11,7 @@ FileProxy Server installieren und konfigurieren.
 - **Linuxmuster Fileserver** mit Ubuntu 24.04 LTS
 - [Package Server](./package-server) eingerichtet
 
-:::tip Empfehlung
+:::tip[Empfehlung]
 FileProxy sollte auf dem **gleichen Host wie der Fileserver** installiert werden. Dies ermöglicht direkten Zugriff auf die SMB-Shares und optimale Performance.
 
 → [Linuxmuster Fileserver installieren](https://docs.linuxmuster.net/de/v7.3/setup/setup-file-server.html)
@@ -80,7 +80,7 @@ log:
 | `share_autodiscover` | Auto-Erkennung | `false` empfohlen |
 | `shares` | Liste der Shares | Array von `{name: "sharename"}` |
 
-:::tip Share Autodiscover
+:::tip[Share Autodiscover]
 Bei `share_autodiscover: true` werden Admin-Credentials (`username`, `password`) benötigt.
 
 **Empfehlung:** Nutzen Sie `false` und definieren Sie Shares manuell - sicherer!
@@ -107,7 +107,7 @@ sudo tail -f /var/log/edulution-fileproxy/webdav-server.log
 
 ## Sicherheit
 
-:::warning Wichtig
+:::warning[Wichtig]
 - ❌ **Keine** Admin-Credentials in der Config (außer bei Autodiscover)
 - ✅ User-Credentials werden nie gespeichert
 - ✅ Jeder User sieht nur eigene Dateien

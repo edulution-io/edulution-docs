@@ -4,11 +4,11 @@ Das Dashboard ist Ihre zentrale Startseite nach dem Login in edulution.io. Hier 
 
 ![Dashboard Desktop](/img/features/dashboard-desktop.png)
 
-:::tip Anpassbar
+:::tip[Anpassbar]
 Das Dashboard kann individuell angepasst werden. Weitere Informationen finden Sie unter [Dashboard anpassen](#dashboard-anpassen) (Dokumentation folgt).
 :::
 
-:::info Rollenbasierte Ansicht
+:::info[Rollenbasierte Ansicht]
 Das Dashboard passt sich automatisch an Ihre Benutzerrolle an:
 - **Lehrer**: Zugriff auf Klassenverwaltung und Unterrichtstools
 - **Schüler**: Fokus auf Lernmaterialien und eigene Aufgaben
@@ -46,7 +46,7 @@ Zeigt Ihre persönlichen Informationen:
 
 ### Classes
 
-:::note Abhängig von der Rolle
+:::note[Abhängig von der Rolle]
 Dieser Bereich ist hauptsächlich für **Lehrer** und **Global-Admins** sichtbar. Schüler sehen hier ihre eigenen Klassen ohne Verwaltungsfunktionen.
 :::
 
@@ -127,13 +127,13 @@ Das Dashboard passt sich automatisch an Ihre Benutzerrolle an:
 - Einstellungen für die gesamte Schule/Organisation
 - Zugriff auf administrative Tools und Logs
 
-:::tip Hinweis
+:::tip[Hinweis]
 Manche Funktionen und Menüpunkte sind nur für bestimmte Rollen sichtbar. Wenn Sie eine Funktion nicht finden, liegt das möglicherweise an Ihren Berechtigungen.
 :::
 
 ## Dashboard anpassen
 
-:::info Dokumentation folgt
+:::info[Dokumentation folgt]
 Die detaillierte Anleitung zur Dashboard-Anpassung wird in Kürze ergänzt. Sie können das Dashboard-Layout und die angezeigten Widgets über die Einstellungen personalisieren.
 :::
 
@@ -143,7 +143,7 @@ Das Dashboard kann in den Einstellungen angepasst werden:
 - Startseite festlegen
 - Anzeigeoptionen konfigurieren
 
-:::note Berechtigungen
+:::note[Berechtigungen]
 Die Anpassungsmöglichkeiten können je nach Benutzerrolle variieren. Global-Admins haben erweiterte Optionen.
 :::
 

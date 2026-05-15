@@ -38,7 +38,7 @@ Standardmäßig wird die E-Mail-Adresse des Verteilers als
 `p_projektname@domain` generiert. Um dieses Format zu ändern
 (z.B. nur `projektname@domain`), nutzen Sie die **Gruppen-Mail-Synchronisation**.
 
-:::tip Zwei Varianten möglich
+:::tip[Zwei Varianten möglich]
 Sie können das gleiche Skript **manuell** ausführen oder als **Cronjob** (empfohlen) einrichten:
 
 **Manuell:** Für gelegentliche Anpassungen

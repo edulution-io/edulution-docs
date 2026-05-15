@@ -6,7 +6,7 @@ sidebar_position: 6
 
 Automatische Synchronisation von E-Mail-Adressen für Linuxmuster-Projekte über einen Cronjob.
 
-:::caution Linuxmuster 7.3 Update
+:::caution[Linuxmuster 7.3 Update]
 Mit **Linuxmuster 7.3** hat sich die API für LDAP-Schreiboperationen geändert. Bitte verwenden Sie das passende Skript für Ihre Version. Die 7.3-Version ist unten als Standard dokumentiert.
 :::
 
@@ -14,7 +14,7 @@ Mit **Linuxmuster 7.3** hat sich die API für LDAP-Schreiboperationen geändert.
 
 Der [Sophomorix-Hook](./verteilerlisten.md#verteiler-e-mail-adressen-anpassen) wird bei **Projekten nicht automatisch getriggert**.
 
-:::warning Wichtig
+:::warning[Wichtig]
 Sophomorix-Hooks funktionieren nur für Benutzer und Gruppen, **nicht für Projekte**. Für Projekte ist ein **Cronjob zwingend erforderlich**.
 :::
 

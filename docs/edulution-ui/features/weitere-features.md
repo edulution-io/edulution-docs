@@ -46,7 +46,7 @@ Erstellen und verwalten Sie Umfragen mit vorgefertigten Vorlagen.
 
 ![Desktop-Bereitstellung](/img/features/desktop-bereitstellung.jpeg)
 
-:::info Konfiguration erforderlich
+:::info[Konfiguration erforderlich]
 Die Desktop-Bereitstellung steht erst nach Konfiguration der VDI-Umgebung zur Verfügung. Eine detaillierte Anleitung zur VDI-Konfiguration folgt in einem separaten Dokument.
 :::
 

@@ -248,6 +248,11 @@ const sidebars: SidebarsConfig = {
               id: 'edulution-mail/admin-features',
               label: 'Admin-Features & Tipps',
             },
+            {
+              type: 'doc',
+              id: 'edulution-mail/changelog-config-anpassungen',
+              label: 'Changelog & Config-Anpassungen',
+            },
           ],
         },
       ],

@@ -243,7 +243,7 @@ import CompatIcon from '@site/src/components/CompatIcon';
     </table>
 </div>
 
-:::tip Empfohlene Konfiguration
+:::tip[Empfohlene Konfiguration]
 
 - **Desktop:** Thunderbird (alle Plattformen) oder Apple Mail (macOS)
 - **iOS:** Native Apps mit Kalender & Kontakte Konfiguration

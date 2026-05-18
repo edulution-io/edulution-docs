@@ -21,27 +21,6 @@ Das Schwarze Brett dient als zentrale Kommunikationsplattform für Ankündigunge
 - Tabelle/Erstellen-Ansicht verfügbar
 - Filterbar nach Kategorien
 
-## Umfragen
-
-![Umfragen](/img/features/umfragen.jpeg)
-
-Erstellen und verwalten Sie Umfragen mit vorgefertigten Vorlagen.
-
-### Vorlagen
-
-- **Elternabend 6a**: Terminabstimmung für Elternabende
-- **Klassenausflug**: Planung von Ausflügen
-- **Umfrage zur Cafeteria / Mensa**: Feedback zur Verpflegung
-- **Kinobesuch bei Klassenfahrt**: Event-Planung
-- **Sommerfest**: Veranstaltungsorganisation
-
-### Erstellen
-
-1. Klicken Sie auf "Neue erstellen" in der Umfragen-App
-2. Wählen Sie eine Vorlage oder erstellen Sie eine benutzerdefinierte Umfrage
-3. Passen Sie Fragen und Optionen an
-4. Veröffentlichen und teilen Sie die Umfrage
-
 ## Desktop-Bereitstellung (VDI)
 
 ![Desktop-Bereitstellung](/img/features/desktop-bereitstellung.jpeg)

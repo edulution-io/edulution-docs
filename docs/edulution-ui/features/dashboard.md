@@ -99,7 +99,7 @@ Aktuelle Aktivitäten und Benachrichtigungen:
 #### Surveys
 - Offene Umfragen
 - Status: "No open survey" wenn keine aktiven Umfragen
-- Direktlink zu [Umfragen](weitere-features.md#umfragen)
+- Direktlink zu [Umfragen](umfragen.md)
 
 ## Rollenspezifische Unterschiede
 
@@ -195,4 +195,4 @@ Mehr dazu unter [Mobile App & Tablet-Nutzung](mobile-app.md).
 - [Sicherheitseinstellungen](sicherheit.md) - Passwort ändern und Sicherheit konfigurieren
 - [Mobile App](mobile-app.md) - Mobile Nutzung einrichten
 - [Schwarzes Brett](weitere-features.md#schwarzes-brett) - Mitteilungen verwalten
-- [Umfragen](weitere-features.md#umfragen) - Umfragen erstellen und bearbeiten
+- [Umfragen](umfragen.md) - Umfragen erstellen und bearbeiten

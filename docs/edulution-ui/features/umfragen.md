@@ -104,7 +104,7 @@ Administratoren können Vorlagen auch bearbeiten. Dazu muss die Vorlage ausgewä
 
 ### Benutzereingabe
 
-:::tip Fragen zur direkten Benutzereingabe
+:::tip[Fragen zur direkten Benutzereingabe]
 **Eingabefeld**; **Kommentar**; **Wahrheitswert**
 :::
 
@@ -112,13 +112,13 @@ Administratoren können Vorlagen auch bearbeiten. Dazu muss die Vorlage ausgewä
 
 Fragen, bei denen nur eine sehr kurze/knappe Antwort erwartet wird.
 
-:::tip Für das Eingabefeld gibt es folgende Unterkategorien:
+:::tip[Für das Eingabefeld gibt es folgende Unterkategorien:]
   **Farbe**; **Datum**; **Datum und Uhrzeit**; **E-Mail**; **Monat**; **Zahl**; **Passwort**; **Bereich**; **Telefonnummer**; **Text**; **Zeit**; **Web-URL**; **Woche**
 :::
 
 ![Eingabefeld > Textfeld](/img/umfragen/Screenshot_20260507_151914.png)
 
-:::info Testen Sie die Eingabe der Felder im Vorschau-Tab
+:::info[Testen Sie die Eingabe der Felder im Vorschau-Tab]
 Wenn Sie denken, dass der Teilnehmer mehr Platz braucht, als das einzelne Feld hergibt, sollten Sie stattdessen den Fragen-Typ **Kommentar** nutzen.
 :::
 
@@ -150,7 +150,7 @@ Wenn Sie denken, dass der Teilnehmer mehr Platz braucht, als das einzelne Feld h
 
 ### Auswahlmöglichkeiten
 
-:::tip Fragen, bei denen gewählt werden muss
+:::tip[Fragen, bei denen gewählt werden muss]
 **Option** (RadioGroup); **Auswahl** (Checkbox); **Dropdown** (Aufklappmenü)
 :::
 
@@ -182,11 +182,11 @@ Backend-Limiter werden serverseitig gespeichert. Den Auswahlmöglichkeiten wird 
 
 Wenn eine Frage diese Limiter nutzt, wird beim Aufruf der Umfrage eine Abfrage an das Backend geschickt, um die aktuellen Limit-Stände zu laden. Das Backend liefert dann nur diejenigen Auswahlmöglichkeiten zurück, die das Limit noch nicht erreicht haben.
 
-:::info Beispiel
+:::info[Beispiel]
 Eine Veranstaltung, bei der die Teilnehmerzahl limitiert ist. Auf diese Weise können sich Teilnehmer selbst einschreiben, bis das Limit erreicht ist (first-come, first-served).
 :::
 
-:::warning Was, wenn das Backend nicht erreichbar ist?
+:::warning[Was, wenn das Backend nicht erreichbar ist?]
 Wenn sich die Backend-Limiter nicht laden lassen, fällt SurveyJS auf die im Editor definierten Auswahlmöglichkeiten zurück.
 
 ![Backend-Limiter - Backend ist nicht erreichbar](/img/umfragen/Screenshot_20260506_140251.png)
@@ -196,23 +196,23 @@ Wenn sich die Backend-Limiter nicht laden lassen, fällt SurveyJS auf die im Edi
 
 Wie bei den Auswahlmöglichkeiten ohne Backend-Limiter ist es auch hier möglich, dem Teilnehmer eigene Optionen hinzufügen zu lassen. Aktivieren Sie dazu im Kontextmenü des Editors die Checkbox **"Erlaube Teilnehmern eigene Optionen hinzuzufügen"**. In der Teilnahme-Ansicht rendert SurveyJS diese Option dann als **"Sonstiges (Bitte angeben)"**. Das Limit, wie oft die Option ausgewählt werden kann, ist standardmäßig auf 1 gesetzt.
 
-:::info Beispiel
+:::info[Beispiel]
 Für einen geselligen Abend wird jeder Teilnehmer gebeten, etwas mitzubringen und dies in der Umfrage einzutragen. Bei zehn Teilnehmern macht es vielleicht Sinn, jede Option zweimal zu erlauben — so könnte die Option "Kartoffelsalat" maximal zweimal gewählt werden, und es ist sichergestellt, dass nicht jeder Kartoffelsalat mitbringt. Falls einem Teilnehmer die verbleibenden Optionen nicht zusagen, kann er eigene Vorschläge ergänzen.
 :::
 
-:::warning Problem
+:::warning[Problem]
 Es lässt sich nicht ausschließen, dass ein Teilnehmer aus Spaß "Erdäpfelsalat" hinzufügt — ein synonymer Begriff für "Kartoffelsalat", der das Limit umgeht.
 :::
 
 ### Meinung/Gewichtung
 
-:::tip Gewichtungsfragen
+:::tip[Gewichtungsfragen]
 **Bewertung**; **Reihenfolge**
 :::
 
 #### Bewertung
 
-:::tip Für die Bewertung gibt es folgende Unterkategorien:
+:::tip[Für die Bewertung gibt es folgende Unterkategorien:]
   **Beschriftung**; **Sterne**; **Smileys**
 :::
 
@@ -228,11 +228,11 @@ Vom Teilnehmer wird erwartet, dass er die Objekte anordnet. Ob nach Zeit, Vorlie
 
 ### Upload
 
-:::tip Fragen, bei denen Dateien oder Bilder hochgeladen werden
+:::tip[Fragen, bei denen Dateien oder Bilder hochgeladen werden]
 **Datei** (File); **Bild** (Image); **Bildauswahl** (ImagePicker)
 :::
 
-:::warning Maximale Dateigröße
+:::warning[Maximale Dateigröße]
 Um das Backend nicht zu stark zu belasten, werden keine Dateien größer als **50 MB** akzeptiert.
 :::
 
@@ -244,7 +244,7 @@ Es wird erwartet, dass der Teilnehmer eine Datei anheftet.
 
 #### Bild-Typen
 
-:::info Speichern von Bildern im Backend
+:::info[Speichern von Bildern im Backend]
 Die Bilder werden serverseitig gespeichert.
 Damit das Backend nicht zu sehr belastet wird, werden Bilder der Formate JPEG, PNG, WebP und GIF bereits im Browser in das WebP-Format (.webp) konvertiert und komprimiert, bevor sie ans Backend gesendet werden. Andere Formate werden unverändert hochgeladen.
 :::
@@ -263,7 +263,7 @@ Die Bilder werden vom Ersteller der Umfrage angeheftet.
 
 ### Tabellen
 
-:::tip Tabellarisch angeordnete Fragen
+:::tip[Tabellarisch angeordnete Fragen]
 **Matrix (einfache Auswahl)**; **Matrix (mehrfache Auswahl)**
 :::
 
@@ -281,7 +281,7 @@ Die Größe der Tabelle kann im Kontextmenü festgelegt werden. Alternativ könn
 
 ### Strukturierend
 
-:::tip Erlaubt das Verschachteln von Fragen
+:::tip[Erlaubt das Verschachteln von Fragen]
 **Panel**; **Panel (dynamisch)**
 :::
 
@@ -301,7 +301,7 @@ Ein dynamisches Panel entspricht nicht mehr nur einer einfach geschachtelten Fra
 
 Im Kontextmenü der Frage kann der Ersteller der Umfrage festlegen, wie oft das Panel minimal bzw. maximal aufgeklappt werden darf.
 
-:::tip Dynamisch verschachtelte Fragen
+:::tip[Dynamisch verschachtelte Fragen]
 Wird genutzt, um Fragen zu erstellen, bei denen der Teilnehmer mehrere Antworten geben können soll.
 :::
 
@@ -312,7 +312,7 @@ Wird genutzt, um Fragen zu erstellen, bei denen der Teilnehmer mehrere Antworten
 
 Das dynamische Panel erlaubt es den Teilnehmern, selbst zu entscheiden, wie oft der Inhalt angezeigt werden soll, indem sie weitere Panel-Vorlagen hinzufügen oder bereits bestehende entfernen.
 
-:::info Beispiel
+:::info[Beispiel]
 Der Teilnehmer soll eigene Vorschläge machen. Dann nutzt der Ersteller der Umfrage das dynamische Panel und fügt sowohl ein Textfeld als auch ein Kommentarfeld zur Panel-Vorlage hinzu. So kann der Teilnehmer für jeden Vorschlag eine weitere Panel-Instanz aufklappen und die enthaltenen Felder ausfüllen.
 :::
 
@@ -326,7 +326,7 @@ Das Unterschrift-Feld kann zur Authentifizierung der Teilnahme genutzt werden.
 
 ## Umfrage speichern
 
-:::info Der Vorschau-Reiter
+:::info[Der Vorschau-Reiter]
 In der Vorschau können Sie die Umfrage einmal durchklicken und prüfen, ob alles passt.
 :::
 
@@ -363,7 +363,7 @@ Auf diesem Weg können Administratoren auch bestehende Vorlagen bearbeiten. Dazu
 
 Klicken Sie in der Aktionen-Leiste auf den Button **Als PDF exportieren**, um die Umfrage als PDF zu speichern.
 
-:::warning Darstellungsfehler
+:::warning[Darstellungsfehler]
 Es gibt einige Fragetypen, bei denen das PDF-Rendering nicht oder nur eingeschränkt funktioniert. Zum Beispiel werden die Bilder der **Bildauswahl** nicht angezeigt.
 :::
 

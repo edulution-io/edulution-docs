@@ -42,7 +42,7 @@ flowchart LR
 ## Voraussetzungen für die Wiki-Funktion
 
 - FileProxy 1.x mit Elasticsearch-Unterstützung
-- Docker auf dem FileProxy-Host (für den ES-Sidecar)
+- Docker auf dem FileProxy-Host (für den ES-Sidecar) — `sudo apt-get install -y docker.io docker-compose-v2` reicht auf Ubuntu 24.04
 - Mindestens 1,5 GB freier RAM (1 GB ES + Headroom für FileProxy)
 - LDAP `base_dn` konfiguriert
 - Indexer-Konto auf allen SMB-Backends bekannt
@@ -52,6 +52,10 @@ flowchart LR
 ### 1. FileProxy installieren
 
 Folgen Sie der [Installations-Anleitung](./installation). Die Wiki-Funktionalität ist in der mitgelieferten `config.example.yml` standardmäßig aktiviert – die folgenden Schritte schließen die Einrichtung ab (Indexer-Konto, ES-Sidecar, Erstindex).
+
+:::info Upgrade von einer Version vor 1.1.7
+Bestehende `/etc/edulution-fileproxy/config.yml` wurde vor dem Wiki-Default angelegt und enthält die Blöcke `smb.indexer_service_account` und `elasticsearch:` noch nicht. Übernehmen Sie sie aus `/etc/edulution-fileproxy/config.example.yml` (wird bei jedem Upgrade aktualisiert), bevor Sie mit Schritt 2 fortfahren.
+:::
 
 ### 2. Indexer-Konto hinterlegen
 
@@ -79,11 +83,10 @@ Wenn `global-admin` nicht passt, kann in `config.yml` unter `smb.indexer_service
 
 ### 3. Elasticsearch-Sidecar starten
 
-Der ES-Sidecar wird als Docker-Container neben dem Host-Binary betrieben. Eine fertige Compose-Datei liegt im FileProxy-Repository unter `docs/deployment/docker-compose.yml`.
+Der ES-Sidecar wird als Docker-Container neben dem Host-Binary betrieben. Das `edulution-fileproxy`-Paket liefert die fertige Compose-Datei bereits unter `/usr/share/edulution-fileproxy/docker-compose.yml` mit – ein zusätzlicher Checkout des Repositorys ist nicht nötig.
 
 ```bash
-cd /opt/edulution-fileproxy/deployment   # oder anderer Pfad mit der compose-Datei
-sudo docker compose up -d
+sudo docker compose -f /usr/share/edulution-fileproxy/docker-compose.yml up -d
 ```
 
 Eckdaten der Standard-Konfiguration:

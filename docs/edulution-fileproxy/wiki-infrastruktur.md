@@ -66,6 +66,17 @@ echo -n 'GEHEIM' | sudo tee /etc/edulution-fileproxy/indexer.secret
 sudo chmod 600 /etc/edulution-fileproxy/indexer.secret
 ```
 
+:::tip Passwort mit Sonderzeichen
+Enthält das Passwort `!`, `$`, Backticks oder doppelte Anführungszeichen, kann die Bash es vor dem Ausführen falsch interpretieren (`!` löst die History-Expansion aus, `$` und Backticks werden in doppelten Anführungszeichen expandiert). In dem Fall am sichersten mit einem Editor schreiben – das umgeht die Shell-Auswertung vollständig:
+
+```bash
+sudo install -m 600 /dev/null /etc/edulution-fileproxy/indexer.secret
+sudo nano /etc/edulution-fileproxy/indexer.secret    # Passwort einfügen, Strg+O, Strg+X
+```
+
+Ein abschließender Zeilenumbruch wird von FileProxy automatisch entfernt – ein in einem Editor gespeicherter Inhalt ist also unkritisch.
+:::
+
 Stellen Sie zusätzlich sicher, dass `ldap.base_dn` in `/etc/edulution-fileproxy/config.yml` gesetzt ist:
 
 ```yaml
@@ -123,9 +134,11 @@ sudo systemctl restart edulution-fileproxy
 
 Beim Start legt FileProxy automatisch den Index `wiki-md` (Alias auf eine versionierte Variante `wiki-md-vN`) an und startet den Worker-Pool sowie den Drift-Reconciler.
 
-### 5. Initialen Index aufbauen
+### 5. (Optional) Initialen Index aufbauen
 
-Pro Freigabe einmalig den Reindex-Lauf starten:
+**Frische Installationen können diesen Schritt überspringen.** FileProxy legt den Index `wiki-md` beim Start automatisch an, und der **PostWriteHook** indiziert jede neue oder geänderte `.wiki/*.md`-Datei live. Der Drift-Reconciler (15-Minuten-Tick) holt alles nach, was direkt per SMB außerhalb von FileProxy geschrieben wurde.
+
+Den Reindex-Lauf nur ausführen, wenn bestehende `.wiki/*.md`-Inhalte vorab per SMB ohne FileProxy hochgeladen wurden und sofort suchbar sein sollen – oder nach einem Schema-Wechsel, bei dem ein voller Neuaufbau nötig ist.
 
 ```bash
 sudo edulution-fileproxy-reindex --share agy

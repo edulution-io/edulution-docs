@@ -38,6 +38,8 @@ sudo nano /etc/edulution-fileproxy/config.yml
 
 ### Minimal-Konfiguration
 
+`apt install edulution-fileproxy` legt unter `/etc/edulution-fileproxy/config.yml` bereits eine vollständige Default-Konfiguration an (kopiert aus `config.example.yml`). Diese enthält alle Blöcke, die für einen funktionsfähigen Start nötig sind – einschließlich des standardmäßig aktivierten Wiki-Indexers. Anpassen müssen Sie üblicherweise nur IPs, Domain und die Share-Liste:
+
 ```yaml
 ldap:
   server: "ldaps://10.1.0.1:636"
@@ -52,6 +54,10 @@ smb:
     - name: default-school
     - name: linuxmuster-global
 
+  indexer_service_account:
+    user: "global-admin"
+    password_file: "/etc/edulution-fileproxy/indexer.secret"
+
 http:
   address: ":8443"
   webdav_prefix: "/webdav/"
@@ -61,6 +67,10 @@ http:
 log:
   level: "info"
   file: "/var/log/edulution-fileproxy/webdav-server.log"
+
+elasticsearch:
+  enabled: true                       # Wiki-Indexer; siehe „Wiki-Funktion vorbereiten" unten
+  url: "http://127.0.0.1:9200"
 ```
 
 ### Wichtige Parameter
@@ -81,12 +91,23 @@ log:
 | `domain` | Windows-Domain | `LINUXMUSTER` |
 | `share_autodiscover` | Auto-Erkennung | `false` empfohlen |
 | `shares` | Liste der Shares | Array von `{name: "sharename"}` |
+| `indexer_service_account.user` | AD-Konto für SMB-Lesezugriffe des Wiki-Indexers | `global-admin` |
+| `indexer_service_account.password_file` | Pfad zur Passwort-Datei (Mode 0600) | `/etc/edulution-fileproxy/indexer.secret` |
 
 :::tip Share Autodiscover
 Bei `share_autodiscover: true` werden Admin-Credentials (`username`, `password`) benötigt.
 
 **Empfehlung:** Nutzen Sie `false` und definieren Sie Shares manuell - sicherer!
 :::
+
+#### Elasticsearch (Wiki-Indexer)
+
+| Parameter | Beschreibung | Wert |
+|-----------|--------------|------|
+| `enabled` | Wiki-Indexer aktivieren (Standard: an) | `true` |
+| `url` | URL des ES-Sidecars | `http://127.0.0.1:9200` |
+
+Siehe [Wiki-Infrastruktur](./wiki-infrastruktur) für die vollständige Einrichtung von ES-Sidecar und Erstindex.
 
 ## Wiki-Funktion vorbereiten
 

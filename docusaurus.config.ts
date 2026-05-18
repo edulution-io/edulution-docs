@@ -38,6 +38,12 @@ const config: Config = {
 
   plugins: ['./src/plugins/tailwind-config.js'],
 
+  markdown: {
+    mdx1Compat: {
+      headingIds: true,
+    },
+  },
+
   presets: [
     [
       'classic',

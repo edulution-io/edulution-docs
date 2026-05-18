@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Wiki-Infrastruktur
 
-Server-seitige Komponenten und Einrichtung des **Wiki**-Features in edulution. Das Wiki ist eine optionale Erweiterung des FileProxy mit eigenem Suchindex.
+Server-seitige Komponenten und Einrichtung des **Wiki**-Features in edulution. Das Wiki ist ein integraler Bestandteil des FileProxy mit eigenem Suchindex und in `config.example.yml` standardmäßig aktiviert. Hosts ohne Wiki-Bedarf können es über `elasticsearch.enabled: false` in `/etc/edulution-fileproxy/config.yml` deaktivieren.
 
 :::info Vorgelagerte Schritte
 Dieses Dokument setzt eine funktionierende FileProxy-Installation voraus. Folgen Sie zuerst der [Installation](./installation), [Traefik-Konfiguration](./traefik-config) und [UI-Konfiguration](./ui-config).
@@ -97,31 +97,30 @@ Ein `.wiki/`-Ordner enthält ausschließlich Markdown-Dateien (`*.md`), keine we
 
 ### 1. FileProxy installieren
 
-Folgen Sie der [Installations-Anleitung](./installation). Wiki-Funktionalität ist standardmäßig deaktiviert – aktiviert wird sie über die Konfiguration und den ES-Sidecar in den nächsten Schritten.
+Folgen Sie der [Installations-Anleitung](./installation). Die Wiki-Funktionalität ist in der mitgelieferten `config.example.yml` standardmäßig aktiviert – die folgenden Schritte schließen die Einrichtung ab (Indexer-Konto, ES-Sidecar, Erstindex).
 
 ### 2. Indexer-Konto hinterlegen
 
-FileProxy braucht ein AD-Konto, mit dem es während der Indexierung die SMB-Inhalte lesen darf. Üblicherweise wird das vorhandene `global-admin`-Konto verwendet.
+FileProxy braucht ein AD-Konto, mit dem es während der Indexierung die SMB-Inhalte lesen darf. Standardmäßig wird das vorhandene `global-admin`-Konto verwendet – `config.example.yml` referenziert es bereits als `smb.indexer_service_account` und erwartet das Passwort unter `/etc/edulution-fileproxy/indexer.secret`. Es genügt also, das Passwort an diesen Pfad zu schreiben:
 
 ```bash
 echo -n 'GEHEIM' | sudo tee /etc/edulution-fileproxy/indexer.secret
 sudo chmod 600 /etc/edulution-fileproxy/indexer.secret
 ```
 
-In `/etc/edulution-fileproxy/config.yml`:
+Stellen Sie zusätzlich sicher, dass `ldap.base_dn` in `/etc/edulution-fileproxy/config.yml` gesetzt ist:
 
 ```yaml
 ldap:
   base_dn: "DC=linuxmuster,DC=lan"   # PFLICHT für ACL-Auswertung
-
-smb:
-  indexer_service_account:
-    user: "global-admin"
-    password_file: "/etc/edulution-fileproxy/indexer.secret"
 ```
 
 :::caution base_dn ist Pflicht
 Ohne `ldap.base_dn` kann FileProxy keine Gruppen-SIDs zur Berechtigungsprüfung auflösen – die Suche liefert dann keine Treffer.
+:::
+
+:::tip Anderes Indexer-Konto verwenden
+Wenn `global-admin` nicht passt, kann in `config.yml` unter `smb.indexer_service_account.user` ein beliebiger AD-Benutzer mit Leseberechtigung auf den indexierten Pfaden eingetragen werden.
 :::
 
 ### 3. Elasticsearch-Sidecar starten
@@ -149,9 +148,9 @@ Da Security in Elasticsearch deaktiviert ist, würde jede Bindung an externe Int
 
 Größere Installationen (mehr als ~10.000 Seiten oder mehrere Schulen) sollten die Heap- und Memory-Werte gemäß `docs/deployment/es-sizing-recipe.md` im FileProxy-Repository anpassen.
 
-### 4. Wiki im FileProxy aktivieren
+### 4. FileProxy starten
 
-In `/etc/edulution-fileproxy/config.yml`:
+`elasticsearch.enabled: true` ist in der mitgelieferten `config.example.yml` bereits gesetzt – ein Eingriff in `/etc/edulution-fileproxy/config.yml` ist nur nötig, wenn die Wiki-Funktion auf diesem Host **nicht** aktiv sein soll (dann `enabled: false`). Zur Kontrolle:
 
 ```yaml
 elasticsearch:
@@ -159,7 +158,7 @@ elasticsearch:
   url: "http://127.0.0.1:9200"
 ```
 
-Anschließend FileProxy neu starten:
+Anschließend FileProxy starten bzw. neu starten:
 
 ```bash
 sudo systemctl restart edulution-fileproxy

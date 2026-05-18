@@ -38,6 +38,10 @@ const config: Config = {
 
   plugins: ['./src/plugins/tailwind-config.js'],
 
+  markdown: {
+    mermaid: true,
+  },
+
   presets: [
     [
       'classic',
@@ -58,6 +62,7 @@ const config: Config = {
   ],
 
   themes: [
+    '@docusaurus/theme-mermaid',
     [
       '@easyops-cn/docusaurus-search-local',
       {

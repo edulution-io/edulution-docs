@@ -39,57 +39,13 @@ flowchart LR
 | Elasticsearch | Volltextindex der Wiki-Seiten mit ACL-Filter | Docker-Sidecar (loopback) |
 | SMB-Server | Persistente Speicherung der `.md`-Dateien | Linuxmuster Fileserver |
 
-## Datenflüsse
+## Voraussetzungen für die Wiki-Funktion
 
-**Seite öffnen**
-
-```
-Browser → edulution-ui API → fileproxy (WebDAV GET) → SMB
-                                                     → ETag im Header
-```
-
-**Seite speichern (mit Konflikterkennung)**
-
-```
-Browser → edulution-ui API → fileproxy (WebDAV PUT, If-Match)
-                              ├─ SMB schreiben
-                              └─ PostWriteHook → Elasticsearch upsert
-```
-
-**Suchen**
-
-```
-Browser → edulution-ui API → fileproxy POST /wiki/search
-                              → Elasticsearch query mit ACL-Filter
-                              ← Treffer mit Snippets
-```
-
-**Drift-Reparatur (alle 15 Minuten)**
-
-```
-fileproxy Reconciler → SMB durchwandern (.wiki/ pro Freigabe)
-                     → Diff gegen Elasticsearch
-                     → fehlende Docs nachindexieren / gelöschte entfernen
-```
-
-## Speicherlayout
-
-Wiki-Inhalte liegen in versteckten `.wiki/`-Ordnern direkt im SMB-Share:
-
-```
-/shares/agy/                      ← Share-Root
-├─ .wiki/                         ← Wiki-Inhalt auf Share-Ebene
-│  ├─ index.md                    ← optionale Startseite des Shares
-│  └─ vertretung.md               ← Seite direkt im Share
-├─ kontakte/                      ← regulärer Unterordner
-│  └─ .wiki/                      ← Wiki-Inhalt des Unterordners
-│     ├─ index.md                 ← Startseite des Unterordners
-│     └─ leitung.md
-└─ unterricht/                    ← Ordner ohne .wiki/ wird beim Indexieren ignoriert
-   └─ klassenarbeiten.zip
-```
-
-Ein `.wiki/`-Ordner enthält ausschließlich Markdown-Dateien (`*.md`), keine weiteren Unterordner. Die hierarchische Struktur eines Wikis entsteht durch reguläre Ordner im Share – jeder davon kann optional ein eigenes `.wiki/` mit weiteren Seiten enthalten. Eine `index.md` darin macht eine Seite zur **Startseite des Ordners**. Reguläre Dateien außerhalb von `.wiki/`-Ordnern werden nicht indiziert.
+- FileProxy 1.x mit Elasticsearch-Unterstützung
+- Docker auf dem FileProxy-Host (für den ES-Sidecar)
+- Mindestens 1,5 GB freier RAM (1 GB ES + Headroom für FileProxy)
+- LDAP `base_dn` konfiguriert
+- Indexer-Konto auf allen SMB-Backends bekannt
 
 ## Einrichtung
 
@@ -251,13 +207,57 @@ sudo edulution-fileproxy-reindex --share <share-name>
 | SMB-Server | Lesezugriff auf gepufferte Suchergebnisse bleibt möglich; Schreibzugriffe schlagen fehl |
 | LDAP | Authentifizierung schlägt fehl; bestehende Sessions laufen bis zum Timeout weiter |
 
-## Voraussetzungen für die Wiki-Funktion
+## Datenflüsse
 
-- FileProxy 1.x mit Elasticsearch-Unterstützung
-- Docker auf dem FileProxy-Host (für den ES-Sidecar)
-- Mindestens 1,5 GB freier RAM (1 GB ES + Headroom für FileProxy)
-- LDAP `base_dn` konfiguriert
-- Indexer-Konto auf allen SMB-Backends bekannt
+**Seite öffnen**
+
+```
+Browser → edulution-ui API → fileproxy (WebDAV GET) → SMB
+                                                     → ETag im Header
+```
+
+**Seite speichern (mit Konflikterkennung)**
+
+```
+Browser → edulution-ui API → fileproxy (WebDAV PUT, If-Match)
+                              ├─ SMB schreiben
+                              └─ PostWriteHook → Elasticsearch upsert
+```
+
+**Suchen**
+
+```
+Browser → edulution-ui API → fileproxy POST /wiki/search
+                              → Elasticsearch query mit ACL-Filter
+                              ← Treffer mit Snippets
+```
+
+**Drift-Reparatur (alle 15 Minuten)**
+
+```
+fileproxy Reconciler → SMB durchwandern (.wiki/ pro Freigabe)
+                     → Diff gegen Elasticsearch
+                     → fehlende Docs nachindexieren / gelöschte entfernen
+```
+
+## Speicherlayout
+
+Wiki-Inhalte liegen in versteckten `.wiki/`-Ordnern direkt im SMB-Share:
+
+```
+/shares/agy/                      ← Share-Root
+├─ .wiki/                         ← Wiki-Inhalt auf Share-Ebene
+│  ├─ index.md                    ← optionale Startseite des Shares
+│  └─ vertretung.md               ← Seite direkt im Share
+├─ kontakte/                      ← regulärer Unterordner
+│  └─ .wiki/                      ← Wiki-Inhalt des Unterordners
+│     ├─ index.md                 ← Startseite des Unterordners
+│     └─ leitung.md
+└─ unterricht/                    ← Ordner ohne .wiki/ wird beim Indexieren ignoriert
+   └─ klassenarbeiten.zip
+```
+
+Ein `.wiki/`-Ordner enthält ausschließlich Markdown-Dateien (`*.md`), keine weiteren Unterordner. Die hierarchische Struktur eines Wikis entsteht durch reguläre Ordner im Share – jeder davon kann optional ein eigenes `.wiki/` mit weiteren Seiten enthalten. Eine `index.md` darin macht eine Seite zur **Startseite des Ordners**. Reguläre Dateien außerhalb von `.wiki/`-Ordnern werden nicht indiziert.
 
 ## Siehe auch
 

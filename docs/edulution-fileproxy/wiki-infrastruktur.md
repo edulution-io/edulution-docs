@@ -14,22 +14,20 @@ Dieses Dokument setzt eine funktionierende FileProxy-Installation voraus. Folgen
 
 Das Wiki erweitert den FileProxy um einen **Elasticsearch-Sidecar** für die Volltextsuche und ein paar zusätzliche HTTP-Endpunkte. Wiki-Seiten sind ganz normale Markdown-Dateien, die in einem versteckten Ordner `.wiki/` innerhalb jeder SMB-Freigabe liegen.
 
-```
-                                       ┌──────────────────┐
-                                  ┌──→ │  Elasticsearch   │  (loopback :9200)
-                                  │    └──────────────────┘
-┌─────────┐  HTTPS   ┌────────────┴─┐  ┌──────────────────┐
-│ Browser │ ───────→ │ edulution-ui │  │  Active Directory│  (LDAP)
-└─────────┘          │     API      │  └────────▲─────────┘
-                     └──────┬───────┘           │
-                            │ HTTPS             │
-                            │ Basic Auth        │
-                            ▼                   │
-                     ┌──────────────┐  ─────────┘
-                     │  edulution-  │
-                     │   fileproxy  │  ─────→  ┌──────────────┐
-                     └──────────────┘   SMB    │ Windows Share│
-                                       :445    └──────────────┘
+```mermaid
+flowchart LR
+    Browser([Browser])
+    UI[edulution-ui API]
+    FP[edulution-fileproxy]
+    AD[(Active Directory)]
+    ES[(Elasticsearch)]
+    SMB[(Windows Share)]
+
+    Browser -- HTTPS --> UI
+    UI -- "HTTPS / Basic Auth" --> FP
+    FP -- LDAP --> AD
+    FP -- "loopback :9200" --> ES
+    FP -- "SMB :445" --> SMB
 ```
 
 **Komponenten:**

@@ -17,13 +17,13 @@ Die Umfragen-App basiert auf SurveyJS. Da SurveyJS sehr umfangreich ist, beschr�
 
 In diesem Bereich sehen Sie alle Umfragen, an denen Sie teilnehmen können, aber noch nicht teilgenommen haben.
 
-### Teilnahme {#teilnahme}
+### Teilnahme
 
 ![Offene Umfragen - Teilnahme-Buttons](/img/umfragen/Screenshot_20260506_120801.png)
 
 ![Teilnahme an Umfrage](/img/umfragen/Screenshot_20260506_121125.png)
 
-#### Öffentliche Teilnahme {#oeffentliche-teilnahme}
+#### Öffentliche Teilnahme
 
 Klicken Sie in der Aktionen-Leiste auf das Teilen-Symbol, um das Teilen-Fenster zu öffnen.
 
@@ -41,11 +41,11 @@ Wenn die Antwort veränderbar oder eine erneute Teilnahme möglich ist, wird am 
 
 Hier können Sie das Ergebnis einer Umfrage einsehen.
 
-### Tabelle {#tabelle}
+### Tabelle
 
 ![Ergebniseinsicht - Tabelle](/img/umfragen/Screenshot_20260506_112655.png)
 
-### Schaubild {#schaubild}
+### Schaubild
 
 ![Ergebniseinsicht - Schaubild](/img/umfragen/Screenshot_20260506_120623.png)
 
@@ -74,7 +74,7 @@ Je nachdem, ob Sie Umfragen erstellen dürfen und welche Umfrage ausgewählt ist
 4. Klicken Sie auf **Speichern** und legen Sie Teilnehmer, Sichtbarkeit und Ablaufdatum fest (siehe [Umfrage speichern](#umfrage-speichern)).
 5. Veröffentlichen und teilen Sie die Umfrage.
 
-## Editor {#editor}
+## Editor
 
 ### Vorlagen (Kachelansicht)
 
@@ -172,7 +172,7 @@ Analog dazu funktionieren **Option** und **Auswahl** — bei **Auswahl** können
 |:---------------------------------:|:---------------------------------:|
 | ![Option](/img/umfragen/Screenshot_20260507_150908_croped_2.png) | ![Auswahl](/img/umfragen/Screenshot_20260507_150957_croped_2.png) |
 
-#### Backend-Limiter {#backend-limiter}
+#### Backend-Limiter
 
 ![Fragen - geöffnetes Kontextmenü](/img/umfragen/Screenshot_20260506_140821.png)
 
@@ -324,7 +324,7 @@ Der Teilnehmer soll eigene Vorschläge machen. Dann nutzt der Ersteller der Umfr
 
 Das Unterschrift-Feld kann zur Authentifizierung der Teilnahme genutzt werden.
 
-## Umfrage speichern und Benutzern zuweisen {#umfrage-speichern}
+## Umfrage speichern
 
 :::info Der Vorschau-Reiter
 In der Vorschau können Sie die Umfrage einmal durchklicken und prüfen, ob alles passt.
@@ -344,7 +344,7 @@ Eine Umfrage kann beim Speichern als öffentlich deklariert werden.
 - **Gruppen**: Hier können ganze Benutzergruppen ausgewählt werden, deren Mitglieder an der Umfrage teilnehmen sollen.
 - **Ablaufdatum**: Ab diesem Datum ist die Teilnahme an der Umfrage nicht mehr möglich.
 - **Soll die Umfrage anonym sein?**: Anonymisiert die Antworten der Teilnehmer. In diesem Fall ist keine Verknüpfung zwischen Antwort und Teilnehmer möglich.
-- **Soll die Umfrage öffentlich sein?**: Öffentliche Umfragen können von allen geteilt werden, und die Teilnahme ist auch ohne Benutzerkonto möglich. Siehe [Öffentliche Teilnahme](#oeffentliche-teilnahme).
+- **Soll die Umfrage öffentlich sein?**: Öffentliche Umfragen können von allen geteilt werden, und die Teilnahme ist auch ohne Benutzerkonto möglich. Siehe [Öffentliche Teilnahme](#öffentliche-teilnahme).
 - **Soll ein Teilnehmer die Umfrage mehrmals beantworten können?**: Ermöglicht demselben Benutzer die wiederholte Teilnahme an der Umfrage.
 - **Sollen Antworten nachträglich bearbeitbar sein?**: Die vorherige Abgabe kann nachträglich verändert werden.
 

@@ -183,7 +183,7 @@ Backend-Limiter werden serverseitig gespeichert. Den Auswahlmöglichkeiten wird 
 Wenn eine Frage diese Limiter nutzt, wird beim Aufruf der Umfrage eine Abfrage an das Backend geschickt, um die aktuellen Limit-Stände zu laden. Das Backend liefert dann nur diejenigen Auswahlmöglichkeiten zurück, die das Limit noch nicht erreicht haben.
 
 :::info Beispiel
-Eine Veranstaltung, bei der die Teilnehmerzahl limitiert ist. Auf diese Weise können sich Teilnehmer selbst einschreiben, bis das Limit erreicht ist (First-comes-first-serves).
+Eine Veranstaltung, bei der die Teilnehmerzahl limitiert ist. Auf diese Weise können sich Teilnehmer selbst einschreiben, bis das Limit erreicht ist (first-come, first-served).
 :::
 
 :::warning Was, wenn das Backend nicht erreichbar ist?
@@ -330,6 +330,12 @@ Das Unterschrift-Feld kann zur Authentifizierung der Teilnahme genutzt werden.
 In der Vorschau können Sie die Umfrage einmal durchklicken und prüfen, ob alles passt.
 :::
 
+### Sichtbarkeit der Umfragen
+
+Eine Umfrage kann beim Speichern als öffentlich deklariert werden.
+
+![Sichtbarkeit der Umfragen](/img/umfragen/Screenshot_20260506_121918.png)
+
 ### Benutzer-Ansicht
 
 ![Umfrage speichern - Benutzer-Ansicht](/img/umfragen/Screenshot_20260506_143511.png)
@@ -352,12 +358,6 @@ Als Administrator können Sie die aktuell bearbeitete Umfrage auch als Vorlage s
 - **Zugriffsgruppen**: Die Vorlage wird in der Kachelansicht nur den Benutzern angezeigt, die Mitglied in mindestens einer der ausgewählten Gruppen sind.
 
 Auf diesem Weg können Administratoren auch bestehende Vorlagen bearbeiten. Dazu muss die entsprechende Vorlage ausgewählt werden. Beim [Speichern der Umfrage](#umfrage-speichern) muss dann der Haken an der Checkbox "Als Vorlage speichern" gesetzt werden.
-
-### Sichtbarkeit der Umfragen
-
-Eine Umfrage kann beim Speichern als öffentlich deklariert werden.
-
-![Sichtbarkeit der Umfragen](/img/umfragen/Screenshot_20260506_121918.png)
 
 ## Als PDF exportieren
 

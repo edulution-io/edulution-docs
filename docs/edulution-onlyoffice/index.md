@@ -5,27 +5,37 @@ title: edulution OnlyOffice
 
 # Installation
 
+OnlyOffice ist eine Alternative zu Collabora für die Bearbeitung von
+Office-Dokumenten direkt in der Dateien-App. Die folgenden Schritte
+beschreiben die Einrichtung.
+
+## Dokumenten-Editor auswählen
+
+In den Einstellungen unter **Dateien** den Reiter **Allgemeine Einstellungen**
+öffnen:
+
+1. Bei **Aktiver Dokumenten-Editor** den Eintrag **OnlyOffice** auswählen
+
+## OnlyOffice Integration
+
+Im Bereich **OnlyOffice Integration** folgende Werte eintragen:
+
+- **OnlyOffice-URL**: Die edulution UI Domain mit dem Pfad `/docservice/`, z. B.
+  `https://ui.example.de/docservice/`
+- **OnlyOffice JWT Secret**: Wird automatisch generiert
+
 ## Container installieren
 
-![OnlyOffice Dokumentserver Container Installation](/img/edulution-onlyoffice/edu-onlyoffice-install-container.webp)
-
-1. Innerhalb der Dateinen-App-Konfiguration unter Docker Anwendungen auf "+" clicken
-2. Dann auf "Installieren"
+1. Innerhalb der Dateien-App-Konfiguration unter **Docker Anwendungen** auf "+" klicken
+2. Dann auf **Installieren** klicken
 
 Der Container wird abgerufen und installiert.
 
-## Only Office Integration
-
-![OnlyOffice Dokumentserver Konfiguration](/img/edulution-onlyoffice/edu-onlyoffice-config.webp)
-
-1. Als URL die edulution UI domain angeben mit dem Pfad `/docservice/`
-2. Das JWT Secret unter `/src/docker/edulution-ui/edulution.env` als `EDULUTION_ONLYOFFICE_JWT_SECRET` auslesen
-
 ## Traefik konfigurieren
 
-![OnlyOffice Dokumentserver Konfiguration](/img/edulution-onlyoffice/edu-onlyoffice-proxy-config.webp)
-
-In der Proxy-Konfiguration den "Expertenmodus" aktivieren und folgendes eintragen. Damit werden die Anfragen an OnlyOffice über Traefik an den OnlyOffice Documentserver weitergeleitet.
+In der Proxy-Konfiguration den "Expertenmodus" aktivieren und folgendes
+eintragen. Damit werden die Anfragen an OnlyOffice über Traefik an den
+OnlyOffice Documentserver weitergeleitet.
 
 ```yaml
 http:

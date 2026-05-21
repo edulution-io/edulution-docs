@@ -319,14 +319,14 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'edulution OnlyOffice',
-        description: 'OnlyOffice-Integration für die Dateiansicht.',
+        description: 'OnlyOffice-Integration für die Dateiverwaltung.',
         slug: '/category/edulution-onlyoffice',
       },
       items: [
         {
           type: 'doc',
           id: 'edulution-onlyoffice/index',
-          label: '📱 Installation',
+          label: '⚙️ Installation',
         },
       ],
     },
@@ -337,14 +337,14 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'edulution Collabora',
-        description: 'Collabora-Online-Integration für die Dateiansicht.',
+        description: 'Collabora-Online-Integration für die Dateiverwaltung.',
         slug: '/category/edulution-collabora',
       },
       items: [
         {
           type: 'doc',
           id: 'edulution-collabora/index',
-          label: '📱 Installation',
+          label: '⚙️ Installation',
         },
       ],
     },

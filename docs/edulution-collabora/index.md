@@ -1,5 +1,4 @@
 ---
-sidebar_position: 1
 title: edulution Collabora
 ---
 
@@ -22,10 +21,10 @@ Im Bereich **Collabora Online Integration** folgende Werte eintragen:
 
 - **Collabora URL**: Die edulution UI Domain mit dem Pfad `/collabora`, z. B.
   `https://ui.example.de/collabora`
-- **Collabora WOPI-Geheimschlüssel**: Einen selbst gewählten geheimen
-  Schlüssel eintragen. Der Schlüssel muss den WOPI-Vorgaben für Zeichen
-  entsprechen – ausschließlich alphanumerische Zeichen (A–Z, a–z, 0–9)
-  ohne Sonderzeichen verwenden.
+- **Collabora WOPI-Geheimschlüssel**: Einen selbst gewählten, geheimen
+  Schlüssel eintragen. Empfohlen wird ein ausreichend langer, zufälliger
+  Schlüssel aus ausschließlich alphanumerischen Zeichen (A–Z, a–z, 0–9),
+  um Probleme durch Sonderzeichen zu vermeiden.
 
 ## Container installieren
 
@@ -36,7 +35,7 @@ Der Container wird abgerufen und installiert.
 
 ## Traefik konfigurieren
 
-In der Proxy-Konfiguration den "Expertenmodus" aktivieren und folgendes
+In der Proxy-Konfiguration den "Expertenmodus" aktivieren und Folgendes
 eintragen. Damit werden die Anfragen an Collabora über Traefik an den
 Collabora-Container weitergeleitet.
 
@@ -56,7 +55,7 @@ http:
     collabora-headers:
       headers:
         customRequestHeaders:
-          X-Forwarded-Proto: "https"
+          X-Forwarded-Proto: https
 
   services:
     collabora:

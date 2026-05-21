@@ -1,5 +1,4 @@
 ---
-sidebar_position: 1
 title: edulution OnlyOffice
 ---
 
@@ -33,7 +32,7 @@ Der Container wird abgerufen und installiert.
 
 ## Traefik konfigurieren
 
-In der Proxy-Konfiguration den "Expertenmodus" aktivieren und folgendes
+In der Proxy-Konfiguration den "Expertenmodus" aktivieren und Folgendes
 eintragen. Damit werden die Anfragen an OnlyOffice über Traefik an den
 OnlyOffice Documentserver weitergeleitet.
 

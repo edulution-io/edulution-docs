@@ -123,6 +123,10 @@ const config: Config = {
               label: 'edulution OnlyOffice',
               to: '/docs/category/edulution-onlyoffice',
             },
+            {
+              label: 'edulution Collabora',
+              to: '/docs/category/edulution-collabora',
+            },
           ],
         },
         {

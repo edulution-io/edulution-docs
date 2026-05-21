@@ -29,6 +29,10 @@ Die mobile App für iOS und Android - edulution immer dabei.
 
 OnlyOffice-Integration für die Dateiverwaltung
 
+### [edulution Collabora](/docs/edulution-collabora/)
+
+Collabora-Online-Integration für die Dateiverwaltung
+
 ## Kann ich die edulution UI testen?
 
 Sehr gerne sogar! Sie finden eine Demo unter [https://demo.edulution.io](https://demo.edulution.io). Um

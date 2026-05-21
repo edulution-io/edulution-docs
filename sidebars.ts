@@ -331,6 +331,24 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'edulution Collabora',
+      collapsed: false,
+      link: {
+        type: 'generated-index',
+        title: 'edulution Collabora',
+        description: 'Collabora-Online-Integration für die Dateiansicht.',
+        slug: '/category/edulution-collabora',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-collabora/index',
+          label: '📱 Installation',
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Ressourcen',
       collapsed: true,
       items: [

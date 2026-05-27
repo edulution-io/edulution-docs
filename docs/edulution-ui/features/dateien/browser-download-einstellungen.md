@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Damit Dateien aus edulution korrekt heruntergeladen werden, muss in Ihrem Browser die Download-Berechtigung für die edulution-Seite erlaubt sein. Diese Anleitung zeigt Ihnen, wie Sie die Einstellungen in den gängigsten Browsern anpassen.
 
-:::tip Wann ist das nötig?
+:::tip[Wann ist das nötig?]
 Wenn der Browser Downloads von edulution blockiert oder Sie bei jedem Download um Erlaubnis gefragt werden, müssen die Download-Berechtigungen angepasst werden.
 :::
 
@@ -18,14 +18,14 @@ Wenn der Browser Downloads von edulution blockiert oder Sie bei jedem Download u
 2. Klicken Sie auf das **Schloss-Symbol** (oder das Einstellungs-Symbol) links in der Adressleiste
 3. Klicken Sie auf **Berechtigungen für diese Website**
 
-<!-- ![Edge Schloss-Symbol](/img/dateien/browser-downloads/edge-schritt1.png) -->
+{/* ![Edge Schloss-Symbol](/img/dateien/browser-downloads/edge-schritt1.png) */}
 
 ### Schritt 2: Download-Berechtigung erlauben
 
 1. Suchen Sie den Eintrag **Automatische Downloads**
 2. Ändern Sie die Einstellung auf **Zulassen**
 
-<!-- ![Edge Download-Berechtigung](/img/dateien/browser-downloads/edge-schritt2.png) -->
+{/* ![Edge Download-Berechtigung](/img/dateien/browser-downloads/edge-schritt2.png) */}
 
 ### Alternative: Über die Einstellungen
 
@@ -34,7 +34,7 @@ Wenn der Browser Downloads von edulution blockiert oder Sie bei jedem Download u
 3. Geben Sie die URL Ihrer edulution-Instanz ein (z.B. `https://ui.schule.de`)
 4. Klicken Sie auf **Hinzufügen**
 
-<!-- ![Edge Einstellungen](/img/dateien/browser-downloads/edge-einstellungen.png) -->
+{/* ![Edge Einstellungen](/img/dateien/browser-downloads/edge-einstellungen.png) */}
 
 ---
 
@@ -46,14 +46,14 @@ Wenn der Browser Downloads von edulution blockiert oder Sie bei jedem Download u
 2. Klicken Sie auf das **Schloss-Symbol** links in der Adressleiste
 3. Klicken Sie auf **Website-Einstellungen**
 
-<!-- ![Chrome Schloss-Symbol](/img/dateien/browser-downloads/chrome-schritt1.png) -->
+{/* ![Chrome Schloss-Symbol](/img/dateien/browser-downloads/chrome-schritt1.png) */}
 
 ### Schritt 2: Download-Berechtigung erlauben
 
 1. Scrollen Sie zum Eintrag **Automatische Downloads**
 2. Ändern Sie die Einstellung auf **Zulassen**
 
-<!-- ![Chrome Download-Berechtigung](/img/dateien/browser-downloads/chrome-schritt2.png) -->
+{/* ![Chrome Download-Berechtigung](/img/dateien/browser-downloads/chrome-schritt2.png) */}
 
 ### Alternative: Über die Einstellungen
 
@@ -62,7 +62,7 @@ Wenn der Browser Downloads von edulution blockiert oder Sie bei jedem Download u
 3. Geben Sie die URL Ihrer edulution-Instanz ein (z.B. `https://ui.schule.de`)
 4. Klicken Sie auf **Hinzufügen**
 
-<!-- ![Chrome Einstellungen](/img/dateien/browser-downloads/chrome-einstellungen.png) -->
+{/* ![Chrome Einstellungen](/img/dateien/browser-downloads/chrome-einstellungen.png) */}
 
 ---
 
@@ -76,7 +76,7 @@ In Firefox gibt es keine separate Berechtigung für automatische Downloads. Stat
 2. Wählen Sie **Einstellungen**
 3. Scrollen Sie zum Abschnitt **Dateien und Anwendungen**
 
-<!-- ![Firefox Einstellungen öffnen](/img/dateien/browser-downloads/firefox-schritt1.png) -->
+{/* ![Firefox Einstellungen öffnen](/img/dateien/browser-downloads/firefox-schritt1.png) */}
 
 ### Schritt 2: Download-Ordner festlegen
 
@@ -86,7 +86,7 @@ In Firefox gibt es keine separate Berechtigung für automatische Downloads. Stat
 
 2. Empfehlung: Wählen Sie **Dateien speichern unter** und legen Sie einen Ordner fest, damit Downloads nicht blockiert werden
 
-<!-- ![Firefox Download-Einstellungen](/img/dateien/browser-downloads/firefox-schritt2.png) -->
+{/* ![Firefox Download-Einstellungen](/img/dateien/browser-downloads/firefox-schritt2.png) */}
 
 ### Schritt 3: Pop-up-Blocker anpassen
 
@@ -98,7 +98,7 @@ Wenn Downloads blockiert werden, kann es am Pop-up-Blocker liegen:
 4. Geben Sie die URL Ihrer edulution-Instanz ein (z.B. `https://ui.schule.de`)
 5. Klicken Sie auf **Erlauben** und dann auf **Änderungen speichern**
 
-<!-- ![Firefox Pop-up Ausnahmen](/img/dateien/browser-downloads/firefox-schritt3.png) -->
+{/* ![Firefox Pop-up Ausnahmen](/img/dateien/browser-downloads/firefox-schritt3.png) */}
 
 ---
 
@@ -110,7 +110,7 @@ Wenn Downloads blockiert werden, kann es am Pop-up-Blocker liegen:
 2. Klicken Sie in der Menüleiste auf **Safari** > **Einstellungen** (oder drücken Sie `⌘ + ,`)
 3. Wechseln Sie zum Tab **Websites**
 
-<!-- ![Safari Einstellungen](/img/dateien/browser-downloads/safari-schritt1.png) -->
+{/* ![Safari Einstellungen](/img/dateien/browser-downloads/safari-schritt1.png) */}
 
 ### Schritt 2: Download-Berechtigung erlauben
 
@@ -120,7 +120,7 @@ Wenn Downloads blockiert werden, kann es am Pop-up-Blocker liegen:
 
 Falls die Seite noch nicht in der Liste erscheint, öffnen Sie zuerst edulution in einem Tab, dann wird die Seite in der Liste angezeigt.
 
-<!-- ![Safari Download-Berechtigung](/img/dateien/browser-downloads/safari-schritt2.png) -->
+{/* ![Safari Download-Berechtigung](/img/dateien/browser-downloads/safari-schritt2.png) */}
 
 ### Alternative: Beim ersten Download
 
@@ -130,7 +130,7 @@ Wenn Safari einen Download blockiert, erscheint ein Hinweis in der Adressleiste:
 2. Wählen Sie **Erlauben**, um den Download zuzulassen
 3. Optional: Wählen Sie **Immer erlauben für diese Website**, damit zukünftige Downloads nicht mehr blockiert werden
 
-<!-- ![Safari Download-Hinweis](/img/dateien/browser-downloads/safari-schritt3.png) -->
+{/* ![Safari Download-Hinweis](/img/dateien/browser-downloads/safari-schritt3.png) */}
 
 ---
 
@@ -143,6 +143,6 @@ Wenn Safari einen Download blockiert, erscheint ein Hinweis in der Adressleiste:
 | **Firefox** | Download-Ordner & Pop-ups | Einstellungen > Dateien und Anwendungen & Datenschutz > Pop-up-Ausnahmen |
 | **Safari** | Downloads | Safari > Einstellungen > Websites > Downloads > Erlauben |
 
-:::info Tipp
+:::info[Tipp]
 Wenn nach dem Anpassen der Einstellungen weiterhin Probleme auftreten, laden Sie die edulution-Seite einmal neu (F5 bzw. `⌘ + R`).
 :::

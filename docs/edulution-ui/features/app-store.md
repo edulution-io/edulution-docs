@@ -40,7 +40,7 @@ Jede App kann mit einem individuellen Icon versehen werden:
 
 ## Impressum und Datenschutz erstellen
 
-:::tip Rechtliche Pflichtseiten
+:::tip[Rechtliche Pflichtseiten]
 Mit der **"Eingebettet"**-App können Sie rechtliche Pflichtseiten wie Impressum und Datenschutzerklärung direkt in edulution hinterlegen. Diese werden automatisch im Footer Ihrer Webseite verlinkt.
 
 **Wichtig:** Der Seitenname muss exakt **"Impressum"**, **"Imprint"**, **"Datenschutz"** oder **"Privacy"** lauten, damit die automatische Footer-Integration funktioniert.

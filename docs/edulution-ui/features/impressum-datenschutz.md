@@ -63,7 +63,7 @@ Nach dem Hinzufügen öffnet sich der Editor für die neue Seite.
 
 - **Sichtbarkeit**: Aktivieren Sie den Schalter, damit die Seite öffentlich zugänglich ist
 
-:::warning Wichtig
+:::warning[Wichtig]
 Die **Sichtbarkeit** muss aktiviert sein, damit die App im Footer erscheint und für registrierte Nutzer zugänglich ist. Ohne aktivierte Sichtbarkeit bleibt die Seite privat und erscheint nicht im Footer.
 :::
 

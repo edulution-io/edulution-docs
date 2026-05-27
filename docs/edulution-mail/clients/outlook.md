@@ -40,7 +40,7 @@ Anleitung zur Einrichtung von Microsoft Outlook mit edulution Mail.
   </table>
 </div>
 
-:::warning Eingeschränkte Kompatibilität
+:::warning[Eingeschränkte Kompatibilität]
 Outlook hat eingeschränkte Unterstützung. Wir empfehlen [Thunderbird](./thunderbird) oder [Apple Mail](./apple-mail).
 [Vollständige Kompatibilitätsmatrix](./compatibility-matrix)
 :::
@@ -83,7 +83,7 @@ Diese Versionen erfordern OAuth2. Nur E-Mail (IMAP/SMTP) funktioniert.
 7. Geben Sie Ihr **Passwort** ein
 8. Klicken Sie auf **Weiter** und dann **Fertig**
 
-:::warning Keine Kalender & Kontakte
+:::warning[Keine Kalender & Kontakte]
 Outlook 2019/2021/365 kann **nicht** mit CalDAV/CardDAV synchronisieren. Auch kostenpflichtige Plugins funktionieren oft nicht zuverlässig.
 
 **Empfohlene Lösungen:**
@@ -93,7 +93,7 @@ Outlook 2019/2021/365 kann **nicht** mit CalDAV/CardDAV synchronisieren. Auch ko
 
 ## Outlook 2013 / 2016
 
-:::caution Problematisch
+:::caution[Problematisch]
 ActiveSync funktioniert in diesen Versionen oft **instabil**. Für Kalender und Kontakte werden **kostenpflichtige Plugins** benötigt.
 :::
 
@@ -110,7 +110,7 @@ ActiveSync funktioniert in diesen Versionen oft **instabil**. Für Kalender und 
    - **Passwort:** Ihr Passwort
 5. Klicken Sie auf **Weiter**
 
-:::warning ActiveSync-Probleme
+:::warning[ActiveSync-Probleme]
 Falls ActiveSync nicht funktioniert:
 - Verwenden Sie **IMAP/SMTP** stattdessen (siehe Outlook 2019 Anleitung oben)
 - ActiveSync ist in Outlook 2013/2016 bekanntermaßen problematisch mit Mailcow
@@ -126,13 +126,13 @@ Für Kalender und Kontakte benötigen Sie ein **kostenpflichtiges Plugin**:
   - Unterstützt CalDAV und CardDAV
   - Konfiguration erfordert technisches Verständnis
 
-:::tip Bessere Alternative
+:::tip[Bessere Alternative]
 Statt ein Plugin zu kaufen, empfehlen wir den **kostenlosen Wechsel zu Thunderbird**, das native CalDAV/CardDAV Unterstützung hat.
 :::
 
 ## Outlook 2007-2010
 
-:::danger Veraltet
+:::danger[Veraltet]
 Diese Versionen sind **veraltet und unsicher**. Bitte aktualisieren Sie oder wechseln Sie zu einer modernen Alternative.
 
 **Nur E-Mail (IMAP)** funktioniert, Kalender und Kontakte erfordern Plugins.
@@ -142,7 +142,7 @@ Verwenden Sie die IMAP-Konfiguration wie bei Outlook 2019 beschrieben.
 
 ## Neues Outlook (Web-basiert)
 
-:::danger Sicherheitsrisiko
+:::danger[Sicherheitsrisiko]
 Das neue Outlook (Web) überträgt Ihre **Zugangsdaten an Microsoft-Server**. Dies ist ein **erhebliches Datenschutz- und Sicherheitsrisiko**.
 
 **NICHT EMPFOHLEN für sensible Schuldaten!**
@@ -218,7 +218,7 @@ Das Webmail-Interface (SOGo) bietet:
 - ✅ Zugriff von jedem Browser
 - ✅ Mobile-optimierte Ansicht
 
-:::tip Weitere Hilfe
+:::tip[Weitere Hilfe]
 Weitere Lösungen für häufige Probleme finden Sie auf unserer **[Troubleshooting-Seite](./troubleshooting)**.
 
 Bei weiteren Problemen wenden Sie sich an Ihren Administrator oder die [edulution Community](https://ask.linuxmuster.net/c/edulution/63).

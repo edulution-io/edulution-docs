@@ -104,6 +104,7 @@ const sidebars: SidebarsConfig = {
                 'edulution-ui/features/dateien/webdav-windows',
                 'edulution-ui/features/dateien/webdav-macos',
                 'edulution-ui/features/dateien/webdav-linux',
+                'edulution-ui/features/goodnotes',
               ],
             },
             'edulution-ui/features/klassenzimmer',
@@ -117,6 +118,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/features/mobile-app',
             'edulution-ui/features/sicherheit',
             'edulution-ui/features/weitere-features',
+            'edulution-ui/features/umfragen',
           ],
         },
         {
@@ -250,6 +252,11 @@ const sidebars: SidebarsConfig = {
               id: 'edulution-mail/admin-features',
               label: 'Admin-Features & Tipps',
             },
+            {
+              type: 'doc',
+              id: 'edulution-mail/changelog-config-anpassungen',
+              label: 'Changelog & Config-Anpassungen',
+            },
           ],
         },
       ],
@@ -320,14 +327,32 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'edulution OnlyOffice',
-        description: 'OnlyOffice-Integration für die Dateiansicht.',
+        description: 'OnlyOffice-Integration für die Dateiverwaltung.',
         slug: '/category/edulution-onlyoffice',
       },
       items: [
         {
           type: 'doc',
           id: 'edulution-onlyoffice/index',
-          label: '📱 Installation',
+          label: '⚙️ Installation',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'edulution Collabora',
+      collapsed: false,
+      link: {
+        type: 'generated-index',
+        title: 'edulution Collabora',
+        description: 'Collabora-Online-Integration für die Dateiverwaltung.',
+        slug: '/category/edulution-collabora',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-collabora/index',
+          label: '⚙️ Installation',
         },
       ],
     },

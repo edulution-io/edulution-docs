@@ -146,7 +146,7 @@ Einrichtung der E-Mail-Synchronisation:
 **Aktionen:**
 - **Neu laden**: Button zum Aktualisieren der Sync-Job Liste
 
-:::tip Hinweis
+:::tip[Hinweis]
 Weitere Informationen zur E-Mail-Migration finden Sie unter [E-Mail Migration](../../edulution-mail/user_mail_migration.md).
 :::
 
@@ -181,7 +181,7 @@ Verfügbare Sprachen:
 
 Einrichtung des mobilen Zugriffs auf Ihre Dateien über die edulution.io App.
 
-:::info Nur für iOS
+:::info[Nur für iOS]
 Aktuell ist die edulution.io App nur für Apple iOS verfügbar.
 :::
 

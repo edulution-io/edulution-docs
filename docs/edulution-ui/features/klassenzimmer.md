@@ -2,7 +2,7 @@
 
 Der Klassenraum ist das zentrale Tool für Lehrer zur Unterrichtsverwaltung. Hier können Sie Unterricht starten, Schüler überwachen und Projekte verwalten.
 
-:::info Linuxmuster Integration
+:::info[Linuxmuster Integration]
 Der Klassenraum nutzt die Linuxmuster-Funktionen für Klassenverwaltung und Projekte (Sophomorix). Mehr Informationen: [Linuxmuster Dokumentation](https://docs.linuxmuster.net/de/latest/systemadministration/schoolconsole/)
 :::
 
@@ -71,7 +71,7 @@ Alle Projekte mit:
 - Admin- und Benutzer-Anzahl
 - 🔒 Private Projekte mit Schloss-Symbol
 
-:::tip Projekte nutzen
+:::tip[Projekte nutzen]
 Projekte sind ideal für:
 - Oberstufenkurse
 - AGs und Arbeitsgruppen
@@ -103,7 +103,7 @@ Drucken Sie Zugangsdaten für Klassen aus.
 - 📄 **Einzeldatei** - Nur diese Klasse
 - 📋 **Sammeldatei** - Mehrere Klassen zusammen
 
-:::tip Verwendung
+:::tip[Verwendung]
 Nützlich für:
 - Schuljahresbeginn (neue Schüler)
 - Nach Passwort-Reset

@@ -12,7 +12,7 @@ const config: Config = {
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
   // Set the production url of your site here
@@ -127,6 +127,10 @@ const config: Config = {
             {
               label: 'edulution OnlyOffice',
               to: '/docs/category/edulution-onlyoffice',
+            },
+            {
+              label: 'edulution Collabora',
+              to: '/docs/category/edulution-collabora',
             },
           ],
         },

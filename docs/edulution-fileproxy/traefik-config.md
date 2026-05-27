@@ -26,7 +26,7 @@ Auf der **edulution UI VM**:
 sudo nano /srv/docker/edulution-ui/data/traefik/config/webdav.yml
 ```
 
-:::info Pfad
+:::info[Pfad]
 Der Pfad kann je nach Installation variieren. Suchen Sie nach dem Traefik-Config-Verzeichnis.
 :::
 

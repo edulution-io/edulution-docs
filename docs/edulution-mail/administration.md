@@ -48,7 +48,7 @@ zugänglich sein, ist es unerlässlich, das Standardpasswort sofort zu
 - **Spam- und Antivirus-Einstellungen:** Anpassung der Schutzmechanismen
 - **Systemstatus:** Überwachung der Mailserver-Leistung und -Gesundheit
 
-## Webmail (SOGo) {#webmail-sogo}
+## Webmail (SOGo)
 
 Das Webmail-Interface basiert auf SOGo und ist über `https://mail.ihre-domain.de/SOGo` erreichbar.
 
@@ -115,7 +115,7 @@ SOFT_DELETE_ENABLED=1  # 1=aktiviert, 0=deaktiviert
 SOFT_DELETE_GRACE_PERIOD=2592000
 ```
 
-:::tip Empfehlung
+:::tip[Empfehlung]
 Lassen Sie das Soft Delete Feature aktiviert, um sich vor versehentlichem Datenverlust zu schützen. Die 30-tägige Kulanzfrist gibt genug Zeit, um Fehler zu korrigieren.
 :::
 
@@ -136,7 +136,7 @@ Die wichtigsten Umgebungsvariablen für die Konfiguration:
 | `SOFT_DELETE_GRACE_PERIOD` | 2592000 | Kulanzfrist in Sekunden (30 Tage) |
 | `MAILCOW_TZ` | Europe/Berlin | Zeitzone für Mailcow |
 
-:::info Vollständige Liste
+:::info[Vollständige Liste]
 Eine vollständige Liste aller Umgebungsvariablen finden Sie im [edulution-mail Repository](https://github.com/edulution-io/edulution-mail#environment-variables).
 :::
 
@@ -157,7 +157,7 @@ Eine Override-Konfiguration ist besonders hilfreich für:
 - **Domain-Quota anpassen** - Falls die Gesamtgröße für die E-Mail-Domain erhöht werden muss.
 - **Fallback-Quota für Benutzer** - Wenn in linuxmuster keine individuellen Mail-Quotas gesetzt sind, wird `DEFAULT_USER_QUOTA` als Fallback verwendet.
 
-:::info Automatische Quota-Übernahme
+:::info[Automatische Quota-Übernahme]
 Benutzer-Quotas werden automatisch aus linuxmuster (`sophomorixMailQuotaCalculated`) übernommen. `DEFAULT_USER_QUOTA` wird nur verwendet, wenn in linuxmuster kein Quota gesetzt ist.
 :::
 
@@ -201,7 +201,7 @@ rm /srv/docker/edulution-mail/DISABLE_SYNC
 
 Die Synchronisation prüft bei jedem Durchlauf (siehe `SYNC_INTERVAL`), ob die Datei `DISABLE_SYNC` existiert und überspringt den Sync in diesem Fall.
 
-:::warning Wichtig
+:::warning[Wichtig]
 Vergessen Sie nicht, die Datei nach Abschluss der Wartungsarbeiten zu löschen, damit die Synchronisation wieder aufgenommen wird!
 :::
 

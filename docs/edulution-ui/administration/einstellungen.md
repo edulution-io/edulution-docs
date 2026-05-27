@@ -2,7 +2,7 @@
 
 Die Einstellungen sind nur für Global-Admins zugänglich und ermöglichen die zentrale Konfiguration von edulution.io.
 
-:::caution Nur Global-Admin
+:::caution[Nur Global-Admin]
 Diese Seite ist nur als Global-Administrator sichtbar. Sie erscheint im Menü rechts unten.
 :::
 
@@ -131,7 +131,7 @@ Die IMAP-Integration ermöglicht den Zugriff auf externe oder interne IMAP-Serve
 - Aktiviert: SSL/TLS-Zertifikat wird validiert
 - Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
 
-:::warning Sicherheitshinweis
+:::warning[Sicherheitshinweis]
 In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Nicht zertifizierte Verbindungen ablehnen" einschalten, um die Sicherheit der E-Mail-Kommunikation zu gewährleisten.
 :::
 
@@ -187,7 +187,7 @@ In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Ni
 
 **Neu laden** - Button zum Aktualisieren unten
 
-:::info Fortgeschrittene Verwaltung
+:::info[Fortgeschrittene Verwaltung]
 Die Container-Übersicht ist für fortgeschrittene Administratoren. Änderungen sollten nur mit entsprechendem Docker-Know-how vorgenommen werden.
 :::
 

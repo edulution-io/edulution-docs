@@ -34,7 +34,7 @@ Im Dialog **Mit Server verbinden**:
 1. Geben Sie die WebDAV-URL ein (z.B. `davs://ui.schule.de/webdav2/`)
 2. Klicken Sie auf **Verbinden**
 
-:::tip Favorit speichern
+:::tip[Favorit speichern]
 Klicken Sie auf das **+**-Symbol neben der Adressleiste, um den Server als Favorit zu speichern. So können Sie sich beim nächsten Mal schneller verbinden.
 :::
 

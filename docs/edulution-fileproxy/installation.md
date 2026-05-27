@@ -38,10 +38,13 @@ sudo nano /etc/edulution-fileproxy/config.yml
 
 ### Minimal-Konfiguration
 
+`apt install edulution-fileproxy` legt unter `/etc/edulution-fileproxy/config.yml` bereits eine vollständige Default-Konfiguration an (kopiert aus `config.example.yml`). Diese enthält alle Blöcke, die für einen funktionsfähigen Start nötig sind – einschließlich des standardmäßig aktivierten Wiki-Indexers. Anpassen müssen Sie üblicherweise nur IPs, Domain und die Share-Liste:
+
 ```yaml
 ldap:
   server: "ldaps://10.1.0.1:636"
   insecure_skip_verify: true
+  base_dn: "DC=linuxmuster,DC=lan"   # Pflicht für ACL-Auswertung und Wiki-Suche
 
 smb:
   server: "10.1.0.101"
@@ -50,6 +53,10 @@ smb:
   shares:
     - name: default-school
     - name: linuxmuster-global
+
+  indexer_service_account:
+    user: "global-admin"
+    password_file: "/etc/edulution-fileproxy/indexer.secret"
 
 http:
   address: ":8443"
@@ -60,6 +67,10 @@ http:
 log:
   level: "info"
   file: "/var/log/edulution-fileproxy/webdav-server.log"
+
+elasticsearch:
+  enabled: true                       # Wiki-Indexer; siehe „Wiki-Funktion vorbereiten" unten
+  url: "http://127.0.0.1:9200"
 ```
 
 ### Wichtige Parameter
@@ -70,6 +81,7 @@ log:
 |-----------|--------------|----------|
 | `server` | LDAP-Server URL | `ldaps://10.1.0.1:636` (sicher)<br/>`ldap://10.1.0.1:389` (unsicher) |
 | `insecure_skip_verify` | Zertifikat-Prüfung überspringen | `true` bei self-signed Zertifikaten |
+| `base_dn` | Pflicht für ACL-Auswertung und Wiki-Suche (Gruppen → SIDs auflösen) | `DC=linuxmuster,DC=lan` |
 
 #### SMB
 
@@ -79,12 +91,45 @@ log:
 | `domain` | Windows-Domain | `LINUXMUSTER` |
 | `share_autodiscover` | Auto-Erkennung | `false` empfohlen |
 | `shares` | Liste der Shares | Array von `{name: "sharename"}` |
+| `indexer_service_account.user` | AD-Konto für SMB-Lesezugriffe des Wiki-Indexers | `global-admin` |
+| `indexer_service_account.password_file` | Pfad zur Passwort-Datei (Mode 0600) | `/etc/edulution-fileproxy/indexer.secret` |
 
 :::tip[Share Autodiscover]
 Bei `share_autodiscover: true` werden Admin-Credentials (`username`, `password`) benötigt.
 
 **Empfehlung:** Nutzen Sie `false` und definieren Sie Shares manuell - sicherer!
 :::
+
+#### Elasticsearch (Wiki-Indexer)
+
+| Parameter | Beschreibung | Wert |
+|-----------|--------------|------|
+| `enabled` | Wiki-Indexer aktivieren (Standard: an) | `true` |
+| `url` | URL des ES-Sidecars | `http://127.0.0.1:9200` |
+
+Siehe [Wiki-Infrastruktur](./wiki-infrastruktur) für die vollständige Einrichtung von ES-Sidecar und Erstindex.
+
+## Wiki-Funktion vorbereiten
+
+Die Wiki-Funktion ist in der mitgelieferten `config.yml` standardmäßig aktiviert (`elasticsearch.enabled: true`). Vor dem ersten Start muss daher entweder das Indexer-Passwort hinterlegt **oder** die Wiki-Funktion explizit deaktiviert werden – sonst beendet sich FileProxy beim Start mit einem Fatal-Fehler (`smb.indexer_service_account.user is required when elasticsearch.enabled is true`).
+
+**Variante A – Wiki nutzen (Standard):**
+
+```bash
+echo -n 'GLOBAL_ADMIN_PASSWORT' | sudo tee /etc/edulution-fileproxy/indexer.secret
+sudo chmod 600 /etc/edulution-fileproxy/indexer.secret
+```
+
+Anschließend gemäß [Wiki-Infrastruktur](./wiki-infrastruktur) den Elasticsearch-Sidecar starten und den ersten Index-Lauf durchführen.
+
+**Variante B – Wiki nicht nutzen:**
+
+In `/etc/edulution-fileproxy/config.yml`:
+
+```yaml
+elasticsearch:
+  enabled: false
+```
 
 ## Service starten
 

@@ -110,6 +110,8 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/features/klassenzimmer',
             'edulution-ui/features/konferenzen',
             'edulution-ui/features/whiteboard',
+            'edulution-ui/features/wiki',
+            'edulution-ui/features/markdown-hilfe',
             'edulution-ui/features/app-store',
             'edulution-ui/features/impressum-datenschutz',
             'edulution-ui/features/eingebettete-app',
@@ -126,6 +128,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'edulution-ui/administration/administration',
             'edulution-ui/administration/einstellungen',
+            'edulution-ui/administration/wiki-einstellungen',
             'edulution-ui/administration/experten-tipps',
           ],
         },
@@ -286,6 +289,11 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'edulution-fileproxy/ui-config',
           label: 'UI Konfiguration',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-fileproxy/wiki-infrastruktur',
+          label: 'Wiki-Infrastruktur',
         },
       ],
     },

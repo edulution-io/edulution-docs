@@ -12,7 +12,7 @@ Dieses Dokument setzt eine funktionierende FileProxy-Installation voraus. Folgen
 
 ## Architektur-Überblick
 
-Das Wiki erweitert den FileProxy um einen **Elasticsearch-Sidecar** für die Volltextsuche und ein paar zusätzliche HTTP-Endpunkte. Wiki-Seiten sind ganz normale Markdown-Dateien, die in einem versteckten Ordner `.wiki/` innerhalb jeder SMB-Freigabe liegen.
+Das Wiki erweitert den FileProxy um einen **Elasticsearch-Sidecar** für die Volltextsuche und ein paar zusätzliche HTTP-Endpunkte. Wiki-Seiten sind Markdown-Dateien, die in einem versteckten Ordner `.wiki/` innerhalb jeder SMB-Freigabe liegen.
 
 ```mermaid
 flowchart LR
@@ -24,7 +24,7 @@ flowchart LR
     SMB[(Windows Share)]
 
     Browser -- HTTPS --> UI
-    UI -- "HTTPS / Basic Auth" --> FP
+    UI -- WebDAV --> FP
     FP -- LDAP --> AD
     FP -- "loopback :9200" --> ES
     FP -- "SMB :445" --> SMB

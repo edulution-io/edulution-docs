@@ -8,7 +8,7 @@ Diese Einstellungen sind ausschließlich für Global-Admins zugänglich.
 
 ## Zugriff
 
-Öffnen Sie als Global-Admin die **Einstellungen** (Zahnrad-Symbol unten im Menü) und wählen Sie in der Seitenleiste **Wiki**. Im Hauptbereich finden Sie unter den allgemeinen Wiki-Einstellungen den ausklappbaren Abschnitt **Wiki-Sichtbarkeit**.
+Öffnen Sie als Global-Admin die **Einstellungen** (Zahnrad-Symbol unten im Menü) und wählen Sie in der Seitenleiste **Wiki**. Scrollen Sie im Hauptbereich zum ausklappbaren Abschnitt **Wiki-Sichtbarkeit**.
 
 ![Wiki Sichtbarkeit](/img/wiki/sichtbarkeit-tabelle.png)
 

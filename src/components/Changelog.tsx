@@ -644,8 +644,18 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
   // Alle verfügbaren Tags sammeln
   const allTags = Array.from(new Set(entries.map((e) => e.tag).filter(Boolean))) as string[];
 
+  // Produktübergreifend nach Datum (neueste zuerst) sortieren, bei Gleichstand nach Version.
+  // Verhindert, dass die Reihenfolge von der Dateipfad-Sortierung in changelog.mdx abhängt.
+  const sortedEntries = [...entries].sort((a, b) => {
+    const dateCompare = (b.date || '').localeCompare(a.date || '');
+    if (dateCompare !== 0) {
+      return dateCompare;
+    }
+    return (b.version || '').localeCompare(a.version || '', undefined, { numeric: true });
+  });
+
   // Filtern
-  const filteredEntries = entries.filter((entry) => {
+  const filteredEntries = sortedEntries.filter((entry) => {
     const matchesSearch =
       searchTerm === '' ||
       entry.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

@@ -42,3 +42,76 @@
   text-decoration: underline;
   transition: color 0.2s;
 }
+
+.changelog-carousel .carousel {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.changelog-carousel .carousel-body {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.changelog-carousel .carousel-body {
+  transition: transform 0.5s ease;
+}
+
+.changelog-carousel .carousel-slide {
+  flex: 0 0 auto;
+  align-self: flex-start;
+}
+
+.changelog-carousel .carousel-slide > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.changelog-carousel .carousel-prev,
+.changelog-carousel .carousel-next {
+  position: absolute;
+  inset-block: 0;
+  display: inline-flex;
+  align-items: center;
+  height: max-content;
+  margin-block: auto;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+}
+
+.changelog-carousel .carousel-prev.disabled,
+.changelog-carousel .carousel-next.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.changelog-carousel .carousel-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.changelog-carousel-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.changelog-carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.changelog-carousel-dot.active {
+  width: 1.5rem;
+  background: var(--edulution-green);
+}

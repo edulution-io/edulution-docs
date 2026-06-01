@@ -26,6 +26,167 @@ interface ChangelogProps {
   entries: ChangelogEntry[];
 }
 
+const ImageCarousel: React.FC<{ images: { url: string; alt: string }[] }> = ({ images }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const imagesKey = images.map((i) => i.url).join('|');
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !ref.current || images.length <= 1) {
+      return;
+    }
+    const el = ref.current;
+    let instance: { destroy?: () => void; recalculateWidth?: () => void } | undefined;
+    let cancelled = false;
+
+    const reveal = () => el.querySelector('.carousel-body')?.classList.remove('opacity-0');
+
+    import('flyonui/dist/carousel.mjs')
+      .then((mod) => {
+        if (cancelled || !el) {
+          return;
+        }
+        const HSCarousel = (mod as { default?: any }).default || (window as any).HSCarousel;
+        if (!HSCarousel) {
+          reveal();
+          return;
+        }
+        if (!(window as any).$hsCarouselCollection) {
+          (window as any).$hsCarouselCollection = [];
+        }
+        const existing = HSCarousel.getInstance?.(el);
+        if (existing) {
+          instance = existing;
+          return;
+        }
+        instance = new HSCarousel(el, {
+          isInfiniteLoop: true,
+          isDraggable: true,
+          isAutoHeight: true,
+          dotsItemClasses: 'changelog-carousel-dot',
+          loadingClasses: 'opacity-0',
+        });
+
+        const recalc = () => {
+          try {
+            instance?.recalculateWidth?.();
+          } catch {
+            /* noop */
+          }
+        };
+        el.querySelectorAll('img').forEach((img) => {
+          if (!(img as HTMLImageElement).complete) {
+            img.addEventListener('load', recalc, { once: true });
+            img.addEventListener('error', recalc, { once: true });
+          }
+        });
+        window.setTimeout(recalc, 600);
+        window.setTimeout(recalc, 1800);
+      })
+      .catch(() => {
+        reveal();
+      });
+
+    return () => {
+      cancelled = true;
+      try {
+        instance?.destroy?.();
+      } catch {
+        /* noop */
+      }
+      const w = window as any;
+      if (Array.isArray(w.$hsCarouselCollection)) {
+        w.$hsCarouselCollection = w.$hsCarouselCollection.filter((c: any) => c?.element?.el !== el);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [imagesKey]);
+
+  if (images.length === 1) {
+    const img = images[0];
+    return (
+      <div className="relative overflow-hidden rounded-2xl bg-gray-900/50 mb-8 group cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-[#8FC046]/50">
+        <img
+          src={img.url}
+          alt={img.alt}
+          className="w-full h-auto transition-transform duration-300 group-hover:scale-[1.02]"
+        />
+        <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+      </div>
+    );
+  }
+
+  return (
+    <div
+      ref={ref}
+      data-carousel
+      className="changelog-carousel relative mb-8"
+    >
+      <div className="carousel rounded-2xl bg-gray-900/50 ring-1 ring-inset ring-white/10">
+        <div className="carousel-body opacity-0">
+          {images.map((img, idx) => (
+            <div
+              key={idx}
+              className="carousel-slide"
+            >
+              <img
+                src={img.url}
+                alt={img.alt}
+                className="block w-full h-auto"
+                draggable={false}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        aria-label="Vorheriges Bild"
+        className="carousel-prev left-0 z-10 px-2"
+      >
+        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white/90 backdrop-blur transition-colors hover:bg-black/60">
+          <svg
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        type="button"
+        aria-label="Nächstes Bild"
+        className="carousel-next right-0 z-10 px-2"
+      >
+        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white/90 backdrop-blur transition-colors hover:bg-black/60">
+          <svg
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </span>
+      </button>
+
+      <div className="carousel-pagination" />
+    </div>
+  );
+};
+
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
   return date.toLocaleDateString('de-DE', {
@@ -248,8 +409,7 @@ function ArticleHeader({ id, date, tag }: { id: string; date: string; tag?: stri
 // Article
 export const ChangelogItem: React.FC<{
   entry: ChangelogEntry;
-  index: number;
-}> = ({ entry, index }) => {
+}> = ({ entry }) => {
   const heightRef = useRef<HTMLDivElement>(null);
   const [heightAdjustment, setHeightAdjustment] = useState(0);
 
@@ -276,6 +436,13 @@ export const ChangelogItem: React.FC<{
 
   const id = entry.version ? `v${entry.version}` : entry.date.replace(/\//g, '-');
 
+  const contentImages = (entry.content?.filter((b) => b.type === 'image') ?? []) as Array<{
+    type: 'image';
+    url: string;
+    alt: string;
+  }>;
+  const firstImageIdx = entry.content?.findIndex((b) => b.type === 'image') ?? -1;
+
   return (
     <article
       id={id}
@@ -297,18 +464,14 @@ export const ChangelogItem: React.FC<{
             <div className="space-y-6">
               {entry.content.map((block, idx) => {
                 if (block.type === 'image') {
+                  if (idx !== firstImageIdx) {
+                    return null;
+                  }
                   return (
-                    <div
+                    <ImageCarousel
                       key={idx}
-                      className="relative overflow-hidden rounded-2xl bg-gray-900/50 mb-8 group cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-[#8FC046]/50"
-                    >
-                      <img
-                        src={block.url}
-                        alt={block.alt}
-                        className="w-full h-auto transition-transform duration-300 group-hover:scale-[1.02]"
-                      />
-                      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
-                    </div>
+                      images={contentImages.map((b) => ({ url: b.url, alt: b.alt }))}
+                    />
                   );
                 }
 
@@ -405,33 +568,15 @@ export const ChangelogItem: React.FC<{
           ) : (
             <>
               {/* Legacy rendering */}
-              {entry.image && (
-                <div className="relative overflow-hidden rounded-2xl bg-gray-900/50 mb-8 group cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-[#8FC046]/50">
-                  <img
-                    src={entry.image}
-                    alt={entry.title}
-                    className="w-full h-auto transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
-                </div>
-              )}
+              {entry.image && <ImageCarousel images={[{ url: entry.image, alt: entry.title }]} />}
 
               {entry.images && entry.images.length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  {entry.images.map((img, idx) => (
-                    <div
-                      key={idx}
-                      className="relative overflow-hidden rounded-xl bg-gray-900/50 group cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-[#8FC046]/50"
-                    >
-                      <img
-                        src={img}
-                        alt={`${entry.title} - Screenshot ${idx + 1}`}
-                        className="w-full h-auto transition-transform duration-300 group-hover:scale-[1.02]"
-                      />
-                      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-white/10" />
-                    </div>
-                  ))}
-                </div>
+                <ImageCarousel
+                  images={entry.images.map((img, idx) => ({
+                    url: img,
+                    alt: `${entry.title} - Screenshot ${idx + 1}`,
+                  }))}
+                />
               )}
 
               {entry.improvements && entry.improvements.length > 0 && (
@@ -623,7 +768,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
             <ChangelogItem
               key={`${entry.version}-${entry.date}-${index}`}
               entry={entry}
-              index={index}
             />
           ))
         ) : (

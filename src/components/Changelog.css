@@ -55,8 +55,7 @@
   align-items: flex-start;
 }
 
-.changelog-carousel .carousel-body,
-.changelog-carousel .carousel-slide {
+.changelog-carousel .carousel-body {
   transition: transform 0.5s ease;
 }
 
@@ -114,5 +113,5 @@
 
 .changelog-carousel-dot.active {
   width: 1.5rem;
-  background: #8fc046;
+  background: var(--edulution-green);
 }

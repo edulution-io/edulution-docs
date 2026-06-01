@@ -409,8 +409,7 @@ function ArticleHeader({ id, date, tag }: { id: string; date: string; tag?: stri
 // Article
 export const ChangelogItem: React.FC<{
   entry: ChangelogEntry;
-  index: number;
-}> = ({ entry, index }) => {
+}> = ({ entry }) => {
   const heightRef = useRef<HTMLDivElement>(null);
   const [heightAdjustment, setHeightAdjustment] = useState(0);
 
@@ -436,7 +435,7 @@ export const ChangelogItem: React.FC<{
   }, []);
 
   const id = entry.version ? `v${entry.version}` : entry.date.replace(/\//g, '-');
-  
+
   const contentImages = (entry.content?.filter((b) => b.type === 'image') ?? []) as Array<{
     type: 'image';
     url: string;
@@ -569,16 +568,7 @@ export const ChangelogItem: React.FC<{
           ) : (
             <>
               {/* Legacy rendering */}
-              {entry.image && (
-                <div className="relative overflow-hidden rounded-2xl bg-gray-900/50 mb-8 group cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-[#8FC046]/50">
-                  <img
-                    src={entry.image}
-                    alt={entry.title}
-                    className="w-full h-auto transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
-                </div>
-              )}
+              {entry.image && <ImageCarousel images={[{ url: entry.image, alt: entry.title }]} />}
 
               {entry.images && entry.images.length > 0 && (
                 <ImageCarousel
@@ -778,7 +768,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
             <ChangelogItem
               key={`${entry.version}-${entry.date}-${index}`}
               entry={entry}
-              index={index}
             />
           ))
         ) : (

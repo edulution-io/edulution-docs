@@ -55,7 +55,7 @@ Wählen Sie die Benutzeroberflächen-Sprache:
 
 ### Einstellung ändern
 
-1. Gehen Sie zu **Mein Profil** → **Sprache**
+1. Gehen Sie zu **Benutzereinstellungen** → **Sprache**
 2. Wählen Sie die gewünschte Sprache
 3. Die Oberfläche wird automatisch aktualisiert
 

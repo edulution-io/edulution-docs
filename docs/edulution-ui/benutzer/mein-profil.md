@@ -1,13 +1,13 @@
-# Mein Profil
+# Benutzereinstellungen
 
 Über das Profil-Menü (unten rechts im Dashboard) können Sie auf Ihre persönlichen Einstellungen und Kontoinformationen zugreifen.
 
 ![Dashboard Profil-Menü](/img/benutzer/dashboard-profil-menu.png)
 
-## Zugriff auf Mein Profil
+## Zugriff auf die Benutzereinstellungen
 
 1. Klicken Sie auf Ihr Profilbild unten rechts
-2. Wählen Sie **My Profile** aus dem Dropdown-Menü
+2. Wählen Sie **Benutzereinstellungen** aus dem Dropdown-Menü
 3. Alternativ: **Logout** zum Abmelden
 
 ## Übersicht der Bereiche
@@ -235,7 +235,7 @@ Weitere Details unter [Mobile App & Tablet-Nutzung](../features/mobile-app.md).
 
 Vom Dashboard aus erreichen Sie das Profil-Menü über:
 - Klick auf Ihr Profilbild (unten rechts)
-- **My Profile** für Profileinstellungen
+- **Benutzereinstellungen** für Profileinstellungen
 - **Logout** zum Abmelden
 
 ## Siehe auch

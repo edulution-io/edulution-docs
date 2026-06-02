@@ -98,4 +98,4 @@ Einige Apps sind standardmäßig installiert und können nicht entfernt werden:
 - Dashboard
 - Mail
 - Einstellungen
-- Mein Profil
+- Benutzereinstellungen

@@ -191,7 +191,7 @@ Mehr dazu unter [Mobile App & Tablet-Nutzung](mobile-app.md).
 
 ## Weitere Informationen
 
-- [Mein Profil](../benutzer/mein-profil.md) - Profileinstellungen verwalten
+- [Benutzereinstellungen](../benutzer/mein-profil.md) - Profileinstellungen verwalten
 - [Sicherheitseinstellungen](sicherheit.md) - Passwort ändern und Sicherheit konfigurieren
 - [Mobile App](mobile-app.md) - Mobile Nutzung einrichten
 - [Schwarzes Brett](weitere-features.md#schwarzes-brett) - Mitteilungen verwalten

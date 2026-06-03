@@ -55,7 +55,7 @@ Beim Scannen des QR-Codes werden alle benötigten Daten automatisch übernommen 
 
 So findest du den QR-Code:
 1. Melde dich auf der edulution Plattform deiner Schule an
-2. Navigiere zu **"Mein Profil"**
+2. Navigiere zu **"Benutzereinstellungen"**
 3. Wähle **"Mobiler Zugriff"**
 4. Scanne den angezeigten QR-Code mit der App
 

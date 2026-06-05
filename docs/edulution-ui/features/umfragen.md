@@ -324,17 +324,20 @@ Der Teilnehmer soll eigene Vorschläge machen. Dann nutzt der Ersteller der Umfr
 
 Das Unterschrift-Feld kann zur Authentifizierung der Teilnahme genutzt werden.
 
+#### Umfrage Logo
+
+Ein individuelles in App logo kann in den [AppSettings](#logo) festgelegt werden.
+
+![Choose new image file](/img/umfragen/Screenshot_20260605_145014.png)
+
+![Change logo settings](/img/umfragen/Screenshot_20260605_144735.png)
+
+
 ## Umfrage speichern
 
 :::info[Der Vorschau-Reiter]
 In der Vorschau können Sie die Umfrage einmal durchklicken und prüfen, ob alles passt.
 :::
-
-### Sichtbarkeit der Umfragen
-
-Eine Umfrage kann beim Speichern als öffentlich deklariert werden.
-
-![Sichtbarkeit der Umfragen](/img/umfragen/Screenshot_20260506_121918.png)
 
 ### Benutzer-Ansicht
 
@@ -358,6 +361,12 @@ Als Administrator können Sie die aktuell bearbeitete Umfrage auch als Vorlage s
 - **Zugriffsgruppen**: Die Vorlage wird in der Kachelansicht nur den Benutzern angezeigt, die Mitglied in mindestens einer der ausgewählten Gruppen sind.
 
 Auf diesem Weg können Administratoren auch bestehende Vorlagen bearbeiten. Dazu muss die entsprechende Vorlage ausgewählt werden. Beim [Speichern der Umfrage](#umfrage-speichern) muss dann der Haken an der Checkbox "Als Vorlage speichern" gesetzt werden.
+
+### Sichtbarkeit der Umfragen
+
+Eine Umfrage kann beim Speichern als öffentlich deklariert werden.
+
+![Sichtbarkeit der Umfragen](/img/umfragen/Screenshot_20260506_121918.png)
 
 ## Als PDF exportieren
 
@@ -385,7 +394,7 @@ So kann zum Beispiel verhindert werden dass Schüler eigene Umfragen erstellen k
 ### Logo
 
 Innerhalb der Umfragen-App kann ein individuelles App Logo mitgegeben werden, welches von da an in jedem Survey standartmäsig angeheftet wird.
-Das Umfragen spezifische App-Logo kann im Editor dann später einfach mit dem gewünschten Bild ausgetauscht werden. 
+Das Umfragen spezifische [App-Logo](#umfrage-logo) kann im Editor dann später einfach mit dem gewünschten Bild ausgetauscht werden.
 
 ---
 

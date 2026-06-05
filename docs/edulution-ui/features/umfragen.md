@@ -367,6 +367,28 @@ Klicken Sie in der Aktionen-Leiste auf den Button **Als PDF exportieren**, um di
 Es gibt einige Fragetypen, bei denen das PDF-Rendering nicht oder nur eingeschränkt funktioniert. Zum Beispiel werden die Bilder der **Bildauswahl** nicht angezeigt.
 :::
 
+---
+
+## Einstellungen
+
+![App Settings](/img/umfragen/Screenshot_20260605_140542.png)
+
+<!-- ### Berechtigungen innerhalb der Applikation
+
+Innerhalb der Umfragen-App können die Berechtigungen der Benutzergruppen etwas fein kranularer eingestellt werden.
+So kann explicit festgelegt werden, wer Umfragen erstellen können soll.
+
+:::info[Der Vorschau-Reiter]
+So kann zum Beispiel verhindert werden dass Schüler eigene Umfragen erstellen können. Sie könnten ja auf die Idee kommen eine Umfrage über einen Mitschüler zu machen, der weniger beliebt ist. 
+::: -->
+
+### Logo
+
+Innerhalb der Umfragen-App kann ein individuelles App Logo mitgegeben werden, welches von da an in jedem Survey standartmäsig angeheftet wird.
+Das Umfragen spezifische App-Logo kann im Editor dann später einfach mit dem gewünschten Bild ausgetauscht werden. 
+
+---
+
 ## Siehe auch
 
 - [Dashboard](dashboard.md) - Offene Umfragen auf der Startseite

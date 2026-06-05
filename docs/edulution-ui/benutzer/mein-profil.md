@@ -12,12 +12,15 @@
 
 ## Übersicht der Bereiche
 
-Das Profil ist in fünf Hauptbereiche unterteilt:
+Das Profil ist in sechs Hauptbereiche unterteilt:
 - [Benutzerdetails](#benutzerdetails)
 - [Sicherheit](#sicherheit)
 - [E-Mail](#e-mail)
-- [Sprache](#sprache)
+- [Benutzeroberfläche](#benutzeroberfläche)
+  - [Sprache](#sprache)
+  - [Erscheinungsbild](#erscheinungsbild)
 - [App-Zugriff](#app-zugriff)
+- [Kinder](#meine-kinder)
 
 ---
 
@@ -30,7 +33,7 @@ Hier können Sie Ihre persönlichen Informationen einsehen und teilweise bearbei
 ### Profilbild
 
 - Upload eines eigenen Profilbilds
-- Klicken Sie auf **Choose File** um ein Bild hochzuladen
+- Klicken Sie auf **Choose File**, um ein Bild hochzuladen
 - Unterstützte Formate: JPG, PNG
 - **Löschen**: Entfernt das aktuelle Profilbild
 - **Speichern**: Übernimmt die Änderungen
@@ -51,8 +54,8 @@ Die folgenden Felder werden angezeigt:
 
 ### Änderungen speichern
 
-- Klicken Sie auf **Speichern** (grün) um Änderungen zu übernehmen
-- Klicken Sie auf **Löschen** (rot) um Änderungen zu verwerfen
+- Klicken Sie auf **Speichern** (grün), um Änderungen zu übernehmen
+- Klicken Sie auf **Löschen** (rot), um Änderungen zu verwerfen
 
 ---
 
@@ -110,7 +113,7 @@ Sichere Verwaltung Ihrer Zugangsdaten für verschiedene Anwendungen.
 - **Benutzername**: Login-Name
 - **Passwort**: Verschlüsseltes Passwort (ausblendbar)
 
-**Status:** "Keine Daten verfügbar" wenn noch keine Einträge vorhanden
+**Status:** "Keine Daten verfügbar", wenn noch keine Einträge vorhanden sind
 
 Weitere Details unter [Sicherheit & Authentifizierung](../features/sicherheit.md#passwort-tresor).
 
@@ -141,7 +144,7 @@ Einrichtung der E-Mail-Synchronisation:
 - **Sync-Intervall**: Häufigkeit der Synchronisation
 - **Aktiv**: Status der Synchronisation
 
-**Status:** "Keine Daten verfügbar" wenn keine Sync-Jobs konfiguriert
+**Status:** "Keine Daten verfügbar", wenn keine Sync-Jobs konfiguriert sind
 
 **Aktionen:**
 - **Neu laden**: Button zum Aktualisieren der Sync-Job Liste
@@ -152,26 +155,53 @@ Weitere Informationen zur E-Mail-Migration finden Sie unter [E-Mail Migration](.
 
 ---
 
-## Sprache
+## Benutzeroberfläche
 
-![Sprache](/img/benutzer/profil-sprache.png)
+![Benutzeroberfläche](/img/benutzer/profil-user-interface.png)
+
+### Sprache
 
 Wählen Sie die Sprache der Benutzeroberfläche.
 
-### Systemsprache
+#### Systemsprache
 
 Verfügbare Sprachen:
 - 🇩🇪 **Deutsch** (Standard)
 - 🇬🇧 **Englisch**
 - 🇫🇷 **Französisch**
 
-### Sprache ändern
+#### Sprache ändern
 
 1. Klicken Sie auf die gewünschte Flagge/Sprache
 2. Die Oberfläche wird automatisch aktualisiert
 3. Keine zusätzliche Bestätigung erforderlich
 
-**Hinweis:** Die Sprachauswahl gilt für die gesamte Benutzeroberfläche.
+:::tip[Hinweis]
+Die Sprachauswahl gilt für die gesamte Benutzeroberfläche.
+:::
+
+### Erscheinungsbild
+
+Wählen Sie das helle oder dunkle Farbschema der Benutzeroberfläche aus.
+
+#### Verfügbare Farben
+- **System** (Standard)
+- **Dunkel**
+- **Hell**
+
+:::info[Systemfarbe]
+Die Option **System** liest die Einstellungen des Betriebssystems aus und legt dementsprechend fest, ob das **dunkle** oder das **helle** Farbschema bevorzugt wird.
+:::
+
+#### Farbe ändern
+
+1. Klicken Sie auf die gewünschte Farbe
+2. Die Oberfläche wird automatisch aktualisiert
+3. Keine zusätzliche Bestätigung erforderlich
+
+:::tip[Hinweis]
+Die Farbauswahl gilt für die gesamte Benutzeroberfläche.
+:::
 
 ---
 
@@ -228,6 +258,34 @@ Folgende Daten werden benötigt:
 - Offline-Verfügbarkeit (je nach App-Einstellung)
 
 Weitere Details unter [Mobile App & Tablet-Nutzung](../features/mobile-app.md).
+
+---
+
+## Meine Kinder
+
+![Meine Kinder](/img/benutzer/profil-children.png)
+
+Hier wird das Verhältnis zwischen einem Elternteil (einer erziehungsberechtigten Person) und dem Kind bzw. den Kindern abgebildet.
+
+### Mein Zuweisungs-Code
+
+Jedem Nutzer wird ein QR-Code/Schlüssel zugewiesen, mit dem er sein Konto mit dem Konto eines anderen verlinken kann.
+
+:::info[Haltbarkeit]
+Der Schlüssel ist nur für 5 Minuten gültig, dann wird ein neuer erstellt.
+:::
+
+### Code eingeben
+
+Hier kann dann der Schlüssel eines anderen Nutzers eingefügt werden, um diesen Nutzer als Kind im eigenen Konto zu verlinken.
+
+:::info[QR-Code]
+Da zum Auslesen des QR-Codes eine Kamera erforderlich ist, ist der QR-Code nur innerhalb der App nutzbar.
+:::
+
+### Zuweisungen
+
+Hier werden dann die verknüpften Konten der Kinder in einer Tabelle aufgelistet.
 
 ---
 

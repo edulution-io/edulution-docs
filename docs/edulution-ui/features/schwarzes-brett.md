@@ -1,6 +1,6 @@
 # Schwarzes Brett
 
-![Schwarzes Brett](/img/features/schwarzes-brett.jpeg)
+![Schwarzes Brett](/img/schwarzes-brett/schwarzes-brett.jpeg)
 
 Das Schwarze Brett dient als zentrale Kommunikationsplattform für Ankündigungen und Mitteilungen. Beiträge werden nach Kategorien geordnet, können mit Bildern versehen und auf Wunsch zusätzlich als Push-Benachrichtigung verschickt werden.
 
@@ -8,28 +8,28 @@ Das Schwarze Brett dient als zentrale Kommunikationsplattform für Ankündigunge
 
 Die Beiträge sind in Kategorien eingeteilt. Für jede Kategorie wird hierbei eine Spalte angezeigt, in welcher die einzelnen Einträge enthalten sind.
 
-![Schwarzes Brett - Standard Ansicht](/img/features/schwarzes-brett-normal-view.png)
+![Schwarzes Brett - Standard Ansicht](/img/schwarzes-brett/schwarzes-brett-normal-view.png)
 
 :::tip[Rastergröße]
 Standardmäßig gibt es eine Zeile, in der die Kategorien von links nach rechts aufgelistet werden. Um die Ansicht an Bildschirmgröße und Beitragsmenge anzupassen, kann in der Menüleiste oben die Anzahl der Zeilen auf 1, 2 oder 3 gesetzt werden.
 
-![Schwarzes Brett - Mehrzeilig](/img/features/schwarzes-brett-change-row-count.png)
+![Schwarzes Brett - Mehrzeilig](/img/schwarzes-brett/schwarzes-brett-change-row-count.png)
 :::
 
 ### Tabelle
 
 Übersicht aller Beiträge, filterbar nach Kategorien.
 
-![Schwarzes Brett - Tabellen Ansicht](/img/features/schwarzes-brett-table-view.png)
+![Schwarzes Brett - Tabellen Ansicht](/img/schwarzes-brett/schwarzes-brett-table-view.png)
 
 
 ### Beitrag erstellen
 
-![Schwarzes Brett - Neuer Eintrag erstellen](/img/features/schwarzes-brett-create-new-entry.png)
+![Schwarzes Brett - Neuer Eintrag erstellen](/img/schwarzes-brett/schwarzes-brett-create-new-entry.png)
 
 1. Wählen Sie eine **Kategorie**.
-2. Geben Sie **Titel** und **Inhalt** ein und fügen Sie bei Bedarf Bilder hinzu.
-3. Legen Sie optional ein **Ablaufdatum** fest, ab dem der Beitrag nicht mehr angezeigt wird.
+2. Geben Sie einen **Titel** ein und verfassen Sie den **Inhalt** im Editor. Dieser unterstützt Formatierungen wie **Fett**, *Kursiv*, Listen und Links; bei Bedarf lassen sich auch Bilder direkt einfügen.
+3. Legen Sie optional einen **Sichtbarkeitszeitraum** fest – ein Datum, ab dem der Beitrag erscheint (**Sichtbar ab**), und ein **Ablaufdatum**, ab dem er nicht mehr angezeigt wird (**Sichtbar bis**).
 4. Wählen Sie, ob und wie der Beitrag als [Benachrichtigung](#benachrichtigungen) verschickt werden soll.
 5. Speichern Sie den Beitrag.
 
@@ -54,7 +54,18 @@ Beim Erstellen eines Beitrags kann festgelegt werden, ob und auf welchem Weg die
 - **Push & Schwarzes Brett** – Der Beitrag erscheint am Schwarzen Brett und wird zusätzlich per Push verschickt.
 
 :::info[Titel & Text]
-Für die Push-Benachrichtigung lassen sich **Titel** und **Text** individuell festlegen.
+Für die Push-Benachrichtigung lassen sich **Titel** und **Text** individuell festlegen. Der Push-Text ist auf 150 Zeichen begrenzt.
+:::
+
+### Beitrag bearbeiten oder löschen
+
+Bestehende Beiträge lassen sich jederzeit nachträglich anpassen oder entfernen – über das Kontextmenü (Drei-Punkte-Menü) der jeweiligen Kachel oder über die Tabellenansicht.
+
+- **Bearbeiten** – Öffnet denselben Dialog wie beim Erstellen. Alle Felder (Kategorie, Titel, Inhalt, Sichtbarkeitszeitraum, Benachrichtigungseinstellungen) können geändert werden.
+- **Löschen** – Entfernt den Beitrag. Vor dem endgültigen Löschen erscheint eine Sicherheitsabfrage.
+
+:::tip[Beitrag deaktivieren statt löschen]
+Über die Einstellung **Active** eines Beitrags lässt sich dieser vorübergehend ausblenden, ohne ihn zu löschen. So bleibt der Inhalt erhalten und kann später wieder eingeblendet werden.
 :::
 
 ## Kategorien
@@ -67,7 +78,7 @@ Beiträge werden Kategorien zugeordnet, nach denen die Tabelle gefiltert werden 
 
 ### Kontextmenü
 
-![Schwarzes Brett - Kontextmenü einer Kategorie](/img/features/schwarzes-brett-category-context-menu.png)
+![Schwarzes Brett - Kontextmenü einer Kategorie](/img/schwarzes-brett/schwarzes-brett-category-context-menu.png)
 
 - **Mitteilung erstellen** – Siehe [Beitrag erstellen](#beitrag-erstellen).
 - **Kategorien verwalten** – Weiterleitung zu den App-Einstellungen des Schwarzen Bretts.
@@ -76,13 +87,13 @@ Beiträge werden Kategorien zugeordnet, nach denen die Tabelle gefiltert werden 
 
 Kategorien können in den App-Einstellungen des Schwarzen Bretts hinzugefügt oder angepasst werden.
 
-![Schwarzes Brett - Einstellungen](/img/features/schwarzes-brett-app-settings.png)
+![Schwarzes Brett - Einstellungen](/img/schwarzes-brett/schwarzes-brett-app-settings.png)
 
 #### Einstellungen
 
 Um eine bestimmte Kategorie anzupassen, kann einfach auf die Kategorie geklickt werden.
 
-![Schwarzes Brett - Kategorie Einstellungen](/img/features/schwarzes-brett-category-settings-menu.png)
+![Schwarzes Brett - Kategorie Einstellungen](/img/schwarzes-brett/schwarzes-brett-category-settings-menu.png)
 
 - **Name**
 - **Active** - Die Sichtbarkeit der ganzen Kategorie

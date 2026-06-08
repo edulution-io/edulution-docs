@@ -92,7 +92,16 @@ Wenn Sie die Kachelansicht öffnen, können Sie eine der Vorlagen nutzen, um ein
 
 ![Vorlagen - Kachel-Ansicht - Administrator](/img/umfragen/Screenshot_20260506_113129.png)
 
-Im Gegensatz zum Standard-Benutzer kann ein Administrator die Vorlage aktivieren bzw. deaktivieren.
+Im Gegensatz zum Standard-Benutzer stehen einem Administrator auf jeder Vorlagen-Kachel zusätzliche Schaltflächen zur Verfügung:
+
+- **Aktivieren / Deaktivieren**: Schaltet den Aktiv-Status der Vorlage um. Nur aktive Vorlagen werden den Benutzern in der Kachelansicht angezeigt.
+- **Vorschau** (Augen-Symbol): Öffnet eine Vorschau der Vorlage, ohne sie zu bearbeiten.
+- **Löschen** (Papierkorb-Symbol): Entfernt die Vorlage dauerhaft.
+
+:::info[Mitgelieferte Vorlagen]
+Bei den mitgelieferten Standard-Vorlagen lässt sich ausschließlich der Aktiv-Status umschalten; sie können nicht gelöscht werden.
+:::
+
 
 Administratoren können Vorlagen auch bearbeiten. Dazu muss die Vorlage ausgewählt werden, und beim [Speichern der Umfrage](#umfrage-speichern) muss der Haken an der Checkbox "Als Vorlage speichern" gesetzt werden.
 
@@ -139,6 +148,10 @@ Wenn Sie denken, dass der Teilnehmer mehr Platz braucht, als das einzelne Feld h
 | **Zeit** | ![Eingabefeld > Zeit](/img/umfragen/Screenshot_20260507_151922_cropped.png) |
 | **Web-URL** | ![Eingabefeld > Web-URL](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
 | **Woche** | ![Eingabefeld > Woche](/img/umfragen/Screenshot_20260507_151943_cropped.png) |
+
+:::info[Gleiche Eingabemaske]
+Die Typen **E-Mail**, **Zahl**, **Passwort**, **Telefonnummer**, **Text** und **Web-URL** zeigen im Editor dieselbe Eingabemaske (ein einfaches Textfeld). Die Validierung der Eingabe unterscheidet sich jedoch je nach gewähltem Typ erst bei der Teilnahme.
+:::
 
 #### Kommentar
 
@@ -324,14 +337,13 @@ Der Teilnehmer soll eigene Vorschläge machen. Dann nutzt der Ersteller der Umfr
 
 Das Unterschrift-Feld kann zur Authentifizierung der Teilnahme genutzt werden.
 
-#### Umfrage Logo
+#### Umfrage-Logo
 
-Ein individuelles in App logo kann in den [AppSettings](#logo) festgelegt werden.
+Ein individuelles In-App-Logo kann in den [App-Einstellungen](#logo) festgelegt werden.
 
-![Choose new image file](/img/umfragen/Screenshot_20260605_145014.png)
+![Neues Bild auswählen](/img/umfragen/Screenshot_20260605_145014.png)
 
-![Change logo settings](/img/umfragen/Screenshot_20260605_144735.png)
-
+![Logo-Einstellungen ändern](/img/umfragen/Screenshot_20260605_144735.png)
 
 ## Umfrage speichern
 
@@ -384,17 +396,17 @@ Es gibt einige Fragetypen, bei denen das PDF-Rendering nicht oder nur eingeschr�
 
 <!-- ### Berechtigungen innerhalb der Applikation
 
-Innerhalb der Umfragen-App können die Berechtigungen der Benutzergruppen etwas fein kranularer eingestellt werden.
-So kann explicit festgelegt werden, wer Umfragen erstellen können soll.
+Innerhalb der Umfragen-App können die Berechtigungen der Benutzergruppen etwas feingranularer eingestellt werden.
+So kann explizit festgelegt werden, wer Umfragen erstellen können soll.
 
-:::info[Der Vorschau-Reiter]
-So kann zum Beispiel verhindert werden dass Schüler eigene Umfragen erstellen können. Sie könnten ja auf die Idee kommen eine Umfrage über einen Mitschüler zu machen, der weniger beliebt ist. 
+:::info[Hinweis]
+So kann zum Beispiel verhindert werden, dass Schüler eigene Umfragen erstellen können. Sie könnten ja auf die Idee kommen, eine Umfrage über einen Mitschüler zu machen, der weniger beliebt ist.
 ::: -->
 
 ### Logo
 
-Innerhalb der Umfragen-App kann ein individuelles App Logo mitgegeben werden, welches von da an in jedem Survey standartmäsig angeheftet wird.
-Das Umfragen spezifische [App-Logo](#umfrage-logo) kann im Editor dann später einfach mit dem gewünschten Bild ausgetauscht werden.
+Innerhalb der Umfragen-App kann ein individuelles App-Logo hinterlegt werden, das von da an in jeder Umfrage standardmäßig angeheftet wird.
+Das umfragenspezifische [App-Logo](#umfrage-logo) kann später im Editor einfach gegen das gewünschte Bild ausgetauscht werden.
 
 ---
 

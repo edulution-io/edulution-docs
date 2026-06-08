@@ -2,24 +2,6 @@
 
 edulution bietet eine Vielzahl zusätzlicher Funktionen für den digitalen Unterricht und die Schulverwaltung.
 
-## Schwarzes Brett
-
-![Schwarzes Brett](/img/features/schwarzes-brett.jpeg)
-
-Das Schwarze Brett dient als zentrale Kommunikationsplattform für Ankündigungen und Mitteilungen.
-
-### Kategorien
-
-- **Veranstaltungen & Ankündigungen**: Schulevents, Tag der offenen Tür, etc.
-- **Nachhilfe & Unterstützung**: Lernpartnerschaften, Hausaufgabenhilfe
-- **Fundsachen**: Verlorene und gefundene Gegenstände
-
-### Funktionen
-
-- Mit Bildern und Zeitstempeln
-- Autor wird angezeigt (z.B. "von Yuki Grün, aktualisiert am...")
-- Tabelle/Erstellen-Ansicht verfügbar
-- Filterbar nach Kategorien
 
 ## Desktop-Bereitstellung (VDI)
 

@@ -11,15 +11,29 @@
 
 ## Übersicht der Bereiche
 
-Die Benutzereinstellungen sind in sechs Hauptbereiche unterteilt:
+Die Benutzereinstellungen sind unterteilt in:
 - [Benutzerdetails](#benutzerdetails)
+  - [Profilbild](#profilbild)
+  - [Benutzerbezogene Informationen](#benutzerbezogene-informationen)
+  - [Benutzerdetails (sub)](#benutzerdetails-(sub))
+  - [Quotas](#quotas)
 - [Sicherheit](#sicherheit)
+  - [Passwort ändern](#passwort-ändern)
+  - [Zwei-Faktor-Authentifizierung](#zwei-faktor-authentifizierung)
+  - [Passwort-Tresor](#passwort-tresor)
 - [E-Mail](#e-mail)
+  - [E-Mail-Sync](#e-mail-sync)
 - [Benutzeroberfläche](#benutzeroberfläche)
-  - [Sprache](#sprache)
+  - [Sprache auswählen](#sprache-auswählen)
   - [Erscheinungsbild](#erscheinungsbild)
 - [App-Zugriff](#app-zugriff)
+  - [Einrichtung via QR-Code](#einrichtung-via-qr-code)
+  - [Manuelles Einrichten](#manuelles-einrichten)
+- [VPN-Zugang](#vpn-zugang)
 - [Kinder](#meine-kinder)
+  - [Mein Zuweisungs-Code](#mein-zuweisungs-code)
+  - [Code eingeben](#code-eingeben)
+  - [Zuweisungen](#zuweisungen)
 
 ---
 
@@ -51,10 +65,24 @@ Die folgenden Felder werden angezeigt:
 | **Rolle** | Ihre Systemrolle (z.B. "Lehrer") |
 | **Klassen** | Liste Ihrer Klassen (z.B. "5a, 9a, 10a, 10b, niclass") |
 
-### Änderungen speichern
+### Benutzerdetails (sub)
 
-- Klicken Sie auf **Speichern** (grün), um Änderungen zu übernehmen
-- Klicken Sie auf **Löschen** (rot), um Änderungen zu verwerfen
+Die folgenden Felder werden angezeigt:
+
+| Feld | Beschreibung |
+|------|--------------|
+| **E-Mail Proxy-Adressen** | Hier können Sie sich weitere E-Mail-Adressen zuweisen. Mails an diese Adressen werden anschließend an edulution weitergeleitet. |
+
+Klicken Sie auf **Speichern** (grün), um die Änderungen zu übernehmen.
+
+### Quotas
+
+Quotas sind die Speicherkapazitäten, die Ihnen zur Verfügung stehen. Hier sehen Sie außerdem, wie viel des verfügbaren Speichers bereits belegt ist. 
+
+| Feld | Beschreibung | Größe (standardmäßig) |
+|------|--------------|-------------|
+| **Cloudquota** | Dateispeicher | ca. 10 GB |
+| **E-Mailquota** | Mail-Speicher | ca. 1 GB |
 
 ---
 
@@ -79,11 +107,11 @@ So ändern Sie Ihr Passwort:
 - Mindestens eine Zahl empfohlen
 - Sonderzeichen erhöhen die Sicherheit
 
-### Zwei-Faktor-Authentisierung
+### Zwei-Faktor-Authentifizierung
 
 Zusätzliche Sicherheit für Ihr Konto:
 
-- **Status**: "Aktuell ist die Zwei-Faktor-Authentisierung deaktiviert"
+- **Status**: "Aktuell ist die Zwei-Faktor-Authentifizierung deaktiviert"
 - **Aktivieren**: Schalten Sie den Toggle-Schalter um, um 2FA zu aktivieren
 - Nach Aktivierung erhalten Sie einen QR-Code für Ihre Authenticator-App
 - Unterstützte Apps: Google Authenticator, Microsoft Authenticator, Authy
@@ -214,7 +242,7 @@ Einrichtung des mobilen Zugriffs auf Ihre Dateien über die edulution.io App.
 Aktuell ist die edulution.io App nur für Apple iOS verfügbar.
 :::
 
-### Lade hier die edulution.io App herunter
+### Laden Sie hier die edulution.io App herunter
 
 **Optionen zum Download:**
 - **Einrichtung via QR-Code**: Scannen Sie den QR-Code mit Ihrem iPhone/iPad
@@ -260,7 +288,17 @@ Weitere Details unter [Mobile App & Tablet-Nutzung](../features/mobile-app.md).
 
 ---
 
+## VPN-Zugang
+
+_(Sichtbar als Administrator)_
+
+Als Administrator können Sie hier einen VPN-Zugang über WireGuard einrichten.
+
+---
+
 ## Meine Kinder/Eltern
+
+_(Sichtbar als Elternteil/Schüler)_
 
 ![Meine Kinder](/img/benutzer/profil-children.png)
 
@@ -268,7 +306,7 @@ Hier wird das Verhältnis zwischen einem Elternteil (einer erziehungsberechtigte
 
 ### Mein Zuweisungs-Code
 
-Jedem Nutzer wird ein QR-Code/Schlüssel zugewiesen, mit dem er sein Konto mit dem Konto eines anderen verlinken kann.
+Ihnen wird ein QR-Code/Schlüssel zugewiesen, mit dem Sie Ihr Konto mit dem Konto einer anderen Person verlinken können.
 
 :::info[Haltbarkeit]
 Der Schlüssel ist nur für 5 Minuten gültig, dann wird ein neuer erstellt.

@@ -1,6 +1,6 @@
 # Benutzereinstellungen
 
-Über das Profil-Menü (unten rechts im Dashboard) können Sie auf Ihre persönlichen Einstellungen und Kontoinformationen zugreifen.
+Über das Profil-Menü (unten rechts in der App-Leiste) können Sie auf Ihre persönlichen Einstellungen und Kontoinformationen zugreifen.
 
 ![Dashboard Profil-Menü](/img/benutzer/dashboard-profil-menu.png)
 
@@ -8,11 +8,10 @@
 
 1. Klicken Sie auf Ihr Profilbild unten rechts
 2. Wählen Sie **Benutzereinstellungen** aus dem Dropdown-Menü
-3. Alternativ: **Logout** zum Abmelden
 
 ## Übersicht der Bereiche
 
-Das Profil ist in sechs Hauptbereiche unterteilt:
+Die Benutzereinstellungen sind in sechs Hauptbereiche unterteilt:
 - [Benutzerdetails](#benutzerdetails)
 - [Sicherheit](#sicherheit)
 - [E-Mail](#e-mail)
@@ -42,15 +41,15 @@ Hier können Sie Ihre persönlichen Informationen einsehen und teilweise bearbei
 
 Die folgenden Felder werden angezeigt:
 
-| Feld | Beschreibung | Bearbeitbar |
-|------|--------------|-------------|
-| **Benutzername** | Ihr Login-Name (z.B. "agy-netzint-teacher") | Nein (schreibgeschützt) |
-| **Anzeigename** | Ihr vollständiger Name (z.B. "Testteacher agy-Netzint") | Ja |
-| **Geburtsdatum** | Ihr Geburtsdatum (z.B. "02.02.1990") | Nein (schreibgeschützt) |
-| **E-Mail** | Ihre E-Mail-Adresse | Nein (schreibgeschützt) |
-| **Schulname** | Zugeordnete Schule (z.B. "agy") | Nein (schreibgeschützt) |
-| **Rolle** | Ihre Systemrolle (z.B. "Lehrer") | Nein (schreibgeschützt) |
-| **Klassen** | Liste Ihrer Klassen (z.B. "5a, 9a, 10a, 10b, niclass") | Nein (schreibgeschützt) |
+| Feld | Beschreibung | 
+|------|--------------|
+| **Benutzername** | Ihr Login-Name (z.B. "agy-netzint-teacher") |
+| **Anzeigename** | Ihr vollständiger Name (z.B. "Testteacher agy-Netzint") |
+| **Geburtsdatum** | Ihr Geburtsdatum (z.B. "02.02.1990") |
+| **E-Mail** | Ihre E-Mail-Adresse |
+| **Schulname** | Zugeordnete Schule (z.B. "agy") |
+| **Rolle** | Ihre Systemrolle (z.B. "Lehrer") |
+| **Klassen** | Liste Ihrer Klassen (z.B. "5a, 9a, 10a, 10b, niclass") |
 
 ### Änderungen speichern
 
@@ -261,7 +260,7 @@ Weitere Details unter [Mobile App & Tablet-Nutzung](../features/mobile-app.md).
 
 ---
 
-## Meine Kinder
+## Meine Kinder/Eltern
 
 ![Meine Kinder](/img/benutzer/profil-children.png)
 
@@ -277,7 +276,7 @@ Der Schlüssel ist nur für 5 Minuten gültig, dann wird ein neuer erstellt.
 
 ### Code eingeben
 
-Hier kann dann der Schlüssel eines anderen Nutzers eingefügt werden, um diesen Nutzer als Kind im eigenen Konto zu verlinken.
+Hier kann dann der Schlüssel eines anderen Nutzers eingefügt werden, um diesen Nutzer als Kind/Elternteil im eigenen Konto zu verlinken.
 
 :::info[QR-Code]
 Da zum Auslesen des QR-Codes eine Kamera erforderlich ist, ist der QR-Code nur innerhalb der App nutzbar.
@@ -285,7 +284,11 @@ Da zum Auslesen des QR-Codes eine Kamera erforderlich ist, ist der QR-Code nur i
 
 ### Zuweisungen
 
-Hier werden dann die verknüpften Konten der Kinder in einer Tabelle aufgelistet.
+Hier werden dann die verknüpften Konten der Kinder/Elternteile in einer Tabelle aufgelistet.
+
+:::info[QR-Code]
+Die Eltern-Kind Beziehung muss im Anschluss von einem Administrator freigegeben werden.
+:::
 
 ---
 

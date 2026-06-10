@@ -15,7 +15,7 @@ Die Benutzereinstellungen sind unterteilt in:
 - [Benutzerdetails](#benutzerdetails)
   - [Profilbild](#profilbild)
   - [Benutzerbezogene Informationen](#benutzerbezogene-informationen)
-  - [Benutzerdetails (sub)](#benutzerdetails-(sub))
+  - [Benutzerdetails section](#benutzerdetails-section)
   - [Quotas](#quotas)
 - [Sicherheit](#sicherheit)
   - [Passwort ändern](#passwort-ändern)
@@ -65,13 +65,13 @@ Die folgenden Felder werden angezeigt:
 | **Rolle** | Ihre Systemrolle (z.B. "Lehrer") |
 | **Klassen** | Liste Ihrer Klassen (z.B. "5a, 9a, 10a, 10b, niclass") |
 
-### Benutzerdetails (sub)
+### Benutzerdetails section
 
 Die folgenden Felder werden angezeigt:
 
 | Feld | Beschreibung |
 |------|--------------|
-| **E-Mail Proxy-Adressen** | Hier können Sie sich weitere E-Mail-Adressen zuweisen. Mails an diese Adressen werden anschließend an edulution weitergeleitet. |
+| **E-Mail Proxy-Adressen** | Dies sind Pseudo-E-Mail-Adressen bzw. E-Mail-Aliase. Wenn eine Mail an diese Adresse gesendet wird, wird sie intern an Ihre ursprüngliche E-Mail-Adresse weitergeleitet. |
 
 Klicken Sie auf **Speichern** (grün), um die Änderungen zu übernehmen.
 

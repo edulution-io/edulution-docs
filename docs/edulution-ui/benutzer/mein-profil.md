@@ -1,6 +1,6 @@
 # Benutzereinstellungen
 
-Über das Profil-Menü (unten rechts im Dashboard) können Sie auf Ihre persönlichen Einstellungen und Kontoinformationen zugreifen.
+Über das Profil-Menü (unten rechts in der App-Leiste) können Sie auf Ihre persönlichen Einstellungen und Kontoinformationen zugreifen.
 
 ![Dashboard Profil-Menü](/img/benutzer/dashboard-profil-menu.png)
 
@@ -8,16 +8,32 @@
 
 1. Klicken Sie auf Ihr Profilbild unten rechts
 2. Wählen Sie **Benutzereinstellungen** aus dem Dropdown-Menü
-3. Alternativ: **Logout** zum Abmelden
 
 ## Übersicht der Bereiche
 
-Das Profil ist in fünf Hauptbereiche unterteilt:
+Die Benutzereinstellungen sind unterteilt in:
 - [Benutzerdetails](#benutzerdetails)
+  - [Profilbild](#profilbild)
+  - [Benutzerbezogene Informationen](#benutzerbezogene-informationen)
+  - [Benutzerdetails (sub)](#benutzerdetails-(sub))
+  - [Quotas](#quotas)
 - [Sicherheit](#sicherheit)
+  - [Passwort ändern](#passwort-ändern)
+  - [Zwei-Faktor-Authentifizierung](#zwei-faktor-authentifizierung)
+  - [Passwort-Tresor](#passwort-tresor)
 - [E-Mail](#e-mail)
-- [Sprache](#sprache)
+  - [E-Mail-Sync](#e-mail-sync)
+- [Benutzeroberfläche](#benutzeroberfläche)
+  - [Sprache auswählen](#sprache-auswählen)
+  - [Erscheinungsbild](#erscheinungsbild)
 - [App-Zugriff](#app-zugriff)
+  - [Einrichtung via QR-Code](#einrichtung-via-qr-code)
+  - [Manuelles Einrichten](#manuelles-einrichten)
+- [VPN-Zugang](#vpn-zugang)
+- [Kinder](#meine-kinder)
+  - [Mein Zuweisungs-Code](#mein-zuweisungs-code)
+  - [Code eingeben](#code-eingeben)
+  - [Zuweisungen](#zuweisungen)
 
 ---
 
@@ -30,7 +46,7 @@ Hier können Sie Ihre persönlichen Informationen einsehen und teilweise bearbei
 ### Profilbild
 
 - Upload eines eigenen Profilbilds
-- Klicken Sie auf **Choose File** um ein Bild hochzuladen
+- Klicken Sie auf **Choose File**, um ein Bild hochzuladen
 - Unterstützte Formate: JPG, PNG
 - **Löschen**: Entfernt das aktuelle Profilbild
 - **Speichern**: Übernimmt die Änderungen
@@ -39,20 +55,25 @@ Hier können Sie Ihre persönlichen Informationen einsehen und teilweise bearbei
 
 Die folgenden Felder werden angezeigt:
 
-| Feld | Beschreibung | Bearbeitbar |
+| Feld | Beschreibung | 
+|------|--------------|
+| **Benutzername** | Ihr Login-Name (z.B. "agy-netzint-teacher") |
+| **Anzeigename** | Ihr vollständiger Name (z.B. "Testteacher agy-Netzint") |
+| **Geburtsdatum** | Ihr Geburtsdatum (z.B. "02.02.1990") |
+| **E-Mail** | Ihre E-Mail-Adresse |
+| **Schulname** | Zugeordnete Schule (z.B. "agy") |
+| **Rolle** | Ihre Systemrolle (z.B. "Lehrer") |
+| **Klassen** | Liste Ihrer Klassen (z.B. "5a, 9a, 10a, 10b, niclass") |
+
+
+### Quotas
+
+Quotas sind die Speicherkapazitäten, die Ihnen zur Verfügung stehen. Hier sehen Sie außerdem, wie viel des verfügbaren Speichers bereits belegt ist. 
+
+| Feld | Beschreibung | Größe (standardmäßig) |
 |------|--------------|-------------|
-| **Benutzername** | Ihr Login-Name (z.B. "agy-netzint-teacher") | Nein (schreibgeschützt) |
-| **Anzeigename** | Ihr vollständiger Name (z.B. "Testteacher agy-Netzint") | Ja |
-| **Geburtsdatum** | Ihr Geburtsdatum (z.B. "02.02.1990") | Nein (schreibgeschützt) |
-| **E-Mail** | Ihre E-Mail-Adresse | Nein (schreibgeschützt) |
-| **Schulname** | Zugeordnete Schule (z.B. "agy") | Nein (schreibgeschützt) |
-| **Rolle** | Ihre Systemrolle (z.B. "Lehrer") | Nein (schreibgeschützt) |
-| **Klassen** | Liste Ihrer Klassen (z.B. "5a, 9a, 10a, 10b, niclass") | Nein (schreibgeschützt) |
-
-### Änderungen speichern
-
-- Klicken Sie auf **Speichern** (grün) um Änderungen zu übernehmen
-- Klicken Sie auf **Löschen** (rot) um Änderungen zu verwerfen
+| **Cloudquota** | Dateispeicher | ca. 10 GB |
+| **E-Mailquota** | Mail-Speicher | ca. 1 GB |
 
 ---
 
@@ -77,11 +98,11 @@ So ändern Sie Ihr Passwort:
 - Mindestens eine Zahl empfohlen
 - Sonderzeichen erhöhen die Sicherheit
 
-### Zwei-Faktor-Authentisierung
+### Zwei-Faktor-Authentifizierung
 
 Zusätzliche Sicherheit für Ihr Konto:
 
-- **Status**: "Aktuell ist die Zwei-Faktor-Authentisierung deaktiviert"
+- **Status**: "Aktuell ist die Zwei-Faktor-Authentifizierung deaktiviert"
 - **Aktivieren**: Schalten Sie den Toggle-Schalter um, um 2FA zu aktivieren
 - Nach Aktivierung erhalten Sie einen QR-Code für Ihre Authenticator-App
 - Unterstützte Apps: Google Authenticator, Microsoft Authenticator, Authy
@@ -110,7 +131,7 @@ Sichere Verwaltung Ihrer Zugangsdaten für verschiedene Anwendungen.
 - **Benutzername**: Login-Name
 - **Passwort**: Verschlüsseltes Passwort (ausblendbar)
 
-**Status:** "Keine Daten verfügbar" wenn noch keine Einträge vorhanden
+**Status:** "Keine Daten verfügbar", wenn noch keine Einträge vorhanden sind
 
 Weitere Details unter [Sicherheit & Authentifizierung](../features/sicherheit.md#passwort-tresor).
 
@@ -141,7 +162,7 @@ Einrichtung der E-Mail-Synchronisation:
 - **Sync-Intervall**: Häufigkeit der Synchronisation
 - **Aktiv**: Status der Synchronisation
 
-**Status:** "Keine Daten verfügbar" wenn keine Sync-Jobs konfiguriert
+**Status:** "Keine Daten verfügbar", wenn keine Sync-Jobs konfiguriert sind
 
 **Aktionen:**
 - **Neu laden**: Button zum Aktualisieren der Sync-Job Liste
@@ -152,26 +173,53 @@ Weitere Informationen zur E-Mail-Migration finden Sie unter [E-Mail Migration](.
 
 ---
 
-## Sprache
+## Benutzeroberfläche
 
-![Sprache](/img/benutzer/profil-sprache.png)
+![Benutzeroberfläche](/img/benutzer/profil-user-interface.png)
+
+### Sprache
 
 Wählen Sie die Sprache der Benutzeroberfläche.
 
-### Systemsprache
+#### Systemsprache
 
 Verfügbare Sprachen:
 - 🇩🇪 **Deutsch** (Standard)
 - 🇬🇧 **Englisch**
 - 🇫🇷 **Französisch**
 
-### Sprache ändern
+#### Sprache ändern
 
 1. Klicken Sie auf die gewünschte Flagge/Sprache
 2. Die Oberfläche wird automatisch aktualisiert
 3. Keine zusätzliche Bestätigung erforderlich
 
-**Hinweis:** Die Sprachauswahl gilt für die gesamte Benutzeroberfläche.
+:::tip[Hinweis]
+Die Sprachauswahl gilt für die gesamte Benutzeroberfläche.
+:::
+
+### Erscheinungsbild
+
+Wählen Sie das helle oder dunkle Farbschema der Benutzeroberfläche aus.
+
+#### Verfügbare Farben
+- **System** (Standard)
+- **Dunkel**
+- **Hell**
+
+:::info[Systemfarbe]
+Die Option **System** liest die Einstellungen des Betriebssystems aus und legt dementsprechend fest, ob das **dunkle** oder das **helle** Farbschema bevorzugt wird.
+:::
+
+#### Farbe ändern
+
+1. Klicken Sie auf die gewünschte Farbe
+2. Die Oberfläche wird automatisch aktualisiert
+3. Keine zusätzliche Bestätigung erforderlich
+
+:::tip[Hinweis]
+Die Farbauswahl gilt für die gesamte Benutzeroberfläche.
+:::
 
 ---
 
@@ -185,7 +233,7 @@ Einrichtung des mobilen Zugriffs auf Ihre Dateien über die edulution.io App.
 Aktuell ist die edulution.io App nur für Apple iOS verfügbar.
 :::
 
-### Lade hier die edulution.io App herunter
+### Laden Sie hier die edulution.io App herunter
 
 **Optionen zum Download:**
 - **Einrichtung via QR-Code**: Scannen Sie den QR-Code mit Ihrem iPhone/iPad
@@ -228,6 +276,48 @@ Folgende Daten werden benötigt:
 - Offline-Verfügbarkeit (je nach App-Einstellung)
 
 Weitere Details unter [Mobile App & Tablet-Nutzung](../features/mobile-app.md).
+
+---
+
+## VPN-Zugang
+
+_(Sichtbar als Administrator)_
+
+Als Administrator können Sie hier einen VPN-Zugang über WireGuard einrichten.
+
+---
+
+## Meine Kinder/Eltern
+
+_(Sichtbar als Elternteil/Schüler)_
+
+![Meine Kinder](/img/benutzer/profil-children.png)
+
+Hier wird das Verhältnis zwischen einem Elternteil (einer erziehungsberechtigten Person) und dem Kind bzw. den Kindern abgebildet.
+
+### Mein Zuweisungs-Code
+
+Ihnen wird ein QR-Code/Schlüssel zugewiesen, mit dem Sie Ihr Konto mit dem Konto einer anderen Person verlinken können.
+
+:::info[Haltbarkeit]
+Der Schlüssel ist nur für 5 Minuten gültig, dann wird ein neuer erstellt.
+:::
+
+### Code eingeben
+
+Hier kann dann der Schlüssel eines anderen Nutzers eingefügt werden, um diesen Nutzer als Kind/Elternteil im eigenen Konto zu verlinken.
+
+:::info[QR-Code]
+Da zum Auslesen des QR-Codes eine Kamera erforderlich ist, ist der QR-Code nur innerhalb der App nutzbar.
+:::
+
+### Zuweisungen
+
+Hier werden dann die verknüpften Konten der Kinder/Elternteile in einer Tabelle aufgelistet.
+
+:::info[QR-Code]
+Die Eltern-Kind Beziehung muss im Anschluss von einem Administrator freigegeben werden.
+:::
 
 ---
 

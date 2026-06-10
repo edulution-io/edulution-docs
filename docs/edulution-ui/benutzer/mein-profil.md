@@ -65,15 +65,6 @@ Die folgenden Felder werden angezeigt:
 | **Rolle** | Ihre Systemrolle (z.B. "Lehrer") |
 | **Klassen** | Liste Ihrer Klassen (z.B. "5a, 9a, 10a, 10b, niclass") |
 
-### Benutzerdetails (sub)
-
-Die folgenden Felder werden angezeigt:
-
-| Feld | Beschreibung |
-|------|--------------|
-| **E-Mail Proxy-Adressen** | Hier können Sie sich weitere E-Mail-Adressen zuweisen. Mails an diese Adressen werden anschließend an edulution weitergeleitet. |
-
-Klicken Sie auf **Speichern** (grün), um die Änderungen zu übernehmen.
 
 ### Quotas
 

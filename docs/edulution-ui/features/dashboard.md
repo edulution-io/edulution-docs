@@ -84,7 +84,7 @@ Aktuelle Aktivitäten und Benachrichtigungen:
 #### Info Board
 - Anzeige von Ankündigungen und wichtigen Mitteilungen
 - Status: "No new bulletins" wenn keine neuen Mitteilungen vorliegen
-- Zugriff auf das [Schwarze Brett](schwarzes-brett.md)
+- Zugriff auf das [Infoboard](infoboard.md)
 
 #### Conferences
 - Übersicht laufender oder geplanter Konferenzen
@@ -194,5 +194,5 @@ Mehr dazu unter [Mobile App & Tablet-Nutzung](mobile-app.md).
 - [Benutzereinstellungen](../benutzer/mein-profil.md) - Profileinstellungen verwalten
 - [Sicherheitseinstellungen](sicherheit.md) - Passwort ändern und Sicherheit konfigurieren
 - [Mobile App](mobile-app.md) - Mobile Nutzung einrichten
-- [Schwarzes Brett](schwarzes-brett.md) - Mitteilungen verwalten
+- [Infoboard](infoboard.md) - Mitteilungen verwalten
 - [Umfragen](umfragen.md) - Umfragen erstellen und bearbeiten

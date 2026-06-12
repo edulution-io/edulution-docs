@@ -1,35 +1,35 @@
-# Schwarzes Brett
+# Infoboard
 
-Das Schwarze Brett – in der edulution-Oberfläche als **Infoboard** bezeichnet – dient als zentrale Kommunikationsplattform für Ankündigungen und Mitteilungen. Die Einträge werden nach Kategorien geordnet, können mit Bildern versehen und auf Wunsch zusätzlich als Push-Benachrichtigung verschickt werden.
+Das **Infoboard** – das digitale schwarze Brett – dient als zentrale Kommunikationsplattform für Ankündigungen und Mitteilungen. Die Einträge werden nach Kategorien geordnet, können mit Bildern versehen und auf Wunsch zusätzlich als Push-Benachrichtigung verschickt werden.
 
 ## Übersicht
 
 Die Mitteilungen sind in Kategorien eingeteilt. Für jede Kategorie wird eine eigene Spalte mit den zugehörigen Einträgen angezeigt.
 
-![Schwarzes Brett - Standard Ansicht](/img/schwarzes-brett/schwarzes-brett-normal-view.png)
+![Infoboard - Standard Ansicht](/img/schwarzes-brett/schwarzes-brett-normal-view.png)
 
 :::tip[Rastergröße]
 Standardmäßig werden die Kategorien in einer Zeile von links nach rechts aufgelistet. Um die Darstellung an Bildschirmgröße und Mitteilungsmenge anzupassen, lässt sich in der Menüleiste oben über die Einstellung **Ansicht** zwischen **Auto**, **1 Zeile**, **2 Zeilen** und **3 Zeilen** wählen.
 
-![Schwarzes Brett - Mehrzeilig](/img/schwarzes-brett/schwarzes-brett-change-row-count.png)
+![Infoboard - Mehrzeilig](/img/schwarzes-brett/schwarzes-brett-change-row-count.png)
 :::
 
 ### Tabelle
 
 Übersicht aller Mitteilungen, filterbar nach Kategorien.
 
-![Schwarzes Brett - Tabellen Ansicht](/img/schwarzes-brett/schwarzes-brett-table-view.png)
+![Infoboard - Tabellen Ansicht](/img/schwarzes-brett/schwarzes-brett-table-view.png)
 
 ## Mitteilungen
 
 ### Mitteilung erstellen
 
-![Schwarzes Brett - Neue Mitteilung erstellen](/img/schwarzes-brett/schwarzes-brett-create-new-entry.png)
+![Infoboard - Neue Mitteilung erstellen](/img/schwarzes-brett/schwarzes-brett-create-new-entry.png)
 
 1. Wählen Sie eine **Kategorie**.
 2. Geben Sie einen **Titel** ein und verfassen Sie den **Inhalt** im Editor. Dieser unterstützt Formatierungen wie **Fett**, *Kursiv*, Listen und Links; bei Bedarf lassen sich auch Bilder direkt einfügen.
 3. Legen Sie optional den Sichtbarkeitszeitraum fest – ein Datum, ab dem die Mitteilung erscheint (**Aktiv von**), und ein Datum, ab dem sie nicht mehr angezeigt wird (**Aktiv bis**).
-4. Wählen Sie über die **Veröffentlichungsart**, ob und wie die Mitteilung verschickt wird (siehe [Veröffentlichungsart](#veroeffentlichungsart)).
+4. Wählen Sie über die **Veröffentlichungsart**, ob und wie die Mitteilung verschickt wird (siehe [Veröffentlichungsart](#veröffentlichungsart)).
 5. Speichern Sie die Mitteilung.
 
 :::info[Autor]
@@ -42,13 +42,13 @@ Das Ablaufdatum (**Aktiv bis**) wird standardmäßig auf 2 Wochen nach der Erste
 Zum Beispiel sollten bei einer Schulaufführung die Informationen früh genug erscheinen, damit sich die Eltern den Abend frei halten können. In diesem Fall reichen die 2 Wochen möglicherweise nicht aus.
 :::
 
-#### Veröffentlichungsart {#veroeffentlichungsart}
+#### Veröffentlichungsart
 
 Beim Erstellen einer Mitteilung kann festgelegt werden, ob und auf welchem Weg die Empfänger benachrichtigt werden:
 
-- **Nur Push** – Es wird ausschließlich eine Push-Benachrichtigung verschickt, ohne dass ein Aushang am Schwarzen Brett erscheint.
-- **Nur Aushang** – Die Mitteilung erscheint nur am Schwarzen Brett, ohne Push-Benachrichtigung.
-- **Push & Aushang** – Die Mitteilung erscheint am Schwarzen Brett und wird zusätzlich per Push verschickt.
+- **Nur Push** – Es wird ausschließlich eine Push-Benachrichtigung verschickt, ohne dass ein Aushang im Infoboard erscheint.
+- **Nur Aushang** – Die Mitteilung erscheint nur im Infoboard, ohne Push-Benachrichtigung.
+- **Push & Aushang** – Die Mitteilung erscheint im Infoboard und wird zusätzlich per Push verschickt.
 
 :::info[Titel & Text]
 Für die Push-Benachrichtigung lassen sich **Titel** und **Text** individuell festlegen. Der Push-Text ist auf 150 Zeichen begrenzt.
@@ -75,22 +75,22 @@ Mitteilungen werden Kategorien zugeordnet, nach denen die Tabelle gefiltert werd
 
 ### Kontextmenü
 
-![Schwarzes Brett - Kontextmenü einer Kategorie](/img/schwarzes-brett/schwarzes-brett-category-context-menu.png)
+![Infoboard - Kontextmenü einer Kategorie](/img/schwarzes-brett/schwarzes-brett-category-context-menu.png)
 
 - **Mitteilung erstellen** – Siehe [Mitteilung erstellen](#mitteilung-erstellen).
-- **Kategorien verwalten** – (Nur für Administratoren sichtbar) Leitet zu den App-Einstellungen des Schwarzen Bretts weiter (siehe [Verwalten](#verwalten)).
+- **Kategorien verwalten** – (Nur für Administratoren sichtbar) Leitet zu den App-Einstellungen des Infoboards weiter (siehe [Verwalten](#verwalten)).
 
 ### Verwalten
 
 Die App-Einstellungen sind ausschließlich für Administratoren verfügbar. Dort lässt sich festlegen, welche Kategorien hinzugefügt, angepasst oder gelöscht werden.
 
-![Schwarzes Brett - Einstellungen](/img/schwarzes-brett/schwarzes-brett-app-settings.png)
+![Infoboard - Einstellungen](/img/schwarzes-brett/schwarzes-brett-app-settings.png)
 
 #### Einstellungen
 
 Um eine bestimmte Kategorie anzupassen, kann einfach auf die Kategorie geklickt werden.
 
-![Schwarzes Brett - Kategorie Einstellungen](/img/schwarzes-brett/schwarzes-brett-category-settings-menu.png)
+![Infoboard - Kategorie Einstellungen](/img/schwarzes-brett/schwarzes-brett-category-settings-menu.png)
 
 - **Name** – Der angezeigte Name der Kategorie.
 - **Aktiv** – Die Sichtbarkeit der ganzen Kategorie.
@@ -106,6 +106,6 @@ Dies erlaubt eine Beschränkung auf bestimmte **Zugriffsgruppen**. So lassen sic
 
 ## Siehe auch
 
-- [Dashboard](dashboard.md) – Schnellzugriff auf das Schwarze Brett
-- [App-Store](app-store.md) – Schwarzes Brett aktivieren
+- [Dashboard](dashboard.md) – Schnellzugriff auf das Infoboard
+- [App-Store](app-store.md) – Infoboard aktivieren
 - [Weitere Features](weitere-features.md) – Übersicht zusätzlicher Funktionen

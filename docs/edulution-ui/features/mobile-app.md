@@ -28,7 +28,7 @@ Verschiedene Zugriffsmöglichkeiten auf die Plattform:
 - **Anleitung**: Schritt-für-Schritt-Anweisungen
 
 #### Aktuelles
-- **Schwarzes Brett**: Aktuelle Mitteilungen
+- **Infoboard**: Aktuelle Mitteilungen
 - **Konferenzen**: Laufende oder geplante Konferenzen
 - **Mail**: Ungelesene Mails
 - **Umfragen**: Offene Umfragen mit Ablaufdatum

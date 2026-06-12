@@ -10,7 +10,7 @@ Der edulution App-Store ermöglicht es Ihnen, zusätzliche Anwendungen zu instal
 
 Der App-Store organisiert Anwendungen in verschiedene Kategorien:
 
-- **Schwarzes Brett**: Ankündigungen und Mitteilungen
+- **Infoboard**: Ankündigungen und Mitteilungen
 - **Mail**: E-Mail-Verwaltung
 - **Konferenzen**: Video- und Audio-Konferenzen
 - **Umfragen**: Erstellen und verwalten von Umfragen

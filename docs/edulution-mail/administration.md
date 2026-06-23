@@ -233,3 +233,4 @@ Die folgenden Themen sind in separaten Dokumenten verfügbar:
 - [Mail-Migration für Benutzer](user_mail_migration) - Eigene E-Mails migrieren
 - [Verteilerlisten](verteilerlisten) - Projekt-basierte E-Mail-Verteiler
 - [Benutzer-Mailformate anpassen](benutzer_mailformate) - E-Mail-Adressen-Schema konfigurieren
+- [Automatische Antwort](auto-reply) - Abwesenheitsnotiz für eigene und freigegebene Postfächer (inkl. ManageSieve-Master-Benutzer)

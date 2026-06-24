@@ -236,6 +236,11 @@ const sidebars: SidebarsConfig = {
               id: 'edulution-mail/verteilerlisten',
               label: 'Verteilerlisten',
             },
+            {
+              type: 'doc',
+              id: 'edulution-mail/auto-reply',
+              label: 'Automatische Antwort',
+            },
           ],
         },
         {

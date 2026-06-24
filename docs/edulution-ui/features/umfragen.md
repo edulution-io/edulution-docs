@@ -394,15 +394,14 @@ Es gibt einige Fragetypen, bei denen das PDF-Rendering nicht oder nur eingeschr�
 
 ![App Settings](/img/umfragen/Screenshot_20260605_140542.png)
 
-<!-- TODO: ACTIVATE AFTER 1008-manage-in-app-permission-via-extended-options IS MERGED (ISSUE #2593) -->
-<!-- ### Berechtigungen innerhalb der Applikation
+### Berechtigungen innerhalb der Applikation
 
 Innerhalb der Umfragen-App können die Berechtigungen der Benutzergruppen etwas feingranularer eingestellt werden.
 So kann explizit festgelegt werden, wer Umfragen erstellen können soll.
 
 :::info[Hinweis]
 So kann zum Beispiel verhindert werden, dass Schüler eigene Umfragen erstellen können. Sie könnten ja auf die Idee kommen, eine Umfrage über einen Mitschüler zu machen, der weniger beliebt ist.
-::: -->
+:::
 
 ### Logo
 

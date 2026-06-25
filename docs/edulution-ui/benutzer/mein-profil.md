@@ -220,8 +220,6 @@ Zusätzlich können Sie unter **Aktivierungsbedingungen** den Geltungsbereich op
 
 Die zur Unterscheidung herangezogenen **internen Domänen** Ihrer Organisation werden unterhalb der Option angezeigt.
 
-{/* TODO: Screenshot ergänzen: Option "Antworten an Absender außerhalb der Organisation senden" mit den drei Auswahlmöglichkeiten und den angezeigten internen Domänen */}
-
 #### Aktivieren und Löschen
 
 - **Speichern** sichert die Vorlage. Änderungen müssen gespeichert sein, bevor eine Vorlage aktiviert werden kann.

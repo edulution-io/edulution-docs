@@ -208,6 +208,20 @@ Mit der automatischen Antwort (Abwesenheitsnotiz) beantworten Sie eingehende Nac
 
 Zusätzlich können Sie unter **Aktivierungsbedingungen** den Geltungsbereich optional einschränken (siehe [Aktivierungsbedingungen](#aktivierungsbedingungen)).
 
+#### Absender einschränken (intern / extern)
+
+Über die Option **Antworten an Absender außerhalb der Organisation senden** legen Sie fest, ob auch externe Absender eine automatische Antwort erhalten:
+
+- **Deaktiviert**: Die automatische Antwort geht ausschließlich an Absender innerhalb der Domänen Ihrer Organisation (interne Absender).
+- **Aktiviert**: Auch externe Absender werden berücksichtigt. Zusätzlich wählen Sie aus, welche Absender genau beantwortet werden:
+  - **Interne und alle externen Absender** – alle Absender erhalten eine Antwort.
+  - **Nur externe Absender (nicht intern)** – ausschließlich Absender außerhalb der Organisation erhalten eine Antwort; interne Absender werden nicht automatisch beantwortet.
+  - **Nur meine Kontakte** – reserviert für eine künftige Kontakte-App und derzeit nicht auswählbar.
+
+Die zur Unterscheidung herangezogenen **internen Domänen** Ihrer Organisation werden unterhalb der Option angezeigt.
+
+{/* TODO: Screenshot ergänzen: Option "Antworten an Absender außerhalb der Organisation senden" mit den drei Auswahlmöglichkeiten und den angezeigten internen Domänen */}
+
 #### Aktivieren und Löschen
 
 - **Speichern** sichert die Vorlage. Änderungen müssen gespeichert sein, bevor eine Vorlage aktiviert werden kann.

@@ -21,8 +21,12 @@ Zeigt alle verfügbaren Konferenzen:
 | **Zutrittsbeschränkung** | 🔒 Privat oder Öffentlich |
 | **Passwort** | Passwortschutz aktiv |
 | **Eingeladen** | Anzahl Teilnehmer (z.B. "2 Teilnehmer") |
-| **Beigetreten** | Aktuell aktive Teilnehmer |
+| **Beigetreten** | Anzahl der aktuell beigetretenen Teilnehmer im Verhältnis zu den Eingeladenen |
 | **Aktion** | Starten-Button |
+
+:::info[Live-Teilnehmerzahl]
+Die Spalte **Beigetreten** zeigt die Anzahl der aktuell beigetretenen Teilnehmer und aktualisiert sich automatisch in Echtzeit, solange die Konferenz läuft – ein manuelles Neuladen ist dafür nicht erforderlich. Aus Datenschutzgründen wird ausschließlich die Anzahl angezeigt; die Namen der beigetretenen Teilnehmer werden nicht offengelegt.
+:::
 
 ### Funktionen unten
 
@@ -76,7 +80,7 @@ Klicken Sie auf den blauen **Speichern** Button
 
 Klicken Sie auf **▶ Starten** oder den **▶ Starten** Button in der Zeile
 
-Die Konferenz öffnet sich in einem neuen Fenster.
+Die Konferenz öffnet sich in einem neuen Fenster. Der Fenstertitel enthält den Namen der Konferenz (z.B. "Konferenz: Mathe 8a"), sodass bei mehreren geöffneten Fenstern jederzeit ersichtlich ist, um welche Konferenz es sich handelt.
 
 ## Konferenz-Funktionen
 

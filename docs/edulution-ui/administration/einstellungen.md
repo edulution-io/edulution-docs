@@ -143,7 +143,7 @@ In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Ni
 
 ## Kontakte (CardDAV)
 
-<!-- TODO: Screenshot ergänzen: Einstellungen der Kontakte-App mit CardDAV-Konfiguration -->
+{/* TODO: Screenshot ergänzen: Einstellungen der Kontakte-App mit CardDAV-Konfiguration */}
 
 Die Kontakte-App bindet die Adressbücher der Schule über einen CardDAV-Server (z.B. SOGo) an. In den Einstellungen der App legen Sie die Verbindung zum CardDAV-Server fest.
 

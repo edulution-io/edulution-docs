@@ -2,7 +2,7 @@
 
 Die **Kontakte**-App zeigt und verwaltet Kontakte aus den CardDAV-Adressbüchern der Schule. Die Adressbücher werden über einen CardDAV-Server (z.B. SOGo) angebunden, sodass Ihre Kontakte zentral gepflegt und mit anderen Geräten synchronisiert werden können.
 
-<!-- TODO: Screenshot ergänzen: Kontakte-App mit Adressbuch-Leiste, Kontaktliste und Detailansicht -->
+{/* TODO: Screenshot ergänzen: Kontakte-App mit Adressbuch-Leiste, Kontaktliste und Detailansicht */}
 
 ## Übersicht
 

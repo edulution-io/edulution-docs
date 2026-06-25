@@ -141,6 +141,52 @@ In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Ni
 
 ---
 
+## Kontakte (CardDAV)
+
+<!-- TODO: Screenshot ergänzen: Einstellungen der Kontakte-App mit CardDAV-Konfiguration -->
+
+Die Kontakte-App bindet die Adressbücher der Schule über einen CardDAV-Server (z.B. SOGo) an. In den Einstellungen der App legen Sie die Verbindung zum CardDAV-Server fest.
+
+### Sortierung
+
+**Position in der App-Liste**
+- Numerischer Wert
+- Bestimmt, an welcher Stelle die Kontakte-App in der App-Liste und in den Einstellungen angezeigt wird
+- Niedrigere Zahlen = weiter oben in der Liste
+
+### Nutzergruppen
+
+**Zugriff auf die Kontakte-App**
+- Wählen Sie die Nutzergruppen aus, die Zugriff auf die Kontakte-App bekommen sollen
+- Mehrfachauswahl möglich
+- Nur ausgewählte Gruppen sehen die Kontakte-App in ihrer Anwendungsübersicht
+
+### CardDAV-Verbindung
+
+**CardDAV-URL**
+- Basis-URL des CardDAV-Servers inklusive Pfad
+- Beispiel: `https://mail.example.com/SOGo/dav/`
+- Wird für die Anbindung der Adressbücher verwendet
+
+**Authentifizierungsmodus**
+- HTTP-Authentifizierungsverfahren für die CardDAV-Verbindung
+- Optionen: **Basic**, **Digest**, **OAuth**
+
+:::info
+Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic eingestellt; weitere Modi sind in Vorbereitung.
+:::
+
+**Nicht zertifizierte Verbindungen ablehnen**
+- Toggle-Schalter für die Zertifikatsprüfung
+- Aktiviert: Das SSL/TLS-Zertifikat des CardDAV-Servers wird validiert
+- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+
+:::warning[Sicherheitshinweis]
+In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" aktiviert lassen, um die Sicherheit der CardDAV-Verbindung zu gewährleisten.
+:::
+
+---
+
 ## Container
 
 ![Container Übersicht](/img/einstellungen/container.png)

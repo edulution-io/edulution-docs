@@ -396,17 +396,17 @@ Es gibt einige Fragetypen, bei denen das PDF-Rendering nicht oder nur eingeschr�
 
 ### Berechtigungen innerhalb der Applikation
 
-Innerhalb der Umfragen-App können die Berechtigungen der Benutzergruppen etwas feingranularer eingestellt werden.
-So kann explizit festgelegt werden, wer Umfragen erstellen können soll.
+Innerhalb der Umfragen-App lassen sich die Berechtigungen der Benutzergruppen feingranular einstellen.
+So kann explizit festgelegt werden, welche Gruppen Umfragen erstellen dürfen.
 
 :::info[Hinweis]
-So kann zum Beispiel verhindert werden, dass Schüler eigene Umfragen erstellen können. Sie könnten ja auf die Idee kommen, eine Umfrage über einen Mitschüler zu machen, der weniger beliebt ist.
+So lässt sich beispielsweise verhindern, dass Schüler eigene Umfragen erstellen. Damit wird ein Missbrauch ausgeschlossen, etwa das Erstellen von Umfragen über einzelne Mitschüler.
 :::
 
 ### Logo
 
-Innerhalb der Umfragen-App kann ein individuelles App-Logo hinterlegt werden, das von da an in jeder Umfrage standardmäßig angeheftet wird.
-Das umfragenspezifische [App-Logo](#umfrage-logo) kann später im Editor einfach gegen das gewünschte Bild ausgetauscht werden.
+Innerhalb der Umfragen-App kann ein individuelles App-Logo hinterlegt werden, das anschließend in jeder Umfrage standardmäßig verwendet wird.
+Das umfragenspezifische [App-Logo](#umfrage-logo) kann später im Editor gegen das gewünschte Bild ausgetauscht werden.
 
 ---
 

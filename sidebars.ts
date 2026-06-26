@@ -347,6 +347,24 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'edulution EuroOffice',
+      collapsed: false,
+      link: {
+        type: 'generated-index',
+        title: 'edulution EuroOffice',
+        description: 'EuroOffice-Integration für die Dateiverwaltung.',
+        slug: '/category/edulution-eurooffice',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-eurooffice/index',
+          label: '⚙️ Installation',
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'edulution Collabora',
       collapsed: false,
       link: {

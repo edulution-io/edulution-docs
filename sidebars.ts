@@ -107,6 +107,7 @@ const sidebars: SidebarsConfig = {
                 'edulution-ui/features/goodnotes',
               ],
             },
+            'edulution-ui/features/e-mail',
             'edulution-ui/features/klassenzimmer',
             'edulution-ui/features/konferenzen',
             'edulution-ui/features/whiteboard',

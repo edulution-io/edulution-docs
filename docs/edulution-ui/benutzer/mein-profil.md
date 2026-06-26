@@ -227,6 +227,14 @@ Die zur Unterscheidung herangezogenen **internen Domänen** Ihrer Organisation w
 - **Deaktivieren** schaltet die automatische Antwort wieder ab.
 - **Löschen** entfernt die ausgewählte Vorlage nach einer Sicherheitsabfrage.
 
+#### Automatische Antwort für freigegebene Postfächer
+
+Sind Sie als Berechtigter für ein oder mehrere **freigegebene Postfächer** (z. B. `verwaltung@…`) eingetragen, können Sie auch deren automatische Antwort verwalten. Der Abschnitt **Automatische Antwort für freigegebene Postfächer** erscheint nur dann, wenn Ihnen mindestens ein freigegebenes Postfach zugewiesen ist – andernfalls bleibt er ausgeblendet.
+
+- Über die Auswahl **Freigegebenes Postfach auswählen** wählen Sie das Postfach, dessen automatische Antwort Sie bearbeiten möchten.
+- Darunter erscheint dasselbe Formular wie für Ihr eigenes Postfach: Sie legen **Vorlagen** an, bearbeiten Betreff, Nachricht und Adressen, schränken den Geltungsbereich ein und **aktivieren** bzw. **deaktivieren** die automatische Antwort.
+- Jedes freigegebene Postfach besitzt eigene Vorlagen und eine eigene aktive Antwort, unabhängig von Ihrem persönlichen Postfach. Beim Wechsel des Postfachs werden dessen Vorlagen geladen.
+
 ### Weiterleitung
 
 Leiten Sie eingehende E-Mails automatisch an andere Adressen weiter.

@@ -129,6 +129,10 @@ const config: Config = {
               to: '/docs/category/edulution-onlyoffice',
             },
             {
+              label: 'edulution EuroOffice',
+              to: '/docs/category/edulution-eurooffice',
+            },
+            {
               label: 'edulution Collabora',
               to: '/docs/category/edulution-collabora',
             },

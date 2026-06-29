@@ -35,6 +35,7 @@ In der Ordnerliste sehen Sie Ihr Postfach mit den Standardordnern **Posteingang*
 
 Über der Nachrichtenliste können Sie mit den Reitern **Alle** und **Ungelesen** filtern und über das Suchfeld **E-Mails durchsuchen**. Nachrichten sind nach Zeitraum gruppiert (z. B. **Heute**, **Gestern**, **Letzte Woche**).
 
+- Jeder Eintrag zeigt den jeweils relevanten Korrespondenten: in den meisten Ordnern den **Absender** der Nachricht, in **Gesendet** und **Entwürfe** dagegen den **Empfänger**. Nachrichten, die Sie an sich selbst gesendet haben, werden mit dem Absender angezeigt – die Nachrichtenliste stimmt dadurch mit der Leseansicht überein.
 - Ein Klick auf eine Nachricht öffnet sie in der Leseansicht. In der Kopfzeile stehen **Antworten**, **Allen antworten**, **Weiterleiten** und **Drucken** zur Verfügung; weitere Aktionen wie als gelesen/ungelesen markieren, verschieben oder löschen erreichen Sie über das Aktionsmenü.
 - **Anhänge** können Sie herunterladen oder direkt **in Dateien speichern**.
 - Über die Auswahlkästchen markieren Sie mehrere Nachrichten gleichzeitig. Ist mindestens eine Nachricht ausgewählt, erscheint eine Aktionsleiste (**… ausgewählt**) mit **In den Papierkorb verschieben** und einem **Mehr**-Menü für weitere Sammelaktionen (z. B. als gelesen markieren, verschieben, endgültig löschen, als Spam markieren).

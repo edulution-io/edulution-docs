@@ -35,6 +35,8 @@ In der Ordnerliste sehen Sie Ihr Postfach mit den Standardordnern **Posteingang*
 
 Über der Nachrichtenliste können Sie mit den Reitern **Alle** und **Ungelesen** filtern und über das Suchfeld **E-Mails durchsuchen**. Nachrichten sind nach Zeitraum gruppiert (z. B. **Heute**, **Gestern**, **Letzte Woche**).
 
+Die Nachrichtenliste aktualisiert sich automatisch: Trifft eine neue E-Mail ein, werden Sie mit einem kurzen Hinweis informiert und der aktuelle Ordner wird aktualisiert, ohne dass Sie Ihre Position in der Liste verlieren. Ändert sich der Gelesen-Status an anderer Stelle – etwa in SOGo oder auf einem anderen Gerät –, wird die Liste entsprechend angeglichen, sodass die Reiter **Alle** und **Ungelesen** sowie die Zähler ungelesener Nachrichten stets denselben Stand zeigen. Mit **Aktualisieren** in der Aktionen-Leiste können Sie den Ordner zusätzlich jederzeit manuell neu laden.
+
 - Ein Klick auf eine Nachricht öffnet sie in der Leseansicht. In der Kopfzeile stehen **Antworten**, **Allen antworten**, **Weiterleiten** und **Drucken** zur Verfügung; weitere Aktionen wie als gelesen/ungelesen markieren, verschieben oder löschen erreichen Sie über das Aktionsmenü.
 - **Anhänge** können Sie herunterladen oder direkt **in Dateien speichern**.
 - Über die Auswahlkästchen markieren Sie mehrere Nachrichten gleichzeitig. Ist mindestens eine Nachricht ausgewählt, erscheint eine Aktionsleiste (**… ausgewählt**) mit **In den Papierkorb verschieben** und einem **Mehr**-Menü für weitere Sammelaktionen (z. B. als gelesen markieren, verschieben, endgültig löschen, als Spam markieren).

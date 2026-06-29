@@ -107,6 +107,7 @@ const sidebars: SidebarsConfig = {
                 'edulution-ui/features/goodnotes',
               ],
             },
+            'edulution-ui/features/e-mail',
             'edulution-ui/features/klassenzimmer',
             'edulution-ui/features/konferenzen',
             'edulution-ui/features/whiteboard',
@@ -341,6 +342,24 @@ const sidebars: SidebarsConfig = {
         {
           type: 'doc',
           id: 'edulution-onlyoffice/index',
+          label: '⚙️ Installation',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'edulution EuroOffice',
+      collapsed: false,
+      link: {
+        type: 'generated-index',
+        title: 'edulution EuroOffice',
+        description: 'EuroOffice-Integration für die Dateiverwaltung.',
+        slug: '/category/edulution-eurooffice',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-eurooffice/index',
           label: '⚙️ Installation',
         },
       ],

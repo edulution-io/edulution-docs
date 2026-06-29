@@ -23,7 +23,7 @@ Die Einstellungen sind in 5 Bereiche gegliedert:
 
 ## Globale Einstellungen
 
-![Globale Einstellungen](/img/einstellungen/global-settings.png)
+![Globale Einstellungen](/img/einstellungen/global-settings.webp)
 
 ### Allgemein
 
@@ -53,7 +53,7 @@ Die Einstellungen sind in 5 Bereiche gegliedert:
 
 ### Branding
 
-![Branding](/img/einstellungen/branding.png)
+![Branding](/img/einstellungen/branding.webp)
 
 **Logo**
 - Laden Sie Ihr Schul-Logo hoch
@@ -75,7 +75,7 @@ Diese Informationen erscheinen in der edulution App.
 
 ## E-Mails
 
-![E-Mail Einstellungen](/img/einstellungen/email-settings.png)
+![E-Mail Einstellungen](/img/einstellungen/email-settings.webp)
 
 Die E-Mail-Einstellungen ermöglichen die Konfiguration der Mail-App und des SOGo Webmailers.
 
@@ -143,7 +143,7 @@ In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Ni
 
 ## Kontakte (CardDAV)
 
-{/* TODO: Screenshot ergänzen: Einstellungen der Kontakte-App mit CardDAV-Konfiguration */}
+![Einstellungen der Kontakte-App mit CardDAV-Konfiguration](/img/einstellungen/kontakte-carddav.webp)
 
 Die Kontakte-App bindet die Adressbücher der Schule über einen CardDAV-Server (z.B. SOGo) an. In den Einstellungen der App legen Sie die Verbindung zum CardDAV-Server fest.
 
@@ -153,6 +153,13 @@ Die Kontakte-App bindet die Adressbücher der Schule über einen CardDAV-Server 
 - Numerischer Wert
 - Bestimmt, an welcher Stelle die Kontakte-App in der App-Liste und in den Einstellungen angezeigt wird
 - Niedrigere Zahlen = weiter oben in der Liste
+
+### An App-Leiste anpinnen
+
+**Dauerhaft in der App-Leiste anzeigen**
+- Toggle-Schalter
+- Aktiviert: Die Kontakte-App erscheint dauerhaft in der App-Leiste
+- Deaktiviert: Die App wird dort nur angezeigt, solange sie geöffnet ist
 
 ### Nutzergruppen
 
@@ -189,7 +196,7 @@ In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" a
 
 ## Container
 
-![Container Übersicht](/img/einstellungen/container.png)
+![Container Übersicht](/img/einstellungen/container.webp)
 
 Übersicht aller Docker Container des Systems.
 
@@ -241,7 +248,7 @@ Die Container-Übersicht ist für fortgeschrittene Administratoren. Änderungen 
 
 ## Benutzerverwaltung
 
-![Benutzerverwaltung](/img/einstellungen/user-admin.png)
+![Benutzerverwaltung](/img/einstellungen/user-admin.webp)
 
 ### Zwei-Faktor-Authentisierung zurücksetzen
 
@@ -259,7 +266,7 @@ Nützlich wenn Benutzer:
 
 ## Info
 
-![Info / Lizenz](/img/einstellungen/info-license.png)
+![Info / Lizenz](/img/einstellungen/info-license.webp)
 
 ### Lizenz-Übersicht
 

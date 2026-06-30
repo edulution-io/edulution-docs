@@ -191,13 +191,17 @@ Analog dazu funktionieren **Option** und **Auswahl** — bei **Auswahl** können
 
 ![Backend-Limiter bearbeiten](/img/umfragen/Screenshot_20260506_140749.png)
 
-Backend-Limiter werden serverseitig gespeichert. Den Auswahlmöglichkeiten wird dabei ein Limit mitgegeben, **wie oft diese Option insgesamt auswählbar ist**.
+Backend-Limiter werden serverseitig in einer eigenen Datenbank gespeichert. Den Auswahlmöglichkeiten wird dabei ein Limit mitgegeben, **wie oft diese Option insgesamt auswählbar ist**.
+
+Bearbeiten Sie die Optionen einer bereits gespeicherten Umfrage, werden Ihre Änderungen laufend automatisch übernommen. Schalten Sie die Backend-Limiter für eine Frage wieder aus, werden die zugehörigen Limiter dieser Frage serverseitig entfernt. Innerhalb einer Frage muss jede Option einen eindeutigen Titel besitzen — zwei Optionen mit demselben Titel werden mit dem Hinweis *„Eine Option mit diesem Titel existiert bereits."* abgewiesen.
 
 Wenn eine Frage diese Limiter nutzt, wird beim Aufruf der Umfrage eine Abfrage an das Backend geschickt, um die aktuellen Limit-Stände zu laden. Das Backend liefert dann nur diejenigen Auswahlmöglichkeiten zurück, die das Limit noch nicht erreicht haben.
 
 :::info[Beispiel]
 Eine Veranstaltung, bei der die Teilnehmerzahl limitiert ist. Auf diese Weise können sich Teilnehmer selbst einschreiben, bis das Limit erreicht ist (first-come, first-served).
 :::
+
+Die endgültige Prüfung erfolgt erst beim Absenden der Antwort: Wurde das Limit einer ausgewählten Option in der Zwischenzeit von anderen Teilnehmern ausgeschöpft, wird die Abgabe mit dem Hinweis abgewiesen, welche Fragen betroffen sind. Bereits vorgemerkte Limit-Stände der übrigen Optionen werden dabei wieder zurückgesetzt, sodass keine Zählerstände fälschlich hochgezählt werden. So bleibt das Prinzip first-come, first-served auch bei gleichzeitiger Teilnahme verlässlich.
 
 :::warning[Was, wenn das Backend nicht erreichbar ist?]
 Wenn sich die Backend-Limiter nicht laden lassen, fällt SurveyJS auf die im Editor definierten Auswahlmöglichkeiten zurück.
@@ -213,8 +217,10 @@ Wie bei den Auswahlmöglichkeiten ohne Backend-Limiter ist es auch hier möglich
 Für einen geselligen Abend wird jeder Teilnehmer gebeten, etwas mitzubringen und dies in der Umfrage einzutragen. Bei zehn Teilnehmern macht es vielleicht Sinn, jede Option zweimal zu erlauben — so könnte die Option "Kartoffelsalat" maximal zweimal gewählt werden, und es ist sichergestellt, dass nicht jeder Kartoffelsalat mitbringt. Falls einem Teilnehmer die verbleibenden Optionen nicht zusagen, kann er eigene Vorschläge ergänzen.
 :::
 
+Tragen mehrere Teilnehmer denselben Titel ein, werden diese Einträge zu einer Option zusammengeführt und teilen sich dasselbe Limit. Damit eigene Einträge das System nicht überlasten, gelten beim Absenden zudem feste Grenzen: Pro Abgabe können höchstens **20** eigene Optionen übermittelt werden, und jeder selbst eingetragene Titel darf nicht leer und höchstens **256 Zeichen** lang sein. Werden diese Grenzen überschritten, lehnt das Backend die Abgabe mit einem entsprechenden Hinweis ab.
+
 :::warning[Problem]
-Es lässt sich nicht ausschließen, dass ein Teilnehmer aus Spaß "Erdäpfelsalat" hinzufügt — ein synonymer Begriff für "Kartoffelsalat", der das Limit umgeht.
+Es lässt sich nicht ausschließen, dass ein Teilnehmer aus Spaß "Erdäpfelsalat" hinzufügt — ein synonymer Begriff für "Kartoffelsalat", der das Limit umgeht. Exakt gleiche Titel werden zwar zusammengeführt und teilen sich ein Limit, sinngleiche Synonyme lassen sich technisch jedoch nicht verhindern.
 :::
 
 ### Meinung/Gewichtung

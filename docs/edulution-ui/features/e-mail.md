@@ -51,6 +51,16 @@ In der Ordnerliste sehen Sie Ihr Postfach mit den Standardordnern **Posteingang*
 
 Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht. Beim Schließen mit ungespeicherten Änderungen werden Sie gefragt, ob der Entwurf behalten, verworfen oder weiter bearbeitet werden soll.
 
+## Hinweis auf aktive automatische Antwort
+
+Ist eine **automatische Antwort (Abwesenheitsnotiz)** aktiv, zeigt die E-Mail-App dies direkt im Kopfbereich unterhalb des Titels an. So erkennen Sie auf einen Blick, dass aktuell automatisch auf eingehende Nachrichten geantwortet wird, ohne erst die Einstellungen öffnen zu müssen.
+
+- Für Ihr **persönliches Postfach** erscheint der Hinweis, sobald eine Ihrer Vorlagen aktiv ist – mit dem Namen der aktiven Vorlage.
+- Haben Sie ein **freigegebenes Postfach** ausgewählt, das Sie verwalten dürfen, bezieht sich der Hinweis auf dieses Postfach und nennt zusätzlich dessen Adresse. Für freigegebene Postfächer, die Sie nicht verwalten, wird kein Hinweis angezeigt.
+- Ist keine automatische Antwort aktiv, erscheint kein Hinweis.
+
+Ein Klick auf den Hinweis bringt Sie direkt zu den **E-Mail-Einstellungen**, wo Sie die automatische Antwort anpassen oder deaktivieren können.
+
 ## Einstellungen
 
 Signatur, automatische Antwort (Abwesenheitsnotiz), Weiterleitung und Filter verwalten Sie in den **E-Mail-Einstellungen**. Eine ausführliche Beschreibung finden Sie unter [Mein Profil](../benutzer/mein-profil.md).

@@ -2,7 +2,7 @@
 
 Die Sichtbarkeit von Wikis lässt sich pro WebDAV-Freigabe steuern – unabhängig vom Datei-Zugriff. So können einzelne Wikis komplett deaktiviert oder auf bestimmte Benutzergruppen eingeschränkt werden.
 
-:::caution Nur Global-Admin
+:::warning[Nur Global-Admin]
 Diese Einstellungen sind ausschließlich für Global-Admins zugänglich.
 :::
 
@@ -56,11 +56,11 @@ Die effektive Sichtbarkeit eines Wikis ergibt sich aus drei Bedingungen:
 | Ein | leer | alle Benutzer mit Datei-Zugriff auf die Freigabe |
 | Ein | befüllt | nur Mitglieder der gewählten Gruppen (zusätzlich zum Datei-Zugriff für Nicht-Admins) |
 
-:::note Datei-Zugriff bleibt eigenständig
+:::note[Datei-Zugriff bleibt eigenständig]
 Die Wiki-Einstellungen wirken **zusätzlich** zur Datei-Berechtigung. Hat ein Benutzer keinen Zugriff auf die zugrundeliegende WebDAV-Freigabe, sieht er das Wiki auch dann nicht, wenn er Mitglied einer Wiki-Zugriffsgruppe ist – außer er ist Global-Admin.
 :::
 
-:::caution Sich selbst nicht aussperren
+:::warning[Sich selbst nicht aussperren]
 Beim Setzen von Wiki-Zugriffsgruppen prüfen Sie, ob Sie selbst (bzw. die Admin-Gruppe) enthalten sind. Andernfalls verlieren Sie als Global-Admin zwar nicht den Datei-Zugriff, sehen das Wiki aber nicht mehr in der UI.
 :::
 

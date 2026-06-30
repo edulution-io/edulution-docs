@@ -357,7 +357,7 @@ In der Vorschau können Sie die Umfrage einmal durchklicken und prüfen, ob alle
 
 - **Teilnehmer**: Hier können bestimmte Benutzer ausgewählt werden, die an der Umfrage teilnehmen sollen.
 - **Gruppen**: Hier können ganze Benutzergruppen ausgewählt werden, deren Mitglieder an der Umfrage teilnehmen sollen.
-- **Ablaufdatum**: Ab diesem Datum ist die Teilnahme an der Umfrage nicht mehr möglich.
+- **Ablaufdatum**: Ab diesem Datum ist die Teilnahme an der Umfrage nicht mehr möglich. Wird nach Ablauf des Datums noch versucht, eine Antwort abzugeben, wird diese mit dem Hinweis *„Umfrage ist abgelaufen."* abgewiesen.
 - **Soll die Umfrage anonym sein?**: Anonymisiert die Antworten der Teilnehmer. In diesem Fall ist keine Verknüpfung zwischen Antwort und Teilnehmer möglich.
 - **Soll die Umfrage öffentlich sein?**: Öffentliche Umfragen können von allen geteilt werden, und die Teilnahme ist auch ohne Benutzerkonto möglich. Siehe [Öffentliche Teilnahme](#öffentliche-teilnahme).
 - **Soll ein Teilnehmer die Umfrage mehrmals beantworten können?**: Ermöglicht demselben Benutzer die wiederholte Teilnahme an der Umfrage.

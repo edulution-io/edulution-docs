@@ -2,7 +2,7 @@
 
 Das Wiki ist ein gemeinschaftliches Werkzeug zur Wissensverwaltung. Sie können Markdown-Seiten anlegen, in Ordnern organisieren, gemeinsam bearbeiten und über alle Wikis hinweg durchsuchen.
 
-:::info WebDAV-Anbindung
+:::info[WebDAV-Anbindung]
 Jedes Wiki ist an eine WebDAV-Freigabe gebunden. Die Sichtbarkeit eines Wikis lässt sich vom Global-Admin separat von der Datei-Freigabe steuern (siehe [Wiki-Einstellungen](../administration/wiki-einstellungen.md)).
 :::
 
@@ -50,7 +50,7 @@ Verweise auf andere Wiki-Seiten lassen sich über die Syntax `[[Seitenname]]` ei
 
 Änderungen werden automatisch gespeichert. Die Statusanzeige zeigt den letzten Speicherzeitpunkt (z.B. `Gespeichert 10:40`) sowie Hinweise auf Fehler beim Speichern.
 
-:::tip Entwurf wiederherstellen
+:::tip[Entwurf wiederherstellen]
 Wenn Sie den Browser schließen, ohne zu speichern, werden Ihre Änderungen lokal als Entwurf gesichert. Beim nächsten Öffnen der Seite erscheint ein Banner zum **Wiederherstellen** oder **Verwerfen** des Entwurfs.
 :::
 
@@ -94,7 +94,7 @@ Die Volltextsuche öffnen Sie über das Filterfeld in der Seitenleiste (mit Ente
 - Ergebnisliste mit Trefferausschnitt und hervorgehobenem Suchbegriff
 - Klick auf einen Treffer öffnet die entsprechende Seite
 
-:::note Eingeschränkte Suchergebnisse
+:::note[Eingeschränkte Suchergebnisse]
 Ist eine Freigabe vorübergehend nicht erreichbar (z.B. wegen Wartungsarbeiten), erscheint oberhalb der Trefferliste der Hinweis **Teilergebnisse angezeigt** mit der Liste der nicht verfügbaren Freigaben. Die Suche liefert dann nur Treffer aus den verfügbaren Wikis.
 :::
 
@@ -102,11 +102,11 @@ Ist eine Freigabe vorübergehend nicht erreichbar (z.B. wegen Wartungsarbeiten),
 
 Über **Löschen** (Papierkorb-Symbol) in der Werkzeugleiste lässt sich die aktuell geöffnete Seite entfernen. Vor dem Löschen erscheint ein Bestätigungsdialog.
 
-:::note Ordner löschen
+:::note[Ordner löschen]
 Das Entfernen ganzer Ordner ist über die Wiki-Oberfläche derzeit nicht möglich – über die Werkzeugleiste lassen sich nur einzelne Seiten löschen. Leere Ordner und nicht mehr benötigte Unterstrukturen können über den direkten Zugriff auf die zugrundeliegende WebDAV-Freigabe (siehe [Dateien](dateien/index.md)) entfernt werden.
 :::
 
-:::caution Unwiderruflich
+:::warning[Unwiderruflich]
 Gelöschte Wiki-Seiten können nicht aus der Anwendung wiederhergestellt werden. Bei Bedarf wenden Sie sich an Ihren Global-Admin – Wiki-Inhalte werden auf der zugrundeliegenden WebDAV-Freigabe gespeichert und sind ggf. über das Backup wiederherstellbar.
 :::
 
@@ -129,13 +129,13 @@ Gelöschte Wiki-Seiten können nicht aus der Anwendung wiederhergestellt werden.
 
 ## Tipps für die Nutzung
 
-:::tip Anwendungsbeispiele
+:::tip[Anwendungsbeispiele]
 - **Lehrer-Wiki:** internes Handbuch für das Kollegium (Vertretungsregeln, IT-Hinweise, Kontakte)
 - **Klassen-Wiki:** Lehrkraft pflegt Themenüberblicke, Schüler ergänzen eigene Notizen
 - **Projekt-Wiki:** Dokumentation laufender Projekte mit Aufgabenlisten und Verlinkungen
 :::
 
-:::info Markdown-Hinweis
+:::info[Markdown-Hinweis]
 Das Wiki nutzt Standard-Markdown. Eine Übersicht der unterstützten Formatierungen finden Sie in der [Markdown-Hilfe](markdown-hilfe.md).
 :::
 

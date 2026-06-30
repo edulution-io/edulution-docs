@@ -6,7 +6,7 @@ sidebar_position: 6
 
 Server-seitige Komponenten und Einrichtung des **Wiki**-Features in edulution. Das Wiki ist ein integraler Bestandteil des FileProxy mit eigenem Suchindex und in `config.example.yml` standardmäßig aktiviert. Hosts ohne Wiki-Bedarf können es über `elasticsearch.enabled: false` in `/etc/edulution-fileproxy/config.yml` deaktivieren.
 
-:::info Vorgelagerte Schritte
+:::info[Vorgelagerte Schritte]
 Dieses Dokument setzt eine funktionierende FileProxy-Installation voraus. Folgen Sie zuerst der [Installation](./installation), [Traefik-Konfiguration](./traefik-config) und [UI-Konfiguration](./ui-config).
 :::
 
@@ -53,7 +53,7 @@ flowchart LR
 
 Folgen Sie der [Installations-Anleitung](./installation). Die Wiki-Funktionalität ist in der mitgelieferten `config.example.yml` standardmäßig aktiviert – die folgenden Schritte schließen die Einrichtung ab (Indexer-Konto, ES-Sidecar, Erstindex).
 
-:::info Upgrade von einer Version vor 1.1.7
+:::info[Upgrade von einer Version vor 1.1.7]
 Bestehende `/etc/edulution-fileproxy/config.yml` wurde vor dem Wiki-Default angelegt und enthält die Blöcke `smb.indexer_service_account` und `elasticsearch:` noch nicht. Übernehmen Sie sie aus `/etc/edulution-fileproxy/config.example.yml` (wird bei jedem Upgrade aktualisiert), bevor Sie mit Schritt 2 fortfahren.
 :::
 
@@ -66,7 +66,7 @@ echo -n 'GEHEIM' | sudo tee /etc/edulution-fileproxy/indexer.secret
 sudo chmod 600 /etc/edulution-fileproxy/indexer.secret
 ```
 
-:::tip Passwort mit Sonderzeichen
+:::tip[Passwort mit Sonderzeichen]
 Enthält das Passwort `!`, `$`, Backticks oder doppelte Anführungszeichen, kann die Bash es vor dem Ausführen falsch interpretieren (`!` löst die History-Expansion aus, `$` und Backticks werden in doppelten Anführungszeichen expandiert). In dem Fall am sichersten mit einem Editor schreiben – das umgeht die Shell-Auswertung vollständig:
 
 ```bash
@@ -84,11 +84,11 @@ ldap:
   base_dn: "DC=linuxmuster,DC=lan"   # PFLICHT für ACL-Auswertung
 ```
 
-:::caution base_dn ist Pflicht
+:::warning[base_dn ist Pflicht]
 Ohne `ldap.base_dn` kann FileProxy keine Gruppen-SIDs zur Berechtigungsprüfung auflösen – die Suche liefert dann keine Treffer.
 :::
 
-:::tip Anderes Indexer-Konto verwenden
+:::tip[Anderes Indexer-Konto verwenden]
 Wenn `global-admin` nicht passt, kann in `config.yml` unter `smb.indexer_service_account.user` ein beliebiger AD-Benutzer mit Leseberechtigung auf den indexierten Pfaden eingetragen werden.
 :::
 
@@ -110,7 +110,7 @@ Eckdaten der Standard-Konfiguration:
 | Bind | `127.0.0.1:9200` | nur Loopback – `xpack.security.enabled=false` |
 | Volume | `es-data` (named volume) | überlebt Container-Neustarts |
 
-:::warning Loopback-Bindung niemals aufweichen
+:::warning[Loopback-Bindung niemals aufweichen]
 Da Security in Elasticsearch deaktiviert ist, würde jede Bindung an externe Interfaces einen kompletten Cluster-Takeover ermöglichen. ES darf ausschließlich auf `127.0.0.1` lauschen.
 :::
 

@@ -2,7 +2,7 @@
 
 Diese Übersicht zeigt die Markdown-Formatierungen, die im edulution Wiki unterstützt werden. Der Editor bietet die wichtigsten Aktionen über die Werkzeugleiste an – Sie können den Markdown-Text aber auch direkt eingeben.
 
-:::info Geltungsbereich
+:::info[Geltungsbereich]
 Diese Hilfe bezieht sich auf den [Wiki](wiki.md)-Editor. Andere Markdown-Felder in edulution unterstützen je nach Kontext einen Teil der hier beschriebenen Formatierungen.
 :::
 
@@ -126,11 +126,11 @@ Eine horizontale Linie erzeugen Sie mit drei oder mehr Bindestrichen auf einer e
 
 ## Tipps
 
-:::tip Vorschau nutzen
+:::tip[Vorschau nutzen]
 Während der Bearbeitung im Wiki-Editor sehen Sie das gerenderte Ergebnis live. So lässt sich Formatierung schnell überprüfen, ohne die Seite zu speichern.
 :::
 
-:::note Sonderzeichen schützen
+:::note[Sonderzeichen schützen]
 Zeichen wie `*`, `_`, `` ` `` oder `#` lassen sich mit einem vorangestellten Backslash `\` als normaler Text darstellen, z. B. `\*kein Kursiv\*`.
 :::
 

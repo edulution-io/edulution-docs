@@ -132,6 +132,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/administration/administration',
             'edulution-ui/administration/einstellungen',
             'edulution-ui/administration/wiki-einstellungen',
+            'edulution-ui/administration/satelliten',
             'edulution-ui/administration/experten-tipps',
           ],
         },

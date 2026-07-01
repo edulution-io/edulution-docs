@@ -108,6 +108,7 @@ const sidebars: SidebarsConfig = {
               ],
             },
             'edulution-ui/features/e-mail',
+            'edulution-ui/features/kontakte',
             'edulution-ui/features/kalender',
             'edulution-ui/features/klassenzimmer',
             'edulution-ui/features/konferenzen',

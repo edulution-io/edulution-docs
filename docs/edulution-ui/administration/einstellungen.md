@@ -23,7 +23,7 @@ Die Einstellungen sind in 5 Bereiche gegliedert:
 
 ## Globale Einstellungen
 
-![Globale Einstellungen](/img/einstellungen/global-settings.png)
+![Globale Einstellungen](/img/einstellungen/global-settings.webp)
 
 ### Allgemein
 
@@ -53,7 +53,7 @@ Die Einstellungen sind in 5 Bereiche gegliedert:
 
 ### Branding
 
-![Branding](/img/einstellungen/branding.png)
+![Branding](/img/einstellungen/branding.webp)
 
 **Logo**
 - Laden Sie Ihr Schul-Logo hoch
@@ -75,7 +75,7 @@ Diese Informationen erscheinen in der edulution App.
 
 ## E-Mails
 
-![E-Mail Einstellungen](/img/einstellungen/email-settings.png)
+![E-Mail Einstellungen](/img/einstellungen/email-settings.webp)
 
 Die E-Mail-Einstellungen ermöglichen die Konfiguration der Mail-App und des SOGo Webmailers.
 
@@ -141,9 +141,62 @@ In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Ni
 
 ---
 
+## Kontakte (CardDAV)
+
+![Einstellungen der Kontakte-App mit CardDAV-Konfiguration](/img/einstellungen/kontakte-carddav.webp)
+
+Die Kontakte-App bindet die Adressbücher der Schule über einen CardDAV-Server (z.B. SOGo) an. In den Einstellungen der App legen Sie die Verbindung zum CardDAV-Server fest.
+
+### Sortierung
+
+**Position in der App-Liste**
+- Numerischer Wert
+- Bestimmt, an welcher Stelle die Kontakte-App in der App-Liste und in den Einstellungen angezeigt wird
+- Niedrigere Zahlen = weiter oben in der Liste
+
+### An App-Leiste anpinnen
+
+**Dauerhaft in der App-Leiste anzeigen**
+- Toggle-Schalter
+- Aktiviert: Die Kontakte-App erscheint dauerhaft in der App-Leiste
+- Deaktiviert: Die App wird dort nur angezeigt, solange sie geöffnet ist
+
+### Nutzergruppen
+
+**Zugriff auf die Kontakte-App**
+- Wählen Sie die Nutzergruppen aus, die Zugriff auf die Kontakte-App bekommen sollen
+- Mehrfachauswahl möglich
+- Nur ausgewählte Gruppen sehen die Kontakte-App in ihrer Anwendungsübersicht
+
+### CardDAV-Verbindung
+
+**CardDAV-URL**
+- Basis-URL des CardDAV-Servers inklusive Pfad
+- Beispiel: `https://mail.example.com/SOGo/dav/`
+- Wird für die Anbindung der Adressbücher verwendet
+
+**Authentifizierungsmodus**
+- HTTP-Authentifizierungsverfahren für die CardDAV-Verbindung
+- Optionen: **Basic**, **Digest**, **OAuth**
+
+:::info
+Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic eingestellt; weitere Modi sind in Vorbereitung.
+:::
+
+**Nicht zertifizierte Verbindungen ablehnen**
+- Toggle-Schalter für die Zertifikatsprüfung
+- Aktiviert: Das SSL/TLS-Zertifikat des CardDAV-Servers wird validiert
+- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+
+:::warning[Sicherheitshinweis]
+In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" aktiviert lassen, um die Sicherheit der CardDAV-Verbindung zu gewährleisten.
+:::
+
+---
+
 ## Container
 
-![Container Übersicht](/img/einstellungen/container.png)
+![Container Übersicht](/img/einstellungen/container.webp)
 
 Übersicht aller Docker Container des Systems.
 
@@ -195,7 +248,7 @@ Die Container-Übersicht ist für fortgeschrittene Administratoren. Änderungen 
 
 ## Benutzerverwaltung
 
-![Benutzerverwaltung](/img/einstellungen/user-admin.png)
+![Benutzerverwaltung](/img/einstellungen/user-admin.webp)
 
 ### Zwei-Faktor-Authentisierung zurücksetzen
 
@@ -213,7 +266,7 @@ Nützlich wenn Benutzer:
 
 ## Info
 
-![Info / Lizenz](/img/einstellungen/info-license.png)
+![Info / Lizenz](/img/einstellungen/info-license.webp)
 
 ### Lizenz-Übersicht
 

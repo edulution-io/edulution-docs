@@ -363,6 +363,12 @@ In der Vorschau können Sie die Umfrage einmal durchklicken und prüfen, ob alle
 - **Soll ein Teilnehmer die Umfrage mehrmals beantworten können?**: Ermöglicht demselben Benutzer die wiederholte Teilnahme an der Umfrage.
 - **Sollen Antworten nachträglich bearbeitbar sein?**: Die vorherige Abgabe kann nachträglich verändert werden.
 
+:::warning[Einschränkung bei öffentlicher Teilnahme]
+Die Beschränkung auf eine einmalige Teilnahme (Option **„Soll ein Teilnehmer die Umfrage mehrmals beantworten können?"** deaktiviert) lässt sich nur für angemeldete Benutzer zuverlässig durchsetzen. Angemeldete Teilnehmer werden bei der Umfrage vermerkt, sodass eine erneute Abgabe erkannt und abgewiesen werden kann.
+
+Bei der [öffentlichen Teilnahme](#öffentliche-teilnahme) ohne Benutzerkonto fehlt eine solche eindeutige Kennung. Es lässt sich daher nicht feststellen, ob bereits eine Antwort abgegeben wurde. Nicht angemeldete Teilnehmer können an öffentlichen Umfragen deshalb auch dann mehrfach teilnehmen, wenn diese Option deaktiviert ist.
+:::
+
 ### Administrator-Ansicht
 
 ![Umfrage speichern - Administrator-Ansicht](/img/umfragen/Screenshot_20260506_143406.png)

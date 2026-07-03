@@ -80,6 +80,10 @@ Die Spalte **Beigetreten** zeigt die Anzahl der aktuell beigetretenen Teilnehmer
 **Freigabe durch Moderator** und **Alle Teilnehmer nehmen als Moderator teil** können nicht gleichzeitig aktiv sein: Wenn alle Teilnehmer Moderatoren sind, entfällt der Warteraum. Beim Aktivieren der einen Einstellung wird die andere daher automatisch deaktiviert.
 :::
 
+:::caution[Wirksamkeit während einer laufenden Konferenz]
+Die Raumeinstellungen werden beim **Start** der Konferenz angewendet. Ändern Sie eine Einstellung, während die Konferenz bereits läuft, greift sie erst, nachdem die Konferenz beendet und erneut gestartet wurde.
+:::
+
 ### Speichern
 
 Klicken Sie auf den blauen **Speichern** Button

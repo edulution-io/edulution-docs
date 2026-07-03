@@ -58,6 +58,28 @@ Die Spalte **Beigetreten** zeigt die Anzahl der aktuell beigetretenen Teilnehmer
 - **Privat** - Nur eingeladene Teilnehmer
 - **Öffentlich** - Jeder mit Link kann beitreten
 
+### Raumeinstellungen
+
+Über zusätzliche Schalter legen Sie das Verhalten des Konferenzraums fest. Alle Einstellungen sind standardmäßig deaktiviert und lassen sich jederzeit über **Bearbeiten** anpassen.
+
+**Jeder Teilnehmer kann die Konferenz starten**
+- Ist dieser Schalter aktiviert, können nicht nur der Ersteller, sondern alle eingeladenen Teilnehmer die Konferenz starten. Bei einer öffentlichen Konferenz können sie auch von externen, nicht angemeldeten Personen über den Freigabelink gestartet werden.
+- Wer die Konferenz startet, tritt automatisch als Moderator bei, sodass stets ein Moderator anwesend ist.
+- Das Beenden der Konferenz bleibt weiterhin dem Ersteller vorbehalten.
+
+**Teilnehmer beim Betreten stummschalten**
+- Alle Teilnehmer betreten die Konferenz mit deaktiviertem Mikrofon und können sich bei Bedarf selbst wieder freischalten.
+
+**Freigabe durch Moderator bevor der Raum betreten werden kann**
+- Teilnehmer gelangen zunächst in einen Warteraum und werden erst nach Freigabe durch einen Moderator in die Konferenz gelassen.
+
+**Alle Teilnehmer nehmen als Moderator teil**
+- Alle Teilnehmer erhalten beim Beitritt Moderatorrechte.
+
+:::info[Sich ausschließende Einstellungen]
+**Freigabe durch Moderator** und **Alle Teilnehmer nehmen als Moderator teil** können nicht gleichzeitig aktiv sein: Wenn alle Teilnehmer Moderatoren sind, entfällt der Warteraum. Beim Aktivieren der einen Einstellung wird die andere daher automatisch deaktiviert.
+:::
+
 ### Speichern
 
 Klicken Sie auf den blauen **Speichern** Button
@@ -79,6 +101,10 @@ Klicken Sie auf den blauen **Speichern** Button
 ### Konferenz beitreten
 
 Klicken Sie auf **▶ Starten** oder den **▶ Starten** Button in der Zeile
+
+:::info[Wer darf eine Konferenz starten?]
+Standardmäßig kann nur der Ersteller eine Konferenz starten; eingeladene Teilnehmer können erst beitreten, sobald sie läuft. Ist die Raumeinstellung **Jeder Teilnehmer kann die Konferenz starten** aktiviert, erscheint der **▶ Starten**-Button auch bei eingeladenen Teilnehmern, und externe Personen können eine öffentliche Konferenz über den Freigabelink selbst starten.
+:::
 
 Die Konferenz öffnet sich in einem neuen Fenster. Der Fenstertitel enthält den Namen der Konferenz (z.B. "Konferenz: Mathe 8a"), sodass bei mehreren geöffneten Fenstern jederzeit ersichtlich ist, um welche Konferenz es sich handelt.
 

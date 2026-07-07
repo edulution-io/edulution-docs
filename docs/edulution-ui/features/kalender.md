@@ -87,6 +87,8 @@ Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Vor de
 
 Wenn Sie einen Termin bearbeiten, können Sie über das Feld **Kalender** einen anderen Zielkalender auswählen. Beim Speichern wird der Termin in den gewählten Kalender verschoben. Als Ziel stehen nur Kalender zur Verfügung, in die Sie schreiben dürfen.
 
+Serientermine lassen sich nur als Ganzes in einen anderen Kalender verschieben: Wählen Sie in der anschließenden Abfrage **Alle Termine der Serie**, wird die gesamte Serie einschließlich ihrer Wiederholungsregel und Teilnehmer in den Zielkalender übernommen. Das Verschieben nur eines einzelnen Termins oder der folgenden Termine einer Serie in einen anderen Kalender ist nicht möglich und wird mit einer entsprechenden Meldung abgelehnt.
+
 ## Serientermine und Wiederholungen
 
 Im Feld **Wiederholung** legen Sie fest, ob ein Termin wiederkehrt. Es stehen folgende Voreinstellungen zur Verfügung:
@@ -120,6 +122,8 @@ Bearbeiten oder löschen Sie einen Termin, der Teil einer Serie ist – oder ver
 - **Nur dieser Termin**
 - **Dieser und alle folgenden Termine**
 - **Alle Termine der Serie**
+
+Wählen Sie **Alle Termine der Serie** und haben Sie dabei den Zeitpunkt geändert, wird die gesamte Serie um denselben Zeitversatz verschoben; alle übrigen Änderungen – etwa Titel oder Ort – gelten unverändert für sämtliche Termine der Serie.
 
 ## Termine per Drag & Drop verschieben
 

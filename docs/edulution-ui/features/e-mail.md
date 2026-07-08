@@ -51,7 +51,21 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 - **Anhänge** fügen Sie **vom Gerät** oder **aus Dateien** (Ihrem edulution-Dateibereich) hinzu. Für Text und Anhänge zusammen gilt eine maximale Gesamtgröße.
 - Über **Signatur einfügen** ergänzen Sie Ihre Signatur (siehe [Mein Profil → Signatur](../benutzer/mein-profil.md#signatur)).
 
-Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht. Beim Schließen mit ungespeicherten Änderungen werden Sie gefragt, ob der Entwurf behalten, verworfen oder weiter bearbeitet werden soll.
+Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht.
+
+### Schreibfenster schließen
+
+Damit kein ungespeicherter Text durch einen Fehlklick verloren geht, lässt sich das Schreibfenster **nicht** durch einen Klick daneben schließen. Sie schließen es über **Abbrechen** oder die Escape-Taste.
+
+Enthält die Nachricht ungespeicherte Änderungen, werden Sie zuvor gefragt, was damit geschehen soll:
+
+| Schaltfläche | Wirkung |
+|---|---|
+| **Als Entwurf speichern** | Speichert die Nachricht im Ordner **Entwürfe** und schließt das Schreibfenster |
+| **Verwerfen** | Verwirft die Änderungen und schließt das Schreibfenster; ein bereits automatisch gespeicherter Entwurf wird dabei gelöscht |
+| **Weiter bearbeiten** | Bricht das Schließen ab und kehrt zum Schreibfenster zurück |
+
+Ist die Nachricht zu groß, um als Entwurf gespeichert zu werden, entfällt **Als Entwurf speichern**; Sie können dann nur verwerfen oder weiter bearbeiten.
 
 ## Hinweis auf aktive automatische Antwort
 

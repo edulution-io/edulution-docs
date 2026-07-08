@@ -12,7 +12,7 @@ Das Dashboard kann individuell angepasst werden. Weitere Informationen finden Si
 Das Dashboard passt sich automatisch an Ihre Benutzerrolle an:
 - **Lehrer**: Zugriff auf Klassenverwaltung und Unterrichtstools
 - **Schüler**: Fokus auf Lernmaterialien und eigene Aufgaben
-- **Global-Admin**: Zusätzlich **Settings-Button** (Zahnrad) rechts unten sichtbar
+- **Global-Admin**: Zusätzlich **Settings-Button** (Zahnrad) rechts unten sichtbar; die Bereiche **Kalender** und **E-Mail** werden nicht angezeigt
 
 Nicht alle Bereiche und Funktionen sind für jede Rolle sichtbar.
 
@@ -126,6 +126,7 @@ Das Dashboard passt sich automatisch an Ihre Benutzerrolle an:
 - Container-Verwaltung (erweitert)
 - Einstellungen für die gesamte Schule/Organisation
 - Zugriff auf administrative Tools und Logs
+- Die Bereiche **Kalender** und **E-Mail** werden auf dem Dashboard nicht angezeigt
 
 :::tip[Hinweis]
 Manche Funktionen und Menüpunkte sind nur für bestimmte Rollen sichtbar. Wenn Sie eine Funktion nicht finden, liegt das möglicherweise an Ihren Berechtigungen.

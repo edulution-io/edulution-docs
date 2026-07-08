@@ -107,6 +107,18 @@ Die E-Mail-Einstellungen ermöglichen die Konfiguration der Mail-App und des SOG
 Das Theme beeinflusst nur die Darstellung des SOGo Webmailers (`https://mail.ihre-domain.de/SOGo`). Die edulution UI verwendet weiterhin das systemweite Dark/Light Mode Setting.
 :::
 
+**Standard-Signatur**
+
+Diese Signatur wird beim Verfassen einer neuen E-Mail automatisch angefügt. Sie gilt für alle Benutzer, die keine eigene Signatur hinterlegt haben (siehe [Mein Profil → Signatur](../benutzer/mein-profil.md#signatur)).
+
+- Bearbeiten Sie die Signatur im Editor mit den gewohnten Formatierungsfunktionen
+- Über die Editor-/Quelltext-Umschaltung oben rechts im Editor wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung. HTML, Links und Bilder werden unverändert übernommen
+- Bilder können direkt eingefügt werden; sehr große Bilder werden mit einem Hinweis quittiert
+
+:::tip[Bildgröße]
+Ein Logo in der Standard-Signatur wird jeder gesendeten E-Mail beigefügt. Verwenden Sie deshalb ein möglichst kleines Bild (unter 100 KB), um das Mailaufkommen nicht unnötig zu vergrößern.
+:::
+
 ### IMAP Integration
 
 Die IMAP-Integration ermöglicht den Zugriff auf externe oder interne IMAP-Server.

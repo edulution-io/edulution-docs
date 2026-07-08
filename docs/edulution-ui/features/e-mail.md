@@ -53,6 +53,24 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 
 Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht. Beim Schließen mit ungespeicherten Änderungen werden Sie gefragt, ob der Entwurf behalten, verworfen oder weiter bearbeitet werden soll.
 
+### HTML-Quelltext bearbeiten
+
+Oben rechts im Editor finden Sie – neben **Signatur einfügen** – die **Editor-/Quelltext-Umschaltung**. Damit wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung, wie Sie es bereits von der [Signatur](../benutzer/mein-profil.md#signatur) kennen.
+
+Die Quelltext-Ansicht benötigen Sie immer dann, wenn Sie fertiges HTML versenden möchten, etwa einen gestalteten Newsletter oder eine Einladung aus einer Vorlage:
+
+1. Schalten Sie über das Symbol in die **Quelltext**-Ansicht um.
+2. Fügen Sie den HTML-Quelltext in das Textfeld ein oder bearbeiten Sie ihn dort direkt.
+3. Versenden Sie die Nachricht mit **Senden**. Der Quelltext wird unverändert als HTML verschickt und beim Empfänger formatiert dargestellt.
+
+:::warning[Wechsel zurück in die formatierte Ansicht]
+Der formatierte Editor unterstützt nur einen Teil des HTML-Sprachumfangs. Schalten Sie mit gestaltetem HTML – etwa Tabellen oder eigenen Formatvorlagen – zurück in die **Editor**-Ansicht, gehen die nicht unterstützten Bestandteile verloren. Ein Hinweis weist Sie vor dem Wechsel darauf hin. Bleiben Sie deshalb in der Quelltext-Ansicht, bis Sie die Nachricht versenden.
+:::
+
+:::tip[Hinweis]
+Fügen Sie HTML-Quelltext direkt in die **formatierte** Ansicht ein, wird er als reiner Text übernommen und die Tags erscheinen sichtbar in der Nachricht. Verwenden Sie für diesen Fall die Quelltext-Ansicht.
+:::
+
 ## Hinweis auf aktive automatische Antwort
 
 Ist eine **automatische Antwort (Abwesenheitsnotiz)** aktiv, zeigt die E-Mail-App dies direkt im Kopfbereich unterhalb des Titels an. So erkennen Sie auf einen Blick, dass aktuell automatisch auf eingehende Nachrichten geantwortet wird, ohne erst die Einstellungen öffnen zu müssen.

@@ -149,23 +149,27 @@ Termine aus schreibgeschützten oder abonnierten Kalendern können nicht per Dra
 
 Speichern Sie den Kalender über **Speichern**; ohne Namen ist das Speichern nicht möglich.
 
-### Freigaben und Berechtigungen
+## Kalender freigeben
 
-Im selben Dialog geben Sie den Kalender für andere frei, indem Sie **Benutzer** oder **Gruppen** hinzufügen. Für jede Freigabe wählen Sie eine Berechtigungsstufe:
+Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie Benutzer oder Gruppen und legen für jede Freigabe eine Berechtigungsstufe fest:
 
 | Berechtigung | Bedeutung |
 |---|---|
-| **Kein Zugriff** | Keine Freigabe. |
 | **Nur Frei/Belegt** | Es ist nur erkennbar, ob Zeiten belegt sind, ohne Termindetails. |
 | **Ansehen** | Termine dürfen gelesen werden. |
-| **Bearbeiten** | Termine dürfen gelesen und geändert werden. |
-| **Verwalten** | Voller Zugriff einschließlich Verwaltung des Kalenders. |
+| **Bearbeiten** | Termine dürfen gelesen, angelegt und geändert werden. |
 
-Standardmäßig erhalten neu hinzugefügte Benutzer und Gruppen die Stufe **Ansehen**. Über das Mülleimer-Symbol entfernen Sie eine Freigabe wieder.
+Neu hinzugefügte Benutzer und Gruppen erhalten standardmäßig die Stufe **Ansehen**; über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder. Sobald Sie einen Kalender freigeben, wird er den betreffenden Benutzern automatisch als abonnierter Kalender bereitgestellt.
+
+:::info Backend-Voraussetzung
+
+Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktionen von **SoGo** und ist nur verfügbar, wenn als CalDAV-Server SoGo eingesetzt wird. Die reine Terminsynchronisierung funktioniert dagegen mit jedem standardkonformen CalDAV-Server. Welcher CalDAV-Server verwendet wird, legt die Administration in den App-Einstellungen des Kalenders fest.
+
+:::
 
 ## Abonnierte und schreibgeschützte Kalender
 
-Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Ist ein solcher Kalender schreibgeschützt, können Sie seine Termine zwar einsehen, aber nicht öffnen, bearbeiten, löschen oder per Drag & Drop verschieben.
+Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Ist ein solcher Kalender schreibgeschützt, können Sie seine Termine zwar einsehen, aber nicht öffnen, bearbeiten, löschen oder per Drag & Drop verschieben. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
 
 ## Siehe auch
 

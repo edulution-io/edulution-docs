@@ -36,6 +36,20 @@ Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet d
 
 Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Abonnierte Kalender sind beim ersten Laden standardmäßig ausgeblendet, sodass Ihre eigenen Termine im Vordergrund stehen; Sie können sie jederzeit wieder einblenden.
 
+### Kalenderkontextmenü
+
+Über das Kontextmenü (Drei-Punkte-Symbol) eines Kalendereintrags in der Seitenleiste erreichen Sie die kalenderbezogenen Aktionen. Welche Einträge erscheinen, hängt davon ab, ob es sich um einen eigenen, einen abonnierten oder einen als Stundenplan markierten Kalender handelt:
+
+- **Einblenden** bzw. **Ausblenden** – Blendet die Termine des Kalenders ein oder aus, wie ein Klick auf den Eintrag.
+- **Nur diesen anzeigen** – Blendet alle anderen Kalender aus und zeigt ausschließlich die Termine des gewählten Kalenders.
+- **Alle anzeigen** – Blendet wieder sämtliche Kalender ein.
+- **Als Stundenplan markieren** bzw. **Stundenplan-Markierung entfernen** – Verschiebt einen eigenen Kalender in die Gruppe **Stundenplan** oder zurück zu **Meine Kalender** (siehe [Stundenplan](#stundenplan)).
+- **Als Standardkalender festlegen** bzw. **Als Standardkalender entfernen** – Bestimmt, welcher Kalender beim [Erstellen eines Termins](#termine-erstellen) vorausgewählt ist.
+- **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
+- **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste.
+
+Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan und das Festlegen als Standardkalender bleiben eigenen, beschreibbaren Kalendern vorbehalten.
+
 ## Ansichten
 
 ### Monat
@@ -63,7 +77,7 @@ Einen neuen Termin legen Sie auf mehreren Wegen an:
 
 Füllen Sie im Dialog die folgenden Felder aus:
 
-1. **Kalender** – Der Kalender, in dem der Termin gespeichert wird. Zur Auswahl stehen nur Kalender, in die Sie schreiben dürfen.
+1. **Kalender** – Der Kalender, in dem der Termin gespeichert wird. Zur Auswahl stehen nur Kalender, in die Sie schreiben dürfen. Vorausgewählt ist der über das [Kalenderkontextmenü](#kalenderkontextmenü) als Standard festgelegte Kalender, andernfalls der erste beschreibbare Kalender.
 2. **Titel** – Die Bezeichnung des Termins.
 3. **Beschreibung** – Optionaler ausführlicher Text.
 4. **Ort** – Optionale Ortsangabe.

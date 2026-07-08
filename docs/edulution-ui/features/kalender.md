@@ -45,10 +45,11 @@ Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abo
 - **Alle anzeigen** – Blendet wieder sämtliche Kalender ein.
 - **Als Stundenplan markieren** bzw. **Stundenplan-Markierung entfernen** – Verschiebt einen eigenen Kalender in die Gruppe **Stundenplan** oder zurück zu **Meine Kalender** (siehe [Stundenplan](#stundenplan)).
 - **Als Standardkalender festlegen** bzw. **Als Standardkalender entfernen** – Bestimmt, welcher Kalender beim [Erstellen eines Termins](#termine-erstellen) vorausgewählt ist.
+- **Einstellungen** bzw. **Löschen** – Öffnet die [Kalendereinstellungen](#kalender-bearbeiten-und-löschen) oder löscht den Kalender; nur bei eigenen Kalendern verfügbar.
 - **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
 - **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste.
 
-Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan und das Festlegen als Standardkalender bleiben eigenen, beschreibbaren Kalendern vorbehalten.
+Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
 
 ## Ansichten
 
@@ -157,11 +158,20 @@ Termine aus schreibgeschützten oder abonnierten Kalendern können nicht per Dra
 Über **Kalender anlegen** in der Seitenleiste öffnen Sie den gleichnamigen Dialog. Dort legen Sie fest:
 
 - **Name** – Der angezeigte Name des Kalenders.
-- **Markierungen** – Optional die Markierung **Stundenplan**, mit der der Kalender als Stundenplan gekennzeichnet und in der entsprechenden Gruppe der Seitenleiste angezeigt wird.
+- **Typ** – Optional die Kennzeichnung **Stundenplan**, mit der der Kalender als Stundenplan gekennzeichnet und in der entsprechenden Gruppe der Seitenleiste angezeigt wird.
 - **Beschreibung** – Eine optionale Beschreibung.
-- **Farbe** – Die Farbe, in der der Kalender und seine Termine dargestellt werden.
+- **Farbe** – Die Farbe, in der der Kalender und seine Termine dargestellt werden. Wählen Sie eine der vorgegebenen Farben aus oder legen Sie über die Schaltfläche **+** eine beliebige eigene Farbe fest.
 
 Speichern Sie den Kalender über **Speichern**; ohne Namen ist das Speichern nicht möglich.
+
+## Kalender bearbeiten und löschen
+
+Bestehende eigene Kalender verwalten Sie über die Einträge **Einstellungen** und **Löschen** im [Kalenderkontextmenü](#kalenderkontextmenü) – sowohl unter **Meine Kalender** als auch bei eigenen **Stundenplan**-Kalendern:
+
+- **Einstellungen** – Öffnet den Dialog **Kalendereinstellungen**, in dem Sie **Name**, **Typ**, **Beschreibung** und **Farbe** des Kalenders ändern. Übernehmen Sie die Änderungen mit **Speichern**.
+- **Löschen** – Entfernt den Kalender. Zuvor erscheint eine Sicherheitsabfrage mit dem Hinweis, dass der Kalender und alle darin enthaltenen Termine dauerhaft gelöscht werden; dieser Vorgang lässt sich nicht rückgängig machen.
+
+Bei abonnierten oder schreibgeschützten Kalendern werden **Einstellungen** und **Löschen** nicht angeboten (siehe [Abonnierte und schreibgeschützte Kalender](#abonnierte-und-schreibgeschützte-kalender)).
 
 ## Kalender freigeben
 

@@ -55,7 +55,7 @@ Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich k�
 
 ### Schreibfenster schließen
 
-Damit kein ungespeicherter Text durch einen Fehlklick verloren geht, lässt sich das Schreibfenster **nicht** durch einen Klick daneben schließen. Sie schließen es über **Abbrechen** oder die Escape-Taste.
+Sie schließen das Schreibfenster über **Abbrechen**, die Escape-Taste oder einen Klick neben das Fenster.
 
 Enthält die Nachricht ungespeicherte Änderungen, werden Sie zuvor gefragt, was damit geschehen soll:
 

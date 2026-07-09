@@ -55,17 +55,9 @@ Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich k�
 
 ### Schreibfenster schließen
 
-Sie schließen das Schreibfenster über **Abbrechen**, die Escape-Taste oder einen Klick neben das Fenster.
+Enthält die Nachricht ungespeicherte Änderungen, fragt edulution beim Schließen, ob Sie sie **als Entwurf speichern**, **verwerfen** oder **weiter bearbeiten** möchten.
 
-Enthält die Nachricht ungespeicherte Änderungen, werden Sie zuvor gefragt, was damit geschehen soll:
-
-| Schaltfläche | Wirkung |
-|---|---|
-| **Als Entwurf speichern** | Speichert die Nachricht im Ordner **Entwürfe** und schließt das Schreibfenster |
-| **Verwerfen** | Verwirft die Änderungen und schließt das Schreibfenster; ein bereits automatisch gespeicherter Entwurf wird dabei gelöscht |
-| **Weiter bearbeiten** | Bricht das Schließen ab und kehrt zum Schreibfenster zurück |
-
-Ist die Nachricht zu groß, um als Entwurf gespeichert zu werden, entfällt **Als Entwurf speichern**; Sie können dann nur verwerfen oder weiter bearbeiten.
+Beim Speichern landet die Nachricht im Ordner **Entwürfe**. Beim **Verwerfen** wird auch ein bereits automatisch gespeicherter Entwurf gelöscht. Ist die Nachricht zu groß, um als Entwurf gespeichert zu werden, entfällt **Als Entwurf speichern**; Sie können dann nur verwerfen oder weiter bearbeiten.
 
 ## Hinweis auf aktive automatische Antwort
 

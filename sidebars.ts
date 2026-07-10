@@ -122,6 +122,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/features/weitere-features',
             'edulution-ui/features/infoboard',
             'edulution-ui/features/umfragen',
+            'edulution-ui/features/benachrichtigungen',
           ],
         },
         {

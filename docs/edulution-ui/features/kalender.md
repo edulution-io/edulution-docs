@@ -151,25 +151,48 @@ Speichern Sie den Kalender über **Speichern**; ohne Namen ist das Speichern nic
 
 ## Kalender freigeben
 
-Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie Benutzer oder Gruppen und legen für jede Freigabe eine Berechtigungsstufe fest:
+So geben Sie eigene Kalender für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie über das Suchfeld nach Benutzern oder Gruppen und fügen sie der Liste hinzu.
+
+Jede Zeile der Liste nennt den Namen und fasst rechts daneben zusammen, welchen Zugriff die Person insgesamt erhält. Ein Klick auf die Zeile klappt sie auf und legt die einzelnen Berechtigungen offen. Jede Änderung wird sofort gespeichert.
+
+### Berechtigungen je Sichtbarkeit
+
+Berechtigungen gelten nicht pauschal für den ganzen Kalender, sondern getrennt für die drei Sichtbarkeiten, die Sie beim Anlegen eines Termins wählen (siehe [Termine erstellen](#termine-erstellen)): **Öffentlich**, **Vertraulich** und **Privat**. Für jede dieser drei Sichtbarkeiten legen Sie einzeln fest, was die freigegebene Person darf:
 
 | Berechtigung | Bedeutung |
 |---|---|
-| **Nur Frei/Belegt** | Es ist nur erkennbar, ob Zeiten belegt sind, ohne Termindetails. |
-| **Ansehen** | Termine dürfen gelesen werden. |
-| **Bearbeiten** | Termine dürfen gelesen, angelegt und geändert werden. |
+| **Keine** | Termine dieser Sichtbarkeit bleiben vollständig verborgen. |
+| **Datum & Uhrzeit sehen** | Es ist nur erkennbar, dass die Zeit belegt ist – ohne Titel und weitere Details. |
+| **Alles sehen** | Der Termin ist vollständig lesbar. |
+| **Antworten** | Zusätzlich darf die Person auf Einladungen zu- und absagen. |
+| **Ändern** | Zusätzlich darf die Person den Termin bearbeiten. |
 
-Neu hinzugefügte Benutzer und Gruppen erhalten standardmäßig die Stufe **Ansehen**; über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder. Sobald Sie einen Kalender freigeben, wird er den betreffenden Benutzern automatisch als abonnierter Kalender bereitgestellt.
+So geben Sie beispielsweise öffentliche Termine vollständig frei, während von vertraulichen und privaten Terminen nur die belegten Zeiten sichtbar sind.
 
-:::info Backend-Voraussetzung
+Unabhängig von den drei Sichtbarkeiten steuern zwei Kontrollkästchen, ob die Person Objekte in Ihrem Kalender **anlegen** und **löschen** darf. Beide gelten für den gesamten Kalender.
 
-Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktionen von **SoGo** und ist nur verfügbar, wenn als CalDAV-Server SoGo eingesetzt wird. Die reine Terminsynchronisierung funktioniert dagegen mit jedem standardkonformen CalDAV-Server. Welcher CalDAV-Server verwendet wird, legt die Administration in den App-Einstellungen des Kalenders fest.
+Neu hinzugefügte Benutzer und Gruppen erhalten zunächst **Alles sehen** für öffentliche sowie **Datum & Uhrzeit sehen** für vertrauliche und private Termine, ohne Anlege- und Löschrecht. Über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder.
 
-:::
+### Kalender für andere abonnieren
+
+Eine Freigabe allein blendet den Kalender bei der anderen Person noch nicht ein. Mit dem Kontrollkästchen **Für den Benutzer abonnieren** stellen Sie ihn in deren Kalenderliste bereit. Ist das geschehen, lässt sich das Kästchen nicht mehr abwählen – die betreffende Person entfernt den Kalender selbst über **Abbestellen**. Solange jemand keinerlei Berechtigung besitzt, ist das Kästchen ebenfalls nicht auswählbar.
+
+### Zugriff für alle Benutzer und öffentlicher Zugang
+
+Unterhalb der einzelnen Freigaben stehen zwei weitere Einträge:
+
+- **Alle authentifizierten Benutzer** – gilt für jeden angemeldeten Benutzer. Es stehen dieselben Berechtigungen zur Verfügung wie bei einer einzelnen Person.
+- **Öffentlicher Zugang** – gilt für den Zugriff ohne Anmeldung. Hier lassen sich nur **Keine**, **Datum & Uhrzeit sehen** und **Alles sehen** vergeben; Anlegen und Löschen sind ausgeschlossen.
+
+Um einem der beiden Einträge den Zugriff zu entziehen, setzen Sie alle drei Sichtbarkeiten auf **Keine**.
 
 ## Abonnierte und schreibgeschützte Kalender
 
 Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Ist ein solcher Kalender schreibgeschützt, können Sie seine Termine zwar einsehen, aber nicht öffnen, bearbeiten, löschen oder per Drag & Drop verschieben. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
+
+## Einrichtung (für Administratoren)
+
+Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](../administration/einstellungen.md#kalender-caldav) als Global-Admin konfiguriert (CalDAV-URL, Authentifizierungsmodus und Zertifikatsprüfung).
 
 ## Siehe auch
 

@@ -95,11 +95,11 @@ Die Tagesansicht entspricht der Wochenansicht, beschränkt sie aber auf einen ei
 
 ### Agenda
 
-Die Agenda listet die Termine der **kommenden 30 Tage** ab dem gewählten Datum chronologisch untereinander auf, gruppiert nach Tag. Sie eignet sich besonders auf Mobilgeräten und immer dann, wenn Sie wissen möchten, was als Nächstes ansteht.
+Die Agenda listet die Termine der **kommenden 30 Tage** ab dem gewählten Datum chronologisch untereinander auf, gruppiert nach Tag.
 
 Beachten Sie dabei die folgenden Besonderheiten:
 
-- **Tage ohne Termine werden übersprungen**, sodass die Liste dicht bleibt.
+- **Tage ohne Termine werden übersprungen**.
 - Innerhalb eines Tages stehen **ganztägige Termine** ganz oben, danach folgen die übrigen Termine nach Uhrzeit.
 - Ein Termin, der sich über mehrere Tage erstreckt, erscheint unter **jedem** dieser Tage. An den Folgetagen steht anstelle der Uhrzeit das Zeichen ↳, da der Termin dort nicht beginnt.
 - Ein Klick auf einen Eintrag öffnet den Termin zum [Bearbeiten](#termine-bearbeiten-und-löschen). Termine lassen sich in der Agenda **nicht per Drag & Drop verschieben**; wechseln Sie dafür in eine der Rasteransichten.

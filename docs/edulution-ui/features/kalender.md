@@ -34,7 +34,9 @@ Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet d
 
 ### Kalender ein- und ausblenden
 
-Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Abonnierte Kalender sind beim ersten Laden standardmäßig ausgeblendet, sodass Ihre eigenen Termine im Vordergrund stehen; Sie können sie jederzeit wieder einblenden.
+Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Neu abonnierte Kalender sind zunächst eingeblendet.
+
+Ihre Auswahl wird benutzerbezogen auf dem Server gespeichert. Sie bleibt daher über das Neuladen der Seite, eine erneute Anmeldung und einen Gerätewechsel hinweg erhalten – ein einmal ausgeblendeter Kalender bleibt ausgeblendet, bis Sie ihn wieder einblenden.
 
 ## Ansichten
 

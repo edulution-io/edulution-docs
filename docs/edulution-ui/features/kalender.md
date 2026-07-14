@@ -13,6 +13,14 @@ Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer 
 - Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt – in der Monatsansicht der Monatsname mit Jahr, in der Wochenansicht der Datumsbereich der angezeigten Woche.
 - In der Wochen- und der Stundenplan-Ansicht wird zusätzlich die **Kalenderwoche** der angezeigten Woche als **KW _n_** (nach ISO 8601) eingeblendet.
 
+### Zu einem Datum springen
+
+Neben den Navigations-Schaltflächen finden Sie die Schaltfläche **Datum wählen**. Sie öffnet einen kleinen Monatskalender, mit dem Sie gezielt zu einem beliebigen Datum springen, ohne sich Woche für Woche oder Monat für Monat vorarbeiten zu müssen.
+
+- Über die Auswahllisten für **Monat** und **Jahr** am oberen Rand wechseln Sie direkt zu einem anderen Monat oder Jahr; mit den Pfeilen daneben blättern Sie monatsweise.
+- Ein Klick auf einen Tag schließt den Mini-Kalender und stellt die Hauptansicht auf das gewählte Datum um; die Termine des betreffenden Zeitraums werden automatisch geladen.
+- Der aktuell in der Hauptansicht sichtbare Zeitraum ist im Mini-Kalender hervorgehoben – in der Monatsansicht der gesamte Monat, in der Wochenansicht die aktuelle Woche. Der heutige Tag und das ausgewählte Datum sind zusätzlich gekennzeichnet.
+
 ### Ansichten umschalten
 
 Mit der Umschaltung wechseln Sie zwischen den beiden Hauptansichten:

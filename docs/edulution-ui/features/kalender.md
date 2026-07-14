@@ -10,7 +10,8 @@ Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer 
 
 - **Zurück** / **Weiter** (Pfeil-Schaltflächen) – Blättern eine Woche bzw. einen Monat vor oder zurück, je nach aktiver Ansicht.
 - **Heute** – Springt zum aktuellen Datum zurück.
-- Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt (z. B. der Monatsname mit Jahr in der Monatsansicht oder die Kalenderwoche in der Wochenansicht).
+- Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt – in der Monatsansicht der Monatsname mit Jahr, in der Wochenansicht der Datumsbereich der angezeigten Woche.
+- In der Wochen- und der Stundenplan-Ansicht wird zusätzlich die **Kalenderwoche** der angezeigten Woche als **KW _n_** (nach ISO 8601) eingeblendet.
 
 ### Ansichten umschalten
 
@@ -40,7 +41,7 @@ Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abo
 
 ### Monat
 
-Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervorgehoben, Tage außerhalb des angezeigten Monats sind abgeschwächt. Pro Tag werden die ersten Termine als farbige Einträge angezeigt; gibt es mehr Termine, erscheint ein Hinweis in der Form **+n weitere**. Ein Klick auf einen freien Bereich eines Tages öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit dem passenden Datum.
+Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervorgehoben, Tage außerhalb des angezeigten Monats sind abgeschwächt. Am linken Rand jeder Wochenzeile steht in einer eigenen, mit **KW** überschriebenen Spalte die zugehörige **Kalenderwoche** nach ISO 8601. Pro Tag werden die ersten Termine als farbige Einträge angezeigt; gibt es mehr Termine, erscheint ein Hinweis in der Form **+n weitere**. Ein Klick auf einen freien Bereich eines Tages öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit dem passenden Datum.
 
 ### Woche
 

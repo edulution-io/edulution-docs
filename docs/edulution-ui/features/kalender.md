@@ -22,6 +22,10 @@ Mit der Umschaltung wechseln Sie zwischen den beiden Hauptansichten:
 
 Die **Stundenplan**-Ansicht ist eine dritte, eigenständige Darstellung. Sie erreichen Sie nicht über diese Umschaltung, sondern über die Seitenleiste (siehe [Stundenplan](#stundenplan)).
 
+### Ansicht aktualisieren
+
+Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die Termine des aktuell angezeigten Zeitraums und der aktiven Kalender erneut vom Server, ohne dass Sie die Seite neu laden oder wegblättern müssen – nützlich, um zwischenzeitlich an anderer Stelle geänderte Termine anzuzeigen. Während des Aktualisierens dreht sich das Symbol der Schaltfläche, sie ist vorübergehend deaktiviert und es erscheint die kleine Ladeanzeige.
+
 ### Seitenleiste und Kalenderliste
 
 In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:

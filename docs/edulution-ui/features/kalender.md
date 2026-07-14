@@ -186,6 +186,8 @@ Unterhalb der einzelnen Freigaben stehen zwei weitere Einträge:
 
 Um einem der beiden Einträge den Zugriff zu entziehen, setzen Sie alle drei Sichtbarkeiten auf **Keine**.
 
+Für den **öffentlichen Zugang** sind **Antworten**, **Ändern** sowie das Anlegen und Löschen von Objekten ausgeschlossen. Weitergehende Rechte lassen sich zwar außerhalb von edulution direkt auf dem CalDAV-Server hinterlegen – etwa ein Schreibrecht für nicht angemeldete Zugriffe –, ein solcher Kalender wäre dann jedoch ohne Anmeldung veränderbar. Öffnen Sie den Freigabe-Dialog eines betroffenen Kalenders, entzieht edulution diese Rechte deshalb sofort und meldet, dass eine zu weitreichende Freigabe zurückgenommen wurde. Der Eintrag zeigt anschließend die tatsächlich gespeicherten Rechte.
+
 ## Abonnierte und schreibgeschützte Kalender
 
 Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Ist ein solcher Kalender schreibgeschützt, können Sie seine Termine zwar einsehen, aber nicht öffnen, bearbeiten, löschen oder per Drag & Drop verschieben. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.

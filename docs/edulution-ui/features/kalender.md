@@ -43,6 +43,8 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 - **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
 - **Kalender anlegen** – Öffnet den Dialog zum [Anlegen eines neuen Kalenders](#kalender-anlegen).
 
+Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender** und **Abonnierte Kalender** führen zur normalen Kalenderansicht (Monat bzw. Woche, je nach zuletzt gewählter Ansicht), **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf **Meine Kalender** oder **Abonnierte Kalender** wieder in die gewohnte Kalenderansicht zurück.
+
 Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet den Kalender in allen Ansichten und dient zugleich als Legende. Abonnierte (freigegebene) Kalender werden zusätzlich mit einem gestrichelten Rahmen gekennzeichnet.
 
 ### Kalender ein- und ausblenden

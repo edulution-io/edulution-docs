@@ -53,6 +53,17 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 
 Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht. Beim Schließen mit ungespeicherten Änderungen werden Sie gefragt, ob der Entwurf behalten, verworfen oder weiter bearbeitet werden soll.
 
+## Benachrichtigungen bei neuen E-Mails
+
+Trifft eine neue E-Mail ein, werden Sie in edulution benachrichtigt – über die **Benachrichtigungen** der Plattform und, sofern auf Ihrem Gerät eingerichtet, zusätzlich als **Push-Benachrichtigung**.
+
+Ein Klick bzw. Tipp auf eine solche Benachrichtigung bringt Sie direkt an die passende Stelle in der E-Mail-App:
+
+- Bei einer neuen Nachricht im **Posteingang** wird die betreffende Nachricht unmittelbar in der Leseansicht geöffnet.
+- Bei neuen Nachrichten in einem anderen Ordner oder in einem **freigegebenen Postfach** wird der jeweilige Ordner geöffnet.
+
+Der aktuell geöffnete Ordner und die geöffnete Nachricht sind zudem in der Adresse (URL) der E-Mail-App enthalten. So können Sie einen Ordner oder eine Nachricht als Lesezeichen speichern oder einen Link darauf weitergeben – beim Aufruf wird direkt das entsprechende Ziel geöffnet.
+
 ## Hinweis auf aktive automatische Antwort
 
 Ist eine **automatische Antwort (Abwesenheitsnotiz)** aktiv, zeigt die E-Mail-App dies direkt im Kopfbereich unterhalb des Titels an. So erkennen Sie auf einen Blick, dass aktuell automatisch auf eingehende Nachrichten geantwortet wird, ohne erst die Einstellungen öffnen zu müssen.
@@ -70,3 +81,7 @@ Signatur, automatische Antwort (Abwesenheitsnotiz), Weiterleitung und Filter ver
 Bei der automatischen Antwort können Sie zusätzlich festlegen, welche Absender überhaupt eine Antwort erhalten: alle Absender, nur Absender innerhalb der Domänen Ihrer Organisation (interne Absender) oder ausschließlich externe Absender. Die internen Domänen werden Ihnen dabei direkt angezeigt. Details dazu finden Sie unter [Mein Profil](../benutzer/mein-profil.md).
 
 Sind Sie als Berechtigter für ein **freigegebenes Postfach** eingetragen, können Sie dort auch dessen **automatische Antwort** verwalten – siehe [Mein Profil → Automatische Antwort für freigegebene Postfächer](../benutzer/mein-profil.md#automatische-antwort-für-freigegebene-postfächer).
+
+## Einrichtung (für Administratoren)
+
+Welche Nutzergruppen die E-Mail-App überhaupt sehen, an welcher Stelle sie in der App-Liste erscheint und welches Theme der SOGo-Webmailer verwendet, legen Administratoren unter [Einstellungen → E-Mails](../administration/einstellungen.md#e-mails) fest.

@@ -186,6 +186,16 @@ Hier legen Sie die Signatur fest, die beim Verfassen neuer E-Mails verwendet wir
   - Bilder können direkt in die Signatur eingefügt werden; sehr große Bilder werden mit einem Hinweis quittiert
 - **Speichern** übernimmt die Änderungen, **Zurücksetzen** verwirft noch nicht gespeicherte Anpassungen.
 
+### Senden rückgängig machen
+
+Mit dieser Option verzögern Sie den Versand Ihrer E-Mails um ein kurzes Zeitfenster, in dem Sie das Senden noch abbrechen können.
+
+- **Senden verzögern**: Schaltet das verzögerte Senden ein oder aus. Standardmäßig ist es ausgeschaltet.
+- **Zeitfenster**: Bei aktivierter Option wählen Sie hier, um wie lange der Versand zurückgehalten wird – 5, 10, 20 oder 30 Sekunden (Standard: 10 Sekunden).
+- **Speichern** übernimmt die Änderungen, **Zurücksetzen** verwirft noch nicht gespeicherte Anpassungen.
+
+Ist das verzögerte Senden aktiv, erscheint nach dem Klick auf **Senden** für die eingestellte Dauer die Meldung **Nachricht wird gesendet …** mit der Schaltfläche **Rückgängig**. Ein Klick darauf bricht den Versand ab und öffnet die Nachricht erneut zur Bearbeitung; läuft das Zeitfenster ab, wird sie verschickt. Den vollständigen Ablauf beschreibt [E-Mail → E-Mail verfassen](../features/e-mail.md#e-mail-verfassen).
+
 ### Automatische Antwort
 
 Mit der automatischen Antwort (Abwesenheitsnotiz) beantworten Sie eingehende Nachrichten automatisch, z. B. während einer Abwesenheit. Sie können mehrere **Vorlagen** anlegen, aber es ist immer nur eine gleichzeitig aktiv.

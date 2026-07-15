@@ -147,7 +147,7 @@ Die Einstellungen finden Sie in der rechten Seitenleiste:
 Der App Store ist der zentrale Ort für die Installation neuer
 Anwendungen:
 
-1.  Klicken Sie in der Seitenleiste auf **\"App Store\"**
+1.  Klicken Sie in der Seitenleiste auf **"App Store"**
 2.  Sie sehen eine Übersicht aller verfügbaren Apps
 
 {/* ![edulution UI App Store](appstore.png) */}
@@ -164,7 +164,7 @@ Anwendungen:
 1.  Klicken Sie auf eine verfügbare App
 2.  Bestätigen Sie die Installation
 3.  Warten Sie, bis die Installation abgeschlossen ist
-4.  Die App erscheint dann ausgegraut als \"Installiert\"
+4.  Die App erscheint dann ausgegraut als "Installiert"
 
 :::tip
 Installierte Apps sind sofort über das Dashboard oder die Navigation
@@ -177,7 +177,7 @@ verfügbar.
 
 1.  **App auswählen:** Klicken Sie auf das Icon der gewünschten App im
     App Store
-2.  **Hinzufügen:** Klicken Sie unten links auf **\"Hinzufügen\"**
+2.  **Hinzufügen:** Klicken Sie unten links auf **"Hinzufügen"**
 3.  **Grundkonfiguration:** Ein Popup öffnet sich, in dem Sie folgende
     Einstellungen vornehmen können:
     - **Name:** Anzeigename der App im Menü
@@ -236,7 +236,7 @@ edulution UI einbetten.
 
 **Konfiguration eines App Frames:**
 
-1.  Wählen Sie **\"App Frame\"** aus dem App Store
+1.  Wählen Sie **"App Frame"** aus dem App Store
 2.  Geben Sie die **URL** der zu framenden Seite ein
 3.  Konfigurieren Sie Name und Berechtigungen
 

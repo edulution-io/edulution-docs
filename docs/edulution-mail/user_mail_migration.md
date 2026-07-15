@@ -5,8 +5,8 @@ Benutzer die Synchronisierung für sein eigenes Postfach individuell
 starten.
 
 1.  **Zum eigenen Profil navigieren:** Klicken Sie in der edulution UI
-    unten links auf **\"Benutzereinstellungen\"** und wählen Sie den Reiter
-    **\"Mail\"**.
+    unten links auf **"Benutzereinstellungen"** und wählen Sie den Reiter
+    **"Mail"**.
 
 2.  **Zugangsdaten eintragen:** Der Benutzer muss hier die Zugangsdaten
     für sein **altes** Postfach eintragen (Benutzername und Passwort).

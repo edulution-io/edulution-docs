@@ -10,10 +10,10 @@ Um eine Verteilerliste zu erstellen, legen Sie ein neues Projekt in
 Linuxmuster an und aktivieren die Verteiler-Option.
 
 1.  **Projekt erstellen:** Navigieren Sie in der Linuxmuster-WebUI zu
-    **\"Klassenzimmer\"** -\> **\"Einschreiben\"**.
+    **"Klassenzimmer"** -> **"Einschreiben"**.
 
 2.  **Verteiler-Option aktivieren:** Beim Erstellen oder Bearbeiten des
-    Projekts muss der Haken **\"Verteiler\"** gesetzt werden.
+    Projekts muss der Haken **"Verteiler"** gesetzt werden.
 
     ![Linuxmuster Projekt als Verteiler](/_static/linuxmuster_verteiler_projekt.png)
 

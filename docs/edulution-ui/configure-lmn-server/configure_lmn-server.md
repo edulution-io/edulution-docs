@@ -13,8 +13,8 @@ fragen Sie Ihren IT-Administrator oder Dienstleister! :
 ## Edulution-Setup-Token
 
 1\. Um das Edulution-Setup-Token zu generieren, melden Sie sich als
-\"global-admin\" an der Linuxmuster-WebUI an und gehen Sie zu \"Globale
-Einstellungen\" -\> \"edulution UI\"
+"global-admin" an der Linuxmuster-WebUI an und gehen Sie zu "Globale
+Einstellungen" -> "edulution UI"
 
 2\. Es werden einige Checks durchgeführt, ob die Linuxmuster-API
 installiert ist und läuft und ob ein BindUser vorhanden ist. Sollte kein

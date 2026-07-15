@@ -10,7 +10,16 @@ Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer 
 
 - **Zurück** / **Weiter** (Pfeil-Schaltflächen) – Blättern eine Woche bzw. einen Monat vor oder zurück, je nach aktiver Ansicht.
 - **Heute** – Springt zum aktuellen Datum zurück.
-- Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt (z. B. der Monatsname mit Jahr in der Monatsansicht oder die Kalenderwoche in der Wochenansicht).
+- Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt – in der Monatsansicht der Monatsname mit Jahr, in der Wochenansicht der Datumsbereich der angezeigten Woche.
+- In der Wochen- und der Stundenplan-Ansicht wird zusätzlich die **Kalenderwoche** der angezeigten Woche als **KW _n_** (nach ISO 8601) eingeblendet.
+
+### Zu einem Datum springen
+
+Neben den Navigations-Schaltflächen finden Sie die Schaltfläche **Datum wählen**. Sie öffnet einen kleinen Monatskalender, mit dem Sie gezielt zu einem beliebigen Datum springen, ohne sich Woche für Woche oder Monat für Monat vorarbeiten zu müssen.
+
+- Über die Auswahllisten für **Monat** und **Jahr** am oberen Rand wechseln Sie direkt zu einem anderen Monat oder Jahr; mit den Pfeilen daneben blättern Sie monatsweise.
+- Ein Klick auf einen Tag schließt den Mini-Kalender und stellt die Hauptansicht auf das gewählte Datum um; die Termine des betreffenden Zeitraums werden automatisch geladen.
+- Der aktuell in der Hauptansicht sichtbare Zeitraum ist im Mini-Kalender hervorgehoben – in der Monatsansicht der gesamte Monat, in der Wochenansicht die aktuelle Woche. Der heutige Tag und das ausgewählte Datum sind zusätzlich gekennzeichnet.
 
 ### Ansichten umschalten
 
@@ -21,6 +30,10 @@ Mit der Umschaltung wechseln Sie zwischen den beiden Hauptansichten:
 
 Die **Stundenplan**-Ansicht ist eine dritte, eigenständige Darstellung. Sie erreichen Sie nicht über diese Umschaltung, sondern über die Seitenleiste (siehe [Stundenplan](#stundenplan)).
 
+### Ansicht aktualisieren
+
+Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die Termine des aktuell angezeigten Zeitraums und der aktiven Kalender erneut vom Server, ohne dass Sie die Seite neu laden oder wegblättern müssen – nützlich, um zwischenzeitlich an anderer Stelle geänderte Termine anzuzeigen. Während des Aktualisierens dreht sich das Symbol der Schaltfläche, sie ist vorübergehend deaktiviert und es erscheint die kleine Ladeanzeige.
+
 ### Seitenleiste und Kalenderliste
 
 In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
@@ -29,6 +42,8 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 - **Abonnierte Kalender** – Kalender, die andere für Sie freigegeben haben.
 - **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
 - **Kalender anlegen** – Öffnet den Dialog zum [Anlegen eines neuen Kalenders](#kalender-anlegen).
+
+Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender** und **Abonnierte Kalender** führen zur normalen Kalenderansicht (Monat bzw. Woche, je nach zuletzt gewählter Ansicht), **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf **Meine Kalender** oder **Abonnierte Kalender** wieder in die gewohnte Kalenderansicht zurück.
 
 Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet den Kalender in allen Ansichten und dient zugleich als Legende. Abonnierte (freigegebene) Kalender werden zusätzlich mit einem gestrichelten Rahmen gekennzeichnet.
 
@@ -40,7 +55,7 @@ Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abo
 
 ### Monat
 
-Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervorgehoben, Tage außerhalb des angezeigten Monats sind abgeschwächt. Pro Tag werden die ersten Termine als farbige Einträge angezeigt; gibt es mehr Termine, erscheint ein Hinweis in der Form **+n weitere**. Ein Klick auf einen freien Bereich eines Tages öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit dem passenden Datum.
+Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervorgehoben, Tage außerhalb des angezeigten Monats sind abgeschwächt. Am linken Rand jeder Wochenzeile steht in einer eigenen, mit **KW** überschriebenen Spalte die zugehörige **Kalenderwoche** nach ISO 8601. Pro Tag werden die ersten Termine als farbige Einträge angezeigt; gibt es mehr Termine, erscheint ein Hinweis in der Form **+n weitere**. Ein Klick auf einen freien Bereich eines Tages öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit dem passenden Datum.
 
 ### Woche
 
@@ -149,23 +164,27 @@ Termine aus schreibgeschützten oder abonnierten Kalendern können nicht per Dra
 
 Speichern Sie den Kalender über **Speichern**; ohne Namen ist das Speichern nicht möglich.
 
-### Freigaben und Berechtigungen
+## Kalender freigeben
 
-Im selben Dialog geben Sie den Kalender für andere frei, indem Sie **Benutzer** oder **Gruppen** hinzufügen. Für jede Freigabe wählen Sie eine Berechtigungsstufe:
+Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie Benutzer oder Gruppen und legen für jede Freigabe eine Berechtigungsstufe fest:
 
 | Berechtigung | Bedeutung |
 |---|---|
-| **Kein Zugriff** | Keine Freigabe. |
 | **Nur Frei/Belegt** | Es ist nur erkennbar, ob Zeiten belegt sind, ohne Termindetails. |
 | **Ansehen** | Termine dürfen gelesen werden. |
-| **Bearbeiten** | Termine dürfen gelesen und geändert werden. |
-| **Verwalten** | Voller Zugriff einschließlich Verwaltung des Kalenders. |
+| **Bearbeiten** | Termine dürfen gelesen, angelegt und geändert werden. |
 
-Standardmäßig erhalten neu hinzugefügte Benutzer und Gruppen die Stufe **Ansehen**. Über das Mülleimer-Symbol entfernen Sie eine Freigabe wieder.
+Neu hinzugefügte Benutzer und Gruppen erhalten standardmäßig die Stufe **Ansehen**; über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder. Sobald Sie einen Kalender freigeben, wird er den betreffenden Benutzern automatisch als abonnierter Kalender bereitgestellt.
+
+:::info Backend-Voraussetzung
+
+Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktionen von **SoGo** und ist nur verfügbar, wenn als CalDAV-Server SoGo eingesetzt wird. Die reine Terminsynchronisierung funktioniert dagegen mit jedem standardkonformen CalDAV-Server. Welcher CalDAV-Server verwendet wird, legt die Administration in den App-Einstellungen des Kalenders fest.
+
+:::
 
 ## Abonnierte und schreibgeschützte Kalender
 
-Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Ist ein solcher Kalender schreibgeschützt, können Sie seine Termine zwar einsehen, aber nicht öffnen, bearbeiten, löschen oder per Drag & Drop verschieben.
+Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Ist ein solcher Kalender schreibgeschützt, können Sie seine Termine zwar einsehen, aber nicht öffnen, bearbeiten, löschen oder per Drag & Drop verschieben. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
 
 ## Siehe auch
 

@@ -187,7 +187,7 @@ Hier legen Sie die Signatur fest, die beim Verfassen neuer E-Mails verwendet wir
 - **Speichern** übernimmt die Änderungen, **Zurücksetzen** verwirft noch nicht gespeicherte Anpassungen.
 
 :::warning[Wechsel zurück in die formatierte Ansicht]
-Der formatierte Editor unterstützt nur einen Teil des HTML-Sprachumfangs. Enthält Ihr Quelltext Bestandteile, die er nicht darstellen kann – etwa Tabellen oder eigene Formatvorlagen –, gehen diese beim Zurückschalten in die **Editor**-Ansicht verloren. Ein Hinweis weist Sie vor dem Wechsel darauf hin.
+Der formatierte Editor unterstützt nicht alle HTML-Formatierungen. Enthält Ihr Quelltext Bestandteile, die er nicht darstellen kann – ganze Elemente wie Tabellen oder eigene Formatvorlagen, aber auch einzelne Formatierungen wie Textausrichtung oder Schriftgröße –, gehen diese beim Zurückschalten in die **Editor**-Ansicht verloren. Vor dem Wechsel erscheint ein Bestätigungsdialog, der die betroffenen Elemente und Formatierungen auflistet: Mit **Abbrechen** bleibt Ihr Quelltext unverändert erhalten, mit **Trotzdem wechseln** übernehmen Sie den Verlust.
 :::
 
 Dieselbe Umschaltung steht Ihnen auch beim [Verfassen einer E-Mail](../features/e-mail.md#html-quelltext-bearbeiten) zur Verfügung.

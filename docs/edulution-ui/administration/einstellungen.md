@@ -113,6 +113,7 @@ Diese Signatur wird beim Verfassen einer neuen E-Mail automatisch angefügt. Sie
 
 - Bearbeiten Sie die Signatur im Editor mit den gewohnten Formatierungsfunktionen
 - Über die Editor-/Quelltext-Umschaltung oben rechts im Editor wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung. HTML, Links und Bilder werden unverändert übernommen
+- Enthält der Quelltext Elemente oder Formatierungen, die der formatierte Editor nicht unterstützt (etwa Tabellen, Textausrichtung oder Schriftgrößen), fragt ein Bestätigungsdialog vor dem Zurückschalten nach und listet auf, was dabei entfernt würde
 - Bilder können direkt eingefügt werden; sehr große Bilder werden mit einem Hinweis quittiert
 
 :::tip[Bildgröße]

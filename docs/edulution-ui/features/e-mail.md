@@ -64,7 +64,9 @@ Die Quelltext-Ansicht benötigen Sie immer dann, wenn Sie fertiges HTML versende
 3. Versenden Sie die Nachricht mit **Senden**. Der Quelltext wird unverändert als HTML verschickt und beim Empfänger formatiert dargestellt.
 
 :::warning[Wechsel zurück in die formatierte Ansicht]
-Der formatierte Editor unterstützt nur einen Teil des HTML-Sprachumfangs. Schalten Sie mit gestaltetem HTML – etwa Tabellen oder eigenen Formatvorlagen – zurück in die **Editor**-Ansicht, gehen die nicht unterstützten Bestandteile verloren. Ein Hinweis weist Sie vor dem Wechsel darauf hin. Bleiben Sie deshalb in der Quelltext-Ansicht, bis Sie die Nachricht versenden.
+Der formatierte Editor unterstützt nicht alle HTML-Formatierungen. Schalten Sie mit gestaltetem HTML zurück in die **Editor**-Ansicht, gehen die nicht unterstützten Bestandteile verloren. Betroffen sind sowohl ganze Elemente – etwa Tabellen oder eigene Formatvorlagen – als auch einzelne Formatierungen wie Textausrichtung oder Schriftgröße.
+
+Vor dem Wechsel erscheint deshalb ein Bestätigungsdialog, der genau auflistet, welche Elemente und Formatierungen entfernt würden. Mit **Abbrechen** bleiben Sie in der Quelltext-Ansicht und behalten das HTML unverändert; mit **Trotzdem wechseln** übernehmen Sie den Verlust bewusst. Bleiben Sie im Zweifel in der Quelltext-Ansicht, bis Sie die Nachricht versenden.
 :::
 
 :::tip[Hinweis]

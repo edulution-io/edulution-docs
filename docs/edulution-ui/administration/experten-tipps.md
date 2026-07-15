@@ -1,12 +1,6 @@
 # Experten-Tipps
 
-:::: tip
-::: title
-Tip
-:::
-
-**Keycloak-Administrationsoberfläche aufrufen**
-
+:::tip[Keycloak-Administrationsoberfläche aufrufen]
 Für erweiterte Benutzer- und Authentifizierungs-Einstellungen können Sie
 direkt auf die Keycloak-Administrationsoberfläche zugreifen.
 
@@ -27,4 +21,4 @@ direkt auf die Keycloak-Administrationsoberfläche zugreifen.
     ```
 
     Der Befehl zeigt Ihnen die Zeile mit dem benötigten Passwort an.
-::::
+:::

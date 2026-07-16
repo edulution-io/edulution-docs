@@ -186,6 +186,8 @@ Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktione
 
 Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Ist ein solcher Kalender schreibgeschützt, können Sie seine Termine zwar einsehen, aber nicht öffnen, bearbeiten, löschen oder per Drag & Drop verschieben. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
 
+Auch die **Termine** eines abonnierten Kalenders sind am gestrichelten Rahmen zu erkennen – in allen Ansichten und unabhängig davon, ob dem Termin eine eigene Farbe zugewiesen ist.
+
 ## Siehe auch
 
 - [Dashboard](dashboard.md) – Schnellzugriff auf den Kalender

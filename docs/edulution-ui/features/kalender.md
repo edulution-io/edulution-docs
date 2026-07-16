@@ -51,6 +51,21 @@ Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet d
 
 Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Abonnierte Kalender sind beim ersten Laden standardmäßig ausgeblendet, sodass Ihre eigenen Termine im Vordergrund stehen; Sie können sie jederzeit wieder einblenden.
 
+### Kalenderkontextmenü
+
+Über das Kontextmenü (Drei-Punkte-Symbol) eines Kalendereintrags in der Seitenleiste erreichen Sie die kalenderbezogenen Aktionen. Welche Einträge erscheinen, hängt davon ab, ob es sich um einen eigenen, einen abonnierten oder einen als Stundenplan markierten Kalender handelt:
+
+- **Einblenden** bzw. **Ausblenden** – Blendet die Termine des Kalenders ein oder aus, wie ein Klick auf den Eintrag.
+- **Nur diesen anzeigen** – Blendet alle anderen Kalender aus und zeigt ausschließlich die Termine des gewählten Kalenders.
+- **Alle anzeigen** – Blendet wieder sämtliche Kalender ein.
+- **Als Stundenplan markieren** bzw. **Stundenplan-Markierung entfernen** – Verschiebt einen eigenen Kalender in die Gruppe **Stundenplan** oder zurück zu **Meine Kalender** (siehe [Stundenplan](#stundenplan)).
+- **Als Standardkalender festlegen** bzw. **Als Standardkalender entfernen** – Bestimmt, welcher Kalender beim [Erstellen eines Termins](#termine-erstellen) vorausgewählt ist.
+- **Einstellungen** bzw. **Löschen** – Öffnet die [Kalendereinstellungen](#kalender-bearbeiten-und-löschen) oder löscht den Kalender; nur bei eigenen Kalendern verfügbar.
+- **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
+- **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste.
+
+Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
+
 ## Ansichten
 
 ### Monat
@@ -78,7 +93,7 @@ Einen neuen Termin legen Sie auf mehreren Wegen an:
 
 Füllen Sie im Dialog die folgenden Felder aus:
 
-1. **Kalender** – Der Kalender, in dem der Termin gespeichert wird. Zur Auswahl stehen nur Kalender, in die Sie schreiben dürfen.
+1. **Kalender** – Der Kalender, in dem der Termin gespeichert wird. Zur Auswahl stehen nur Kalender, in die Sie schreiben dürfen. Vorausgewählt ist der über das [Kalenderkontextmenü](#kalenderkontextmenü) als Standard festgelegte Kalender, andernfalls der erste beschreibbare Kalender.
 2. **Titel** – Die Bezeichnung des Termins.
 3. **Beschreibung** – Optionaler ausführlicher Text.
 4. **Ort** – Optionale Ortsangabe.
@@ -158,11 +173,28 @@ Termine aus schreibgeschützten oder abonnierten Kalendern können nicht per Dra
 Über **Kalender anlegen** in der Seitenleiste öffnen Sie den gleichnamigen Dialog. Dort legen Sie fest:
 
 - **Name** – Der angezeigte Name des Kalenders.
-- **Markierungen** – Optional die Markierung **Stundenplan**, mit der der Kalender als Stundenplan gekennzeichnet und in der entsprechenden Gruppe der Seitenleiste angezeigt wird.
+- **Typ** – Optional die Kennzeichnung **Stundenplan**, mit der der Kalender als Stundenplan gekennzeichnet und in der entsprechenden Gruppe der Seitenleiste angezeigt wird.
 - **Beschreibung** – Eine optionale Beschreibung.
-- **Farbe** – Die Farbe, in der der Kalender und seine Termine dargestellt werden.
+- **Farbe** – Die Farbe, in der der Kalender und seine Termine dargestellt werden. Wählen Sie eine der vorgegebenen Farben aus oder legen Sie über die Schaltfläche **+** eine beliebige eigene Farbe fest.
 
 Speichern Sie den Kalender über **Speichern**; ohne Namen ist das Speichern nicht möglich.
+
+:::info[Namenszusatz bei Stundenplänen]
+Legen Sie einen Kalender mit dem Typ **Stundenplan** an, wird dem eingegebenen Namen beim Speichern automatisch das Wort „Stundenplan“ vorangestellt: Aus der Eingabe „10a“ entsteht der Kalender **Stundenplan 10a**. Der Zusatz wird nur beim **Anlegen** ergänzt – benennen Sie den Kalender später über die [Kalendereinstellungen](#kalender-bearbeiten-und-löschen) um, gilt genau der Name, den Sie dort eintragen.
+:::
+
+## Kalender bearbeiten und löschen
+
+Bestehende eigene Kalender verwalten Sie über die Einträge **Einstellungen** und **Löschen** im [Kalenderkontextmenü](#kalenderkontextmenü) – sowohl unter **Meine Kalender** als auch bei eigenen **Stundenplan**-Kalendern:
+
+- **Einstellungen** – Öffnet den Dialog **Kalendereinstellungen**, in dem Sie **Name**, **Typ**, **Beschreibung** und **Farbe** des Kalenders ändern. Übernehmen Sie die Änderungen mit **Speichern**. Der Dialog entspricht dem Dialog zum [Anlegen eines Kalenders](#kalender-anlegen) und ist mit den bestehenden Werten des Kalenders vorbelegt.
+- **Löschen** – Entfernt den Kalender. Zuvor erscheint eine Sicherheitsabfrage mit dem Hinweis, dass der Kalender und alle darin enthaltenen Termine dauerhaft gelöscht werden; dieser Vorgang lässt sich nicht rückgängig machen.
+
+Ändern Sie im Dialog **Kalendereinstellungen** den **Typ**, wechselt der Kalender die Gruppe in der Seitenleiste: Mit gesetzter Kennzeichnung **Stundenplan** erscheint er unter **Stundenplan**, ohne sie wieder unter **Meine Kalender**. Ein Kalender, dem bisher keine Farbe zugewiesen ist, bleibt ohne Farbe, solange Sie im Dialog keine auswählen – ein bloßes Umbenennen weist ihm also keine Farbe zu.
+
+Löschen Sie einen Kalender, dessen [Stundenplan-Ansicht](#stundenplan) Sie gerade geöffnet haben, kehren Sie automatisch zur Kalenderübersicht zurück. Schlägt das Löschen fehl, bleibt die Sicherheitsabfrage geöffnet und es erscheint eine Fehlermeldung, sodass Sie den Vorgang erneut auslösen können.
+
+Bei abonnierten oder schreibgeschützten Kalendern werden **Einstellungen** und **Löschen** nicht angeboten (siehe [Abonnierte und schreibgeschützte Kalender](#abonnierte-und-schreibgeschützte-kalender)). Der Server lässt Änderungen an fremden Kalendern auch dann nicht zu, wenn sie auf anderem Weg angefordert werden – Sie können ausschließlich eigene Kalender bearbeiten und löschen.
 
 ## Kalender freigeben
 

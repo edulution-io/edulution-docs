@@ -186,6 +186,10 @@ Wählen Sie **Alle Termine der Serie** und haben Sie dabei den Zeitpunkt geände
 
 Ändern Sie die Dauer eines Termins und wählen **Alle Termine der Serie**, gilt die neue Dauer für sämtliche Termine der Serie. Alle übrigen Änderungen – etwa Titel oder Ort – gelten ebenfalls unverändert für die gesamte Serie.
 
+Mit **Nur dieser Termin** lösen Sie den gewählten Termin als Ausnahme aus der Serie heraus; alle übrigen Termine bleiben unverändert. Der Termin bleibt Teil der Serie – verschieben Sie ihn erneut, verschieben Sie dieselbe Ausnahme.
+
+**Dieser und alle folgenden Termine** teilt die Serie an dieser Stelle: Die Termine davor bleiben unverändert bestehen, ab dem gewählten Termin entsteht eine neue Serie mit der geänderten Zeit. Die Gesamtzahl der Termine bleibt dabei erhalten – aus einer Serie mit sechs Terminen werden zwei Serien mit zusammen sechs Terminen. Endet die Serie nach einer festen Anzahl von Terminen, verteilt sich diese Anzahl auf beide Teile.
+
 :::info[Verschieben in die fünfte Woche des Monats]
 Bei einem monatlichen Muster nach Wochentag richtet sich der Anker nach der Woche, in die Sie den Termin ziehen. Verschieben Sie eine Serie „Am vierten Mittwoch des Monats“ um eine Woche nach hinten, lautet die Regel anschließend „Am fünften Mittwoch des Monats“. Da nicht jeder Monat einen fünften Mittwoch hat, finden danach deutlich weniger Termine statt. Ist das nicht gewünscht, verschieben Sie die Serie um einen ganzen Monat statt um eine Woche.
 :::

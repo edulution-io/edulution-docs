@@ -141,6 +141,61 @@ In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Ni
 
 ---
 
+## Kalender (CalDAV)
+
+Die Kalender-App bindet die Kalender der Schule über einen CalDAV-Server (z.B. SOGo) an. In den Einstellungen der App legen Sie die Verbindung zum CalDAV-Server fest.
+
+### Sortierung
+
+**Position in der App-Liste**
+- Numerischer Wert
+- Bestimmt, an welcher Stelle die Kalender-App in der App-Liste und in den Einstellungen angezeigt wird
+- Niedrigere Zahlen = weiter oben in der Liste
+
+### An App-Leiste anpinnen
+
+**Dauerhaft in der App-Leiste anzeigen**
+- Toggle-Schalter
+- Aktiviert: Die Kalender-App erscheint dauerhaft in der App-Leiste
+- Deaktiviert: Die App wird dort nur angezeigt, solange sie geöffnet ist
+
+### Nutzergruppen
+
+**Zugriff auf die Kalender-App**
+- Wählen Sie die Nutzergruppen aus, die Zugriff auf die Kalender-App bekommen sollen
+- Mehrfachauswahl möglich
+- Nur ausgewählte Gruppen sehen die Kalender-App in ihrer Anwendungsübersicht
+
+### CalDAV-Verbindung
+
+**CalDAV-URL**
+- Basis-URL des CalDAV-Servers inklusive Pfad
+- Beispiel: `https://mail.example.com/SOGo/dav/`
+- Wird für die Anbindung der Kalender verwendet
+
+**Authentifizierungsmodus**
+- HTTP-Authentifizierungsverfahren für die CalDAV-Verbindung
+- Optionen: **Basic**, **Digest**, **OAuth**
+
+:::info
+Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic eingestellt; weitere Modi sind in Vorbereitung.
+:::
+
+**Nicht zertifizierte Verbindungen ablehnen**
+- Toggle-Schalter für die Zertifikatsprüfung
+- Aktiviert: Das SSL/TLS-Zertifikat des CalDAV-Servers wird validiert
+- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+
+:::warning[Sicherheitshinweis]
+In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" aktiviert lassen, um die Sicherheit der CalDAV-Verbindung zu gewährleisten.
+:::
+
+:::info[Freigaben setzen SoGo voraus]
+Die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server. Das [Freigeben und Abonnieren von Kalendern](../features/kalender.md#kalender-freigeben) nutzt dagegen die proprietären ACL-Funktionen von **SoGo** und ist nur verfügbar, wenn SoGo als CalDAV-Server eingesetzt wird.
+:::
+
+---
+
 ## Kontakte (CardDAV)
 
 ![Einstellungen der Kontakte-App mit CardDAV-Konfiguration](/img/einstellungen/kontakte-carddav.webp)

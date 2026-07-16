@@ -70,6 +70,14 @@ Ein Klick bzw. Tipp auf eine solche Benachrichtigung bringt Sie direkt an die pa
 
 Der aktuell geöffnete Ordner und die geöffnete Nachricht sind zudem in der Adresse (URL) der E-Mail-App enthalten. So können Sie einen Ordner oder eine Nachricht als Lesezeichen speichern oder einen Link darauf weitergeben – beim Aufruf wird direkt das entsprechende Ziel geöffnet.
 
+### Empfängerprüfung beim Senden
+
+Beim Senden prüft edulution, ob Empfänger mit einer Adresse Ihrer Organisation im Mailsystem bekannt sind. Dabei werden neben den primären Adressen auch **Alias-Adressen** (zusätzliche Adressformen einer Person oder Gruppe) und **Alias-Domänen** berücksichtigt. Externe Adressen werden nicht geprüft und immer versendet.
+
+- Ist **kein** Empfänger im Mailsystem bekannt, wird die Nachricht nicht gesendet und Sie erhalten einen Hinweis mit den betroffenen Adressen.
+- Sind nur **einzelne** Empfänger unbekannt, wird die Nachricht an die übrigen Empfänger gesendet; die übersprungenen Adressen werden Ihnen angezeigt.
+- Ist das Mailsystem **vorübergehend nicht erreichbar**, wird die Prüfung für diesen Sendevorgang übersprungen, damit gültige Empfänger nicht fälschlich abgewiesen werden. Auch die Empfängervorschläge im Adressfeld funktionieren dann weiter, zeigen aber gegebenenfalls kurzzeitig keine Alias-Adressen an.
+
 ## Hinweis auf aktive automatische Antwort
 
 Ist eine **automatische Antwort (Abwesenheitsnotiz)** aktiv, zeigt die E-Mail-App dies direkt im Kopfbereich unterhalb des Titels an. So erkennen Sie auf einen Blick, dass aktuell automatisch auf eingehende Nachrichten geantwortet wird, ohne erst die Einstellungen öffnen zu müssen.

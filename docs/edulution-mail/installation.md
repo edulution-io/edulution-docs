@@ -204,34 +204,6 @@ Ohne den korrekten URL-Wert kann die edulution-UI nicht mit der Mailcow-API komm
 `dovecot` und `postfix` sind die internen Service-Namen der Mailcow-Container. Sie sind nur auflösbar, weil edulution-mail den edulution-api Container automatisch in das Mailcow-Netzwerk einbindet (siehe [Versionskopplung](#schritt-3-proxy-konfiguration-hinzufügen)).
 :::
 
-### Fehlerbehebung: Abwesenheitsnotiz schlägt fehl (502 / lange Ladezeiten)
-
-Wenn das Aktivieren einer Abwesenheitsnotiz nach ~10 Sekunden mit **502** fehlschlägt (oder die Abwesenheits-Einstellungen sehr langsam laden), erreicht der `edulution-api` Container den ManageSieve-Dienst von Mailcow (Port 4190) nicht. Webmail und IMAP funktionieren weiter, da sie nicht direkt über edu-api → dovecot laufen — deshalb fällt das Problem oft erst bei der Abwesenheitsnotiz auf.
-
-Ursache ist fast immer, dass `edulution-api` nach einem Redeploy/Update **nicht mehr im Mailcow-Netzwerk** ist: Die Einbindung wird von edulution-mail beim Start gesetzt und übersteht ein Neu-Erstellen des edu-api-Containers nicht.
-
-**Prüfen** (im edulution-api Container):
-
-```bash
-docker exec edulution-api nc -vz dovecot 4190
-```
-
-- `open` → Verbindung besteht, Ursache liegt woanders.
-- `bad address 'dovecot'` / Timeout → edu-api ist nicht im Mailcow-Netzwerk.
-
-**Beheben:**
-
-```bash
-docker restart edulution-mail
-docker exec edulution-api nc -vz dovecot 4190   # muss nun verbinden
-```
-
-Der Neustart von edulution-mail bindet den aktuellen edu-api-Container wieder in das Mailcow-Netzwerk ein. Danach kehrt das Aktivieren der Abwesenheitsnotiz von 10s→502 auf eine Antwort im Millisekundenbereich zurück.
-
-:::note
-Dieser Schritt kann nach jedem Redeploy des edulution-api Containers erneut nötig sein, bis die dauerhafte Einbindung greift.
-:::
-
 Die Installation ist nun abgeschlossen und die E-Mail-Dienste werden gestartet.
 
 ## Erstkonfiguration
@@ -391,6 +363,32 @@ Nach der Konfiguration des Volume-Mounts:
 Die Theme-Änderung wird sofort für alle Benutzer wirksam.
 
 {/* ![Auswahl des SOGo-Themes](assets/setupMailTheme.webp) */}
+
+## Fehlerbehebung
+
+### Abwesenheitsnotiz schlägt fehl (502 / lange Ladezeiten)
+
+Wenn das Aktivieren einer Abwesenheitsnotiz nach ~10 Sekunden mit **502** fehlschlägt (oder die Abwesenheits-Einstellungen sehr langsam laden), erreicht der `edulution-api` Container den ManageSieve-Dienst von Mailcow (Port 4190) nicht. Webmail und IMAP funktionieren weiter, da sie nicht direkt über edu-api → dovecot laufen — deshalb fällt das Problem oft erst bei der Abwesenheitsnotiz auf.
+
+Eine mögliche Ursache ist, dass `edulution-api` nach einem Redeploy/Update **nicht mehr im Mailcow-Netzwerk** ist: Die Einbindung wird normalerweise von edulution-mail beim Start gesetzt (siehe [Mailserver-Hosts konfigurieren](#schritt-5-mailserver-hosts-konfigurieren)).
+
+**Prüfen** (im edulution-api Container):
+
+```bash
+docker exec edulution-api nc -vz dovecot 4190
+```
+
+- `open` → Verbindung besteht, Ursache liegt woanders.
+- `bad address 'dovecot'` / Timeout → edu-api ist nicht im Mailcow-Netzwerk.
+
+**Beheben:**
+
+```bash
+docker restart edulution-mail
+docker exec edulution-api nc -vz dovecot 4190   # muss nun verbinden
+```
+
+Der Neustart von edulution-mail bindet den aktuellen edu-api-Container wieder in das Mailcow-Netzwerk ein. Danach kehrt das Aktivieren der Abwesenheitsnotiz von 10s→502 auf eine Antwort im Millisekundenbereich zurück.
 
 ## Nächste Schritte
 

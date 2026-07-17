@@ -182,7 +182,11 @@ Bearbeiten oder löschen Sie einen Termin, der Teil einer Serie ist – oder ver
 - **Dieser und alle folgenden Termine**
 - **Alle Termine der Serie**
 
-Wählen Sie **Alle Termine der Serie** und haben Sie dabei den Zeitpunkt geändert, wird die gesamte Serie um denselben Zeitversatz verschoben; alle übrigen Änderungen – etwa Titel oder Ort – gelten unverändert für sämtliche Termine der Serie.
+Wählen Sie **Alle Termine der Serie** und haben Sie dabei den Zeitpunkt geändert, wird die gesamte Serie um denselben Zeitversatz verschoben; alle übrigen Änderungen – etwa Titel oder Ort – gelten unverändert für sämtliche Termine der Serie. Verschieben Sie die Serie dabei auf einen anderen Wochentag oder Monatstag, wandert die Wiederholungsregel mit: Aus einer wöchentlichen Serie am Montag wird eine wöchentliche Serie am Dienstag.
+
+Mit **Nur dieser Termin** lösen Sie den gewählten Termin als Ausnahme aus der Serie heraus; alle übrigen Termine bleiben unverändert. Der Termin bleibt Teil der Serie – verschieben Sie ihn erneut, verschieben Sie dieselbe Ausnahme.
+
+**Dieser und alle folgenden Termine** teilt die Serie an dieser Stelle: Die Termine davor bleiben unverändert bestehen, ab dem gewählten Termin entsteht eine neue Serie mit der geänderten Zeit. Die Gesamtzahl der Termine bleibt dabei erhalten – aus einer Serie mit sechs Terminen werden zwei Serien mit zusammen sechs Terminen. Endet die Serie nach einer festen Anzahl von Terminen, verteilt sich diese Anzahl auf beide Teile.
 
 ## Termine per Drag & Drop verschieben
 

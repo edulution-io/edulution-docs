@@ -102,7 +102,7 @@ Füllen Sie im Dialog die folgenden Felder aus:
 7. **Wiederholung** – Legt fest, ob der Termin als [Serientermin](#serientermine-und-wiederholungen) wiederkehrt.
 8. **Sichtbarkeit** – **Öffentlich**, **Privat** oder **Vertraulich**.
 9. **Zeit-Status** – Ob die Zeit als **Abwesend (gebucht)** oder **Verfügbar (frei)** gilt.
-10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Farbe wirkt sich nur in der Stundenplan-Ansicht aus.
+10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Auswahl beginnt links mit **Keine Farbe**, darauf folgen die vorgegebenen Farben; ganz rechts öffnet die Schaltfläche **Eigene Farbe** den Farbwähler für eine beliebige Farbe. Die Farbe wirkt sich nur in der Stundenplan-Ansicht aus.
 11. **Teilnehmer** – Weitere Benutzer, die zum Termin eingeladen werden.
 
 Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.

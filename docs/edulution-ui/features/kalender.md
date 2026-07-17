@@ -58,13 +58,24 @@ Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abo
 - **Einblenden** bzw. **Ausblenden** – Blendet die Termine des Kalenders ein oder aus, wie ein Klick auf den Eintrag.
 - **Nur diesen anzeigen** – Blendet alle anderen Kalender aus und zeigt ausschließlich die Termine des gewählten Kalenders.
 - **Alle anzeigen** – Blendet wieder sämtliche Kalender ein.
+- **Einstellungen** – Öffnet die [Kalendereinstellungen](#kalender-bearbeiten-und-löschen), in denen Sie **Name**, **Typ**, **Beschreibung** und **Farbe** des Kalenders ändern; nur bei eigenen Kalendern verfügbar.
 - **Als Stundenplan markieren** bzw. **Stundenplan-Markierung entfernen** – Verschiebt einen eigenen Kalender in die Gruppe **Stundenplan** oder zurück zu **Meine Kalender** (siehe [Stundenplan](#stundenplan)).
 - **Als Standardkalender festlegen** bzw. **Als Standardkalender entfernen** – Bestimmt, welcher Kalender beim [Erstellen eines Termins](#termine-erstellen) vorausgewählt ist.
-- **Einstellungen** bzw. **Löschen** – Öffnet die [Kalendereinstellungen](#kalender-bearbeiten-und-löschen) oder löscht den Kalender; nur bei eigenen Kalendern verfügbar.
 - **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
-- **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste.
+- **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht an derselben Stelle wie **Freigeben**.
+- **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
 
-Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
+Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
+
+Bei einem als Stundenplan markierten Kalender führt der Eintrag in der Seitenleiste direkt in die [Stundenplan-Ansicht](#stundenplan); sein Kontextmenü enthält deshalb keine Anzeige-Aktionen, sondern **Stundenplan-Markierung entfernen**, **Einstellungen**, **Freigeben** und **Löschen**. Ein Stundenplan lässt sich nicht als Standardkalender festlegen.
+
+Die Festlegung als Standardkalender wird in Ihrem Browser gespeichert: Sie bleibt über das Neuladen der Seite und die nächste Anmeldung hinaus erhalten, gilt aber nur auf diesem Gerät und in diesem Browser. An einem anderen Arbeitsplatz legen Sie den Standardkalender daher erneut fest.
+
+Steht der festgelegte Kalender nicht mehr als eigener, beschreibbarer Kalender zur Verfügung – etwa weil Sie ihn gelöscht haben oder Ihnen die Schreibrechte daran entzogen wurden –, wird die Festlegung automatisch aufgehoben.
+
+:::info[Standardkalender und Stundenplan-Markierung]
+Markieren Sie ausgerechnet den Kalender als Stundenplan, der derzeit Ihr Standardkalender ist, wird die Festlegung als Standardkalender dabei automatisch aufgehoben. Beim [Erstellen eines Termins](#termine-erstellen) ist dann wieder der erste beschreibbare Kalender vorausgewählt, bis Sie einen neuen Standardkalender bestimmen.
+:::
 
 ## Ansichten
 

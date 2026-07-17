@@ -10,7 +10,16 @@ Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer 
 
 - **Zurück** / **Weiter** (Pfeil-Schaltflächen) – Blättern eine Woche bzw. einen Monat vor oder zurück, je nach aktiver Ansicht.
 - **Heute** – Springt zum aktuellen Datum zurück.
-- Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt (z. B. der Monatsname mit Jahr in der Monatsansicht oder die Kalenderwoche in der Wochenansicht).
+- Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt – in der Monatsansicht der Monatsname mit Jahr, in der Wochenansicht der Datumsbereich der angezeigten Woche.
+- In der Wochen- und der Stundenplan-Ansicht wird zusätzlich die **Kalenderwoche** der angezeigten Woche als **KW _n_** (nach ISO 8601) eingeblendet.
+
+### Zu einem Datum springen
+
+Neben den Navigations-Schaltflächen finden Sie die Schaltfläche **Datum wählen**. Sie öffnet einen kleinen Monatskalender, mit dem Sie gezielt zu einem beliebigen Datum springen, ohne sich Woche für Woche oder Monat für Monat vorarbeiten zu müssen.
+
+- Über die Auswahllisten für **Monat** und **Jahr** am oberen Rand wechseln Sie direkt zu einem anderen Monat oder Jahr; mit den Pfeilen daneben blättern Sie monatsweise.
+- Ein Klick auf einen Tag schließt den Mini-Kalender und stellt die Hauptansicht auf das gewählte Datum um; die Termine des betreffenden Zeitraums werden automatisch geladen.
+- Der aktuell in der Hauptansicht sichtbare Zeitraum ist im Mini-Kalender hervorgehoben – in der Monatsansicht der gesamte Monat, in der Wochenansicht die aktuelle Woche. Der heutige Tag und das ausgewählte Datum sind zusätzlich gekennzeichnet.
 
 ### Ansichten umschalten
 
@@ -21,6 +30,10 @@ Mit der Umschaltung wechseln Sie zwischen den beiden Hauptansichten:
 
 Die **Stundenplan**-Ansicht ist eine dritte, eigenständige Darstellung. Sie erreichen Sie nicht über diese Umschaltung, sondern über die Seitenleiste (siehe [Stundenplan](#stundenplan)).
 
+### Ansicht aktualisieren
+
+Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die Termine des aktuell angezeigten Zeitraums und der aktiven Kalender erneut vom Server, ohne dass Sie die Seite neu laden oder wegblättern müssen – nützlich, um zwischenzeitlich an anderer Stelle geänderte Termine anzuzeigen. Während des Aktualisierens dreht sich das Symbol der Schaltfläche, sie ist vorübergehend deaktiviert und es erscheint die kleine Ladeanzeige.
+
 ### Seitenleiste und Kalenderliste
 
 In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
@@ -29,6 +42,8 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 - **Abonnierte Kalender** – Kalender, die andere für Sie freigegeben haben.
 - **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
 - **Kalender anlegen** – Öffnet den Dialog zum [Anlegen eines neuen Kalenders](#kalender-anlegen).
+
+Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender** und **Abonnierte Kalender** führen zur normalen Kalenderansicht (Monat bzw. Woche, je nach zuletzt gewählter Ansicht), **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf **Meine Kalender** oder **Abonnierte Kalender** wieder in die gewohnte Kalenderansicht zurück.
 
 Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet den Kalender in allen Ansichten und dient zugleich als Legende. Abonnierte (freigegebene) Kalender werden zusätzlich mit einem gestrichelten Rahmen gekennzeichnet.
 
@@ -43,16 +58,20 @@ Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abo
 - **Einblenden** bzw. **Ausblenden** – Blendet die Termine des Kalenders ein oder aus, wie ein Klick auf den Eintrag.
 - **Nur diesen anzeigen** – Blendet alle anderen Kalender aus und zeigt ausschließlich die Termine des gewählten Kalenders.
 - **Alle anzeigen** – Blendet wieder sämtliche Kalender ein.
-- **Einstellungen** – Öffnet die Kalendereinstellungen, in denen Sie Name, Typ, Beschreibung und Farbe des Kalenders ändern; nur bei eigenen Kalendern verfügbar.
+- **Einstellungen** – Öffnet die [Kalendereinstellungen](#kalender-bearbeiten-und-löschen), in denen Sie **Name**, **Typ**, **Beschreibung** und **Farbe** des Kalenders ändern; nur bei eigenen Kalendern verfügbar.
 - **Als Stundenplan markieren** bzw. **Stundenplan-Markierung entfernen** – Verschiebt einen eigenen Kalender in die Gruppe **Stundenplan** oder zurück zu **Meine Kalender** (siehe [Stundenplan](#stundenplan)).
 - **Als Standardkalender festlegen** bzw. **Als Standardkalender entfernen** – Bestimmt, welcher Kalender beim [Erstellen eines Termins](#termine-erstellen) vorausgewählt ist.
 - **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
-- **Löschen** – Entfernt den Kalender dauerhaft; nur bei eigenen Kalendern verfügbar.
-- **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste.
+- **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht an derselben Stelle wie **Freigeben**.
+- **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
 
 Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
 
 Bei einem als Stundenplan markierten Kalender führt der Eintrag in der Seitenleiste direkt in die [Stundenplan-Ansicht](#stundenplan); sein Kontextmenü enthält deshalb keine Anzeige-Aktionen, sondern **Stundenplan-Markierung entfernen**, **Einstellungen**, **Freigeben** und **Löschen**. Ein Stundenplan lässt sich nicht als Standardkalender festlegen.
+
+Die Festlegung als Standardkalender wird in Ihrem Browser gespeichert: Sie bleibt über das Neuladen der Seite und die nächste Anmeldung hinaus erhalten, gilt aber nur auf diesem Gerät und in diesem Browser. An einem anderen Arbeitsplatz legen Sie den Standardkalender daher erneut fest.
+
+Steht der festgelegte Kalender nicht mehr als eigener, beschreibbarer Kalender zur Verfügung – etwa weil Sie ihn gelöscht haben oder Ihnen die Schreibrechte daran entzogen wurden –, wird die Festlegung automatisch aufgehoben.
 
 :::info[Standardkalender und Stundenplan-Markierung]
 Markieren Sie ausgerechnet den Kalender als Stundenplan, der derzeit Ihr Standardkalender ist, wird die Festlegung als Standardkalender dabei automatisch aufgehoben. Beim [Erstellen eines Termins](#termine-erstellen) ist dann wieder der erste beschreibbare Kalender vorausgewählt, bis Sie einen neuen Standardkalender bestimmen.
@@ -62,7 +81,7 @@ Markieren Sie ausgerechnet den Kalender als Stundenplan, der derzeit Ihr Standar
 
 ### Monat
 
-Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervorgehoben, Tage außerhalb des angezeigten Monats sind abgeschwächt. Pro Tag werden die ersten Termine als farbige Einträge angezeigt; gibt es mehr Termine, erscheint ein Hinweis in der Form **+n weitere**. Ein Klick auf einen freien Bereich eines Tages öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit dem passenden Datum.
+Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervorgehoben, Tage außerhalb des angezeigten Monats sind abgeschwächt. Am linken Rand jeder Wochenzeile steht in einer eigenen, mit **KW** überschriebenen Spalte die zugehörige **Kalenderwoche** nach ISO 8601. Pro Tag werden die ersten Termine als farbige Einträge angezeigt; gibt es mehr Termine, erscheint ein Hinweis in der Form **+n weitere**. Ein Klick auf einen freien Bereich eines Tages öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit dem passenden Datum.
 
 ### Woche
 
@@ -165,11 +184,28 @@ Termine aus schreibgeschützten oder abonnierten Kalendern können nicht per Dra
 Über **Kalender anlegen** in der Seitenleiste öffnen Sie den gleichnamigen Dialog. Dort legen Sie fest:
 
 - **Name** – Der angezeigte Name des Kalenders.
-- **Markierungen** – Optional die Markierung **Stundenplan**, mit der der Kalender als Stundenplan gekennzeichnet und in der entsprechenden Gruppe der Seitenleiste angezeigt wird.
+- **Typ** – Optional die Kennzeichnung **Stundenplan**, mit der der Kalender als Stundenplan gekennzeichnet und in der entsprechenden Gruppe der Seitenleiste angezeigt wird.
 - **Beschreibung** – Eine optionale Beschreibung.
-- **Farbe** – Die Farbe, in der der Kalender und seine Termine dargestellt werden.
+- **Farbe** – Die Farbe, in der der Kalender und seine Termine dargestellt werden. Wählen Sie eine der vorgegebenen Farben aus oder legen Sie über die Schaltfläche **+** eine beliebige eigene Farbe fest.
 
 Speichern Sie den Kalender über **Speichern**; ohne Namen ist das Speichern nicht möglich.
+
+:::info[Namenszusatz bei Stundenplänen]
+Legen Sie einen Kalender mit dem Typ **Stundenplan** an, wird dem eingegebenen Namen beim Speichern automatisch das Wort „Stundenplan“ vorangestellt: Aus der Eingabe „10a“ entsteht der Kalender **Stundenplan 10a**. Der Zusatz wird nur beim **Anlegen** ergänzt – benennen Sie den Kalender später über die [Kalendereinstellungen](#kalender-bearbeiten-und-löschen) um, gilt genau der Name, den Sie dort eintragen.
+:::
+
+## Kalender bearbeiten und löschen
+
+Bestehende eigene Kalender verwalten Sie über die Einträge **Einstellungen** und **Löschen** im [Kalenderkontextmenü](#kalenderkontextmenü) – sowohl unter **Meine Kalender** als auch bei eigenen **Stundenplan**-Kalendern:
+
+- **Einstellungen** – Öffnet den Dialog **Kalendereinstellungen**, in dem Sie **Name**, **Typ**, **Beschreibung** und **Farbe** des Kalenders ändern. Übernehmen Sie die Änderungen mit **Speichern**. Der Dialog entspricht dem Dialog zum [Anlegen eines Kalenders](#kalender-anlegen) und ist mit den bestehenden Werten des Kalenders vorbelegt.
+- **Löschen** – Entfernt den Kalender. Zuvor erscheint eine Sicherheitsabfrage mit dem Hinweis, dass der Kalender und alle darin enthaltenen Termine dauerhaft gelöscht werden; dieser Vorgang lässt sich nicht rückgängig machen.
+
+Ändern Sie im Dialog **Kalendereinstellungen** den **Typ**, wechselt der Kalender die Gruppe in der Seitenleiste: Mit gesetzter Kennzeichnung **Stundenplan** erscheint er unter **Stundenplan**, ohne sie wieder unter **Meine Kalender**. Ein Kalender, dem bisher keine Farbe zugewiesen ist, bleibt ohne Farbe, solange Sie im Dialog keine auswählen – ein bloßes Umbenennen weist ihm also keine Farbe zu.
+
+Löschen Sie einen Kalender, dessen [Stundenplan-Ansicht](#stundenplan) Sie gerade geöffnet haben, kehren Sie automatisch zur Kalenderübersicht zurück. Schlägt das Löschen fehl, bleibt die Sicherheitsabfrage geöffnet und es erscheint eine Fehlermeldung, sodass Sie den Vorgang erneut auslösen können.
+
+Bei abonnierten oder schreibgeschützten Kalendern werden **Einstellungen** und **Löschen** nicht angeboten (siehe [Abonnierte und schreibgeschützte Kalender](#abonnierte-und-schreibgeschützte-kalender)). Der Server lässt Änderungen an fremden Kalendern auch dann nicht zu, wenn sie auf anderem Weg angefordert werden – Sie können ausschließlich eigene Kalender bearbeiten und löschen.
 
 ## Kalender freigeben
 

@@ -1,6 +1,6 @@
 # Kalender
 
-Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer Schule. Sie sehen Ihre eigenen und mit Ihnen geteilten Kalender in einer Monats- oder Wochenansicht, legen neue Termine an, verschieben sie per Drag & Drop und erstellen bei Bedarf eigene Kalender, die Sie für andere Benutzer und Gruppen freigeben.
+Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer Schule. Sie sehen Ihre eigenen und mit Ihnen geteilten Kalender wahlweise als Monat, Woche, Tag oder Agenda, legen neue Termine an, verschieben sie per Drag & Drop und erstellen bei Bedarf eigene Kalender, die Sie für andere Benutzer und Gruppen freigeben.
 
 ## Übersicht
 
@@ -8,9 +8,9 @@ Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer 
 
 ### Navigation
 
-- **Zurück** / **Weiter** (Pfeil-Schaltflächen) – Blättern eine Woche bzw. einen Monat vor oder zurück, je nach aktiver Ansicht.
+- **Zurück** / **Weiter** (Pfeil-Schaltflächen) – Blättern vor oder zurück. Wie weit gesprungen wird, richtet sich nach der aktiven Ansicht: um einen Monat, eine Woche, einen Tag oder – in der Agenda – um den gesamten angezeigten Zeitraum von 30 Tagen.
 - **Heute** – Springt zum aktuellen Datum zurück.
-- Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt – in der Monatsansicht der Monatsname mit Jahr, in der Wochenansicht der Datumsbereich der angezeigten Woche.
+- Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt – in der Monatsansicht der Monatsname mit Jahr, in der Wochenansicht der Datumsbereich der angezeigten Woche, in der Tagesansicht das vollständige Datum.
 - In der Wochen- und der Stundenplan-Ansicht wird zusätzlich die **Kalenderwoche** der angezeigten Woche als **KW _n_** (nach ISO 8601) eingeblendet.
 
 ### Zu einem Datum springen
@@ -23,12 +23,14 @@ Neben den Navigations-Schaltflächen finden Sie die Schaltfläche **Datum wähle
 
 ### Ansichten umschalten
 
-Mit der Umschaltung wechseln Sie zwischen den beiden Hauptansichten:
+Mit der Umschaltung wechseln Sie zwischen den vier Hauptansichten:
 
 - **Monat** – Zeigt den gesamten Monat als Raster mit den Wochentagen als Spalten.
 - **Woche** – Zeigt die aktuelle Woche mit einer Stundenskala. Eine separate Zeile am oberen Rand fasst die **ganztägigen** Termine zusammen.
+- **Tag** – Zeigt einen einzelnen Tag mit derselben Stundenskala wie die Wochenansicht.
+- **Agenda** – Listet die kommenden Termine untereinander auf, statt sie in ein Raster einzuzeichnen.
 
-Die **Stundenplan**-Ansicht ist eine dritte, eigenständige Darstellung. Sie erreichen Sie nicht über diese Umschaltung, sondern über die Seitenleiste (siehe [Stundenplan](#stundenplan)).
+Die **Stundenplan**-Ansicht ist eine eigenständige Darstellung. Sie erreichen Sie nicht über diese Umschaltung, sondern über die Seitenleiste (siehe [Stundenplan](#stundenplan)).
 
 ### Ansicht aktualisieren
 
@@ -87,12 +89,28 @@ Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervo
 
 Die Wochenansicht zeigt die sieben Tage der Woche mit einer Stundenskala. Termine werden zeitlich passend platziert; überlappende Termine werden nebeneinander angeordnet. Ganztägige Termine erscheinen in einer eigenen Zeile oberhalb der Stundenskala. Ein Klick auf einen freien Zeitabschnitt öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit der gewählten Anfangszeit.
 
+### Tag
+
+Die Tagesansicht entspricht der Wochenansicht, beschränkt sie aber auf einen einzelnen Tag: Sie behalten die Stundenskala, die eigene Zeile für ganztägige Termine, das Anlegen eines Termins per Klick auf einen freien Zeitabschnitt und das Verschieben per Drag & Drop. Da nur ein Tag angezeigt wird, steht für die Termine die volle Breite zur Verfügung – hilfreich an Tagen mit vielen oder sich überschneidenden Terminen sowie auf schmalen Bildschirmen.
+
+### Agenda
+
+Die Agenda listet die Termine der **kommenden 30 Tage** ab dem gewählten Datum chronologisch untereinander auf, gruppiert nach Tag.
+
+Beachten Sie dabei die folgenden Besonderheiten:
+
+- **Tage ohne Termine werden übersprungen**.
+- Innerhalb eines Tages stehen **ganztägige Termine** ganz oben, danach folgen die übrigen Termine nach Uhrzeit.
+- Ein Termin, der sich über mehrere Tage erstreckt, erscheint unter **jedem** dieser Tage. An den Folgetagen steht anstelle der Uhrzeit das Zeichen ↳, da der Termin dort nicht beginnt.
+- Ein Klick auf einen Eintrag öffnet den Termin zum [Bearbeiten](#termine-bearbeiten-und-löschen). Termine lassen sich in der Agenda **nicht per Drag & Drop verschieben**; wechseln Sie dafür in eine der Rasteransichten.
+- Enthält der Zeitraum keine Termine, erscheint der Hinweis **Keine Termine in diesem Zeitraum.**
+
 ### Stundenplan
 
 Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansicht: Sie zeigt nur die Tage **Montag bis Freitag** und einen festen Zeitausschnitt am Tag in feiner Rasterung. Sie öffnen sie über einen als Stundenplan markierten Kalender in der Seitenleiste; über **Zurück** kehren Sie zur normalen Kalenderansicht zurück. In dieser Ansicht werden die Termine in ihrer jeweiligen **Farbe** dargestellt.
 
 :::info[Wo die Terminfarbe sichtbar ist]
-Die einem Termin zugewiesene Farbe wird ausschließlich in der Stundenplan-Ansicht angezeigt. In der Monats- und Wochenansicht richtet sich die Farbe der Termine nach dem zugehörigen Kalender.
+Die einem Termin zugewiesene Farbe wird ausschließlich in der Stundenplan-Ansicht angezeigt. In allen übrigen Ansichten – Monat, Woche, Tag und Agenda – richtet sich die Farbe der Termine nach dem zugehörigen Kalender.
 :::
 
 ## Termine erstellen
@@ -100,7 +118,7 @@ Die einem Termin zugewiesene Farbe wird ausschließlich in der Stundenplan-Ansic
 Einen neuen Termin legen Sie auf mehreren Wegen an:
 
 - über die Schaltfläche **Termin erstellen** unten rechts,
-- mit einem Klick auf einen Tag (Monatsansicht) oder einen Zeitabschnitt (Wochenansicht).
+- mit einem Klick auf einen Tag (Monatsansicht) oder einen Zeitabschnitt (Wochen- und Tagesansicht).
 
 Füllen Sie im Dialog die folgenden Felder aus:
 
@@ -170,8 +188,10 @@ Wählen Sie **Alle Termine der Serie** und haben Sie dabei den Zeitpunkt geände
 
 Termine lassen sich direkt mit der Maus verschieben:
 
-- In der **Wochenansicht** ziehen Sie einen Termin auf einen anderen Zeitabschnitt.
+- In der **Wochen-** und der **Tagesansicht** ziehen Sie einen Termin auf einen anderen Zeitabschnitt.
 - In der **Monatsansicht** ziehen Sie einen Termin auf einen anderen Tag.
+
+In der **Agenda** ist das Verschieben per Drag & Drop nicht möglich, da sie die Termine als Liste und nicht als Zeitraster darstellt.
 
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
 

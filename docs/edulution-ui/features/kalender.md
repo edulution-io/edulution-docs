@@ -111,6 +111,8 @@ Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansich
 
 :::info[Wo die Terminfarbe sichtbar ist]
 Die einem Termin zugewiesene Farbe wird ausschließlich in der Stundenplan-Ansicht angezeigt. In allen übrigen Ansichten – Monat, Woche, Tag und Agenda – richtet sich die Farbe der Termine nach dem zugehörigen Kalender.
+
+Termine, die aus einem externen CalDAV-Programm stammen, übernehmen die dort gesetzte Farbe.
 :::
 
 ## Termine erstellen
@@ -131,7 +133,7 @@ Füllen Sie im Dialog die folgenden Felder aus:
 7. **Wiederholung** – Legt fest, ob der Termin als [Serientermin](#serientermine-und-wiederholungen) wiederkehrt.
 8. **Sichtbarkeit** – **Öffentlich**, **Privat** oder **Vertraulich**.
 9. **Zeit-Status** – Ob die Zeit als **Abwesend (gebucht)** oder **Verfügbar (frei)** gilt.
-10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Farbe wirkt sich nur in der Stundenplan-Ansicht aus.
+10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Farbe wirkt sich nur in der Stundenplan-Ansicht aus. Die Beschriftung des Termins wird automatisch dunkel oder hell dargestellt, damit sie vor der gewählten Farbe lesbar bleibt (siehe [Farbwahl und Lesbarkeit](#farbwahl-und-lesbarkeit)).
 11. **Teilnehmer** – Weitere Benutzer, die zum Termin eingeladen werden.
 
 Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.
@@ -209,6 +211,10 @@ Termine aus schreibgeschützten oder abonnierten Kalendern können nicht per Dra
 - **Farbe** – Die Farbe, in der der Kalender und seine Termine dargestellt werden. Wählen Sie eine der vorgegebenen Farben aus oder legen Sie über die Schaltfläche **+** eine beliebige eigene Farbe fest.
 
 Speichern Sie den Kalender über **Speichern**; ohne Namen ist das Speichern nicht möglich.
+
+### Farbwahl und Lesbarkeit
+
+Die Beschriftung farbiger Termine wird automatisch dunkel oder hell dargestellt – je nachdem, welche Schriftfarbe sich vor der gewählten Farbe besser abhebt. Sie können daher auch sehr helle Farben wie ein blasses Gelb verwenden, ohne die Lesbarkeit selbst prüfen zu müssen. Dasselbe gilt für die Farbe eines einzelnen [Termins](#termine-erstellen).
 
 :::info[Namenszusatz bei Stundenplänen]
 Legen Sie einen Kalender mit dem Typ **Stundenplan** an, wird dem eingegebenen Namen beim Speichern automatisch das Wort „Stundenplan“ vorangestellt: Aus der Eingabe „10a“ entsteht der Kalender **Stundenplan 10a**. Der Zusatz wird nur beim **Anlegen** ergänzt – benennen Sie den Kalender später über die [Kalendereinstellungen](#kalender-bearbeiten-und-löschen) um, gilt genau der Name, den Sie dort eintragen.

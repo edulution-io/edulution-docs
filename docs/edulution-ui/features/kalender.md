@@ -182,7 +182,17 @@ Bearbeiten oder löschen Sie einen Termin, der Teil einer Serie ist – oder ver
 - **Dieser und alle folgenden Termine**
 - **Alle Termine der Serie**
 
-Wählen Sie **Alle Termine der Serie** und haben Sie dabei den Zeitpunkt geändert, wird die gesamte Serie um denselben Zeitversatz verschoben; alle übrigen Änderungen – etwa Titel oder Ort – gelten unverändert für sämtliche Termine der Serie.
+Wählen Sie **Alle Termine der Serie** und haben Sie dabei den Zeitpunkt geändert, wird die gesamte Serie um denselben Zeitversatz verschoben. Dabei wird die Wiederholungsregel auf den neuen Zeitpunkt umgerechnet: Verschieben Sie eine wöchentliche Serie von Montag auf Dienstag, wiederholt sie sich anschließend dienstags. Bei einem monatlichen Muster nach Wochentag wird der Anker ebenfalls neu bestimmt – aus „Am zweiten Dienstag des Monats“ wird beim Verschieben um eine Woche „Am dritten Dienstag des Monats“. Zuvor gelöschte Einzeltermine der Serie bleiben gelöscht, und einzeln verschobene Termine behalten ihre Abweichung.
+
+Ändern Sie die Dauer eines Termins und wählen **Alle Termine der Serie**, gilt die neue Dauer für sämtliche Termine der Serie. Alle übrigen Änderungen – etwa Titel oder Ort – gelten ebenfalls unverändert für die gesamte Serie.
+
+:::info[Verschieben in die fünfte Woche des Monats]
+Bei einem monatlichen Muster nach Wochentag richtet sich der Anker nach der Woche, in die Sie den Termin ziehen. Verschieben Sie eine Serie „Am vierten Mittwoch des Monats“ um eine Woche nach hinten, lautet die Regel anschließend „Am fünften Mittwoch des Monats“. Da nicht jeder Monat einen fünften Mittwoch hat, finden danach deutlich weniger Termine statt. Ist das nicht gewünscht, verschieben Sie die Serie um einen ganzen Monat statt um eine Woche.
+:::
+
+:::info[Nicht umrechenbare Wiederholungsregeln]
+Manche Wiederholungsregeln lassen sich nicht auf einen neuen Zeitpunkt umrechnen – etwa „Am letzten Freitag des Monats“. Solche Regeln legen Sie in edulution nicht selbst an; sie entstehen in anderen Kalenderprogrammen, die denselben Kalender über CalDAV mitbenutzen. Wählen Sie bei einer solchen Serie **Alle Termine der Serie** oder **Dieser und alle folgenden Termine**, wird die Änderung mit einer Meldung abgelehnt, damit die Serie nicht mit einer unpassenden Regel gespeichert wird. Über **Nur dieser Termin** lassen sich einzelne Termine einer solchen Serie weiterhin verschieben.
+:::
 
 ## Termine per Drag & Drop verschieben
 

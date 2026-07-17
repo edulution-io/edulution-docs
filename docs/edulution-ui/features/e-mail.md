@@ -59,6 +59,26 @@ Enthält die Nachricht ungespeicherte Änderungen, fragt edulution beim Schließ
 
 Beim Speichern landet die Nachricht im Ordner **Entwürfe**. Beim **Verwerfen** wird auch ein bereits automatisch gespeicherter Entwurf gelöscht. Ist die Nachricht zu groß, um als Entwurf gespeichert zu werden, entfällt **Als Entwurf speichern**; Sie können dann nur verwerfen oder weiter bearbeiten.
 
+### HTML-Quelltext bearbeiten
+
+Oben rechts im Editor finden Sie – neben **Signatur einfügen** – die **Editor-/Quelltext-Umschaltung**. Damit wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung, wie Sie es bereits von der [Signatur](../benutzer/mein-profil.md#signatur) kennen.
+
+Die Quelltext-Ansicht benötigen Sie immer dann, wenn Sie fertiges HTML versenden möchten, etwa einen gestalteten Newsletter oder eine Einladung aus einer Vorlage:
+
+1. Schalten Sie über das Symbol in die **Quelltext**-Ansicht um.
+2. Fügen Sie den HTML-Quelltext in das Textfeld ein oder bearbeiten Sie ihn dort direkt.
+3. Versenden Sie die Nachricht mit **Senden**. Der Quelltext wird unverändert als HTML verschickt und beim Empfänger formatiert dargestellt.
+
+:::warning[Wechsel zurück in die formatierte Ansicht]
+Der formatierte Editor unterstützt nicht alle HTML-Formatierungen. Schalten Sie mit gestaltetem HTML zurück in die **Editor**-Ansicht, gehen die nicht unterstützten Bestandteile verloren. Betroffen sind sowohl ganze Elemente – etwa Tabellen oder eigene Formatvorlagen – als auch einzelne Formatierungen wie Textausrichtung oder Schriftgröße.
+
+Vor dem Wechsel erscheint deshalb ein Bestätigungsdialog, der genau auflistet, welche Elemente und Formatierungen entfernt würden. Mit **Abbrechen** bleiben Sie in der Quelltext-Ansicht und behalten das HTML unverändert; mit **Trotzdem wechseln** übernehmen Sie den Verlust bewusst. Bleiben Sie im Zweifel in der Quelltext-Ansicht, bis Sie die Nachricht versenden.
+:::
+
+:::tip[Hinweis]
+Fügen Sie HTML-Quelltext direkt in die **formatierte** Ansicht ein, wird er als reiner Text übernommen und die Tags erscheinen sichtbar in der Nachricht. Verwenden Sie für diesen Fall die Quelltext-Ansicht.
+:::
+
 ## Benachrichtigungen bei neuen E-Mails
 
 Trifft eine neue E-Mail ein, werden Sie in edulution benachrichtigt – über die **Benachrichtigungen** der Plattform und, sofern auf Ihrem Gerät eingerichtet, zusätzlich als **Push-Benachrichtigung**.

@@ -37,8 +37,6 @@ Kompatibilitäts- und Infrastruktur-Verbesserungen, Vorbereitung für Push-Benac
 - LDAP-Sync zu Keycloak (Gruppen → Keycloak)
 - Grundlagen für Push-Benachrichtigungen (edulution-App)
 
-[GitHub Release](https://github.com/edulution-io/edulution-ui/releases/tag/v1.5.0)
-
 ---
 
 ## v1.4.0 | 2025-08-01 | edulution-ui
@@ -90,8 +88,6 @@ Verbesserungen für App- und Mobile-Experience, neue Passwort-Manager-Features, 
 - Integrierter Passwort-Manager mit PIN/2FA
 - Force-MFA für erhöhte Sicherheit
 
-[GitHub Release](https://github.com/edulution-io/edulution-ui/releases/tag/v1.2.0)
-
 ---
 
 ## v1.1.0 | 2025-03-05 | edulution-mail
@@ -108,8 +104,6 @@ Version 1.1 bringt Container-Integration, App-Store, Veyon-/Traefik-Integration 
 - Mail-Integration: Mailcow + IMAP-Importer
 - Automatisches Token-Handling für SOGo
 - Verbesserungen: Filesharing, Konferenzen, UI/UX-Anpassungen
-
-[GitHub Releases](https://github.com/edulution-io/edulution-ui/releases)
 
 ---
 

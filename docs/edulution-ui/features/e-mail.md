@@ -119,3 +119,5 @@ Sind Sie als Berechtigter für ein **freigegebenes Postfach** eingetragen, könn
 ## Einrichtung (für Administratoren)
 
 Welche Nutzergruppen die E-Mail-App überhaupt sehen, an welcher Stelle sie in der App-Liste erscheint und welches Theme der SOGo-Webmailer verwendet, legen Administratoren unter [Einstellungen → E-Mails](../administration/einstellungen.md#e-mails) fest.
+
+Die Postfächer selbst — anlegen, Speicherplatz vergeben, löschen sowie ein Postfach als **freigegebenes Postfach** an weitere Benutzer freigeben — verwalten Administratoren im selben Bereich unter [Mailbox-Verwaltung](../administration/einstellungen.md#mailbox-verwaltung).

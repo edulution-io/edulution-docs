@@ -51,6 +51,29 @@ Pro Schüler verfügbar:
 
 **Alle auswählen** - Für Massenaktionen
 
+### Bildschirmüberwachung (Veyon)
+
+Ist ein Veyon-Proxy hinterlegt, zeigt jede Schülerkarte automatisch eine kleine Live-Vorschau des Schülerbildschirms — Sie müssen die Überwachung nicht eigens starten. Über das Symbol zum Vergrößern öffnen Sie die Vorschau in einem eigenen Fenster, das häufiger aktualisiert wird.
+
+Über das Augen-Symbol auf der Schülerkarte erreichen Sie die Veyon-Aktionen:
+
+- **Bildschirm sperren** / **Bildschirm entsperren**
+- **Eingabe sperren** / **Eingabe entsperren** - sperrt Tastatur und Maus; bei gesperrter Eingabe erscheint ein rotes Tastatursymbol auf der Vorschau
+- **System neu starten**
+- **System herunterfahren**
+
+Die Aktionen stehen erst zur Verfügung, sobald die Verbindung zum Gerät aufgebaut ist.
+
+:::info[Anmeldung mit Ihrem Lehrer-Passwort]
+Für die Verbindung zu einem Schüler-Gerät meldet sich edulution mit **Ihren eigenen Zugangsdaten** an der Veyon-WebAPI an. Sie sehen deshalb nur die Geräte der Schüler, für die Sie zuständig sind.
+:::
+
+Bleibt die Vorschau bei allen Schülern leer, ist in der Regel kein Veyon-Proxy konfiguriert — eine Karte ohne Vorschau sieht genauso aus wie ein ausgeschaltetes Gerät. Wenden Sie sich in diesem Fall an Ihren Administrator.
+
+## Einrichtung (für Administratoren)
+
+Die Bildschirmüberwachung setzt einen konfigurierten Veyon-WebAPI-Proxy voraus. Die Proxy-Adresse wird in den Einstellungen der Klassenraum-App hinterlegt und muss `https` verwenden: [Einstellungen → Klassenraum (Veyon-Proxy)](../administration/einstellungen.md#klassenraum-veyon-proxy).
+
 ## Einschreiben
 
 ![Einschreiben](/img/klassenraum/einschreiben.png)
@@ -127,4 +150,5 @@ Nützlich für:
 ## Siehe auch
 
 - [Dashboard](dashboard.md) - Klassenübersicht
+- [Einstellungen → Klassenraum (Veyon-Proxy)](../administration/einstellungen.md#klassenraum-veyon-proxy) - Bildschirmüberwachung einrichten
 - [Linuxmuster verbinden](../configure-lmn-server/configure_lmn-server.md)

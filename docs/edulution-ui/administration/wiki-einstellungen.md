@@ -88,6 +88,22 @@ Beim Setzen von Wiki-Zugriffsgruppen prüfen Sie, ob Sie selbst (bzw. die Admin-
 
 Bereits geöffnete Bearbeitungs-Sessions auf einem deaktivierten Wiki werden beim nächsten Speicherversuch mit einer Fehlermeldung abgebrochen.
 
+## Proxy-Konfiguration (erweitert)
+
+Auf der Wiki-Seite der **Einstellungen** finden Sie zusätzlich den Abschnitt **Proxy-Konfiguration**. Darüber pflegen Sie – ohne Zugriff auf den Host – die Traefik-Route, über die die edulution-API die **Wiki-Suche** und den **Wiki-Baum** des FileProxy erreicht. Sie können die Route über die Eingabefelder aus einer Vorlage erzeugen oder im Expertenmodus direkt als YAML bearbeiten.
+
+:::warning[Route nur auf die Wiki-API-Endpunkte einschränken]
+Die Route darf **ausschließlich** die beiden Pfade `/wiki/search` und `/wiki/list` erfassen – niemals den gesamten `/wiki`-Präfix:
+
+```yaml
+rule: "Path(`/wiki/search`) || Path(`/wiki/list`)"
+```
+
+`/wiki` ist zugleich die client-seitige Route des Wikis selbst (`/wiki/<Freigabe>/<Seite>`). Eine `PathPrefix`-Regel auf `/wiki` hätte gegenüber der allgemeinen Weiterleitung an das Frontend Vorrang und würde den gesamten Bereich an den FileProxy leiten. Die Folge: Beim direkten Aufruf oder Neuladen einer Wiki-Seite erscheint ein 404, während die Navigation innerhalb der App noch funktioniert.
+:::
+
+Ein leeres Feld bedeutet, dass keine Route über die UI verwaltet wird. Eine fehlerhafte Konfiguration kann dazu führen, dass die Wiki-Suche nicht mehr erreichbar ist. Die serverseitige Einrichtung von FileProxy und Suchindex ist in der [Wiki-Infrastruktur](../../edulution-fileproxy/wiki-infrastruktur.md) beschrieben.
+
 ## Siehe auch
 
 - [Wiki (Nutzerhandbuch)](../features/wiki.md) – Funktionen aus Sicht der Endbenutzer

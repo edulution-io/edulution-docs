@@ -41,6 +41,18 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 - **Anhänge** können Sie herunterladen oder direkt **in Dateien speichern**.
 - Über die Auswahlkästchen markieren Sie mehrere Nachrichten gleichzeitig. Ist mindestens eine Nachricht ausgewählt, erscheint eine Aktionsleiste (**… ausgewählt**) mit **In den Papierkorb verschieben** und einem **Mehr**-Menü für weitere Sammelaktionen (z. B. als gelesen markieren, verschieben, endgültig löschen, als Spam markieren).
 
+### Links in Nachrichten
+
+Links in einer Nachricht öffnen sich in einem neuen Browser-Tab. edulution bleibt dabei im bisherigen Tab geöffnet, sodass Sie weder Ihren Platz in der Nachrichtenliste noch einen begonnenen Entwurf verlieren.
+
+Nicht in einem neuen Tab geöffnet werden Sprungmarken innerhalb derselben Nachricht – sie führen wie gewohnt an die entsprechende Stelle im Text – sowie E-Mail- und Telefonlinks, die Ihr Mailprogramm bzw. Ihre Telefonanwendung öffnen.
+
+### Darstellung von HTML-Nachrichten
+
+Der Inhalt einer HTML-Nachricht wird vor der Anzeige bereinigt: Skripte und die vom Absender mitgelieferten Formatvorlagen werden entfernt, damit fremder Code nicht innerhalb von edulution ausgeführt wird. Formatierungen, die direkt am jeweiligen Element hinterlegt sind, bleiben erhalten.
+
+Aufwendig gestaltete Newsletter können deshalb in edulution schlichter aussehen als in anderen Mailprogrammen. Dasselbe gilt für die Druckansicht.
+
 ## E-Mail verfassen
 
 Über **Verfassen** öffnen Sie das Schreibfenster:

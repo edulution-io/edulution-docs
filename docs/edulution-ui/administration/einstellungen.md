@@ -251,6 +251,28 @@ Das Passwort wird bereits im Browser verschlüsselt und nur verschlüsselt gespe
 
 :::caution[Freigabe abschalten entzieht keine Rechte]
 Den Schalter **Shared Mailbox** auszuschalten entfernt nur die Markierung — die bereits erteilten Zugriffsrechte und das Senderecht der berechtigten Benutzer **bleiben bestehen**. Um eine Freigabe wirklich zurückzunehmen, lassen Sie die Mailbox freigegeben, leeren die Liste **Berechtigte Benutzer** und speichern. Erst danach können Sie den Schalter gefahrlos ausschalten.
+
+Ist es dafür bereits zu spät, gehen die verbliebenen Rechte nicht verloren: Schalten Sie **Shared Mailbox** wieder ein — die betroffenen Konten erscheinen dann als **Berechtigungen ohne Eintrag** und lassen sich durch Speichern entziehen.
+:::
+
+Beim Öffnen einer freigegebenen Mailbox gleicht edulution die Liste **Berechtigte Benutzer** mit den Rechten ab, die auf dem Mailserver tatsächlich gesetzt sind. Konten, die dort Zugriff besitzen, aber nicht in der Liste stehen, erscheinen unter der Liste im Hinweisfeld **Berechtigungen ohne Eintrag**. Beim nächsten **Speichern** wird diesen Konten der Zugriff entzogen — es sei denn, Sie nehmen sie vorher bewusst in **Berechtigte Benutzer** auf.
+
+Solche Einträge entstehen, wenn Rechte außerhalb von edulution vergeben wurden, etwa direkt in Mailcow oder SOGo, oder wenn eine frühere Freigabe nur teilweise zurückgenommen werden konnte.
+
+Konnten die Rechte für einzelne Ordner nicht gelesen werden, etwa weil der Mailserver zeitweise nicht antwortete, weist ein zweites Hinweisfeld **Abgleich unvollständig** auf diese Ordner hin. Berechtigungen, die nur dort bestehen, sind in **Berechtigungen ohne Eintrag** dann nicht enthalten — ein leeres Hinweisfeld bedeutet in diesem Fall also nicht, dass es keine gibt.
+
+Nicht jeder Ordner einer Mailbox kann Berechtigungen tragen: Reine Zwischenebenen, die der Mailserver nur als Container für Unterordner führt, sind davon ausgenommen. Solche Ordner werden in **Geteilte Ordner** gar nicht erst zur Auswahl angeboten. Stehen sie noch aus einer früheren Freigabe in der Liste, bleiben sie dort und werden beim Speichern übersprungen.
+
+Nach dem Speichern meldet edulution, was nicht vollständig durchlief:
+
+| Meldung | Bedeutung |
+|---------|-----------|
+| "Berechtigungen gespeichert. Für diese Ordner konnten keine Rechte gesetzt werden: …" | Die Freigabe ist gespeichert, für die genannten Ordner konnten aber keine Rechte gesetzt werden |
+| "Der Entzug konnte nicht abgeschlossen werden. Diese Konten behalten Zugriff: …" | Der Entzug lief nicht durch; die genannten Konten bleiben in **Berechtigte Benutzer** stehen |
+| "Für diese Konten konnte keine einzige Berechtigung gesetzt werden. Sie wurden nicht gespeichert: …" | Für die genannten Konten ließ sich kein einziges Recht setzen, sie wurden deshalb nicht übernommen |
+
+:::caution[Ein Konto, dessen Entzug fehlschlug, bleibt bewusst in der Liste]
+Konnte einem Konto der Zugriff nicht auf allen Ordnern entzogen werden, verschwindet es **nicht** aus **Berechtigte Benutzer**. Das ist beabsichtigt: Solange irgendwo noch Rechte bestehen, soll die Liste das auch zeigen. Speichern Sie erneut, sobald die Ursache behoben ist — der Entzug wird dann wiederholt.
 :::
 
 #### Mailbox löschen
@@ -262,6 +284,8 @@ Alle E-Mails und Daten der Mailbox werden unwiderruflich gelöscht. Es gibt kein
 :::
 
 Beim Löschen räumt edulution die Freigaben mit auf: Die Adresse wird aus den **Berechtigte Benutzer**-Listen aller anderen Mailboxen entfernt, das Senderecht wird zurückgenommen und die Adresse verschwindet aus der Empfängervorschlagsliste der Mail-App.
+
+Handelt es sich um eine freigegebene Mailbox, entzieht edulution zuvor den berechtigten Benutzern den Zugriff. Gelingt das nicht vollständig, bricht der Vorgang mit einer Fehlermeldung ab und die Mailbox bleibt bestehen — andernfalls verbliebe Zugriff auf ein Postfach, das über die Oberfläche nicht mehr erreichbar wäre.
 
 #### Häufige Fehlermeldungen
 

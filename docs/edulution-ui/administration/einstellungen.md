@@ -152,6 +152,153 @@ In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Ni
 - **Speichern** (grün) - Speichert die E-Mail-Einstellungen
 - **Löschen** (rot) - Löscht die aktuellen Konfigurationen
 
+### Mailbox-Verwaltung
+
+{/* TODO Screenshot: Abschnitt "Mailbox-Verwaltung" mit der Mailbox-Tabelle */}
+
+Im Abschnitt **Mailbox-Verwaltung** legen Sie die Mailboxen des Mailcow-Servers an, bearbeiten sie und löschen sie — ohne dafür die Mailcow-Oberfläche zu öffnen. Der Abschnitt befindet sich in den Einstellungen der Mail-App unterhalb der Mail-Server-Konfiguration.
+
+:::info[Voraussetzungen]
+Die Tabelle wird nur für **Administratoren** mit Daten gefüllt; sämtliche Funktionen dieses Abschnitts sind Administratoren vorbehalten. Außerdem müssen **URL und API-Token des Mailcow-Servers** in den Mail-Server-Einstellungen hinterlegt sein. Fehlen sie, bleibt die Tabelle leer und Sie erhalten die Meldung "Mailcow-Mailboxen konnten nicht abgerufen werden".
+:::
+
+#### Die Tabelle
+
+Jede Zeile ist eine Mailbox. Alle Spalten lassen sich per Klick auf die Spaltenüberschrift sortieren, das Suchfeld filtert nach dem Benutzernamen, und die Tabelle zeigt 10 Einträge pro Seite.
+
+| Spalte | Inhalt |
+|--------|--------|
+| **Benutzername** | Vollständige E-Mail-Adresse. Freigegebene Mailboxen tragen zusätzlich die Markierung **Shared** |
+| **Name** | Anzeigename der Mailbox |
+| **Domain** | Mail-Domain der Mailbox |
+| **Quota** | Belegter und zugewiesener Speicher, z.B. "2,1 GB / 3 GB" |
+| **Aktiv** | Grüner Haken oder rotes Kreuz |
+| **Nachrichten** | Anzahl der Nachrichten in der Mailbox |
+
+Über das Filtermenü blenden Sie mit **Nur Shared** ausschließlich freigegebene Mailboxen ein. Auf schmalen Bildschirmen werden Domain, Quota und Nachrichten ausgeblendet.
+
+:::note[Löschen führt nur über den Bearbeiten-Dialog]
+Die Tabelle hat bewusst **keine Auswahlkästchen und keinen Löschen-Button in der Werkzeugleiste**. Es gibt also kein Löschen mehrerer Mailboxen auf einmal. Um eine Mailbox zu löschen, öffnen Sie sie per Klick auf die Zeile und verwenden den Löschen-Button im Dialog.
+:::
+
+#### Mailbox anlegen
+
+{/* TODO Screenshot: Dialog "Mailbox erstellen" mit Pflichtfeldern und Zugriffseinstellungen */}
+
+Über den Hinzufügen-Button oben rechts in der Tabelle öffnen Sie den Dialog **Mailbox erstellen**.
+
+| Feld | Bedeutung |
+|------|-----------|
+| **Lokaler Teil** | Der Teil vor dem `@`, z.B. `max.mustermann`. Höchstens 64 Zeichen, erlaubt sind Buchstaben, Ziffern, `_`, `+`, `-` und Punkte als Trenner. Großbuchstaben werden automatisch in Kleinbuchstaben umgewandelt |
+| **Domain** | Auswahlliste der in Mailcow angelegten Domains. Existiert genau eine Domain, ist sie bereits vorausgewählt |
+| **Name** | Anzeigename, z.B. `Max Mustermann` |
+| **Quota (MB)** | Speicherplatz in **Megabyte**. Voreinstellung 3072 MB (3 GB), Minimum 1 MB, Maximum 1.048.576 MB (1 TiB) |
+| **Passwort** / **Passwort bestätigen** | Mindestens 8 Zeichen, davon mindestens eine Ziffer und ein Sonderzeichen |
+
+:::warning[Die Domain lässt sich nicht frei eintippen]
+Auswählbar sind ausschließlich Domains, die Mailcow bereits kennt. Ist die Liste leer, konnten die Domains nicht geladen werden — dann lässt sich keine Mailbox anlegen, und Sie prüfen zuerst die Mailcow-Verbindung.
+:::
+
+:::info[Quota 0 für "unbegrenzt" ist hier nicht möglich]
+Mailcow selbst deutet eine Quota von 0 als unbegrenzt. Über diese Oberfläche ist das nicht eingebbar, da mindestens 1 MB verlangt wird.
+:::
+
+Unter **Zugriffseinstellungen** legen Sie mit Ja/Nein-Schaltern fest, ob die Mailbox **Aktiv** ist, ob eine **Passwortänderung erzwungen** wird und ob **SOGo-, IMAP-, POP3- und SMTP-Zugriff** erlaubt sind.
+
+:::caution[Die Protokoll-Schalter greifen erst beim Bearbeiten]
+Beim **Anlegen** werden **SOGo Zugriff**, **IMAP Zugriff**, **POP3 Zugriff** und **SMTP Zugriff** zwar angezeigt, aber noch nicht an Mailcow übertragen — eine neue Mailbox erhält immer die Mailcow-Standardwerte. Wollen Sie einzelne Protokolle sperren, öffnen Sie die Mailbox nach dem Anlegen erneut und speichern die Schalter dort.
+:::
+
+#### Mailbox bearbeiten
+
+Ein Klick auf eine beliebige Stelle der Zeile öffnet **Mailbox bearbeiten**.
+
+**Adresse und Domain sind nicht mehr änderbar** — die beiden Felder werden im Bearbeiten-Modus ausgeblendet. Um eine Adresse zu ändern, legen Sie eine neue Mailbox an. Das Feld **Passwort** trägt hier den Platzhalter "Unverändert lassen": Lassen Sie es leer, bleibt das bestehende Passwort erhalten.
+
+Zusätzlich erscheint im Bearbeiten-Modus der Bereich **Benutzer-ACL**. Diese 14 Schalter steuern, welche Selbstbedienungs-Funktionen der **Inhaber der Mailbox** in Mailcow bzw. SOGo nutzen darf — etwa **Spam-Alias**, **Spam-Score**, **Sync-Jobs**, **Quarantäne** oder **App-Passwörter**. Sie haben nichts mit der Freigabe an andere Benutzer zu tun.
+
+:::warning[Die Benutzer-ACL wird bei jedem Speichern neu vergeben]
+Der Dialog liest den aktuellen ACL-Stand **nicht** aus Mailcow aus, sondern zeigt beim Öffnen immer **alle 14 Optionen als aktiviert** an. Speichern Sie eine Mailbox, werden damit auch alle ACL-Optionen wieder erteilt — auch solche, die Sie zuvor in Mailcow abgeschaltet hatten. Haben Sie einzelne Optionen bewusst gesperrt, müssen Sie sie bei jedem Bearbeiten in derselben Sitzung erneut abschalten.
+:::
+
+:::note[Beim Bearbeiten gibt es kein Zurückrollen]
+Das Speichern einer bestehenden Mailbox löst nacheinander bis zu drei Anfragen aus: Mailbox-Daten, Benutzer-ACL und Berechtigungen. Schlägt eine der späteren fehl, bleiben die bereits übernommenen Änderungen bestehen. Die Tabelle wird in diesem Fall sofort aktualisiert, sodass Sie den tatsächlichen Stand sehen.
+:::
+
+#### Freigegebene Mailboxen (Shared Mailbox)
+
+{/* TODO Screenshot: Bearbeiten-Dialog mit aktiviertem Schalter "Shared Mailbox", Feldern "Berechtigte Benutzer" und "Geteilte Ordner" */}
+
+Mit dem Schalter **Shared Mailbox** machen Sie eine Mailbox zu einem freigegebenen Postfach, das mehrere Personen gemeinsam nutzen (z.B. `sekretariat@…`). Erst dann erscheint das Feld **Berechtigte Benutzer**.
+
+**Berechtigte Benutzer** ist eine Mehrfachauswahl über die übrigen Mailboxen der Tabelle — freigeben können Sie also nur an Personen, die selbst eine Mailcow-Mailbox besitzen. Eingetragene Benutzer erhalten:
+
+- **volle Zugriffsrechte auf die freigegebenen Ordner** der Mailbox (lesen, schreiben, verschieben, löschen),
+- das Recht, **im Namen dieser Adresse zu senden**,
+- das Postfach in ihrer Mail-App angezeigt, inklusive der Verwaltung der automatischen Antwort (siehe [E-Mail](../features/e-mail.md)).
+
+Das Feld **Geteilte Ordner** bestimmt, auf welche IMAP-Ordner sich diese Rechte beziehen. Es erscheint nur beim **Bearbeiten** einer bereits gespeicherten freigegebenen Mailbox. Wählen Sie nichts aus, werden beim ersten Speichern automatisch alle Ordner der Mailbox freigegeben.
+
+:::warning[Für die Freigabe wird das Mailbox-Passwort benötigt]
+Um die Rechte auf dem Mailserver setzen zu können, muss edulution sich an der Mailbox anmelden. Solange **Shared Mailbox** aktiv ist und noch keine Zugangsdaten hinterlegt sind, ist das Feld **Passwort** deshalb ein Pflichtfeld — der Hinweis "Passwort ist erforderlich, um die Mailbox zu teilen" erscheint und **Speichern** bleibt gesperrt.
+
+Das Passwort wird bereits im Browser verschlüsselt und nur verschlüsselt gespeichert; im Klartext verlässt es den Browser nicht.
+:::
+
+:::caution[Passwortänderungen außerhalb von edulution]
+Ändern Sie das Passwort einer freigegebenen Mailbox direkt in Mailcow oder SOGo, passen die hinterlegten Zugangsdaten nicht mehr. Freigaben und das Laden der Ordnerliste schlagen dann fehl, bis Sie das neue Passwort hier erneut eintragen.
+:::
+
+:::caution[Freigabe abschalten entzieht keine Rechte]
+Den Schalter **Shared Mailbox** auszuschalten entfernt nur die Markierung — die bereits erteilten Zugriffsrechte und das Senderecht der berechtigten Benutzer **bleiben bestehen**. Um eine Freigabe wirklich zurückzunehmen, lassen Sie die Mailbox freigegeben, leeren die Liste **Berechtigte Benutzer** und speichern. Erst danach können Sie den Schalter gefahrlos ausschalten.
+
+Ist es dafür bereits zu spät, gehen die verbliebenen Rechte nicht verloren: Schalten Sie **Shared Mailbox** wieder ein — die betroffenen Konten erscheinen dann als **Berechtigungen ohne Eintrag** und lassen sich durch Speichern entziehen.
+:::
+
+Beim Öffnen einer freigegebenen Mailbox gleicht edulution die Liste **Berechtigte Benutzer** mit den Rechten ab, die auf dem Mailserver tatsächlich gesetzt sind. Konten, die dort Zugriff besitzen, aber nicht in der Liste stehen, erscheinen unter der Liste im Hinweisfeld **Berechtigungen ohne Eintrag**. Beim nächsten **Speichern** wird diesen Konten der Zugriff entzogen — es sei denn, Sie nehmen sie vorher bewusst in **Berechtigte Benutzer** auf.
+
+Solche Einträge entstehen, wenn Rechte außerhalb von edulution vergeben wurden, etwa direkt in Mailcow oder SOGo, oder wenn eine frühere Freigabe nur teilweise zurückgenommen werden konnte.
+
+Konnten die Rechte für einzelne Ordner nicht gelesen werden, etwa weil der Mailserver zeitweise nicht antwortete, weist ein zweites Hinweisfeld **Abgleich unvollständig** auf diese Ordner hin. Berechtigungen, die nur dort bestehen, sind in **Berechtigungen ohne Eintrag** dann nicht enthalten — ein leeres Hinweisfeld bedeutet in diesem Fall also nicht, dass es keine gibt.
+
+Nicht jeder Ordner einer Mailbox kann Berechtigungen tragen: Reine Zwischenebenen, die der Mailserver nur als Container für Unterordner führt, sind davon ausgenommen. Solche Ordner werden in **Geteilte Ordner** gar nicht erst zur Auswahl angeboten. Stehen sie noch aus einer früheren Freigabe in der Liste, bleiben sie dort und werden beim Speichern übersprungen.
+
+Nach dem Speichern meldet edulution, was nicht vollständig durchlief:
+
+| Meldung | Bedeutung |
+|---------|-----------|
+| "Berechtigungen gespeichert. Für diese Ordner konnten keine Rechte gesetzt werden: …" | Die Freigabe ist gespeichert, für die genannten Ordner konnten aber keine Rechte gesetzt werden |
+| "Der Entzug konnte nicht abgeschlossen werden. Diese Konten behalten Zugriff: …" | Der Entzug lief nicht durch; die genannten Konten bleiben in **Berechtigte Benutzer** stehen |
+| "Für diese Konten konnte keine einzige Berechtigung gesetzt werden. Sie wurden nicht gespeichert: …" | Für die genannten Konten ließ sich kein einziges Recht setzen, sie wurden deshalb nicht übernommen |
+
+:::caution[Ein Konto, dessen Entzug fehlschlug, bleibt bewusst in der Liste]
+Konnte einem Konto der Zugriff nicht auf allen Ordnern entzogen werden, verschwindet es **nicht** aus **Berechtigte Benutzer**. Das ist beabsichtigt: Solange irgendwo noch Rechte bestehen, soll die Liste das auch zeigen. Speichern Sie erneut, sobald die Ursache behoben ist — der Entzug wird dann wiederholt.
+:::
+
+#### Mailbox löschen
+
+Öffnen Sie die Mailbox per Klick auf die Zeile und wählen Sie im Dialog **Löschen**. Es folgt eine Sicherheitsabfrage, die die betroffene Adresse nennt; eine Eingabe zur Bestätigung ist nicht erforderlich, ein Klick genügt.
+
+:::danger[Das Löschen ist endgültig]
+Alle E-Mails und Daten der Mailbox werden unwiderruflich gelöscht. Es gibt keinen Papierkorb und kein Zurückholen über die edulution-Oberfläche.
+:::
+
+Beim Löschen räumt edulution die Freigaben mit auf: Die Adresse wird aus den **Berechtigte Benutzer**-Listen aller anderen Mailboxen entfernt, das Senderecht wird zurückgenommen und die Adresse verschwindet aus der Empfängervorschlagsliste der Mail-App.
+
+Handelt es sich um eine freigegebene Mailbox, entzieht edulution zuvor den berechtigten Benutzern den Zugriff. Gelingt das nicht vollständig, bricht der Vorgang mit einer Fehlermeldung ab und die Mailbox bleibt bestehen — andernfalls verbliebe Zugriff auf ein Postfach, das über die Oberfläche nicht mehr erreichbar wäre.
+
+#### Häufige Fehlermeldungen
+
+| Meldung | Ursache |
+|---------|---------|
+| "Eine Mailbox mit dieser Adresse existiert bereits" | Lokaler Teil und Domain sind bereits vergeben |
+| "Das Passwort entspricht nicht der konfigurierten Komplexitätsrichtlinie" | Mailcows eigene Passwortrichtlinie ist strenger als die Prüfung im Dialog |
+| "Die maximale Anzahl an Mailboxen für diese Domain ist erreicht" | Das in Mailcow gesetzte Mailbox-Limit der Domain ist ausgeschöpft |
+| "Die gewünschte Quota überschreitet das verbleibende Domain-Kontingent" | Die Summe aller Quotas würde das Kontingent der Domain übersteigen |
+| "Mailcow hat den Zugriff verweigert (API-Token prüfen)" | Der hinterlegte API-Token ist ungültig oder hat zu wenig Rechte |
+
+Bei einem Fehler bleibt der Dialog geöffnet und die Tabelle wird aktualisiert, sodass Sie sofort sehen, was tatsächlich übernommen wurde.
+
 ---
 
 ## Kontakte (CardDAV)

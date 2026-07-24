@@ -30,6 +30,9 @@ Die Einstellungen sind in 5 Bereiche gegliedert:
 **Zielplattform**
 - Auswahl: **Linuxmuster** oder **Allgemein**
 - Bestimmt die Integration mit dem Schulnetzwerk
+- **Linuxmuster**: edulution.io meldet sich bei jedem Zugriff selbst an der Linuxmuster-API an, jeweils im Namen des angemeldeten Benutzers. Es sind dafür keine zusätzlichen Zugangsdaten in den Einstellungen zu hinterlegen; Voraussetzung ist ein eingerichteter Linuxmuster-Server (siehe [Anpassung am Linuxmuster-Server](../configure-lmn-server/configure_lmn-server.md)). Lehnt der Linuxmuster-Server die Anmeldung ab, melden die linuxmuster-gestützten Funktionen den Fehler "Die Anmeldung an der LMN-API ist fehlgeschlagen".
+- **Allgemein**: Betrieb ohne Linuxmuster-Anbindung; die linuxmuster-spezifischen Funktionen entfallen.
+- Eine Änderung der Zielplattform wird sofort nach dem Speichern wirksam, ein Neustart des Servers ist nicht erforderlich. Bereits angemeldete Benutzer sehen die neue Zielplattform, sobald sie die Seite neu laden.
 
 **Standard-Anwendung nach Login**
 - Wählen Sie welche App nach Login angezeigt wird

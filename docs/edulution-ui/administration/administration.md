@@ -268,7 +268,7 @@ dass die Seite korrekt angezeigt wird.
 
 Die edulution UI unterstützt OpenAI, Anthropic, Google Gemini, Ollama
 und OpenAI-kompatible Dienste. Ergänzen Sie die Variablen des gewünschten
-Anbieters in der `.env` im Installationsverzeichnis
+Anbieters in der `.edulution.env` im Installationsverzeichnis
 `/srv/docker/edulution-ui`.
 
 Die Freigabe des KI-Chats für einzelne Nutzergruppen konfigurieren Sie
@@ -316,23 +316,31 @@ und [Google Gemini](https://ai.google.dev/gemini-api/docs/models).
 
 ### 2.7.3 OpenAI konfigurieren
 
-```bash title=".env"
+```dotenv title=".edulution.env"
 AI_PROVIDER=openai
-OPENAI_API_KEY=<OPENAI_API_KEY>
-AI_MODELS=<OPENAI_MODELL_1>,<OPENAI_MODELL_2>
-AI_MODEL=<OPENAI_MODELL_1>
+OPENAI_API_KEY=<API_KEY>
+AI_MODELS=gpt-5.6
+AI_MODEL=gpt-5.6
+AI_SYSTEM_PROMPT=Antworte immer in Markdown
+AI_REASONING_TAGS=
 ```
+
+Falls das angegebene Modell für Ihr OpenAI-Konto nicht verfügbar ist,
+verwenden Sie eine Modell-ID aus der
+[OpenAI-Modellübersicht](https://developers.openai.com/api/docs/models).
 
 ### 2.7.4 Anthropic konfigurieren
 
 Erstellen Sie den benötigten Schlüssel in der
 [Anthropic Console](https://platform.claude.com/settings/keys).
 
-```bash title=".env"
+```dotenv title=".edulution.env"
 AI_PROVIDER=anthropic
-ANTHROPIC_API_KEY=<ANTHROPIC_API_KEY>
-AI_MODELS=<CLAUDE_MODELL_1>,<CLAUDE_MODELL_2>
-AI_MODEL=<CLAUDE_MODELL_1>
+ANTHROPIC_API_KEY=<API_KEY>
+AI_MODELS=claude-sonnet-5
+AI_MODEL=claude-sonnet-5
+AI_SYSTEM_PROMPT=Antworte immer in Markdown
+AI_REASONING_TAGS=
 ```
 
 ### 2.7.5 Google Gemini konfigurieren
@@ -340,11 +348,13 @@ AI_MODEL=<CLAUDE_MODELL_1>
 Erstellen Sie den benötigten Schlüssel in
 [Google AI Studio](https://aistudio.google.com/app/apikey).
 
-```bash title=".env"
+```dotenv title=".edulution.env"
 AI_PROVIDER=google
-GOOGLE_GENERATIVE_AI_API_KEY=<GOOGLE_API_KEY>
-AI_MODELS=<GEMINI_MODELL_1>,<GEMINI_MODELL_2>
-AI_MODEL=<GEMINI_MODELL_1>
+GOOGLE_GENERATIVE_AI_API_KEY=<API_KEY>
+AI_MODELS=gemini-3.6-flash
+AI_MODEL=gemini-3.6-flash
+AI_SYSTEM_PROMPT=Antworte immer in Markdown
+AI_REASONING_TAGS=
 ```
 
 ### 2.7.6 Ollama konfigurieren
@@ -353,25 +363,40 @@ Die Ollama-URL muss aus dem API-Container erreichbar sein und mit `/v1`
 enden. Informationen zur Schnittstelle finden Sie in der
 [Ollama-Dokumentation](https://docs.ollama.com/api/openai-compatibility).
 
-```bash title=".env"
-AI_PROVIDER=ollama
-AI_OLLAMA_BASE_URL=http://<OLLAMA_HOST>:11434/v1
-AI_MODELS=<OLLAMA_MODELL_1>,<OLLAMA_MODELL_2>
-AI_MODEL=<OLLAMA_MODELL_1>
+Prüfen Sie zunächst auf dem Ollama-Server, welche Modelle installiert sind:
+
+```bash
+ollama list
 ```
+
+Tragen Sie anschließend den dort angezeigten Modellnamen ein:
+
+```dotenv title=".edulution.env"
+AI_PROVIDER=ollama
+AI_OLLAMA_BASE_URL=http://<OLLAMA-HOST>:11434/v1
+AI_MODELS=<OLLAMA-MODELLNAME>
+AI_MODEL=<OLLAMA-MODELLNAME>
+AI_SYSTEM_PROMPT=Antworte immer in Markdown
+AI_REASONING_TAGS=
+```
+
+`OLLAMA-HOST` muss aus dem `edulution-api`-Container erreichbar sein.
+`localhost` bezeichnet innerhalb des Containers den Container selbst.
 
 ### 2.7.7 OpenAI-kompatiblen Dienst konfigurieren
 
 Diese Variante eignet sich beispielsweise für selbst gehostete Gateways
-und andere Dienste mit einer OpenAI-kompatiblen API:
+und andere Dienste mit einer OpenAI-kompatiblen API. Ein solcher Gateway
+kann gleichzeitig Modelle unterschiedlicher Hersteller anbieten:
 
-```bash title=".env"
+```dotenv title=".edulution.env"
 AI_PROVIDER=openai-compatible
-AI_BASE_URL=https://ai.example.org/v1
-AI_API_KEY=<AI_API_KEY>
+AI_BASE_URL=https://gateway.example.org/v1
+AI_API_KEY=<API_KEY>
 AI_MODELS=MODELL-1,MODELL-2,MODELL-3
 AI_MODEL=MODELL-1
-AI_INFO_API_KEY=<AI_INFO_API_KEY>
+AI_SYSTEM_PROMPT=Antworte immer in Markdown
+AI_REASONING_TAGS=think
 ```
 
 `AI_INFO_API_KEY` ist optional. Unterstützt der Dienst die Route
@@ -379,29 +404,24 @@ AI_INFO_API_KEY=<AI_INFO_API_KEY>
 die Kontextauslastung angezeigt werden. Verwenden Sie dafür keinen
 Master-Schlüssel.
 
-### 2.7.8 Optionale Einstellungen
-
-Die folgenden Einstellungen können mit jeder Anbieterkonfiguration
-kombiniert werden:
-
-```bash title=".env"
-AI_SYSTEM_PROMPT=Antworte immer in Markdown
-AI_REASONING_TAGS=think
+```dotenv title=".edulution.env"
+AI_INFO_API_KEY=<INFO_API_KEY>
 ```
 
 Lassen Sie `AI_REASONING_TAGS` leer, wenn das gewählte Modell keine
 entsprechenden Tags wie `<think>` ausgibt.
 
-### 2.7.9 Container neu starten
+### 2.7.8 Container neu starten
 
 Starten Sie die Container nach einer Änderung neu und prüfen Sie die Logs:
 
 ```bash
 docker compose up -d
-docker compose logs -f --tail=50
+docker compose logs -f --tail=100
 ```
 
 :::warning[Sicherheit]
-Tragen Sie echte API-Schlüssel nur in die lokale `.env` ein. Veröffentlichen
-Sie diese niemals in der Dokumentation oder Versionsverwaltung.
+Tragen Sie echte API-Schlüssel nur in die lokale `.edulution.env` ein.
+Veröffentlichen Sie diese niemals in der Dokumentation oder
+Versionsverwaltung.
 :::

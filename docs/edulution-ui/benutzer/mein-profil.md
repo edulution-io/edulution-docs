@@ -182,9 +182,15 @@ Hier legen Sie die Signatur fest, die beim Verfassen neuer E-Mails verwendet wir
 - **Eigene Signatur verwenden**: Ist diese Option aktiv, wird beim Verfassen neuer E-Mails Ihre individuelle Signatur anstelle der global vorgegebenen verwendet. Ist sie deaktiviert, gilt weiterhin die globale Signatur.
 - Bei aktivierter Option bearbeiten Sie die Signatur im Editor:
   - **Globale Signatur importieren**: Übernimmt die global vorgegebene Signatur als Ausgangspunkt
-  - Über die Editor-/Quelltext-Umschaltung wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung
+  - Über die Editor-/Quelltext-Umschaltung oben rechts im Editor wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung
   - Bilder können direkt in die Signatur eingefügt werden; sehr große Bilder werden mit einem Hinweis quittiert
 - **Speichern** übernimmt die Änderungen, **Zurücksetzen** verwirft noch nicht gespeicherte Anpassungen.
+
+:::warning[Wechsel zurück in die formatierte Ansicht]
+Der formatierte Editor unterstützt nicht alle HTML-Formatierungen. Enthält Ihr Quelltext Bestandteile, die er nicht darstellen kann – ganze Elemente wie Tabellen oder eigene Formatvorlagen, aber auch einzelne Formatierungen wie Textausrichtung oder Schriftgröße –, gehen diese beim Zurückschalten in die **Editor**-Ansicht verloren. Vor dem Wechsel erscheint ein Bestätigungsdialog, der die betroffenen Elemente und Formatierungen auflistet: Mit **Abbrechen** bleibt Ihr Quelltext unverändert erhalten, mit **Trotzdem wechseln** übernehmen Sie den Verlust.
+:::
+
+Dieselbe Umschaltung steht Ihnen auch beim [Verfassen einer E-Mail](../features/e-mail.md#html-quelltext-bearbeiten) zur Verfügung.
 
 ### Automatische Antwort
 

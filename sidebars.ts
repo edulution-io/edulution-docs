@@ -274,6 +274,32 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'edulution Satellite',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'edulution-satellite/index',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-satellite/einrichtung-mit-edulution',
+          label: 'Einrichtung mit edulution',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/standalone',
+          label: 'Standalone einrichten',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/wireguard-traefik',
+          label: 'WireGuard über Traefik',
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'edulution FileProxy',
       collapsed: false,
       link: {

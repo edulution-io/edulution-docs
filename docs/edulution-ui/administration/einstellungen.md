@@ -207,6 +207,27 @@ In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" a
 
 ---
 
+## Chat (KI-Chat)
+
+Die Chat-App umfasst einen **KI-Chat**. In den Einstellungen der Chat-App steuern Sie über Nutzergruppen, wer den KI-Chat verwenden darf.
+
+Die Verbindung zu einem KI-Dienst richten Sie unter
+[Administration → KI-Chat konfigurieren](./administration#27-ki-chat-konfigurieren)
+ein.
+
+### KI-Chat-Zugriff
+
+**Gruppen, die den KI-Chat nutzen dürfen**
+- Wählen Sie die Nutzergruppen aus, die den KI-Chat verwenden dürfen
+- Mehrfachauswahl möglich
+- Bleibt die Liste leer, hat niemand Zugriff auf den KI-Chat
+
+:::info
+Global-Admins haben unabhängig von dieser Auswahl immer Zugriff auf den KI-Chat.
+:::
+
+---
+
 ## Klassenraum (Veyon-Proxy)
 
 Der Klassenraum bindet die Bildschirmüberwachung der Schüler-Geräte über einen Veyon-WebAPI-Proxy an. In den Einstellungen der Klassenraum-App legen Sie unter **Veyon Proxy** fest, über welche Adresse edulution die Veyon-WebAPI erreicht.

@@ -140,9 +140,9 @@ Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender
 
 ## Termine bearbeiten und löschen
 
-Ein Klick auf einen bestehenden Termin öffnet denselben Dialog wie beim Erstellen, sodass Sie alle Felder ändern können. Termine aus schreibgeschützten oder abonnierten Kalendern lassen sich nicht öffnen und nicht bearbeiten.
+Ein Klick auf einen bestehenden Termin öffnet denselben Dialog wie beim Erstellen, sodass Sie alle Felder ändern können. Das gilt für Termine, die Sie ändern dürfen — bei einem freigegebenen Kalender also abhängig von den Ihnen erteilten Rechten. Termine, die Sie nur ansehen dürfen, öffnen sich stattdessen in einer reinen Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)).
 
-Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Vor dem endgültigen Entfernen erscheint eine Sicherheitsabfrage. Handelt es sich um einen Serientermin, werden Sie zusätzlich gefragt, für welche Termine die Löschung gelten soll (siehe [Serientermine und Wiederholungen](#serientermine-und-wiederholungen)).
+Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Sie steht nur zur Verfügung, wenn Sie im betreffenden Kalender löschen dürfen. Vor dem endgültigen Entfernen erscheint eine Sicherheitsabfrage. Handelt es sich um einen Serientermin, werden Sie zusätzlich gefragt, für welche Termine die Löschung gelten soll (siehe [Serientermine und Wiederholungen](#serientermine-und-wiederholungen)).
 
 ## Termin in einen anderen Kalender verschieben
 
@@ -207,8 +207,8 @@ In der **Agenda** ist das Verschieben per Drag & Drop nicht möglich, da sie die
 
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
 
-:::info[Schreibgeschützte Termine]
-Termine aus schreibgeschützten oder abonnierten Kalendern können nicht per Drag & Drop verschoben werden. Auch einzelne Ausnahmen innerhalb einer Serie lassen sich nicht frei verschieben.
+:::info[Termine ohne Bearbeitungsrecht]
+Verschieben lassen sich nur Termine, für die Sie das Recht zum **Ändern** besitzen. In einem freigegebenen Kalender kann das je Sichtbarkeit unterschiedlich sein (siehe [Abonnierte und schreibgeschützte Kalender](#abonnierte-und-schreibgeschützte-kalender)). Auch einzelne Ausnahmen innerhalb einer Serie lassen sich nicht frei verschieben.
 :::
 
 ## Kalender anlegen
@@ -245,15 +245,61 @@ Bei abonnierten oder schreibgeschützten Kalendern werden **Einstellungen** und 
 
 ## Kalender freigeben
 
-Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie Benutzer oder Gruppen und legen für jede Freigabe eine Berechtigungsstufe fest:
+Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie über **Personen oder Gruppen hinzufügen** nach Benutzern oder Gruppen; unter **Freigegeben für** stehen anschließend alle bestehenden Freigaben.
 
-| Berechtigung | Bedeutung |
+Jede Freigabe ist eine aufklappbare Zeile. Zugeklappt sehen Sie Name, E-Mail-Adresse und rechts eine Zusammenfassung der vergebenen Rechte (**Kein Zugriff**, **Nur Frei/Belegt**, **Ansehen** oder **Bearbeiten**). Über das Pfeilsymbol am rechten Rand klappen Sie die Zeile auf und vergeben die Rechte im Einzelnen. Über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder.
+
+Ist ein Empfänger im Verzeichnis nicht mehr auffindbar — etwa weil sein Konto zwischenzeitlich gelöscht wurde —, erscheint seine Zeile mit der Rolle **Keine** für alle drei Sichtbarkeiten. Die übrigen Freigaben bleiben davon unberührt und bearbeitbar; die verwaiste Zeile entfernen Sie über das Mülleimer-Symbol.
+
+### Rechte je Sichtbarkeit
+
+Die Rechte werden nicht als eine einzelne Stufe vergeben, sondern **getrennt für jede der drei Sichtbarkeiten** eines Termins — **Öffentlich**, **Vertraulich** und **Privat**. Welche Sichtbarkeit ein Termin hat, legen Sie beim [Erstellen des Termins](#termine-erstellen) im Feld **Sichtbarkeit** fest. Für jede dieser drei Sichtbarkeiten wählen Sie eine Rolle:
+
+| Rolle | Bedeutung |
 |---|---|
-| **Nur Frei/Belegt** | Es ist nur erkennbar, ob Zeiten belegt sind, ohne Termindetails. |
-| **Ansehen** | Termine dürfen gelesen werden. |
-| **Bearbeiten** | Termine dürfen gelesen, angelegt und geändert werden. |
+| **Keine** | Termine dieser Sichtbarkeit sind für die Person nicht vorhanden. |
+| **Datum & Uhrzeit sehen** | Es ist nur erkennbar, dass die Zeit belegt ist — ohne Titel, Ort, Beschreibung oder Teilnehmer. |
+| **Alles sehen** | Der Termin wird mit allen Details angezeigt. |
+| **Antworten** | Wie **Alles sehen**, zusätzlich darf auf Einladungen geantwortet werden. |
+| **Ändern** | Der Termin darf bearbeitet werden. |
 
-Neu hinzugefügte Benutzer und Gruppen erhalten standardmäßig die Stufe **Ansehen**; über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder. Sobald Sie einen Kalender freigeben, wird er den betreffenden Benutzern automatisch als abonnierter Kalender bereitgestellt.
+Dadurch lässt sich ein Kalender abgestuft freigeben: Ein Kollege sieht Ihre öffentlichen Termine vollständig, von den vertraulichen nur die belegte Zeit, und von den privaten nichts.
+
+Unabhängig von diesen drei Rollen stehen zwei kalenderweite Optionen zur Verfügung:
+
+- **Diese Person kann Objekte in meinen Kalender hinzufügen.** — erlaubt das Anlegen neuer Termine.
+- **Diese Person kann Objekte in meinem Kalender löschen.** — erlaubt das Löschen von Terminen.
+
+Beide sind vom Recht zum **Ändern** unabhängig: Wer Termine ändern darf, darf deshalb noch keine anlegen oder löschen.
+
+### Änderungen werden sofort gespeichert
+
+Jede Änderung an einer Rolle oder einem Häkchen wird unmittelbar gespeichert; solange der Vorgang läuft, erscheint in der betreffenden Zeile eine Ladeanzeige und weitere Änderungen sind währenddessen gesperrt. Schlägt das Speichern fehl, springt die Zeile auf den vorherigen Stand zurück und es erscheint eine Fehlermeldung.
+
+Neu hinzugefügte Benutzer und Gruppen erhalten die Voreinstellung **Alles sehen** für öffentliche sowie **Datum & Uhrzeit sehen** für vertrauliche und private Termine, ohne die Rechte zum Hinzufügen und Löschen.
+
+### Für den Benutzer abonnieren
+
+Eine Freigabe stellt den Kalender **nicht** automatisch in der Kalenderliste des Empfängers bereit. Dafür setzen Sie in der aufgeklappten Zeile zusätzlich das Häkchen **Für den Benutzer abonnieren**. Andernfalls hat die Person zwar Zugriff, muss den Kalender aber selbst einbinden.
+
+Das Häkchen ist nicht auswählbar, solange die Person überhaupt keine Rechte besitzt, und ebenso, sobald der Kalender bereits abonniert ist — ein Abbestellen ist von hier aus nicht möglich, das entscheidet der Empfänger selbst.
+
+### Alle authentifizierten Benutzer und öffentlicher Zugang
+
+Neben den einzelnen Personen und Gruppen enthält die Liste immer zwei feste Einträge. Beide lassen sich nicht löschen und nicht abonnieren; Sie entziehen ihnen den Zugriff, indem Sie ihre Rollen auf **Keine** setzen.
+
+| Eintrag | Rollen | Hinzufügen / Löschen |
+|---|---|---|
+| **Alle authentifizierten Benutzer** | alle fünf | möglich |
+| **Öffentlicher Zugang** | nur **Keine**, **Datum & Uhrzeit sehen**, **Alles sehen** | nicht möglich |
+
+**Alle authentifizierten Benutzer** gilt für jeden angemeldeten Benutzer der Schule. **Öffentlicher Zugang** gilt dagegen für **nicht angemeldete** Zugriffe: Sobald Sie hier eine andere Rolle als **Keine** vergeben, ist der Kalender ohne Anmeldung über seine CalDAV-Adresse abrufbar. Vergeben Sie dieses Recht daher nur bewusst.
+
+:::warning[Überzählige Rechte werden beim Öffnen zurückgenommen]
+Der CalDAV-Server kann dem öffentlichen Zugang mehr Rechte speichern, als der Freigabe-Dialog darstellen kann — etwa wenn sie zuvor direkt in der Oberfläche des CalDAV-Servers vergeben wurden. Solche Rechte werden beim Öffnen des Dialogs automatisch auf das zulässige Maß zurückgenommen; ein Hinweis nennt die Anzahl der zurückgenommenen Rechte.
+
+Schlägt diese Korrektur fehl, wird die betroffene Zeile mit **Überzählige Rechte weiterhin aktiv** gekennzeichnet und zeigt die tatsächlich gespeicherten Rechte an — nicht die zulässigen. Über die Schaltfläche **Überzählige Rechte zurücknehmen** in derselben Zeile lösen Sie die Korrektur erneut aus.
+:::
 
 :::info[Backend-Voraussetzung]
 
@@ -263,7 +309,21 @@ Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktione
 
 ## Abonnierte und schreibgeschützte Kalender
 
-Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Ist ein solcher Kalender schreibgeschützt, können Sie seine Termine zwar einsehen, aber nicht öffnen, bearbeiten, löschen oder per Drag & Drop verschieben. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
+Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
+
+Ein abonnierter Kalender ist **nicht grundsätzlich schreibgeschützt**. Was Sie darin tun dürfen, richtet sich nach den Rechten, die die freigebende Person Ihnen erteilt hat (siehe [Kalender freigeben](#kalender-freigeben)):
+
+- **Termine anlegen** können Sie, wenn Ihnen das Recht zum Hinzufügen erteilt wurde. Nur dann erscheint der Kalender im Feld **Kalender** des Dialogs zum [Erstellen eines Termins](#termine-erstellen).
+- **Termine bearbeiten und verschieben** können Sie, wenn Sie für die Sichtbarkeit des jeweiligen Termins die Rolle **Ändern** besitzen.
+- **Termine löschen** können Sie, wenn Ihnen das Recht zum Löschen erteilt wurde.
+
+Da die Rechte je Sichtbarkeit vergeben werden, können sich die Termine **eines einzigen Kalenders** unterschiedlich verhalten: Ein öffentlicher Termin lässt sich bearbeiten, ein vertraulicher desselben Kalenders nur ansehen und ein privater gar nicht anzeigen.
+
+### Termine ansehen ohne Bearbeitungsrecht
+
+Termine, die Sie sehen, aber nicht bearbeiten dürfen, öffnen sich beim Anklicken in einer reinen **Detailansicht** statt im Bearbeiten-Dialog. Sie zeigt Zeitraum, Kalender, Ort, Beschreibung, Sichtbarkeit, Zeit-Status und Teilnehmer, bietet aber keine Eingabefelder.
+
+Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit sehen**, nennt die Detailansicht ausschließlich den Zeitraum und den Kalender und weist die Zeit als belegt aus — Titel, Ort, Beschreibung und Teilnehmer bleiben verborgen. Termine, für die Sie die Rolle **Keine** besitzen, erscheinen gar nicht erst im Kalender.
 
 ## Siehe auch
 

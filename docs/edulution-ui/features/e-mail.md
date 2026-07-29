@@ -43,13 +43,15 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 
 ### Links in Nachrichten
 
-Links in einer Nachricht öffnen sich in einem neuen Browser-Tab. edulution bleibt dabei im bisherigen Tab geöffnet, sodass Sie weder Ihren Platz in der Nachrichtenliste noch einen begonnenen Entwurf verlieren.
+Links in einer Nachricht öffnen sich in einem neuen Browser-Tab. edulution bleibt dabei im bisherigen Tab geöffnet, sodass Sie weder Ihren Platz in der Nachrichtenliste noch einen begonnenen Entwurf verlieren. In der Leseansicht sind diese Links mit einem kleinen Pfeil (↗) gekennzeichnet, sodass Sie bereits vor dem Klick erkennen, dass ein neuer Tab geöffnet wird.
 
 Nicht in einem neuen Tab geöffnet werden Sprungmarken innerhalb derselben Nachricht – sie führen wie gewohnt an die entsprechende Stelle im Text – sowie E-Mail- und Telefonlinks, die Ihr Mailprogramm bzw. Ihre Telefonanwendung öffnen.
 
 ### Darstellung von HTML-Nachrichten
 
-Der Inhalt einer HTML-Nachricht wird vor der Anzeige bereinigt: Skripte und die vom Absender mitgelieferten Formatvorlagen werden entfernt, damit fremder Code nicht innerhalb von edulution ausgeführt wird. Formatierungen, die direkt am jeweiligen Element hinterlegt sind, bleiben erhalten.
+Der Inhalt einer HTML-Nachricht wird vor der Anzeige bereinigt: Skripte, Formulare und die vom Absender mitgelieferten Formatvorlagen werden entfernt, damit fremder Code nicht innerhalb von edulution ausgeführt wird. Formatierungen, die direkt am jeweiligen Element hinterlegt sind, bleiben erhalten.
+
+Ein in der Nachricht eingebettetes Formular – etwa ein Umfrage- oder Anmeldefeld eines Newsletters – lässt sich deshalb nicht innerhalb von edulution ausfüllen. Nutzen Sie in diesem Fall den in der Nachricht angebotenen Link zur Website des Absenders.
 
 Aufwendig gestaltete Newsletter können deshalb in edulution schlichter aussehen als in anderen Mailprogrammen. Dasselbe gilt für die Druckansicht.
 

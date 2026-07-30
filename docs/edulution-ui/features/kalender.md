@@ -138,6 +138,10 @@ Füllen Sie im Dialog die folgenden Felder aus:
 
 Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.
 
+:::info[Zeitzone von Terminen]
+Termine mit fester Uhrzeit werden in der Zeitzone gespeichert, in der Sie sie anlegen. Dadurch behalten sie ihre Uhrzeit auch dann bei, wenn sie auf einem Gerät in einer anderen Zeitzone oder über die Umstellung zwischen Sommer- und Winterzeit hinweg angezeigt werden. Ganztägige Termine haben keine Zeitzone.
+:::
+
 ## Termine bearbeiten und löschen
 
 Ein Klick auf einen bestehenden Termin öffnet denselben Dialog wie beim Erstellen, sodass Sie alle Felder ändern können. Das gilt für Termine, die Sie ändern dürfen — bei einem freigegebenen Kalender also abhängig von den Ihnen erteilten Rechten. Termine, die Sie nur ansehen dürfen, öffnen sich stattdessen in einer reinen Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)).

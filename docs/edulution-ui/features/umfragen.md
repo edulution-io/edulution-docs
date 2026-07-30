@@ -217,6 +217,44 @@ Für einen geselligen Abend wird jeder Teilnehmer gebeten, etwas mitzubringen un
 Es lässt sich nicht ausschließen, dass ein Teilnehmer aus Spaß "Erdäpfelsalat" hinzufügt — ein synonymer Begriff für "Kartoffelsalat", der das Limit umgeht.
 :::
 
+### Termin
+
+:::tip[Frage zur Terminbuchung]
+**Termin** (CalendarEvent)
+:::
+
+Mit dem Fragetyp **Termin** buchen die Teilnehmer einen von Ihnen angebotenen Zeitraum, der daraufhin als echter Kalendereintrag angelegt wird — sowohl in Ihrem Kalender als auch im Kalender des Teilnehmers. Anders als bei den [Auswahlmöglichkeiten mit Backend-Limiter](#backend-limiter), bei denen lediglich ein Zähler heruntergezählt wird, entsteht hier für jede gewählte Zeit ein tatsächlicher Termin. Der Fragetyp eignet sich zum Beispiel für die Vergabe von Elternsprechtagen oder Beratungsgesprächen.
+
+Die Terminbuchung greift auf die [Kalender-App](kalender.md) zu. Voraussetzung ist daher, dass sowohl Sie als auch der Teilnehmer über einen beschreibbaren Kalender verfügen.
+
+:::warning[Wo der Fragetyp nicht verfügbar ist]
+Weil für jede Buchung ein echter, einer Person zugeordneter Kalender benötigt wird, lässt sich der Fragetyp **Termin** nicht verwenden, wenn die Umfrage **anonym** oder **öffentlich** ist oder **mehrfache Teilnahmen** erlaubt. Ist eine dieser Optionen beim [Speichern der Umfrage](#umfrage-speichern) gesetzt, wird die Umfrage mit einem entsprechenden Hinweis abgewiesen.
+:::
+
+#### Termineinstellungen (im Editor)
+
+Die Optionen dieses Fragetyps stellen Sie direkt an der Frage im Editor ein:
+
+- **Zielkalender**: Der Kalender, in dem die gebuchten Termine bei Ihnen angelegt werden. Zur Auswahl stehen ausschließlich Ihre eigenen beschreibbaren Kalender; vorbelegt ist Ihr Standardkalender. Besitzt Ihr Konto keinen beschreibbaren Kalender, erscheint der Hinweis *„Für dein Konto wurden keine beschreibbaren Kalender gefunden."*.
+- **Präfix für den Terminnamen**: Der einleitende Teil des Terminnamens, zum Beispiel *Elterngespräch*. Der Nachname des jeweiligen Gesprächspartners wird automatisch ergänzt — in Ihrem Kalender erscheint der Name des Teilnehmers, im Kalender des Teilnehmers Ihrer.
+- **Mehrere Terminfenster zulassen**: Ist der Schalter aus, bildet ein einzelner Verfügbarkeitszeitraum genau einen buchbaren Termin. Ist er an, erscheinen zusätzliche Optionen:
+  - **Termindauer (Minuten)**: Länge eines einzelnen Termins. Der Wert **0** verwendet den gesamten Verfügbarkeitszeitraum als einen einzigen Termin.
+  - **Vorbereitungspause zwischen den Terminen einfügen**: Blendet das Feld **Vorbereitungspause (Minuten)** ein, das zwischen zwei aufeinanderfolgenden Terminen eine Pause freihält.
+  - **Verfügbarkeitszeiträume**: Über **Beginn** und **Ende** legen Sie einen oder mehrere Zeiträume fest. Mit **Zeitraum hinzufügen** ergänzen Sie weitere, mit **Zeitraum entfernen** löschen Sie einen bestehenden.
+  - **Buchbare Terminzeiten**: Eine Vorschau der Termine, die aus den Zeiträumen, der Termindauer und der Pause erzeugt werden.
+
+#### Teilnahme
+
+Bei der Teilnahme sieht der Teilnehmer die buchbaren Terminzeiten mit ihrer aktuellen Verfügbarkeit: **Verfügbar**, **Belegt** oder **Verfügbarkeit unbekannt**. Die Verfügbarkeit wird live geladen und aktualisiert sich, während andere Teilnehmer buchen; ein bereits belegter Zeitraum lässt sich nicht auswählen. Bearbeitet der Teilnehmer eine frühere Abgabe, bleibt der von ihm selbst gebuchte Zeitraum weiterhin auswählbar.
+
+Unter **In welchen Kalender soll der Termin eingetragen werden?** wählt der Teilnehmer zusätzlich aus, in welchem seiner eigenen Kalender der Termin angelegt werden soll.
+
+Sobald der Teilnehmer die Abgabe speichert, wird der Termin in beiden Kalendern erstellt. Ändert er seine Auswahl nachträglich, wird der bisherige Termin entsprechend angepasst oder gelöscht; zieht er seine Antwort zurück, wird der Termin in beiden Kalendern wieder entfernt.
+
+:::info[Keine Doppelbuchung]
+Ein Zeitraum wird für alle anderen als **Belegt** angezeigt, sobald dafür bereits ein Termin im betreffenden Kalender besteht. Dadurch kann dieselbe Zeit nicht doppelt vergeben werden.
+:::
+
 ### Meinung/Gewichtung
 
 :::tip[Gewichtungsfragen]
@@ -414,4 +452,5 @@ Das umfragenspezifische [App-Logo](#umfrage-logo) kann später im Editor gegen d
 
 - [Dashboard](dashboard.md) - Offene Umfragen auf der Startseite
 - [App-Store](app-store.md) - Umfragen-App aktivieren
+- [Kalender](kalender.md) - Kalender und Termine für den Fragetyp **Termin**
 - [SurveyJS](https://surveyjs.io/) - Die zugrundeliegende Bibliothek

@@ -338,12 +338,12 @@ Wenn diese Regel zutrifft, werden keine darunterliegenden Regeln mehr ausgewerte
 
 Wählen Sie die Sprache der Benutzeroberfläche.
 
-#### Systemsprache
-
-Verfügbare Sprachen:
+#### Verfügbare Sprachen
 - 🇩🇪 **Deutsch** (Standard)
 - 🇬🇧 **Englisch**
 - 🇫🇷 **Französisch**
+
+#### Systemsprache
 
 Neben diesen drei Sprachen steht die Auswahl **Systemsprache** zur Verfügung. Damit übernimmt edulution die Sprache Ihres Systems beziehungsweise Ihres Browsers; ist das keine der drei Sprachen, erscheint die Oberfläche auf **Deutsch**.
 

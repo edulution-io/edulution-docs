@@ -305,6 +305,8 @@ Der CalDAV-Server kann dem öffentlichen Zugang mehr Rechte speichern, als der F
 Schlägt diese Korrektur fehl, wird die betroffene Zeile mit **Überzählige Rechte weiterhin aktiv** gekennzeichnet und zeigt die tatsächlich gespeicherten Rechte an — nicht die zulässigen. Über die Schaltfläche **Überzählige Rechte zurücknehmen** in derselben Zeile lösen Sie die Korrektur erneut aus.
 :::
 
+Ändern sich die Freigaben eines Kalenders, werden die betroffenen Benutzer zusätzlich per E-Mail benachrichtigt. Diese Benachrichtigung erhalten sie automatisch in der Sprache, die sie in edulution verwenden.
+
 :::info[Backend-Voraussetzung]
 
 Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktionen von **SoGo** und ist nur verfügbar, wenn als CalDAV-Server SoGo eingesetzt wird. Die reine Terminsynchronisierung funktioniert dagegen mit jedem standardkonformen CalDAV-Server. Welcher CalDAV-Server verwendet wird, legt die Administration in den [Einstellungen der Kalender-App](../administration/einstellungen.md#kalender-caldav) fest.

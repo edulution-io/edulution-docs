@@ -15,7 +15,6 @@ Die Benutzereinstellungen sind unterteilt in:
 - [Benutzerdetails](#benutzerdetails)
   - [Profilbild](#profilbild)
   - [Benutzerbezogene Informationen](#benutzerbezogene-informationen)
-  - [Benutzerdetails (sub)](#benutzerdetails-(sub))
   - [Quotas](#quotas)
 - [Sicherheit](#sicherheit)
   - [Passwort ändern](#passwort-ändern)
@@ -28,13 +27,13 @@ Die Benutzereinstellungen sind unterteilt in:
   - [Weiterleitung](#weiterleitung)
   - [Filter](#filter)
 - [Benutzeroberfläche](#benutzeroberfläche)
-  - [Sprache auswählen](#sprache-auswählen)
+  - [Sprache](#sprache)
   - [Erscheinungsbild](#erscheinungsbild)
 - [App-Zugriff](#app-zugriff)
   - [Einrichtung via QR-Code](#einrichtung-via-qr-code)
   - [Manuelles Einrichten](#manuelles-einrichten)
 - [VPN-Zugang](#vpn-zugang)
-- [Kinder](#meine-kinder)
+- [Meine Kinder/Eltern](#meine-kindereltern)
   - [Mein Zuweisungs-Code](#mein-zuweisungs-code)
   - [Code eingeben](#code-eingeben)
   - [Zuweisungen](#zuweisungen)
@@ -346,6 +345,8 @@ Verfügbare Sprachen:
 - 🇬🇧 **Englisch**
 - 🇫🇷 **Französisch**
 
+Neben diesen drei Sprachen steht die Auswahl **Systemsprache** zur Verfügung. Damit übernimmt edulution die Sprache Ihres Systems beziehungsweise Ihres Browsers; ist das keine der drei Sprachen, erscheint die Oberfläche auf **Deutsch**.
+
 #### Sprache ändern
 
 1. Klicken Sie auf die gewünschte Flagge/Sprache
@@ -354,6 +355,21 @@ Verfügbare Sprachen:
 
 :::tip[Hinweis]
 Die Sprachauswahl gilt für die gesamte Benutzeroberfläche.
+:::
+
+#### Sprache im Mailsystem
+
+Ihre Sprachauswahl wirkt über die edulution-Oberfläche hinaus: edulution überträgt sie automatisch in Ihre persönlichen Einstellungen im Mailsystem (SOGo) – bei der Anmeldung und bei jedem Sprachwechsel. Sie müssen dafür in SOGo selbst nichts einstellen.
+
+Damit erscheinen in Ihrer Sprache:
+
+- Benachrichtigungen, die das Mailsystem selbst verschickt – etwa die E-Mail über [geänderte Kalenderfreigaben](../features/kalender.md#kalender-freigeben).
+- Die Oberfläche des SOGo-Webmailers, den Sie in der E-Mail-App über **In SOGo öffnen** aufrufen (siehe [E-Mail](../features/e-mail.md#aktionen-leiste)).
+
+Übertragen wird immer die Sprache, in der edulution tatsächlich angezeigt wird. Bei der Auswahl **Systemsprache** ist das die erkannte System- beziehungsweise Browsersprache – wird diese nicht unterstützt, entsprechend **Deutsch**.
+
+:::info[Voraussetzung]
+Die Übertragung setzt voraus, dass als Mailsystem SOGo eingerichtet ist und Ihrem Konto eine E-Mail-Adresse zugeordnet ist. Die Verbindung zum Mailsystem legt die Administration unter [Einstellungen → E-Mails](../administration/einstellungen.md#e-mails) fest.
 :::
 
 ### Erscheinungsbild

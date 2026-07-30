@@ -38,6 +38,8 @@ Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abo
 
 Ihre Auswahl wird benutzerbezogen auf dem Server gespeichert. Sie bleibt daher über das Neuladen der Seite, eine erneute Anmeldung und einen Gerätewechsel hinweg erhalten – ein einmal ausgeblendeter Kalender bleibt ausgeblendet, bis Sie ihn wieder einblenden.
 
+Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalendereintrag ebenso wie die Aktionen **Einblenden**, **Ausblenden**, **Nur diesen anzeigen** und **Alle anzeigen** im Kontextmenü eines Kalenders. **Nur diesen anzeigen** und **Alle anzeigen** wirken dabei auf mehrere Kalender gleichzeitig; auch diese Änderungen werden vollständig übernommen.
+
 ## Ansichten
 
 ### Monat

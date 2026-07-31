@@ -61,14 +61,23 @@ Ist ein Veyon-Proxy hinterlegt, zeigt jede Schülerkarte automatisch eine kleine
 - **Eingabe sperren** / **Eingabe entsperren** - sperrt Tastatur und Maus; bei gesperrter Eingabe erscheint ein rotes Tastatursymbol auf der Vorschau
 - **System neu starten**
 - **System herunterfahren**
+- **Webseite öffnen** - öffnet eine von Ihnen angegebene Adresse im Browser des Schülers
+- **Nachricht senden** - zeigt einen von Ihnen verfassten Text auf dem Schülerbildschirm an
+- **Anwendung starten** - startet ein von Ihnen benanntes Programm auf dem Schülergerät
 
-Die Aktionen stehen erst zur Verfügung, sobald die Verbindung zum Gerät aufgebaut ist.
+Die Aktionen stehen erst zur Verfügung, sobald die Verbindung zum Gerät aufgebaut ist. Bei den letzten drei Aktionen fragt edulution die Adresse, den Text bzw. den Programmnamen zuerst in einem eigenen Dialog ab.
+
+Über dasselbe Augen-Symbol in der Aktionsleiste unterhalb der Klassenliste stehen alle Veyon-Aktionen auch für mehrere ausgewählte Schüler gemeinsam zur Verfügung, sobald mindestens einer von ihnen verbunden ist.
+
+Verlassen Sie den Unterrichtsraum oder schließen Sie den Browser-Tab, gibt edulution alle offenen Verbindungen zu den Schülergeräten automatisch frei — ein manuelles Trennen ist nicht nötig.
 
 :::info[Anmeldung mit Ihrem Lehrer-Passwort]
 Für die Verbindung zu einem Schüler-Gerät meldet sich edulution mit **Ihren eigenen Zugangsdaten** an der Veyon-WebAPI an. Sie sehen deshalb nur die Geräte der Schüler, für die Sie zuständig sind.
 :::
 
 Bleibt die Vorschau bei allen Schülern leer, ist in der Regel kein Veyon-Proxy konfiguriert — eine Karte ohne Vorschau sieht genauso aus wie ein ausgeschaltetes Gerät. Wenden Sie sich in diesem Fall an Ihren Administrator.
+
+Bleibt die Vorschau nur bei **einzelnen** Schülern leer, obwohl das Gerät läuft, kann dasselbe Gerät noch bei einem weiteren Schülerkonto hinterlegt sein — Linuxmuster speichert die letzte Anmeldung an einem Gerät, aber keine Abmeldung, sodass ein zuvor dort angemeldeter Schüler in der Geräteliste stehen bleibt. edulution prüft in diesem Fall für jedes betroffene Konto, ob es tatsächlich an dem Gerät angemeldet ist, und zeigt die Vorschau nur bei diesem einen Konto.
 
 ## Einrichtung (für Administratoren)
 

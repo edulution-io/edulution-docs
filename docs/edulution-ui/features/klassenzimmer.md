@@ -51,6 +51,14 @@ Pro Schüler verfügbar:
 
 **Alle auswählen** - Für Massenaktionen
 
+### Ablauf einer Aktion
+
+Solange eine Aktion läuft, ersetzt ein Ladekreis das Icon der ausgelösten Funktion. Die übrigen Schalter derselben Karte sind währenddessen gesperrt, bleiben aber in ihrer Farbe lesbar, sodass Sie den aktuellen Zustand des Schülers weiterhin ablesen können.
+
+Nach Abschluss der Aktion lädt edulution den Stand des Schülers neu und die Karte zeigt den neuen Zustand. Schlägt die Aktion fehl, verschwindet der Ladekreis ebenfalls und die Karte bleibt bedienbar.
+
+Bei einer Massenaktion über die Aktionsleiste schließt sich der Dialog sofort nach der Bestätigung, und die Aktion läuft im Hintergrund weiter. Der Ladekreis erscheint dabei auf allen ausgewählten Schülerkarten; anschließend werden alle ausgewählten Karten aktualisiert.
+
 ### Bildschirmüberwachung (Veyon)
 
 Ist ein Veyon-Proxy hinterlegt, zeigt jede Schülerkarte automatisch eine kleine Live-Vorschau des Schülerbildschirms — Sie müssen die Überwachung nicht eigens starten. Über das Symbol zum Vergrößern öffnen Sie die Vorschau in einem eigenen Fenster, das häufiger aktualisiert wird.

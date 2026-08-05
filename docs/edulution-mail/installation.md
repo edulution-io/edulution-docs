@@ -90,7 +90,7 @@ Nach Abschluss der Installation muss die Traefik Proxy-Konfiguration hinzugefüg
 http:
   routers:
     edulution-sogo-mail:
-      rule: PathPrefix(`/sogo-mail`)
+      rule: Path(`/sogo-mail/sogo-auth.php`)
       service: edulution-sogo
       entryPoints:
         - websecure
@@ -134,6 +134,7 @@ http:
       headers:
         customRequestHeaders:
           X-Forwarded-Proto: https
+          X-Api-Key: ""
         frameDeny: false
         customResponseHeaders:
           X-Frame-Options: ALLOWALL
@@ -159,6 +160,18 @@ http:
 
 :::danger[Wichtig]
 Die Proxy-Konfiguration ist zwingend erforderlich! Ohne diese Konfiguration sind die E-Mail-Dienste nicht über die edulution-URL erreichbar.
+:::
+
+:::info[Hintergrund zu den einzelnen Routern]
+- **`edulution-sogo-mail`** veröffentlicht genau einen Pfad: `/sogo-mail/sogo-auth.php`. Mehr benötigt der Browser unter diesem Präfix nicht — die Anmeldung antwortet mit einer Weiterleitung auf `/SOGo/so/{login}`, die über den eigenen Router `edulution-sogo` läuft.
+- **`edulution-active-sync`** und **`edulution-autodiscover`** haben jeweils eigene Router und sind davon unabhängig.
+- Der leere Wert bei **`X-Api-Key`** in `sogo-headers` entfernt diesen Header aus eingehenden Anfragen, bevor sie an den Mailserver weitergereicht werden. Er wird auf diesem Weg nicht benötigt.
+:::
+
+:::warning[Voraussetzung: Mailcow-API-URL]
+Die Mailcow-API-URL unter **Einstellungen → E-Mails → Mailserver** muss auf `https://mailcowdockerized-nginx-mailcow-1` stehen (siehe [Schritt 5](#schritt-5-mailserver-hosts-konfigurieren)).
+
+Ältere Installationen haben dort teilweise noch `https://edu-traefik/sogo-mail` eingetragen. Dieser Wert funktioniert mit der oben gezeigten Konfiguration nicht mehr und muss vorher umgestellt werden — sonst erreicht die edulution-api die Mailcow-API nicht.
 :::
 
 :::warning[edulution-mail beim Update mit aktualisieren]
@@ -210,10 +223,16 @@ Die Installation ist nun abgeschlossen und die E-Mail-Dienste werden gestartet.
 
 ### Zugriff auf die Mailcow Administrationsoberfläche
 
-Nach erfolgreicher Installation ist die Mailcow-Administrationsoberfläche über Port `8443` erreichbar:
+Die Mailcow-Administrationsoberfläche lauscht auf Port `8443`, allerdings nur auf der Loopback-Adresse des Servers (`127.0.0.1`). Sie ist damit nicht direkt über die Server-IP erreichbar, sondern wird über einen SSH-Tunnel aufgerufen:
+
+```bash
+ssh -L 8443:127.0.0.1:8443 <benutzer>@<ihre-server-ip>
+```
+
+Solange die SSH-Verbindung besteht, erreichen Sie die Oberfläche im Browser Ihres eigenen Rechners unter:
 
 ```
-https://ihre-server-ip:8443
+https://localhost:8443
 ```
 
 **Standard-Zugangsdaten:**
@@ -221,12 +240,11 @@ https://ihre-server-ip:8443
 - **Passwort:** `moohoo`
 
 :::danger[Sicherheitshinweis]
-Ändern Sie das Standard-Administratorpasswort **sofort** nach der ersten Anmeldung!
+Ändern Sie das Standard-Administratorpasswort **sofort** nach der ersten Anmeldung! Führen Sie außerdem regelmäßige Passwortänderungen durch.
+:::
 
-Es wird außerdem dringend empfohlen:
-- Den Zugriff auf Port 8443 auf interne Netzwerke zu beschränken
-- Eine Firewall-Regel einzurichten, die den öffentlichen Zugriff blockiert
-- Regelmäßige Passwortänderungen durchzuführen
+:::note[Ältere Versionen]
+Die Bindung an `127.0.0.1` gilt ab **edulution-mail v1.3.2**. Ältere Installationen veröffentlichen Port 8443 auf allen Netzwerkschnittstellen — dort erreichen Sie die Oberfläche noch direkt unter `https://ihre-server-ip:8443`. Details zur Umstellung finden Sie unter [Changelog & Config-Anpassungen](/docs/edulution-mail/changelog-config-anpassungen).
 :::
 
 Weitere Informationen zur Administration finden Sie unter [Administration](/docs/edulution-mail/administration).
@@ -247,7 +265,15 @@ Nach der erfolgreichen Installation sollten Sie folgende Einstellungen vornehmen
 
 ### 1. Admin-Passwort ändern
 
-**Wo:** Mailcow Administrationsoberfläche (`https://ihre-server-ip:8443`)
+**Wo:** Mailcow Administrationsoberfläche
+
+Die Oberfläche ist nur über die Loopback-Adresse des Servers erreichbar. Bauen Sie dafür zunächst einen SSH-Tunnel auf:
+
+```bash
+ssh -L 8443:127.0.0.1:8443 <benutzer>@<ihre-server-ip>
+```
+
+Öffnen Sie anschließend `https://localhost:8443` im Browser.
 
 1. Melden Sie sich mit den Standard-Zugangsdaten an
 2. Klicken Sie oben rechts auf **Admin**
@@ -305,13 +331,13 @@ Stellen Sie sicher, dass folgende Ports in Ihrer Firewall freigegeben sind:
 | 80 | TCP | HTTP | Webmail (Weiterleitung zu HTTPS) |
 | 443 | TCP | HTTPS | Webmail (verschlüsselt) |
 
-**NUR intern erreichbar (Lokales Netzwerk):**
+**Nicht freigeben:**
 | Port | Protokoll | Dienst | Beschreibung |
 |------|-----------|---------|--------------|
-| 8443 | TCP | Mailcow Admin | Administrationsoberfläche |
+| 8443 | TCP | Mailcow Admin | Administrationsoberfläche, nur auf `127.0.0.1` |
 
-:::danger[Sicherheitshinweis]
-Beschränken Sie den Zugriff auf Port **8443** (Mailcow Admin) unbedingt auf interne Netzwerke oder VPN! Diese Oberfläche sollte NIEMALS öffentlich erreichbar sein.
+:::info[Port 8443 benötigt keine Firewall-Regel]
+Ab **edulution-mail v1.3.2** ist Port 8443 an `127.0.0.1` gebunden und damit von außen ohnehin nicht erreichbar. Der Zugriff erfolgt über einen SSH-Tunnel (siehe [Zugriff auf die Mailcow Administrationsoberfläche](#zugriff-auf-die-mailcow-administrationsoberfläche)).
 :::
 
 ### 5. DNS-Einträge überprüfen

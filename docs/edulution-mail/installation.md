@@ -243,8 +243,8 @@ https://localhost:8443
 Ändern Sie das Standard-Administratorpasswort **sofort** nach der ersten Anmeldung! Führen Sie außerdem regelmäßige Passwortänderungen durch.
 :::
 
-:::note[Ältere Versionen]
-Die Bindung an `127.0.0.1` gilt ab **edulution-mail v1.3.2**. Ältere Installationen veröffentlichen Port 8443 auf allen Netzwerkschnittstellen — dort erreichen Sie die Oberfläche noch direkt unter `https://ihre-server-ip:8443`. Details zur Umstellung finden Sie unter [Changelog & Config-Anpassungen](/docs/edulution-mail/changelog-config-anpassungen).
+:::warning[Ältere Versionen aktualisieren]
+Die Bindung an `127.0.0.1` gilt ab **edulution-mail v1.3.2**. Ältere Installationen binden Port 8443 an alle Netzwerkschnittstellen — aktualisieren Sie edulution-mail, siehe [Changelog & Config-Anpassungen](/docs/edulution-mail/changelog-config-anpassungen). Bis dahin gehören Port 8443 in der Firewall gesperrt und das Standardpasswort geändert.
 :::
 
 Weitere Informationen zur Administration finden Sie unter [Administration](/docs/edulution-mail/administration).
@@ -336,8 +336,8 @@ Stellen Sie sicher, dass folgende Ports in Ihrer Firewall freigegeben sind:
 |------|-----------|---------|--------------|
 | 8443 | TCP | Mailcow Admin | Administrationsoberfläche, nur auf `127.0.0.1` |
 
-:::info[Port 8443 benötigt keine Firewall-Regel]
-Ab **edulution-mail v1.3.2** ist Port 8443 an `127.0.0.1` gebunden und damit von außen ohnehin nicht erreichbar. Der Zugriff erfolgt über einen SSH-Tunnel (siehe [Zugriff auf die Mailcow Administrationsoberfläche](#zugriff-auf-die-mailcow-administrationsoberfläche)).
+:::warning[Port 8443 nicht freigeben]
+Ab **edulution-mail v1.3.2** ist Port 8443 an `127.0.0.1` gebunden; der Zugriff erfolgt über einen SSH-Tunnel (siehe [Zugriff auf die Mailcow Administrationsoberfläche](#zugriff-auf-die-mailcow-administrationsoberfläche)). Eine Freigabe in der Firewall ist in keinem Fall erforderlich.
 :::
 
 ### 5. DNS-Einträge überprüfen

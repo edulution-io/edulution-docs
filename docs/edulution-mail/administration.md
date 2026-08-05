@@ -27,13 +27,13 @@ ssh -L 8443:127.0.0.1:8443 <benutzer>@<ihre-server-ip>
 Solange die SSH-Verbindung besteht, erreichen Sie die Mailcow UI im
 Browser unter `https://localhost:8443`.
 
-:::note[Ältere Versionen]
+:::warning[Ältere Versionen aktualisieren]
 Die Bindung an `127.0.0.1` gilt ab **edulution-mail v1.3.2**. Ältere
-Installationen veröffentlichen Port 8443 auf allen Netzwerkschnittstellen
-und sind über die IP-Adresse oder den Hostnamen des Servers erreichbar,
-gefolgt vom Port `:8443`. In diesem Fall sollte der Zugriff über die
-Firewall auf interne Netzwerke beschränkt und das Standardpasswort
-umgehend geändert werden.
+Installationen binden Port 8443 an alle Netzwerkschnittstellen —
+aktualisieren Sie edulution-mail, siehe
+[Changelog & Config-Anpassungen](/docs/edulution-mail/changelog-config-anpassungen).
+Bis dahin gehören Port 8443 in der Firewall gesperrt und das
+Standardpasswort geändert.
 :::
 
 **Standard-Zugangsdaten (nach der Installation):**

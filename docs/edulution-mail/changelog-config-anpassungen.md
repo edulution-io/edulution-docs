@@ -72,7 +72,7 @@ ssh -L 8443:127.0.0.1:8443 <benutzer>@<ihre-server-ip>
 
 Solange die SSH-Verbindung besteht, erreichen Sie die Oberfläche im Browser unter `https://localhost:8443`.
 
-Passen Sie bestehende Lesezeichen entsprechend an. Firewall-Regeln für Port 8443 werden nicht mehr benötigt und können entfernt werden.
+Passen Sie bestehende Lesezeichen entsprechend an. Bestehende Firewall-Regeln für Port 8443 können unverändert bleiben.
 
 :::info[Container-Neustart erforderlich]
 Die Portänderung greift erst, wenn der Container `nginx-mailcow` neu erstellt wird. edulution-mail übernimmt das beim Start automatisch. Prüfen können Sie das Ergebnis mit:

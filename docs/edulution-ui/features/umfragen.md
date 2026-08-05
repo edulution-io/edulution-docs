@@ -236,7 +236,8 @@ Weil für jede Buchung ein echter, einer Person zugeordneter Kalender benötigt 
 Die Optionen dieses Fragetyps stellen Sie direkt an der Frage im Editor ein:
 
 - **Zielkalender**: Der Kalender, in dem die gebuchten Termine bei Ihnen angelegt werden. Zur Auswahl stehen ausschließlich Ihre eigenen beschreibbaren Kalender; vorbelegt ist Ihr Standardkalender. Besitzt Ihr Konto keinen beschreibbaren Kalender, erscheint der Hinweis *„Für dein Konto wurden keine beschreibbaren Kalender gefunden."*.
-- **Präfix für den Terminnamen**: Der einleitende Teil des Terminnamens, zum Beispiel *Elterngespräch*. Der Nachname des jeweiligen Gesprächspartners wird automatisch ergänzt — in Ihrem Kalender erscheint der Name des Teilnehmers, im Kalender des Teilnehmers Ihrer.
+- **Präfix für den Terminnamen**: Der einleitende Teil des Terminnamens, zum Beispiel *Elterngespräch*. Der Name des jeweiligen Gesprächspartners wird automatisch ergänzt — in Ihrem Kalender erscheint der Name des Teilnehmers, im Kalender des Teilnehmers Ihrer.
+- **Terminbeschreibung**: Ein optionaler Text, der als Beschreibung in jeden erzeugten Kalendereintrag übernommen wird. Bleibt das Feld leer, erhält der Termin keine Beschreibung.
 - **Mehrere Terminfenster zulassen**: Ist der Schalter aus, bildet ein einzelner Verfügbarkeitszeitraum genau einen buchbaren Termin. Ist er an, erscheinen zusätzliche Optionen:
   - **Termindauer (Minuten)**: Länge eines einzelnen Termins. Der Wert **0** verwendet den gesamten Verfügbarkeitszeitraum als einen einzigen Termin.
   - **Vorbereitungspause zwischen den Terminen einfügen**: Blendet das Feld **Vorbereitungspause (Minuten)** ein, das zwischen zwei aufeinanderfolgenden Terminen eine Pause freihält.

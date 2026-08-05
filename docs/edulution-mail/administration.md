@@ -12,20 +12,28 @@ Diese Seite beschreibt die grundlegende Administration der edulution Mail Lösun
 ## Mailcow Administrationsoberfläche
 
 Die Mailcow Administrationsoberfläche ist ein leistungsstarkes Tool zur
-Verwaltung Ihrer E-Mail-Dienste. Sie ist standardmäßig über Port `8443`
-erreichbar.
+Verwaltung Ihrer E-Mail-Dienste. Sie lauscht auf Port `8443`, dabei
+ausschließlich auf der Loopback-Adresse des Servers (`127.0.0.1`).
 
 **Zugriff auf die Oberfläche:**
 
-Sie erreichen die Mailcow UI über die IP-Adresse oder den Hostnamen
-Ihres Servers, gefolgt vom Port `:8443`.
+Der Zugriff erfolgt über einen SSH-Tunnel. Bauen Sie diesen von Ihrem
+Arbeitsplatzrechner aus auf:
 
-:::warning
-Es wird dringend empfohlen, den Zugriff auf die Mailcow
-Administrationsoberfläche auf interne Netzwerke zu beschränken, da sie
-sensible Verwaltungsfunktionen bietet. Sollte der Port öffentlich
-zugänglich sein, ist es unerlässlich, das Standardpasswort sofort zu
-ändern.
+```bash
+ssh -L 8443:127.0.0.1:8443 <benutzer>@<ihre-server-ip>
+```
+
+Solange die SSH-Verbindung besteht, erreichen Sie die Mailcow UI im
+Browser unter `https://localhost:8443`.
+
+:::warning[Ältere Versionen aktualisieren]
+Die Bindung an `127.0.0.1` gilt ab **edulution-mail v1.3.2**. Ältere
+Installationen binden Port 8443 an alle Netzwerkschnittstellen —
+aktualisieren Sie edulution-mail, siehe
+[Changelog & Config-Anpassungen](/docs/edulution-mail/changelog-config-anpassungen).
+Bis dahin gehören Port 8443 in der Firewall gesperrt und das
+Standardpasswort geändert.
 :::
 
 **Standard-Zugangsdaten (nach der Installation):**

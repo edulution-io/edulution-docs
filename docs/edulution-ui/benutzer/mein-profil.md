@@ -487,7 +487,7 @@ Da zum Auslesen des QR-Codes eine Kamera erforderlich ist, ist der QR-Code nur i
 
 ### Zuweisungen
 
-Hier werden dann die verknüpften Konten der Kinder/Elternteile in einer Tabelle aufgelistet.
+Hier werden dann die verknüpften Konten der Kinder/Elternteile in einer Tabelle aufgelistet. Kind und Elternteil müssen dabei nicht derselben Schule angehören — auch schulübergreifende Zuweisungen innerhalb einer Instanz werden auf beiden Seiten angezeigt.
 
 :::info[QR-Code]
 Die Eltern-Kind Beziehung muss im Anschluss von einem Administrator freigegeben werden.

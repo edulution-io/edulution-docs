@@ -148,6 +148,22 @@ Die IMAP-Integration ermöglicht den Zugriff auf externe oder interne IMAP-Serve
 In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Nicht zertifizierte Verbindungen ablehnen" einschalten, um die Sicherheit der E-Mail-Kommunikation zu gewährleisten.
 :::
 
+### DAV-Verbindung
+
+Neben IMAP und SMTP spricht edulution den Mailserver für einige Funktionen über dessen DAV-Schnittstelle an – für Postfach-Freigaben und dafür, die im Profil gewählte Sprache in den SOGo-Webmailer zu übernehmen.
+
+**DAV-URL**
+- Basis-URL des DAV-Servers inklusive Pfad
+- Beispiel: `https://mail.example.com/SOGo/dav/`
+- Der Pfad muss auf `/dav` enden. Die Adresse, unter der Sie den Webmailer im Browser aufrufen (`.../SOGo`), funktioniert hier nicht
+- Bleibt das Feld leer, wird die unter [Kalender (CalDAV)](#kalender-caldav) hinterlegte Verbindung verwendet. Haben Sie die Kalender-App nicht eingerichtet, tragen Sie die Adresse hier ein
+
+**DAV: Nicht zertifizierte Verbindungen ablehnen**
+- Toggle-Schalter für die Zertifikatsprüfung
+- Aktiviert: Das SSL/TLS-Zertifikat des DAV-Servers wird validiert
+- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Betrifft ausschließlich die DAV-Verbindung, nicht IMAP oder SMTP
+
 **Speichern / Löschen**
 - **Speichern** (grün) - Speichert die E-Mail-Einstellungen
 - **Löschen** (rot) - Löscht die aktuellen Konfigurationen

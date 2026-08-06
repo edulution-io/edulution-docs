@@ -124,6 +124,8 @@ Die Suche bezieht sich immer nur auf das aktuell ausgewählte Adressbuch, nicht 
 
 Die Anbindung der Kontakte-App an den CardDAV-Server wird in den [Einstellungen](../administration/einstellungen.md#kontakte-carddav) als Global-Admin konfiguriert (CardDAV-URL, Authentifizierungsmodus und Zertifikatsprüfung).
 
+Diese Verbindung gilt ausschließlich für die Kontakte-App. Die Kalender- und die E-Mail-App verwenden jeweils ihre eigene; eine hier abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die übrigen Apps aus, und eine fehlerhafte CardDAV-URL legt nur die Kontakte-App still.
+
 ## Aktuelle Einschränkungen
 
 - Das **Teilen von Adressbüchern** kann derzeit nicht über die Oberfläche verwaltet werden. Geteilte und schreibgeschützte Adressbücher werden angezeigt, die Freigabe selbst erfolgt serverseitig.

@@ -109,6 +109,12 @@ Beachten Sie dabei die folgenden Besonderheiten:
 
 Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansicht: Sie zeigt nur die Tage **Montag bis Freitag** und einen festen Zeitausschnitt am Tag in feiner Rasterung. Sie öffnen sie über einen als Stundenplan markierten Kalender in der Seitenleiste; über **Zurück** kehren Sie zur normalen Kalenderansicht zurück. In dieser Ansicht werden die Termine in ihrer jeweiligen **Farbe** dargestellt.
 
+Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)). Das Verschieben per Drag & Drop steht in dieser Ansicht nicht zur Verfügung; ändern Sie **Beginn** und **Ende** stattdessen im Dialog.
+
+:::info[Stundenplan-Termine erscheinen nur in dieser Ansicht]
+Die Termine eines als Stundenplan markierten Kalenders werden ausschließlich in der Stundenplan-Ansicht angezeigt – in **Monat**, **Woche**, **Tag** und **Agenda** erscheinen sie nicht. Vermissen Sie dort einen Termin, prüfen Sie, ob sein Kalender als Stundenplan markiert ist, und entfernen Sie die Markierung bei Bedarf über das [Kalenderkontextmenü](#kalenderkontextmenü).
+:::
+
 :::info[Wo die Terminfarbe sichtbar ist]
 Die einem Termin zugewiesene Farbe wird ausschließlich in der Stundenplan-Ansicht angezeigt. In allen übrigen Ansichten – Monat, Woche, Tag und Agenda – richtet sich die Farbe der Termine nach dem zugehörigen Kalender.
 
@@ -207,7 +213,7 @@ Termine lassen sich direkt mit der Maus verschieben:
 - In der **Wochen-** und der **Tagesansicht** ziehen Sie einen Termin auf einen anderen Zeitabschnitt.
 - In der **Monatsansicht** ziehen Sie einen Termin auf einen anderen Tag.
 
-In der **Agenda** ist das Verschieben per Drag & Drop nicht möglich, da sie die Termine als Liste und nicht als Zeitraster darstellt.
+In der **Agenda** ist das Verschieben per Drag & Drop nicht möglich, da sie die Termine als Liste und nicht als Zeitraster darstellt. Auch die [Stundenplan-Ansicht](#stundenplan) unterstützt es nicht; dort ändern Sie **Beginn** und **Ende** im Bearbeiten-Dialog.
 
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
 

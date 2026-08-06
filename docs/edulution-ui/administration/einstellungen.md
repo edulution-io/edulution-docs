@@ -192,14 +192,20 @@ Die Kalender-App bindet die Kalender der Schule über einen CalDAV-Server (z.B. 
 Setzen Sie **edulution-mail** (mailcow) ein, erreichen Sie den Server direkt über seinen Container-Namen im Docker-Netzwerk, statt den Umweg über die öffentliche Adresse zu nehmen:
 
 ```
-https://mailcowdockerized-nginx-mailcow-1
+https://mailcowdockerized-nginx-mailcow-1/SOGo/dav/
 ```
+
+Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der **Mailcow-API-URL** unter *Einstellungen → E-Mails → Mailserver*, die denselben Container-Namen **ohne** Pfad verwendet.
 
 Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie deshalb **Nicht zertifizierte Verbindungen ablehnen** aus, sonst schlägt die Verbindung fehl.
 :::
 
 :::info[Backend-Voraussetzung]
 Die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server. Das [Freigeben und Abonnieren von Kalendern](../features/kalender.md#kalender-freigeben) nutzt dagegen die proprietären ACL-Funktionen von **SoGo** und steht nur zur Verfügung, wenn hier ein SoGo-Server hinterlegt ist.
+:::
+
+:::warning[CalDAV-URL ohne /dav bricht die Freigabe]
+Endet die CalDAV-URL nicht auf `/dav`, funktionieren Kalender und Termine trotzdem — die Freigabe- und Abonnement-Funktionen jedoch nicht. edulution leitet die SoGo-Schnittstelle aus dem `/dav`-Pfad ab; fehlt er, meldet die Freigabe **"Kalender-Backend ist nicht konfiguriert"**, obwohl der Kalender sichtbar ist und Termine synchronisiert werden. Ergänzen Sie in diesem Fall den Pfad und speichern Sie erneut.
 :::
 
 **Authentifizierungsmodus**
@@ -259,8 +265,10 @@ Die Kontakte-App bindet die Adressbücher der Schule über einen CardDAV-Server 
 Setzen Sie **edulution-mail** (mailcow) ein, erreichen Sie den Server direkt über seinen Container-Namen im Docker-Netzwerk, statt den Umweg über die öffentliche Adresse zu nehmen:
 
 ```
-https://mailcowdockerized-nginx-mailcow-1
+https://mailcowdockerized-nginx-mailcow-1/SOGo/dav/
 ```
+
+Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der **Mailcow-API-URL** unter *Einstellungen → E-Mails → Mailserver*, die denselben Container-Namen **ohne** Pfad verwendet.
 
 Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie deshalb **Nicht zertifizierte Verbindungen ablehnen** aus, sonst schlägt die Verbindung fehl.
 :::

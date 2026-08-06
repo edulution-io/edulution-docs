@@ -73,11 +73,37 @@ Diese Informationen erscheinen in der edulution App.
 
 ---
 
+## Proxy-Konfiguration
+
+Manche Apps sind nur erreichbar, wenn edulution die Anfragen an den passenden Dienst weiterleitet. Diese Weiterleitung pflegen Sie im Abschnitt **Proxy-Konfiguration** in den Einstellungen der jeweiligen App. Der Schalter **Expertenmodus** gibt den YAML-Editor frei, **Vorlage** füllt ihn mit der passenden Route — dasselbe Bedienprinzip wie bei der [Wiki-Proxy-Konfiguration](wiki-einstellungen.md#proxy-konfiguration-erweitert).
+
+:::warning[Eine fehlerhafte Konfiguration macht die App unerreichbar]
+Über diese Route wird die App aufgerufen. Ändern Sie sie nur, wenn Sie wissen, welche Weiterleitung Sie brauchen, und rufen Sie die App danach im Browser auf.
+:::
+
+### Automatischer Abgleich
+
+Für **E-Mails**, **Dateien**, **WireGuard**, **Desktop** und **Lernmanagement** liefert edulution die passende Route mit. Bei jedem Start der edulution-API — also nach einem Update, einem Neustart des Containers `edulution-api` oder des Servers — prüft edulution, ob eine neuere Fassung vorliegt, und übernimmt sie. So erhalten auch bestehende Installationen Weiterleitungen, die erst später hinzugekommen sind.
+
+Der Abgleich richtet dabei nichts neu ein: Er greift nur dort, wo bereits eine Proxy-Konfiguration hinterlegt ist. Die erste tragen Sie selbst ein — am einfachsten über **Vorlage**. Haben Sie die Konfiguration einer App bewusst geleert, bleibt sie leer.
+
+Eigene Änderungen bleiben erhalten, bis eine neue Fassung mitgeliefert wird; dann gewinnt diese. Notieren Sie sich deshalb Anpassungen, auf die Ihre Installation angewiesen ist, und rufen Sie nach einem Update die betroffenen Apps einmal auf, um zu prüfen, ob sie noch erreichbar sind.
+
+Die mitgelieferten Routen entsprechen dem, was die Installationsanleitungen der jeweiligen App beschreiben — wer ihnen gefolgt ist, behält also denselben Stand. Bei **Dateien** richtet sich die Route nach dem eingestellten Dokumenten-Editor: Abgeglichen wird immer die Route des Editors, der unter **Aktiver Dokumenten-Editor** ausgewählt ist. Alle übrigen Apps sind vom Abgleich nicht betroffen: Deren Proxy-Konfiguration entsteht aus Ihren eigenen Angaben und bleibt unverändert.
+
+:::info[Ohne Internetverbindung bleibt alles, wie es ist]
+Die mitgelieferten Routen werden beim Start aus dem Internet abgerufen. Ist das nicht möglich, bleibt Ihre vorhandene Konfiguration bestehen und das System startet normal. Der Abgleich wird beim nächsten Start erneut versucht.
+:::
+
+---
+
 ## E-Mails
 
 ![E-Mail Einstellungen](/img/einstellungen/email-settings.webp)
 
 Die E-Mail-Einstellungen ermöglichen die Konfiguration der Mail-App und des SOGo Webmailers.
+
+Die Route, über die SOGo und ActiveSync erreichbar sind, pflegen Sie hier ebenfalls — siehe [Proxy-Konfiguration](#proxy-konfiguration). Sie wird automatisch abgeglichen.
 
 ### Sortierung
 

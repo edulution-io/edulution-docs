@@ -157,6 +157,7 @@ Neben IMAP und SMTP spricht edulution den Mailserver für einige Funktionen übe
 - Beispiel: `https://mail.example.com/SOGo/dav/`
 - Der Pfad muss auf `/dav` enden. Die Adresse, unter der Sie den Webmailer im Browser aufrufen (`.../SOGo`), funktioniert hier nicht
 - Bleibt das Feld leer, wird die unter [Kalender (CalDAV)](#kalender-caldav) hinterlegte Verbindung verwendet. Haben Sie die Kalender-App nicht eingerichtet, tragen Sie die Adresse hier ein
+- Ist die Adresse fehlerhaft, wird die DAV-Verbindung der E-Mail-App deaktiviert und der Grund im Protokoll der API vermerkt. Die Kalender- und die Kontakte-App bleiben davon unberührt
 
 **DAV: Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung

@@ -109,7 +109,11 @@ Beachten Sie dabei die folgenden Besonderheiten:
 
 Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansicht: Sie zeigt nur die Tage **Montag bis Freitag** und einen festen Zeitausschnitt am Tag in feiner Rasterung. Sie öffnen sie über einen als Stundenplan markierten Kalender in der Seitenleiste; über **Zurück** kehren Sie zur normalen Kalenderansicht zurück. In dieser Ansicht werden die Termine in ihrer jeweiligen **Farbe** dargestellt.
 
-Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)). Das Verschieben per Drag & Drop steht in dieser Ansicht nicht zur Verfügung; ändern Sie **Beginn** und **Ende** stattdessen im Dialog.
+Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)). Wie in den übrigen Rasteransichten verschieben Sie einen Termin auch hier [per Drag & Drop](#termine-per-drag--drop-verschieben) auf einen anderen Zeitabschnitt. Über der Stundenskala liegt wie in der Wochenansicht eine eigene Zeile für **ganztägige** Termine.
+
+:::info[Termine außerhalb des angezeigten Zeitraums]
+Der Stundenplan zeigt Montag bis Freitag und einen festen Zeitausschnitt am Tag. Ein Termin, der auf ein Wochenende oder außerhalb dieses Zeitausschnitts fällt, erscheint dort nicht – und da Stundenplan-Termine auch in **Monat**, **Woche**, **Tag** und **Agenda** ausgeblendet sind, ist er dann über die Oberfläche nicht erreichbar. Legen Sie solche Termine in einem gewöhnlichen Kalender an oder entfernen Sie die Stundenplan-Markierung vorübergehend über das [Kalenderkontextmenü](#kalenderkontextmenü).
+:::
 
 :::info[Stundenplan-Termine erscheinen nur in dieser Ansicht]
 Die Termine eines als Stundenplan markierten Kalenders werden ausschließlich in der Stundenplan-Ansicht angezeigt – in **Monat**, **Woche**, **Tag** und **Agenda** erscheinen sie nicht. Vermissen Sie dort einen Termin, prüfen Sie, ob sein Kalender als Stundenplan markiert ist, und entfernen Sie die Markierung bei Bedarf über das [Kalenderkontextmenü](#kalenderkontextmenü).
@@ -210,10 +214,10 @@ Manche Wiederholungsregeln lassen sich nicht auf einen neuen Zeitpunkt umrechnen
 
 Termine lassen sich direkt mit der Maus verschieben:
 
-- In der **Wochen-** und der **Tagesansicht** ziehen Sie einen Termin auf einen anderen Zeitabschnitt.
+- In der **Wochen-**, der **Tages-** und der [**Stundenplan-Ansicht**](#stundenplan) ziehen Sie einen Termin auf einen anderen Zeitabschnitt.
 - In der **Monatsansicht** ziehen Sie einen Termin auf einen anderen Tag.
 
-In der **Agenda** ist das Verschieben per Drag & Drop nicht möglich, da sie die Termine als Liste und nicht als Zeitraster darstellt. Auch die [Stundenplan-Ansicht](#stundenplan) unterstützt es nicht; dort ändern Sie **Beginn** und **Ende** im Bearbeiten-Dialog.
+In der **Agenda** ist das Verschieben per Drag & Drop nicht möglich, da sie die Termine als Liste und nicht als Zeitraster darstellt.
 
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
 

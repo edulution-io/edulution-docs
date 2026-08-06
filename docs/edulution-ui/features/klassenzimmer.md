@@ -70,6 +70,14 @@ Für die Verbindung zu einem Schüler-Gerät meldet sich edulution mit **Ihren e
 
 Bleibt die Vorschau bei allen Schülern leer, ist in der Regel kein Veyon-Proxy konfiguriert — eine Karte ohne Vorschau sieht genauso aus wie ein ausgeschaltetes Gerät. Wenden Sie sich in diesem Fall an Ihren Administrator.
 
+### Eingesammelte Dateien öffnen
+
+Nachdem Sie im Unterricht Dateien Ihrer Schüler eingesammelt haben, zeigt edulution die eingesammelten Dateien in einem Dialog an. Über die Schaltfläche im Dialog öffnen Sie den zugehörigen Ordner direkt in der [Dateiverwaltung](dateien/index.md).
+
+:::info[Zugriff auf die Dateien-App erforderlich]
+Die Schaltfläche zum Öffnen der eingesammelten Dateien in der Dateiverwaltung erscheint nur, wenn Sie Zugriff auf die Dateien-App haben. Ohne diesen Zugriff werden die eingesammelten Dateien weiterhin im Dialog angezeigt, lassen sich aber nicht direkt in der Dateiverwaltung öffnen. Welche Benutzer Zugriff auf die App haben, legen Administratoren über die Zugriffsgruppen der Dateien-App fest.
+:::
+
 ## Einrichtung (für Administratoren)
 
 Die Bildschirmüberwachung setzt einen konfigurierten Veyon-WebAPI-Proxy voraus. Die Proxy-Adresse wird in den Einstellungen der Klassenraum-App hinterlegt und muss `https` verwenden: [Einstellungen → Klassenraum (Veyon-Proxy)](../administration/einstellungen.md#klassenraum-veyon-proxy).

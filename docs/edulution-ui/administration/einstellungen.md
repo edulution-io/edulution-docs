@@ -318,10 +318,19 @@ Die Proxys werden als Tabelle gepflegt. Über den Hinzufügen-Button oben rechts
 | **Subnet** | Subnetz der Schüler-Geräte in CIDR-Notation, z.B. `10.0.0.0/24` |
 | **Proxy Adresse** | URL des Veyon-WebAPI-Proxy, z.B. `https://veyon.ihre-domain.de:11080` |
 
-:::warning[Die Proxy-Adresse muss `https` verwenden]
-Für die Anmeldung an der Veyon-WebAPI sendet edulution das **Passwort der Lehrkraft** an diese Adresse. Über `http` ginge es im Klartext durch das Netz. Adressen ohne `https` werden deshalb bereits im Dialog abgelehnt, und auch das Speichern der App-Konfiguration schlägt mit einer Fehlermeldung fehl.
+:::warning[Die Proxy-Adresse braucht `https`]
+Für die Anmeldung an der Veyon-WebAPI sendet edulution das **Passwort der Lehrkraft** an diese Adresse. Über `http` ginge es im Klartext durch das Netz. Adressen ohne `https` lehnt edulution deshalb schon im Dialog ab, und auch das Speichern der App-Konfiguration schlägt mit einer Fehlermeldung fehl.
 
-Bestehende Konfigurationen mit einer `http`-Adresse bleiben zwar gespeichert, lassen sich aber nicht mehr speichern, ohne die Adresse auf `https` umzustellen. Stellen Sie den Veyon-WebAPI-Proxy daher auf TLS um, bevor Sie die Klassenraum-Einstellungen das nächste Mal bearbeiten.
+Erlaubt bleibt `http` nur dort, wo die Anfrage den Host gar nicht verlässt:
+
+| Fall | Beispiel |
+|------|----------|
+| Proxy auf demselben Host | `http://localhost:11080`, `http://127.0.0.1:11080` |
+| Proxy im selben Docker-Netzwerk, über seinen Servicenamen | `http://veyon-proxy:11080` |
+
+Eine IP-Adresse aus dem Schulnetz zählt **nicht** dazu: `http://10.0.0.5:11080` wird abgelehnt, denn dorthin geht das Passwort durch das Netz. Läuft der Proxy auf einem anderen Rechner, stellen Sie ihn auf TLS um und tragen Sie die `https`-Adresse ein.
+
+Bestehende Konfigurationen mit einer `http`-Adresse bleiben gespeichert, lassen sich aber erst nach dieser Umstellung wieder speichern.
 :::
 
 :::info[Aktuell wird nur der erste Eintrag verwendet]

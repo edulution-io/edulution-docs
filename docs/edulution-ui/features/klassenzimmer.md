@@ -61,8 +61,15 @@ Ist ein Veyon-Proxy hinterlegt, zeigt jede Schülerkarte automatisch eine kleine
 - **Eingabe sperren** / **Eingabe entsperren** - sperrt Tastatur und Maus; bei gesperrter Eingabe erscheint ein rotes Tastatursymbol auf der Vorschau
 - **System neu starten**
 - **System herunterfahren**
+- **Webseite öffnen** - öffnet eine von Ihnen angegebene Adresse im Browser des Schülers
+- **Nachricht senden** - zeigt einen von Ihnen verfassten Text auf dem Schülerbildschirm an
+- **Anwendung starten** - startet ein von Ihnen benanntes Programm auf dem Schülergerät
 
-Die Aktionen stehen erst zur Verfügung, sobald die Verbindung zum Gerät aufgebaut ist.
+Die Aktionen stehen erst zur Verfügung, sobald die Verbindung zum Gerät aufgebaut ist. Bei den letzten drei Aktionen fragt edulution die Adresse, den Text bzw. den Programmnamen zuerst in einem eigenen Dialog ab. Bei **Webseite öffnen** muss die Adresse eine vollständige URL mit `http://` oder `https://` sein — eine unvollständige Eingabe wie `example.org` lässt sich nicht abschicken.
+
+Über dasselbe Augen-Symbol in der Aktionsleiste unterhalb der Klassenliste stehen alle Veyon-Aktionen auch für mehrere ausgewählte Schüler gemeinsam zur Verfügung, sobald mindestens einer von ihnen verbunden ist.
+
+Bricht die Verbindung zum Gerät ab, während der Dialog offen ist — etwa weil das Gerät heruntergefahren wird —, schließt edulution ihn und sendet die Aktion nicht.
 
 :::info[Anmeldung mit Ihrem Lehrer-Passwort]
 Für die Verbindung zu einem Schüler-Gerät meldet sich edulution mit **Ihren eigenen Zugangsdaten** an der Veyon-WebAPI an. Sie sehen deshalb nur die Geräte der Schüler, für die Sie zuständig sind.
@@ -70,9 +77,11 @@ Für die Verbindung zu einem Schüler-Gerät meldet sich edulution mit **Ihren e
 
 Bleibt die Vorschau bei allen Schülern leer, ist in der Regel kein Veyon-Proxy konfiguriert — eine Karte ohne Vorschau sieht genauso aus wie ein ausgeschaltetes Gerät. Wenden Sie sich in diesem Fall an Ihren Administrator.
 
+Bleibt die Vorschau nur bei **einzelnen** Schülern leer, obwohl das Gerät läuft, ist dieser Schüler dort meist gar nicht mehr angemeldet: Linuxmuster merkt sich die letzte Anmeldung an einem Gerät, aber keine Abmeldung, sodass ein früherer Nutzer in der Geräteliste stehen bleibt. Die Vorschau erscheint dann nur bei dem Konto, das tatsächlich am Gerät angemeldet ist. Das ist kein Fehler der Bildschirmüberwachung.
+
 ## Einrichtung (für Administratoren)
 
-Die Bildschirmüberwachung setzt einen konfigurierten Veyon-WebAPI-Proxy voraus. Die Proxy-Adresse wird in den Einstellungen der Klassenraum-App hinterlegt und muss `https` verwenden: [Einstellungen → Klassenraum (Veyon-Proxy)](../administration/einstellungen.md#klassenraum-veyon-proxy).
+Die Bildschirmüberwachung setzt einen konfigurierten Veyon-WebAPI-Proxy voraus. Die Proxy-Adresse wird in den Einstellungen der Klassenraum-App hinterlegt und muss `https` verwenden (Ausnahmen für lokale Proxys siehe dort): [Einstellungen → Klassenraum (Veyon-Proxy)](../administration/einstellungen.md#klassenraum-veyon-proxy).
 
 ## Einschreiben
 

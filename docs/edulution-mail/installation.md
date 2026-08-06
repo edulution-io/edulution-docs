@@ -187,8 +187,6 @@ Sobald edulution-mail das Mailcow-Netzwerk für edulution-api sichtbar macht, si
 1. Scrollen Sie zum Abschnitt **Docker Anwendungen**
 2. Klicken Sie auf **Starten** bei der edulution-mail Anwendung
 
-![E-Mail Docker-Anwendung starten](/img/edulution-mail/email-einstellungen.png)
-
 ### Schritt 5: Mailserver-Hosts konfigurieren
 
 Damit die edulution-api direkt mit dem Mailserver kommunizieren kann, müssen IMAP- und SMTP-Server auf die internen Mailcow-Hostnamen gesetzt werden.

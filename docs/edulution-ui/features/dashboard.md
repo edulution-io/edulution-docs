@@ -2,8 +2,6 @@
 
 Das Dashboard ist Ihre zentrale Startseite nach dem Login in edulution.io. Hier finden Sie alle wichtigen Informationen und Schnellzugriffe für den digitalen Unterricht.
 
-![Dashboard Desktop](/img/features/dashboard-desktop.png)
-
 :::tip[Anpassbar]
 Das Dashboard kann individuell angepasst werden. Weitere Informationen finden Sie unter [Dashboard anpassen](#dashboard-anpassen) (Dokumentation folgt).
 :::
@@ -15,9 +13,6 @@ Das Dashboard passt sich automatisch an Ihre Benutzerrolle an:
 - **Global-Admin**: Zusätzlich **Settings-Button** (Zahnrad) rechts unten sichtbar; die Bereiche **Kalender** und **E-Mail** werden nicht angezeigt
 
 Nicht alle Bereiche und Funktionen sind für jede Rolle sichtbar.
-
-![Dashboard Global-Admin](/img/features/dashboard-admin.png)
-*Dashboard als Global-Admin mit Settings-Button (rot markiert)*
 :::
 
 ## Übersicht
@@ -193,7 +188,6 @@ Das Dashboard passt sich automatisch an verschiedene Bildschirmgrößen an:
 - Optimiert für große Bildschirme
 
 ### Tablet-Ansicht
-![Dashboard Tablet](/img/features/dashboard-tablet.jpeg)
 
 - Angepasstes Layout für Touch-Bedienung
 - Größere Touch-Targets

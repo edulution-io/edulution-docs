@@ -6,8 +6,6 @@ Das Konferenz-Tool ermöglicht Audio- und Videokonferenzen und unterstützt Prä
 Konferenzen basieren auf BigBlueButton und müssen erst konfiguriert werden. Die Konfigurationsanleitung folgt noch in einem separaten Dokument.
 :::
 
-![Konferenzen Übersicht](/img/features/konferenzen-uebersicht.png)
-
 ## Übersicht
 
 ### Konferenz-Tabelle
@@ -34,8 +32,6 @@ Die Spalte **Beigetreten** zeigt die Anzahl der aktuell beigetretenen Teilnehmer
 - **🔄 Neu laden** - Liste aktualisieren
 
 ## Konferenz erstellen
-
-![Konferenz erstellen](/img/features/konferenzen-erstellen.png)
 
 ### Dialog-Felder
 
@@ -89,8 +85,6 @@ Die Raumeinstellungen werden beim **Start** der Konferenz angewendet. Ändern Si
 Klicken Sie auf den blauen **Speichern** Button
 
 ## Konferenz starten
-
-![Konferenz mit Auswahl](/img/features/konferenzen-auswahl.png)
 
 ### Konferenz auswählen
 

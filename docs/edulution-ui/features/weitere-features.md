@@ -5,8 +5,6 @@ edulution bietet eine Vielzahl zusätzlicher Funktionen für den digitalen Unter
 
 ## Desktop-Bereitstellung (VDI)
 
-![Desktop-Bereitstellung](/img/features/desktop-bereitstellung.jpeg)
-
 :::info[Konfiguration erforderlich]
 Die Desktop-Bereitstellung steht erst nach Konfiguration der VDI-Umgebung zur Verfügung. Eine detaillierte Anleitung zur VDI-Konfiguration folgt in einem separaten Dokument.
 :::

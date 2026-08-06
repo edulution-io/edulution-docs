@@ -11,8 +11,6 @@ starten.
 2.  **Zugangsdaten eintragen:** Der Benutzer muss hier die Zugangsdaten
     für sein **altes** Postfach eintragen (Benutzername und Passwort).
 
-    ![E-Mail-Synchronisierung im Benutzerprofil](/_static/edulution-mail_benutzer-profil-sync.png)
-
 3.  **Synchronisierung starten:** Nach dem Speichern der Zugangsdaten
     startet der Synchronisierungs-Prozess automatisch.
 

@@ -4,8 +4,6 @@ Die edulution Mobile App bietet vollständigen Zugriff auf alle Funktionen auch 
 
 ## Dashboard auf Tablets
 
-![Dashboard Tablet](/img/features/dashboard-tablet.jpeg)
-
 Das Dashboard wurde speziell für Touch-Bedienung optimiert und zeigt alle wichtigen Informationen übersichtlich an.
 
 ### Hauptbereiche

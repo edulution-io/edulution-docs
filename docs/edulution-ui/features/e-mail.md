@@ -53,6 +53,22 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 
 Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht.
 
+### Empfängervorschläge im Adressfeld
+
+Sobald Sie in **An**, **CC** oder **BCC** zu tippen beginnen, schlägt edulution passende Empfänger vor. Die Vorschläge stammen aus drei Quellen und erscheinen in dieser Reihenfolge:
+
+1. **Zuletzt verwendete Empfänger** aus Ihren vorherigen Nachrichten.
+2. **Kontakte** aus der Kontakte-App – nur, wenn die Kontakte-App eingerichtet ist und Ihre Eingabe mindestens zwei Zeichen umfasst.
+3. **Empfänger aus dem Verzeichnis** Ihrer Schule: Personen, Gruppen und Verteiler.
+
+Eine Adresse, die in mehreren Quellen vorkommt, erscheint nur einmal. Die Liste ist auf 50 Vorschläge begrenzt; die am besten passenden stehen oben – eine vollständige Übereinstimmung vor einem Treffer am Namensanfang und dieser vor einem Treffer irgendwo im Namen.
+
+Auf die **Schreibweise von Umlauten und Sonderzeichen** kommt es dabei nicht an: `Müller`, `Mueller` und `Muller` führen zum selben Vorschlag, gleich welche Schreibweise im Verzeichnis oder im Kontakt hinterlegt ist. Dasselbe gilt für `ß` und `ss` sowie für Akzentzeichen. Wie in der [Kontaktsuche](kontakte.md#suche) wird die Schreibweise bei sehr kurzen Eingaben nicht zusätzlich vereinfacht.
+
+:::info[Eltern über den Namen des Kindes finden]
+Eltern erreichen Sie auch, indem Sie den Namen ihres Kindes eingeben. Der Vorschlag weist dann zusätzlich aus, über welches Kind er gefunden wurde – hilfreich, wenn mehrere Elternteile denselben Nachnamen tragen. Auch hier spielt die Schreibweise keine Rolle: `Öztürk`, `Oeztuerk` und `Ozturk` führen gleichermaßen zu den Eltern des Kindes.
+:::
+
 ### Schreibfenster schließen
 
 Enthält die Nachricht ungespeicherte Änderungen, fragt edulution beim Schließen, ob Sie sie **als Entwurf speichern**, **verwerfen** oder **weiter bearbeiten** möchten.

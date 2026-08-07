@@ -31,9 +31,19 @@ Klicken Sie in der Aktionen-Leiste auf das Teilen-Symbol, um das Teilen-Fenster 
 
 ![Öffentlicher Login](/img/umfragen/Screenshot_20260506_121454.png)
 
-Wenn die Antwort veränderbar oder eine erneute Teilnahme möglich ist, wird am Schluss eine öffentliche Teilnahme-ID angelegt und ausgegeben, damit die Verknüpfung für kommende Änderungen funktioniert. Ob eine frühere Antwort geändert werden kann oder ob der Teilnehmer mehrmals an der Umfrage teilnehmen darf, wird beim [Speichern der Umfrage](#umfrage-speichern) festgelegt.
+Für die Teilnahme ohne Benutzerkonto geben Sie in dasselbe Eingabefeld entweder Ihren vollständigen Namen ein, um neu teilzunehmen, oder einen bereits erhaltenen **Teilnahme-Code**, um zu einer früheren Abgabe zurückzukehren. Der eingegebene Name wird dem Ersteller der Umfrage in der Ergebnisübersicht als Kennzeichnung Ihrer Abgabe angezeigt. Ist die Umfrage als anonym gespeichert, wird der eingegebene Name verworfen und die Abgabe anonym erfasst.
+
+Wenn die Antwort veränderbar oder eine erneute Teilnahme möglich ist, wird am Schluss ein persönlicher **Teilnahme-Code** angelegt und angezeigt. Über diesen Code wird die Abgabe für spätere Änderungen wiedererkannt. Ob eine frühere Antwort geändert werden kann oder ob der Teilnehmer mehrmals an der Umfrage teilnehmen darf, wird beim [Speichern der Umfrage](#umfrage-speichern) festgelegt.
 
 ![Öffentlicher Benutzer-Login](/img/umfragen/Screenshot_20260506_122450.png)
+
+Der Teilnahme-Code ist zugleich Ihr Nachweis auf die Abgabe: Er enthält neben der Teilnahme-ID ein geheimes Merkmal, mit dem ausschließlich der Inhaber des Codes die zugehörige Antwort einsehen und bearbeiten kann. Bewahren Sie den Code daher sicher auf und geben Sie ihn nicht weiter – wer ihn besitzt, kann Ihre Antwort einsehen und ändern. Kopieren Sie ihn über die Schaltfläche neben dem Code-Feld und notieren Sie ihn, falls Sie später von einem anderen Gerät auf die Abgabe zugreifen möchten.
+
+:::warning[Teilnahme-Code sicher aufbewahren]
+Ohne den vollständigen Teilnahme-Code kann eine bereits abgegebene öffentliche Antwort weder eingesehen noch erneut bearbeitet werden. Er lässt sich nachträglich nicht wiederherstellen.
+:::
+
+Um zu einer bereits abgegebenen Antwort zurückzukehren, öffnen Sie die Umfrage erneut und geben im öffentlichen Zugang den vollständigen Teilnahme-Code ein. Der Code wird ausschließlich für die laufende Browser-Sitzung zwischengespeichert: Solange die Registerkarte geöffnet bleibt, gelangen Sie ohne erneute Eingabe zu Ihrer Abgabe. Sobald der Code am Ende einer Abgabe angezeigt wurde, Sie die Registerkarte schließen oder Sie sich von edulution abmelden, wird diese Zwischenspeicherung gelöscht und der notierte Code ist erforderlich. Die alleinige Eingabe der Teilnahme-ID genügt nicht – Abgaben, die vor der Umstellung auf den Teilnahme-Code erstellt wurden, lassen sich nicht mehr nachträglich bearbeiten.
 
 ## Schon beantwortet
 

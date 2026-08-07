@@ -157,7 +157,8 @@ Neben IMAP und SMTP spricht edulution den Mailserver für einige Funktionen übe
 - Beispiel: `https://mail.example.com/SOGo/dav/`
 - Der Pfad muss auf `/dav` enden. Die Adresse, unter der Sie den Webmailer im Browser aufrufen (`.../SOGo`), funktioniert hier nicht
 - Bleibt das Feld leer, wird die unter [Kalender (CalDAV)](#kalender-caldav) hinterlegte Verbindung verwendet. Haben Sie die Kalender-App nicht eingerichtet, tragen Sie die Adresse hier ein
-- Ist die Adresse fehlerhaft, wird die DAV-Verbindung der E-Mail-App deaktiviert und der Grund im Protokoll der API vermerkt. Die Kalender- und die Kontakte-App bleiben davon unberührt
+- Eine Adresse, deren Pfad nicht auf `/dav` endet, wird beim Speichern abgelehnt
+- Ist die Adresse aus einem anderen Grund fehlerhaft — etwa weil der Host nicht erreichbar ist —, wird die DAV-Verbindung der E-Mail-App deaktiviert und der Grund im Protokoll der API vermerkt. Die Kalender- und die Kontakte-App bleiben davon unberührt
 
 :::tip[edulution-mail als DAV-Server]
 Setzen Sie **edulution-mail** (mailcow) ein, erreichen Sie den Server direkt über seinen Container-Namen im Docker-Netzwerk, statt den Umweg über die öffentliche Adresse zu nehmen:
@@ -215,6 +216,7 @@ Die Kalender-App bindet die Kalender der Schule über einen CalDAV-Server (z.B. 
 **CalDAV-URL**
 - Basis-URL des CalDAV-Servers inklusive Pfad
 - Beispiel: `https://mail.example.com/SOGo/dav/`
+- Der Pfad muss auf `/dav` enden. Die Adresse, unter der Sie den Webmailer im Browser aufrufen (`.../SOGo`), funktioniert hier nicht
 - Wird für die Anbindung der Kalender verwendet
 
 :::tip[edulution-mail als CalDAV-Server]
@@ -233,8 +235,10 @@ Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie
 Die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server. Das [Freigeben und Abonnieren von Kalendern](../features/kalender.md#kalender-freigeben) nutzt dagegen die proprietären ACL-Funktionen von **SoGo** und steht nur zur Verfügung, wenn hier ein SoGo-Server hinterlegt ist.
 :::
 
-:::warning[CalDAV-URL ohne /dav bricht die Freigabe]
-Endet die CalDAV-URL nicht auf `/dav`, funktionieren Kalender und Termine trotzdem — die Freigabe- und Abonnement-Funktionen jedoch nicht. edulution leitet die SoGo-Schnittstelle aus dem `/dav`-Pfad ab; fehlt er, meldet die Freigabe **"Kalender-Backend ist nicht konfiguriert"**, obwohl der Kalender sichtbar ist und Termine synchronisiert werden. Ergänzen Sie in diesem Fall den Pfad und speichern Sie erneut.
+:::warning[CalDAV-URL muss auf /dav enden]
+edulution leitet die SoGo-Schnittstelle aus dem `/dav`-Pfad ab. Eine Adresse, deren Pfad nicht auf `/dav` endet, wird deshalb beim Speichern abgelehnt; die Meldung nennt die erwartete Form (`https://mail.example.com/SOGo/dav/`). Dieselbe Prüfung gilt für die [CardDAV-URL](#kontakte-carddav) und die [DAV-URL der E-Mail-App](#dav-verbindung).
+
+War eine Adresse ohne `/dav` bereits vorher hinterlegt, bleibt sie erhalten: Sie können weiterhin andere Felder dieser App speichern, ohne die Adresse zuerst korrigieren zu müssen, und Kalender und Termine funktionieren unverändert. Das Freigeben und Abonnieren bleibt jedoch wirkungslos und meldet, dass die DAV-Basis-URL auf `/dav` enden muss. Ergänzen Sie in diesem Fall den Pfad und speichern Sie erneut.
 :::
 
 **Authentifizierungsmodus**
@@ -288,6 +292,7 @@ Die Kontakte-App bindet die Adressbücher der Schule über einen CardDAV-Server 
 **CardDAV-URL**
 - Basis-URL des CardDAV-Servers inklusive Pfad
 - Beispiel: `https://mail.example.com/SOGo/dav/`
+- Der Pfad muss auf `/dav` enden. Die Adresse, unter der Sie den Webmailer im Browser aufrufen (`.../SOGo`), funktioniert hier nicht
 - Wird für die Anbindung der Adressbücher verwendet
 
 :::tip[edulution-mail als CardDAV-Server]

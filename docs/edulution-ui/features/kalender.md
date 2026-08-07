@@ -315,6 +315,8 @@ Schlägt diese Korrektur fehl, wird die betroffene Zeile mit **Überzählige Rec
 
 Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktionen von **SoGo** und ist nur verfügbar, wenn als CalDAV-Server SoGo eingesetzt wird. Die reine Terminsynchronisierung funktioniert dagegen mit jedem standardkonformen CalDAV-Server. Welcher CalDAV-Server verwendet wird, legt die Administration in den [Einstellungen der Kalender-App](../administration/einstellungen.md#kalender-caldav) fest.
 
+Meldet der Freigabe-Dialog, dass die DAV-Basis-URL auf `/dav` enden muss, während Ihre Termine normal synchronisieren, liegt das an dieser Konfiguration und nicht an Ihrem Kalender — wenden Sie sich in diesem Fall an die Administration.
+
 :::
 
 ## Abonnierte und schreibgeschützte Kalender

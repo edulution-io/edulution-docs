@@ -148,6 +148,35 @@ Die IMAP-Integration ermöglicht den Zugriff auf externe oder interne IMAP-Serve
 In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Nicht zertifizierte Verbindungen ablehnen" einschalten, um die Sicherheit der E-Mail-Kommunikation zu gewährleisten.
 :::
 
+### DAV-Verbindung
+
+Neben IMAP und SMTP spricht edulution den Mailserver für einige Funktionen über dessen DAV-Schnittstelle an – für Postfach-Freigaben und dafür, die im Profil gewählte Sprache in den SOGo-Webmailer zu übernehmen.
+
+**DAV-URL**
+- Basis-URL des DAV-Servers inklusive Pfad
+- Beispiel: `https://mail.example.com/SOGo/dav/`
+- Der Pfad muss auf `/dav` enden. Die Adresse, unter der Sie den Webmailer im Browser aufrufen (`.../SOGo`), funktioniert hier nicht
+- Bleibt das Feld leer, wird die unter [Kalender (CalDAV)](#kalender-caldav) hinterlegte Verbindung verwendet. Haben Sie die Kalender-App nicht eingerichtet, tragen Sie die Adresse hier ein
+- Ist die Adresse fehlerhaft, wird die DAV-Verbindung der E-Mail-App deaktiviert und der Grund im Protokoll der API vermerkt. Die Kalender- und die Kontakte-App bleiben davon unberührt
+
+:::tip[edulution-mail als DAV-Server]
+Setzen Sie **edulution-mail** (mailcow) ein, erreichen Sie den Server direkt über seinen Container-Namen im Docker-Netzwerk, statt den Umweg über die öffentliche Adresse zu nehmen:
+
+```
+https://mailcowdockerized-nginx-mailcow-1/SOGo/dav/
+```
+
+Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der **Mailcow-API-URL** im Bereich *Mailserver* derselben App, die denselben Container-Namen **ohne** Pfad verwendet.
+
+Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie deshalb **DAV: Nicht zertifizierte Verbindungen ablehnen** aus, sonst schlägt die Verbindung fehl.
+:::
+
+**DAV: Nicht zertifizierte Verbindungen ablehnen**
+- Toggle-Schalter für die Zertifikatsprüfung
+- Aktiviert: Das SSL/TLS-Zertifikat des DAV-Servers wird validiert
+- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Betrifft ausschließlich die DAV-Verbindung, nicht IMAP oder SMTP
+
 **Speichern / Löschen**
 - **Speichern** (grün) - Speichert die E-Mail-Einstellungen
 - **Löschen** (rot) - Löscht die aktuellen Konfigurationen

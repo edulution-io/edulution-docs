@@ -4,8 +4,6 @@ Der edulution App-Store ermöglicht es Ihnen, zusätzliche Anwendungen zu instal
 
 ## App-Store Übersicht
 
-![App-Store](/img/features/app-store.jpeg)
-
 ### Verfügbare Kategorien
 
 Der App-Store organisiert Anwendungen in verschiedene Kategorien:
@@ -28,8 +26,6 @@ Der App-Store organisiert Anwendungen in verschiedene Kategorien:
 3. Klicken Sie auf eine App-Kachel
 4. Wählen Sie ein Icon aus der Icon-Galerie
 5. Klicken Sie auf **Hinzufügen**
-
-![Icon-Auswahl](/img/features/app-store.jpeg)
 
 ### Icon-Anpassung
 

@@ -193,6 +193,10 @@ Analog dazu funktionieren **Option** und **Auswahl** — bei **Auswahl** können
 
 Backend-Limiter werden serverseitig gespeichert. Den Auswahlmöglichkeiten wird dabei ein Limit mitgegeben, **wie oft diese Option insgesamt auswählbar ist**.
 
+:::info[Limit 0 = unbegrenzt]
+Ein Limit von **0** bedeutet, dass die Option **unbegrenzt** oft ausgewählt werden kann. Neu hinzugefügte Optionen erhalten im Editor standardmäßig das Limit **1**; setzen Sie den Wert auf 0, wenn eine Option keine Obergrenze haben soll.
+:::
+
 Wenn eine Frage diese Limiter nutzt, wird beim Aufruf der Umfrage eine Abfrage an das Backend geschickt, um die aktuellen Limit-Stände zu laden. Das Backend liefert dann nur diejenigen Auswahlmöglichkeiten zurück, die das Limit noch nicht erreicht haben.
 
 :::info[Beispiel]
@@ -213,8 +217,10 @@ Wie bei den Auswahlmöglichkeiten ohne Backend-Limiter ist es auch hier möglich
 Für einen geselligen Abend wird jeder Teilnehmer gebeten, etwas mitzubringen und dies in der Umfrage einzutragen. Bei zehn Teilnehmern macht es vielleicht Sinn, jede Option zweimal zu erlauben — so könnte die Option "Kartoffelsalat" maximal zweimal gewählt werden, und es ist sichergestellt, dass nicht jeder Kartoffelsalat mitbringt. Falls einem Teilnehmer die verbleibenden Optionen nicht zusagen, kann er eigene Vorschläge ergänzen.
 :::
 
+Tragen mehrere Teilnehmer denselben Titel ein, werden diese Einträge zu einer gemeinsamen Option zusammengeführt und teilen sich dasselbe Limit. Damit eigene Einträge das Backend nicht überlasten, gelten beim Absenden zudem feste Grenzen: Pro Abgabe können höchstens **20** eigene Optionen übermittelt werden, und jeder selbst eingetragene Titel darf nicht leer und höchstens **256 Zeichen** lang sein. Werden diese Grenzen überschritten, wird die Abgabe mit einem entsprechenden Hinweis abgewiesen.
+
 :::warning[Problem]
-Es lässt sich nicht ausschließen, dass ein Teilnehmer aus Spaß "Erdäpfelsalat" hinzufügt — ein synonymer Begriff für "Kartoffelsalat", der das Limit umgeht.
+Es lässt sich nicht ausschließen, dass ein Teilnehmer aus Spaß "Erdäpfelsalat" hinzufügt — ein synonymer Begriff für "Kartoffelsalat", der das Limit umgeht. Exakt gleiche Titel werden zwar zusammengeführt und teilen sich ein Limit, sinngleiche Synonyme lassen sich technisch jedoch nicht verhindern.
 :::
 
 ### Meinung/Gewichtung
@@ -356,12 +362,16 @@ In der Vorschau können Sie die Umfrage einmal durchklicken und prüfen, ob alle
 ![Umfrage speichern - Benutzer-Ansicht](/img/umfragen/Screenshot_20260506_143511.png)
 
 - **Teilnehmer**: Hier können bestimmte Benutzer ausgewählt werden, die an der Umfrage teilnehmen sollen.
-- **Gruppen**: Hier können ganze Benutzergruppen ausgewählt werden, deren Mitglieder an der Umfrage teilnehmen sollen.
+- **Gruppen**: Hier können ganze Benutzergruppen ausgewählt werden, deren Mitglieder an der Umfrage teilnehmen sollen. Die Gruppensuche zeigt nur Gruppen an, die Zugriff auf die Umfragen-App haben.
 - **Ablaufdatum**: Ab diesem Datum ist die Teilnahme an der Umfrage nicht mehr möglich. Wird nach Ablauf des Datums noch versucht, eine Antwort abzugeben, wird diese mit dem Hinweis *„Umfrage ist abgelaufen."* abgewiesen.
 - **Soll die Umfrage anonym sein?**: Anonymisiert die Antworten der Teilnehmer. In diesem Fall ist keine Verknüpfung zwischen Antwort und Teilnehmer möglich.
 - **Soll die Umfrage öffentlich sein?**: Öffentliche Umfragen können von allen geteilt werden, und die Teilnahme ist auch ohne Benutzerkonto möglich. Siehe [Öffentliche Teilnahme](#öffentliche-teilnahme).
 - **Soll ein Teilnehmer die Umfrage mehrmals beantworten können?**: Ermöglicht demselben Benutzer die wiederholte Teilnahme an der Umfrage.
 - **Sollen Antworten nachträglich bearbeitbar sein?**: Die vorherige Abgabe kann nachträglich verändert werden.
+
+:::info[Einladbare Gruppen bei nicht-öffentlichen Umfragen]
+Bei nicht-öffentlichen Umfragen können ausschließlich Gruppen eingeladen werden, die Zugriff auf die Umfragen-App haben. Wählen Sie beim Speichern eine Gruppe ohne App-Zugriff, wird der Vorgang mit dem Hinweis *„Sie können nur Gruppen einladen, die Zugriff auf die Umfragen-App haben."* abgewiesen. Welche Gruppen Zugriff auf die App haben, legen Administratoren über die Zugriffsgruppen der Umfragen-App fest. Bei [öffentlichen Umfragen](#öffentliche-teilnahme) entfällt diese Einschränkung, da die Teilnahme dort auch ohne Benutzerkonto möglich ist. Die Auswahl einzelner **Teilnehmer** ist von dieser Einschränkung nicht betroffen.
+:::
 
 ### Administrator-Ansicht
 

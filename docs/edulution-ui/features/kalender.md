@@ -51,7 +51,11 @@ Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet d
 
 ### Kalender ein- und ausblenden
 
-Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Abonnierte Kalender sind beim ersten Laden standardmäßig ausgeblendet, sodass Ihre eigenen Termine im Vordergrund stehen; Sie können sie jederzeit wieder einblenden.
+Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Neu abonnierte Kalender sind zunächst eingeblendet.
+
+Ihre Auswahl wird benutzerbezogen auf dem Server gespeichert. Sie bleibt daher über das Neuladen der Seite, eine erneute Anmeldung und einen Gerätewechsel hinweg erhalten – ein einmal ausgeblendeter Kalender bleibt ausgeblendet, bis Sie ihn wieder einblenden.
+
+Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalendereintrag ebenso wie die Aktionen **Einblenden**, **Ausblenden**, **Nur diesen anzeigen** und **Alle anzeigen** im Kontextmenü eines Kalenders. **Nur diesen anzeigen** und **Alle anzeigen** wirken dabei auf mehrere Kalender gleichzeitig; auch diese Änderungen werden vollständig übernommen.
 
 ### Kalenderkontextmenü
 
@@ -340,6 +344,12 @@ Da die Rechte je Sichtbarkeit vergeben werden, können sich die Termine **eines 
 Termine, die Sie sehen, aber nicht bearbeiten dürfen, öffnen sich beim Anklicken in einer reinen **Detailansicht** statt im Bearbeiten-Dialog. Sie zeigt Zeitraum, Kalender, Ort, Beschreibung, Sichtbarkeit, Zeit-Status und Teilnehmer, bietet aber keine Eingabefelder.
 
 Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit sehen**, nennt die Detailansicht ausschließlich den Zeitraum und den Kalender und weist die Zeit als belegt aus — Titel, Ort, Beschreibung und Teilnehmer bleiben verborgen. Termine, für die Sie die Rolle **Keine** besitzen, erscheinen gar nicht erst im Kalender.
+
+## Einrichtung (für Administratoren)
+
+Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](../administration/einstellungen.md#kalender-caldav) als Global-Admin konfiguriert (CalDAV-URL, Authentifizierungsmodus und Zertifikatsprüfung). Das [Freigeben und Abonnieren von Kalendern](#kalender-freigeben) setzt dabei einen SoGo-Server voraus; die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server.
+
+Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
 
 ## Siehe auch
 

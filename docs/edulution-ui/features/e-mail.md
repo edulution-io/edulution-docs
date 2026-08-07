@@ -69,6 +69,27 @@ Auf die **Schreibweise von Umlauten und Sonderzeichen** kommt es dabei nicht an:
 Eltern erreichen Sie auch, indem Sie den Namen ihres Kindes eingeben. Der Vorschlag weist dann zusätzlich aus, über welches Kind er gefunden wurde – hilfreich, wenn mehrere Elternteile denselben Nachnamen tragen. Auch hier spielt die Schreibweise keine Rolle: `Öztürk`, `Oeztuerk` und `Ozturk` führen gleichermaßen zu den Eltern des Kindes.
 :::
 
+### Verteiler als Empfänger
+
+Wählen Sie einen **Verteiler** oder eine **Gruppe** aus den Vorschlägen, erscheint diese als ein Eintrag im Adressfeld – gekennzeichnet durch ein Gruppensymbol. edulution lädt daraufhin im Hintergrund die Mitglieder und zeigt deren **Anzahl** am Eintrag an; solange das läuft, erscheint dort ein Ladesymbol.
+
+| Element am Eintrag | Bedeutung |
+|---|---|
+| **Gruppensymbol und Name** | Ein Klick darauf kopiert die Adresse des Verteilers in die Zwischenablage |
+| **Zahl** | Anzahl der Mitglieder, die edulution für diesen Verteiler ermittelt hat |
+| **Pluszeichen** (*… in Empfänger auflösen*) | Ersetzt den Verteiler durch seine einzelnen Mitglieder |
+| **Warnsymbol** (*Mitglieder erneut laden*) | Die Mitglieder konnten nicht geladen werden – ein Klick versucht es erneut |
+
+Über das **Pluszeichen** lösen Sie den Verteiler auf: Aus dem einen Eintrag werden so viele Einträge, wie der Verteiler Mitglieder hat. So entfernen Sie vor dem Versand **einzelne Personen**.
+
+Lösen Sie den Verteiler **nicht** auf, wird die Nachricht an seine Adresse verschickt und vom Mailsystem an die Mitglieder verteilt. Beide Wege führen zur selben Zustellung; die Auflösung ändert nur, was Sie vor dem Senden noch bearbeiten können.
+
+Auch beim **Antworten**, **Allen antworten** und **Weiterleiten** sowie beim erneuten Öffnen eines **Entwurfs** erkennt edulution enthaltene Verteiler und lädt deren Mitglieder nach, sodass Mitgliederzahl und Pluszeichen auch dort zur Verfügung stehen.
+
+:::info[Nicht jeder Eintrag lässt sich auflösen]
+Auflösen lassen sich nur Verteiler, die das Mailsystem als solche kennt. Lassen sich zu einem Verteiler keine Mitglieder ermitteln, bleibt er ohne Zahl und ohne Pluszeichen stehen – als einzelne Adresse ist er weiterhin verwendbar, und die Nachricht wird normal an ihn versendet.
+:::
+
 ### Schreibfenster schließen
 
 Enthält die Nachricht ungespeicherte Änderungen, fragt edulution beim Schließen, ob Sie sie **als Entwurf speichern**, **verwerfen** oder **weiter bearbeiten** möchten.

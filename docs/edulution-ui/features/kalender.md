@@ -115,6 +115,8 @@ Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansich
 
 Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)). Wie in den übrigen Rasteransichten verschieben Sie einen Termin auch hier [per Drag & Drop](#termine-per-drag--drop-verschieben) auf einen anderen Zeitabschnitt. Über der Stundenskala liegt wie in der Wochenansicht eine eigene Zeile für **ganztägige** Termine.
 
+Neue Termine legen Sie über die Schaltfläche **Termin erstellen** oben rechts an; ein Klick auf einen leeren Zeitabschnitt öffnet hier – anders als in der Wochen- und der Tagesansicht – keinen neuen Termin. Im Dialog ist der geöffnete Stundenplan bereits als Kalender vorausgewählt, auch wenn Sie an anderer Stelle einen [Standardkalender](#kalenderkontextmenü) festgelegt haben.
+
 :::info[Termine außerhalb des angezeigten Zeitraums]
 Der Stundenplan zeigt Montag bis Freitag und einen festen Zeitausschnitt am Tag. Ein Termin, der auf ein Wochenende oder außerhalb dieses Zeitausschnitts fällt, erscheint dort nicht – und da Stundenplan-Termine auch in **Monat**, **Woche**, **Tag** und **Agenda** ausgeblendet sind, ist er dann über die Oberfläche nicht erreichbar. Legen Sie solche Termine in einem gewöhnlichen Kalender an oder entfernen Sie die Stundenplan-Markierung vorübergehend über das [Kalenderkontextmenü](#kalenderkontextmenü).
 :::
@@ -133,7 +135,7 @@ Termine, die aus einem externen CalDAV-Programm stammen, übernehmen die dort ge
 
 Einen neuen Termin legen Sie auf mehreren Wegen an:
 
-- über die Schaltfläche **Termin erstellen** unten rechts,
+- über die Schaltfläche **Termin erstellen** oben rechts,
 - mit einem Klick auf einen Tag (Monatsansicht) oder einen Zeitabschnitt (Wochen- und Tagesansicht).
 
 Füllen Sie im Dialog die folgenden Felder aus:

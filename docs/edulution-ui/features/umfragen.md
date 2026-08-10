@@ -31,9 +31,25 @@ Klicken Sie in der Aktionen-Leiste auf das Teilen-Symbol, um das Teilen-Fenster 
 
 ![Öffentlicher Login](/img/umfragen/Screenshot_20260506_121454.png)
 
-Wenn die Antwort veränderbar oder eine erneute Teilnahme möglich ist, wird am Schluss eine öffentliche Teilnahme-ID angelegt und ausgegeben, damit die Verknüpfung für kommende Änderungen funktioniert. Ob eine frühere Antwort geändert werden kann oder ob der Teilnehmer mehrmals an der Umfrage teilnehmen darf, wird beim [Speichern der Umfrage](#umfrage-speichern) festgelegt.
+Zur Teilnahme genügt es, den vollständigen Namen einzugeben; ein Benutzerkonto ist nicht erforderlich.
 
 ![Öffentlicher Benutzer-Login](/img/umfragen/Screenshot_20260506_122450.png)
+
+##### Teilnahme-Code
+
+Wenn die Antwort nachträglich bearbeitbar oder eine erneute Teilnahme möglich ist, wird nach dem Absenden ein **Teilnahme-Code** angezeigt. Ob eine frühere Antwort geändert werden kann oder ob ein Teilnehmer mehrmals an der Umfrage teilnehmen darf, wird beim [Speichern der Umfrage](#umfrage-speichern) festgelegt.
+
+Der Teilnahme-Code ist der Nachweis auf genau diese Abgabe: Er enthält neben der Teilnahme-ID ein geheimes Merkmal, mit dem sich der Teilnehmer als Urheber der Abgabe ausweist. Wer den Code besitzt, kann die zugehörige Antwort einsehen und – falls konfiguriert – ändern.
+
+:::warning[Teilnahme-Code sicher aufbewahren]
+Der Teilnahme-Code wird **nur einmal** angezeigt und lässt sich später nicht wiederherstellen. Notieren Sie ihn direkt bei der Abgabe und geben Sie ihn nicht weiter. Zum Kopieren steht neben dem Code eine Schaltfläche bereit.
+:::
+
+Um eine frühere Antwort einzusehen oder zu überarbeiten, öffnen Sie die Umfrage erneut und geben im Zugangsfeld anstelle des Namens den vollständigen Teilnahme-Code ein.
+
+:::info[Abgaben von vor der Umstellung]
+Ältere Abgaben, für die nur eine Teilnahme-ID ohne geheimes Merkmal vergeben wurde, lassen sich aus Sicherheitsgründen nicht mehr bearbeiten. Geben Sie in diesem Fall Ihren Namen ein, um eine neue Abgabe zu starten.
+:::
 
 ## Schon beantwortet
 

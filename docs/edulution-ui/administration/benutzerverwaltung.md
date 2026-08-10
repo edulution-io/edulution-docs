@@ -1,4 +1,3 @@
-
 # Benutzerverwaltung
 
 Die **Benutzerverwaltung** ist der Bereich der App **Schulserver**, in dem Sie die Benutzerkonten Ihres Linuxmuster-Servers anzeigen, importieren und pflegen. Grundlage sind die Sophomorix-Verwaltungslisten: Jeder Benutzertyp besitzt eine CSV-Liste (z.B. `students.csv`), die Sie in einer tabellarischen Ansicht direkt in der Oberfläche bearbeiten, als CSV-Datei importieren oder exportieren und anschließend über einen zweistufigen Prüf- und Übernahmeprozess in Linuxmuster einspielen.
@@ -72,7 +71,6 @@ Die Spalte **Status** zeigt den Sophomorix-Status des Kontos:
 | **R** | Entfernbar |
 
 ### Benutzerdetails
-
 
 Über **Details** öffnen Sie den Dialog **Benutzerdetails**, der die Angaben zum Konto in drei Abschnitten bündelt:
 

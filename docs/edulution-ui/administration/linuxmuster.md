@@ -25,6 +25,10 @@ Die Unterseiten wählen Sie über die Seitenleiste der App:
 Die **Elternzuweisung** erscheint nur in Schulumgebungen. In Unternehmensumgebungen entfällt der Eintrag.
 :::
 
+:::note[LINBO nur für Globaladmins]
+Der Eintrag **LINBO** in der Seitenleiste – und die gleichnamige Kachel der Übersicht – ist ausschließlich **Globaladmins** vorbehalten. Für alle anderen Rollen entfällt der Bereich; die übrigen Einträge der App bleiben davon unberührt.
+:::
+
 Die **Übersicht** ist nach denselben Bereichen gegliedert wie die Seitenleiste. Unter **Benutzerverwaltung** führt je eine Kachel direkt zu den Benutzertypen **Schüler**, **Lehrer**, **Extra-Schüler**, **Eltern**, **Mitarbeiter**, **Schuladmins** und **Globaladmins**; in Unternehmensumgebungen bleiben davon nur **Mitarbeiter** und **Globaladmins** sichtbar. Darunter folgen die Bereiche **Geräteverwaltung**, **Elternzuweisung**, **LINBO** und **System** mit je einer Kachel. Die Kachel **LINBO** öffnet dieselbe Übersicht wie der gleichnamige Eintrag in der Seitenleiste.
 
 In Umgebungen mit mehreren Schulen enthalten die Listenansichten oben rechts eine **Schulauswahl**. Ein Wechsel der Schule verwirft die bereits geladenen Daten und lädt sie für die neue Schule erneut.
@@ -48,6 +52,10 @@ Der Import ist bewusst zweistufig, damit Sie die Auswirkungen vor dem Schreiben 
 
 Eine CSV-Datei können Sie per Drag & Drop in den CSV-Bereich ziehen oder die aktuelle Liste als Vorlage herunterladen. Die Spalte **Gewünschter Login** stammt unverändert aus der CSV-Datei und kann vom später in LDAP hinterlegten Anmeldenamen abweichen.
 
+:::note[Wer darf schreiben?]
+Die schreibenden Aktionen **Speichern** und **Prüfen** stehen nur **Globaladmins** und **Schuladmins** zur Verfügung; für andere Rollen sind diese Schaltflächen ausgeblendet. Tabelle und Liste lassen sich weiterhin von allen berechtigten Benutzern einsehen, exportieren und lokal bearbeiten – die Änderungen werden dabei jedoch nicht auf den Server geschrieben.
+:::
+
 ### Passwörter
 
 Über die **Passwort-Aktionen** eines Kontos setzen Sie Passwörter neu. **Erstpasswort wiederherstellen** setzt das Konto auf das ursprünglich vergebene Erstpasswort zurück.
@@ -69,6 +77,10 @@ Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Kla
 
 :::warning[Anwenden importiert sofort]
 **Anwenden** speichert die Geräteliste **und importiert sie unmittelbar** in Linuxmuster. Der Dialog **Geräteliste anwenden** fragt dies vorher ab. Im Unterschied zur Benutzerverwaltung gibt es hier keinen vorgeschalteten Prüflauf.
+:::
+
+:::note[Wer darf schreiben?]
+**Speichern** und **Anwenden** stehen nur **Globaladmins** und **Schuladmins** zur Verfügung. Andere Rollen können die Geräteliste einsehen, Zeilen hinzufügen und eine CSV-Datei einlesen, die Liste aber weder speichern noch importieren.
 :::
 
 Vor dem Speichern werden die Einträge validiert. Doppelte Rechnernamen, MAC- oder IP-Adressen werden gemeldet und müssen zuerst bereinigt werden.

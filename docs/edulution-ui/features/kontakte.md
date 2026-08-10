@@ -114,7 +114,15 @@ Während ein Export oder Download vorbereitet wird, erscheint ein kurzer Hinweis
 
 Über das Suchfeld oberhalb der Kontaktliste filtern Sie die Kontakte des aktuell ausgewählten Adressbuchs. Die Suche berücksichtigt **alle Textfelder** eines Kontakts – Name, Organisation, Position, E-Mail-Adressen, Telefonnummern, Adressen, Webseiten, Kategorien und Notizen – und ist nicht von Groß- und Kleinschreibung abhängig.
 
+Ebenso wenig kommt es auf die **Schreibweise von Umlauten und Sonderzeichen** an: `Müller`, `Mueller` und `Muller` finden einander gegenseitig – unabhängig davon, welche der drei Schreibweisen im Kontakt hinterlegt ist und welche Sie eintippen. Das gilt für alle Umlaute und Akzentzeichen, etwa `ß` und `ss`, `é` und `e` oder `Öztürk`, `Oeztuerk` und `Ozturk`. So finden Sie einen Kontakt auch dann, wenn Sie seinen Namen an einer fremden Tastatur ohne Umlaute eingeben.
+
 ![Kontaktliste mit aktivem Suchfilter](/img/kontakte/suche.webp)
+
+:::note[Sehr kurze Suchbegriffe]
+Bei sehr kurzen Eingaben wird die Schreibweise nur so weit vereinfacht, dass die Ergebnisliste aussagekräftig bleibt: Die Eingabe `ue` wird nicht zusätzlich zu `u` verkürzt, weil sonst nahezu jeder Kontakt aufgelistet würde.
+
+Diese Einschränkung betrifft ausschließlich Ihre Eingabe, nicht die Kontakte selbst. Ein kurzer Name wie `Öz` bleibt daher über jede Schreibweise auffindbar – auch über `Oez` und `Oz`.
+:::
 
 :::note
 Die Suche bezieht sich immer nur auf das aktuell ausgewählte Adressbuch, nicht auf alle Adressbücher gleichzeitig.

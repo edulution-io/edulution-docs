@@ -1,6 +1,6 @@
 # MongoDB als Replica Set betreiben
 
-Ab Version 2.2 kann die edulution API auch das Replica Set von MongoDB nutzen.
+Ab Version 2.2 benötigt die edulution API MongoDB als Replica Set.
 Hierbei genügt ein einzelner Knoten und die vorhandenen Daten bleiben erhalten.
 
 :::info[Neuinstallationen]

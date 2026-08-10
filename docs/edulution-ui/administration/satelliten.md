@@ -27,9 +27,9 @@ Nur **akzeptierte** Satelliten erscheinen im Satelliten-Bereich und können dort
 
 ## Satelliten koppeln und verwalten (Einstellungen)
 
-Öffnen Sie als Global-Admin die **Einstellungen** (Zahnrad-Symbol unten im Menü) und wählen Sie in der Seitenleiste **Satellites**. Die Ansicht ist in **Ausstehende**, **Verbundene** und **Abgelehnte Satellites** gegliedert und aktualisiert sich automatisch in regelmäßigen Abständen.
+Öffnen Sie als Global-Admin die **Einstellungen** (Zahnrad-Symbol unten im Menü) und wählen Sie in der Seitenleiste **Satellites**. Unter dem Abschnitt **Verbundene Satellites** werden alle Satelliten – unabhängig von ihrem Status – in einer gemeinsamen Liste angezeigt; jeder Eintrag ist mit seinem aktuellen Status gekennzeichnet. Die Liste aktualisiert sich automatisch in regelmäßigen Abständen.
 
-Solange noch kein Satellit verbunden ist, erscheint der Hinweis, dass sich Satelliten hier eintragen, sobald sie sich bei der edulution-Instanz registrieren.
+Solange noch kein Satellit vorhanden ist, erscheint nur die Schaltfläche zum Hinzufügen.
 
 ### Satellit hinzufügen
 
@@ -45,13 +45,13 @@ Ist die Seriennummer bereits mit einer anderen edulution-Instanz gekoppelt, meld
 
 ### Einen Satelliten genehmigen oder ablehnen
 
-Für jeden Satelliten werden Name, Status, Version, zugewiesene Schule, URL sowie – sofern gemeldet – Hostname, letzter Kontakt, Modell, Seriennummer und MAC-Adressen angezeigt. Je nach Status stehen folgende Aktionen zur Verfügung:
+Für jeden Satelliten werden Name, Status, Version, zugewiesene Schule, URL sowie – sofern gemeldet – Hostname, letzter Kontakt, Modell, Seriennummer und MAC-Adressen angezeigt. Bei akzeptierten Satelliten erscheinen zusätzlich Statusanzeigen der laufenden Dienste (● aktiv / ○ gestoppt). Je nach Status stehen folgende Aktionen zur Verfügung:
 
 | Status | Verfügbare Aktionen |
 |--------|---------------------|
 | Ausstehend | **Akzeptieren**, **Ablehnen**, **Entfernen** |
 | Abgelehnt | **Akzeptieren**, **Entfernen** |
-| Akzeptiert | **Updates prüfen** (wenn online), **Entkoppeln**, **Entfernen**, Schule zuweisen |
+| Akzeptiert | **Updates prüfen** (wenn online), **Entkoppeln** (nur bei zuvor per Seriennummer gekoppelten Geräten), **Entfernen**, Schule zuweisen |
 
 - **Akzeptieren** gibt den Satelliten frei; er erscheint anschließend im Satelliten-Bereich.
 - **Ablehnen** weist die Anfrage ab.

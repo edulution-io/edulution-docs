@@ -298,11 +298,32 @@ Jede Änderung an einer Rolle oder einem Häkchen wird unmittelbar gespeichert; 
 
 Neu hinzugefügte Benutzer und Gruppen erhalten die Voreinstellung **Alles sehen** für öffentliche sowie **Datum & Uhrzeit sehen** für vertrauliche und private Termine, ohne die Rechte zum Hinzufügen und Löschen.
 
+### Freigabe an einen Verteiler
+
+Neben einzelnen Personen geben Sie einen Kalender auch für einen **Verteiler** frei. Angeboten werden ausschließlich Verteiler mit einer E-Mail-Adresse, die in Sophomorix als Maillist gekennzeichnet sind; eine Klasse ohne diese Kennzeichnung taucht in der Suche nicht auf.
+
+Die Treffer der Suche unter **Personen oder Gruppen hinzufügen** werden nach Kategorie gruppiert und stehen unter der Überschrift **Personen**, **Eltern** bzw. **Gruppen**. Verteilen sie sich auf mehrere dieser Kategorien, erscheint darüber eine Reihe von Schaltflächen — **Alle** sowie je eine pro vorhandener Kategorie —, mit denen Sie die Anzeige auf eine einzelne Kategorie beschränken. Eine eigene Überschrift für Klassen oder Projekte gibt es dabei nicht: Beide stehen zusammen mit den übrigen Verteilern unter **Gruppen**.
+
+Die Freigabe wird an **jedes einzelne Mitglied** des Verteilers vergeben. In der Liste **Freigegeben für** steht dafür dennoch nur eine Zeile für den Verteiler; sie nennt anstelle der E-Mail-Adresse die Anzahl der Mitglieder (etwa **Verteiler mit 12 Mitgliedern**), und die Mitglieder selbst erscheinen nicht als eigene Zeilen. Die Rechte vergeben Sie wie bei einer Person; sie gelten dann für alle Mitglieder gleichermaßen.
+
+Entziehen Sie die Freigabe des Verteilers über das Mülleimer-Symbol, verlieren dessen Mitglieder den Zugriff. Zwei Fälle sind davon ausgenommen:
+
+- Mitglieder, die den Kalender zusätzlich über einen **zweiten freigegebenen Verteiler** erhalten, behalten den Zugriff mit den Rechten dieses zweiten Verteilers.
+- Personen, die bereits **vor** der Freigabe des Verteilers eine **eigene Freigabe** besaßen, behalten diese unverändert. Ihre Zeile bleibt in der Liste stehen, ihre Rechte werden nicht durch die des Verteilers ersetzt, und der Zugriff bleibt auch nach dem Entziehen der Verteiler-Freigabe bestehen.
+
+#### Mitgliederänderungen werden beim Öffnen abgeglichen
+
+Tritt jemand dem Verteiler bei oder verlässt ihn, wird der Zugriff **nicht sofort** angepasst. Der Abgleich läuft, sobald Sie den Freigabe-Dialog des betreffenden Kalenders das nächste Mal öffnen. Währenddessen sind die Bedienelemente des Dialogs gesperrt; hat sich etwas geändert, nennt anschließend ein Hinweis je Verteiler, wie viele Mitglieder hinzugefügt und wie viele entfernt wurden.
+
+Daraus folgt: Wer den Verteiler verlässt, behält den Zugriff auf den Kalender so lange, bis Sie den Freigabe-Dialog erneut öffnen. Bei einem Kalender, der einmal freigegeben und danach nicht wieder angefasst wird, kann das beliebig lange dauern. Öffnen Sie den Dialog daher gezielt, wenn sich die Zusammensetzung eines Verteilers geändert hat.
+
 ### Für den Benutzer abonnieren
 
 Eine Freigabe stellt den Kalender **nicht** automatisch in der Kalenderliste des Empfängers bereit. Dafür setzen Sie in der aufgeklappten Zeile zusätzlich das Häkchen **Für den Benutzer abonnieren**. Andernfalls hat die Person zwar Zugriff, muss den Kalender aber selbst einbinden.
 
 Das Häkchen ist nicht auswählbar, solange die Person überhaupt keine Rechte besitzt, und ebenso, sobald der Kalender bereits abonniert ist — ein Abbestellen ist von hier aus nicht möglich, das entscheidet der Empfänger selbst.
+
+Für einen [Verteiler](#freigabe-an-einen-verteiler) steht das Häkchen nicht zur Verfügung; dessen Mitglieder binden den freigegebenen Kalender selbst ein.
 
 ### Alle authentifizierten Benutzer und öffentlicher Zugang
 

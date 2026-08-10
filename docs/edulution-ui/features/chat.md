@@ -20,6 +20,71 @@ Welche Kategorien unter **Konversationen** erscheinen, richtet sich nach Ihrer I
 
 Die verfügbaren Unterhaltungen leiten sich automatisch aus Ihren Gruppenmitgliedschaften ab – jede Klasse, jedes Projekt bzw. jede Gruppe, der Sie angehören, wird zu einer eigenen Gruppenunterhaltung. Wählen Sie eine Unterhaltung aus, um deren Nachrichten zu lesen und über das Eingabefeld am unteren Rand zu antworten.
 
+### Unterhaltungsliste
+
+Die Liste Ihrer Unterhaltungen bietet:
+
+- **Suche** – das Feld „Unterhaltungen durchsuchen…" filtert die Liste
+- **Filter** – die Reiter **Alle** und **Ungelesen**
+- **Vorschau** – jede Zeile zeigt die letzte Nachricht (eigene Nachrichten mit dem Präfix „Du:"), den Zeitpunkt und – bei bearbeiteten Nachrichten – den Hinweis „(bearbeitet)"
+
+Ist noch keine Unterhaltung vorhanden, erscheint „Keine Unterhaltungen". Die zuletzt geöffnete Unterhaltung wird beim nächsten Aufruf automatisch wieder geöffnet.
+
+## Nachrichten schreiben
+
+Wählen Sie links eine Klasse, ein Projekt oder eine Gruppe aus und schreiben Sie in das Eingabefeld „Nachricht schreiben…".
+
+- **Enter** sendet die Nachricht, **Umschalt + Enter** fügt einen Zeilenumbruch ein
+- **Emojis** fügen Sie über die Emoji-Schaltfläche ein (mit Suche)
+- **Markdown** wird in gesendeten Nachrichten dargestellt
+- Eine Nachricht darf bis zu **20.000 Zeichen** lang sein; ein Zeichenzähler zeigt die Länge an und sperrt das Senden bei Überschreitung
+- Leere Nachrichten lassen sich nicht senden
+
+:::note Nur Text und Emojis
+Der Messenger überträgt Text und Emojis. Datei- oder Bildanhänge sind im Chat nicht vorgesehen – nutzen Sie dafür die [Dateiverwaltung](dateien/index.md).
+:::
+
+## Nachrichten bearbeiten und löschen
+
+Über die Nachrichtenaktionen bearbeiten oder löschen Sie **ausschließlich Ihre eigenen** Nachrichten:
+
+- **Kopieren** – bei jeder Nachricht möglich
+- **Bearbeiten** – nur bei eigenen Nachrichten; bearbeitete Nachrichten erhalten den Zusatz „(bearbeitet)"
+- **Löschen** – nur bei eigenen Nachrichten; nach einer Bestätigung wird der Text durch „Diese Nachricht wurde gelöscht" ersetzt
+
+## Lesebestätigungen
+
+An **Ihren eigenen** Nachrichten zeigt ein doppelter Haken den Lesestatus:
+
+- **Grau** – von einem Teil der Empfänger gelesen
+- **Grün** – von allen anderen Teilnehmern gelesen
+
+Ein Tooltip („Gelesen von …") nennt die Personen, die die Nachricht gelesen haben. Eine Unterhaltung wird automatisch als gelesen markiert, sobald Sie sie öffnen.
+
+## Profilbilder
+
+- In den Nachrichten erscheint das **Profilbild** der jeweiligen Person; ohne hinterlegtes Bild werden die Initialen angezeigt.
+- Ihr eigenes Profilbild legen Sie unter [Mein Profil → Profilbild](../benutzer/mein-profil.md#profilbild) fest.
+- In der Kopfzeile einer Unterhaltung sehen Sie die Profilbilder der Mitglieder samt Mitgliederzahl.
+
+## Benachrichtigungen
+
+Bei einer neuen Nachricht erhalten **alle Gruppenmitglieder außer dem Absender** eine [Benachrichtigung](benachrichtigungen.md):
+
+- **Titel** – Name der Gruppe
+- **Absender** – Vor- und Nachname
+- **Inhalt** – Text der Nachricht
+
+Pro Unterhaltung gibt es **eine** Benachrichtigung, die bei jeder neuen Nachricht aktualisiert wird – es entsteht also keine Flut einzelner Meldungen. Sobald Sie die Unterhaltung öffnen und damit als gelesen markieren, wird auch die zugehörige Benachrichtigung entfernt.
+
+## Echtzeit-Aktualisierung
+
+Neue, bearbeitete und gelöschte Nachrichten erscheinen **ohne Neuladen** in Echtzeit. Über „Ältere Nachrichten laden" holen Sie zurückliegende Nachrichten nach; die Schaltfläche „Nach unten scrollen" bringt Sie wieder zur neuesten Nachricht.
+
+:::tip Faire Nutzung
+Zum Schutz vor Überlastung ist die Zahl der Aktionen pro Sekunde begrenzt. Im normalen Gebrauch merken Sie davon nichts; erst sehr schnelles, automatisiertes Senden wird kurzzeitig gebremst.
+:::
+
 ## KI-Chat
 
 Über den Eintrag **KI-Chat** im Bereich **Assistent** stellen Sie Fragen an einen KI-Assistenten. Frühere Unterhaltungen bleiben als **KI-Unterhaltungen** erhalten; über **Neuer Chat** beginnen Sie eine neue Unterhaltung. Steht mehr als ein Modell zur Verfügung, wählen Sie das gewünschte über die Modellauswahl.
@@ -38,3 +103,9 @@ Global-Admins haben unabhängig von der Gruppen-Freigabe immer Zugriff auf den K
 ## Einrichtung (für Administratoren)
 
 Welche Nutzergruppen den KI-Chat verwenden dürfen, legen Sie als Global-Admin in den [Einstellungen der Chat-App](../administration/einstellungen.md#chat-ki-chat) fest. Die Anbindung an einen KI-Dienst richten Sie unter [Administration → KI-Chat konfigurieren](../administration/administration.md#27-ki-chat-konfigurieren) ein.
+
+## Siehe auch
+
+- [Mein Profil → Profilbild](../benutzer/mein-profil.md#profilbild) – Profilbild für den Chat hinterlegen
+- [Benachrichtigungen](benachrichtigungen.md) – Chat-Nachrichten in der Benachrichtigungsleiste
+- [Konferenzen](konferenzen.md) – Audio- und Videokonferenzen

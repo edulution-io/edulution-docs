@@ -228,7 +228,7 @@ Mit dem Fragetyp **Termin** buchen die Teilnehmer einen von Ihnen angebotenen Ze
 Die Terminbuchung greift auf die [Kalender-App](kalender.md) zu. Voraussetzung ist daher, dass sowohl Sie als auch der Teilnehmer über einen beschreibbaren Kalender verfügen.
 
 :::warning[Wo der Fragetyp nicht verfügbar ist]
-Weil für jede Buchung ein echter, einer Person zugeordneter Kalender benötigt wird, lässt sich der Fragetyp **Termin** nicht verwenden, wenn die Umfrage **anonym** oder **öffentlich** ist oder **mehrfache Teilnahmen** erlaubt. Ist eine dieser Optionen beim [Speichern der Umfrage](#umfrage-speichern) gesetzt, wird die Umfrage mit einem entsprechenden Hinweis abgewiesen.
+Weil für jede Buchung ein echter, einer Person zugeordneter Kalender benötigt wird, lässt sich der Fragetyp **Termin** nicht mit einer **anonymen** oder **öffentlichen** Umfrage und nicht mit **mehrfachen Teilnahmen** kombinieren. Sobald eine Umfrage eine Terminfrage enthält, entfallen diese Optionen beim [Speichern der Umfrage](#umfrage-speichern): Die Schalter **Anonym** und **Öffentlich** werden ausgeblendet, die öffentliche Freigabe steht nicht zur Verfügung, und der Hinweis *„Eingeschränkte Freigabeoptionen"* erläutert die Einschränkung.
 :::
 
 #### Termineinstellungen (im Editor)
@@ -255,6 +255,12 @@ Sobald der Teilnehmer die Abgabe speichert, wird der Termin in beiden Kalendern 
 :::info[Keine Doppelbuchung]
 Ein Zeitraum wird für alle anderen als **Belegt** angezeigt, sobald dafür bereits ein Termin im betreffenden Kalender besteht. Dadurch kann dieselbe Zeit nicht doppelt vergeben werden.
 :::
+
+Kann der Termin beim Speichern der Abgabe nicht angelegt werden, erhält der Teilnehmer eine Rückmeldung und wird nicht aus der Umfrage ausgesperrt:
+
+- Wurde der gewählte Zeitraum zwischenzeitlich von jemand anderem belegt, weist eine Meldung darauf hin, dass der Zeitraum nicht mehr verfügbar ist; der Teilnehmer wählt daraufhin einen anderen.
+- Lässt sich der Termin nicht im Kalender speichern, wird der Teilnehmer darüber informiert und kann die Abgabe erneut auslösen.
+- Verfügt der Teilnehmer über keinen beschreibbaren Kalender, kann kein Termin erstellt werden, und eine entsprechende Meldung erscheint.
 
 ### Meinung/Gewichtung
 

@@ -82,6 +82,18 @@ const sidebars: SidebarsConfig = {
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'MongoDB',
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'edulution-ui/upgrade/mongodb/replica-set',
+                  label: 'Replica Set einrichten',
+                },
+              ],
+            },
           ],
         },
         {

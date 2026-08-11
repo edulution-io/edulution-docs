@@ -55,7 +55,11 @@ Solange keine Verknüpfung besteht, erscheint der Hinweis *„Noch keine Zuweisu
 
 Die Freigabe der Anfragen erfolgt in der **Linuxmuster**-App über den Bereich **Elternzuweisung** (*„Eltern-Schüler-Zuweisungen verwalten."*). Die Seite steht Lehrkräften und Administratoren mit Zugriff auf die Linuxmuster-App zur Verfügung.
 
+![Kachel „Elternzuweisung" auf der Übersichtsseite der Linuxmuster-App](/img/eltern-schueler-zuordnung/elternzuweisung-kachel.png)
+
 Sie zeigt die Zuordnungen in einer Tabelle mit folgenden Spalten:
+
+![Tabelle der Eltern-Schüler-Zuweisungen mit Spalten Elternteil, Schüler, Status und Erstellt am](/img/eltern-schueler-zuordnung/elternzuweisung-tabelle.png)
 
 | Spalte | Inhalt |
 | --- | --- |
@@ -76,6 +80,8 @@ Sie zeigt die Zuordnungen in einer Tabelle mit folgenden Spalten:
 - Über das **Suchfeld** filtern Sie die Tabelle nach Elternteil oder Schüler (*„Nach Elternteil oder Schüler suchen…"*).
 - Ein **Status-Filter** blendet gezielt *Alle*, *Ausstehend*, *Akzeptiert* oder *Abgelehnt* ein. Standardmäßig sind die **ausstehenden** Anfragen vorausgewählt.
 - Super-Administratoren steht zusätzlich eine **Schulauswahl** zur Verfügung, um Anfragen schulübergreifend zu bearbeiten.
+
+![Geöffneter Status-Filter mit den Optionen Alle, Ausstehend, Akzeptiert und Abgelehnt](/img/eltern-schueler-zuordnung/elternzuweisung-filter.png)
 
 ## Ablauf im Überblick
 

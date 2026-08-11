@@ -74,6 +74,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/features/dashboard',
             'edulution-ui/features/dateien',
             'edulution-ui/features/klassenzimmer',
+            'edulution-ui/features/geraeteverwaltung',
             'edulution-ui/features/konferenzen',
             'edulution-ui/features/whiteboard',
             'edulution-ui/features/app-store',

@@ -125,6 +125,10 @@ const config: Config = {
               to: '/docs/category/edulution-app',
             },
             {
+              label: 'edulution Satellite',
+              to: '/docs/edulution-satellite/',
+            },
+            {
               label: 'edulution OnlyOffice',
               to: '/docs/category/edulution-onlyoffice',
             },

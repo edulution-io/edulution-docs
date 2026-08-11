@@ -53,7 +53,7 @@ Administratoren sehen über den gemeinsamen Admin-Zugang **alle** Geräte, Apps 
 
 ## Übersicht
 
-{/* ![MDM Übersicht](/img/features/mdm-overview.png) */}
+![MDM Übersicht](/img/features/mdm-overview.png)
 
 Die Übersicht bündelt die wichtigsten Kennzahlen Ihrer Geräteflotte in Kacheln:
 
@@ -76,7 +76,7 @@ Der Bereich **Geräte** ist in zwei Unterreiter gegliedert: **Inventar** und **E
 
 ### Inventar
 
-{/* ![Geräte-Inventar](/img/features/mdm-devices.png) */}
+![Geräte-Inventar](/img/features/mdm-devices.png)
 
 Das Inventar listet alle aktuell in Relution eingebuchten Geräte:
 
@@ -119,7 +119,7 @@ Nach dem Auslösen erscheint eine Bestätigung, z. B. *„Aktion an 3 Geräte ge
 
 ### Gerät einschreiben (BYOD)
 
-{/* ![Gerät einschreiben](/img/features/mdm-enroll.png) */}
+![Gerät einschreiben](/img/features/mdm-enroll.png)
 
 Über die Schaltfläche **Gerät einschreiben** starten Sie die Einbuchung eines neuen Geräts. Im Dialog legen Sie fest:
 
@@ -136,7 +136,7 @@ Nach **Einschreibung erzeugen** erhalten Sie einen **Passcode** und einen **Enro
 
 ### Einschreibungen
 
-{/* ![Einschreibungen](/img/features/mdm-enrollments.png) */}
+![Einschreibungen](/img/features/mdm-enrollments.png)
 
 Der Reiter **Einschreibungen** zeigt alle offenen Geräteeinschreibungen, die noch nicht gekoppelt wurden:
 
@@ -153,7 +153,7 @@ Sie können nach dem Status filtern und ausgewählte Einschreibungen über **Aus
 
 ## Apps
 
-{/* ![MDM Apps](/img/features/mdm-apps.png) */}
+![MDM Apps](/img/features/mdm-apps.png)
 
 Der Bereich **Apps** listet alle Anwendungen, die zur Verteilung über Relution freigegeben sind:
 
@@ -169,7 +169,7 @@ Der Bereich **Apps** listet alle Anwendungen, die zur Verteilung über Relution 
 
 ## Benutzer
 
-{/* ![MDM Benutzer](/img/features/mdm-users.png) */}
+![MDM Benutzer](/img/features/mdm-users.png)
 
 :::caution[Nur für Administratoren]
 Der Bereich **Benutzer** ist ausschließlich für Global-/Schuladministratoren zugänglich.

@@ -112,6 +112,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/features/kontakte',
             'edulution-ui/features/kalender',
             'edulution-ui/features/klassenzimmer',
+            'edulution-ui/features/mdm',
             'edulution-ui/features/konferenzen',
             'edulution-ui/features/whiteboard',
             'edulution-ui/features/wiki',

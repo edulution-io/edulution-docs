@@ -15,6 +15,11 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
+  // Enable Mermaid diagrams in Markdown
+  markdown: {
+    mermaid: true,
+  },
+
   // Set the production url of your site here
   url: 'https://docs.edulution.io',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -58,6 +63,7 @@ const config: Config = {
   ],
 
   themes: [
+    '@docusaurus/theme-mermaid',
     [
       '@easyops-cn/docusaurus-search-local',
       {

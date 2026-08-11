@@ -252,6 +252,93 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'edulution Moodle',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'edulution-moodle/index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Installation',
+          collapsed: false,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/voraussetzungen',
+              label: 'Voraussetzungen',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/schnellstart',
+              label: 'Schnellstart',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/detailliert',
+              label: 'Detaillierte Installation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/migration',
+              label: 'Migration',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Konfiguration',
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/umgebungsvariablen',
+              label: 'Umgebungsvariablen',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/synchronisation',
+              label: 'Synchronisation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/namensschemas',
+              label: 'Gruppen-Namensschemas',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/cookie-auth',
+              label: 'Cookie Auth (SSO)',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/plugins',
+              label: 'Plugin-Verwaltung',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Administration',
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-moodle/administration/admin-ui',
+              label: 'Admin-Oberfläche',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/administration/backup',
+              label: 'Backup & Wiederherstellung',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'edulution FileProxy',
       collapsed: false,
       link: {
@@ -319,6 +406,48 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'edulution-onlyoffice/index',
           label: '📱 Installation',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Anbindungen',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'anbindungen/index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Nextcloud Cookie Auth',
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'anbindungen/nextcloud',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'anbindungen/voraussetzungen',
+              label: 'Voraussetzungen',
+            },
+            {
+              type: 'doc',
+              id: 'anbindungen/installation',
+              label: 'Installation',
+            },
+            {
+              type: 'doc',
+              id: 'anbindungen/konfiguration',
+              label: 'Konfiguration',
+            },
+            {
+              type: 'doc',
+              id: 'anbindungen/troubleshooting',
+              label: 'Troubleshooting',
+            },
+          ],
         },
       ],
     },

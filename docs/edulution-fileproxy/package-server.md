@@ -17,7 +17,7 @@ curl -fsSL https://package.edulution.io/pub.gpg | sudo gpg --dearmor -o /usr/sha
 ### 2. Repository hinzufügen
 
 ```bash
-echo "deb [signed-by=/usr/share/keyrings/edulution.gpg] https://package.edulution.io/ nobel main" | sudo tee /etc/apt/sources.list.d/edulution.list
+echo "deb [signed-by=/usr/share/keyrings/edulution.gpg] https://package.edulution.io/ noble main" | sudo tee /etc/apt/sources.list.d/edulution.list
 ```
 
 ### 3. Paketliste aktualisieren

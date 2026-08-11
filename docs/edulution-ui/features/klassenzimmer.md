@@ -2,7 +2,7 @@
 
 Der Klassenraum ist das zentrale Tool für Lehrer zur Unterrichtsverwaltung. Hier können Sie Unterricht starten, Schüler überwachen und Projekte verwalten.
 
-:::info Linuxmuster Integration
+:::info[Linuxmuster Integration]
 Der Klassenraum nutzt die Linuxmuster-Funktionen für Klassenverwaltung und Projekte (Sophomorix). Mehr Informationen: [Linuxmuster Dokumentation](https://docs.linuxmuster.net/de/latest/systemadministration/schoolconsole/)
 :::
 
@@ -51,6 +51,45 @@ Pro Schüler verfügbar:
 
 **Alle auswählen** - Für Massenaktionen
 
+### Ablauf einer Aktion
+
+Solange eine Aktion läuft, ersetzt ein Ladekreis das Icon der ausgelösten Funktion. Die übrigen Schalter derselben Karte sind währenddessen gesperrt, bleiben aber in ihrer Farbe lesbar, sodass Sie den aktuellen Zustand des Schülers weiterhin ablesen können.
+
+Nach Abschluss der Aktion lädt edulution den Stand des Schülers neu und die Karte zeigt den neuen Zustand. Schlägt die Aktion fehl, verschwindet der Ladekreis ebenfalls und die Karte bleibt bedienbar.
+
+Bei einer Massenaktion über die Aktionsleiste schließt sich der Dialog sofort nach der Bestätigung, und die Aktion läuft im Hintergrund weiter. Der Ladekreis erscheint dabei auf allen ausgewählten Schülerkarten; anschließend werden alle ausgewählten Karten aktualisiert.
+
+### Bildschirmüberwachung (Veyon)
+
+Ist ein Veyon-Proxy hinterlegt, zeigt jede Schülerkarte automatisch eine kleine Live-Vorschau des Schülerbildschirms — Sie müssen die Überwachung nicht eigens starten. Über das Symbol zum Vergrößern öffnen Sie die Vorschau in einem eigenen Fenster, das häufiger aktualisiert wird.
+
+Über das Augen-Symbol auf der Schülerkarte erreichen Sie die Veyon-Aktionen:
+
+- **Bildschirm sperren** / **Bildschirm entsperren**
+- **Eingabe sperren** / **Eingabe entsperren** - sperrt Tastatur und Maus; bei gesperrter Eingabe erscheint ein rotes Tastatursymbol auf der Vorschau
+- **System neu starten**
+- **System herunterfahren**
+
+Die Aktionen stehen erst zur Verfügung, sobald die Verbindung zum Gerät aufgebaut ist.
+
+:::info[Anmeldung mit Ihrem Lehrer-Passwort]
+Für die Verbindung zu einem Schüler-Gerät meldet sich edulution mit **Ihren eigenen Zugangsdaten** an der Veyon-WebAPI an. Sie sehen deshalb nur die Geräte der Schüler, für die Sie zuständig sind.
+:::
+
+Bleibt die Vorschau bei allen Schülern leer, ist in der Regel kein Veyon-Proxy konfiguriert — eine Karte ohne Vorschau sieht genauso aus wie ein ausgeschaltetes Gerät. Wenden Sie sich in diesem Fall an Ihren Administrator.
+
+### Eingesammelte Dateien öffnen
+
+Nachdem Sie im Unterricht Dateien Ihrer Schüler eingesammelt haben, zeigt edulution die eingesammelten Dateien in einem Dialog an. Über die Schaltfläche im Dialog öffnen Sie den zugehörigen Ordner direkt in der [Dateiverwaltung](dateien/index.md).
+
+:::info[Zugriff auf die Dateien-App erforderlich]
+Die Schaltfläche zum Öffnen der eingesammelten Dateien in der Dateiverwaltung erscheint nur, wenn Sie Zugriff auf die Dateien-App haben. Ohne diesen Zugriff werden die eingesammelten Dateien weiterhin im Dialog angezeigt, lassen sich aber nicht direkt in der Dateiverwaltung öffnen. Welche Benutzer Zugriff auf die App haben, legen Administratoren über die Zugriffsgruppen der Dateien-App fest.
+:::
+
+## Einrichtung (für Administratoren)
+
+Die Bildschirmüberwachung setzt einen konfigurierten Veyon-WebAPI-Proxy voraus. Die Proxy-Adresse wird in den Einstellungen der Klassenraum-App hinterlegt und muss `https` verwenden: [Einstellungen → Klassenraum (Veyon-Proxy)](../administration/einstellungen.md#klassenraum-veyon-proxy).
+
 ## Einschreiben
 
 ![Einschreiben](/img/klassenraum/einschreiben.png)
@@ -71,7 +110,7 @@ Alle Projekte mit:
 - Admin- und Benutzer-Anzahl
 - 🔒 Private Projekte mit Schloss-Symbol
 
-:::tip Projekte nutzen
+:::tip[Projekte nutzen]
 Projekte sind ideal für:
 - Oberstufenkurse
 - AGs und Arbeitsgruppen
@@ -103,7 +142,7 @@ Drucken Sie Zugangsdaten für Klassen aus.
 - 📄 **Einzeldatei** - Nur diese Klasse
 - 📋 **Sammeldatei** - Mehrere Klassen zusammen
 
-:::tip Verwendung
+:::tip[Verwendung]
 Nützlich für:
 - Schuljahresbeginn (neue Schüler)
 - Nach Passwort-Reset
@@ -127,4 +166,5 @@ Nützlich für:
 ## Siehe auch
 
 - [Dashboard](dashboard.md) - Klassenübersicht
+- [Einstellungen → Klassenraum (Veyon-Proxy)](../administration/einstellungen.md#klassenraum-veyon-proxy) - Bildschirmüberwachung einrichten
 - [Linuxmuster verbinden](../configure-lmn-server/configure_lmn-server.md)

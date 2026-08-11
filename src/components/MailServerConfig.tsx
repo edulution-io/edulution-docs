@@ -13,7 +13,7 @@ interface ServerConfig {
 }
 
 // Helper component for copyable code values
-function CopyableCode({ value }: { value: string | number }): JSX.Element {
+function CopyableCode({ value }: { value: string | number }): React.JSX.Element {
   const handleCopy = () => {
     if (typeof window !== 'undefined' && navigator.clipboard) {
       navigator.clipboard.writeText(String(value));
@@ -34,13 +34,27 @@ function CopyableCode({ value }: { value: string | number }): JSX.Element {
           display: 'inline-flex',
           alignItems: 'center',
           opacity: 0.5,
-          transition: 'opacity 0.2s'
+          transition: 'opacity 0.2s',
         }}
-        onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-        onMouseLeave={(e) => e.currentTarget.style.opacity = '0.5'}
+        onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
+        onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.5')}
       >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <rect
+            x="9"
+            y="9"
+            width="13"
+            height="13"
+            rx="2"
+            ry="2"
+          ></rect>
           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
         </svg>
       </button>
@@ -48,7 +62,7 @@ function CopyableCode({ value }: { value: string | number }): JSX.Element {
   );
 }
 
-export default function MailServerConfig(): JSX.Element {
+export default function MailServerConfig(): React.JSX.Element {
   const mailConfigContext = useMailConfig();
 
   const [domain, setDomain] = useState<string>('');
@@ -239,7 +253,6 @@ export default function MailServerConfig(): JSX.Element {
     URL.revokeObjectURL(url);
   };
 
-
   const extractDomain = (input: string): string => {
     // Remove protocol
     let cleaned = input.replace(/^https?:\/\//, '');
@@ -316,7 +329,10 @@ export default function MailServerConfig(): JSX.Element {
   return (
     <div className={styles.container}>
       <div className={styles.inputGroup}>
-        <label htmlFor="email-input" className={styles.label}>
+        <label
+          htmlFor="email-input"
+          className={styles.label}
+        >
           Ihre E-Mail-Adresse (optional):
         </label>
         <input
@@ -333,7 +349,10 @@ export default function MailServerConfig(): JSX.Element {
       </div>
 
       <div className={styles.inputGroup}>
-        <label htmlFor="domain-input" className={styles.label}>
+        <label
+          htmlFor="domain-input"
+          className={styles.label}
+        >
           Ihre edulution Domain:
         </label>
         <input
@@ -457,31 +476,40 @@ export default function MailServerConfig(): JSX.Element {
                   🍎 Apple Profil herunterladen (.mobileconfig)
                 </button>
                 <p className={styles.downloadInfo}>
-                  <strong>Für:</strong> iPhone, iPad, Mac<br/>
+                  <strong>Für:</strong> iPhone, iPad, Mac
+                  <br />
                   <strong>Enthält:</strong> E-Mail (IMAP/SMTP), Kalender (CalDAV), Kontakte (CardDAV)
                 </p>
                 <details className={styles.importDetails}>
                   <summary className={styles.importSummary}>Wie installiere ich das Profil?</summary>
                   <div className={styles.importContent}>
-                    <p><strong>iPhone / iPad:</strong></p>
+                    <p>
+                      <strong>iPhone / iPad:</strong>
+                    </p>
                     <ol>
                       <li>Datei öffnen (z.B. per AirDrop oder Mail)</li>
                       <li>"Profil installieren" antippen</li>
                       <li>Geräte-Code eingeben</li>
-                      <li>Ihr E-Mail-<strong>Passwort</strong> eingeben wenn gefragt</li>
+                      <li>
+                        Ihr E-Mail-<strong>Passwort</strong> eingeben wenn gefragt
+                      </li>
                       <li>"Installieren" antippen</li>
                     </ol>
-                    <p><strong>Mac:</strong></p>
+                    <p>
+                      <strong>Mac:</strong>
+                    </p>
                     <ol>
                       <li>Datei doppelklicken</li>
                       <li>Systemeinstellungen öffnen sich automatisch</li>
                       <li>Zu "Profile" gehen</li>
-                      <li>Ihr E-Mail-<strong>Passwort</strong> eingeben wenn gefragt</li>
+                      <li>
+                        Ihr E-Mail-<strong>Passwort</strong> eingeben wenn gefragt
+                      </li>
                       <li>"Installieren" klicken</li>
                     </ol>
                     <p className={styles.warning}>
-                      ⚠️ <strong>Wichtig:</strong> Sie müssen beim ersten Start Ihr E-Mail-Passwort eingeben.
-                      Das Profil enthält KEIN Passwort - nur die Server-Einstellungen.
+                      ⚠️ <strong>Wichtig:</strong> Sie müssen beim ersten Start Ihr E-Mail-Passwort eingeben. Das Profil
+                      enthält KEIN Passwort - nur die Server-Einstellungen.
                     </p>
                   </div>
                 </details>
@@ -492,10 +520,15 @@ export default function MailServerConfig(): JSX.Element {
               </p>
             )}
 
-            <details className={styles.importDetails} style={{marginTop: '1rem'}}>
+            <details
+              className={styles.importDetails}
+              style={{ marginTop: '1rem' }}
+            >
               <summary className={styles.importSummary}>Automatische Konfiguration (ohne Download)</summary>
               <div className={styles.importContent}>
-                <p><strong>Thunderbird / Apple Mail (Desktop):</strong></p>
+                <p>
+                  <strong>Thunderbird / Apple Mail (Desktop):</strong>
+                </p>
                 <ul>
                   <li>Geben Sie einfach Ihre E-Mail-Adresse und Passwort ein</li>
                   <li>Der Client erkennt die Server-Einstellungen automatisch</li>

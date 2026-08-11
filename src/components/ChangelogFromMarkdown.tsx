@@ -143,7 +143,6 @@ function parseEntryContent(
                     alt: imgMatch[1] || title
                 });
             }
-            descriptionEnded = true;
             i++;
             continue;
         }

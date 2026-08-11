@@ -9,8 +9,6 @@ Die Seitenleiste der Chat-App ist in zwei Bereiche gegliedert:
 - **Konversationen** – die Gruppenunterhaltungen, die sich aus Ihren Gruppen ergeben.
 - **Assistent** – der Eintrag **KI-Chat**. Dieser Bereich erscheint nur, wenn Sie Zugriff auf den KI-Chat haben (siehe [KI-Chat](#ki-chat)).
 
-![Seitenleiste der Chat-App mit den Bereichen Konversationen und Assistent](/img/chat/01-seitenleiste-aufbau.png)
-
 Neben einer Konversation mit ungelesenen Nachrichten wird die Anzahl der ungelesenen Nachrichten als Zähler angezeigt.
 
 ## Konversationen
@@ -42,18 +40,10 @@ Ist noch keine Unterhaltung vorhanden, erscheint „Keine Unterhaltungen". Die z
 
 Wählen Sie links eine Klasse, ein Projekt oder eine Gruppe aus und schreiben Sie in das Eingabefeld „Nachricht schreiben…".
 
-![Eingabefeld „Nachricht schreiben…" am unteren Rand der Unterhaltung](/img/chat/04-nachricht-eingabefeld.png)
-
 - **Enter** sendet die Nachricht, **Umschalt + Enter** fügt einen Zeilenumbruch ein
 - **Emojis** fügen Sie über die Emoji-Schaltfläche ein (mit Suche)
-
-  ![Emoji-Schaltfläche links neben dem Eingabefeld](/img/chat/05-emoji-schaltflaeche.png)
-
 - **Markdown** wird in gesendeten Nachrichten dargestellt
 - Eine Nachricht darf bis zu **20.000 Zeichen** lang sein; ein Zeichenzähler zeigt die Länge an und sperrt das Senden bei Überschreitung
-
-  ![Zeichenzähler unter dem Eingabefeld](/img/chat/06-zeichenzaehler.png)
-
 - Leere Nachrichten lassen sich nicht senden
 
 :::note Nur Text und Emojis
@@ -83,15 +73,11 @@ An **Ihren eigenen** Nachrichten zeigt ein doppelter Haken den Lesestatus:
 
 Ein Tooltip („Gelesen von …") nennt die Personen, die die Nachricht gelesen haben. Eine Unterhaltung wird automatisch als gelesen markiert, sobald Sie sie öffnen.
 
-![Doppelter Haken als Lesestatus an einer eigenen Nachricht](/img/chat/08-lesebestaetigung.png)
-
 ## Profilbilder
 
 - In den Nachrichten erscheint das **Profilbild** der jeweiligen Person; ohne hinterlegtes Bild werden die Initialen angezeigt.
 - Ihr eigenes Profilbild legen Sie unter [Mein Profil → Profilbild](../benutzer/mein-profil.md#profilbild) fest.
 - In der Kopfzeile einer Unterhaltung sehen Sie die Profilbilder der Mitglieder samt Mitgliederzahl.
-
-![Profilbilder der Mitglieder und Mitgliederzahl in der Kopfzeile](/img/chat/07-kopfzeile-mitglieder.png)
 
 ## Benachrichtigungen
 
@@ -118,9 +104,6 @@ Zum Schutz vor Überlastung ist die Zahl der Aktionen pro Sekunde begrenzt. Im n
 ![Eintrag „KI-Chat" im Bereich Assistent der Seitenleiste](/img/chat/11-ki-chat-eintrag.png)
 
 Frühere Unterhaltungen bleiben als **KI-Unterhaltungen** erhalten.
-
-![Liste der gespeicherten KI-Unterhaltungen](/img/chat/13-ki-chat-unterhaltungen.png)
-
 Über **Neuer Chat** beginnen Sie eine neue Unterhaltung.
 
 ![Schaltfläche „Neuer Chat" oben rechts im KI-Chat](/img/chat/12-ki-chat-neuer-chat.png)

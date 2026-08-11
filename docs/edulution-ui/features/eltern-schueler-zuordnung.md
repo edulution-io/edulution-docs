@@ -20,6 +20,8 @@ Die Selbstbedienungsseite finden Sie in den **Benutzereinstellungen**. Sie heiß
 
 Die Seite gliedert sich in drei aufklappbare Bereiche.
 
+![Die Seite „Meine Kinder" mit den Bereichen Zuweisungs-Code, Code eingeben und Zuweisungen (Beispiel aus der Elternansicht)](/img/eltern-schueler-zuordnung/meine-kinder-uebersicht.png)
+
 ### Mein Zuweisungs-Code
 
 Hier finden Sie Ihren persönlichen **Zuweisungs-Code** als Text sowie als **QR-Code**. Über das Kopiersymbol übernehmen Sie den Code in die Zwischenablage.
@@ -27,7 +29,9 @@ Hier finden Sie Ihren persönlichen **Zuweisungs-Code** als Text sowie als **QR-
 - Schüler teilen den Code mit ihrem Elternteil, Eltern teilen ihn mit ihrem Kind.
 - Der Code ist **5 Minuten** gültig. Nach Ablauf muss ein neuer Code erzeugt werden.
 
-Über die Schaltfläche **Neu generieren** (unten auf der Seite) erzeugen Sie jederzeit einen neuen Code; der vorherige verliert damit seine Gültigkeit. Eine Rückmeldung bestätigt: *„Neuer Zuweisungs-Code generiert."*
+Über die Schaltfläche **Neu generieren** (oben rechts) erzeugen Sie jederzeit einen neuen Code; der vorherige verliert damit seine Gültigkeit. Eine Rückmeldung bestätigt: *„Neuer Zuweisungs-Code generiert."*
+
+![Schaltfläche „Neu generieren" zum Erzeugen eines neuen Zuweisungs-Codes](/img/eltern-schueler-zuordnung/meine-kinder-neu-generieren.png)
 
 :::info[Verknüpfung auch von beiden Seiten möglich]
 Es ist unerheblich, wer beginnt: Entweder gibt das Elternteil den Code des Kindes ein – oder das Kind den Code des Elternteils. Das Ergebnis ist dieselbe Zuordnung.
@@ -36,6 +40,8 @@ Es ist unerheblich, wer beginnt: Entweder gibt das Elternteil den Code des Kinde
 ### Code eingeben
 
 Im Bereich **Code eingeben** tragen Sie den Code ein, den Sie von der anderen Person erhalten haben, und bestätigen mit **Zuweisen**. Bei Erfolg erscheint der Hinweis *„Zuweisungsanfrage erfolgreich gesendet!"*, und die Anfrage wird zur Freigabe an die Administration übergeben.
+
+![Bereich „Code eingeben" mit eingetragenem Zuweisungs-Code und der Schaltfläche „Zuweisen"](/img/eltern-schueler-zuordnung/meine-kinder-code-eingeben.png)
 
 Ist der eingegebene Code bereits abgelaufen, erscheint stattdessen der Hinweis *„Der Code ist abgelaufen. Bitte einen neuen Code anfordern."*. Lassen Sie sich in diesem Fall von der anderen Person einen neuen Code geben.
 

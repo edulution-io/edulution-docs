@@ -36,7 +36,7 @@ Bleib immer informiert! Die App benachrichtigt dich automatisch über:
 
 ## Datenschutz und rechtliche Hinweise
 
-:::info Wichtig für Schulen und Organisationen
+:::info[Wichtig für Schulen und Organisationen]
 Die edulution.io App nutzt Push-Benachrichtigungen über Apple Push Notification Service (APNs). Die **Datenschutzerklärung von edulution.io** bezieht sich ausschließlich auf die Verarbeitung von Daten im Zusammenhang mit diesen Push-Benachrichtigungen.
 
 **Wir empfehlen dringend**, dass Ihre Schule oder Organisation eine **eigene Datenschutzerklärung** in der edulution-Plattform hinterlegt, die alle genutzten Dienste und Funktionen abdeckt.

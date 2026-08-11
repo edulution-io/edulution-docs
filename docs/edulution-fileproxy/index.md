@@ -50,7 +50,7 @@ Die Installation erfolgt in 4 Schritten:
 - Zugriff auf SMB-Server (Port 445)
 - Edulution UI mit Traefik
 
-:::tip Installation auf dem Fileserver
+:::tip[Installation auf dem Fileserver]
 FileProxy sollte auf dem **gleichen Host wie der Fileserver** installiert werden. Dies bietet:
 - **Optimale Performance** - Direkter Zugriff auf SMB-Shares
 - **Einfache Verwaltung** - Alles an einem Ort

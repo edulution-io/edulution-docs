@@ -12,20 +12,28 @@ Diese Seite beschreibt die grundlegende Administration der edulution Mail Lösun
 ## Mailcow Administrationsoberfläche
 
 Die Mailcow Administrationsoberfläche ist ein leistungsstarkes Tool zur
-Verwaltung Ihrer E-Mail-Dienste. Sie ist standardmäßig über Port `8443`
-erreichbar.
+Verwaltung Ihrer E-Mail-Dienste. Sie lauscht auf Port `8443`, dabei
+ausschließlich auf der Loopback-Adresse des Servers (`127.0.0.1`).
 
 **Zugriff auf die Oberfläche:**
 
-Sie erreichen die Mailcow UI über die IP-Adresse oder den Hostnamen
-Ihres Servers, gefolgt vom Port `:8443`.
+Der Zugriff erfolgt über einen SSH-Tunnel. Bauen Sie diesen von Ihrem
+Arbeitsplatzrechner aus auf:
 
-:::warning
-Es wird dringend empfohlen, den Zugriff auf die Mailcow
-Administrationsoberfläche auf interne Netzwerke zu beschränken, da sie
-sensible Verwaltungsfunktionen bietet. Sollte der Port öffentlich
-zugänglich sein, ist es unerlässlich, das Standardpasswort sofort zu
-ändern.
+```bash
+ssh -L 8443:127.0.0.1:8443 <benutzer>@<ihre-server-ip>
+```
+
+Solange die SSH-Verbindung besteht, erreichen Sie die Mailcow UI im
+Browser unter `https://localhost:8443`.
+
+:::warning[Ältere Versionen aktualisieren]
+Die Bindung an `127.0.0.1` gilt ab **edulution-mail v1.3.2**. Ältere
+Installationen binden Port 8443 an alle Netzwerkschnittstellen —
+aktualisieren Sie edulution-mail, siehe
+[Changelog & Config-Anpassungen](/docs/edulution-mail/changelog-config-anpassungen).
+Bis dahin gehören Port 8443 in der Firewall gesperrt und das
+Standardpasswort geändert.
 :::
 
 **Standard-Zugangsdaten (nach der Installation):**
@@ -48,7 +56,7 @@ zugänglich sein, ist es unerlässlich, das Standardpasswort sofort zu
 - **Spam- und Antivirus-Einstellungen:** Anpassung der Schutzmechanismen
 - **Systemstatus:** Überwachung der Mailserver-Leistung und -Gesundheit
 
-## Webmail (SOGo) {#webmail-sogo}
+## Webmail (SOGo)
 
 Das Webmail-Interface basiert auf SOGo und ist über `https://mail.ihre-domain.de/SOGo` erreichbar.
 
@@ -115,7 +123,7 @@ SOFT_DELETE_ENABLED=1  # 1=aktiviert, 0=deaktiviert
 SOFT_DELETE_GRACE_PERIOD=2592000
 ```
 
-:::tip Empfehlung
+:::tip[Empfehlung]
 Lassen Sie das Soft Delete Feature aktiviert, um sich vor versehentlichem Datenverlust zu schützen. Die 30-tägige Kulanzfrist gibt genug Zeit, um Fehler zu korrigieren.
 :::
 
@@ -136,7 +144,7 @@ Die wichtigsten Umgebungsvariablen für die Konfiguration:
 | `SOFT_DELETE_GRACE_PERIOD` | 2592000 | Kulanzfrist in Sekunden (30 Tage) |
 | `MAILCOW_TZ` | Europe/Berlin | Zeitzone für Mailcow |
 
-:::info Vollständige Liste
+:::info[Vollständige Liste]
 Eine vollständige Liste aller Umgebungsvariablen finden Sie im [edulution-mail Repository](https://github.com/edulution-io/edulution-mail#environment-variables).
 :::
 
@@ -157,7 +165,7 @@ Eine Override-Konfiguration ist besonders hilfreich für:
 - **Domain-Quota anpassen** - Falls die Gesamtgröße für die E-Mail-Domain erhöht werden muss.
 - **Fallback-Quota für Benutzer** - Wenn in linuxmuster keine individuellen Mail-Quotas gesetzt sind, wird `DEFAULT_USER_QUOTA` als Fallback verwendet.
 
-:::info Automatische Quota-Übernahme
+:::info[Automatische Quota-Übernahme]
 Benutzer-Quotas werden automatisch aus linuxmuster (`sophomorixMailQuotaCalculated`) übernommen. `DEFAULT_USER_QUOTA` wird nur verwendet, wenn in linuxmuster kein Quota gesetzt ist.
 :::
 
@@ -201,7 +209,7 @@ rm /srv/docker/edulution-mail/DISABLE_SYNC
 
 Die Synchronisation prüft bei jedem Durchlauf (siehe `SYNC_INTERVAL`), ob die Datei `DISABLE_SYNC` existiert und überspringt den Sync in diesem Fall.
 
-:::warning Wichtig
+:::warning[Wichtig]
 Vergessen Sie nicht, die Datei nach Abschluss der Wartungsarbeiten zu löschen, damit die Synchronisation wieder aufgenommen wird!
 :::
 
@@ -233,3 +241,4 @@ Die folgenden Themen sind in separaten Dokumenten verfügbar:
 - [Mail-Migration für Benutzer](user_mail_migration) - Eigene E-Mails migrieren
 - [Verteilerlisten](verteilerlisten) - Projekt-basierte E-Mail-Verteiler
 - [Benutzer-Mailformate anpassen](benutzer_mailformate) - E-Mail-Adressen-Schema konfigurieren
+- [Automatische Antwort](auto-reply) - Abwesenheitsnotiz für eigene und freigegebene Postfächer (inkl. ManageSieve-Master-Benutzer)

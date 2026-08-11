@@ -12,12 +12,7 @@ const config: Config = {
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
-  },
-
-  // Enable Mermaid diagrams in Markdown
-  markdown: {
-    mermaid: true,
+    v4: true,
   },
 
   // Set the production url of your site here
@@ -42,6 +37,10 @@ const config: Config = {
   },
 
   plugins: ['./src/plugins/tailwind-config.js'],
+
+  markdown: {
+    mermaid: true,
+  },
 
   presets: [
     [
@@ -128,6 +127,14 @@ const config: Config = {
             {
               label: 'edulution OnlyOffice',
               to: '/docs/category/edulution-onlyoffice',
+            },
+            {
+              label: 'edulution EuroOffice',
+              to: '/docs/category/edulution-eurooffice',
+            },
+            {
+              label: 'edulution Collabora',
+              to: '/docs/category/edulution-collabora',
             },
           ],
         },

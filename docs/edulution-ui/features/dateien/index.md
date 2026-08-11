@@ -2,8 +2,6 @@
 
 Die Dateiverwaltung funktioniert wie ein klassischer Datei-Explorer mit allen wichtigen Funktionen für den Schulalltag.
 
-![Dateien Übersicht](/img/dateien/dateien-overview.png)
-
 ## Navigation
 
 ### Pfad (Breadcrumb)
@@ -20,8 +18,6 @@ Am oberen Rand sehen Sie den aktuellen Pfad: `Home > agy > teachers > agy-netzin
 
 ## Dateien hochladen
 
-![Dateien hochladen](/img/dateien/dateien-upload.png)
-
 Klicken Sie auf **Hochladen** (unten):
 - Dateien per Drag & Drop in den Bereich ziehen
 - Oder **Dateien hinzufügen** klicken
@@ -29,15 +25,11 @@ Klicken Sie auf **Hochladen** (unten):
 
 ## Ordner erstellen
 
-![Ordner erstellen](/img/dateien/dateien-ordner-erstellen.png)
-
 Klicken Sie auf **Ordner erstellen** (unten):
 1. Geben Sie einen Namen ein
 2. Klicken Sie auf **Erstellen**
 
 ## Neue Dateien erstellen
-
-![Neue Datei erstellen](/img/dateien/dateien-neu-erstellen.png)
 
 Klicken Sie auf **Datei erstellen** (unten) und wählen Sie:
 - 📊 **Neue Draw.io-Datei** - Diagramme zeichnen
@@ -47,8 +39,6 @@ Klicken Sie auf **Datei erstellen** (unten) und wählen Sie:
 - 📙 **Neue Präsentation** - PowerPoint (OnlyOffice)
 
 ## Aktionen mit Dateien
-
-![Datei-Aktionen](/img/dateien/dateien-aktionen.png)
 
 Wenn Sie eine Datei auswählen (Checkbox), erscheinen folgende Aktionen:
 
@@ -68,7 +58,7 @@ Beim Teilen können Sie festlegen:
 
 ## Wichtige Hinweise
 
-### Dateigröße {#dateigröße}
+### Dateigröße
 
 Die maximale Upload-Größe hängt davon ab, ob FileProxy eingerichtet ist:
 

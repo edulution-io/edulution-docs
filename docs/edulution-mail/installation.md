@@ -19,7 +19,7 @@ Für die Installation von edulution-mail benötigen Sie lediglich:
 - **edulution-UI** bereits installiert und konfiguriert
 - **Ausreichend Speicherplatz** auf dem Server
 
-:::info Automatische Konfiguration
+:::info[Automatische Konfiguration]
 Die Installation über edulution-UI richtet automatisch alle notwendigen Komponenten ein (Docker, Keycloak-Integration, Netzwerk, etc.). Es sind keine manuellen Vorarbeiten erforderlich.
 :::
 
@@ -27,7 +27,7 @@ Die Installation über edulution-UI richtet automatisch alle notwendigen Kompone
 
 Die Installation von edulution-mail erfolgt direkt über die edulution-UI Administrationsoberfläche.
 
-:::info Installationsverzeichnis
+:::info[Installationsverzeichnis]
 Der Installer erstellt automatisch das Verzeichnis `/srv/docker/edulution-mail`, in dem alle Mailcow-Daten, Konfigurationsdateien und Logs gespeichert werden.
 
 **Speicherplatz-Bedarf:**
@@ -57,7 +57,7 @@ Der Installer erstellt automatisch das Verzeichnis `/srv/docker/edulution-mail`,
 
 ![Hostname eingeben und Installation starten](/img/edulution-mail/installation-hostname.png)
 
-:::warning Wichtig
+:::warning[Wichtig]
 Verwenden Sie den Hostname Ihrer edulution-Instanz, NICHT eine separate Mail-Domain wie `mail.ihre-schule.de`. Die E-Mail-Dienste werden über die edulution-URL bereitgestellt.
 :::
 
@@ -73,7 +73,7 @@ Der Installationsassistent kümmert sich vollautomatisch um:
 - **Globales Adressbuch** - Alle Benutzer sehen sich gegenseitig im Adressbuch
 - **Netzwerk-Integration** - Verbindung mit der edulution-Plattform
 
-:::note Installationsdauer
+:::note[Installationsdauer]
 Die Installation dauert etwa **5-10 Minuten**. Der Fortschritt wird in Echtzeit angezeigt.
 :::
 
@@ -90,13 +90,14 @@ Nach Abschluss der Installation muss die Traefik Proxy-Konfiguration hinzugefüg
 http:
   routers:
     edulution-sogo-mail:
-      rule: PathPrefix(`/sogo-mail`)
+      rule: Path(`/sogo-mail/sogo-auth.php`)
       service: edulution-sogo
       entryPoints:
         - websecure
       tls: {}
       middlewares:
         - strip-sogo-mail-prefix
+
     edulution-sogo:
       rule: PathPrefix(`/SOGo`)
       service: edulution-sogo
@@ -106,32 +107,38 @@ http:
       middlewares:
         - sogo-headers
         - sogo-buffers
+
     edulution-active-sync:
       rule: PathPrefix(`/Microsoft-Server-ActiveSync`)
       service: edulution-sogo
       entryPoints:
         - websecure
       tls: {}
+
     edulution-autodiscover:
       rule: "(HostRegexp(`autodiscover.*`) || HostRegexp(`autoconfig.*`)) &&
         (PathPrefix(`/mail/config-v1.1.xml`) ||
-        PathPrefix(`/autodiscover/autodiscover.xml`)) "
+        PathPrefix(`/autodiscover/autodiscover.xml`))"
       service: edulution-sogo
       entryPoints:
         - websecure
       tls: {}
+
   middlewares:
     strip-sogo-mail-prefix:
       stripPrefix:
         prefixes:
           - /sogo-mail
+
     sogo-headers:
       headers:
         customRequestHeaders:
           X-Forwarded-Proto: https
+          X-Api-Key: ""
         frameDeny: false
         customResponseHeaders:
           X-Frame-Options: ALLOWALL
+
     sogo-buffers:
       buffering:
         maxRequestBodyBytes: 0
@@ -139,42 +146,40 @@ http:
         maxResponseBodyBytes: 0
         memResponseBodyBytes: 524288
         retryExpression: IsNetworkError() && Attempts() <= 2
+
   services:
     edulution-sogo:
       loadBalancer:
         servers:
           - url: http://nginx/
-tcp:
-  routers:
-    imap:
-      rule: HostSNI(`*`)
-      entryPoints:
-        - imap
-      service: mail-imap
-    imaps:
-      entryPoints:
-        - imaps
-      rule: HostSNI(`edulution-traefik`)
-      service: mail-imap-ssl
-      tls:
-        passthrough: true
-  services:
-    mail-imap:
-      loadBalancer:
-        servers:
-          - address: dovecot-mailcow:143
-    mail-imap-ssl:
-      loadBalancer:
-        servers:
-          - address: dovecot-mailcow:993
 ```
 
 5. Klicken Sie auf **Speichern**
 
 ![Proxy-Konfiguration einfügen](/img/edulution-mail/proxy-konfiguration.png)
 
-:::danger Wichtig
+:::danger[Wichtig]
 Die Proxy-Konfiguration ist zwingend erforderlich! Ohne diese Konfiguration sind die E-Mail-Dienste nicht über die edulution-URL erreichbar.
+:::
+
+:::info[Hintergrund zu den einzelnen Routern]
+- **`edulution-sogo-mail`** veröffentlicht genau einen Pfad: `/sogo-mail/sogo-auth.php`. Mehr benötigt der Browser unter diesem Präfix nicht — die Anmeldung antwortet mit einer Weiterleitung auf `/SOGo/so/{login}`, die über den eigenen Router `edulution-sogo` läuft.
+- **`edulution-active-sync`** und **`edulution-autodiscover`** haben jeweils eigene Router und sind davon unabhängig.
+- Der leere Wert bei **`X-Api-Key`** in `sogo-headers` entfernt diesen Header aus eingehenden Anfragen, bevor sie an den Mailserver weitergereicht werden. Er wird auf diesem Weg nicht benötigt.
+:::
+
+:::warning[Voraussetzung: Mailcow-API-URL]
+Die Mailcow-API-URL unter **Einstellungen → E-Mails → Mailserver** muss auf `https://mailcowdockerized-nginx-mailcow-1` stehen (siehe [Schritt 5](#schritt-5-mailserver-hosts-konfigurieren)).
+
+Ältere Installationen haben dort teilweise noch `https://edu-traefik/sogo-mail` eingetragen. Dieser Wert funktioniert mit der oben gezeigten Konfiguration nicht mehr und muss vorher umgestellt werden — sonst erreicht die edulution-api die Mailcow-API nicht.
+:::
+
+:::warning[edulution-mail beim Update mit aktualisieren]
+Beim Update der **edulution-ui/edulution-api Container auf v2.0.156 oder höher** muss **edulution-mail auf v1.1.13 (oder höher) aktualisiert** werden. edulution verbindet sich dann selbstständig mit dem Mailcow-Netzwerk (per `docker network connect` für den edu-api Container).
+:::
+
+:::info[Optionales Aufräumen]
+Sobald edulution-mail das Mailcow-Netzwerk für edulution-api sichtbar macht, sind die alten `imap`/`imaps`-EntryPoints in Traefik und der zugehörige TCP-Block in der dyn. Mail-Konfiguration obsolet und können bereinigt werden. Details siehe [Changelog & Config-Anpassungen](/docs/edulution-mail/changelog-config-anpassungen).
 :::
 
 ### Schritt 4: Docker-Anwendung starten
@@ -182,31 +187,62 @@ Die Proxy-Konfiguration ist zwingend erforderlich! Ohne diese Konfiguration sind
 1. Scrollen Sie zum Abschnitt **Docker Anwendungen**
 2. Klicken Sie auf **Starten** bei der edulution-mail Anwendung
 
-Die Installation ist nun abgeschlossen und die E-Mail-Dienste werden gestartet.
+### Schritt 5: Mailserver-Hosts konfigurieren
 
-![E-Mail Docker-Anwendung starten](/img/edulution-mail/email-einstellungen.png)
+Damit die edulution-api direkt mit dem Mailserver kommunizieren kann, müssen IMAP- und SMTP-Server auf die internen Mailcow-Hostnamen gesetzt werden.
+
+1. Bleiben Sie in **Einstellungen** → **E-Mails**
+2. Scrollen Sie nach oben zum Abschnitt **Mailserver**
+3. Tragen Sie folgende Werte ein:
+
+| Feld | Wert |
+|------|------|
+| **URL** (Mailcow-API) | `https://mailcowdockerized-nginx-mailcow-1` |
+| **API-Schlüssel** | `***` |
+| **IMAP-Server** | `dovecot` |
+| **IMAP Port** | `993` |
+| **SMTP-Server** | `postfix` |
+| **SMTP Port** | `587` |
+| **Nicht zertifizierte Verbindungen ablehnen** | aus |
+
+4. Klicken Sie oben rechts auf **Speichern**
+
+:::warning[URL-Feld nicht vergessen]
+Ohne den korrekten URL-Wert kann die edulution-UI nicht mit der Mailcow-API kommunizieren — z.B. Mailbox-Status, Sync-Trigger und Admin-Funktionen schlagen dann fehl.
+:::
+
+:::info[Hintergrund]
+`dovecot` und `postfix` sind die internen Service-Namen der Mailcow-Container. Sie sind nur auflösbar, weil edulution-mail den edulution-api Container automatisch in das Mailcow-Netzwerk einbindet (siehe [Versionskopplung](#schritt-3-proxy-konfiguration-hinzufügen)).
+:::
+
+Die Installation ist nun abgeschlossen und die E-Mail-Dienste werden gestartet.
 
 ## Erstkonfiguration
 
 ### Zugriff auf die Mailcow Administrationsoberfläche
 
-Nach erfolgreicher Installation ist die Mailcow-Administrationsoberfläche über Port `8443` erreichbar:
+Die Mailcow-Administrationsoberfläche lauscht auf Port `8443`, allerdings nur auf der Loopback-Adresse des Servers (`127.0.0.1`). Sie ist damit nicht direkt über die Server-IP erreichbar, sondern wird über einen SSH-Tunnel aufgerufen:
+
+```bash
+ssh -L 8443:127.0.0.1:8443 <benutzer>@<ihre-server-ip>
+```
+
+Solange die SSH-Verbindung besteht, erreichen Sie die Oberfläche im Browser Ihres eigenen Rechners unter:
 
 ```
-https://ihre-server-ip:8443
+https://localhost:8443
 ```
 
 **Standard-Zugangsdaten:**
 - **Benutzername:** `admin`
 - **Passwort:** `moohoo`
 
-:::danger Sicherheitshinweis
-Ändern Sie das Standard-Administratorpasswort **sofort** nach der ersten Anmeldung!
+:::danger[Sicherheitshinweis]
+Ändern Sie das Standard-Administratorpasswort **sofort** nach der ersten Anmeldung! Führen Sie außerdem regelmäßige Passwortänderungen durch.
+:::
 
-Es wird außerdem dringend empfohlen:
-- Den Zugriff auf Port 8443 auf interne Netzwerke zu beschränken
-- Eine Firewall-Regel einzurichten, die den öffentlichen Zugriff blockiert
-- Regelmäßige Passwortänderungen durchzuführen
+:::warning[Ältere Versionen aktualisieren]
+Die Bindung an `127.0.0.1` gilt ab **edulution-mail v1.3.2**. Ältere Installationen binden Port 8443 an alle Netzwerkschnittstellen — aktualisieren Sie edulution-mail, siehe [Changelog & Config-Anpassungen](/docs/edulution-mail/changelog-config-anpassungen). Bis dahin gehören Port 8443 in der Firewall gesperrt und das Standardpasswort geändert.
 :::
 
 Weitere Informationen zur Administration finden Sie unter [Administration](/docs/edulution-mail/administration).
@@ -227,14 +263,22 @@ Nach der erfolgreichen Installation sollten Sie folgende Einstellungen vornehmen
 
 ### 1. Admin-Passwort ändern
 
-**Wo:** Mailcow Administrationsoberfläche (`https://ihre-server-ip:8443`)
+**Wo:** Mailcow Administrationsoberfläche
+
+Die Oberfläche ist nur über die Loopback-Adresse des Servers erreichbar. Bauen Sie dafür zunächst einen SSH-Tunnel auf:
+
+```bash
+ssh -L 8443:127.0.0.1:8443 <benutzer>@<ihre-server-ip>
+```
+
+Öffnen Sie anschließend `https://localhost:8443` im Browser.
 
 1. Melden Sie sich mit den Standard-Zugangsdaten an
 2. Klicken Sie oben rechts auf **Admin**
 3. Wählen Sie **Passwort ändern**
 4. Vergeben Sie ein sicheres, neues Passwort
 
-:::danger Kritisch
+:::danger[Kritisch]
 Dies ist der wichtigste Sicherheitsschritt und sollte sofort nach der Installation durchgeführt werden!
 :::
 
@@ -285,13 +329,13 @@ Stellen Sie sicher, dass folgende Ports in Ihrer Firewall freigegeben sind:
 | 80 | TCP | HTTP | Webmail (Weiterleitung zu HTTPS) |
 | 443 | TCP | HTTPS | Webmail (verschlüsselt) |
 
-**NUR intern erreichbar (Lokales Netzwerk):**
+**Nicht freigeben:**
 | Port | Protokoll | Dienst | Beschreibung |
 |------|-----------|---------|--------------|
-| 8443 | TCP | Mailcow Admin | Administrationsoberfläche |
+| 8443 | TCP | Mailcow Admin | Administrationsoberfläche, nur auf `127.0.0.1` |
 
-:::danger Sicherheitshinweis
-Beschränken Sie den Zugriff auf Port **8443** (Mailcow Admin) unbedingt auf interne Netzwerke oder VPN! Diese Oberfläche sollte NIEMALS öffentlich erreichbar sein.
+:::warning[Port 8443 nicht freigeben]
+Ab **edulution-mail v1.3.2** ist Port 8443 an `127.0.0.1` gebunden; der Zugriff erfolgt über einen SSH-Tunnel (siehe [Zugriff auf die Mailcow Administrationsoberfläche](#zugriff-auf-die-mailcow-administrationsoberfläche)). Eine Freigabe in der Firewall ist in keinem Fall erforderlich.
 :::
 
 ### 5. DNS-Einträge überprüfen
@@ -310,13 +354,13 @@ Die Oberfläche zeigt Ihnen:
 - Ob diese korrekt konfiguriert sind
 - Wie die Einträge konkret aussehen müssen (MX, SPF, DKIM, DMARC)
 
-:::tip Automatische Generierung
+:::tip[Automatische Generierung]
 Mailcow generiert alle notwendigen DNS-Einträge automatisch. Sie müssen diese nur noch in Ihrer DNS-Verwaltung eintragen.
 :::
 
 ## Theme Switch Setup
 
-:::info Nur für ältere Installationen
+:::info[Nur für ältere Installationen]
 Dieser Abschnitt ist nur relevant, wenn Sie **edulution-installer < v1.0.0** verwendet haben.
 
 Bei neueren Installationen (edulution-installer >= v1.0.0 und edulution-UI >= v1.6.14) ist dieser Schritt bereits automatisch konfiguriert.
@@ -343,6 +387,32 @@ Nach der Konfiguration des Volume-Mounts:
 Die Theme-Änderung wird sofort für alle Benutzer wirksam.
 
 {/* ![Auswahl des SOGo-Themes](assets/setupMailTheme.webp) */}
+
+## Fehlerbehebung
+
+### Abwesenheitsnotiz schlägt fehl (502 / lange Ladezeiten)
+
+Wenn das Aktivieren einer Abwesenheitsnotiz nach ~10 Sekunden mit **502** fehlschlägt (oder die Abwesenheits-Einstellungen sehr langsam laden), erreicht der `edulution-api` Container den ManageSieve-Dienst von Mailcow (Port 4190) nicht. Webmail und IMAP funktionieren weiter, da sie nicht direkt über edu-api → dovecot laufen — deshalb fällt das Problem oft erst bei der Abwesenheitsnotiz auf.
+
+Eine mögliche Ursache ist, dass `edulution-api` nach einem Redeploy/Update **nicht mehr im Mailcow-Netzwerk** ist: Die Einbindung wird normalerweise von edulution-mail beim Start gesetzt (siehe [Mailserver-Hosts konfigurieren](#schritt-5-mailserver-hosts-konfigurieren)).
+
+**Prüfen** (im edulution-api Container):
+
+```bash
+docker exec edulution-api nc -vz dovecot 4190
+```
+
+- `open` → Verbindung besteht, Ursache liegt woanders.
+- `bad address 'dovecot'` / Timeout → edu-api ist nicht im Mailcow-Netzwerk.
+
+**Beheben:**
+
+```bash
+docker restart edulution-mail
+docker exec edulution-api nc -vz dovecot 4190   # muss nun verbinden
+```
+
+Der Neustart von edulution-mail bindet den aktuellen edu-api-Container wieder in das Mailcow-Netzwerk ein. Danach kehrt das Aktivieren der Abwesenheitsnotiz von 10s→502 auf eine Antwort im Millisekundenbereich zurück.
 
 ## Nächste Schritte
 

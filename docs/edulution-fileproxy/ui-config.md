@@ -34,7 +34,7 @@ Im Abschnitt **WebDAV-Server** klicken Sie auf **+** um einen neuen Server hinzu
 | **URL** | FileProxy-URL mit Port | `https://10.1.0.5:8443/webdav/` |
 | **Typ** | edulution File Proxy | Aus Dropdown auswählen |
 
-:::tip URL-Format
+:::tip[URL-Format]
 Die URL muss exakt so aussehen:
 - Mit `https://` beginnen
 - IP-Adresse oder Hostname Ihres FileProxy-Servers
@@ -64,7 +64,7 @@ Klicken Sie für jeden Share auf **+** und tragen Sie folgende Werte ein:
 | **Pfad-Variable** | `homeDirectory` |
 | **Nutzergruppen** | `all-teachers, all-students, all-admins` |
 
-:::tip Pfad-Variable
+:::tip[Pfad-Variable]
 Die Variable `{homeDirectory}` wird automatisch durch das persönliche Home-Verzeichnis des Benutzers ersetzt.
 :::
 
@@ -108,7 +108,7 @@ Die Variable `{homeDirectory}` wird automatisch durch das persönliche Home-Verz
 
 ![WebDAV Einstellungen](/img/fileproxy/webdav-einstellungen.png)
 
-:::info Share-Pfade anpassen
+:::info[Share-Pfade anpassen]
 Die Pfade oben sind Beispielwerte basierend auf einer Standard-Linuxmuster Konfiguration.
 
 **Ihre Pfade finden:**

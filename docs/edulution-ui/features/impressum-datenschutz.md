@@ -27,8 +27,6 @@ Navigieren Sie zu **Einstellungen** → **App-Store** und wählen Sie die App-Ka
 
 Klicken Sie auf das **"Eingebettet"**-Icon. Es öffnet sich ein Dialog zum Hinzufügen der neuen App.
 
-![App hinzufügen Dialog](/img/features/impressum-app-hinzufuegen.png)
-
 **Eingabefelder:**
 
 - **Name**: Geben Sie einen der erlaubten Namen ein:
@@ -63,7 +61,7 @@ Nach dem Hinzufügen öffnet sich der Editor für die neue Seite.
 
 - **Sichtbarkeit**: Aktivieren Sie den Schalter, damit die Seite öffentlich zugänglich ist
 
-:::warning Wichtig
+:::warning[Wichtig]
 Die **Sichtbarkeit** muss aktiviert sein, damit die App im Footer erscheint und für registrierte Nutzer zugänglich ist. Ohne aktivierte Sichtbarkeit bleibt die Seite privat und erscheint nicht im Footer.
 :::
 

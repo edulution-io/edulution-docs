@@ -31,7 +31,7 @@ Die Zwei-Faktor-Authentifizierung bietet eine zusätzliche Sicherheitsebene für
 
 ### Aktivierung
 
-1. Navigieren Sie zu **Mein Profil** → **Sicherheit**
+1. Navigieren Sie zu **Benutzereinstellungen** → **Sicherheit**
 2. Klicken Sie auf **Zwei-Faktor-Authentisierung**
 3. Aktivieren Sie den Toggle-Schalter
 4. Scannen Sie den QR-Code mit Ihrer Authenticator-App
@@ -57,7 +57,7 @@ Die Zwei-Faktor-Authentifizierung bietet eine zusätzliche Sicherheitsebene für
 
 ### Schritte zum Ändern
 
-1. Gehen Sie zu **Mein Profil** → **Sicherheit**
+1. Gehen Sie zu **Benutzereinstellungen** → **Sicherheit**
 2. Wählen Sie **Passwort ändern**
 3. Geben Sie Ihr aktuelles Passwort ein
 4. Geben Sie das neue Passwort zweimal ein

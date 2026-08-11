@@ -109,10 +109,20 @@ Beachten Sie dabei, dass `--keyFile` aus Schritt 3 die Authentifizierung mit ein
 
   ```bash
   docker compose up -d edu-db
+
+  # Warten, bis das Replica Set initialisiert ist – vorher scheitert das Anlegen mit "NotWritablePrimary"
+  until [ "$(docker inspect -f '{{.State.Health.Status}}' edulution-db)" = "healthy" ]; do sleep 2; done
+
   docker exec -it edulution-db mongosh --eval 'db.getSiblingDB("admin").createUser({ user: "edulution", pwd: "<passwort>", roles: [{ role: "root", db: "admin" }] })'
   ```
 
   Tragen Sie diese Zugangsdaten anschließend in die `MONGODB_SERVER_URL` ein.
+
+  Enthält Ihr bisheriger Wert einen Datenbanknamen im Pfad (etwa `…:27017/edulution`), ergänzen Sie zusätzlich `authSource=admin`. Sonst sucht MongoDB den soeben angelegten Benutzer in dieser Datenbank statt in `admin` und die Anmeldung schlägt fehl:
+
+  ```dotenv
+  MONGODB_SERVER_URL=mongodb://<benutzer>:<passwort>@edu-db:27017/edulution?replicaSet=rs0&directConnection=true&authSource=admin
+  ```
 
 ## 6. Starten und prüfen
 
@@ -152,6 +162,7 @@ docker compose up -d
 | `Transaction numbers are only allowed on a replica set member or mongos` | `--replSet rs0` fehlt im `command` |
 | `getaddrinfo ENOTFOUND …` | `directConnection=true` fehlt in `MONGODB_SERVER_URL` |
 | `security.keyFile is required when authorization is enabled with replica sets` | `--keyFile /keyfile/mongo.key` fehlt im `command` |
-| `Authentication failed` | Die Zugangsdaten in `MONGODB_SERVER_URL` fehlen oder passen nicht zum angelegten Benutzer (siehe Schritt 5) |
+| `Authentication failed` | Die Zugangsdaten in `MONGODB_SERVER_URL` fehlen oder passen nicht zum angelegten Benutzer. Enthält die URL einen Datenbanknamen im Pfad, fehlt zusätzlich `authSource=admin` (siehe Schritt 5) |
+| `MongoServerError: not primary` / `NotWritablePrimary` beim Anlegen des Benutzers | Das Replica Set war noch nicht initialisiert. Warten, bis `docker compose ps` für `edulution-db` `healthy` meldet, dann erneut versuchen |
 | `dependency failed to start: container edulution-db is unhealthy` | Der Healthcheck lief aus, bevor die Datenbank bereit war. `start_period: 60s` und `retries: 10` setzen und erneut starten |
 | `edulution-db` wird nicht `healthy` | `docker logs edulution-db` prüfen. `data/db-keyfile/mongo.key` muss Rechte `400` haben und dem Benutzer `mongodb` gehören |

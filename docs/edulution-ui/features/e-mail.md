@@ -53,6 +53,43 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 
 Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht.
 
+### Empfängervorschläge im Adressfeld
+
+Sobald Sie in **An**, **CC** oder **BCC** zu tippen beginnen, schlägt edulution passende Empfänger vor. Die Vorschläge stammen aus drei Quellen und erscheinen in dieser Reihenfolge:
+
+1. **Zuletzt verwendete Empfänger** aus Ihren vorherigen Nachrichten.
+2. **Kontakte** aus der Kontakte-App – nur, wenn die Kontakte-App eingerichtet ist und Ihre Eingabe mindestens zwei Zeichen umfasst.
+3. **Empfänger aus dem Verzeichnis** Ihrer Schule: Personen, Gruppen und Verteiler.
+
+Eine Adresse, die in mehreren Quellen vorkommt, erscheint nur einmal. Die Liste ist auf 50 Vorschläge begrenzt; die am besten passenden stehen oben – eine vollständige Übereinstimmung vor einem Treffer am Namensanfang und dieser vor einem Treffer irgendwo im Namen.
+
+Auf die **Schreibweise von Umlauten und Sonderzeichen** kommt es dabei nicht an: `Müller`, `Mueller` und `Muller` führen zum selben Vorschlag, gleich welche Schreibweise im Verzeichnis oder im Kontakt hinterlegt ist. Dasselbe gilt für `ß` und `ss` sowie für Akzentzeichen. Wie in der [Kontaktsuche](kontakte.md#suche) wird die Schreibweise bei sehr kurzen Eingaben nicht zusätzlich vereinfacht.
+
+:::info[Eltern über den Namen des Kindes finden]
+Eltern erreichen Sie auch, indem Sie den Namen ihres Kindes eingeben. Der Vorschlag weist dann zusätzlich aus, über welches Kind er gefunden wurde – hilfreich, wenn mehrere Elternteile denselben Nachnamen tragen. Auch hier spielt die Schreibweise keine Rolle: `Öztürk`, `Oeztuerk` und `Ozturk` führen gleichermaßen zu den Eltern des Kindes.
+:::
+
+### Verteiler als Empfänger
+
+Wählen Sie einen **Verteiler** oder eine **Gruppe** aus den Vorschlägen, erscheint diese als ein Eintrag im Adressfeld – gekennzeichnet durch ein Gruppensymbol. edulution lädt daraufhin im Hintergrund die Mitglieder und zeigt deren **Anzahl** am Eintrag an; solange das läuft, erscheint dort ein Ladesymbol.
+
+| Element am Eintrag | Bedeutung |
+|---|---|
+| **Gruppensymbol und Name** | Ein Klick darauf kopiert die Adresse des Verteilers in die Zwischenablage |
+| **Zahl** | Anzahl der Mitglieder, die edulution für diesen Verteiler ermittelt hat |
+| **Pluszeichen** (*… in Empfänger auflösen*) | Ersetzt den Verteiler durch seine einzelnen Mitglieder |
+| **Warnsymbol** (*Mitglieder erneut laden*) | Die Mitglieder konnten nicht geladen werden – ein Klick versucht es erneut |
+
+Über das **Pluszeichen** lösen Sie den Verteiler auf: Aus dem einen Eintrag werden so viele Einträge, wie der Verteiler Mitglieder hat. So entfernen Sie vor dem Versand **einzelne Personen**.
+
+Lösen Sie den Verteiler **nicht** auf, wird die Nachricht an seine Adresse verschickt und vom Mailsystem an die Mitglieder verteilt. Beide Wege führen zur selben Zustellung; die Auflösung ändert nur, was Sie vor dem Senden noch bearbeiten können.
+
+Auch beim **Antworten**, **Allen antworten** und **Weiterleiten** sowie beim erneuten Öffnen eines **Entwurfs** erkennt edulution enthaltene Verteiler und lädt deren Mitglieder nach, sodass Mitgliederzahl und Pluszeichen auch dort zur Verfügung stehen.
+
+:::info[Nicht jeder Eintrag lässt sich auflösen]
+Auflösen lassen sich nur Verteiler, die das Mailsystem als solche kennt. Lassen sich zu einem Verteiler keine Mitglieder ermitteln, bleibt er ohne Zahl und ohne Pluszeichen stehen – als einzelne Adresse ist er weiterhin verwendbar, und die Nachricht wird normal an ihn versendet.
+:::
+
 ### Schreibfenster schließen
 
 Enthält die Nachricht ungespeicherte Änderungen, fragt edulution beim Schließen, ob Sie sie **als Entwurf speichern**, **verwerfen** oder **weiter bearbeiten** möchten.
@@ -116,6 +153,10 @@ Bei der automatischen Antwort können Sie zusätzlich festlegen, welche Absender
 
 Sind Sie als Berechtigter für ein **freigegebenes Postfach** eingetragen, können Sie dort auch dessen **automatische Antwort** verwalten – siehe [Mein Profil → Automatische Antwort für freigegebene Postfächer](../benutzer/mein-profil.md#automatische-antwort-für-freigegebene-postfächer).
 
+Die Sprache des über **In SOGo öffnen** erreichbaren Webmailers richtet sich nach der Sprache, die Sie unter [Mein Profil → Sprache](../benutzer/mein-profil.md#sprache) gewählt haben; dasselbe gilt für Benachrichtigungen, die das Mailsystem selbst verschickt. Das **Theme** des Webmailers legt dagegen die Administration fest.
+
 ## Einrichtung (für Administratoren)
 
 Welche Nutzergruppen die E-Mail-App überhaupt sehen, an welcher Stelle sie in der App-Liste erscheint und welches Theme der SOGo-Webmailer verwendet, legen Administratoren unter [Einstellungen → E-Mails](../administration/einstellungen.md#e-mails) fest.
+
+Postfach-Freigaben und die Übernahme der Profilsprache in den Webmailer laufen nicht über IMAP, sondern über die [DAV-Verbindung](../administration/einstellungen.md#dav-verbindung) der E-Mail-App. Diese Verbindung gilt ausschließlich für die E-Mail-App: Die Kalender- und die Kontakte-App bringen jeweils eine eigene mit, und eine dort abgeschaltete Zertifikatsprüfung lockert die Prüfung der E-Mail-Verbindung nicht. Ist die DAV-URL fehlerhaft eingetragen, betrifft das nur diese Funktionen — Nachrichten lesen, verfassen, Ordner und Filter bleiben davon unberührt.

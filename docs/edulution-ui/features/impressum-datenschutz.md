@@ -27,8 +27,6 @@ Navigieren Sie zu **Einstellungen** → **App-Store** und wählen Sie die App-Ka
 
 Klicken Sie auf das **"Eingebettet"**-Icon. Es öffnet sich ein Dialog zum Hinzufügen der neuen App.
 
-![App hinzufügen Dialog](/img/features/impressum-app-hinzufuegen.png)
-
 **Eingabefelder:**
 
 - **Name**: Geben Sie einen der erlaubten Namen ein:

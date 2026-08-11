@@ -26,8 +26,6 @@ Wähle den QR-Code für dein Betriebssystem und scanne ihn, um die edulution App
 
 ## Account hinzufügen
 
-<img src="/img/app/setupAccount.png" alt="Account hinzufügen" width="50%" />
-
 Wenn die App zum ersten Mal geöffnet wird, muss zunächst ein Account hinzugefügt werden, um den vollen Funktionsumfang der App nutzen zu können.
 
 ### Voraussetzungen
@@ -41,8 +39,6 @@ Stelle sicher, dass du folgende Informationen bereithältst:
 ### Login-Methoden
 
 Nach dem Klick auf "Account hinzufügen" erscheint ein Auswahlmenü mit zwei Möglichkeiten:
-
-<img src="/img/app/selectLoginMethod.png" alt="Account hinzufügen Optionen" width="50%" />
 
 **Option 1: Manuell eingeben**
 - Schulserver-Adresse
@@ -64,8 +60,6 @@ So findest du den QR-Code:
 ## Account-Einstellungen öffnen
 
 Um auf die Einstellungen eines Accounts zuzugreifen, wische die Account-Karte nach links und tippe auf das Einstellungen-Symbol.
-
-<img src="/img/app/accountSwipe.png" alt="Account-Einstellungen öffnen" width="50%" />
 
 Hier kannst du verschiedene Funktionen verwalten:
 - **Profil aktivieren/deaktivieren** - Nutze diesen Account für alle Aktionen

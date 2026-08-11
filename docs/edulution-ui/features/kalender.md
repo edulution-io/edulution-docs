@@ -51,7 +51,11 @@ Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet d
 
 ### Kalender ein- und ausblenden
 
-Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Abonnierte Kalender sind beim ersten Laden standardmäßig ausgeblendet, sodass Ihre eigenen Termine im Vordergrund stehen; Sie können sie jederzeit wieder einblenden.
+Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Neu abonnierte Kalender sind zunächst eingeblendet.
+
+Ihre Auswahl wird benutzerbezogen auf dem Server gespeichert. Sie bleibt daher über das Neuladen der Seite, eine erneute Anmeldung und einen Gerätewechsel hinweg erhalten – ein einmal ausgeblendeter Kalender bleibt ausgeblendet, bis Sie ihn wieder einblenden.
+
+Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalendereintrag ebenso wie die Aktionen **Einblenden**, **Ausblenden**, **Nur diesen anzeigen** und **Alle anzeigen** im Kontextmenü eines Kalenders. **Nur diesen anzeigen** und **Alle anzeigen** wirken dabei auf mehrere Kalender gleichzeitig; auch diese Änderungen werden vollständig übernommen.
 
 ### Kalenderkontextmenü
 
@@ -83,7 +87,7 @@ Markieren Sie ausgerechnet den Kalender als Stundenplan, der derzeit Ihr Standar
 
 ### Monat
 
-Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervorgehoben, Tage außerhalb des angezeigten Monats sind abgeschwächt. Am linken Rand jeder Wochenzeile steht in einer eigenen, mit **KW** überschriebenen Spalte die zugehörige **Kalenderwoche** nach ISO 8601. Pro Tag werden die ersten Termine als farbige Einträge angezeigt; gibt es mehr Termine, erscheint ein Hinweis in der Form **+n weitere**. Ein Klick auf einen freien Bereich eines Tages öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit dem passenden Datum.
+Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervorgehoben, Tage außerhalb des angezeigten Monats sind abgeschwächt. Am linken Rand jeder Wochenzeile steht in einer eigenen, mit **KW** überschriebenen Spalte die zugehörige **Kalenderwoche** nach ISO 8601. Pro Tag werden die ersten Termine als farbige Einträge angezeigt; passen nicht alle Termine in die Zelle, erscheint darunter die Schaltfläche **+n weitere**. Ein Klick darauf öffnet ein kleines Überblendfenster mit der Überschrift des vollständigen Datums, das alle Termine dieses Tages auflistet – auch die bereits in der Zelle sichtbaren. Die Einträge werden wie in der Zelle dargestellt, mit Uhrzeit beziehungsweise dem Zeichen ↳ bei einem Termin, der an einem früheren Tag beginnt. Ein Klick auf einen Eintrag schließt das Fenster und öffnet den Termin zum [Bearbeiten](#termine-bearbeiten-und-löschen) – oder, ohne Bearbeitungsrecht, in der [Detailansicht](#termine-ansehen-ohne-bearbeitungsrecht). Das Fenster schließt sich auch, wenn Sie einen anderen Tag anklicken; klicken Sie dabei auf die Schaltfläche **+n weitere** eines anderen Tages, wechselt die Anzeige unmittelbar zu dessen Terminen. Ein Klick auf einen freien Bereich eines Tages öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit dem passenden Datum.
 
 ### Woche
 
@@ -109,15 +113,29 @@ Beachten Sie dabei die folgenden Besonderheiten:
 
 Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansicht: Sie zeigt nur die Tage **Montag bis Freitag** und einen festen Zeitausschnitt am Tag in feiner Rasterung. Sie öffnen sie über einen als Stundenplan markierten Kalender in der Seitenleiste; über **Zurück** kehren Sie zur normalen Kalenderansicht zurück. In dieser Ansicht werden die Termine in ihrer jeweiligen **Farbe** dargestellt.
 
+Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)). Wie in den übrigen Rasteransichten verschieben Sie einen Termin auch hier [per Drag & Drop](#termine-per-drag--drop-verschieben) auf einen anderen Zeitabschnitt. Über der Stundenskala liegt wie in der Wochenansicht eine eigene Zeile für **ganztägige** Termine.
+
+Neue Termine legen Sie über die Schaltfläche **Termin erstellen** oben rechts an; ein Klick auf einen leeren Zeitabschnitt öffnet hier – anders als in der Wochen- und der Tagesansicht – keinen neuen Termin. Im Dialog ist der geöffnete Stundenplan bereits als Kalender vorausgewählt, auch wenn Sie an anderer Stelle einen [Standardkalender](#kalenderkontextmenü) festgelegt haben.
+
+:::info[Termine außerhalb des angezeigten Zeitraums]
+Der Stundenplan zeigt Montag bis Freitag und einen festen Zeitausschnitt am Tag. Ein Termin, der auf ein Wochenende oder außerhalb dieses Zeitausschnitts fällt, erscheint dort nicht – und da Stundenplan-Termine auch in **Monat**, **Woche**, **Tag** und **Agenda** ausgeblendet sind, ist er dann über die Oberfläche nicht erreichbar. Legen Sie solche Termine in einem gewöhnlichen Kalender an oder entfernen Sie die Stundenplan-Markierung vorübergehend über das [Kalenderkontextmenü](#kalenderkontextmenü).
+:::
+
+:::info[Stundenplan-Termine erscheinen nur in dieser Ansicht]
+Die Termine eines als Stundenplan markierten Kalenders werden ausschließlich in der Stundenplan-Ansicht angezeigt – in **Monat**, **Woche**, **Tag** und **Agenda** erscheinen sie nicht. Vermissen Sie dort einen Termin, prüfen Sie, ob sein Kalender als Stundenplan markiert ist, und entfernen Sie die Markierung bei Bedarf über das [Kalenderkontextmenü](#kalenderkontextmenü).
+:::
+
 :::info[Wo die Terminfarbe sichtbar ist]
 Die einem Termin zugewiesene Farbe wird ausschließlich in der Stundenplan-Ansicht angezeigt. In allen übrigen Ansichten – Monat, Woche, Tag und Agenda – richtet sich die Farbe der Termine nach dem zugehörigen Kalender.
+
+Termine, die aus einem externen CalDAV-Programm stammen, übernehmen die dort gesetzte Farbe.
 :::
 
 ## Termine erstellen
 
 Einen neuen Termin legen Sie auf mehreren Wegen an:
 
-- über die Schaltfläche **Termin erstellen** unten rechts,
+- über die Schaltfläche **Termin erstellen** oben rechts,
 - mit einem Klick auf einen Tag (Monatsansicht) oder einen Zeitabschnitt (Wochen- und Tagesansicht).
 
 Füllen Sie im Dialog die folgenden Felder aus:
@@ -131,16 +149,16 @@ Füllen Sie im Dialog die folgenden Felder aus:
 7. **Wiederholung** – Legt fest, ob der Termin als [Serientermin](#serientermine-und-wiederholungen) wiederkehrt.
 8. **Sichtbarkeit** – **Öffentlich**, **Privat** oder **Vertraulich**.
 9. **Zeit-Status** – Ob die Zeit als **Abwesend (gebucht)** oder **Verfügbar (frei)** gilt.
-10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Farbe wirkt sich nur in der Stundenplan-Ansicht aus.
+10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Auswahl beginnt links mit **Keine Farbe**, darauf folgen die vorgegebenen Farben; ganz rechts öffnet die Schaltfläche **Eigene Farbe** den Farbwähler für eine beliebige Farbe. Die Farbe wirkt sich nur in der Stundenplan-Ansicht aus. Die Beschriftung des Termins wird automatisch dunkel oder hell dargestellt, damit sie vor der gewählten Farbe lesbar bleibt (siehe [Farbwahl und Lesbarkeit](#farbwahl-und-lesbarkeit)).
 11. **Teilnehmer** – Weitere Benutzer, die zum Termin eingeladen werden.
 
 Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.
 
 ## Termine bearbeiten und löschen
 
-Ein Klick auf einen bestehenden Termin öffnet denselben Dialog wie beim Erstellen, sodass Sie alle Felder ändern können. Termine aus schreibgeschützten oder abonnierten Kalendern lassen sich nicht öffnen und nicht bearbeiten.
+Ein Klick auf einen bestehenden Termin öffnet denselben Dialog wie beim Erstellen, sodass Sie alle Felder ändern können. Das gilt für Termine, die Sie ändern dürfen — bei einem freigegebenen Kalender also abhängig von den Ihnen erteilten Rechten. Termine, die Sie nur ansehen dürfen, öffnen sich stattdessen in einer reinen Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)).
 
-Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Vor dem endgültigen Entfernen erscheint eine Sicherheitsabfrage. Handelt es sich um einen Serientermin, werden Sie zusätzlich gefragt, für welche Termine die Löschung gelten soll (siehe [Serientermine und Wiederholungen](#serientermine-und-wiederholungen)).
+Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Sie steht nur zur Verfügung, wenn Sie im betreffenden Kalender löschen dürfen. Vor dem endgültigen Entfernen erscheint eine Sicherheitsabfrage. Handelt es sich um einen Serientermin, werden Sie zusätzlich gefragt, für welche Termine die Löschung gelten soll (siehe [Serientermine und Wiederholungen](#serientermine-und-wiederholungen)).
 
 ## Termin in einen anderen Kalender verschieben
 
@@ -182,21 +200,35 @@ Bearbeiten oder löschen Sie einen Termin, der Teil einer Serie ist – oder ver
 - **Dieser und alle folgenden Termine**
 - **Alle Termine der Serie**
 
-Wählen Sie **Alle Termine der Serie** und haben Sie dabei den Zeitpunkt geändert, wird die gesamte Serie um denselben Zeitversatz verschoben; alle übrigen Änderungen – etwa Titel oder Ort – gelten unverändert für sämtliche Termine der Serie.
+Wählen Sie **Alle Termine der Serie** und haben Sie dabei den Zeitpunkt geändert, wird die gesamte Serie um denselben Zeitversatz verschoben. Dabei wird die Wiederholungsregel auf den neuen Zeitpunkt umgerechnet: Verschieben Sie eine wöchentliche Serie von Montag auf Dienstag, wiederholt sie sich anschließend dienstags. Bei einem monatlichen Muster nach Wochentag wird der Anker ebenfalls neu bestimmt – aus „Am zweiten Dienstag des Monats“ wird beim Verschieben um eine Woche „Am dritten Dienstag des Monats“. Zuvor gelöschte Einzeltermine der Serie bleiben gelöscht, und einzeln verschobene Termine behalten ihre Abweichung.
+
+Ändern Sie die Dauer eines Termins und wählen **Alle Termine der Serie**, gilt die neue Dauer für sämtliche Termine der Serie. Alle übrigen Änderungen – etwa Titel oder Ort – gelten ebenfalls unverändert für die gesamte Serie.
+
+Mit **Nur dieser Termin** lösen Sie den gewählten Termin als Ausnahme aus der Serie heraus; alle übrigen Termine bleiben unverändert. Der Termin bleibt Teil der Serie – verschieben Sie ihn erneut, verschieben Sie dieselbe Ausnahme.
+
+**Dieser und alle folgenden Termine** teilt die Serie an dieser Stelle: Die Termine davor bleiben unverändert bestehen, ab dem gewählten Termin entsteht eine neue Serie mit der geänderten Zeit. Die Gesamtzahl der Termine bleibt dabei erhalten – aus einer Serie mit sechs Terminen werden zwei Serien mit zusammen sechs Terminen. Endet die Serie nach einer festen Anzahl von Terminen, verteilt sich diese Anzahl auf beide Teile.
+
+:::info[Verschieben in die fünfte Woche des Monats]
+Bei einem monatlichen Muster nach Wochentag richtet sich der Anker nach der Woche, in die Sie den Termin ziehen. Verschieben Sie eine Serie „Am vierten Mittwoch des Monats“ um eine Woche nach hinten, lautet die Regel anschließend „Am fünften Mittwoch des Monats“. Da nicht jeder Monat einen fünften Mittwoch hat, finden danach deutlich weniger Termine statt. Ist das nicht gewünscht, verschieben Sie die Serie um einen ganzen Monat statt um eine Woche.
+:::
+
+:::info[Nicht umrechenbare Wiederholungsregeln]
+Manche Wiederholungsregeln lassen sich nicht auf einen neuen Zeitpunkt umrechnen – etwa „Am letzten Freitag des Monats“. Solche Regeln legen Sie in edulution nicht selbst an; sie entstehen in anderen Kalenderprogrammen, die denselben Kalender über CalDAV mitbenutzen. Wählen Sie bei einer solchen Serie **Alle Termine der Serie** oder **Dieser und alle folgenden Termine**, wird die Änderung mit einer Meldung abgelehnt, damit die Serie nicht mit einer unpassenden Regel gespeichert wird. Über **Nur dieser Termin** lassen sich einzelne Termine einer solchen Serie weiterhin verschieben.
+:::
 
 ## Termine per Drag & Drop verschieben
 
 Termine lassen sich direkt mit der Maus verschieben:
 
-- In der **Wochen-** und der **Tagesansicht** ziehen Sie einen Termin auf einen anderen Zeitabschnitt.
+- In der **Wochen-**, der **Tages-** und der [**Stundenplan-Ansicht**](#stundenplan) ziehen Sie einen Termin auf einen anderen Zeitabschnitt.
 - In der **Monatsansicht** ziehen Sie einen Termin auf einen anderen Tag.
 
 In der **Agenda** ist das Verschieben per Drag & Drop nicht möglich, da sie die Termine als Liste und nicht als Zeitraster darstellt.
 
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
 
-:::info[Schreibgeschützte Termine]
-Termine aus schreibgeschützten oder abonnierten Kalendern können nicht per Drag & Drop verschoben werden. Auch einzelne Ausnahmen innerhalb einer Serie lassen sich nicht frei verschieben.
+:::info[Termine ohne Bearbeitungsrecht]
+Verschieben lassen sich nur Termine, für die Sie das Recht zum **Ändern** besitzen. In einem freigegebenen Kalender kann das je Sichtbarkeit unterschiedlich sein (siehe [Abonnierte und schreibgeschützte Kalender](#abonnierte-und-schreibgeschützte-kalender)). Auch einzelne Ausnahmen innerhalb einer Serie lassen sich nicht frei verschieben.
 :::
 
 ## Kalender anlegen
@@ -209,6 +241,10 @@ Termine aus schreibgeschützten oder abonnierten Kalendern können nicht per Dra
 - **Farbe** – Die Farbe, in der der Kalender und seine Termine dargestellt werden. Wählen Sie eine der vorgegebenen Farben aus oder legen Sie über die Schaltfläche **+** eine beliebige eigene Farbe fest.
 
 Speichern Sie den Kalender über **Speichern**; ohne Namen ist das Speichern nicht möglich.
+
+### Farbwahl und Lesbarkeit
+
+Die Beschriftung farbiger Termine wird automatisch dunkel oder hell dargestellt – je nachdem, welche Schriftfarbe sich vor der gewählten Farbe besser abhebt. Sie können daher auch sehr helle Farben wie ein blasses Gelb verwenden, ohne die Lesbarkeit selbst prüfen zu müssen. Dasselbe gilt für die Farbe eines einzelnen [Termins](#termine-erstellen).
 
 :::info[Namenszusatz bei Stundenplänen]
 Legen Sie einen Kalender mit dem Typ **Stundenplan** an, wird dem eingegebenen Namen beim Speichern automatisch das Wort „Stundenplan“ vorangestellt: Aus der Eingabe „10a“ entsteht der Kalender **Stundenplan 10a**. Der Zusatz wird nur beim **Anlegen** ergänzt – benennen Sie den Kalender später über die [Kalendereinstellungen](#kalender-bearbeiten-und-löschen) um, gilt genau der Name, den Sie dort eintragen.
@@ -229,15 +265,84 @@ Bei abonnierten oder schreibgeschützten Kalendern werden **Einstellungen** und 
 
 ## Kalender freigeben
 
-Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie Benutzer oder Gruppen und legen für jede Freigabe eine Berechtigungsstufe fest:
+Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie über **Personen oder Gruppen hinzufügen** nach Benutzern oder Gruppen; unter **Freigegeben für** stehen anschließend alle bestehenden Freigaben.
 
-| Berechtigung | Bedeutung |
+Jede Freigabe ist eine aufklappbare Zeile. Zugeklappt sehen Sie Name, E-Mail-Adresse und rechts eine Zusammenfassung der vergebenen Rechte (**Kein Zugriff**, **Nur Frei/Belegt**, **Ansehen** oder **Bearbeiten**). Über das Pfeilsymbol am rechten Rand klappen Sie die Zeile auf und vergeben die Rechte im Einzelnen. Über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder.
+
+Ist ein Empfänger im Verzeichnis nicht mehr auffindbar — etwa weil sein Konto zwischenzeitlich gelöscht wurde —, erscheint seine Zeile mit der Rolle **Keine** für alle drei Sichtbarkeiten. Die übrigen Freigaben bleiben davon unberührt und bearbeitbar; die verwaiste Zeile entfernen Sie über das Mülleimer-Symbol.
+
+### Rechte je Sichtbarkeit
+
+Die Rechte werden nicht als eine einzelne Stufe vergeben, sondern **getrennt für jede der drei Sichtbarkeiten** eines Termins — **Öffentlich**, **Vertraulich** und **Privat**. Welche Sichtbarkeit ein Termin hat, legen Sie beim [Erstellen des Termins](#termine-erstellen) im Feld **Sichtbarkeit** fest. Für jede dieser drei Sichtbarkeiten wählen Sie eine Rolle:
+
+| Rolle | Bedeutung |
 |---|---|
-| **Nur Frei/Belegt** | Es ist nur erkennbar, ob Zeiten belegt sind, ohne Termindetails. |
-| **Ansehen** | Termine dürfen gelesen werden. |
-| **Bearbeiten** | Termine dürfen gelesen, angelegt und geändert werden. |
+| **Keine** | Termine dieser Sichtbarkeit sind für die Person nicht vorhanden. |
+| **Datum & Uhrzeit sehen** | Es ist nur erkennbar, dass die Zeit belegt ist — ohne Titel, Ort, Beschreibung oder Teilnehmer. |
+| **Alles sehen** | Der Termin wird mit allen Details angezeigt. |
+| **Antworten** | Wie **Alles sehen**, zusätzlich darf auf Einladungen geantwortet werden. |
+| **Ändern** | Der Termin darf bearbeitet werden. |
 
-Neu hinzugefügte Benutzer und Gruppen erhalten standardmäßig die Stufe **Ansehen**; über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder. Sobald Sie einen Kalender freigeben, wird er den betreffenden Benutzern automatisch als abonnierter Kalender bereitgestellt.
+Dadurch lässt sich ein Kalender abgestuft freigeben: Ein Kollege sieht Ihre öffentlichen Termine vollständig, von den vertraulichen nur die belegte Zeit, und von den privaten nichts.
+
+Unabhängig von diesen drei Rollen stehen zwei kalenderweite Optionen zur Verfügung:
+
+- **Diese Person kann Objekte in meinen Kalender hinzufügen.** — erlaubt das Anlegen neuer Termine.
+- **Diese Person kann Objekte in meinem Kalender löschen.** — erlaubt das Löschen von Terminen.
+
+Beide sind vom Recht zum **Ändern** unabhängig: Wer Termine ändern darf, darf deshalb noch keine anlegen oder löschen.
+
+### Änderungen werden sofort gespeichert
+
+Jede Änderung an einer Rolle oder einem Häkchen wird unmittelbar gespeichert; solange der Vorgang läuft, erscheint in der betreffenden Zeile eine Ladeanzeige und weitere Änderungen sind währenddessen gesperrt. Schlägt das Speichern fehl, springt die Zeile auf den vorherigen Stand zurück und es erscheint eine Fehlermeldung.
+
+Neu hinzugefügte Benutzer und Gruppen erhalten die Voreinstellung **Alles sehen** für öffentliche sowie **Datum & Uhrzeit sehen** für vertrauliche und private Termine, ohne die Rechte zum Hinzufügen und Löschen.
+
+### Freigabe an einen Verteiler
+
+Neben einzelnen Personen geben Sie einen Kalender auch für einen **Verteiler** frei. Angeboten werden ausschließlich Verteiler mit einer E-Mail-Adresse, die in Sophomorix als Maillist gekennzeichnet sind; eine Klasse ohne diese Kennzeichnung taucht in der Suche nicht auf.
+
+Die Treffer der Suche unter **Personen oder Gruppen hinzufügen** werden nach Kategorie gruppiert und stehen unter der Überschrift **Personen**, **Eltern** bzw. **Gruppen**. Verteilen sie sich auf mehrere dieser Kategorien, erscheint darüber eine Reihe von Schaltflächen — **Alle** sowie je eine pro vorhandener Kategorie —, mit denen Sie die Anzeige auf eine einzelne Kategorie beschränken. Eine eigene Überschrift für Klassen oder Projekte gibt es dabei nicht: Beide stehen zusammen mit den übrigen Verteilern unter **Gruppen**.
+
+Die Freigabe wird an **jedes einzelne Mitglied** des Verteilers vergeben. In der Liste **Freigegeben für** steht dafür dennoch nur eine Zeile für den Verteiler; sie nennt anstelle der E-Mail-Adresse die Anzahl der Mitglieder (etwa **Verteiler mit 12 Mitgliedern**), und die Mitglieder selbst erscheinen nicht als eigene Zeilen. Die Rechte vergeben Sie wie bei einer Person; sie gelten dann für alle Mitglieder gleichermaßen.
+
+Entziehen Sie die Freigabe des Verteilers über das Mülleimer-Symbol, verlieren dessen Mitglieder den Zugriff. Zwei Fälle sind davon ausgenommen:
+
+- Mitglieder, die den Kalender zusätzlich über einen **zweiten freigegebenen Verteiler** erhalten, behalten den Zugriff mit den Rechten dieses zweiten Verteilers.
+- Personen, die bereits **vor** der Freigabe des Verteilers eine **eigene Freigabe** besaßen, behalten diese unverändert. Ihre Zeile bleibt in der Liste stehen, ihre Rechte werden nicht durch die des Verteilers ersetzt, und der Zugriff bleibt auch nach dem Entziehen der Verteiler-Freigabe bestehen.
+
+#### Mitgliederänderungen werden beim Öffnen abgeglichen
+
+Tritt jemand dem Verteiler bei oder verlässt ihn, wird der Zugriff **nicht sofort** angepasst. Der Abgleich läuft, sobald Sie den Freigabe-Dialog des betreffenden Kalenders das nächste Mal öffnen. Währenddessen sind die Bedienelemente des Dialogs gesperrt; hat sich etwas geändert, nennt anschließend ein Hinweis je Verteiler, wie viele Mitglieder hinzugefügt und wie viele entfernt wurden.
+
+Daraus folgt: Wer den Verteiler verlässt, behält den Zugriff auf den Kalender so lange, bis Sie den Freigabe-Dialog erneut öffnen. Bei einem Kalender, der einmal freigegeben und danach nicht wieder angefasst wird, kann das beliebig lange dauern. Öffnen Sie den Dialog daher gezielt, wenn sich die Zusammensetzung eines Verteilers geändert hat.
+
+### Für den Benutzer abonnieren
+
+Eine Freigabe stellt den Kalender **nicht** automatisch in der Kalenderliste des Empfängers bereit. Dafür setzen Sie in der aufgeklappten Zeile zusätzlich das Häkchen **Für den Benutzer abonnieren**. Andernfalls hat die Person zwar Zugriff, muss den Kalender aber selbst einbinden.
+
+Das Häkchen ist nicht auswählbar, solange die Person überhaupt keine Rechte besitzt, und ebenso, sobald der Kalender bereits abonniert ist — ein Abbestellen ist von hier aus nicht möglich, das entscheidet der Empfänger selbst.
+
+Für einen [Verteiler](#freigabe-an-einen-verteiler) steht das Häkchen nicht zur Verfügung; dessen Mitglieder binden den freigegebenen Kalender selbst ein.
+
+### Alle authentifizierten Benutzer und öffentlicher Zugang
+
+Neben den einzelnen Personen und Gruppen enthält die Liste immer zwei feste Einträge. Beide lassen sich nicht löschen und nicht abonnieren; Sie entziehen ihnen den Zugriff, indem Sie ihre Rollen auf **Keine** setzen.
+
+| Eintrag | Rollen | Hinzufügen / Löschen |
+|---|---|---|
+| **Alle authentifizierten Benutzer** | alle fünf | möglich |
+| **Öffentlicher Zugang** | nur **Keine**, **Datum & Uhrzeit sehen**, **Alles sehen** | nicht möglich |
+
+**Alle authentifizierten Benutzer** gilt für jeden angemeldeten Benutzer der Schule. **Öffentlicher Zugang** gilt dagegen für **nicht angemeldete** Zugriffe: Sobald Sie hier eine andere Rolle als **Keine** vergeben, ist der Kalender ohne Anmeldung über seine CalDAV-Adresse abrufbar. Vergeben Sie dieses Recht daher nur bewusst.
+
+:::warning[Überzählige Rechte werden beim Öffnen zurückgenommen]
+Der CalDAV-Server kann dem öffentlichen Zugang mehr Rechte speichern, als der Freigabe-Dialog darstellen kann — etwa wenn sie zuvor direkt in der Oberfläche des CalDAV-Servers vergeben wurden. Solche Rechte werden beim Öffnen des Dialogs automatisch auf das zulässige Maß zurückgenommen; ein Hinweis nennt die Anzahl der zurückgenommenen Rechte.
+
+Schlägt diese Korrektur fehl, wird die betroffene Zeile mit **Überzählige Rechte weiterhin aktiv** gekennzeichnet und zeigt die tatsächlich gespeicherten Rechte an — nicht die zulässigen. Über die Schaltfläche **Überzählige Rechte zurücknehmen** in derselben Zeile lösen Sie die Korrektur erneut aus.
+:::
+
+Ändern sich die Freigaben eines Kalenders, werden die betroffenen Benutzer zusätzlich per E-Mail benachrichtigt. Diese Benachrichtigung erhalten sie automatisch in der Sprache, die sie in edulution verwenden — maßgeblich ist dabei die Sprache des jeweiligen **Empfängers**, die er unter [Mein Profil → Sprache](../benutzer/mein-profil.md#sprache) auswählt.
 
 :::info[Backend-Voraussetzung]
 
@@ -247,7 +352,27 @@ Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktione
 
 ## Abonnierte und schreibgeschützte Kalender
 
-Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Ist ein solcher Kalender schreibgeschützt, können Sie seine Termine zwar einsehen, aber nicht öffnen, bearbeiten, löschen oder per Drag & Drop verschieben. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
+Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
+
+Ein abonnierter Kalender ist **nicht grundsätzlich schreibgeschützt**. Was Sie darin tun dürfen, richtet sich nach den Rechten, die die freigebende Person Ihnen erteilt hat (siehe [Kalender freigeben](#kalender-freigeben)):
+
+- **Termine anlegen** können Sie, wenn Ihnen das Recht zum Hinzufügen erteilt wurde. Nur dann erscheint der Kalender im Feld **Kalender** des Dialogs zum [Erstellen eines Termins](#termine-erstellen).
+- **Termine bearbeiten und verschieben** können Sie, wenn Sie für die Sichtbarkeit des jeweiligen Termins die Rolle **Ändern** besitzen.
+- **Termine löschen** können Sie, wenn Ihnen das Recht zum Löschen erteilt wurde.
+
+Da die Rechte je Sichtbarkeit vergeben werden, können sich die Termine **eines einzigen Kalenders** unterschiedlich verhalten: Ein öffentlicher Termin lässt sich bearbeiten, ein vertraulicher desselben Kalenders nur ansehen und ein privater gar nicht anzeigen.
+
+### Termine ansehen ohne Bearbeitungsrecht
+
+Termine, die Sie sehen, aber nicht bearbeiten dürfen, öffnen sich beim Anklicken in einer reinen **Detailansicht** statt im Bearbeiten-Dialog. Sie zeigt Zeitraum, Kalender, Ort, Beschreibung, Sichtbarkeit, Zeit-Status und Teilnehmer, bietet aber keine Eingabefelder.
+
+Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit sehen**, nennt die Detailansicht ausschließlich den Zeitraum und den Kalender und weist die Zeit als belegt aus — Titel, Ort, Beschreibung und Teilnehmer bleiben verborgen. Termine, für die Sie die Rolle **Keine** besitzen, erscheinen gar nicht erst im Kalender.
+
+## Einrichtung (für Administratoren)
+
+Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](../administration/einstellungen.md#kalender-caldav) als Global-Admin konfiguriert (CalDAV-URL, Authentifizierungsmodus und Zertifikatsprüfung). Das [Freigeben und Abonnieren von Kalendern](#kalender-freigeben) setzt dabei einen SoGo-Server voraus; die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server.
+
+Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
 
 ## Siehe auch
 

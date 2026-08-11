@@ -88,6 +88,43 @@ Beim Setzen von Wiki-Zugriffsgruppen prüfen Sie, ob Sie selbst (bzw. die Admin-
 
 Bereits geöffnete Bearbeitungs-Sessions auf einem deaktivierten Wiki werden beim nächsten Speicherversuch mit einer Fehlermeldung abgebrochen.
 
+## Proxy-Konfiguration (erweitert)
+
+Auf der Wiki-Seite der **Einstellungen** finden Sie zusätzlich den Abschnitt **Proxy-Konfiguration**. Darüber pflegen Sie – ohne Zugriff auf den Host – die Traefik-Route, über die die edulution-API die **Wiki-Suche** und den **Wiki-Baum** des FileProxy erreicht.
+
+Der Schalter **Expertenmodus** gibt den YAML-Editor zur Bearbeitung frei; ohne ihn ist die Konfiguration nur lesbar.
+
+**Vorlage** füllt den Editor mit der korrekten Route: den beiden Wiki-API-Pfaden, dem Dienst `wiki-fileproxy` und dem Einstiegspunkt `websecure`. Ergänzen Sie darin nur noch die Adresse Ihres FileProxy als Ziel des Dienstes – die Vorlage lässt dieses Feld leer.
+
+:::warning[Route nur auf die Wiki-API-Endpunkte einschränken]
+Die Route darf **ausschließlich** die beiden Pfade `/wiki/search` und `/wiki/list` erfassen – niemals den gesamten `/wiki`-Präfix:
+
+```yaml
+rule: "Path(`/wiki/search`) || Path(`/wiki/list`)"
+```
+
+`/wiki` ist zugleich die client-seitige Route des Wikis selbst (`/wiki/<Freigabe>/<Seite>`). Eine `PathPrefix`-Regel auf `/wiki` hätte gegenüber der allgemeinen Weiterleitung an das Frontend Vorrang und würde den gesamten Bereich an den FileProxy leiten. Die Folge: Beim direkten Aufruf oder Neuladen einer Wiki-Seite erscheint ein 404, während die Navigation innerhalb der App noch funktioniert.
+:::
+
+Eine fehlerhafte Konfiguration kann dazu führen, dass die Wiki-Suche nicht mehr erreichbar ist. Die serverseitige Einrichtung von FileProxy und Suchindex ist in der [Wiki-Infrastruktur](../../edulution-fileproxy/wiki-infrastruktur.md) beschrieben.
+
+### Die Wiki-Route wird nie von edulution gelöscht
+
+Die Traefik-Route des Wikis wird bei der Installation auf dem Host bereitgestellt und ist deshalb nicht an die App-Konfiguration gebunden. edulution schreibt sie, entfernt sie aber nie:
+
+- **Löschen** leert lediglich den Editor. Speichern Sie mit leerem Editor, bleibt die Konfigurationsdatei auf dem Host erhalten und die bisherige Route weiter aktiv.
+- Auch das **Löschen der Wiki-App** in den Einstellungen lässt die Route unangetastet.
+
+Ein leerer Editor bedeutet somit nicht, dass keine Route existiert, sondern nur, dass edulution derzeit keine verwaltet. Um die Route wirklich zu ändern, überschreiben Sie sie im Editor – um sie zu entfernen, löschen Sie die Datei auf dem Host.
+
+### Automatische Übernahme bestehender Routen
+
+Bei jedem Start der edulution-API wird die Wiki-Route abgeglichen:
+
+- Ist in den Einstellungen noch keine Route gespeichert, auf dem Host aber bereits eine vorhanden, übernimmt edulution sie in den Editor. Die vom Installer eingerichtete Route erscheint damit unverändert in der UI.
+
+Eine bereits in den Einstellungen gespeicherte Route wird dabei nie überschrieben – Ihre eigene Konfiguration hat immer Vorrang.
+
 ## Siehe auch
 
 - [Wiki (Nutzerhandbuch)](../features/wiki.md) – Funktionen aus Sicht der Endbenutzer

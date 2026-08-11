@@ -2,8 +2,6 @@
 
 Das Dashboard ist Ihre zentrale Startseite nach dem Login in edulution.io. Hier finden Sie alle wichtigen Informationen und Schnellzugriffe für den digitalen Unterricht.
 
-![Dashboard Desktop](/img/features/dashboard-desktop.png)
-
 :::tip[Anpassbar]
 Das Dashboard kann individuell angepasst werden. Weitere Informationen finden Sie unter [Dashboard anpassen](#dashboard-anpassen) (Dokumentation folgt).
 :::
@@ -15,9 +13,6 @@ Das Dashboard passt sich automatisch an Ihre Benutzerrolle an:
 - **Global-Admin**: Zusätzlich **Settings-Button** (Zahnrad) rechts unten sichtbar; die Bereiche **Kalender** und **E-Mail** werden nicht angezeigt
 
 Nicht alle Bereiche und Funktionen sind für jede Rolle sichtbar.
-
-![Dashboard Global-Admin](/img/features/dashboard-admin.png)
-*Dashboard als Global-Admin mit Settings-Button (rot markiert)*
 :::
 
 ## Übersicht
@@ -76,6 +71,22 @@ Erfahren Sie mehr unter [Mobile App & Tablet-Nutzung](mobile-app.md).
 - **E-Mail quota calculated**: E-Mail-Speicherlimit (z.B. "306 MiB")
 
 Die visuelle Fortschrittsanzeige zeigt den aktuellen Verbrauch an.
+
+### Termine
+
+Das Widget **Termine** zeigt einen gleitenden Ausschnitt von drei Tagen – **Gestern**, **Heute** und **Morgen** – als Stundenleiste. Es erscheint nur, wenn es im Dashboard-Layout aktiviert ist (siehe [Dashboard anpassen](#dashboard-anpassen)).
+
+Über der Stundenleiste stehen der gerade sichtbare Tag und die Anzahl seiner Termine; blättern Sie in der Leiste, wechselt diese Beschriftung auf den jeweils sichtbaren Tag. Liegt im gesamten Zeitraum kein Termin, erscheint stattdessen **Keine Termine in den nächsten Tagen**. Ganztägige Termine stehen nicht in der Stundenleiste, sondern als eigene Reihe kleiner Schaltflächen darüber – je mit einem farbigen Punkt und dem gekürzten Titel. Angezeigt werden höchstens zwei; weitere fasst eine Angabe wie **+3** zusammen. Unterhalb der Leiste nennt eine Fußzeile unter **Jetzt** und **Als Nächstes** den laufenden und den darauffolgenden Termin. Die Farben entsprechen den Kalenderfarben aus der [Kalender-Seitenleiste](kalender.md#seitenleiste-und-kalenderliste).
+
+Was ein Klick auf einen Termin bewirkt, hängt von Ihren Rechten am zugehörigen Kalender ab:
+
+| Ihr Recht am Termin | Verhalten beim Klick |
+|---|---|
+| Der Termin darf geändert werden | Der Bearbeiten-Dialog öffnet sich. |
+| Der Termin ist sichtbar, darf aber nicht geändert werden | Die schreibgeschützten **Termindetails** öffnen sich. |
+| Nur die belegte Zeit ist sichtbar | Die Termindetails öffnen sich und zeigen anstelle der Inhalte **Belegt**. |
+
+Ein Termin aus einem eigenen Kalender lässt sich damit direkt vom Dashboard aus bearbeiten, ein freigegebener nur dann, wenn Ihnen der Besitzer das Recht **Ändern** für dessen Sichtbarkeit eingeräumt hat – siehe [Kalender freigeben](kalender.md#kalender-freigeben).
 
 ### Current Affairs
 
@@ -177,7 +188,6 @@ Das Dashboard passt sich automatisch an verschiedene Bildschirmgrößen an:
 - Optimiert für große Bildschirme
 
 ### Tablet-Ansicht
-![Dashboard Tablet](/img/features/dashboard-tablet.jpeg)
 
 - Angepasstes Layout für Touch-Bedienung
 - Größere Touch-Targets

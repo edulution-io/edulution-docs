@@ -108,6 +108,7 @@ const sidebars: SidebarsConfig = {
               ],
             },
             'edulution-ui/features/e-mail',
+            'edulution-ui/features/chat',
             'edulution-ui/features/kontakte',
             'edulution-ui/features/kalender',
             'edulution-ui/features/klassenzimmer',
@@ -134,6 +135,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/administration/administration',
             'edulution-ui/administration/einstellungen',
             'edulution-ui/administration/wiki-einstellungen',
+            'edulution-ui/administration/linuxmuster',
             'edulution-ui/administration/satelliten',
             'edulution-ui/administration/experten-tipps',
           ],
@@ -295,6 +297,93 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'edulution-satellite/wireguard-traefik',
           label: 'WireGuard über Traefik',
+        }
+      ]
+    },
+    {
+      type: 'category',
+      label: 'edulution Moodle',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'edulution-moodle/index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Installation',
+          collapsed: false,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/voraussetzungen',
+              label: 'Voraussetzungen',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/schnellstart',
+              label: 'Schnellstart',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/detailliert',
+              label: 'Detaillierte Installation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/migration',
+              label: 'Migration',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Konfiguration',
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/umgebungsvariablen',
+              label: 'Umgebungsvariablen',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/synchronisation',
+              label: 'Synchronisation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/namensschemas',
+              label: 'Gruppen-Namensschemas',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/cookie-auth',
+              label: 'Cookie Auth (SSO)',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/plugins',
+              label: 'Plugin-Verwaltung',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Administration',
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-moodle/administration/admin-ui',
+              label: 'Admin-Oberfläche',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/administration/backup',
+              label: 'Backup & Wiederherstellung',
+            },
+          ],
         },
       ],
     },
@@ -408,6 +497,48 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'edulution-collabora/index',
           label: '⚙️ Installation',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Anbindungen',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'anbindungen/index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Nextcloud Cookie Auth',
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'anbindungen/nextcloud',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'anbindungen/voraussetzungen',
+              label: 'Voraussetzungen',
+            },
+            {
+              type: 'doc',
+              id: 'anbindungen/installation',
+              label: 'Installation',
+            },
+            {
+              type: 'doc',
+              id: 'anbindungen/konfiguration',
+              label: 'Konfiguration',
+            },
+            {
+              type: 'doc',
+              id: 'anbindungen/troubleshooting',
+              label: 'Troubleshooting',
+            },
+          ],
         },
       ],
     },

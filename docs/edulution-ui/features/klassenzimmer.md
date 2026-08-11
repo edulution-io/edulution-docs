@@ -51,6 +51,14 @@ Pro Schüler verfügbar:
 
 **Alle auswählen** - Für Massenaktionen
 
+### Ablauf einer Aktion
+
+Solange eine Aktion läuft, ersetzt ein Ladekreis das Icon der ausgelösten Funktion. Die übrigen Schalter derselben Karte sind währenddessen gesperrt, bleiben aber in ihrer Farbe lesbar, sodass Sie den aktuellen Zustand des Schülers weiterhin ablesen können.
+
+Nach Abschluss der Aktion lädt edulution den Stand des Schülers neu und die Karte zeigt den neuen Zustand. Schlägt die Aktion fehl, verschwindet der Ladekreis ebenfalls und die Karte bleibt bedienbar.
+
+Bei einer Massenaktion über die Aktionsleiste schließt sich der Dialog sofort nach der Bestätigung, und die Aktion läuft im Hintergrund weiter. Der Ladekreis erscheint dabei auf allen ausgewählten Schülerkarten; anschließend werden alle ausgewählten Karten aktualisiert.
+
 ### Bildschirmüberwachung (Veyon)
 
 Ist ein Veyon-Proxy hinterlegt, zeigt jede Schülerkarte automatisch eine kleine Live-Vorschau des Schülerbildschirms — Sie müssen die Überwachung nicht eigens starten. Über das Symbol zum Vergrößern öffnen Sie die Vorschau in einem eigenen Fenster, das häufiger aktualisiert wird.
@@ -69,6 +77,14 @@ Für die Verbindung zu einem Schüler-Gerät meldet sich edulution mit **Ihren e
 :::
 
 Bleibt die Vorschau bei allen Schülern leer, ist in der Regel kein Veyon-Proxy konfiguriert — eine Karte ohne Vorschau sieht genauso aus wie ein ausgeschaltetes Gerät. Wenden Sie sich in diesem Fall an Ihren Administrator.
+
+### Eingesammelte Dateien öffnen
+
+Nachdem Sie im Unterricht Dateien Ihrer Schüler eingesammelt haben, zeigt edulution die eingesammelten Dateien in einem Dialog an. Über die Schaltfläche im Dialog öffnen Sie den zugehörigen Ordner direkt in der [Dateiverwaltung](dateien/index.md).
+
+:::info[Zugriff auf die Dateien-App erforderlich]
+Die Schaltfläche zum Öffnen der eingesammelten Dateien in der Dateiverwaltung erscheint nur, wenn Sie Zugriff auf die Dateien-App haben. Ohne diesen Zugriff werden die eingesammelten Dateien weiterhin im Dialog angezeigt, lassen sich aber nicht direkt in der Dateiverwaltung öffnen. Welche Benutzer Zugriff auf die App haben, legen Administratoren über die Zugriffsgruppen der Dateien-App fest.
+:::
 
 ## Einrichtung (für Administratoren)
 

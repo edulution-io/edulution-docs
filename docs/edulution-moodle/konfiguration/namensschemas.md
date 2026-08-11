@@ -452,5 +452,5 @@ Im Dashboard können Sie vor der Synchronisierung eine **Vorschau** anzeigen las
 ## Nächste Schritte
 
 - [Synchronisation konfigurieren](./synchronisation.md)
-- [Kategorien einrichten](./umgebungsvariablen.md#kategorien)
-- [Dashboard nutzen](/edulution-moodle/administration/admin-ui)
+- [Kategorien einrichten](./umgebungsvariablen.md#gruppen-sync)
+- [Dashboard nutzen](../administration/admin-ui.md)

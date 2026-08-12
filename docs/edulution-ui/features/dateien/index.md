@@ -38,6 +38,20 @@ Klicken Sie auf **Datei erstellen** (unten) und wählen Sie:
 - 📗 **Neue Tabelle** - Excel-Tabelle (OnlyOffice)
 - 📙 **Neue Präsentation** - PowerPoint (OnlyOffice)
 
+## Dateivorschau
+
+Ein Klick auf den Dateinamen öffnet die Datei in der Vorschau. Vorschaufähig sind Bilder, Video- und Audiodateien, PDF-Dateien, Textdateien, Draw.io-Diagramme und Office-Dokumente. Bei allen übrigen Formaten bleibt der Klick wirkungslos – diese Dateien können Sie nur herunterladen. Über die Schaltflächen in der Titelleiste der Vorschau öffnen Sie die Datei zusätzlich in einem eigenen Browser-Tab.
+
+Office-Dokumente setzen voraus, dass Ihr Administrator einen Dokumenten-Editor eingerichtet hat – entweder [OnlyOffice](../../../edulution-onlyoffice/index.md) oder [Collabora](../../../edulution-collabora/index.md). Ist keiner konfiguriert, lässt sich ein Office-Dokument nicht öffnen; PDF-Dateien öffnen sich unabhängig davon.
+
+### Office-Dokumente auf dem Smartphone
+
+Der Dokumenten-Editor lässt sich auf einem Smartphone beziehungsweise in einem sehr schmalen Browserfenster nicht sinnvoll bedienen. Tippen Sie dort auf ein Office-Dokument, erscheint der Hinweis *„Office-Dokumente lassen sich auf dem Smartphone nicht öffnen. Bitte nutzen Sie ein Tablet oder einen Computer."* und die Datei wird lediglich an- beziehungsweise abgewählt. PDF-Dateien, Bilder, Medien- und Textdateien öffnen sich auch auf dem Smartphone in der Vorschau.
+
+### Wenn die Vorschau fehlschlägt
+
+Lässt sich der Inhalt einer Datei nicht laden, zeigt die Vorschau eine Fehlermeldung **Vorschau konnte nicht geladen werden** – anstatt dauerhaft eine Ladeanzeige zu drehen. Darunter stehen der Grund und der Name der betroffenen Datei, etwa *Zugriff verweigert*, wenn Ihnen die Berechtigung fehlt, oder *Nicht gefunden*, wenn die Datei inzwischen verschoben oder gelöscht wurde. Dieselbe Meldung erscheint, wenn Sie die Vorschau in einem eigenen Browser-Tab oder über einen Freigabe-Link geöffnet haben.
+
 ## Aktionen mit Dateien
 
 Wenn Sie eine Datei auswählen (Checkbox), erscheinen folgende Aktionen:

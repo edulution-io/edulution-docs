@@ -16,6 +16,14 @@ Am oberen Rand sehen Sie den aktuellen Pfad: `Home > agy > teachers > agy-netzin
 - Suchfeld oben: "Tippen, um zu filtern"
 - Filtert Dateinamen in Echtzeit
 
+### Ansicht, Tastatur und Filter
+- **Tabellen- oder Kachelansicht**: Umschalter rechts über der Dateiliste, die Wahl bleibt gespeichert
+- **Pfeiltasten**: Durch die Liste blättern, **Enter** öffnet das markierte Element
+- **Anzahl der Elemente**: Unter der Liste steht, wie viele Elemente angezeigt bzw. ausgewählt sind
+- **Filter**: System- und versteckte Dateien einblenden und einzelne Dateikategorien ausblenden
+
+Alle Details finden Sie unter [Ansicht und Navigation](./ansicht-und-navigation.md).
+
 ## Dateien hochladen
 
 Klicken Sie auf **Hochladen** (unten):

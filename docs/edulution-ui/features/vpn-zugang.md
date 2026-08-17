@@ -10,8 +10,6 @@ Der VPN-Zugang erscheint nur, wenn die Administration die **WireGuard**-App eing
 
 Den eigenen Zugang finden Sie in den [Benutzereinstellungen](../benutzer/mein-profil.md) unter **VPN-Zugang**. Die Seite zeigt die persönliche WireGuard-Konfiguration, sofern Ihnen die Administration einen Peer zugewiesen hat.
 
-![VPN-Zugang in den Benutzereinstellungen öffnen](/img/features/wireguard-vpn-usersettings-menu.png)
-
 Wurde für Ihr Konto noch kein Zugang eingerichtet, erscheint stattdessen der Hinweis, dass noch kein WireGuard-VPN-Zugang vorhanden ist. Wenden Sie sich in diesem Fall an einen Administrator.
 
 Ist ein Peer vorhanden, gliedert sich die Seite in vier Abschnitte:
@@ -43,8 +41,6 @@ Zur schnellen Einrichtung auf **Mobilgeräten**. Öffnen Sie die WireGuard-App a
 ### Konfigurationsdatei
 
 Für die Einrichtung am **Computer**. Über **Konfiguration herunterladen** laden Sie eine `.conf`-Datei herunter, die Sie in der WireGuard-Anwendung Ihres Rechners (Windows, macOS, Linux) importieren.
-
-![Die WireGuard-Konfigurationsdatei über die Schaltfläche herunterladen](/img/features/wireguard-vpn-config-download.png)
 
 :::tip[WireGuard-Client]
 Die passende Client-Software für alle Plattformen finden Sie auf der offiziellen Seite [wireguard.com/install](https://www.wireguard.com/install/).

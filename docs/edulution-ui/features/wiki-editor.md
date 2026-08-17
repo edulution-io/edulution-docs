@@ -127,9 +127,13 @@ Tippen Sie einen Doppelpunkt gefolgt von mindestens zwei Buchstaben, z. B. `:smi
 
 ## Wiki-Verlinkung
 
-Tippen Sie `[[`, sucht der Editor parallel in allen Seiten des aktuellen Wikis und zeigt passende Treffer an. Alternativ öffnen Sie die Suche über das Buch-Symbol in der Werkzeugleiste oder über **Wiki-Seite verlinken** im Slash-Menü.
+Eine Verlinkung starten Sie über das Buch-Symbol in der Werkzeugleiste oder über **Wiki-Seite verlinken** im Slash-Menü – beide setzen die Zeichen `[[` an der Cursorposition ein. Alternativ tippen Sie `[[` selbst.
 
-- Auswahl mit den Pfeiltasten, Einfügen mit `Enter`
+Anschließend erscheint die Auswahlliste **Wiki-Link einfügen**:
+
+- Zunächst steht dort nur der Hinweis **Tippen, um eine Wiki-Seite zum Verlinken zu suchen**
+- Ab **zwei eingegebenen Zeichen** durchsucht der Editor alle Wikis, auf die Sie Zugriff haben, und zeigt Titel und Pfad der Treffer an
+- Auswahl mit den Pfeiltasten, Einfügen mit `Enter`; `Esc` schließt die Liste
 - Findet die Suche keine Seite, erscheint der Hinweis **Keine passenden Wiki-Seiten gefunden.**
 - Soll der Link anders heißen als die Seite, verwenden Sie `[[Seitenname|Anzeigetext]]`
 

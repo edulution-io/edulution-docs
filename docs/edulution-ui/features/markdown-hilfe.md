@@ -66,7 +66,7 @@ Verwenden Sie genau ein `#` (Überschrift 1) pro Seite – idealerweise als Seit
 
 ### Wiki-Verlinkung
 
-Über `[[Seitenname]]` verlinken Sie auf eine andere Seite im selben Wiki. Sobald Sie `[[` tippen, durchsucht der Editor alle Seiten des Wikis und schlägt passende Treffer zur Auswahl vor.
+Über `[[Seitenname]]` verlinken Sie auf eine andere Wiki-Seite. Die Zeichen `[[` müssen Sie nicht selbst tippen – das Buch-Symbol in der Werkzeugleiste und der Slash-Menü-Eintrag **Wiki-Seite verlinken** setzen sie für Sie ein. Sobald `[[` im Text steht und Sie mindestens zwei Zeichen eingegeben haben, schlägt der Editor passende Seiten aus allen Wikis zur Auswahl vor.
 
 ```markdown
 Mehr Details finden Sie in [[Lehrerhandbuch]].

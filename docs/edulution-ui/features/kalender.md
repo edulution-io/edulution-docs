@@ -32,6 +32,16 @@ Mit der Umschaltung wechseln Sie zwischen den vier Hauptansichten:
 
 Die **Stundenplan**-Ansicht ist eine eigenständige Darstellung. Sie erreichen Sie nicht über diese Umschaltung, sondern über die Seitenleiste (siehe [Stundenplan](#stundenplan)).
 
+### Ansicht merken, verlinken und zurückblättern
+
+Die gewählte Ansicht und der angezeigte Zeitraum sind in der Adresse (URL) der Kalender-App enthalten. Daraus ergeben sich drei Dinge:
+
+- **Die Seite können Sie neu laden, ohne Ihre aktuelle Ansicht zu verlieren.** Nach dem Neuladen sind dieselbe Ansicht und derselbe Zeitraum wieder eingestellt.
+- **Sie können einen bestimmten Zeitraum als Lesezeichen speichern oder als Link weitergeben** – etwa die Wochenansicht einer bestimmten Woche. Beim Aufruf wird direkt diese Ansicht mit diesem Zeitraum geöffnet.
+- **Die Schaltflächen Zurück und Vorwärts des Browsers** führen durch die zuvor angezeigten Ansichten und Zeiträume, statt die Kalender-App zu verlassen.
+
+Öffnen Sie den Kalender ohne einen solchen Link – etwa über die Seitenleiste –, wird die **zuletzt von Ihnen verwendete Ansicht** mit dem heutigen Datum angezeigt. Gemerkt wird dabei nur eine Ansicht, die Sie selbst über die Umschaltung gewählt haben: Öffnen Sie den Link einer Kollegin, ändert das nicht, mit welcher Ansicht Ihr eigener Kalender künftig startet. Die zuletzt verwendete Ansicht bleibt über das Abmelden hinaus nicht erhalten: Nach einer erneuten Anmeldung beginnt der Kalender wieder mit der Monatsansicht.
+
 ### Ansicht aktualisieren
 
 Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die Termine des aktuell angezeigten Zeitraums und der aktiven Kalender erneut vom Server, ohne dass Sie die Seite neu laden oder wegblättern müssen – nützlich, um zwischenzeitlich an anderer Stelle geänderte Termine anzuzeigen. Während des Aktualisierens dreht sich das Symbol der Schaltfläche, sie ist vorübergehend deaktiviert und es erscheint die kleine Ladeanzeige.
@@ -45,7 +55,7 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 - **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
 - **Kalender anlegen** – Öffnet den Dialog zum [Anlegen eines neuen Kalenders](#kalender-anlegen).
 
-Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender** und **Abonnierte Kalender** führen zur normalen Kalenderansicht (Monat bzw. Woche, je nach zuletzt gewählter Ansicht), **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf **Meine Kalender** oder **Abonnierte Kalender** wieder in die gewohnte Kalenderansicht zurück.
+Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender** und **Abonnierte Kalender** führen zur normalen Kalenderansicht, **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf **Meine Kalender** oder **Abonnierte Kalender** wieder in die gewohnte Kalenderansicht zurück. Angezeigt wird dabei die zuletzt von Ihnen verwendete Ansicht mit dem heutigen Datum (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)).
 
 Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet den Kalender in allen Ansichten und dient zugleich als Legende. Abonnierte (freigegebene) Kalender werden zusätzlich mit einem gestrichelten Rahmen gekennzeichnet.
 
@@ -111,7 +121,7 @@ Beachten Sie dabei die folgenden Besonderheiten:
 
 ### Stundenplan
 
-Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansicht: Sie zeigt nur die Tage **Montag bis Freitag** und einen festen Zeitausschnitt am Tag in feiner Rasterung. Sie öffnen sie über einen als Stundenplan markierten Kalender in der Seitenleiste; über **Zurück** kehren Sie zur normalen Kalenderansicht zurück. In dieser Ansicht werden die Termine in ihrer jeweiligen **Farbe** dargestellt.
+Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansicht: Sie zeigt nur die Tage **Montag bis Freitag** und einen festen Zeitausschnitt am Tag in feiner Rasterung. Sie öffnen sie über einen als Stundenplan markierten Kalender in der Seitenleiste; über **Zurück** kehren Sie zur normalen Kalenderansicht zurück – und zwar in die Woche, die Sie im Stundenplan zuletzt angezeigt haben. In dieser Ansicht werden die Termine in ihrer jeweiligen **Farbe** dargestellt.
 
 Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)). Wie in den übrigen Rasteransichten verschieben Sie einen Termin auch hier [per Drag & Drop](#termine-per-drag--drop-verschieben) auf einen anderen Zeitabschnitt. Über der Stundenskala liegt wie in der Wochenansicht eine eigene Zeile für **ganztägige** Termine.
 
@@ -137,6 +147,12 @@ Einen neuen Termin legen Sie auf mehreren Wegen an:
 
 - über die Schaltfläche **Termin erstellen** oben rechts,
 - mit einem Klick auf einen Tag (Monatsansicht) oder einen Zeitabschnitt (Wochen- und Tagesansicht).
+
+Welcher Zeitpunkt dabei vorbelegt wird, hängt vom gewählten Weg ab:
+
+- Ein Klick auf einen **Zeitabschnitt** übernimmt Datum und Uhrzeit dieses Abschnitts.
+- Ein Klick auf einen **Tag** übernimmt das Datum; als Beginn wird die nächste volle Stunde eingetragen.
+- Die Schaltfläche **Termin erstellen** bezieht sich auf den angezeigten Zeitraum und trägt dessen Datum mit der nächsten vollen Stunde ein.
 
 Füllen Sie im Dialog die folgenden Felder aus:
 

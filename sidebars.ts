@@ -73,6 +73,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/benutzer/mein-profil',
             'edulution-ui/features/dashboard',
             'edulution-ui/features/dateien',
+            'edulution-ui/features/dateien/upload-schutzmechanismen',
             'edulution-ui/features/klassenzimmer',
             'edulution-ui/features/konferenzen',
             'edulution-ui/features/whiteboard',

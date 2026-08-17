@@ -137,6 +137,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/features/infoboard',
             'edulution-ui/features/umfragen',
             'edulution-ui/features/benachrichtigungen',
+            'edulution-ui/features/vpn-zugang',
           ],
         },
         {

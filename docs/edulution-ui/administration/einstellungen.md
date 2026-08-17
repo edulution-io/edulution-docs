@@ -27,13 +27,74 @@ Die Einstellungen sind in 5 Bereiche gegliedert:
 
 ### Allgemein
 
-**Zielplattform**
-- Auswahl: **Linuxmuster** oder **Allgemein**
-- Bestimmt die Integration mit dem Schulnetzwerk
+**Plattform**
+- Auswahl: **Linuxmuster** oder **Generisch**
+- Bestimmt, an welchen Server edulution angebunden wird
+- Bei **Linuxmuster** steht die [Serververwaltung](linuxmuster.md) zur Verfügung
+
+**Organisationstyp**
+- Auswahl: **Schule**, **Unternehmen** oder **Öffentliche Verwaltung**
+- Legt fest, als welche Art von Einrichtung edulution auftritt
+- Steuert Beschriftungen, den Funktionsumfang der Serververwaltung und das Logo auf der Login-Seite
+- Ausführlich: [Organisationstyp](#organisationstyp)
 
 **Standard-Anwendung nach Login**
 - Wählen Sie welche App nach Login angezeigt wird
 - Optionen: Dashboard, Info Board, Dateien, etc.
+
+### Organisationstyp
+
+Der Organisationstyp gilt systemweit für alle Nutzer. Er ist unabhängig von der **Plattform**: Die Plattform bestimmt, an welchen Server edulution angebunden wird, der Organisationstyp bestimmt, mit welchen Begriffen und in welchem Umfang sich edulution den Nutzern zeigt.
+
+| Auswahl | Gedacht für |
+|---------|-------------|
+| **Schule** | Schulen und Bildungseinrichtungen (Voreinstellung) |
+| **Unternehmen** | Firmen und andere nicht-schulische Organisationen |
+| **Öffentliche Verwaltung** | Behörden und kommunale Einrichtungen |
+
+#### Auswirkungen
+
+| Bereich | Schule | Öffentliche Verwaltung | Unternehmen |
+|---------|--------|------------------------|-------------|
+| edulution-Logo auf der Login-Seite | sichtbar | sichtbar | ausgeblendet |
+| Bezeichnung der Server-App in Seitenleiste und App-Leiste | Schulserver | Schulserver | Server |
+| Ausweis in der mobilen Ansicht | Schülerausweis | Mitarbeiterausweis | Mitarbeiterausweis |
+| Elternzuweisung in der Serververwaltung | vorhanden | vorhanden | entfällt |
+| Spaltenbeschriftungen der Benutzerverwaltung | Klasse, Schulname | Klasse, Schulname | Primärgruppe, Organisationskürzel |
+| Geräterollen in der Geräteverwaltung | vollständig | vollständig | ohne Klassenraum- und Fachraum-Rollen, **Lehrer-PC** heißt **Computer** |
+| Hinweistexte zu Logo und Organisationsinformationen | mit Schulbezug | mit Schulbezug | neutral formuliert |
+
+:::info[Öffentliche Verwaltung folgt der Schule]
+**Öffentliche Verwaltung** verhält sich bis auf die Beschriftung des Ausweises genau wie **Schule**. Nur **Unternehmen** blendet das edulution-Logo aus und reduziert die schulspezifischen Funktionen.
+:::
+
+Änderungen wirken sofort nach dem Speichern. Bereits geöffnete Browser-Fenster übernehmen sie erst nach einem Neuladen.
+
+#### Logo auf der Login-Seite
+
+Beim Organisationstyp **Unternehmen** wird das edulution-Logo auf der Login-Seite nicht angezeigt. Sichtbar bleiben das eigene Logo aus dem [Branding](#branding), der Organisationsname und der Anmeldetext — die Login-Seite tritt damit ausschließlich unter der Marke der eigenen Organisation auf.
+
+Die Login-Seite wird vor der Anmeldung angezeigt und kann die globalen Einstellungen deshalb noch nicht lesen. Sie ermittelt den Organisationstyp über einen öffentlichen Endpunkt, der ohne Anmeldung erreichbar ist:
+
+```
+GET /edu-api/global-settings/public/organisation-info
+```
+
+Er liefert ausschließlich `name`, `loginText`, `website` und `organizationType`. Weitere Einstellungen gibt er nicht preis.
+
+#### Voreinstellung bei der Installation
+
+Bei einer Neuinstallation und beim Update einer bestehenden Installation wird der Organisationstyp aus der Umgebungsvariablen `EDUI_ORGANIZATION_TYPE` übernommen:
+
+```dotenv title=".edulution.env"
+EDUI_ORGANIZATION_TYPE=business
+```
+
+Gültige Werte sind `school`, `business` und `public-administration`. Ist die Variable nicht gesetzt oder enthält sie einen unbekannten Wert, gilt **Schule**.
+
+:::info
+Die Variable setzt nur den Ausgangswert. Danach ändern Sie den Organisationstyp in den globalen Einstellungen; der dort gespeicherte Wert hat Vorrang und wird durch die Variable nicht mehr überschrieben.
+:::
 
 ### Zwei-Faktor-Authentisierung
 
@@ -59,6 +120,10 @@ Die Einstellungen sind in 5 Bereiche gegliedert:
 - Laden Sie Ihr Schul-Logo hoch
 - Wird auf Login-Seite und in der App angezeigt
 - Button: **Datei auswählen**
+
+:::tip[Eigenes Logo allein auf der Login-Seite]
+Setzen Sie den [Organisationstyp](#organisationstyp) auf **Unternehmen**, wird das edulution-Logo auf der Login-Seite ausgeblendet und nur noch Ihr eigenes Logo angezeigt.
+:::
 
 **Organisationsinformationen**
 - **Organisationsname**: Name der Schule (z.B. "Albert-Schweitzer-Schule")

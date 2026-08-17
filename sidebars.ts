@@ -101,6 +101,7 @@ const sidebars: SidebarsConfig = {
           label: 'Nutzerhandbuch',
           collapsed: false,
           items: [
+            'edulution-ui/features/navigation',
             'edulution-ui/benutzer/mein-profil',
             'edulution-ui/features/dashboard',
             {

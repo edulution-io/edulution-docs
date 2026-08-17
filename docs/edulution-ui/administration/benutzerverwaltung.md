@@ -140,7 +140,7 @@ Vor dem Speichern werden die Einträge geprüft. Solange eine Zelle ungültig is
 - **Klasse**, **Kategorie** und **Gewünschter Login** dürfen nur Buchstaben (inklusive Umlaute und `ß`), Ziffern, Leerzeichen sowie die Zeichen `_` und `-` enthalten.
 - **Vorname**, **Nachname** und **ID** unterliegen keiner Formatprüfung.
 
-![Benutzerverwaltung-Import-Pruefen](/img/benutzerverwaltung/benutzerverwaltung07-import-pruefen.png)
+![Benutzerverwaltung-Import-Pruefen](/img/benutzerverwaltung/benutzerverwaltung08-import-pruefen.png)
 
 ## CSV importieren und exportieren
 

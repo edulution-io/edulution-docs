@@ -25,4 +25,11 @@ verwendet wurde.
 Anschließend kann in den Einstellungen zur Mail-App das Theme ausgewählt
 werden.
 
+## Weitere Einrichtung
+
+Die Verbindungsdaten des integrierten E-Mail-Clients – Mailcow-API,
+IMAP, SMTP, ManageSieve und DAV – werden in den Einstellungen der
+Mail-App gepflegt. Siehe
+[Mail-App konfigurieren](mail-app-konfiguration.md).
+
 {/* ![Auswahl des SOGo-Themes](assets/setupMailTheme.webp) */}

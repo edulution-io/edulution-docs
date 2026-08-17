@@ -121,6 +121,11 @@ const sidebars: SidebarsConfig = {
               id: 'edulution-mail/administration',
               label: 'Administration',
             },
+            {
+              type: 'doc',
+              id: 'edulution-mail/mail-app-konfiguration',
+              label: 'Mail-App konfigurieren',
+            },
           ],
         },
         {
@@ -191,6 +196,11 @@ const sidebars: SidebarsConfig = {
           label: 'Verwaltung',
           collapsed: true,
           items: [
+            {
+              type: 'doc',
+              id: 'edulution-mail/mailbox-verwaltung',
+              label: 'Mailboxen & geteilte Postfächer',
+            },
             {
               type: 'doc',
               id: 'edulution-mail/verteilerlisten',

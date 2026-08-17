@@ -62,6 +62,8 @@ Das Webmail-Interface basiert auf SOGo und ist über `https://mail.ihre-domain.d
 
 Die folgenden Themen sind in separaten Dokumenten verfügbar:
 
+- [Mail-App konfigurieren](mail-app-konfiguration) - Mailcow-API, IMAP/SMTP und externe Provider in edulution UI
+- [Mailboxen und geteilte Postfächer](mailbox-verwaltung) - Mailboxen aus edulution UI heraus verwalten
 - [Mail-Migration für Administratoren](admin_mail_migration) - E-Mail-Synchronisierung einrichten
 - [Mail-Migration für Benutzer](user_mail_migration) - Eigene E-Mails migrieren
 - [Verteilerlisten](verteilerlisten) - Projekt-basierte E-Mail-Verteiler

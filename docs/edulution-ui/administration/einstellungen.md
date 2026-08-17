@@ -371,6 +371,17 @@ Ohne konfigurierten Proxy zeigen die Schülerkarten im Unterricht keine Bildschi
 
 ---
 
+## Frame- und Eingebettete Apps
+
+Apps, die Inhalte in einem iframe anzeigen, bringen zwei zusätzliche Bereiche in ihren Einstellungen mit:
+
+- **Skripte** (nur Frame-Apps) — JavaScript, das beim Laden des iframes und beim Abmelden ausgeführt wird, mit Syntaxprüfung und Formatierung im Editor
+- **URL-Verarbeitung** (Frame-Apps sowie Eingebettete Apps im Modus *Separates Layout*) — Adresszeile des Browsers der Navigation im eingebetteten Inhalt folgen lassen und Deep-Links unterstützen
+
+[→ Details: Eingebettete App – Skripte und URL-Verarbeitung](../features/eingebettete-app.md#url-verarbeitung-und-deep-links)
+
+---
+
 ## Container
 
 ![Container Übersicht](/img/einstellungen/container.webp)

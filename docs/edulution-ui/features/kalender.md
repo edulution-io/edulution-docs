@@ -292,6 +292,19 @@ Unabhängig von diesen drei Rollen stehen zwei kalenderweite Optionen zur Verfü
 
 Beide sind vom Recht zum **Ändern** unabhängig: Wer Termine ändern darf, darf deshalb noch keine anlegen oder löschen.
 
+### Alle Rechte auf einmal vergeben oder entziehen
+
+In der **aufgeklappten** Zeile erscheint links neben dem Mülleimer-Symbol eine zusätzliche Schaltfläche, mit der Sie sämtliche Rechte einer Person oder Gruppe in einem Schritt setzen. Solange die Zeile zugeklappt ist, wird sie nicht angeboten.
+
+Ein Klick setzt stets alle Rechte gemeinsam:
+
+- Besitzt die Person **noch gar keine Rechte**, erhält sie alle drei Sichtbarkeiten mit der Rolle **Ändern** sowie beide Häkchen zum Hinzufügen und Löschen.
+- Besitzt sie **irgendein Recht**, werden alle drei Sichtbarkeiten auf **Keine** gesetzt und beide Häkchen entfernt.
+
+Welche der beiden Richtungen der nächste Klick auslöst, erkennen Sie am Symbol der Schaltfläche; ihr Name — **Alle Rechte gewähren** beziehungsweise **Alle Rechte entziehen** — wird beim Zeigen mit der Maus eingeblendet. Als „irgendein Recht“ zählt dabei auch ein einzeln gesetztes Häkchen: Wer ausschließlich Termine hinzufügen darf, sonst aber nichts sehen kann, verliert beim nächsten Klick auch dieses Recht.
+
+Für **Alle authentifizierten Benutzer** und **Öffentlicher Zugang** steht die Schaltfläche nicht zur Verfügung; deren Rechte setzen Sie einzeln.
+
 ### Änderungen werden sofort gespeichert
 
 Jede Änderung an einer Rolle oder einem Häkchen wird unmittelbar gespeichert; solange der Vorgang läuft, erscheint in der betreffenden Zeile eine Ladeanzeige und weitere Änderungen sind währenddessen gesperrt. Schlägt das Speichern fehl, springt die Zeile auf den vorherigen Stand zurück und es erscheint eine Fehlermeldung.

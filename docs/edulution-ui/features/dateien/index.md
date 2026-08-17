@@ -83,6 +83,10 @@ Alle Dateiformate sind möglich. Direkt bearbeiten können Sie:
 - Dokumente (.docx, .odt)
 - Tabellen (.xlsx, .ods)
 - Präsentationen (.pptx, .odp)
+- Text- und Markdown-Dateien (.txt, .md und weitere)
+- Diagramme (.drawio)
+
+Ansehen können Sie außerdem PDFs, Bilder, Videos und Audiodateien – ein Klick auf den Dateinamen genügt. Details dazu und zum Ausdrucken von Textdateien finden Sie unter [Vorschau und Drucken](./vorschau-und-drucken.md).
 
 ## WebDAV-Zugang
 
@@ -103,6 +107,7 @@ Sie können Ihre Dateien auch direkt über den Dateimanager Ihres Betriebssystem
 
 ## Siehe auch
 
+- [Vorschau und Drucken](./vorschau-und-drucken.md) - Dateien ansehen und ausdrucken
 - [Dashboard](../dashboard.md) - Speichernutzung anzeigen
 - [Mobile App](../mobile-app.md) - Dateien mobil synchronisieren
 - [Eingebettete App](../eingebettete-app.md) - HTML/JS/CSS hochladen

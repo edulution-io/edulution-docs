@@ -113,6 +113,7 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'edulution-ui/features/dateien/browser-download-einstellungen',
+                'edulution-ui/features/dateien/vorschau-und-drucken',
                 'edulution-ui/features/dateien/webdav-windows',
                 'edulution-ui/features/dateien/webdav-macos',
                 'edulution-ui/features/dateien/webdav-linux',

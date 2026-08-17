@@ -162,6 +162,10 @@ http:
 Die Proxy-Konfiguration ist zwingend erforderlich! Ohne diese Konfiguration sind die E-Mail-Dienste nicht über die edulution-URL erreichbar.
 :::
 
+:::tip[Schneller über die Vorlage]
+Statt die Konfiguration einzufügen, können Sie im Abschnitt **Proxy-Konfiguration** auch auf **Vorlage** klicken — sie enthält genau den oben gezeigten Stand. edulution hält diese Route anschließend selbstständig aktuell; siehe [Automatischer Abgleich](/docs/edulution-ui/administration/einstellungen#automatischer-abgleich).
+:::
+
 :::info[Hintergrund zu den einzelnen Routern]
 - **`edulution-sogo-mail`** veröffentlicht genau einen Pfad: `/sogo-mail/sogo-auth.php`. Mehr benötigt der Browser unter diesem Präfix nicht — die Anmeldung antwortet mit einer Weiterleitung auf `/SOGo/so/{login}`, die über den eigenen Router `edulution-sogo` läuft.
 - **`edulution-active-sync`** und **`edulution-autodiscover`** haben jeweils eigene Router und sind davon unabhängig.

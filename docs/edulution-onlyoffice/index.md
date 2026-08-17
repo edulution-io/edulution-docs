@@ -64,3 +64,7 @@ http:
 ```
 
 **Anschließend "Speichern"**
+
+:::tip[Schneller über die Vorlage]
+Statt die Konfiguration einzutragen, können Sie im Abschnitt **Proxy-Konfiguration** auch auf **Vorlage** klicken. Die Vorlage richtet sich nach dem eingestellten Dokumenten-Editor und enthält bei **OnlyOffice** genau den oben gezeigten Stand. edulution hält diese Route anschließend selbstständig aktuell; siehe [Automatischer Abgleich](/docs/edulution-ui/administration/einstellungen#automatischer-abgleich).
+:::

@@ -65,6 +65,12 @@ Wenn Sie eine Datei auswählen (Checkbox), erscheinen folgende Aktionen:
 - **Kopieren** - Datei duplizieren
 - **Teilen** - Freigabe-Link erstellen
 
+### In App öffnen [tags: ios, android]
+
+Rufen Sie die Dateiverwaltung über die [edulution.io App](/docs/edulution-app/) auf, kommt die Aktion **In App öffnen** hinzu. Die Datei wird an die App übergeben und dort mit den Mitteln des Betriebssystems angezeigt – unter iOS über die Dateien-App. Im Browser entfällt die Aktion, ebenso in App-Versionen älter als 2.0.
+
+Siehe auch [Mobile App & Tablet-Nutzung](../mobile-app.md).
+
 ### Teilen (Sharing)
 
 Beim Teilen können Sie festlegen:

@@ -375,47 +375,9 @@ Ohne konfigurierten Proxy zeigen die Schülerkarten im Unterricht keine Bildschi
 
 ![Container Übersicht](/img/einstellungen/container.webp)
 
-Übersicht aller Docker Container des Systems.
+Übersicht aller Docker Container des Systems mit Name, Image, Betriebszustand, Status, Port und Erstellungszeitpunkt. Über die Aktionsleiste am unteren Rand installieren Sie die Container zusätzlicher Dienste, aktualisieren sie und steuern ihren Lebenszyklus.
 
-### Container-Tabelle
-
-| Spalte | Beschreibung |
-|--------|--------------|
-| **Container-Name** | Name des Containers |
-| **Image** | Docker Image und Version |
-| **Zustand** | Status (läuft) |
-| **Status** | Laufzeit (z.B. "Seit 2 Tagen") |
-| **Port** | Verwendete Ports |
-
-### Hauptcontainer
-
-**Mail:**
-- edulution-mail
-
-**OnlyOffice:**
-- edulution-onlyoffice-documentserver
-- edulution-onlyoffice-postgresql
-- mailcowdockerized-sogo-mailcow-1
-
-**API & UI:**
-- edulution-ui
-- edulution-api
-
-**Mailcow (E-Mail System):**
-- mailcowdockerized-* Container (ca. 15 Container)
-
-**Datenbanken:**
-- edulution-keybank-db
-- edulution-db (mongo:7)
-- edulution-keycloak-db (postgres:16)
-- redis Instanzen
-
-**Weitere:**
-- edulution-traefik (traefik:v3.1)
-- edulution-keycloak
-- edulution-webdav-proxy
-
-**Neu laden** - Button zum Aktualisieren unten
+Die vollständige Beschreibung – Aktionen, geschützte Container, Plugin-Installation, Edulution-Manager-Agent und Fehlerbehebung – finden Sie unter [Container-Verwaltung](container-verwaltung.md).
 
 :::info[Fortgeschrittene Verwaltung]
 Die Container-Übersicht ist für fortgeschrittene Administratoren. Änderungen sollten nur mit entsprechendem Docker-Know-how vorgenommen werden.
@@ -460,5 +422,6 @@ Nützlich wenn Benutzer:
 ## Siehe auch
 
 - [Administration](administration.md) - Allgemeine Admin-Aufgaben
+- [Container-Verwaltung](container-verwaltung.md) - Container installieren, aktualisieren und steuern
 - [Experten-Tipps](experten-tipps.md) - Fortgeschrittene Konfiguration
 - [Linuxmuster verbinden](../configure-lmn-server/configure_lmn-server.md) - Server-Integration

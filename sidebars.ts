@@ -147,6 +147,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'edulution-ui/administration/administration',
             'edulution-ui/administration/einstellungen',
+            'edulution-ui/administration/container-verwaltung',
             'edulution-ui/administration/wiki-einstellungen',
             'edulution-ui/administration/linuxmuster',
             'edulution-ui/administration/satelliten',

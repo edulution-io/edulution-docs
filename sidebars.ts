@@ -112,6 +112,7 @@ const sidebars: SidebarsConfig = {
                 id: 'edulution-ui/features/dateien/index',
               },
               items: [
+                'edulution-ui/features/dateien/drawio',
                 'edulution-ui/features/dateien/browser-download-einstellungen',
                 'edulution-ui/features/dateien/webdav-windows',
                 'edulution-ui/features/dateien/webdav-macos',

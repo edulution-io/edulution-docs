@@ -116,9 +116,19 @@ Darunter erzeugt der **DHCP-Export** aus den erfassten Geräten und Gruppen eine
 
 ### Hosts
 
-Die Hostliste ist über Registerkarten nach Gerätetyp gefiltert: **Alle**, **Computer**, **Server**, **Drucker**, **iPads** und **Sonstige**. Geräte mit einer Rolle, die keiner dieser Gruppen entspricht, erscheinen unter *Sonstige*. Zusätzlich lässt sich über das Filtersymbol in der Suchleiste nach einer oder mehreren **Gruppen** einschränken.
+Die Hostliste ist über Registerkarten nach Gerätetyp gefiltert: **Alle**, **Computer**, **Server**, **Drucker**, **iPads**, **Netzwerk** und **Sonstige**. Die Registerkarten fassen die Geräterollen wie folgt zusammen:
 
-Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**.
+| Registerkarte | Enthaltene Rollen |
+| --- | --- |
+| **Computer** | Schüler-PC im Klassenzimmer, Lehrer-PC im Klassenzimmer, Fachbereich-Lehrer-PC, Lehrer-PC, Thinclient |
+| **Server** | Server, Domaincontroller |
+| **Drucker** | Drucker |
+| **iPads** | BYOD, Mobiles Gerät |
+| **Netzwerk** | Router, Switch, WLan, VOIP, IP-Only |
+
+Unter *Sonstige* erscheinen Geräte, deren Rolle keiner dieser Gruppen angehört – etwa eine Rolle, die auf Ihrem Server zusätzlich eingerichtet wurde. Zusätzlich lässt sich über das Filtersymbol in der Suchleiste nach einer oder mehreren **Gruppen** einschränken.
+
+Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**. Die Rolle wird mit derselben Bezeichnung angezeigt wie in der [Geräteverwaltung](#geräteverwaltung). Eine Rolle, die Ihre Installation selbst definiert hat, erscheint unter ihrem eigenen Namen; nur Geräte ganz ohne Rolle zeigen einen Strich.
 
 :::note[Status und geplante Aktionen]
 **Status** und **Geplant** bleiben ohne einen edulution-Satellite leer: der Online-/Offline-Zustand ist über die Linuxmuster-API allein nicht verfügbar, und geplante Aktionen werden vom Satellite verwaltet. Beide Spalten sind in dieser Version noch nicht angebunden.

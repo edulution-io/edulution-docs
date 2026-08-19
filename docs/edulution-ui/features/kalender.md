@@ -117,6 +117,8 @@ Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen
 
 Neue Termine legen Sie über die Schaltfläche **Termin erstellen** oben rechts an; ein Klick auf einen leeren Zeitabschnitt öffnet hier – anders als in der Wochen- und der Tagesansicht – keinen neuen Termin. Im Dialog ist der geöffnete Stundenplan bereits als Kalender vorausgewählt, auch wenn Sie an anderer Stelle einen [Standardkalender](#kalenderkontextmenü) festgelegt haben.
 
+Ist der geöffnete Stundenplan nicht mehr vorhanden – etwa weil der Kalender gelöscht oder seine Stundenplan-Markierung entfernt wurde –, wechselt die Ansicht selbsttätig zurück zur Kalenderübersicht. Lässt sich die Kalenderliste dagegen gar nicht laden, etwa weil der CalDAV-Server nicht erreichbar ist, bleiben Sie auf der Stundenplan-Ansicht und es erscheint der Hinweis **Stundenpläne konnten nicht geladen werden.** Ein Ladefehler wird also nicht als gelöschter Stundenplan behandelt; sobald die Verbindung wieder steht, genügt **Neu laden**.
+
 :::info[Termine außerhalb des angezeigten Zeitraums]
 Der Stundenplan zeigt Montag bis Freitag und einen festen Zeitausschnitt am Tag. Ein Termin, der auf ein Wochenende oder außerhalb dieses Zeitausschnitts fällt, erscheint dort nicht – und da Stundenplan-Termine auch in **Monat**, **Woche**, **Tag** und **Agenda** ausgeblendet sind, ist er dann über die Oberfläche nicht erreichbar. Legen Sie solche Termine in einem gewöhnlichen Kalender an oder entfernen Sie die Stundenplan-Markierung vorübergehend über das [Kalenderkontextmenü](#kalenderkontextmenü).
 :::

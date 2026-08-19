@@ -18,25 +18,34 @@ Am oberen Rand sehen Sie den aktuellen Pfad: `Home > agy > teachers > agy-netzin
 
 ## Dateien hochladen
 
-Klicken Sie auf **Hochladen** (unten):
+Klicken Sie unten rechts auf **Neu** (Plus-Symbol) und wählen Sie **Hochladen**:
 - Dateien per Drag & Drop in den Bereich ziehen
 - Oder **Dateien hinzufügen** klicken
 - Mehrere Dateien gleichzeitig möglich
 
 ## Ordner erstellen
 
-Klicken Sie auf **Ordner erstellen** (unten):
+Klicken Sie unten rechts auf **Neu** (Plus-Symbol) und wählen Sie **Ordner erstellen**:
 1. Geben Sie einen Namen ein
 2. Klicken Sie auf **Erstellen**
 
 ## Neue Dateien erstellen
 
-Klicken Sie auf **Datei erstellen** (unten) und wählen Sie:
-- 📊 **Neue Draw.io-Datei** - Diagramme zeichnen
+Klicken Sie unten rechts auf **Neu** (Plus-Symbol) und wählen Sie:
+- 📊 **Neue Draw.io-Datei** - Diagramme zeichnen ([Anleitung](./drawio.md))
 - 📄 **Neue Textdatei** - Einfache Texte
 - 📘 **Neues Dokument** - Word-Dokument (OnlyOffice)
 - 📗 **Neue Tabelle** - Excel-Tabelle (OnlyOffice)
 - 📙 **Neue Präsentation** - PowerPoint (OnlyOffice)
+- 📃 **Andere Datei** - Beliebige Endung selbst eingeben
+
+### Weitere Dateitypen
+
+Über **Weitere Dateitypen** klappen Sie eine Liste vorbereiteter Endungen auf. Damit legen Sie eine leere Datei mit passendem Dateityp an:
+
+`.bat` · `.cfg` · `.css` · `.csv` · `.env` · `.html` · `.ini` · `.js` · `.json` · `.md` · `.ps1` · `.py` · `.sh` · `.toml` · `.xml` · `.yaml` · `.yml`
+
+Ist die gewünschte Endung nicht dabei, wählen Sie **Andere Datei**. Im Dialog erscheint neben dem Namensfeld ein zusätzliches Feld `.ext`, in das Sie die Endung eintragen.
 
 ## Dateivorschau
 

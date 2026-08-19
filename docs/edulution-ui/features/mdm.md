@@ -8,7 +8,7 @@ Alle Daten stammen aus einer angebundenen **Relution**-Instanz und werden live �
 
 ## Voraussetzungen
 
-Die App erscheint erst in der Seitenleiste, wenn ein **Global-Administrator** sie in den Einstellungen konfiguriert hat.
+Die App erscheint erst in der Seitenleiste, wenn ein **Global-Administrator** sie in den Einstellungen konfiguriert hat. Und ist nur für diejenigen Benutzer sichtbar, die Mitglied in einer der für die App hinterlegten **Zugriffsgruppen** sind. Welche Gruppen das sind, legen Administratoren in den App-Einstellungen fest.
 
 Die Konfiguration erfolgt unter **Einstellungen → App-Store** (bzw. App-Konfiguration) für die App **MDM**:
 
@@ -18,6 +18,7 @@ Die Konfiguration erfolgt unter **Einstellungen → App-Store** (bzw. App-Konfig
 | **API-Key** | API-Token eines Relution-Service-Accounts mit Administrationsrechten |
 | **Proxy-Konfiguration** | Optionale Proxy-Einstellungen für die Verbindung zu Relution |
 | **Gruppen für Sync** | Benutzergruppen, deren Mitglieder automatisch in Relution angelegt und gepflegt werden |
+| **Zugriffsgruppen** | Benutzergruppen, deren Mitglieder die App überhaupt sehen und nutzen dürfen |
 
 :::note[Automatische Benutzer-Synchronisation]
 Mitglieder der unter **Gruppen für Sync** ausgewählten Gruppen werden automatisch als Benutzer in Relution angelegt und aktuell gehalten. Die Synchronisation läuft **einmal pro Stunde** und kann zusätzlich jederzeit manuell angestoßen werden (siehe [Benutzer](#benutzer)). Verlässt ein Benutzer alle Sync-Gruppen, wird sein Relution-Zugang wieder entfernt.
@@ -38,6 +39,10 @@ Der Funktionsumfang hängt von der Rolle ab:
 
 :::note[Geltungsbereich]
 Administratoren sehen über den gemeinsamen Admin-Zugang **alle** Geräte, Apps und Benutzer der Organisation. Reguläre Benutzer verwenden ihren eigenen, automatisch angelegten Relution-Zugang und sehen daher nur die Geräte und Apps, für die ihr Relution-Konto berechtigt ist. Ist für einen Benutzer noch kein Relution-Zugang vorhanden, erscheint der Hinweis *„Für diesen Benutzer ist kein Relution-Zugang angelegt."*
+:::
+
+:::tip[Zugriffsgruppen und Sync-Gruppen zusammen denken]
+Beide Gruppenlisten wirken unabhängig voneinander: Die **Zugriffsgruppen** entscheiden, wer die App in edulution UI öffnen darf, die **Gruppen für Sync** entscheiden, wer einen eigenen Relution-Zugang erhält. Damit reguläre Benutzer tatsächlich Geräte sehen, sollten sie in beiden Listen enthalten sein – sonst öffnen sie die App zwar, erhalten aber nur den Hinweis auf den fehlenden Relution-Zugang.
 :::
 
 ## Aufbau der App
@@ -168,8 +173,6 @@ Der Bereich **Apps** listet alle Anwendungen, die zur Verteilung über Relution 
 | **Letzte Aktualisierung** | Zeitpunkt der letzten Änderung |
 
 ## Benutzer
-
-![MDM Benutzer](/img/features/mdm-users.png)
 
 :::caution[Nur für Administratoren]
 Der Bereich **Benutzer** ist ausschließlich für Global-/Schuladministratoren zugänglich.

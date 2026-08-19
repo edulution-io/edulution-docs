@@ -42,10 +42,11 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 
 - **Meine Kalender** – Kalender, die Ihnen gehören.
 - **Abonnierte Kalender** – Kalender, die andere für Sie freigegeben haben.
+- **Web-Kalender** – Externe Kalender, die Sie über ihre Adresse abonniert haben (siehe [Web-Kalender abonnieren](#web-kalender-abonnieren)).
 - **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
 - **Kalender anlegen** – Öffnet den Dialog zum [Anlegen eines neuen Kalenders](#kalender-anlegen).
 
-Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender** und **Abonnierte Kalender** führen zur normalen Kalenderansicht (Monat bzw. Woche, je nach zuletzt gewählter Ansicht), **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf **Meine Kalender** oder **Abonnierte Kalender** wieder in die gewohnte Kalenderansicht zurück.
+Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender**, **Abonnierte Kalender** und **Web-Kalender** führen zur normalen Kalenderansicht (Monat bzw. Woche, je nach zuletzt gewählter Ansicht), **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf einen der drei anderen Gruppeneinträge wieder in die gewohnte Kalenderansicht zurück.
 
 Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet den Kalender in allen Ansichten und dient zugleich als Legende. Abonnierte (freigegebene) Kalender werden zusätzlich mit einem gestrichelten Rahmen gekennzeichnet.
 
@@ -70,6 +71,8 @@ Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalen
 - **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
 - **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht an derselben Stelle wie **Freigeben**.
 - **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
+
+- **Jetzt aktualisieren** – Lädt einen [Web-Kalender](#web-kalender-abonnieren) sofort neu, ohne auf die nächste automatische Aktualisierung zu warten; nur bei Web-Kalendern verfügbar.
 
 Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
 
@@ -352,6 +355,8 @@ Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktione
 
 ## Abonnierte und schreibgeschützte Kalender
 
+Dieser Abschnitt beschreibt Kalender, die **andere Benutzer Ihrer Schule** für Sie freigegeben haben. Externe Kalender, die Sie selbst über eine Adresse abonnieren, sind etwas anderes und stehen in der eigenen Gruppe **Web-Kalender** (siehe [Web-Kalender abonnieren](#web-kalender-abonnieren)).
+
 Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
 
 Ein abonnierter Kalender ist **nicht grundsätzlich schreibgeschützt**. Was Sie darin tun dürfen, richtet sich nach den Rechten, die die freigebende Person Ihnen erteilt hat (siehe [Kalender freigeben](#kalender-freigeben)):
@@ -368,11 +373,60 @@ Termine, die Sie sehen, aber nicht bearbeiten dürfen, öffnen sich beim Anklick
 
 Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit sehen**, nennt die Detailansicht ausschließlich den Zeitraum und den Kalender und weist die Zeit als belegt aus — Titel, Ort, Beschreibung und Teilnehmer bleiben verborgen. Termine, für die Sie die Rolle **Keine** besitzen, erscheinen gar nicht erst im Kalender.
 
+## Web-Kalender abonnieren
+
+Neben den Kalendern Ihrer Schule können Sie **externe Kalender** einbinden, die im Internet als ICS-Adresse veröffentlicht sind – etwa Schulferien, Prüfungstermine oder den Spielplan eines Vereins. Ein solcher Web-Kalender wird vom Server regelmäßig abgerufen und erscheint in der Seitenleiste in der eigenen Gruppe **Web-Kalender**.
+
+In der Legende und in den Terminen erkennen Sie einen Web-Kalender an einem **gepunkteten Rahmen** und einem Globus-Symbol. Damit unterscheidet er sich von einem Kalender, den eine andere Person für Sie freigegeben hat: Dieser trägt einen gestrichelten Rahmen und ein Freigabe-Symbol.
+
+Zum Abonnieren wählen Sie oben rechts in der Aktionen-Leiste **Web-Kalender abonnieren** – neben **Erstellen** und **Neu laden** – und füllen den Dialog aus:
+
+| Feld | Bedeutung |
+| --- | --- |
+| **Adresse (URL)** | Die öffentliche ICS-Adresse des Kalenders. Neben `https://` und `http://` werden auch `webcal://`-Adressen angenommen; sie werden automatisch auf `https://` umgestellt. |
+| **Name** | Der Name, unter dem der Kalender bei Ihnen erscheint. Lassen Sie das Feld leer, wird der Name aus dem Kalender selbst übernommen. |
+| **Farbe** | Die Farbe, mit der die Termine dieses Kalenders in allen Ansichten gekennzeichnet werden. |
+
+Beim Abonnieren wird der Kalender sofort einmal abgerufen. Schlägt das fehl, wird das Abonnement nicht angelegt – Sie können eine unbrauchbare Adresse also nicht versehentlich hinterlegen. Ist die Adresse nicht erreichbar oder enthält sie keinen gültigen Kalender, meldet edulution **Der Kalender konnte nicht geladen werden.**; weist der Server die Adresse grundsätzlich ab – etwa weil sie ins interne Netz zeigt –, erhalten Sie stattdessen **Diese Adresse kann nicht abonniert werden. Bitte prüfen Sie die URL.**
+
+Adressen, die einen Benutzernamen und ein Kennwort enthalten (`https://benutzer:kennwort@…`), werden abgelehnt. Ein Web-Kalender muss ohne Anmeldedaten abrufbar sein.
+
+### Web-Kalender sind schreibgeschützt
+
+Ein Web-Kalender zeigt ausschließlich die Termine seiner Quelle. Sie können darin **keine Termine anlegen, bearbeiten, verschieben oder löschen**; im Feld **Kalender** des Dialogs zum [Erstellen eines Termins](#termine-erstellen) erscheint er deshalb nicht. Termine eines Web-Kalenders öffnen sich beim Anklicken in der reinen [Detailansicht](#termine-ansehen-ohne-bearbeitungsrecht).
+
+Auch das Freigeben an andere Benutzer, das Markieren als Stundenplan und das Festlegen als Standardkalender stehen für Web-Kalender nicht zur Verfügung.
+
+### Automatische Aktualisierung
+
+Der Server ruft jeden abonnierten Web-Kalender **etwa einmal pro Stunde** ab und übernimmt Änderungen der Quelle automatisch. Sie müssen dafür nichts tun und nicht angemeldet sein.
+
+Möchten Sie eine Änderung sofort sehen, wählen Sie im Kontextmenü des Kalenders **Jetzt aktualisieren**. Schlägt der Abruf fehl, erhalten Sie die Meldung **Der Kalender konnte nicht geladen werden.**
+
+Ist eine Quelle vorübergehend nicht erreichbar, bleiben die zuletzt geladenen Termine sichtbar; der Kalendereintrag wird in der Seitenleiste zusätzlich mit **Aktualisierung fehlgeschlagen** gekennzeichnet. edulution wartet nach jedem Fehlversuch länger, bevor es erneut abruft, und versucht es bei einer dauerhaft nicht erreichbaren Quelle nur noch etwa einmal täglich. Sobald die Quelle wieder antwortet, verschwindet die Kennzeichnung von selbst.
+
+### Web-Kalender bearbeiten und entfernen
+
+Über **Einstellungen** im Kontextmenü ändern Sie **Name** und **Farbe** eines Web-Kalenders. Die Adresse selbst lässt sich nachträglich nicht ändern – um eine andere Quelle zu verwenden, entfernen Sie das Abonnement und legen es mit der neuen Adresse erneut an.
+
+**Löschen** entfernt das Abonnement aus Ihrer Ansicht. Die Originalquelle im Internet bleibt davon unberührt, und andere Benutzer, die dieselbe Adresse abonniert haben, behalten ihren Kalender.
+
+### Grenzen
+
+- Sie können **bis zu 10 Web-Kalender** gleichzeitig abonnieren. Danach meldet edulution **Sie haben die maximale Anzahl an Web-Kalendern erreicht.**
+- Dieselbe Adresse lässt sich nur einmal abonnieren; ein zweiter Versuch meldet **Dieser Kalender ist bereits abonniert.**
+- Sehr große Quellen werden nur teilweise übernommen: edulution liest je Kalender bis zu 2 MB und bis zu 2000 Termine. Enthält eine Quelle mehr, fehlen die überzähligen Termine in der Ansicht.
+- Aus Sicherheitsgründen werden nur Termindaten übernommen. Anhänge, Verknüpfungen und Erinnerungen einer externen Quelle wertet edulution nicht aus.
+
 ## Einrichtung (für Administratoren)
 
 Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](../administration/einstellungen.md#kalender-caldav) als Global-Admin konfiguriert (CalDAV-URL, Authentifizierungsmodus und Zertifikatsprüfung). Das [Freigeben und Abonnieren von Kalendern](#kalender-freigeben) setzt dabei einen SoGo-Server voraus; die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server.
 
 Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
+
+[Web-Kalender](#web-kalender-abonnieren) benötigen dagegen **keine CalDAV- oder SoGo-Konfiguration**: Sie werden vom edulution-Server direkt über HTTPS von der jeweiligen Quelle abgerufen. Voraussetzung ist, dass der Server die betreffenden Adressen aus dem Internet erreichen darf – in Umgebungen mit ausgehendem Proxy oder restriktiver Firewall muss der Zugriff dafür freigegeben sein.
+
+Adressen, die auf das interne Netz zeigen, werden dabei grundsätzlich abgewiesen. Der Server prüft dies nicht nur anhand der eingegebenen Adresse, sondern auch anhand der IP-Adresse, auf die ein Name tatsächlich aufgelöst wird, sowie bei jeder Weiterleitung erneut. Ein Web-Kalender kann also nicht dazu verwendet werden, interne Dienste abzufragen.
 
 ## Siehe auch
 

@@ -40,6 +40,10 @@ Die gewählte Ansicht und der angezeigte Zeitraum sind in der Adresse (URL) der 
 - **Sie können einen bestimmten Zeitraum als Lesezeichen speichern oder als Link weitergeben** – etwa die Wochenansicht einer bestimmten Woche. Beim Aufruf wird direkt diese Ansicht mit diesem Zeitraum geöffnet.
 - **Die Schaltflächen Zurück und Vorwärts des Browsers** führen durch die zuvor angezeigten Ansichten und Zeiträume, statt die Kalender-App zu verlassen.
 
+Ein Link kann darüber hinaus festlegen, **welche Kalender angezeigt werden**. Beim Aufruf eines solchen Links werden genau die darin genannten Kalender eingeblendet und alle übrigen ausgeblendet. Ihre eigene, auf dem Server gespeicherte Auswahl (siehe [Kalender ein- und ausblenden](#kalender-ein--und-ausblenden)) wird dadurch **nicht** verändert: Sobald Sie einen Kalender selbst ein- oder ausblenden, gilt wieder Ihre eigene Auswahl, und der Link wirkt nicht weiter nach. Kalender, die es nicht mehr gibt, werden in einem solchen Link übergangen; nennt der Link ausschließlich unbekannte Kalender, bleibt Ihre Auswahl unverändert, statt dass ein leerer Kalender erscheint.
+
+Ein Link kann schließlich direkt **einen bestimmten Termin öffnen** – etwa aus einer Benachrichtigung oder einer E-Mail heraus. Ein solcher Link führt neben dem Termin auch den Zeitraum mit, in dem dieser liegt: Der Kalender zeigt diesen Zeitraum an und öffnet den Termin darin zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder, ohne Bearbeitungsrecht, in der [Detailansicht](#termine-ansehen-ohne-bearbeitungsrecht). Das gelingt auch dann, wenn der zugehörige Kalender gerade ausgeblendet ist. Wiederholt sich der Termin, wird der Eintrag des verlinkten Tages geöffnet. Gibt es den Termin nicht mehr, geschieht nichts – der Kalender bleibt einfach auf dem verlinkten Zeitraum stehen. Wenn Sie den Termin schließen, öffnet er sich nicht erneut; ein erneuter Aufruf des Links zeigt ihn wieder.
+
 Öffnen Sie den Kalender ohne einen solchen Link – etwa über die Seitenleiste –, wird die **zuletzt von Ihnen verwendete Ansicht** mit dem heutigen Datum angezeigt. Gemerkt wird dabei nur eine Ansicht, die Sie selbst über die Umschaltung gewählt haben: Öffnen Sie den Link einer Kollegin, ändert das nicht, mit welcher Ansicht Ihr eigener Kalender künftig startet. Die zuletzt verwendete Ansicht bleibt über das Abmelden hinaus nicht erhalten: Nach einer erneuten Anmeldung beginnt der Kalender wieder mit der Monatsansicht.
 
 ### Ansicht aktualisieren
@@ -293,13 +297,13 @@ Ist ein Empfänger im Verzeichnis nicht mehr auffindbar — etwa weil sein Konto
 
 Die Rechte werden nicht als eine einzelne Stufe vergeben, sondern **getrennt für jede der drei Sichtbarkeiten** eines Termins — **Öffentlich**, **Vertraulich** und **Privat**. Welche Sichtbarkeit ein Termin hat, legen Sie beim [Erstellen des Termins](#termine-erstellen) im Feld **Sichtbarkeit** fest. Für jede dieser drei Sichtbarkeiten wählen Sie eine Rolle:
 
-| Rolle | Bedeutung |
-|---|---|
-| **Keine** | Termine dieser Sichtbarkeit sind für die Person nicht vorhanden. |
+| Rolle                     | Bedeutung                                                                                       |
+| ------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Keine**                 | Termine dieser Sichtbarkeit sind für die Person nicht vorhanden.                                |
 | **Datum & Uhrzeit sehen** | Es ist nur erkennbar, dass die Zeit belegt ist — ohne Titel, Ort, Beschreibung oder Teilnehmer. |
-| **Alles sehen** | Der Termin wird mit allen Details angezeigt. |
-| **Antworten** | Wie **Alles sehen**, zusätzlich darf auf Einladungen geantwortet werden. |
-| **Ändern** | Der Termin darf bearbeitet werden. |
+| **Alles sehen**           | Der Termin wird mit allen Details angezeigt.                                                    |
+| **Antworten**             | Wie **Alles sehen**, zusätzlich darf auf Einladungen geantwortet werden.                        |
+| **Ändern**                | Der Termin darf bearbeitet werden.                                                              |
 
 Dadurch lässt sich ein Kalender abgestuft freigeben: Ein Kollege sieht Ihre öffentlichen Termine vollständig, von den vertraulichen nur die belegte Zeit, und von den privaten nichts.
 
@@ -347,10 +351,10 @@ Für einen [Verteiler](#freigabe-an-einen-verteiler) steht das Häkchen nicht zu
 
 Neben den einzelnen Personen und Gruppen enthält die Liste immer zwei feste Einträge. Beide lassen sich nicht löschen und nicht abonnieren; Sie entziehen ihnen den Zugriff, indem Sie ihre Rollen auf **Keine** setzen.
 
-| Eintrag | Rollen | Hinzufügen / Löschen |
-|---|---|---|
-| **Alle authentifizierten Benutzer** | alle fünf | möglich |
-| **Öffentlicher Zugang** | nur **Keine**, **Datum & Uhrzeit sehen**, **Alles sehen** | nicht möglich |
+| Eintrag                             | Rollen                                                    | Hinzufügen / Löschen |
+| ----------------------------------- | --------------------------------------------------------- | -------------------- |
+| **Alle authentifizierten Benutzer** | alle fünf                                                 | möglich              |
+| **Öffentlicher Zugang**             | nur **Keine**, **Datum & Uhrzeit sehen**, **Alles sehen** | nicht möglich        |
 
 **Alle authentifizierten Benutzer** gilt für jeden angemeldeten Benutzer der Schule. **Öffentlicher Zugang** gilt dagegen für **nicht angemeldete** Zugriffe: Sobald Sie hier eine andere Rolle als **Keine** vergeben, ist der Kalender ohne Anmeldung über seine CalDAV-Adresse abrufbar. Vergeben Sie dieses Recht daher nur bewusst.
 

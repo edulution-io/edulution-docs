@@ -91,11 +91,23 @@ Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervo
 
 ### Woche
 
-Die Wochenansicht zeigt die sieben Tage der Woche mit einer Stundenskala. Termine werden zeitlich passend platziert; überlappende Termine werden nebeneinander angeordnet. Ganztägige Termine erscheinen in einer eigenen Zeile oberhalb der Stundenskala. Ein Klick auf einen freien Zeitabschnitt öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit der gewählten Anfangszeit.
+Die Wochenansicht zeigt die sieben Tage der Woche mit einer Stundenskala. Termine werden zeitlich passend platziert; überlappende Termine werden nebeneinander angeordnet. Ganztägige Termine erscheinen in einer eigenen Zeile oberhalb der Stundenskala. Ein Klick auf einen freien Zeitabschnitt öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit der gewählten Anfangszeit. Die Stundenskala umfasst den gesamten Tag von **00:00** bis **23:00**. Da selten alle Stunden gleichzeitig auf den Bildschirm passen, ist die Ansicht beim Öffnen auf **06:00 Uhr** eingestellt; die übrigen Stunden erreichen Sie, indem Sie im Zeitraster blättern (siehe [Zeitraster bedienen](#zeitraster-bedienen)).
 
 ### Tag
 
 Die Tagesansicht entspricht der Wochenansicht, beschränkt sie aber auf einen einzelnen Tag: Sie behalten die Stundenskala, die eigene Zeile für ganztägige Termine, das Anlegen eines Termins per Klick auf einen freien Zeitabschnitt und das Verschieben per Drag & Drop. Da nur ein Tag angezeigt wird, steht für die Termine die volle Breite zur Verfügung – hilfreich an Tagen mit vielen oder sich überschneidenden Terminen sowie auf schmalen Bildschirmen.
+
+### Zeitraster bedienen
+
+Das Zeitraster der **Wochen-**, der **Tages-** und der [**Stundenplan-Ansicht**](#stundenplan) zeigt immer nur einen Ausschnitt des Tages. Die übrigen Stunden erreichen Sie auf drei Wegen:
+
+- **Mit der Maus** über das Mausrad oder die Bildlaufleiste am rechten Rand des Rasters.
+- **Mit der Tastatur**: Mit der Tabulatortaste setzen Sie den Fokus in das Zeitraster. Anschließend blättern Sie mit **Bild auf** und **Bild ab** seitenweise und mit den **Pfeiltasten** in kleinen Schritten; **Pos 1** springt an den Tagesanfang, **Ende** an das Tagesende.
+- **Auf Touchgeräten**, indem Sie im Raster nach oben oder unten wischen. Das gelingt auch dann, wenn die Wischgeste auf einem Termin beginnt.
+
+Die Kopfzeile mit den Wochentagen und die Zeile für ganztägige Termine bleiben dabei stehen, sodass die Spalten den Wochentagen zugeordnet bleiben.
+
+Auch die freien Zeitabschnitte lassen sich mit der Tastatur ansteuern. Jeder Abschnitt trägt seinen Wochentag und seine Uhrzeit als Beschriftung, sodass Sie mit der Eingabetaste gezielt einen Termin zur gewünschten Zeit anlegen können.
 
 ### Agenda
 
@@ -224,6 +236,8 @@ Termine lassen sich direkt mit der Maus verschieben:
 - In der **Monatsansicht** ziehen Sie einen Termin auf einen anderen Tag.
 
 In der **Agenda** ist das Verschieben per Drag & Drop nicht möglich, da sie die Termine als Liste und nicht als Zeitraster darstellt.
+
+Auf Touchgeräten tippen Sie den Termin an und **halten ihn kurz gedrückt**, bis er sich löst; erst danach ziehen Sie ihn an die neue Position. Eine zügige Wischgeste, die auf einem Termin beginnt, blättert dagegen im [Zeitraster](#zeitraster-bedienen), statt den Termin zu verschieben.
 
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
 

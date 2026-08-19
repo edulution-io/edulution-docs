@@ -32,6 +32,17 @@ Mit der Umschaltung wechseln Sie zwischen den vier Hauptansichten:
 
 Die **Stundenplan**-Ansicht ist eine eigenständige Darstellung. Sie erreichen Sie nicht über diese Umschaltung, sondern über die Seitenleiste (siehe [Stundenplan](#stundenplan)).
 
+### Neue Einträge anlegen
+
+Oben rechts öffnet die Schaltfläche **Erstellen** ein Menü mit den beiden Anlegen-Aktionen:
+
+- **Termin erstellen** – Öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen).
+- **Kalender anlegen** – Öffnet den Dialog zum [Anlegen eines neuen Kalenders](#kalender-anlegen).
+
+Das Menü steht in allen Ansichten zur Verfügung, auch in der [Stundenplan-Ansicht](#stundenplan).
+
+Solange Sie über keinen Kalender verfügen, in den Sie Termine eintragen dürfen, ist **Termin erstellen** deaktiviert; im Menü erscheint dann der Hinweis, dass dafür ein beschreibbarer Kalender benötigt wird. **Kalender anlegen** bleibt in diesem Fall verfügbar – Sie können sich also zunächst einen eigenen Kalender anlegen und darin anschließend Termine erstellen.
+
 ### Ansicht aktualisieren
 
 Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die Termine des aktuell angezeigten Zeitraums und der aktiven Kalender erneut vom Server, ohne dass Sie die Seite neu laden oder wegblättern müssen – nützlich, um zwischenzeitlich an anderer Stelle geänderte Termine anzuzeigen. Während des Aktualisierens dreht sich das Symbol der Schaltfläche, sie ist vorübergehend deaktiviert und es erscheint die kleine Ladeanzeige.
@@ -43,7 +54,6 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 - **Meine Kalender** – Kalender, die Ihnen gehören.
 - **Abonnierte Kalender** – Kalender, die andere für Sie freigegeben haben.
 - **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
-- **Kalender anlegen** – Öffnet den Dialog zum [Anlegen eines neuen Kalenders](#kalender-anlegen).
 
 Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender** und **Abonnierte Kalender** führen zur normalen Kalenderansicht (Monat bzw. Woche, je nach zuletzt gewählter Ansicht), **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf **Meine Kalender** oder **Abonnierte Kalender** wieder in die gewohnte Kalenderansicht zurück.
 
@@ -115,7 +125,7 @@ Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansich
 
 Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)). Wie in den übrigen Rasteransichten verschieben Sie einen Termin auch hier [per Drag & Drop](#termine-per-drag--drop-verschieben) auf einen anderen Zeitabschnitt. Über der Stundenskala liegt wie in der Wochenansicht eine eigene Zeile für **ganztägige** Termine.
 
-Neue Termine legen Sie über die Schaltfläche **Termin erstellen** oben rechts an; ein Klick auf einen leeren Zeitabschnitt öffnet hier – anders als in der Wochen- und der Tagesansicht – keinen neuen Termin. Im Dialog ist der geöffnete Stundenplan bereits als Kalender vorausgewählt, auch wenn Sie an anderer Stelle einen [Standardkalender](#kalenderkontextmenü) festgelegt haben.
+Neue Termine legen Sie oben rechts über **Erstellen** und darin **Termin erstellen** an; ein Klick auf einen leeren Zeitabschnitt öffnet hier – anders als in der Wochen- und der Tagesansicht – keinen neuen Termin. Im Dialog ist der geöffnete Stundenplan bereits als Kalender vorausgewählt, auch wenn Sie an anderer Stelle einen [Standardkalender](#kalenderkontextmenü) festgelegt haben.
 
 :::info[Termine außerhalb des angezeigten Zeitraums]
 Der Stundenplan zeigt Montag bis Freitag und einen festen Zeitausschnitt am Tag. Ein Termin, der auf ein Wochenende oder außerhalb dieses Zeitausschnitts fällt, erscheint dort nicht – und da Stundenplan-Termine auch in **Monat**, **Woche**, **Tag** und **Agenda** ausgeblendet sind, ist er dann über die Oberfläche nicht erreichbar. Legen Sie solche Termine in einem gewöhnlichen Kalender an oder entfernen Sie die Stundenplan-Markierung vorübergehend über das [Kalenderkontextmenü](#kalenderkontextmenü).
@@ -135,7 +145,7 @@ Termine, die aus einem externen CalDAV-Programm stammen, übernehmen die dort ge
 
 Einen neuen Termin legen Sie auf mehreren Wegen an:
 
-- über die Schaltfläche **Termin erstellen** oben rechts,
+- oben rechts über die Schaltfläche **Erstellen** und darin den Eintrag **Termin erstellen**,
 - mit einem Klick auf einen Tag (Monatsansicht) oder einen Zeitabschnitt (Wochen- und Tagesansicht).
 
 Füllen Sie im Dialog die folgenden Felder aus:
@@ -233,7 +243,7 @@ Verschieben lassen sich nur Termine, für die Sie das Recht zum **Ändern** besi
 
 ## Kalender anlegen
 
-Über **Kalender anlegen** in der Seitenleiste öffnen Sie den gleichnamigen Dialog. Dort legen Sie fest:
+Oben rechts öffnen Sie über die Schaltfläche **Erstellen** und darin den Eintrag **Kalender anlegen** den gleichnamigen Dialog. Dort legen Sie fest:
 
 - **Name** – Der angezeigte Name des Kalenders.
 - **Typ** – Optional die Kennzeichnung **Stundenplan**, mit der der Kalender als Stundenplan gekennzeichnet und in der entsprechenden Gruppe der Seitenleiste angezeigt wird.

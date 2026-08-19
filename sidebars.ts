@@ -156,6 +156,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/administration/linuxmuster',
             'edulution-ui/administration/benutzerverwaltung',
             'edulution-ui/administration/satelliten',
+            'edulution-ui/administration/webhooks',
             'edulution-ui/administration/experten-tipps',
           ],
         },

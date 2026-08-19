@@ -32,6 +32,22 @@ Mit der Umschaltung wechseln Sie zwischen den vier Hauptansichten:
 
 Die **Stundenplan**-Ansicht ist eine eigenständige Darstellung. Sie erreichen Sie nicht über diese Umschaltung, sondern über die Seitenleiste (siehe [Stundenplan](#stundenplan)).
 
+### Ansicht merken, verlinken und zurückblättern
+
+Die gewählte Ansicht und der angezeigte Zeitraum sind in der Adresse (URL) der Kalender-App enthalten. Daraus ergeben sich drei Dinge:
+
+- **Die Seite können Sie neu laden, ohne Ihre aktuelle Ansicht zu verlieren.** Nach dem Neuladen sind dieselbe Ansicht und derselbe Zeitraum wieder eingestellt.
+- **Sie können einen bestimmten Zeitraum als Lesezeichen speichern oder als Link weitergeben** – etwa die Wochenansicht einer bestimmten Woche. Beim Aufruf wird direkt diese Ansicht mit diesem Zeitraum geöffnet.
+- **Die Schaltflächen Zurück und Vorwärts des Browsers** führen durch die zuvor angezeigten Ansichten und Zeiträume, statt die Kalender-App zu verlassen.
+
+Ein Link kann darüber hinaus festlegen, **welche Kalender angezeigt werden**. Beim Aufruf eines solchen Links werden genau die darin genannten Kalender angezeigt und alle übrigen ausgeblendet – auch solche, die erst später hinzukommen. Ihre eigene, auf dem Server gespeicherte Auswahl (siehe [Kalender ein- und ausblenden](#kalender-ein--und-ausblenden)) bleibt dabei unangetastet im Hintergrund bestehen und wird **nicht** überschrieben. Kalender, die es nicht mehr gibt, werden in einem solchen Link übergangen; nennt der Link ausschließlich unbekannte Kalender, bleibt Ihre Auswahl unverändert, statt dass ein leerer Kalender erscheint.
+
+Sobald Sie selbst einen Kalender ein- oder ausblenden, endet die Ansicht des Links: Es gilt wieder Ihre eigene Auswahl, edulution weist Sie mit dem Hinweis **Ihre eigene Kalenderauswahl gilt wieder** darauf hin, und Ihr Klick wirkt auf diese eigene Auswahl. Der Link wirkt danach nicht weiter nach.
+
+Ein Link kann schließlich direkt **einen bestimmten Termin öffnen** – etwa aus einer Benachrichtigung oder einer E-Mail heraus. Ein solcher Link führt neben dem Termin auch den Zeitraum mit, in dem dieser liegt: Der Kalender zeigt diesen Zeitraum an und öffnet den Termin darin zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder, ohne Bearbeitungsrecht, in der [Detailansicht](#termine-ansehen-ohne-bearbeitungsrecht). Das gelingt auch dann, wenn der zugehörige Kalender gerade ausgeblendet ist. Wiederholt sich der Termin, wird der Eintrag des verlinkten Tages geöffnet. Gibt es den Termin nicht mehr, geschieht nichts – der Kalender bleibt einfach auf dem verlinkten Zeitraum stehen. Wenn Sie den Termin schließen, öffnet er sich nicht erneut; ein erneuter Aufruf des Links zeigt ihn wieder. Verweist der Link auf einen Termin, den es nicht mehr gibt, bleibt der Kalender auf dem verlinkten Zeitraum stehen – und der Termin wird auch dann nicht unvermittelt geöffnet, wenn Sie später in einen anderen Zeitraum blättern.
+
+Öffnen Sie den Kalender ohne einen solchen Link – etwa über die Seitenleiste –, wird die **zuletzt von Ihnen verwendete Ansicht** mit dem heutigen Datum angezeigt. Gemerkt wird dabei nur eine Ansicht, die Sie selbst über die Umschaltung gewählt haben: Öffnen Sie den Link einer Kollegin, ändert das nicht, mit welcher Ansicht Ihr eigener Kalender künftig startet. Die zuletzt verwendete Ansicht bleibt über das Abmelden hinaus nicht erhalten: Nach einer erneuten Anmeldung beginnt der Kalender wieder mit der Monatsansicht.
+
 ### Ansicht aktualisieren
 
 Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die Termine des aktuell angezeigten Zeitraums und der aktiven Kalender erneut vom Server, ohne dass Sie die Seite neu laden oder wegblättern müssen – nützlich, um zwischenzeitlich an anderer Stelle geänderte Termine anzuzeigen. Während des Aktualisierens dreht sich das Symbol der Schaltfläche, sie ist vorübergehend deaktiviert und es erscheint die kleine Ladeanzeige.
@@ -45,7 +61,7 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 - **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
 - **Kalender anlegen** – Öffnet den Dialog zum [Anlegen eines neuen Kalenders](#kalender-anlegen).
 
-Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender** und **Abonnierte Kalender** führen zur normalen Kalenderansicht (Monat bzw. Woche, je nach zuletzt gewählter Ansicht), **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf **Meine Kalender** oder **Abonnierte Kalender** wieder in die gewohnte Kalenderansicht zurück.
+Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender** und **Abonnierte Kalender** führen zur normalen Kalenderansicht, **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf **Meine Kalender** oder **Abonnierte Kalender** wieder in die gewohnte Kalenderansicht zurück. Angezeigt wird dabei die zuletzt von Ihnen verwendete Ansicht mit dem heutigen Datum (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)).
 
 Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet den Kalender in allen Ansichten und dient zugleich als Legende. Abonnierte (freigegebene) Kalender werden zusätzlich mit einem gestrichelten Rahmen gekennzeichnet.
 
@@ -111,7 +127,9 @@ Beachten Sie dabei die folgenden Besonderheiten:
 
 ### Stundenplan
 
-Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansicht: Sie zeigt nur die Tage **Montag bis Freitag** und einen festen Zeitausschnitt am Tag in feiner Rasterung. Sie öffnen sie über einen als Stundenplan markierten Kalender in der Seitenleiste; über **Zurück** kehren Sie zur normalen Kalenderansicht zurück. In dieser Ansicht werden die Termine in ihrer jeweiligen **Farbe** dargestellt.
+Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansicht: Sie zeigt nur die Tage **Montag bis Freitag** und einen festen Zeitausschnitt am Tag in feiner Rasterung. Sie öffnen sie über einen als Stundenplan markierten Kalender in der Seitenleiste; über **Zurück** kehren Sie zur normalen Kalenderansicht zurück – und zwar in die Woche, die Sie im Stundenplan zuletzt angezeigt haben.
+
+Auch im Stundenplan steht die angezeigte Woche in der Adresse (URL). Sie können die Seite also neu laden, ohne die Woche zu verlieren, und einen bestimmten Stundenplan mitsamt Woche als Lesezeichen speichern oder als Link weitergeben. Die Schaltflächen **Zurück** und **Vorwärts** des Browsers blättern durch die zuvor angezeigten Wochen (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). In dieser Ansicht werden die Termine in ihrer jeweiligen **Farbe** dargestellt.
 
 Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)). Wie in den übrigen Rasteransichten verschieben Sie einen Termin auch hier [per Drag & Drop](#termine-per-drag--drop-verschieben) auf einen anderen Zeitabschnitt. Über der Stundenskala liegt wie in der Wochenansicht eine eigene Zeile für **ganztägige** Termine.
 
@@ -137,6 +155,12 @@ Einen neuen Termin legen Sie auf mehreren Wegen an:
 
 - über die Schaltfläche **Termin erstellen** oben rechts,
 - mit einem Klick auf einen Tag (Monatsansicht) oder einen Zeitabschnitt (Wochen- und Tagesansicht).
+
+Welcher Zeitpunkt dabei vorbelegt wird, hängt vom gewählten Weg ab:
+
+- Ein Klick auf einen **Zeitabschnitt** übernimmt Datum und Uhrzeit dieses Abschnitts.
+- Ein Klick auf einen **Tag** übernimmt das Datum; als Beginn wird die nächste volle Stunde eingetragen.
+- Die Schaltfläche **Termin erstellen** bezieht sich auf den angezeigten Zeitraum und trägt dessen Datum mit der nächsten vollen Stunde ein.
 
 Füllen Sie im Dialog die folgenden Felder aus:
 
@@ -275,13 +299,13 @@ Ist ein Empfänger im Verzeichnis nicht mehr auffindbar — etwa weil sein Konto
 
 Die Rechte werden nicht als eine einzelne Stufe vergeben, sondern **getrennt für jede der drei Sichtbarkeiten** eines Termins — **Öffentlich**, **Vertraulich** und **Privat**. Welche Sichtbarkeit ein Termin hat, legen Sie beim [Erstellen des Termins](#termine-erstellen) im Feld **Sichtbarkeit** fest. Für jede dieser drei Sichtbarkeiten wählen Sie eine Rolle:
 
-| Rolle | Bedeutung |
-|---|---|
-| **Keine** | Termine dieser Sichtbarkeit sind für die Person nicht vorhanden. |
+| Rolle                     | Bedeutung                                                                                       |
+| ------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Keine**                 | Termine dieser Sichtbarkeit sind für die Person nicht vorhanden.                                |
 | **Datum & Uhrzeit sehen** | Es ist nur erkennbar, dass die Zeit belegt ist — ohne Titel, Ort, Beschreibung oder Teilnehmer. |
-| **Alles sehen** | Der Termin wird mit allen Details angezeigt. |
-| **Antworten** | Wie **Alles sehen**, zusätzlich darf auf Einladungen geantwortet werden. |
-| **Ändern** | Der Termin darf bearbeitet werden. |
+| **Alles sehen**           | Der Termin wird mit allen Details angezeigt.                                                    |
+| **Antworten**             | Wie **Alles sehen**, zusätzlich darf auf Einladungen geantwortet werden.                        |
+| **Ändern**                | Der Termin darf bearbeitet werden.                                                              |
 
 Dadurch lässt sich ein Kalender abgestuft freigeben: Ein Kollege sieht Ihre öffentlichen Termine vollständig, von den vertraulichen nur die belegte Zeit, und von den privaten nichts.
 
@@ -329,10 +353,10 @@ Für einen [Verteiler](#freigabe-an-einen-verteiler) steht das Häkchen nicht zu
 
 Neben den einzelnen Personen und Gruppen enthält die Liste immer zwei feste Einträge. Beide lassen sich nicht löschen und nicht abonnieren; Sie entziehen ihnen den Zugriff, indem Sie ihre Rollen auf **Keine** setzen.
 
-| Eintrag | Rollen | Hinzufügen / Löschen |
-|---|---|---|
-| **Alle authentifizierten Benutzer** | alle fünf | möglich |
-| **Öffentlicher Zugang** | nur **Keine**, **Datum & Uhrzeit sehen**, **Alles sehen** | nicht möglich |
+| Eintrag                             | Rollen                                                    | Hinzufügen / Löschen |
+| ----------------------------------- | --------------------------------------------------------- | -------------------- |
+| **Alle authentifizierten Benutzer** | alle fünf                                                 | möglich              |
+| **Öffentlicher Zugang**             | nur **Keine**, **Datum & Uhrzeit sehen**, **Alles sehen** | nicht möglich        |
 
 **Alle authentifizierten Benutzer** gilt für jeden angemeldeten Benutzer der Schule. **Öffentlicher Zugang** gilt dagegen für **nicht angemeldete** Zugriffe: Sobald Sie hier eine andere Rolle als **Keine** vergeben, ist der Kalender ohne Anmeldung über seine CalDAV-Adresse abrufbar. Vergeben Sie dieses Recht daher nur bewusst.
 

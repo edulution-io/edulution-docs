@@ -82,6 +82,18 @@ const sidebars: SidebarsConfig = {
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'MongoDB',
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'edulution-ui/upgrade/mongodb/replica-set',
+                  label: 'Replica Set einrichten',
+                },
+              ],
+            },
           ],
         },
         {
@@ -113,6 +125,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/features/kalender',
             'edulution-ui/features/klassenzimmer',
             'edulution-ui/features/mdm',
+            'edulution-ui/features/geraeteverwaltung',
             'edulution-ui/features/konferenzen',
             'edulution-ui/features/whiteboard',
             'edulution-ui/features/wiki',
@@ -126,6 +139,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/features/infoboard',
             'edulution-ui/features/umfragen',
             'edulution-ui/features/benachrichtigungen',
+            'edulution-ui/features/vpn-zugang',
           ],
         },
         {
@@ -137,6 +151,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/administration/einstellungen',
             'edulution-ui/administration/wiki-einstellungen',
             'edulution-ui/administration/linuxmuster',
+            'edulution-ui/administration/benutzerverwaltung',
             'edulution-ui/administration/satelliten',
             'edulution-ui/administration/experten-tipps',
           ],
@@ -274,6 +289,32 @@ const sidebars: SidebarsConfig = {
           ],
         },
       ],
+    },
+    {
+      type: 'category',
+      label: 'edulution Satellite',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'edulution-satellite/index',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-satellite/einrichtung-mit-edulution',
+          label: 'Einrichtung mit edulution',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/standalone',
+          label: 'Standalone einrichten',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/wireguard-traefik',
+          label: 'WireGuard über Traefik',
+        }
+      ]
     },
     {
       type: 'category',

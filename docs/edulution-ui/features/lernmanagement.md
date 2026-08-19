@@ -16,28 +16,6 @@ Die Seitennavigation von edulution bleibt dabei erhalten. Wechseln Sie zu einer 
 Sichtbar sind die Kurse, in die Sie eingeschrieben sind. Lehrkräfte werden automatisch als **Trainer** eingeschrieben, Schülerinnen und Schüler als **Teilnehmer**. Die Zuordnung stammt aus den Gruppen und Rollen Ihrer Schule und wird regelmäßig abgeglichen – Sie müssen sich also nicht selbst in Kurse eintragen.
 :::
 
-## So funktioniert das Single Sign-On
-
-edulution und Moodle nutzen dieselbe Benutzerverwaltung (Keycloak). Nach der Anmeldung legt edulution das Anmelde-Token als Cookie im Browser ab. Ruft der Browser anschließend Moodle auf, liest das **edulution-Plugin** in Moodle dieses Cookie, prüft die Signatur und meldet den Benutzer an.
-
-```mermaid
-flowchart LR
-    LOGIN["Anmeldung in edulution"] --> KC[Keycloak]
-    KC -->|"JWT-Token"| COOKIE["Cookie: authToken"]
-    COOKIE -->|"wird mitgesendet"| MOODLE["Moodle + edulution-Plugin"]
-    MOODLE -->|"Token prüfen"| SESSION["Moodle-Sitzung – automatisch angemeldet"]
-```
-
-Daraus ergeben sich drei Voraussetzungen, die bei der Einrichtung erfüllt sein müssen:
-
-| Voraussetzung | Grund |
-| --- | --- |
-| edulution und Moodle sind **per HTTPS** erreichbar | Das Cookie wird mit `Secure` gesetzt und sonst nicht übertragen |
-| Moodle läuft **unter derselben Domain** wie edulution (gleicher Host oder eine Subdomain davon) | Das Cookie gilt nur für die Domain der edulution-Instanz |
-| Der Benutzer **existiert bereits in Moodle** | Angemeldet wird ein vorhandenes Konto; angelegt werden Konten über die Synchronisation |
-
-Beim Abmelden in edulution wird das Cookie gelöscht. Die automatische Anmeldung greift dann erst nach der nächsten Anmeldung wieder.
-
 ## Einrichtung durch Administratoren
 
 Die folgenden Schritte führen Sie einmalig als Global-Admin in edulution durch.

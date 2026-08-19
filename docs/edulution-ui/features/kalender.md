@@ -42,12 +42,11 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 
 - **Meine Kalender** – Kalender, die Ihnen gehören.
 - **Abonnierte Kalender** – Kalender, die andere für Sie freigegeben haben.
-- **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
 - **Web-Kalender** – Externe Kalender, die Sie über ihre Adresse abonniert haben (siehe [Web-Kalender abonnieren](#web-kalender-abonnieren)).
+- **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
 - **Kalender anlegen** – Öffnet den Dialog zum [Anlegen eines neuen Kalenders](#kalender-anlegen).
-- **Web-Kalender abonnieren** – Öffnet den Dialog zum [Abonnieren eines externen Kalenders](#web-kalender-abonnieren).
 
-Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender** und **Abonnierte Kalender** führen zur normalen Kalenderansicht (Monat bzw. Woche, je nach zuletzt gewählter Ansicht), **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf **Meine Kalender** oder **Abonnierte Kalender** wieder in die gewohnte Kalenderansicht zurück.
+Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender**, **Abonnierte Kalender** und **Web-Kalender** führen zur normalen Kalenderansicht (Monat bzw. Woche, je nach zuletzt gewählter Ansicht), **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf einen der drei anderen Gruppeneinträge wieder in die gewohnte Kalenderansicht zurück.
 
 Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet den Kalender in allen Ansichten und dient zugleich als Legende. Abonnierte (freigegebene) Kalender werden zusätzlich mit einem gestrichelten Rahmen gekennzeichnet.
 
@@ -380,7 +379,7 @@ Neben den Kalendern Ihrer Schule können Sie **externe Kalender** einbinden, die
 
 In der Legende und in den Terminen erkennen Sie einen Web-Kalender an einem **gepunkteten Rahmen** und einem Globus-Symbol. Damit unterscheidet er sich von einem Kalender, den eine andere Person für Sie freigegeben hat: Dieser trägt einen gestrichelten Rahmen und ein Freigabe-Symbol.
 
-Zum Abonnieren wählen Sie in der Seitenleiste **Web-Kalender abonnieren** und füllen den Dialog aus:
+Zum Abonnieren wählen Sie oben rechts in der Aktionen-Leiste **Web-Kalender abonnieren** – neben **Erstellen** und **Neu laden** – und füllen den Dialog aus:
 
 | Feld | Bedeutung |
 | --- | --- |

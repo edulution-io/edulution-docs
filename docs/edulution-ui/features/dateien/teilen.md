@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Teilen und Berechtigungen
 
 Dateien und Ordner geben Sie in edulution über einen **Freigabe-Link** weiter. Eine Freigabe legt dabei nicht nur fest, *wer* Zugriff bekommt, sondern über **Bereiche** auch, *was* die jeweilige Person tun darf – von „nur ansehen" bis zum Vollzugriff auf einen Ordner.
@@ -66,11 +62,11 @@ Der Dialog weist Sie auf unzulässige Kombinationen hin und lässt sich erst dan
 - **Ein eingeschränkter Bereich braucht mindestens einen Benutzer oder eine Gruppe**
 - **Bereiche müssen sich unterscheiden** – in Sichtbarkeit, Mitgliedern oder Berechtigungen
 
-### Wenn mehrere Bereiche zutreffen
-
-Sind Sie in mehreren Bereichen derselben Freigabe enthalten – etwa persönlich und über eine Gruppe –, werden die Rechte **zusammengezählt**. Es gilt also immer die großzügigste Kombination, nicht der zuerst passende Bereich.
-
 Wer eine Freigabe erstellt hat, behält darauf immer vollen Zugriff, unabhängig von den gesetzten Bereichen.
+
+:::info[Wenn-mehrere-Bereiche-zutreffen]
+Es werden die Rechte **zusammengezählt**. Es gilt also immer die großzügigste Kombination an Berechtigungen.
+:::
 
 ### Unterschiede zwischen Datei- und Ordnerfreigaben
 

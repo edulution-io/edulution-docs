@@ -114,11 +114,17 @@ const sidebars: SidebarsConfig = {
                 id: 'edulution-ui/features/dateien/index',
               },
               items: [
-                'edulution-ui/features/dateien/drawio',
-                'edulution-ui/features/dateien/browser-download-einstellungen',
                 'edulution-ui/features/dateien/webdav-windows',
                 'edulution-ui/features/dateien/webdav-macos',
                 'edulution-ui/features/dateien/webdav-linux',
+                'edulution-ui/features/dateien/webdav-mobile',
+                'edulution-ui/features/dateien/ansicht-und-navigation',
+                'edulution-ui/features/dateien/vorschau-und-drucken',
+                'edulution-ui/features/dateien/drawio',
+                'edulution-ui/features/dateien/teilen',
+                'edulution-ui/features/dateien/speicherplatz-und-quota',
+                'edulution-ui/features/dateien/upload-schutzmechanismen',
+                'edulution-ui/features/dateien/browser-download-einstellungen',
                 'edulution-ui/features/goodnotes',
               ],
             },
@@ -191,6 +197,11 @@ const sidebars: SidebarsConfig = {
               id: 'edulution-mail/administration',
               label: 'Administration',
             },
+            {
+              type: 'doc',
+              id: 'edulution-mail/mail-app-konfiguration',
+              label: 'Mail-App konfigurieren',
+            },
           ],
         },
         {
@@ -261,6 +272,11 @@ const sidebars: SidebarsConfig = {
           label: 'Verwaltung',
           collapsed: true,
           items: [
+            {
+              type: 'doc',
+              id: 'edulution-mail/mailbox-verwaltung',
+              label: 'Mailboxen & geteilte Postfächer',
+            },
             {
               type: 'doc',
               id: 'edulution-mail/verteilerlisten',

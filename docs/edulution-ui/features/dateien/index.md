@@ -26,25 +26,50 @@ Alle Details finden Sie unter [Ansicht und Navigation](./ansicht-und-navigation.
 
 ## Dateien hochladen
 
-Klicken Sie auf **Hochladen** (unten):
+Klicken Sie unten rechts auf **Neu** (Plus-Symbol) und wählen Sie **Hochladen**:
 - Dateien per Drag & Drop in den Bereich ziehen
 - Oder **Dateien hinzufügen** klicken
 - Mehrere Dateien gleichzeitig möglich
 
 ## Ordner erstellen
 
-Klicken Sie auf **Ordner erstellen** (unten):
+Klicken Sie unten rechts auf **Neu** (Plus-Symbol) und wählen Sie **Ordner erstellen**:
 1. Geben Sie einen Namen ein
 2. Klicken Sie auf **Erstellen**
 
 ## Neue Dateien erstellen
 
-Klicken Sie auf **Datei erstellen** (unten) und wählen Sie:
-- 📊 **Neue Draw.io-Datei** - Diagramme zeichnen
+Klicken Sie unten rechts auf **Neu** (Plus-Symbol) und wählen Sie:
+- 📊 **Neue Draw.io-Datei** - Diagramme zeichnen ([Anleitung](./drawio.md))
 - 📄 **Neue Textdatei** - Einfache Texte
 - 📘 **Neues Dokument** - Word-Dokument (OnlyOffice)
 - 📗 **Neue Tabelle** - Excel-Tabelle (OnlyOffice)
 - 📙 **Neue Präsentation** - PowerPoint (OnlyOffice)
+- 📃 **Andere Datei** - Beliebige Endung selbst eingeben
+
+### Weitere Dateitypen
+
+Über **Weitere Dateitypen** klappen Sie eine Liste vorbereiteter Endungen auf. Damit legen Sie eine leere Datei mit passendem Dateityp an:
+
+`.bat` · `.cfg` · `.css` · `.csv` · `.env` · `.html` · `.ini` · `.js` · `.json` · `.md` · `.ps1` · `.py` · `.sh` · `.toml` · `.xml` · `.yaml` · `.yml`
+
+Ist die gewünschte Endung nicht dabei, wählen Sie **Andere Datei**. Im Dialog erscheint neben dem Namensfeld ein zusätzliches Feld `.ext`, in das Sie die Endung eintragen.
+
+## Dateivorschau
+
+Ein Klick auf den Dateinamen öffnet die Datei in der Vorschau. Vorschaufähig sind Bilder, Video- und Audiodateien, PDF-Dateien, Textdateien, Draw.io-Diagramme und Office-Dokumente. Bei allen übrigen Formaten bleibt der Klick wirkungslos – diese Dateien können Sie nur herunterladen. Über die Schaltflächen in der Titelleiste der Vorschau öffnen Sie die Datei zusätzlich in einem eigenen Browser-Tab.
+
+Office-Dokumente setzen voraus, dass Ihr Administrator einen Dokumenten-Editor eingerichtet hat – [OnlyOffice](../../../edulution-onlyoffice/index.md) beziehungsweise Euro-Office oder [Collabora](../../../edulution-collabora/index.md). Ist keiner konfiguriert, lässt sich ein Office-Dokument nicht öffnen; PDF-Dateien öffnen sich unabhängig davon.
+
+### Office-Dokumente auf dem Smartphone
+
+OnlyOffice und Euro-Office lassen sich auf einem Smartphone beziehungsweise in einem sehr schmalen Browserfenster nicht sinnvoll bedienen. Tippen Sie dort auf ein Office-Dokument, erscheint deshalb der Hinweis *„Office-Dokumente lassen sich auf dem Smartphone nicht öffnen. Bitte nutzen Sie ein Tablet oder einen Computer."*, und das Dokument bleibt geschlossen. Auf einem Tablet öffnet es sich normal.
+
+Ist Collabora als Dokumenten-Editor eingerichtet, gilt diese Einschränkung nicht – dort öffnen sich Office-Dokumente auch auf dem Smartphone. PDF-Dateien, Bilder, Medien- und Textdateien sind ebenfalls nicht betroffen.
+
+### Wenn die Vorschau fehlschlägt
+
+Lässt sich der Inhalt einer Datei nicht laden, zeigt die Vorschau eine Fehlermeldung **Vorschau konnte nicht geladen werden** – anstatt dauerhaft eine Ladeanzeige zu drehen. Darunter stehen der Grund und der Name der betroffenen Datei, etwa *Zugriff verweigert*, wenn Ihnen die Berechtigung fehlt, oder *Nicht gefunden*, wenn die Datei inzwischen verschoben oder gelöscht wurde. Dieselbe Meldung erscheint, wenn Sie die Vorschau in einem eigenen Browser-Tab oder über einen Freigabe-Link geöffnet haben, und ebenso, wenn der Dokumenten-Editor ein Office-Dokument nicht öffnen konnte – das Vorschaufenster bleibt in diesem Fall nicht mehr leer.
 
 ## Aktionen mit Dateien
 

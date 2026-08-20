@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Ansicht und Navigation
 
 Die Dateiliste lässt sich in zwei Ansichten darstellen, per Tastatur bedienen und über Filter auf die Dateitypen eingrenzen, die Sie gerade brauchen. Die Bedienelemente dafür finden Sie in der Zeile über der Dateiliste – neben dem Suchfeld **Tippen, um zu filtern**.
@@ -17,8 +13,8 @@ Rechts über der Dateiliste schalten Sie mit zwei Symbolen zwischen den Ansichte
 
 In beiden Ansichten gilt:
 
-- Ein Klick auf eine Datei oder einen Ordner öffnet das Element
-- Die **Checkbox** wählt ein Element aus, ohne es zu öffnen – ausgewählte Elemente lassen sich wie gewohnt löschen, verschieben, umbenennen, herunterladen, kopieren und teilen
+- Ein Klick auf einen Ordner wechselt hinein; ein Klick auf einen Dateinamen öffnet die [Dateivorschau](./index.md#dateivorschau) – bei Formaten ohne Vorschau bleibt der Klick wirkungslos
+- Die **Checkbox** wählt ein Element aus, ohne es zu öffnen – für die Auswahl stehen dann die [Aktionen mit Dateien](./index.md#aktionen-mit-dateien) zur Verfügung
 - Über das Symbol **⋮** öffnen Sie das Aktionsmenü eines einzelnen Elements
 - Dateien lassen sich per Drag & Drop in einen Ordner ziehen
 - In Unterordnern steht ganz oben der Eintrag **..**, der eine Ebene nach oben führt
@@ -33,7 +29,7 @@ Sie können sich durch die Dateiliste bewegen, ohne die Maus zu benutzen:
 |---|---|
 | ↓ / ↑ | Nächstes bzw. vorheriges Element (in der Kachelansicht: eine Zeile nach unten bzw. oben) |
 | → / ← | Nächstes bzw. vorheriges Element – nur in der Kachelansicht |
-| **Enter** | Markiertes Element öffnen: Ordner wechseln oder Datei in der Vorschau bzw. im Editor öffnen |
+| **Enter** | Markiertes Element öffnen: Ordner wechseln oder Datei in der Vorschau bzw. im Editor öffnen – sofern für den Dateityp eine Vorschau möglich ist |
 | **Esc** | Geöffnete Vorschau schließen, sonst die Tastaturnavigation beenden |
 
 Das aktuell markierte Element wird hervorgehoben; die Liste scrollt automatisch mit, sodass es immer sichtbar bleibt. Ist die Vorschau geöffnet, wechselt sie beim Blättern direkt zur jeweils markierten Datei – so lassen sich Bilder oder Dokumente nacheinander durchsehen.

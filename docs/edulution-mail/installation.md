@@ -192,13 +192,15 @@ Sobald edulution-mail das Mailcow-Netzwerk für edulution-api sichtbar macht, si
 Damit die edulution-api direkt mit dem Mailserver kommunizieren kann, müssen IMAP- und SMTP-Server auf die internen Mailcow-Hostnamen gesetzt werden.
 
 1. Bleiben Sie in **Einstellungen** → **E-Mails**
-2. Scrollen Sie nach oben zum Abschnitt **Mailserver**
-3. Tragen Sie folgende Werte ein:
+2. Scrollen Sie nach oben zum Abschnitt **URL**
+3. Tragen Sie als URL (Mailcow-API) den Wert `https://mailcowdockerized-nginx-mailcow-1` ein.
+4. Scrollen Sie weiter zum Abschnitt **API**
+5. Tragen Sie den API-Schlüssel aus der Mailcow-Administrations-Oberfläche (System > Konfiguration > Zugang > API (Bereich muss mit dem "+" aufgeklappt werden) > API-Key) ein.
+6. Scrollen Sie nach oben zum Abschnitt **Mailserver**
+7. Tragen Sie folgende Werte ein:
 
 | Feld | Wert |
 |------|------|
-| **URL** (Mailcow-API) | `https://mailcowdockerized-nginx-mailcow-1` |
-| **API-Schlüssel** | `***` |
 | **IMAP-Server** | `dovecot` |
 | **IMAP Port** | `993` |
 | **SMTP-Server** | `postfix` |

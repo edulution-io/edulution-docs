@@ -161,10 +161,11 @@ const sidebars: SidebarsConfig = {
           items: [
             'edulution-ui/administration/administration',
             'edulution-ui/administration/einstellungen',
-            'edulution-ui/administration/wiki-einstellungen',
+            'edulution-ui/administration/master-key',
+            'edulution-ui/administration/satelliten',
             'edulution-ui/administration/linuxmuster',
             'edulution-ui/administration/benutzerverwaltung',
-            'edulution-ui/administration/satelliten',
+            'edulution-ui/administration/wiki-einstellungen',
             'edulution-ui/administration/webhooks',
             'edulution-ui/administration/experten-tipps',
           ],

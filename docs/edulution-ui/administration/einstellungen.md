@@ -70,18 +70,6 @@ Der Organisationstyp gilt systemweit für alle Nutzer. Er ist unabhängig von de
 
 Änderungen wirken sofort nach dem Speichern. Bereits geöffnete Browser-Fenster übernehmen sie erst nach einem Neuladen.
 
-#### Logo auf der Login-Seite
-
-Beim Organisationstyp **Unternehmen** wird das edulution-Logo auf der Login-Seite nicht angezeigt. Sichtbar bleiben das eigene Logo aus dem [Branding](#branding), der Organisationsname und der Anmeldetext — die Login-Seite tritt damit ausschließlich unter der Marke der eigenen Organisation auf.
-
-Die Login-Seite wird vor der Anmeldung angezeigt und kann die globalen Einstellungen deshalb noch nicht lesen. Sie ermittelt den Organisationstyp über einen öffentlichen Endpunkt, der ohne Anmeldung erreichbar ist:
-
-```
-GET /edu-api/global-settings/public/organisation-info
-```
-
-Er liefert ausschließlich `name`, `loginText`, `website` und `organizationType`. Weitere Einstellungen gibt er nicht preis.
-
 #### Voreinstellung bei der Installation
 
 Bei einer Neuinstallation und beim Update einer bestehenden Installation wird der Organisationstyp aus der Umgebungsvariablen `EDUI_ORGANIZATION_TYPE` übernommen:
@@ -120,10 +108,6 @@ Die Variable setzt nur den Ausgangswert. Danach ändern Sie den Organisationstyp
 - Laden Sie Ihr Schul-Logo hoch
 - Wird auf Login-Seite und in der App angezeigt
 - Button: **Datei auswählen**
-
-:::tip[Eigenes Logo allein auf der Login-Seite]
-Setzen Sie den [Organisationstyp](#organisationstyp) auf **Unternehmen**, wird das edulution-Logo auf der Login-Seite ausgeblendet und nur noch Ihr eigenes Logo angezeigt.
-:::
 
 **Organisationsinformationen**
 - **Organisationsname**: Name der Schule (z.B. "Albert-Schweitzer-Schule")

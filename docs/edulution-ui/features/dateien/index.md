@@ -52,10 +52,13 @@ Wenn Sie eine Datei auswählen (Checkbox), erscheinen folgende Aktionen:
 
 ### Teilen (Sharing)
 
-Beim Teilen können Sie festlegen:
-- **Sichtbarkeit**: Öffentlich oder Eingeschränkt
+Beim Teilen legen Sie in **Bereichen** fest, wer Zugriff bekommt und was dort erlaubt ist:
+- **Sichtbarkeit** je Bereich: Öffentlich (jeder mit dem Link) oder Eingeschränkt (ausgewählte Benutzer und Gruppen)
+- **Berechtigungen** je Bereich: von **Nur ansehen** über **Bearbeiten** bis **Vollzugriff**
 - **Passwortschutz**: Optional Passwort setzen
 - **Ablaufdatum**: Zeitlich begrenzter Zugriff
+
+Freigegebene Inhalte lassen sich außerdem direkt in edulution unter **Geteilte Dateien** öffnen – ganz ohne Freigabe-Link. Alle Details finden Sie unter [Teilen und Berechtigungen](./teilen.md).
 
 ## Wichtige Hinweise
 

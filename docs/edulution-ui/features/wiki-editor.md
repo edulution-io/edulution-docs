@@ -139,7 +139,7 @@ Anschließend erscheint die Auswahlliste **Wiki-Link einfügen**:
 
 ## Dateien und Bilder anhängen
 
-Anhänge liegen als echte Dateien auf der WebDAV-Freigabe des Wikis, nicht in der Markdown-Datei selbst. Damit bleiben sie über die App [Dateien](dateien/index.md) erreichbar und lassen sich dort ansehen, [in der Dateivorschau öffnen](dateien/index.md#dateivorschau), herunterladen, umbenennen oder ersetzen.
+Anhänge liegen als echte Dateien auf der WebDAV-Freigabe des Wikis, nicht in der Markdown-Datei selbst. Damit bleiben sie über die App [Dateien](dateien/index.md) erreichbar und lassen sich dort ansehen, [in der Dateivorschau öffnen](dateien/vorschau-und-drucken.md#vorschau-öffnen), herunterladen, umbenennen oder ersetzen.
 
 ### Datei hochladen
 
@@ -168,7 +168,7 @@ Anhänge werden relativ zur Wiki-Seite verlinkt. Dateien, die außerhalb des Ord
 
 Klicken Sie eine Dateikarte an, erscheint darüber ein kleines Menü:
 
-- **Vorschau** – öffnet die Datei in einem Fenster innerhalb von edulution (dieselbe [Dateivorschau](dateien/index.md#dateivorschau) wie in der App **Dateien**)
+- **Vorschau** – öffnet die Datei in einem Fenster innerhalb von edulution (dieselbe [Dateivorschau](dateien/vorschau-und-drucken.md#vorschau-öffnen) wie in der App **Dateien**)
 - **Herunterladen** – lädt die Datei auf das eigene Gerät
 - **Entfernen** – löscht nur die Karte aus der Seite; die Datei bleibt auf der Freigabe erhalten
 
@@ -216,5 +216,5 @@ Auf macOS steht `Cmd` an der Stelle von `Strg`.
 
 - [Wiki](wiki.md) – Aufbau, Seitenverwaltung und Suche
 - [Markdown-Hilfe](markdown-hilfe.md) – Markdown-Syntax hinter dem Editor
-- [Dateien](dateien/index.md) – Freigabe, auf der Wiki-Seiten und Anhänge gespeichert werden; dort lassen sich Dateien auch [ansehen und bearbeiten](dateien/index.md#dateivorschau)
+- [Dateien](dateien/index.md) – Freigabe, auf der Wiki-Seiten und Anhänge gespeichert werden; dort lassen sich Dateien auch [ansehen und bearbeiten](dateien/vorschau-und-drucken.md#vorschau-öffnen)
 - [Wiki-Einstellungen (Admin)](../administration/wiki-einstellungen.md) – Sichtbarkeit pro Freigabe steuern

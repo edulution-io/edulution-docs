@@ -58,7 +58,7 @@ Verweise auf andere Wiki-Seiten lassen sich über die Syntax `[[Seitenname]]` ei
 
 ### Dateien anhängen
 
-Dateien lassen sich per Drag & Drop, über die Zwischenablage oder über **Medien einfügen** in eine Seite hochladen. Sie werden auf der WebDAV-Freigabe des Wikis gespeichert – Bilder erscheinen direkt im Text, andere Dateien als Dateikarte mit Vorschau, Download und Entfernen. Über die App [Dateien](dateien/index.md) erreichen Sie dieselben Dateien und können sie dort [ansehen und bearbeiten](dateien/index.md#dateivorschau).
+Dateien lassen sich per Drag & Drop, über die Zwischenablage oder über **Medien einfügen** in eine Seite hochladen. Sie werden auf der WebDAV-Freigabe des Wikis gespeichert – Bilder erscheinen direkt im Text, andere Dateien als Dateikarte mit Vorschau, Download und Entfernen. Über die App [Dateien](dateien/index.md) erreichen Sie dieselben Dateien und können sie dort [ansehen und bearbeiten](dateien/vorschau-und-drucken.md#vorschau-öffnen).
 
 ### Speichern
 

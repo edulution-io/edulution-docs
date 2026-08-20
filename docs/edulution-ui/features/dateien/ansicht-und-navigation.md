@@ -17,7 +17,7 @@ Rechts über der Dateiliste schalten Sie mit zwei Symbolen zwischen den Ansichte
 
 In beiden Ansichten gilt:
 
-- Ein Klick auf einen Ordner wechselt hinein; ein Klick auf einen Dateinamen öffnet die [Dateivorschau](./index.md#dateivorschau) – bei Formaten ohne Vorschau bleibt der Klick wirkungslos
+- Ein Klick auf einen Ordner wechselt hinein; ein Klick auf einen Dateinamen öffnet die [Dateivorschau](./vorschau-und-drucken.md#vorschau-öffnen) – bei Formaten ohne Vorschau bleibt der Klick wirkungslos
 - Die **Checkbox** wählt ein Element aus, ohne es zu öffnen – für die Auswahl stehen dann die [Aktionen mit Dateien](./index.md#aktionen-mit-dateien) zur Verfügung
 - Über das Symbol **⋮** öffnen Sie das Aktionsmenü eines einzelnen Elements
 - Dateien lassen sich per Drag & Drop in einen Ordner ziehen

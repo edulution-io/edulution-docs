@@ -36,7 +36,7 @@ Klicken Sie unten rechts auf **Neu** (Plus-Symbol) und wählen Sie **Hochladen**
 - Mehrere Dateien gleichzeitig möglich
 
 
-Vor der Übertragung prüft edulution die Auswahl: Dateinamen mit unzulässigen Zeichen werden abgewiesen, und bereits vorhandene Dateien werden vor dem Überschreiben aufgelistet. Alle Regeln dazu stehen unter [Schutzmechanismen beim Hochladen](./dateien/upload-schutzmechanismen.md).
+Vor der Übertragung prüft edulution die Auswahl: Dateinamen mit unzulässigen Zeichen werden abgewiesen, und bereits vorhandene Dateien werden vor dem Überschreiben aufgelistet. Alle Regeln dazu stehen unter [Schutzmechanismen beim Hochladen](./upload-schutzmechanismen.md).
 
 ## Ordner erstellen
 
@@ -132,4 +132,4 @@ Sie können Ihre Dateien auch direkt über den Dateimanager Ihres Betriebssystem
 - [Dashboard](../dashboard.md) - Speichernutzung anzeigen
 - [Mobile App](../mobile-app.md) - Dateien mobil synchronisieren
 - [Eingebettete App](../eingebettete-app.md) - HTML/JS/CSS hochladen
-- [Schutzmechanismen beim Hochladen](./dateien/upload-schutzmechanismen.md) - Dateinamen, Duplikate und Bildumwandlung
+- [Schutzmechanismen beim Hochladen](./upload-schutzmechanismen.md) - Dateinamen, Duplikate und Bildumwandlung

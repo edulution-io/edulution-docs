@@ -85,7 +85,7 @@ Ziehen Sie Dateien direkt in die Dateiübersicht, fragt edulution vor der Übert
 
 **Nur neue Dateien hochladen** erscheint nur, wenn die Auswahl überhaupt neue Dateien enthält.
 
-Derselbe Dialog erscheint, wenn Sie Dateien in eine [Freigabe](../dateien.md#teilen-sharing) mit Schreibrecht ziehen.
+Derselbe Dialog erscheint, wenn Sie Dateien in eine [Freigabe](./index.md#teilen-sharing) mit Schreibrecht ziehen.
 
 ## Weitere Grenzen beim Hochladen
 
@@ -93,7 +93,7 @@ Derselbe Dialog erscheint, wenn Sie Dateien in eine [Freigabe](../dateien.md#tei
 |---|---|
 | Dateien pro Upload (inklusive Ordnerinhalten) | 100 |
 | Dateien innerhalb eines hochgeladenen Ordners | 100 |
-| Maximale Größe je Datei | abhängig vom [FileProxy](../dateien.md#dateigröße) |
+| Maximale Größe je Datei | abhängig vom [FileProxy](./index.md#dateigröße) |
 
 Wird eine Grenze überschritten, erscheint eine rote Warnung – bei Drag & Drop stattdessen eine Meldung am Bildschirmrand. Reicht während der Übertragung der Speicherplatz nicht aus, bricht edulution den Upload ab und meldet *Upload abgebrochen: Nicht genügend Speicherplatz*. Ihre aktuelle Speichernutzung sehen Sie im [Dashboard](../dashboard.md#quotas).
 
@@ -127,6 +127,6 @@ Bilder, die Sie in der Dateien-App hochladen, werden **unverändert** gespeicher
 
 ## Siehe auch
 
-- [Dateien](../dateien.md) – Übersicht über die Dateiverwaltung
+- [Dateien](./index.md) – Übersicht über die Dateiverwaltung
 - [Dashboard](../dashboard.md#quotas) – Speichernutzung und Quota anzeigen
 - [Whiteboard](../whiteboard.md) – Bilder auf dem Whiteboard

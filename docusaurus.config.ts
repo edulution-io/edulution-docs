@@ -1,18 +1,18 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import tagPlugin from "./src/rehype/tagPlugin";
+import tagPlugin from './src/rehype/tagPlugin';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'edulution UI',
+  title: 'edulution',
   tagline: 'Dokumentation',
   favicon: '_static/icon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
   // Set the production url of your site here
@@ -38,14 +38,16 @@ const config: Config = {
 
   plugins: ['./src/plugins/tailwind-config.js'],
 
+  markdown: {
+    mermaid: true,
+  },
+
   presets: [
     [
       'classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl:
-            'https://github.com/edulution-io/edulution-docs/tree/main/',
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
           breadcrumbs: true,
@@ -55,12 +57,12 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-
       } satisfies Preset.Options,
     ],
   ],
 
   themes: [
+    '@docusaurus/theme-mermaid',
     [
       '@easyops-cn/docusaurus-search-local',
       {
@@ -119,8 +121,24 @@ const config: Config = {
               to: '/docs/category/edulution-mail',
             },
             {
-                label: 'edulution App',
-                to: '/docs/category/edulution-app'
+              label: 'edulution App',
+              to: '/docs/category/edulution-app',
+            },
+            {
+              label: 'edulution Satellite',
+              to: '/docs/edulution-satellite/',
+            },
+            {
+              label: 'edulution OnlyOffice',
+              to: '/docs/category/edulution-onlyoffice',
+            },
+            {
+              label: 'edulution EuroOffice',
+              to: '/docs/category/edulution-eurooffice',
+            },
+            {
+              label: 'edulution Collabora',
+              to: '/docs/category/edulution-collabora',
             },
           ],
         },
@@ -193,6 +211,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'yaml', 'json', 'docker'],
     },
   } satisfies Preset.ThemeConfig,
 };

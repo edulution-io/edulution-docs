@@ -36,9 +36,8 @@ bestimmter Ports. Beachten Sie, dass einige Ports nur intern zugänglich
 sein sollten.
 
 :::note
-Die Ports für E-Mail-Dienste (SMTP, IMAP, IMAPS) und die Mailcow
-Administrationsoberfläche (8443) werden nur benötigt, wenn die
-E-Mail-Funktionalität der edulution UI genutzt wird.
+Die Ports für E-Mail-Dienste (SMTP, IMAP, IMAPS) werden nur benötigt,
+wenn die E-Mail-Funktionalität der edulution UI genutzt wird.
 :::
 
 | Port | Beschreibung |
@@ -47,7 +46,6 @@ E-Mail-Funktionalität der edulution UI genutzt wird.
 | 443 | HTTPS (edulution UI Web-Interface, extern zugänglich) |
 | 389 | LDAP (unverschlüsselte LDAP-Verbindung, primär intern) |
 | 636 | LDAPS (verschlüsselte LDAP-Verbindung, extern zugänglich, gültiges Zertifikat nötig) |
-| 8443 | Mailcow Administrationsoberfläche (intern empfohlen) |
 | 25 | SMTP (Standard-Port für E-Mail-Versand) |
 | 465 | SMTPS (SMTP über SSL/TLS, veraltet, aber noch genutzt) |
 | 587 | Submission (SMTP mit STARTTLS, empfohlen für E-Mail-Clients) |

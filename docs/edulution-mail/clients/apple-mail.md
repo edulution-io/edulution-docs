@@ -134,6 +134,6 @@ Falls E-Mails nicht gesendet werden können:
 - Domain und Systemdatum prüfen
 - Bei anhaltenden Problemen: Administrator kontaktieren
 
-:::tip Weitere Hilfe
+:::tip[Weitere Hilfe]
 Weitere Lösungen für häufige Probleme finden Sie auf unserer **[Troubleshooting-Seite](./troubleshooting)**.
 :::

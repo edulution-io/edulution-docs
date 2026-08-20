@@ -2,51 +2,10 @@
 
 edulution bietet eine Vielzahl zusätzlicher Funktionen für den digitalen Unterricht und die Schulverwaltung.
 
-## Schwarzes Brett
-
-![Schwarzes Brett](/img/features/schwarzes-brett.jpeg)
-
-Das Schwarze Brett dient als zentrale Kommunikationsplattform für Ankündigungen und Mitteilungen.
-
-### Kategorien
-
-- **Veranstaltungen & Ankündigungen**: Schulevents, Tag der offenen Tür, etc.
-- **Nachhilfe & Unterstützung**: Lernpartnerschaften, Hausaufgabenhilfe
-- **Fundsachen**: Verlorene und gefundene Gegenstände
-
-### Funktionen
-
-- Mit Bildern und Zeitstempeln
-- Autor wird angezeigt (z.B. "von Yuki Grün, aktualisiert am...")
-- Tabelle/Erstellen-Ansicht verfügbar
-- Filterbar nach Kategorien
-
-## Umfragen
-
-![Umfragen](/img/features/umfragen.jpeg)
-
-Erstellen und verwalten Sie Umfragen mit vorgefertigten Vorlagen.
-
-### Vorlagen
-
-- **Elternabend 6a**: Terminabstimmung für Elternabende
-- **Klassenausflug**: Planung von Ausflügen
-- **Umfrage zur Cafeteria / Mensa**: Feedback zur Verpflegung
-- **Kinobesuch bei Klassenfahrt**: Event-Planung
-- **Sommerfest**: Veranstaltungsorganisation
-
-### Erstellen
-
-1. Klicken Sie auf "Neue erstellen" in der Umfragen-App
-2. Wählen Sie eine Vorlage oder erstellen Sie eine benutzerdefinierte Umfrage
-3. Passen Sie Fragen und Optionen an
-4. Veröffentlichen und teilen Sie die Umfrage
 
 ## Desktop-Bereitstellung (VDI)
 
-![Desktop-Bereitstellung](/img/features/desktop-bereitstellung.jpeg)
-
-:::info Konfiguration erforderlich
+:::info[Konfiguration erforderlich]
 Die Desktop-Bereitstellung steht erst nach Konfiguration der VDI-Umgebung zur Verfügung. Eine detaillierte Anleitung zur VDI-Konfiguration folgt in einem separaten Dokument.
 :::
 
@@ -76,7 +35,7 @@ Wählen Sie die Benutzeroberflächen-Sprache:
 
 ### Einstellung ändern
 
-1. Gehen Sie zu **Mein Profil** → **Sprache**
+1. Gehen Sie zu **Benutzereinstellungen** → **Sprache**
 2. Wählen Sie die gewünschte Sprache
 3. Die Oberfläche wird automatisch aktualisiert
 

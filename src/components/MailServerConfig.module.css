@@ -143,7 +143,6 @@
   color: var(--ifm-heading-color);
 }
 
-
 .autoConfigInfo {
   margin: 0 0 0.5rem 0;
   font-size: 0.8rem;
@@ -156,7 +155,7 @@
 }
 
 .downloadBtn {
-  background: linear-gradient(45deg, #88D840, #0081C6);
+  background: linear-gradient(45deg, #8fc046, #0081c6);
   color: #ffffff;
   border: none;
   padding: 0.5rem 0.85rem;
@@ -234,7 +233,7 @@
 }
 
 .importSummary::before {
-  content: '▶ ';
+  content: "▶ ";
   display: inline-block;
   transition: transform 0.2s;
 }

@@ -137,6 +137,6 @@ Thunderbird 115+ unterstützt CalDAV/CardDAV nativ.
 - Bei berechtigtem Zertifikat: Ausnahme bestätigen
 - Bei Unsicherheit: Administrator kontaktieren
 
-:::tip Weitere Hilfe
+:::tip[Weitere Hilfe]
 Weitere Lösungen für häufige Probleme finden Sie auf unserer **[Troubleshooting-Seite](./troubleshooting)**.
 :::

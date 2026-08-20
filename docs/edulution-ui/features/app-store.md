@@ -4,13 +4,11 @@ Der edulution App-Store ermöglicht es Ihnen, zusätzliche Anwendungen zu instal
 
 ## App-Store Übersicht
 
-![App-Store](/img/features/app-store.jpeg)
-
 ### Verfügbare Kategorien
 
 Der App-Store organisiert Anwendungen in verschiedene Kategorien:
 
-- **Schwarzes Brett**: Ankündigungen und Mitteilungen
+- **Infoboard**: Ankündigungen und Mitteilungen
 - **Mail**: E-Mail-Verwaltung
 - **Konferenzen**: Video- und Audio-Konferenzen
 - **Umfragen**: Erstellen und verwalten von Umfragen
@@ -18,7 +16,8 @@ Der App-Store organisiert Anwendungen in verschiedene Kategorien:
 - **Klassenzimmer**: Unterrichtsmanagement-Tools
 - **WebUnits**: Webbasierte Weiterleitungen (nicht WebUntis!)
 - **Frame**: Einbettung externer Anwendungen
-- **Etherpad**: Kollaboratives Schreiben und eigene Apps hochladen (HTML/JS/CSS)
+- **Etherpad**: Kollaboratives Schreiben
+- **Eingebettet**: Eigene Webseiten erstellen (HTML/JS/CSS) - z.B. für Impressum und Datenschutz
 
 ## App installieren
 
@@ -28,14 +27,22 @@ Der App-Store organisiert Anwendungen in verschiedene Kategorien:
 4. Wählen Sie ein Icon aus der Icon-Galerie
 5. Klicken Sie auf **Hinzufügen**
 
-![Icon-Auswahl](/img/features/app-store.jpeg)
-
 ### Icon-Anpassung
 
 Jede App kann mit einem individuellen Icon versehen werden:
 - Große Auswahl an vordefinierten Icons
 - Icons nach Kategorien sortiert
 - Visuelle Suche verfügbar
+
+## Impressum und Datenschutz erstellen
+
+:::tip[Rechtliche Pflichtseiten]
+Mit der **"Eingebettet"**-App können Sie rechtliche Pflichtseiten wie Impressum und Datenschutzerklärung direkt in edulution hinterlegen. Diese werden automatisch im Footer Ihrer Webseite verlinkt.
+
+**Wichtig:** Der Seitenname muss exakt **"Impressum"**, **"Imprint"**, **"Datenschutz"** oder **"Privacy"** lauten, damit die automatische Footer-Integration funktioniert.
+
+[→ Ausführliche Anleitung: Impressum und Datenschutz einrichten](/docs/edulution-ui/features/impressum-datenschutz)
+:::
 
 ## App-Launcher
 
@@ -87,4 +94,4 @@ Einige Apps sind standardmäßig installiert und können nicht entfernt werden:
 - Dashboard
 - Mail
 - Einstellungen
-- Mein Profil
+- Benutzereinstellungen

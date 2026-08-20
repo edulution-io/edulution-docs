@@ -21,5 +21,3 @@ externen Mailserver als Sync-Ziel definieren.
       Verbindung (IMAPS).
 4.  **Speichern:** Klicken Sie auf \"Speichern\", um das Sync-Profil für
     die Benutzer verfügbar zu machen.
-
-![Einstellungen für den E-Mail Sync](/_static/edulution-mail_sync-einstellungen.png)

@@ -10,9 +10,9 @@ Ein Datenbank-Backup allein reicht nicht. Wird der Master-Schlüssel verloren, l
 
 edulution verwendet zwei Ebenen:
 
-1. **Client-seitige Verschlüsselung im Browser.** Bei der Anmeldung erzeugt die Oberfläche einen zufälligen 256-Bit-Schlüssel (den `encryptKey`) und verschlüsselt damit das Benutzerpasswort mit AES-256-GCM. Nur dieses Chiffrat wird an die API gesendet – das Passwort selbst verlässt den Browser nie im Klartext. Die API benötigt das entschlüsselte Passwort, um im Namen des Benutzers auf nachgelagerte Dienste wie WebDAV-Freigaben oder Mail zuzugreifen.
+1. **Client-seitige Verschlüsselung im Browser.** Bei der Anmeldung erzeugt die Oberfläche einen zufälligen Schlüssel (den `encryptKey`) und verschlüsselt damit das Benutzerpasswort mit AES-256-GCM. Nur dieses Chiffrat wird an die API gesendet – das Passwort selbst verlässt den Browser nie im Klartext. Die API benötigt das entschlüsselte Passwort, um im Namen des Benutzers auf nachgelagerte Dienste wie WebDAV-Freigaben oder Mail zuzugreifen.
 
-2. **Serverseitige Verschlüsselung des Schlüssels (Key Wrapping).** Der `encryptKey` selbst wird nicht im Klartext gespeichert. Die API verschlüsselt ihn vor dem Schreiben in die Datenbank mit dem Master-Schlüssel – ebenfalls AES-256-GCM – und legt ihn mit dem Präfix `wrapped:` ab.
+2. **Serverseitige Verschlüsselung des Schlüssels (Key Wrapping).** Der `encryptKey` selbst wird nicht im Klartext gespeichert. Die API verschlüsselt ihn vor dem Schreiben in die Datenbank mit dem Master-Schlüssel – mit demselben Verfahren – und legt ihn mit dem Präfix `wrapped:` ab.
 
 Ein Angreifer, der ausschließlich Lesezugriff auf die MongoDB erlangt (etwa über ein entwendetes Datenbank-Backup), kann damit weder die Schlüssel noch die Passwörter entschlüsseln. Erst die Kombination aus Datenbank **und** Master-Schlüssel ergibt verwertbare Daten.
 
@@ -25,29 +25,13 @@ Ein Angreifer, der ausschließlich Lesezugriff auf die MongoDB erlangt (etwa üb
 | Passwörter öffentlicher Datei-Freigaben | `publicshares` | Passwort eines passwortgeschützten Freigabe-Links |
 | Tokens der mobilen Geräteverwaltung | `relutionusertokens` | API-Token pro Benutzer |
 
-## Woher die API den Master-Schlüssel bezieht
+## Master-Schlüssel einrichten
 
-Beim Start der API wird der Schlüssel in dieser Reihenfolge ermittelt:
-
-1. Umgebungsvariable `MASTER_ENCRYPT_KEY`
-2. Datei `data/master.key` im Arbeitsverzeichnis des API-Containers (`/opt/edulution/api/data/master.key`)
-3. **Automatische Erzeugung:** Ist beides nicht vorhanden, erzeugt die API beim ersten Start einen neuen Schlüssel und schreibt ihn mit den Dateirechten `0600` nach `data/master.key`.
-
-Die Fundstelle wird im Log der API protokolliert:
-
-```text
-[MasterKeyUtil] MASTER_ENCRYPT_KEY loaded from environment variable
-[MasterKeyUtil] Master key loaded from ./data/master.key
-[MasterKeyUtil] No master key found. Generated new master key and saved to ./data/master.key
-```
+Die API sucht den Schlüssel beim Start zuerst in der Umgebungsvariablen `MASTER_ENCRYPT_KEY`, danach in der Datei `data/master.key` im Arbeitsverzeichnis des API-Containers. Findet sie beides nicht, erzeugt sie beim ersten Start selbst einen Schlüssel und legt ihn mit den Dateirechten `0600` in dieser Datei ab.
 
 :::warning[Schlüssel explizit setzen]
 Verlassen Sie sich in produktiven Installationen nicht auf die automatisch erzeugte Datei. Liegt das Datenverzeichnis des API-Containers nicht auf einem persistenten Volume, geht der Schlüssel beim Neuerstellen des Containers verloren – und mit ihm der Zugriff auf alle verschlüsselten Daten. Tragen Sie den Schlüssel stattdessen in die `.edulution.env` ein.
 :::
-
-## Master-Schlüssel einrichten
-
-Der Schlüssel ist ein 256-Bit-Wert in hexadezimaler Schreibweise, also genau **64 Zeichen aus `0-9` und `a-f`**.
 
 ### 1. Bestehenden Schlüssel prüfen
 
@@ -70,6 +54,8 @@ openssl rand -hex 32
 
 ### 3. Schlüssel eintragen und Container neu starten
 
+Der Schlüssel ist ein 256-Bit-Wert in hexadezimaler Schreibweise, also genau **64 Zeichen aus `0-9` und `a-f`**.
+
 ```dotenv title=".edulution.env"
 MASTER_ENCRYPT_KEY=<64-stelliger-hex-wert>
 ```
@@ -87,7 +73,7 @@ Im Log muss anschließend die Bestätigung erscheinen, dass der Schlüssel zu de
 ```
 
 :::danger[Der Schlüssel darf sich nie ändern]
-`MASTER_ENCRYPT_KEY` hat Vorrang vor der Datei `data/master.key`. Tragen Sie dort einen **anderen** Wert ein als den, mit dem die Daten verschlüsselt wurden, verweigert die API den Start. Es gibt keinen automatischen Schlüsselwechsel: Ein Wechsel des Master-Schlüssels entwertet alle bereits verschlüsselten Datensätze.
+`MASTER_ENCRYPT_KEY` hat Vorrang vor der Schlüsseldatei. Tragen Sie dort einen **anderen** Wert ein als den, mit dem die Daten verschlüsselt wurden, verweigert die API den Start. Es gibt keinen automatischen Schlüsselwechsel: Ein Wechsel des Master-Schlüssels entwertet alle bereits verschlüsselten Datensätze.
 :::
 
 ## Migration bestehender Installationen
@@ -112,7 +98,7 @@ Erzeugt die API beim Update selbst einen Schlüssel, werden die Daten mit genau 
 
 Behandeln Sie Datenbank und Master-Schlüssel als zusammengehörendes Paar:
 
-- Sichern Sie den Schlüssel (aus `.edulution.env` oder `data/master.key`) an einem separaten, geschützten Ort – zum Beispiel im Passwort-Tresor der Schulverwaltung.
+- Sichern Sie den Schlüssel (aus der `.edulution.env` oder der Schlüsseldatei) an einem separaten, geschützten Ort – zum Beispiel im Passwort-Tresor der Schulverwaltung.
 - Notieren Sie zu jedem Datenbank-Backup, welcher Master-Schlüssel dazugehört.
 - Beim Zurückspielen eines Datenbank-Backups muss derselbe Master-Schlüssel aktiv sein, mit dem das Backup erstellt wurde. Andernfalls startet die API nicht.
 - Der Schlüssel gehört **nicht** in eine Versionsverwaltung und nicht in Support-Anfragen oder Log-Auszüge.

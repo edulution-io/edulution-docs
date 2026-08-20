@@ -118,6 +118,8 @@ Es ist immer nur eine der beiden Leisten geöffnet: Öffnen Sie die eine, schlie
 
 Die eingeblendete App-Leiste zeigt die Apps mit vollem Namen untereinander – zuerst die Favoriten, nach der Trennlinie die laufenden Apps. Am unteren linken Rand stehen die installierte Version und der Copyright-Hinweis.
 
+![Navigation Mobile Ansicht mit geschlossener Seitenleiste](/img/navigation_mobile_closed.png) ![Navigation Mobile Ansicht mit offener Seitenleiste](/img/navigation_mobile_opened.png)
+
 ## Weitere Informationen
 
 - [Dashboard](dashboard.md) – Startseite nach der Anmeldung

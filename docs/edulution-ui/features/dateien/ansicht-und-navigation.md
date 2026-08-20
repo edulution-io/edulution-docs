@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # Ansicht und Navigation
 
 Die Dateiliste lässt sich in zwei Ansichten darstellen, per Tastatur bedienen und über Filter auf die Dateitypen eingrenzen, die Sie gerade brauchen. Die Bedienelemente dafür finden Sie in der Zeile über der Dateiliste – neben dem Suchfeld **Tippen, um zu filtern**.

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 9
 ---
 
 # Speicherplatz und Quota
@@ -51,23 +51,16 @@ Ist die Quota **sehr gering** (mindestens 95 % belegt und weniger als 5 GB frei)
 
 Die Schaltflächen **Hochladen**, **Ordner erstellen** und **Datei erstellen** am unteren Rand werden ausgeblendet. Alle Aktionen an vorhandenen Dateien bleiben verfügbar: Löschen, Verschieben, Umbenennen, Herunterladen, Kopieren und Teilen. Sobald Sie Speicher freigegeben haben, erscheinen die Schaltflächen wieder.
 
-### Freigaben mit Schreibrechten
+### Ordnerfreigaben und Schreibrechte
 
-Beim Erstellen oder Bearbeiten einer Freigabe für einen **Ordner** lassen sich die Rechte **Hochladen** und **Ordner erstellen** nicht mehr vergeben – ebenso wenig die Rollen **Bearbeiten** und **Vollzugriff**, die diese Rechte enthalten. Die betroffenen Einträge sind ausgegraut und mit einem Hinweis versehen:
+Beim Erstellen oder Bearbeiten einer Freigabe für einen **Ordner** lassen sich die Rechte **Hochladen** und **Ordner erstellen** nicht mehr vergeben – ebenso wenig die Rollen **Bearbeiten** und **Vollzugriff**, die diese Rechte enthalten. Die betroffenen Einträge sind ausgegraut und mit einem Hinweis versehen.
 
-> Die Quota ist fast ausgeschöpft. Hochladen und Ordner erstellen sind für diese Freigabe deaktiviert.
-
-Enthält eine bestehende Freigabe bereits solche Rechte, erscheint derselbe Hinweis unter den Bereichen und die Schaltfläche **Speichern** bleibt deaktiviert, bis Sie die Rechte entfernen.
-
-Freigaben einzelner **Dateien** sind nicht betroffen, da über sie nichts hochgeladen werden kann.
+Enthält eine bestehende Freigabe bereits solche Rechte, erscheint derselbe Hinweis unter den Bereichen und die Schaltfläche **Speichern** bleibt deaktiviert.
 
 ## Wenn der Speicherplatz nicht ausreicht
 
-Reicht der Platz während eines Uploads nicht mehr aus, bricht edulution ihn ab und meldet:
-
-> Upload abgebrochen: Nicht genügend Speicherplatz
-
-Bereits übertragene Dateien bleiben erhalten; die restlichen werden nicht angelegt.
+Reicht der Platz während eines Uploads nicht mehr aus, bricht edulution den Prozess ab und gibt eine Fehlermeldung.
+**Bereits übertragene Dateien bleiben erhalten**; die restlichen werden nicht angelegt.
 
 ## Speicherplatz freigeben
 

@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Dateien
 
 Die Dateiverwaltung funktioniert wie ein klassischer Datei-Explorer mit allen wichtigen Funktionen für den Schulalltag.

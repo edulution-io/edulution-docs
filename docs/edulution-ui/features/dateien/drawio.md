@@ -1,3 +1,7 @@
+---
+sidebar_position: 7
+---
+
 # Diagramme mit Draw.io
 
 Draw.io ist direkt in die Dateiverwaltung eingebettet. Sie legen Diagramme wie jede andere Datei in Ihrem Verzeichnis an, öffnen sie per Klick in der Vorschau und bearbeiten sie im vollständigen Draw.io-Editor – ohne die edulution-Oberfläche zu verlassen. Gespeichert wird direkt in Ihre WebDAV-Freigabe.

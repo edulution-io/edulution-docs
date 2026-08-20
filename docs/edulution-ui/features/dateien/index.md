@@ -53,15 +53,15 @@ Ein Klick auf den Dateinamen öffnet die Datei in der Vorschau. Vorschaufähig s
 
 Office-Dokumente setzen voraus, dass Ihr Administrator einen Dokumenten-Editor eingerichtet hat – [OnlyOffice](../../../edulution-onlyoffice/index.md) beziehungsweise Euro-Office oder [Collabora](../../../edulution-collabora/index.md). Ist keiner konfiguriert, lässt sich ein Office-Dokument nicht öffnen; PDF-Dateien öffnen sich unabhängig davon.
 
+### Markdown- und Text-Dateien
+
+Textdateien – darunter Markdown-Dateien (`.md`) – öffnen sich in der Vorschau. Liegt die Datei auf einer Freigabe, für die das Wiki aktiviert ist, bearbeiten Sie sie komfortabel über die App [Wiki](../wiki.md): dort erscheinen die Markdown-Dateien als Wiki-Seiten und lassen sich im [Wiki-Editor](../wiki-editor.md) mit Werkzeugleiste, Tabellen, Formeln und Anhängen bearbeiten.
+
 ### Office-Dokumente auf dem Smartphone
 
 OnlyOffice und Euro-Office lassen sich auf einem Smartphone beziehungsweise in einem sehr schmalen Browserfenster nicht sinnvoll bedienen. Tippen Sie dort auf ein Office-Dokument, erscheint deshalb der Hinweis *„Office-Dokumente lassen sich auf dem Smartphone nicht öffnen. Bitte nutzen Sie ein Tablet oder einen Computer."*, und das Dokument bleibt geschlossen. Auf einem Tablet öffnet es sich normal.
 
 Ist Collabora als Dokumenten-Editor eingerichtet, gilt diese Einschränkung nicht – dort öffnen sich Office-Dokumente auch auf dem Smartphone. PDF-Dateien, Bilder, Medien- und Textdateien sind ebenfalls nicht betroffen.
-
-### Markdown-Dateien
-
-Textdateien – darunter Markdown-Dateien (`.md`) – öffnen sich in der Vorschau. Liegt die Datei auf einer Freigabe, für die das Wiki aktiviert ist, bearbeiten Sie sie komfortabel über die App [Wiki](../wiki.md): dort erscheinen die Markdown-Dateien als Wiki-Seiten und lassen sich im [Wiki-Editor](../wiki-editor.md) mit Werkzeugleiste, Tabellen, Formeln und Anhängen bearbeiten.
 
 ### Wenn die Vorschau fehlschlägt
 

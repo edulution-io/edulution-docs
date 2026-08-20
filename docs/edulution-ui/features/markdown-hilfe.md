@@ -1,6 +1,6 @@
 # Markdown-Hilfe
 
-Diese Übersicht zeigt die Markdown-Formatierungen, die im edulution Wiki unterstützt werden. Der Editor arbeitet als WYSIWYG-Editor und bietet alle Aktionen über die Werkzeugleiste und das Slash-Menü an (siehe [Wiki-Editor](wiki-editor.md)) – Sie können die hier gezeigte Markdown-Schreibweise aber auch direkt eingeben, sie wird beim Tippen umgewandelt. Gespeichert wird jede Seite als reine Markdown-Datei.
+Diese Übersicht zeigt die Markdown-Formatierungen, die im edulution Wiki unterstützt werden. Der Editor bietet alle Aktionen über die Werkzeugleiste und das Slash-Menü an (siehe [Wiki-Editor](wiki-editor.md)) – Sie können die hier gezeigte Markdown-Schreibweise aber auch direkt eingeben, sie wird beim Tippen umgewandelt. Gespeichert wird jede Seite als reine Markdown-Datei.
 
 :::info[Geltungsbereich]
 Diese Hilfe bezieht sich auf den [Wiki](wiki.md)-Editor. Andere Markdown-Felder in edulution unterstützen je nach Kontext einen Teil der hier beschriebenen Formatierungen.
@@ -98,7 +98,7 @@ Dateien, die Sie in eine Wiki-Seite hochladen, liegen auf derselben WebDAV-Freig
 Nicht-Bild-Dateien stellt der Editor als **Dateikarte** mit Symbol, Dateiname und den Aktionen Vorschau, Herunterladen und Entfernen dar. Im Markdown ist eine Dateikarte ein gewöhnlicher Link.
 
 :::note[Nur innerhalb des Seitenordners]
-Relative Anhang-Links dürfen nicht aus dem Ordner der Seite herausführen. Pfade mit `..` oder mit führendem `/` werden nicht als Anhang aufgelöst.
+Relative Anhang-Links dürfen nicht aus dem Ordner der Seite herausführen: Pfade mit `..` oder mit führendem `/` funktionieren nicht.
 :::
 
 ## Code-Blöcke
@@ -127,7 +127,7 @@ Unterstützt werden `[!NOTE]` (Hinweis), `[!TIP]` (Tipp), `[!IMPORTANT]` (Wichti
 
 ## Formeln
 
-Mathematische Formeln schreiben Sie als Code-Block mit der Sprache `math`. Sie werden mit KaTeX gerendert:
+Mathematische Formeln schreiben Sie als Code-Block mit der Sprache `math`. Beim Anzeigen der Seite erscheint daraus die gesetzte Formel:
 
 ````markdown
 ```math

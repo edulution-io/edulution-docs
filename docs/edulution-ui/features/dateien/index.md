@@ -59,6 +59,10 @@ OnlyOffice und Euro-Office lassen sich auf einem Smartphone beziehungsweise in e
 
 Ist Collabora als Dokumenten-Editor eingerichtet, gilt diese Einschränkung nicht – dort öffnen sich Office-Dokumente auch auf dem Smartphone. PDF-Dateien, Bilder, Medien- und Textdateien sind ebenfalls nicht betroffen.
 
+### Markdown-Dateien
+
+Textdateien – darunter Markdown-Dateien (`.md`) – öffnen sich in der Vorschau. Liegt die Datei auf einer Freigabe, für die das Wiki aktiviert ist, bearbeiten Sie sie komfortabel über die App [Wiki](../wiki.md): dort erscheinen die Markdown-Dateien als Wiki-Seiten und lassen sich im [Wiki-Editor](../wiki-editor.md) mit Werkzeugleiste, Tabellen, Formeln und Anhängen bearbeiten.
+
 ### Wenn die Vorschau fehlschlägt
 
 Lässt sich der Inhalt einer Datei nicht laden, zeigt die Vorschau eine Fehlermeldung **Vorschau konnte nicht geladen werden** – anstatt dauerhaft eine Ladeanzeige zu drehen. Darunter stehen der Grund und der Name der betroffenen Datei, etwa *Zugriff verweigert*, wenn Ihnen die Berechtigung fehlt, oder *Nicht gefunden*, wenn die Datei inzwischen verschoben oder gelöscht wurde. Dieselbe Meldung erscheint, wenn Sie die Vorschau in einem eigenen Browser-Tab oder über einen Freigabe-Link geöffnet haben, und ebenso, wenn der Dokumenten-Editor ein Office-Dokument nicht öffnen konnte – das Vorschaufenster bleibt in diesem Fall nicht mehr leer.

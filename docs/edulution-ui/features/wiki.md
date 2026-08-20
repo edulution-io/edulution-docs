@@ -30,7 +30,7 @@ Klicken Sie in der Seitenleiste auf einen Wiki-Eintrag, um den Inhalt zu öffnen
 
 Klicken Sie auf **Bearbeiten** (Stift-Symbol), um in den Bearbeitungsmodus zu wechseln (Voraussetzung: Schreibrecht auf der zugrundeliegenden Datei-Freigabe). Mit **Schließen** verlassen Sie den Editor wieder.
 
-Der Editor arbeitet als WYSIWYG-Editor: Formatierungen werden beim Schreiben direkt dargestellt, gespeichert wird die Seite als Markdown-Datei.
+Formatierungen werden beim Schreiben sofort dargestellt – Sie sehen also immer das fertige Ergebnis und müssen keine Markdown-Zeichen kennen.
 
 ### Werkzeugleiste
 
@@ -41,7 +41,7 @@ Die Editor-Leiste bietet:
 - **Inline-Code** und **Code-Blöcke**
 - **Aufzählungen**, **Nummerierte Listen**, **Aufgabenlisten**
 - Zitat, **Hinweisboxen**, horizontale Linie
-- **Formeln** (LaTeX/KaTeX)
+- **Formeln** in LaTeX-Schreibweise
 - **Links**, **Wiki-Verlinkung**, **Medien** (Bild per URL, Datei hochladen, vorhandene Datei einfügen)
 - **Tabellen**
 - **Suchen und ersetzen**
@@ -58,7 +58,7 @@ Verweise auf andere Wiki-Seiten lassen sich über die Syntax `[[Seitenname]]` ei
 
 ### Dateien anhängen
 
-Dateien lassen sich per Drag & Drop, über die Zwischenablage oder über **Medien einfügen** in eine Seite hochladen. Sie werden auf der WebDAV-Freigabe des Wikis gespeichert – Bilder erscheinen direkt im Text, andere Dateien als Dateikarte mit Vorschau, Download und Entfernen.
+Dateien lassen sich per Drag & Drop, über die Zwischenablage oder über **Medien einfügen** in eine Seite hochladen. Sie werden auf der WebDAV-Freigabe des Wikis gespeichert – Bilder erscheinen direkt im Text, andere Dateien als Dateikarte mit Vorschau, Download und Entfernen. Über die App [Dateien](dateien/index.md) erreichen Sie dieselben Dateien und können sie dort [ansehen und bearbeiten](dateien/index.md#dateivorschau).
 
 ### Speichern
 

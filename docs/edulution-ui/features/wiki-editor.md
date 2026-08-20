@@ -1,6 +1,6 @@
 # Wiki-Editor
 
-Der Editor des [Wikis](wiki.md) ist ein WYSIWYG-Editor: Sie sehen beim Schreiben direkt das fertige Ergebnis – Überschriften, Listen, Tabellen, Bilder und Formeln werden sofort formatiert dargestellt. Gespeichert wird die Seite weiterhin als reine Markdown-Datei auf der WebDAV-Freigabe.
+Im Editor des [Wikis](wiki.md) sehen Sie beim Schreiben direkt das fertige Ergebnis: Überschriften, Listen, Tabellen, Bilder und Formeln werden sofort formatiert dargestellt – Markdown-Kenntnisse sind nicht nötig. Gespeichert wird die Seite als gewöhnliche Markdown-Datei auf der Datei-Freigabe des Wikis.
 
 :::info[Geltungsbereich]
 Diese Seite beschreibt den Editor im Wiki. Markdown-Felder in anderen Bereichen von edulution nutzen denselben Editor, dort stehen aber die Wiki-spezifischen Funktionen (Dateianhänge, `[[Wiki-Verlinkung]]`) nicht zur Verfügung.
@@ -139,7 +139,7 @@ Anschließend erscheint die Auswahlliste **Wiki-Link einfügen**:
 
 ## Dateien und Bilder anhängen
 
-Anhänge liegen als echte Dateien auf der WebDAV-Freigabe des Wikis, nicht in der Markdown-Datei selbst. Damit bleiben sie über die App [Dateien](dateien/index.md) erreichbar.
+Anhänge liegen als echte Dateien auf der WebDAV-Freigabe des Wikis, nicht in der Markdown-Datei selbst. Damit bleiben sie über die App [Dateien](dateien/index.md) erreichbar und lassen sich dort ansehen, [in der Dateivorschau öffnen](dateien/index.md#dateivorschau), herunterladen, umbenennen oder ersetzen.
 
 ### Datei hochladen
 
@@ -168,7 +168,7 @@ Anhänge werden relativ zur Wiki-Seite verlinkt. Dateien, die außerhalb des Ord
 
 Klicken Sie eine Dateikarte an, erscheint darüber ein kleines Menü:
 
-- **Vorschau** – öffnet die Datei in einem Fenster innerhalb von edulution
+- **Vorschau** – öffnet die Datei in einem Fenster innerhalb von edulution (dieselbe [Dateivorschau](dateien/index.md#dateivorschau) wie in der App **Dateien**)
 - **Herunterladen** – lädt die Datei auf das eigene Gerät
 - **Entfernen** – löscht nur die Karte aus der Seite; die Datei bleibt auf der Freigabe erhalten
 
@@ -216,5 +216,5 @@ Auf macOS steht `Cmd` an der Stelle von `Strg`.
 
 - [Wiki](wiki.md) – Aufbau, Seitenverwaltung und Suche
 - [Markdown-Hilfe](markdown-hilfe.md) – Markdown-Syntax hinter dem Editor
-- [Dateien](dateien/index.md) – Freigabe, auf der Wiki-Seiten und Anhänge gespeichert werden
+- [Dateien](dateien/index.md) – Freigabe, auf der Wiki-Seiten und Anhänge gespeichert werden; dort lassen sich Dateien auch [ansehen und bearbeiten](dateien/index.md#dateivorschau)
 - [Wiki-Einstellungen (Admin)](../administration/wiki-einstellungen.md) – Sichtbarkeit pro Freigabe steuern

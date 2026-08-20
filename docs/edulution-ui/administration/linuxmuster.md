@@ -60,6 +60,10 @@ Die schreibenden Aktionen **Speichern** und **Prüfen** stehen nur **Globaladmin
 
 Über die **Passwort-Aktionen** eines Kontos setzen Sie Passwörter neu. **Erstpasswort wiederherstellen** setzt das Konto auf das ursprünglich vergebene Erstpasswort zurück.
 
+:::tip[Ausführliche Anleitung]
+Eine vollständige Beschreibung der Benutzerverwaltung – Benutzertabelle, Sophomorix-Status, Spalten der Verwaltungslisten, CSV-Import und -Export sowie der Prüf- und Übernahmeprozess – finden Sie unter [Benutzerverwaltung](benutzerverwaltung.md).
+:::
+
 ## Geräteverwaltung
 
 Die Geräteverwaltung pflegt die Geräteliste (`devices.csv`) von Linuxmuster. Sie bearbeiten die Einträge direkt in der Tabelle, fügen über **Gerät hinzufügen** eine Zeile hinzu oder importieren eine vorhandene CSV-Datei per Drag & Drop.

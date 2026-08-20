@@ -18,25 +18,26 @@ Am oberen Rand sehen Sie den aktuellen Pfad: `Home > agy > teachers > agy-netzin
 
 ## Dateien hochladen
 
-Klicken Sie auf **Hochladen** (unten):
+Klicken Sie unten rechts auf **Neu** (Plus-Symbol) und wählen Sie **Hochladen**:
 - Dateien per Drag & Drop in den Bereich ziehen
 - Oder **Dateien hinzufügen** klicken
 - Mehrere Dateien gleichzeitig möglich
 
 ## Ordner erstellen
 
-Klicken Sie auf **Ordner erstellen** (unten):
+Klicken Sie unten rechts auf **Neu** (Plus-Symbol) und wählen Sie **Ordner erstellen**:
 1. Geben Sie einen Namen ein
 2. Klicken Sie auf **Erstellen**
 
 ## Neue Dateien erstellen
 
-Klicken Sie auf **Datei erstellen** (unten) und wählen Sie:
-- 📊 **Neue Draw.io-Datei** - Diagramme zeichnen
+Klicken Sie unten rechts auf **Neu** (Plus-Symbol) und wählen Sie:
+- 📊 **Neue Draw.io-Datei** - Diagramme zeichnen ([Anleitung](./drawio.md))
 - 📄 **Neue Textdatei** - Einfache Texte
 - 📘 **Neues Dokument** - Word-Dokument (OnlyOffice)
 - 📗 **Neue Tabelle** - Excel-Tabelle (OnlyOffice)
 - 📙 **Neue Präsentation** - PowerPoint (OnlyOffice)
+- 📃 **Andere Datei** - Beliebige Endung selbst eingeben
 
 ## Aktionen mit Dateien
 
@@ -86,6 +87,10 @@ Alle Dateiformate sind möglich. Direkt bearbeiten können Sie:
 - Dokumente (.docx, .odt)
 - Tabellen (.xlsx, .ods)
 - Präsentationen (.pptx, .odp)
+- Text- und Markdown-Dateien (.txt, .md und weitere)
+- Diagramme (.drawio)
+
+Ansehen können Sie außerdem PDFs, Bilder, Videos, Audiodateien und Draw.io-Diagramme – ein Klick auf den Dateinamen genügt. Bei allen übrigen Formaten bleibt der Klick wirkungslos; diese Dateien können Sie nur herunterladen. Wie das Vorschaufenster funktioniert, welche Voraussetzungen Office-Dokumente haben und wie Sie textbasierte Dateien ausdrucken, steht unter [Vorschau und Drucken](./vorschau-und-drucken.md).
 
 ## WebDAV-Zugang
 
@@ -106,6 +111,7 @@ Sie können Ihre Dateien auch direkt über den Dateimanager Ihres Betriebssystem
 
 ## Siehe auch
 
+- [Vorschau und Drucken](./vorschau-und-drucken.md) - Dateien ansehen und ausdrucken
 - [Dashboard](../dashboard.md) - Speichernutzung anzeigen
 - [Mobile App](../mobile-app.md) - Dateien mobil synchronisieren
 - [Eingebettete App](../eingebettete-app.md) - HTML/JS/CSS hochladen

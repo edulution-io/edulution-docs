@@ -139,6 +139,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/features/konferenzen',
             'edulution-ui/features/whiteboard',
             'edulution-ui/features/wiki',
+            'edulution-ui/features/wiki-editor',
             'edulution-ui/features/lernmanagement',
             'edulution-ui/features/markdown-hilfe',
             'edulution-ui/features/app-store',

@@ -4,8 +4,6 @@ Die edulution Mobile App bietet vollständigen Zugriff auf alle Funktionen auch 
 
 ## Dashboard auf Tablets
 
-![Dashboard Tablet](/img/features/dashboard-tablet.jpeg)
-
 Das Dashboard wurde speziell für Touch-Bedienung optimiert und zeigt alle wichtigen Informationen übersichtlich an.
 
 ### Hauptbereiche
@@ -28,7 +26,7 @@ Verschiedene Zugriffsmöglichkeiten auf die Plattform:
 - **Anleitung**: Schritt-für-Schritt-Anweisungen
 
 #### Aktuelles
-- **Schwarzes Brett**: Aktuelle Mitteilungen
+- **Infoboard**: Aktuelle Mitteilungen
 - **Konferenzen**: Laufende oder geplante Konferenzen
 - **Mail**: Ungelesene Mails
 - **Umfragen**: Offene Umfragen mit Ablaufdatum

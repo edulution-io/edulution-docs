@@ -2,11 +2,9 @@
 
 Das Konferenz-Tool ermöglicht Audio- und Videokonferenzen und unterstützt Präsentationen mit erweiterten Whiteboard-Funktionen.
 
-:::info BigBlueButton erforderlich
+:::info[BigBlueButton erforderlich]
 Konferenzen basieren auf BigBlueButton und müssen erst konfiguriert werden. Die Konfigurationsanleitung folgt noch in einem separaten Dokument.
 :::
-
-![Konferenzen Übersicht](/img/features/konferenzen-uebersicht.png)
 
 ## Übersicht
 
@@ -21,8 +19,12 @@ Zeigt alle verfügbaren Konferenzen:
 | **Zutrittsbeschränkung** | 🔒 Privat oder Öffentlich |
 | **Passwort** | Passwortschutz aktiv |
 | **Eingeladen** | Anzahl Teilnehmer (z.B. "2 Teilnehmer") |
-| **Beigetreten** | Aktuell aktive Teilnehmer |
+| **Beigetreten** | Anzahl der aktuell beigetretenen Teilnehmer im Verhältnis zu den Eingeladenen |
 | **Aktion** | Starten-Button |
+
+:::info[Live-Teilnehmerzahl]
+Die Spalte **Beigetreten** zeigt die Anzahl der aktuell beigetretenen Teilnehmer und aktualisiert sich automatisch in Echtzeit, solange die Konferenz läuft – ein manuelles Neuladen ist dafür nicht erforderlich. Aus Datenschutzgründen wird ausschließlich die Anzahl angezeigt; die Namen der beigetretenen Teilnehmer werden nicht offengelegt.
+:::
 
 ### Funktionen unten
 
@@ -30,8 +32,6 @@ Zeigt alle verfügbaren Konferenzen:
 - **🔄 Neu laden** - Liste aktualisieren
 
 ## Konferenz erstellen
-
-![Konferenz erstellen](/img/features/konferenzen-erstellen.png)
 
 ### Dialog-Felder
 
@@ -54,13 +54,37 @@ Zeigt alle verfügbaren Konferenzen:
 - **Privat** - Nur eingeladene Teilnehmer
 - **Öffentlich** - Jeder mit Link kann beitreten
 
+### Raumeinstellungen
+
+Über zusätzliche Schalter legen Sie das Verhalten des Konferenzraums fest. Alle Einstellungen sind standardmäßig deaktiviert und lassen sich jederzeit über **Bearbeiten** anpassen.
+
+**Jeder Teilnehmer kann die Konferenz starten**
+- Ist dieser Schalter aktiviert, können nicht nur der Ersteller, sondern alle eingeladenen Teilnehmer die Konferenz starten. Bei einer öffentlichen Konferenz können sie auch von externen, nicht angemeldeten Personen über den Freigabelink gestartet werden.
+- Wer die Konferenz startet, tritt automatisch als Moderator bei, sodass stets ein Moderator anwesend ist.
+- Das Beenden der Konferenz bleibt weiterhin dem Ersteller vorbehalten.
+
+**Teilnehmer beim Betreten stummschalten**
+- Alle Teilnehmer betreten die Konferenz mit deaktiviertem Mikrofon und können sich bei Bedarf selbst wieder freischalten.
+
+**Freigabe durch Moderator bevor der Raum betreten werden kann**
+- Teilnehmer gelangen zunächst in einen Warteraum und werden erst nach Freigabe durch einen Moderator in die Konferenz gelassen.
+
+**Alle Teilnehmer nehmen als Moderator teil**
+- Alle Teilnehmer erhalten beim Beitritt Moderatorrechte.
+
+:::info[Sich ausschließende Einstellungen]
+**Freigabe durch Moderator** und **Alle Teilnehmer nehmen als Moderator teil** können nicht gleichzeitig aktiv sein: Wenn alle Teilnehmer Moderatoren sind, entfällt der Warteraum. Beim Aktivieren der einen Einstellung wird die andere daher automatisch deaktiviert.
+:::
+
+:::caution[Wirksamkeit während einer laufenden Konferenz]
+Die Raumeinstellungen werden beim **Start** der Konferenz angewendet. Ändern Sie eine Einstellung, während die Konferenz bereits läuft, greift sie erst, nachdem die Konferenz beendet und erneut gestartet wurde.
+:::
+
 ### Speichern
 
 Klicken Sie auf den blauen **Speichern** Button
 
 ## Konferenz starten
-
-![Konferenz mit Auswahl](/img/features/konferenzen-auswahl.png)
 
 ### Konferenz auswählen
 
@@ -76,11 +100,15 @@ Klicken Sie auf den blauen **Speichern** Button
 
 Klicken Sie auf **▶ Starten** oder den **▶ Starten** Button in der Zeile
 
-Die Konferenz öffnet sich in einem neuen Fenster.
+:::info[Wer darf eine Konferenz starten?]
+Standardmäßig kann nur der Ersteller eine Konferenz starten; eingeladene Teilnehmer können erst beitreten, sobald sie läuft. Ist die Raumeinstellung **Jeder Teilnehmer kann die Konferenz starten** aktiviert, erscheint der **▶ Starten**-Button auch bei eingeladenen Teilnehmern, und externe Personen können eine öffentliche Konferenz über den Freigabelink selbst starten.
+:::
+
+Die Konferenz öffnet sich in einem neuen Fenster. Der Fenstertitel enthält den Namen der Konferenz (z.B. "Konferenz: Mathe 8a"), sodass bei mehreren geöffneten Fenstern jederzeit ersichtlich ist, um welche Konferenz es sich handelt.
 
 ## Konferenz-Funktionen
 
-:::info BigBlueButton Features
+:::info[BigBlueButton Features]
 Nach dem Beitreten stehen alle BigBlueButton-Funktionen zur Verfügung:
 - Audio und Video
 - Bildschirmfreigabe
@@ -132,7 +160,7 @@ Klicken Sie auf **Spalten** (Dropdown rechts):
 
 ## BigBlueButton Konfiguration
 
-:::caution Konfiguration erforderlich
+:::caution[Konfiguration erforderlich]
 Die Konferenz-Funktion erfordert einen konfigurierten BigBlueButton-Server. Die detaillierte Anleitung zur Einrichtung folgt in einem separaten Administrations-Dokument.
 :::
 

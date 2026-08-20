@@ -1,23 +1,42 @@
-# Mein Profil
+# Benutzereinstellungen
 
-Über das Profil-Menü (unten rechts im Dashboard) können Sie auf Ihre persönlichen Einstellungen und Kontoinformationen zugreifen.
+Über das Profil-Menü (unten rechts in der App-Leiste) können Sie auf Ihre persönlichen Einstellungen und Kontoinformationen zugreifen.
 
 ![Dashboard Profil-Menü](/img/benutzer/dashboard-profil-menu.png)
 
-## Zugriff auf Mein Profil
+## Zugriff auf die Benutzereinstellungen
 
 1. Klicken Sie auf Ihr Profilbild unten rechts
-2. Wählen Sie **My Profile** aus dem Dropdown-Menü
-3. Alternativ: **Logout** zum Abmelden
+2. Wählen Sie **Benutzereinstellungen** aus dem Dropdown-Menü
 
 ## Übersicht der Bereiche
 
-Das Profil ist in fünf Hauptbereiche unterteilt:
+Die Benutzereinstellungen sind unterteilt in:
 - [Benutzerdetails](#benutzerdetails)
+  - [Profilbild](#profilbild)
+  - [Benutzerbezogene Informationen](#benutzerbezogene-informationen)
+  - [Quotas](#quotas)
 - [Sicherheit](#sicherheit)
+  - [Passwort ändern](#passwort-ändern)
+  - [Zwei-Faktor-Authentifizierung](#zwei-faktor-authentifizierung)
+  - [Passwort-Tresor](#passwort-tresor)
 - [E-Mail](#e-mail)
-- [Sprache](#sprache)
+  - [E-Mail-Sync](#e-mail-sync)
+  - [Signatur](#signatur)
+  - [Automatische Antwort](#automatische-antwort)
+  - [Weiterleitung](#weiterleitung)
+  - [Filter](#filter)
+- [Benutzeroberfläche](#benutzeroberfläche)
+  - [Sprache](#sprache)
+  - [Erscheinungsbild](#erscheinungsbild)
 - [App-Zugriff](#app-zugriff)
+  - [Einrichtung via QR-Code](#einrichtung-via-qr-code)
+  - [Manuelles Einrichten](#manuelles-einrichten)
+- [VPN-Zugang](#vpn-zugang)
+- [Meine Kinder/Eltern](#meine-kindereltern)
+  - [Mein Zuweisungs-Code](#mein-zuweisungs-code)
+  - [Code eingeben](#code-eingeben)
+  - [Zuweisungen](#zuweisungen)
 
 ---
 
@@ -30,7 +49,7 @@ Hier können Sie Ihre persönlichen Informationen einsehen und teilweise bearbei
 ### Profilbild
 
 - Upload eines eigenen Profilbilds
-- Klicken Sie auf **Choose File** um ein Bild hochzuladen
+- Klicken Sie auf **Choose File**, um ein Bild hochzuladen
 - Unterstützte Formate: JPG, PNG
 - **Löschen**: Entfernt das aktuelle Profilbild
 - **Speichern**: Übernimmt die Änderungen
@@ -39,20 +58,25 @@ Hier können Sie Ihre persönlichen Informationen einsehen und teilweise bearbei
 
 Die folgenden Felder werden angezeigt:
 
-| Feld | Beschreibung | Bearbeitbar |
+| Feld | Beschreibung | 
+|------|--------------|
+| **Benutzername** | Ihr Login-Name (z.B. "agy-netzint-teacher") |
+| **Anzeigename** | Ihr vollständiger Name (z.B. "Testteacher agy-Netzint") |
+| **Geburtsdatum** | Ihr Geburtsdatum (z.B. "02.02.1990") |
+| **E-Mail** | Ihre E-Mail-Adresse |
+| **Schulname** | Zugeordnete Schule (z.B. "agy") |
+| **Rolle** | Ihre Systemrolle (z.B. "Lehrer") |
+| **Klassen** | Liste Ihrer Klassen (z.B. "5a, 9a, 10a, 10b, niclass") |
+
+
+### Quotas
+
+Quotas sind die Speicherkapazitäten, die Ihnen zur Verfügung stehen. Hier sehen Sie außerdem, wie viel des verfügbaren Speichers bereits belegt ist. 
+
+| Feld | Beschreibung | Größe (standardmäßig) |
 |------|--------------|-------------|
-| **Benutzername** | Ihr Login-Name (z.B. "agy-netzint-teacher") | Nein (schreibgeschützt) |
-| **Anzeigename** | Ihr vollständiger Name (z.B. "Testteacher agy-Netzint") | Ja |
-| **Geburtsdatum** | Ihr Geburtsdatum (z.B. "02.02.1990") | Nein (schreibgeschützt) |
-| **E-Mail** | Ihre E-Mail-Adresse | Nein (schreibgeschützt) |
-| **Schulname** | Zugeordnete Schule (z.B. "agy") | Nein (schreibgeschützt) |
-| **Rolle** | Ihre Systemrolle (z.B. "Lehrer") | Nein (schreibgeschützt) |
-| **Klassen** | Liste Ihrer Klassen (z.B. "5a, 9a, 10a, 10b, niclass") | Nein (schreibgeschützt) |
-
-### Änderungen speichern
-
-- Klicken Sie auf **Speichern** (grün) um Änderungen zu übernehmen
-- Klicken Sie auf **Löschen** (rot) um Änderungen zu verwerfen
+| **Cloudquota** | Dateispeicher | ca. 10 GB |
+| **E-Mailquota** | Mail-Speicher | ca. 1 GB |
 
 ---
 
@@ -77,11 +101,11 @@ So ändern Sie Ihr Passwort:
 - Mindestens eine Zahl empfohlen
 - Sonderzeichen erhöhen die Sicherheit
 
-### Zwei-Faktor-Authentisierung
+### Zwei-Faktor-Authentifizierung
 
 Zusätzliche Sicherheit für Ihr Konto:
 
-- **Status**: "Aktuell ist die Zwei-Faktor-Authentisierung deaktiviert"
+- **Status**: "Aktuell ist die Zwei-Faktor-Authentifizierung deaktiviert"
 - **Aktivieren**: Schalten Sie den Toggle-Schalter um, um 2FA zu aktivieren
 - Nach Aktivierung erhalten Sie einen QR-Code für Ihre Authenticator-App
 - Unterstützte Apps: Google Authenticator, Microsoft Authenticator, Authy
@@ -110,7 +134,7 @@ Sichere Verwaltung Ihrer Zugangsdaten für verschiedene Anwendungen.
 - **Benutzername**: Login-Name
 - **Passwort**: Verschlüsseltes Passwort (ausblendbar)
 
-**Status:** "Keine Daten verfügbar" wenn noch keine Einträge vorhanden
+**Status:** "Keine Daten verfügbar", wenn noch keine Einträge vorhanden sind
 
 Weitere Details unter [Sicherheit & Authentifizierung](../features/sicherheit.md#passwort-tresor).
 
@@ -141,37 +165,235 @@ Einrichtung der E-Mail-Synchronisation:
 - **Sync-Intervall**: Häufigkeit der Synchronisation
 - **Aktiv**: Status der Synchronisation
 
-**Status:** "Keine Daten verfügbar" wenn keine Sync-Jobs konfiguriert
+**Status:** "Keine Daten verfügbar", wenn keine Sync-Jobs konfiguriert sind
 
 **Aktionen:**
 - **Neu laden**: Button zum Aktualisieren der Sync-Job Liste
 
-:::tip Hinweis
+:::tip[Hinweis]
 Weitere Informationen zur E-Mail-Migration finden Sie unter [E-Mail Migration](../../edulution-mail/user_mail_migration.md).
 :::
 
+### Signatur
+
+Hier legen Sie die Signatur fest, die beim Verfassen neuer E-Mails verwendet wird.
+
+- **Eigene Signatur verwenden**: Ist diese Option aktiv, wird beim Verfassen neuer E-Mails Ihre individuelle Signatur anstelle der global vorgegebenen verwendet. Ist sie deaktiviert, gilt weiterhin die globale Signatur.
+- Bei aktivierter Option bearbeiten Sie die Signatur im Editor:
+  - **Globale Signatur importieren**: Übernimmt die global vorgegebene Signatur als Ausgangspunkt
+  - Über die Editor-/Quelltext-Umschaltung oben rechts im Editor wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung
+  - Bilder können direkt in die Signatur eingefügt werden; sehr große Bilder werden mit einem Hinweis quittiert
+- **Speichern** übernimmt die Änderungen, **Zurücksetzen** verwirft noch nicht gespeicherte Anpassungen.
+
+:::warning[Wechsel zurück in die formatierte Ansicht]
+Der formatierte Editor unterstützt nicht alle HTML-Formatierungen. Enthält Ihr Quelltext Bestandteile, die er nicht darstellen kann – ganze Elemente wie Tabellen oder eigene Formatvorlagen, aber auch einzelne Formatierungen wie Textausrichtung oder Schriftgröße –, gehen diese beim Zurückschalten in die **Editor**-Ansicht verloren. Vor dem Wechsel erscheint ein Bestätigungsdialog, der die betroffenen Elemente und Formatierungen auflistet: Mit **Abbrechen** bleibt Ihr Quelltext unverändert erhalten, mit **Trotzdem wechseln** übernehmen Sie den Verlust.
+:::
+
+Dieselbe Umschaltung steht Ihnen auch beim [Verfassen einer E-Mail](../features/e-mail.md#html-quelltext-bearbeiten) zur Verfügung.
+
+### Automatische Antwort
+
+Mit der automatischen Antwort (Abwesenheitsnotiz) beantworten Sie eingehende Nachrichten automatisch, z. B. während einer Abwesenheit. Sie können mehrere **Vorlagen** anlegen, aber es ist immer nur eine gleichzeitig aktiv.
+
+#### Vorlagen verwalten
+
+- Über die Auswahl **Vorlage auswählen** wechseln Sie zwischen vorhandenen Vorlagen; **Neue Vorlage** legt eine weitere an.
+- Oberhalb des Formulars sehen Sie, ob aktuell eine Vorlage aktiv ist oder keine automatische Antwort läuft.
+
+#### Vorlage bearbeiten
+
+| Feld | Beschreibung |
+|------|--------------|
+| **Name der Vorlage** | Interne Bezeichnung der Vorlage |
+| **Betreff** | Betreff der automatischen Antwort. Mit `${subject}` fügen Sie den ursprünglichen Betreff der eingehenden Nachricht ein |
+| **Nachricht** | Text der automatischen Antwort |
+| **E-Mail-Adressen** | Antworten werden nur für Nachrichten an diese Adressen gesendet (Hauptadresse und Aliase). Über **Standardadressen hinzufügen** ergänzen Sie Ihre eigenen Adressen |
+| **Mindestabstand zwischen Antworten (Tage)** | Verhindert, dass derselbe Absender innerhalb dieses Zeitraums mehrfach automatisch beantwortet wird |
+| **Eingehende Nachrichten während der Abwesenheit verwerfen** | Verwirft eingehende Nachrichten im Aktivierungszeitraum |
+
+Zusätzlich können Sie unter **Aktivierungsbedingungen** den Geltungsbereich optional einschränken (siehe [Aktivierungsbedingungen](#aktivierungsbedingungen)).
+
+#### Absender einschränken (intern / extern)
+
+Über die Option **Antworten an Absender außerhalb der Organisation senden** legen Sie fest, ob auch externe Absender eine automatische Antwort erhalten:
+
+- **Deaktiviert**: Die automatische Antwort geht ausschließlich an Absender innerhalb der Domänen Ihrer Organisation (interne Absender).
+- **Aktiviert**: Auch externe Absender werden berücksichtigt. Zusätzlich wählen Sie aus, welche Absender genau beantwortet werden:
+  - **Interne und alle externen Absender** – alle Absender erhalten eine Antwort.
+  - **Nur externe Absender (nicht intern)** – ausschließlich Absender außerhalb der Organisation erhalten eine Antwort; interne Absender werden nicht automatisch beantwortet.
+  - **Nur meine Kontakte** – reserviert für eine künftige Kontakte-App und derzeit nicht auswählbar.
+
+Die zur Unterscheidung herangezogenen **internen Domänen** Ihrer Organisation werden unterhalb der Option angezeigt.
+
+#### Aktivieren und Löschen
+
+- **Speichern** sichert die Vorlage. Änderungen müssen gespeichert sein, bevor eine Vorlage aktiviert werden kann.
+- **Aktivieren** schaltet die Vorlage scharf; eine zuvor aktive Vorlage wird dabei automatisch deaktiviert.
+- **Deaktivieren** schaltet die automatische Antwort wieder ab.
+- **Löschen** entfernt die ausgewählte Vorlage nach einer Sicherheitsabfrage.
+
+#### Automatische Antwort für freigegebene Postfächer
+
+Sind Sie als Berechtigter für ein oder mehrere **freigegebene Postfächer** (z. B. `verwaltung@…`) eingetragen, können Sie auch deren automatische Antwort verwalten. Der Abschnitt **Automatische Antwort für freigegebene Postfächer** erscheint nur dann, wenn Ihnen mindestens ein freigegebenes Postfach zugewiesen ist – andernfalls bleibt er ausgeblendet.
+
+- Über die Auswahl **Freigegebenes Postfach auswählen** wählen Sie das Postfach, dessen automatische Antwort Sie bearbeiten möchten.
+- Darunter erscheint dasselbe Formular wie für Ihr eigenes Postfach: Sie legen **Vorlagen** an, bearbeiten Betreff, Nachricht und Adressen, schränken den Geltungsbereich ein und **aktivieren** bzw. **deaktivieren** die automatische Antwort.
+- Jedes freigegebene Postfach besitzt eigene Vorlagen und eine eigene aktive Antwort, unabhängig von Ihrem persönlichen Postfach. Beim Wechsel des Postfachs werden dessen Vorlagen geladen.
+
+### Weiterleitung
+
+Leiten Sie eingehende E-Mails automatisch an andere Adressen weiter.
+
+- **Weiterleitung aktivieren**: Schaltet die Weiterleitung ein. Erst danach werden die weiteren Optionen angezeigt.
+- **Weiterleiten an**: Die Zieladressen, an die eingehende E-Mails weitergeleitet werden (maximal vier). Eine Weiterleitung an Ihre eigenen Adressen ist nicht möglich.
+- **Kopie in diesem Postfach behalten**: Ist diese Option aktiv, verbleibt zusätzlich eine Kopie jeder Nachricht in Ihrem Postfach.
+- Unter **Aktivierungsbedingungen** lässt sich die Weiterleitung optional zeitlich einschränken (siehe [Aktivierungsbedingungen](#aktivierungsbedingungen)).
+- **Speichern** übernimmt die Konfiguration, **Löschen** entfernt sie nach einer Sicherheitsabfrage.
+
+#### Aktivierungsbedingungen
+
+Automatische Antwort und Weiterleitung lassen sich optional nach Zeitraum, Tageszeit und Wochentagen einschränken. Ohne Angabe gelten sie durchgehend.
+
+| Feld | Beschreibung |
+|------|--------------|
+| **Startdatum** / **Enddatum** | Zeitraum, in dem die Funktion aktiv ist |
+| **Täglich ab** / **Täglich bis** | Tägliche Uhrzeitspanne, in der die Funktion greift |
+| **Aktive Wochentage** | Wochentage (Mo–So), an denen die Funktion angewendet wird |
+
+### Filter
+
+Mit Filtern legen Sie Regeln fest, die automatisch auf eingehende E-Mails angewendet werden. So können Sie Nachrichten beispielsweise in einen bestimmten Ordner einsortieren, weiterleiten, markieren oder verwerfen lassen.
+
+:::info[Auswertungsreihenfolge]
+Die Regeln werden von oben nach unten ausgewertet. Über **Nach oben** und **Nach unten** können Sie die Reihenfolge einer Regel anpassen.
+:::
+
+#### Filterregel erstellen
+
+1. Klicken Sie auf **Filter erstellen**, um eine neue Regel anzulegen
+2. Vergeben Sie einen **Filternamen**
+3. Über den Schalter neben der Regel können Sie diese aktivieren oder deaktivieren – deaktivierte Regeln bleiben erhalten, werden aber nicht angewendet
+4. Klicken Sie auf **Fertig**, um die Bearbeitung der Regel abzuschließen
+5. Klicken Sie abschließend auf **Speichern**, damit die Filter wirksam werden
+
+#### Bedingungen
+
+Legen Sie unter **Für eingehende Nachrichten, die** fest, wann eine Regel greift:
+
+- **allen folgenden Regeln entsprechen** – die Regel greift nur, wenn *alle* Bedingungen zutreffen
+- **einer der folgenden Regeln entsprechen** – die Regel greift, sobald *eine* der Bedingungen zutrifft
+
+Über **Bedingung hinzufügen** fügen Sie weitere Bedingungen hinzu. Jede Bedingung besteht aus einem Feld, einem Vergleich und einem Wert.
+
+| Feld | Beschreibung |
+|------|--------------|
+| **Von** | Absender der Nachricht |
+| **An** | Empfänger der Nachricht |
+| **Cc** | Kopieempfänger der Nachricht |
+| **Betreff** | Betreffzeile der Nachricht |
+| **Größe** | Größe der Nachricht (z. B. `1M`) |
+
+| Vergleich | Beschreibung |
+|-----------|--------------|
+| **enthält** | Der Wert kommt im Feld vor |
+| **ist** | Das Feld stimmt exakt mit dem Wert überein |
+| **entspricht** | Das Feld passt auf ein Muster (mit Platzhaltern) |
+| **ist größer als** | Nur bei **Größe**: Nachricht ist größer als der Wert |
+| **ist kleiner als** | Nur bei **Größe**: Nachricht ist kleiner als der Wert |
+
+#### Aktionen
+
+Bestimmen Sie unter **Diese Aktionen ausführen**, was mit zutreffenden Nachrichten geschehen soll. Über **Aktion hinzufügen** können Sie mehrere Aktionen kombinieren.
+
+| Aktion | Beschreibung |
+|--------|--------------|
+| **Nachricht ablegen in** | Verschiebt die Nachricht in den ausgewählten Ordner |
+| **Umleiten an** | Leitet die Nachricht an eine andere E-Mail-Adresse weiter |
+| **Kopie senden an** | Sendet eine Kopie an eine andere E-Mail-Adresse, behält das Original |
+| **Nachricht verwerfen** | Löscht die Nachricht ohne Zustellung |
+| **Markierung hinzufügen** | Versieht die Nachricht zusätzlich mit einer Markierung |
+| **Markierung setzen** | Setzt die Markierung der Nachricht (ersetzt vorhandene) |
+
+Als Markierungen stehen **Gelesen**, **Beantwortet**, **Markiert**, **Gelöscht** und **Entwurf** zur Verfügung.
+
+#### Weitere Regeln stoppen
+
+Mit der Option **Weitere Regeln nicht mehr verarbeiten** beenden Sie die Auswertung, sobald diese Regel zutrifft.
+
+:::warning[Hinweis]
+Wenn diese Regel zutrifft, werden keine darunterliegenden Regeln mehr ausgewertet – auch nicht Weiterleitung und automatische Antwort.
+:::
+
+#### Filter löschen
+
+Über **Alle löschen** entfernen Sie sämtliche Filterregeln dauerhaft. Sie werden vor dem endgültigen Löschen um Bestätigung gebeten.
+
 ---
 
-## Sprache
+## Benutzeroberfläche
 
-![Sprache](/img/benutzer/profil-sprache.png)
+![Benutzeroberfläche](/img/benutzer/profil-user-interface.png)
+
+### Sprache
 
 Wählen Sie die Sprache der Benutzeroberfläche.
 
-### Systemsprache
-
-Verfügbare Sprachen:
+#### Verfügbare Sprachen
 - 🇩🇪 **Deutsch** (Standard)
 - 🇬🇧 **Englisch**
 - 🇫🇷 **Französisch**
 
-### Sprache ändern
+#### Systemsprache
+
+Neben diesen drei Sprachen steht die Auswahl **Systemsprache** zur Verfügung. Damit übernimmt edulution die Sprache Ihres Systems beziehungsweise Ihres Browsers; ist das keine der drei Sprachen, erscheint die Oberfläche auf **Deutsch**.
+
+#### Sprache ändern
 
 1. Klicken Sie auf die gewünschte Flagge/Sprache
 2. Die Oberfläche wird automatisch aktualisiert
 3. Keine zusätzliche Bestätigung erforderlich
 
-**Hinweis:** Die Sprachauswahl gilt für die gesamte Benutzeroberfläche.
+:::tip[Hinweis]
+Die Sprachauswahl gilt für die gesamte Benutzeroberfläche.
+:::
+
+#### Sprache im Mailsystem
+
+Ihre Sprachauswahl wirkt über die edulution-Oberfläche hinaus: edulution überträgt sie automatisch in Ihre persönlichen Einstellungen im Mailsystem (SOGo) – bei der Anmeldung und bei jedem Sprachwechsel. Sie müssen dafür in SOGo selbst nichts einstellen.
+
+Damit erscheinen in Ihrer Sprache:
+
+- Benachrichtigungen, die das Mailsystem selbst verschickt – etwa die E-Mail über [geänderte Kalenderfreigaben](../features/kalender.md#kalender-freigeben).
+- Die Oberfläche des SOGo-Webmailers, den Sie in der E-Mail-App über **In SOGo öffnen** aufrufen (siehe [E-Mail](../features/e-mail.md#aktionen-leiste)).
+
+Übertragen wird immer die Sprache, in der edulution tatsächlich angezeigt wird. Bei der Auswahl **Systemsprache** ist das die erkannte System- beziehungsweise Browsersprache – wird diese nicht unterstützt, entsprechend **Deutsch**.
+
+:::info[Voraussetzung]
+Die Übertragung setzt voraus, dass als Mailsystem SOGo eingerichtet ist und Ihrem Konto eine E-Mail-Adresse zugeordnet ist. Die Verbindung zum Mailsystem legt die Administration unter [Einstellungen → E-Mails](../administration/einstellungen.md#e-mails) fest.
+:::
+
+### Erscheinungsbild
+
+Wählen Sie das helle oder dunkle Farbschema der Benutzeroberfläche aus.
+
+#### Verfügbare Farben
+- **System** (Standard)
+- **Dunkel**
+- **Hell**
+
+:::info[Systemfarbe]
+Die Option **System** liest die Einstellungen des Betriebssystems aus und legt dementsprechend fest, ob das **dunkle** oder das **helle** Farbschema bevorzugt wird.
+:::
+
+#### Farbe ändern
+
+1. Klicken Sie auf die gewünschte Farbe
+2. Die Oberfläche wird automatisch aktualisiert
+3. Keine zusätzliche Bestätigung erforderlich
+
+:::tip[Hinweis]
+Die Farbauswahl gilt für die gesamte Benutzeroberfläche.
+:::
 
 ---
 
@@ -181,11 +403,11 @@ Verfügbare Sprachen:
 
 Einrichtung des mobilen Zugriffs auf Ihre Dateien über die edulution.io App.
 
-:::info Nur für iOS
+:::info[Nur für iOS]
 Aktuell ist die edulution.io App nur für Apple iOS verfügbar.
 :::
 
-### Lade hier die edulution.io App herunter
+### Laden Sie hier die edulution.io App herunter
 
 **Optionen zum Download:**
 - **Einrichtung via QR-Code**: Scannen Sie den QR-Code mit Ihrem iPhone/iPad
@@ -231,11 +453,55 @@ Weitere Details unter [Mobile App & Tablet-Nutzung](../features/mobile-app.md).
 
 ---
 
+## VPN-Zugang
+
+_(Sichtbar, wenn die WireGuard-App eingerichtet ist)_
+
+Hier rufen Sie Ihren persönlichen VPN-Zugang über WireGuard ab – Verbindungsstatus, QR-Code zur Einrichtung auf dem Mobilgerät und die Konfigurationsdatei für den Computer.
+
+Ausführliche Informationen finden Sie unter [VPN-Zugang (WireGuard)](../features/vpn-zugang.md).
+
+---
+
+## Meine Kinder/Eltern
+
+_(Sichtbar als Elternteil/Schüler)_
+
+![Meine Kinder](/img/benutzer/profil-children.png)
+
+Hier wird das Verhältnis zwischen einem Elternteil (einer erziehungsberechtigten Person) und dem Kind bzw. den Kindern abgebildet.
+
+### Mein Zuweisungs-Code
+
+Ihnen wird ein QR-Code/Schlüssel zugewiesen, mit dem Sie Ihr Konto mit dem Konto einer anderen Person verlinken können.
+
+:::info[Haltbarkeit]
+Der Schlüssel ist nur für 5 Minuten gültig, dann wird ein neuer erstellt.
+:::
+
+### Code eingeben
+
+Hier kann dann der Schlüssel eines anderen Nutzers eingefügt werden, um diesen Nutzer als Kind/Elternteil im eigenen Konto zu verlinken.
+
+:::info[QR-Code]
+Da zum Auslesen des QR-Codes eine Kamera erforderlich ist, ist der QR-Code nur innerhalb der App nutzbar.
+:::
+
+### Zuweisungen
+
+Hier werden dann die verknüpften Konten der Kinder/Elternteile in einer Tabelle aufgelistet. Kind und Elternteil müssen dabei nicht derselben Schule angehören — auch schulübergreifende Zuweisungen innerhalb einer Instanz werden auf beiden Seiten angezeigt.
+
+:::info[QR-Code]
+Die Eltern-Kind Beziehung muss im Anschluss von einem Administrator freigegeben werden.
+:::
+
+---
+
 ## Schnellzugriffe
 
 Vom Dashboard aus erreichen Sie das Profil-Menü über:
 - Klick auf Ihr Profilbild (unten rechts)
-- **My Profile** für Profileinstellungen
+- **Benutzereinstellungen** für Profileinstellungen
 - **Logout** zum Abmelden
 
 ## Siehe auch

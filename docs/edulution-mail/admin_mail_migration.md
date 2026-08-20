@@ -29,8 +29,6 @@ eigenen Zugangsdaten.
 Host, Port und Verschlüsselung bleiben den Benutzern verborgen – ihre
 Auswahlliste enthält ausschließlich den Namen des Providers.
 
-![Einstellungen für den E-Mail Sync](/_static/edulution-mail_sync-einstellungen.png)
-
 ## Siehe auch
 
 - [Mail-App konfigurieren](mail-app-konfiguration.md#externe-mail-provider) – alle Felder des Abschnitts im Detail

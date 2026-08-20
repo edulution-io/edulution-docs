@@ -2,22 +2,17 @@
 
 Das Dashboard ist Ihre zentrale Startseite nach dem Login in edulution.io. Hier finden Sie alle wichtigen Informationen und Schnellzugriffe für den digitalen Unterricht.
 
-![Dashboard Desktop](/img/features/dashboard-desktop.png)
-
-:::tip Anpassbar
+:::tip[Anpassbar]
 Das Dashboard kann individuell angepasst werden. Weitere Informationen finden Sie unter [Dashboard anpassen](#dashboard-anpassen) (Dokumentation folgt).
 :::
 
-:::info Rollenbasierte Ansicht
+:::info[Rollenbasierte Ansicht]
 Das Dashboard passt sich automatisch an Ihre Benutzerrolle an:
 - **Lehrer**: Zugriff auf Klassenverwaltung und Unterrichtstools
 - **Schüler**: Fokus auf Lernmaterialien und eigene Aufgaben
-- **Global-Admin**: Zusätzlich **Settings-Button** (Zahnrad) rechts unten sichtbar
+- **Global-Admin**: Zusätzlich **Settings-Button** (Zahnrad) rechts unten sichtbar; die Bereiche **Kalender** und **E-Mail** werden nicht angezeigt
 
 Nicht alle Bereiche und Funktionen sind für jede Rolle sichtbar.
-
-![Dashboard Global-Admin](/img/features/dashboard-admin.png)
-*Dashboard als Global-Admin mit Settings-Button (rot markiert)*
 :::
 
 ## Übersicht
@@ -46,7 +41,7 @@ Zeigt Ihre persönlichen Informationen:
 
 ### Classes
 
-:::note Abhängig von der Rolle
+:::note[Abhängig von der Rolle]
 Dieser Bereich ist hauptsächlich für **Lehrer** und **Global-Admins** sichtbar. Schüler sehen hier ihre eigenen Klassen ohne Verwaltungsfunktionen.
 :::
 
@@ -77,6 +72,22 @@ Erfahren Sie mehr unter [Mobile App & Tablet-Nutzung](mobile-app.md).
 
 Die visuelle Fortschrittsanzeige zeigt den aktuellen Verbrauch an.
 
+### Termine
+
+Das Widget **Termine** zeigt einen gleitenden Ausschnitt von drei Tagen – **Gestern**, **Heute** und **Morgen** – als Stundenleiste. Es erscheint nur, wenn es im Dashboard-Layout aktiviert ist (siehe [Dashboard anpassen](#dashboard-anpassen)).
+
+Über der Stundenleiste stehen der gerade sichtbare Tag und die Anzahl seiner Termine; blättern Sie in der Leiste, wechselt diese Beschriftung auf den jeweils sichtbaren Tag. Hat der gerade sichtbare Tag keine Termine, erscheint an dieser Stelle – statt der Anzahl – **Keine Termine an diesem Tag**. Ganztägige Termine stehen nicht in der Stundenleiste, sondern als eigene Reihe kleiner Schaltflächen darüber – je mit einem farbigen Punkt und dem gekürzten Titel. Angezeigt werden höchstens zwei; weitere fasst eine Angabe wie **+3** zusammen. Unterhalb der Leiste nennt eine Fußzeile unter **Jetzt** und **Als Nächstes** den laufenden und den darauffolgenden Termin. Die Farben entsprechen den Kalenderfarben aus der [Kalender-Seitenleiste](kalender.md#seitenleiste-und-kalenderliste).
+
+Was ein Klick auf einen Termin bewirkt, hängt von Ihren Rechten am zugehörigen Kalender ab:
+
+| Ihr Recht am Termin | Verhalten beim Klick |
+|---|---|
+| Der Termin darf geändert werden | Der Bearbeiten-Dialog öffnet sich. |
+| Der Termin ist sichtbar, darf aber nicht geändert werden | Die schreibgeschützten **Termindetails** öffnen sich. |
+| Nur die belegte Zeit ist sichtbar | Die Termindetails öffnen sich und zeigen anstelle der Inhalte **Belegt**. |
+
+Ein Termin aus einem eigenen Kalender lässt sich damit direkt vom Dashboard aus bearbeiten, ein freigegebener nur dann, wenn Ihnen der Besitzer das Recht **Ändern** für dessen Sichtbarkeit eingeräumt hat – siehe [Kalender freigeben](kalender.md#kalender-freigeben).
+
 ### Current Affairs
 
 Aktuelle Aktivitäten und Benachrichtigungen:
@@ -84,7 +95,7 @@ Aktuelle Aktivitäten und Benachrichtigungen:
 #### Info Board
 - Anzeige von Ankündigungen und wichtigen Mitteilungen
 - Status: "No new bulletins" wenn keine neuen Mitteilungen vorliegen
-- Zugriff auf das [Schwarze Brett](weitere-features.md#schwarzes-brett)
+- Zugriff auf das [Infoboard](infoboard.md)
 
 #### Conferences
 - Übersicht laufender oder geplanter Konferenzen
@@ -99,7 +110,7 @@ Aktuelle Aktivitäten und Benachrichtigungen:
 #### Surveys
 - Offene Umfragen
 - Status: "No open survey" wenn keine aktiven Umfragen
-- Direktlink zu [Umfragen](weitere-features.md#umfragen)
+- Direktlink zu [Umfragen](umfragen.md)
 
 ## Rollenspezifische Unterschiede
 
@@ -126,14 +137,15 @@ Das Dashboard passt sich automatisch an Ihre Benutzerrolle an:
 - Container-Verwaltung (erweitert)
 - Einstellungen für die gesamte Schule/Organisation
 - Zugriff auf administrative Tools und Logs
+- Die Bereiche **Kalender** und **E-Mail** werden auf dem Dashboard nicht angezeigt
 
-:::tip Hinweis
+:::tip[Hinweis]
 Manche Funktionen und Menüpunkte sind nur für bestimmte Rollen sichtbar. Wenn Sie eine Funktion nicht finden, liegt das möglicherweise an Ihren Berechtigungen.
 :::
 
 ## Dashboard anpassen
 
-:::info Dokumentation folgt
+:::info[Dokumentation folgt]
 Die detaillierte Anleitung zur Dashboard-Anpassung wird in Kürze ergänzt. Sie können das Dashboard-Layout und die angezeigten Widgets über die Einstellungen personalisieren.
 :::
 
@@ -143,11 +155,11 @@ Das Dashboard kann in den Einstellungen angepasst werden:
 - Startseite festlegen
 - Anzeigeoptionen konfigurieren
 
-:::note Berechtigungen
+:::note[Berechtigungen]
 Die Anpassungsmöglichkeiten können je nach Benutzerrolle variieren. Global-Admins haben erweiterte Optionen.
 :::
 
-<!-- TODO: Link zu Einstellungen/Dashboard-Konfiguration einfügen -->
+{/* TODO: Link zu Einstellungen/Dashboard-Konfiguration einfügen */}
 
 ## Tipps für die Nutzung
 
@@ -176,7 +188,6 @@ Das Dashboard passt sich automatisch an verschiedene Bildschirmgrößen an:
 - Optimiert für große Bildschirme
 
 ### Tablet-Ansicht
-![Dashboard Tablet](/img/features/dashboard-tablet.jpeg)
 
 - Angepasstes Layout für Touch-Bedienung
 - Größere Touch-Targets
@@ -191,8 +202,8 @@ Mehr dazu unter [Mobile App & Tablet-Nutzung](mobile-app.md).
 
 ## Weitere Informationen
 
-- [Mein Profil](../benutzer/mein-profil.md) - Profileinstellungen verwalten
+- [Benutzereinstellungen](../benutzer/mein-profil.md) - Profileinstellungen verwalten
 - [Sicherheitseinstellungen](sicherheit.md) - Passwort ändern und Sicherheit konfigurieren
 - [Mobile App](mobile-app.md) - Mobile Nutzung einrichten
-- [Schwarzes Brett](weitere-features.md#schwarzes-brett) - Mitteilungen verwalten
-- [Umfragen](weitere-features.md#umfragen) - Umfragen erstellen und bearbeiten
+- [Infoboard](infoboard.md) - Mitteilungen verwalten
+- [Umfragen](umfragen.md) - Umfragen erstellen und bearbeiten

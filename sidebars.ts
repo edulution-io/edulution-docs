@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -67,20 +67,84 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
+          label: 'Upgrade',
+          collapsed: true,
+          items: [
+            {
+              type: 'category',
+              label: 'Keycloak',
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'edulution-ui/upgrade/keycloak/to-26',
+                  label: '25 auf 26.4',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'MongoDB',
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'edulution-ui/upgrade/mongodb/replica-set',
+                  label: 'Replica Set einrichten',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
           label: 'Nutzerhandbuch',
           collapsed: false,
           items: [
+            'edulution-ui/features/navigation',
+            'edulution-ui/features/anmeldung',
             'edulution-ui/benutzer/mein-profil',
             'edulution-ui/features/dashboard',
-            'edulution-ui/features/dateien',
+            {
+              type: 'category',
+              label: 'Dateien',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'edulution-ui/features/dateien/index',
+              },
+              items: [
+                'edulution-ui/features/dateien/drawio',
+                'edulution-ui/features/dateien/browser-download-einstellungen',
+                'edulution-ui/features/dateien/webdav-windows',
+                'edulution-ui/features/dateien/webdav-macos',
+                'edulution-ui/features/dateien/webdav-linux',
+                'edulution-ui/features/goodnotes',
+              ],
+            },
+            'edulution-ui/features/e-mail',
+            'edulution-ui/features/chat',
+            'edulution-ui/features/kontakte',
+            'edulution-ui/features/eltern-schueler-zuordnung',
+            'edulution-ui/features/kalender',
             'edulution-ui/features/klassenzimmer',
+            'edulution-ui/features/mdm',
+            'edulution-ui/features/geraeteverwaltung',
             'edulution-ui/features/konferenzen',
             'edulution-ui/features/whiteboard',
+            'edulution-ui/features/wiki',
+            'edulution-ui/features/lernmanagement',
+            'edulution-ui/features/markdown-hilfe',
             'edulution-ui/features/app-store',
-            'edulution-ui/features/ressourcen-bibliothek',
+            'edulution-ui/features/impressum-datenschutz',
+            'edulution-ui/features/eingebettete-app',
             'edulution-ui/features/mobile-app',
             'edulution-ui/features/sicherheit',
             'edulution-ui/features/weitere-features',
+            'edulution-ui/features/infoboard',
+            'edulution-ui/features/umfragen',
+            'edulution-ui/features/benachrichtigungen',
+            'edulution-ui/features/vpn-zugang',
           ],
         },
         {
@@ -90,6 +154,11 @@ const sidebars: SidebarsConfig = {
           items: [
             'edulution-ui/administration/administration',
             'edulution-ui/administration/einstellungen',
+            'edulution-ui/administration/wiki-einstellungen',
+            'edulution-ui/administration/linuxmuster',
+            'edulution-ui/administration/benutzerverwaltung',
+            'edulution-ui/administration/satelliten',
+            'edulution-ui/administration/webhooks',
             'edulution-ui/administration/experten-tipps',
           ],
         },
@@ -206,6 +275,11 @@ const sidebars: SidebarsConfig = {
               id: 'edulution-mail/verteilerlisten',
               label: 'Verteilerlisten',
             },
+            {
+              type: 'doc',
+              id: 'edulution-mail/auto-reply',
+              label: 'Automatische Antwort',
+            },
           ],
         },
         {
@@ -222,6 +296,124 @@ const sidebars: SidebarsConfig = {
               type: 'doc',
               id: 'edulution-mail/admin-features',
               label: 'Admin-Features & Tipps',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/changelog-config-anpassungen',
+              label: 'Changelog & Config-Anpassungen',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'edulution Satellite',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'edulution-satellite/index',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-satellite/einrichtung-mit-edulution',
+          label: 'Einrichtung mit edulution',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/standalone',
+          label: 'Standalone einrichten',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/wireguard-traefik',
+          label: 'WireGuard über Traefik',
+        }
+      ]
+    },
+    {
+      type: 'category',
+      label: 'edulution Moodle',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'edulution-moodle/index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Installation',
+          collapsed: false,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/voraussetzungen',
+              label: 'Voraussetzungen',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/schnellstart',
+              label: 'Schnellstart',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/detailliert',
+              label: 'Detaillierte Installation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/migration',
+              label: 'Migration',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Konfiguration',
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/umgebungsvariablen',
+              label: 'Umgebungsvariablen',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/synchronisation',
+              label: 'Synchronisation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/namensschemas',
+              label: 'Gruppen-Namensschemas',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/cookie-auth',
+              label: 'Cookie Auth (SSO)',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/plugins',
+              label: 'Plugin-Verwaltung',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Administration',
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-moodle/administration/admin-ui',
+              label: 'Admin-Oberfläche',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/administration/backup',
+              label: 'Backup & Wiederherstellung',
             },
           ],
         },
@@ -256,31 +448,132 @@ const sidebars: SidebarsConfig = {
           id: 'edulution-fileproxy/ui-config',
           label: 'UI Konfiguration',
         },
+        {
+          type: 'doc',
+          id: 'edulution-fileproxy/wiki-infrastruktur',
+          label: 'Wiki-Infrastruktur',
+        },
       ],
     },
-{
-  type: 'category',
-  label: 'edulution App',
-  collapsed: false,
-  link: {
-    type: 'generated-index',
-    title: 'edulution App',
-    description: 'Die mobile App für die edulution-Plattform.',
-    slug: '/category/edulution-app',
-  },
-  items: [
     {
-      type: 'doc',
-      id: 'edulution-app/index',
-      label: '📱 Übersicht',
+      type: 'category',
+      label: 'edulution App',
+      collapsed: false,
+      link: {
+        type: 'generated-index',
+        title: 'edulution App',
+        description: 'Die mobile App für die edulution-Plattform.',
+        slug: '/category/edulution-app',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-app/index',
+          label: '📱 Übersicht',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-app/setup',
+          label: '⚙️ Einrichtung',
+        },
+      ],
     },
     {
-      type: 'doc',
-      id: 'edulution-app/setup',
-      label: '⚙️ Einrichtung',
+      type: 'category',
+      label: 'edulution OnlyOffice',
+      collapsed: false,
+      link: {
+        type: 'generated-index',
+        title: 'edulution OnlyOffice',
+        description: 'OnlyOffice-Integration für die Dateiverwaltung.',
+        slug: '/category/edulution-onlyoffice',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-onlyoffice/index',
+          label: '⚙️ Installation',
+        },
+      ],
     },
-  ],
-},
+    {
+      type: 'category',
+      label: 'edulution EuroOffice',
+      collapsed: false,
+      link: {
+        type: 'generated-index',
+        title: 'edulution EuroOffice',
+        description: 'EuroOffice-Integration für die Dateiverwaltung.',
+        slug: '/category/edulution-eurooffice',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-eurooffice/index',
+          label: '⚙️ Installation',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'edulution Collabora',
+      collapsed: false,
+      link: {
+        type: 'generated-index',
+        title: 'edulution Collabora',
+        description: 'Collabora-Online-Integration für die Dateiverwaltung.',
+        slug: '/category/edulution-collabora',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-collabora/index',
+          label: '⚙️ Installation',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Anbindungen',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'anbindungen/index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Nextcloud Cookie Auth',
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'anbindungen/nextcloud',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'anbindungen/voraussetzungen',
+              label: 'Voraussetzungen',
+            },
+            {
+              type: 'doc',
+              id: 'anbindungen/installation',
+              label: 'Installation',
+            },
+            {
+              type: 'doc',
+              id: 'anbindungen/konfiguration',
+              label: 'Konfiguration',
+            },
+            {
+              type: 'doc',
+              id: 'anbindungen/troubleshooting',
+              label: 'Troubleshooting',
+            },
+          ],
+        },
+      ],
+    },
     {
       type: 'category',
       label: 'Ressourcen',

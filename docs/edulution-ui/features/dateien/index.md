@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Dateien
 
 Die Dateiverwaltung funktioniert wie ein klassischer Datei-Explorer mit allen wichtigen Funktionen für den Schulalltag.
@@ -88,7 +92,9 @@ Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richt
 - Schnellere Up- und Downloads
 
 ### Speicherplatz
-Überprüfen Sie Ihre Quota im [Dashboard](../dashboard.md#quotas)
+Ihre Speichernutzung steht am unteren Rand der Menüleiste: Schulname, Fortschrittsbalken und die belegten GB. Wird der Platz knapp, erscheint eine Warnung unter der Überschrift **Dateien**; bei sehr geringer Quota werden Hochladen und Erstellen ausgeblendet und Freigaben lassen sich nicht mehr mit Schreibrechten versehen.
+
+Alle Details finden Sie unter [Speicherplatz und Quota](./speicherplatz-und-quota.md), die berechneten Cloud- und E-Mail-Quotas im [Dashboard](../dashboard.md#quotas).
 
 ### Unterstützte Formate
 Alle Dateiformate sind möglich. Direkt bearbeiten können Sie:

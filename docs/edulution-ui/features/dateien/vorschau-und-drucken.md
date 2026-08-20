@@ -1,3 +1,7 @@
+---
+sidebar_position: 6
+---
+
 # Vorschau, Bearbeiten und Drucken
 
 Viele Dateien lassen sich direkt in edulution ansehen, ohne sie vorher herunterzuladen. Text-, Markdown- und Audio-Dateien, Bilder, Videos, PDFs, Draw.io-Diagramme und Office-Dokumente werden in einem Vorschaufenster geöffnet – Textdateien können Sie von dort aus auch direkt ausdrucken.

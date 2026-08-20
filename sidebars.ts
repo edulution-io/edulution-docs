@@ -119,6 +119,7 @@ const sidebars: SidebarsConfig = {
                 'edulution-ui/features/dateien/ansicht-und-navigation',
                 'edulution-ui/features/dateien/teilen',
                 'edulution-ui/features/dateien/vorschau-und-drucken',
+                'edulution-ui/features/dateien/speicherplatz-und-quota',
                 'edulution-ui/features/dateien/webdav-windows',
                 'edulution-ui/features/dateien/webdav-macos',
                 'edulution-ui/features/dateien/webdav-linux',

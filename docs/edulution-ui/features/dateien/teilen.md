@@ -1,3 +1,7 @@
+---
+sidebar_position: 8
+---
+
 # Teilen und Berechtigungen
 
 Dateien und Ordner geben Sie in edulution über einen **Freigabe-Link** weiter. Eine Freigabe legt dabei nicht nur fest, *wer* Zugriff bekommt, sondern über **Bereiche** auch, *was* die jeweilige Person tun darf – von „nur ansehen" bis zum Vollzugriff auf einen Ordner.

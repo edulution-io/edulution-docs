@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Vorschau und Drucken
 
-Viele Dateien lassen sich direkt in edulution ansehen, ohne sie vorher herunterzuladen. Text- und Markdown-Dateien, Bilder, Videos, Audiodateien und PDFs werden in einem Vorschaufenster geöffnet – Textdateien können Sie von dort aus auch direkt ausdrucken.
+Viele Dateien lassen sich direkt in edulution ansehen, ohne sie vorher herunterzuladen. Text- und Markdown-Dateien, Bilder, Videos, Audiodateien, PDFs, Draw.io-Diagramme und Office-Dokumente werden in einem Vorschaufenster geöffnet – Textdateien können Sie von dort aus auch direkt ausdrucken.
 
 ## Vorschau öffnen
 
@@ -35,10 +35,20 @@ Auf Smartphones und Tablets öffnet sich die Vorschau bildschirmfüllend statt n
 | **Bilder** | `.png`, `.jpg`, `.jpeg`, `.gif`, `.webp`, `.svg` | Als Bild |
 | **Video** | `.mp4`, `.mov`, `.webm` | Mit Abspieler |
 | **Audio** | `.mp3`, `.aac`, `.m4a`, `.wav` | Mit Abspieler |
-| **Office-Dokumente** | `.docx`, `.xlsx`, `.pptx`, `.odt`, `.ods`, `.odp` | In OnlyOffice bzw. Collabora (sofern eingerichtet) |
-| **Diagramme** | `.drawio` | Im Draw.io-Betrachter |
+| **Office-Dokumente** | `.docx`, `.xlsx`, `.pptx`, `.odt`, `.ods`, `.odp` | In OnlyOffice, Euro-Office bzw. Collabora (sofern eingerichtet) |
+| **Diagramme** | `.drawio`, `.dio` | Im Draw.io-Betrachter ([Anleitung](./drawio.md)) |
 
 Bei allen anderen Dateitypen wird durch einen Klick auf den Namen die Datei ausgewählt statt eine Vorschau geöffnet. Laden Sie diese Dateien herunter, um sie zu öffnen.
+
+## Office-Dokumente
+
+Office-Dokumente setzen voraus, dass Ihr Administrator einen Dokumenten-Editor eingerichtet hat – [OnlyOffice](../../../edulution-onlyoffice/index.md) beziehungsweise Euro-Office oder [Collabora](../../../edulution-collabora/index.md). Ist keiner konfiguriert, lässt sich ein Office-Dokument nicht öffnen; PDF-Dateien öffnen sich unabhängig davon.
+
+### Office-Dokumente auf dem Smartphone
+
+OnlyOffice und Euro-Office lassen sich auf einem Smartphone beziehungsweise in einem sehr schmalen Browserfenster nicht sinnvoll bedienen. Tippen Sie dort auf ein Office-Dokument, erscheint deshalb der Hinweis *„Office-Dokumente lassen sich auf dem Smartphone nicht öffnen. Bitte nutzen Sie ein Tablet oder einen Computer."*, und das Dokument bleibt geschlossen. Auf einem Tablet öffnet es sich normal.
+
+Ist Collabora als Dokumenten-Editor eingerichtet, gilt diese Einschränkung nicht – dort öffnen sich Office-Dokumente auch auf dem Smartphone. PDF-Dateien, Bilder, Medien- und Textdateien sind ebenfalls nicht betroffen.
 
 ## Text- und Markdown-Dateien
 
@@ -102,13 +112,17 @@ PDFs werden im PDF-Betrachter des Browsers geöffnet und nicht mehr an OnlyOffic
 - Die Vorschau funktioniert auch dann, wenn OnlyOffice oder Collabora auf Ihrer Instanz **nicht** eingerichtet sind
 - PDFs lassen sich auch auf Smartphones und Tablets ansehen
 
+## Wenn die Vorschau fehlschlägt
+
+Lässt sich der Inhalt einer Datei nicht laden, zeigt die Vorschau eine Fehlermeldung **Vorschau konnte nicht geladen werden** – anstatt dauerhaft eine Ladeanzeige zu drehen. Darunter stehen der Grund und der Name der betroffenen Datei, etwa *Zugriff verweigert*, wenn Ihnen die Berechtigung fehlt, oder *Nicht gefunden*, wenn die Datei inzwischen verschoben oder gelöscht wurde. Dieselbe Meldung erscheint, wenn Sie die Vorschau in einem eigenen Browser-Tab oder über einen Freigabe-Link geöffnet haben, und ebenso, wenn der Dokumenten-Editor ein Office-Dokument nicht öffnen konnte – das Vorschaufenster bleibt in diesem Fall nicht mehr leer.
+
 ## Häufige Fragen
 
 **Ein Klick auf den Dateinamen wählt die Datei nur aus, statt eine Vorschau zu öffnen.**
 Für diesen Dateityp gibt es keine Vorschau. Laden Sie die Datei herunter, um sie mit einem Programm auf Ihrem Gerät zu öffnen.
 
 **Ein Office-Dokument lässt sich nicht öffnen.**
-Für `.docx`, `.xlsx` und `.pptx` wird OnlyOffice oder Collabora benötigt. Ist keiner der beiden Editoren eingerichtet, bleibt die Vorschau aus. Auf Smartphones und Tablets werden Office-Dokumente ebenfalls nicht in der Vorschau geöffnet – PDFs dagegen schon.
+Für `.docx`, `.xlsx` und `.pptx` wird ein Dokumenten-Editor benötigt. Ist keiner eingerichtet, bleibt die Vorschau aus. Mit OnlyOffice oder Euro-Office öffnen sich Office-Dokumente zudem nicht auf dem Smartphone – auf einem Tablet dagegen schon, mit Collabora auch auf dem Smartphone. Siehe [Office-Dokumente](#office-dokumente).
 
 **Das Drucker-Symbol fehlt.**
 Es erscheint nur bei textbasierten Dateien und nur in der Ansicht. Wechseln Sie über das Augen-Symbol aus dem Bearbeitungsmodus zurück.
@@ -119,5 +133,6 @@ Vorschaubilder werden nur für Bilddateien erzeugt. Bei sehr großen oder besch�
 ## Siehe auch
 
 - [Dateien](./index.md) – Übersicht über die Dateiverwaltung
+- [Diagramme mit Draw.io](./drawio.md) – Diagramme ansehen und bearbeiten
 - [Markdown-Hilfe](../markdown-hilfe.md) – unterstützte Formatierungen
 - [Browser Download-Einstellungen](./browser-download-einstellungen.md) – wenn Downloads blockiert werden

@@ -117,6 +117,8 @@ const sidebars: SidebarsConfig = {
                 'edulution-ui/features/dateien/drawio',
                 'edulution-ui/features/dateien/browser-download-einstellungen',
                 'edulution-ui/features/dateien/ansicht-und-navigation',
+                'edulution-ui/features/dateien/teilen',
+                'edulution-ui/features/dateien/vorschau-und-drucken',
                 'edulution-ui/features/dateien/webdav-windows',
                 'edulution-ui/features/dateien/webdav-macos',
                 'edulution-ui/features/dateien/webdav-linux',

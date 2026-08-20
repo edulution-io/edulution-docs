@@ -77,4 +77,5 @@ Die Instanz muss das Einbetten erlauben (Draw.io-Embed-Modus). Das offizielle Co
 ## Siehe auch
 
 - [Dateien](./index.md) – Grundlagen der Dateiverwaltung
+- [Vorschau und Drucken](./vorschau-und-drucken.md) – wie das Vorschaufenster allgemein funktioniert
 - [Einstellungen](../../administration/einstellungen.md) – weitere Konfigurationsmöglichkeiten

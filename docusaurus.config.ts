@@ -36,7 +36,27 @@ const config: Config = {
     locales: ['de'],
   },
 
-  plugins: ['./src/plugins/tailwind-config.js'],
+  plugins: [
+    './src/plugins/tailwind-config.js',
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        // Die Dokumentation lag bis zur Umbenennung unter /docs/edulution-ui/.
+        // Alte Links (Lesezeichen, externe Verweise) bleiben damit gültig.
+        createRedirects(existingPath: string) {
+          if (existingPath.startsWith('/docs/edulution-plattform/')) {
+            return [
+              existingPath.replace(
+                '/docs/edulution-plattform/',
+                '/docs/edulution-ui/',
+              ),
+            ];
+          }
+          return undefined;
+        },
+      },
+    ],
+  ],
 
   markdown: {
     mermaid: true,
@@ -114,7 +134,7 @@ const config: Config = {
           items: [
             {
               label: 'edulution Plattform',
-              to: '/docs/edulution-ui/installation/voraussetzungen',
+              to: '/docs/edulution-plattform/installation/voraussetzungen',
             },
             {
               label: 'edulution Mail',
@@ -167,11 +187,11 @@ const config: Config = {
           items: [
             {
               label: 'edulution Plattform Installation',
-              to: '/docs/edulution-ui/installation/einrichtung',
+              to: '/docs/edulution-plattform/installation/einrichtung',
             },
             {
               label: 'edulution Plattform Administration',
-              to: '/docs/edulution-ui/administration/administration',
+              to: '/docs/edulution-plattform/administration/administration',
             },
             {
               label: 'edulution Mail',

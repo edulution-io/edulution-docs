@@ -45,7 +45,7 @@ function HomepageContent() {
             </p>
             <Link
               className="button button--primary button--sm"
-              to="/docs/edulution-ui/installation/einrichtung"
+              to="/docs/edulution-plattform/installation/einrichtung"
             >
               Installation starten
             </Link>

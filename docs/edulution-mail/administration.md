@@ -68,7 +68,7 @@ Das Webmail-Interface basiert auf SOGo und ist über `https://mail.ihre-domain.d
 
 **Theme anpassen:**
 Das Design des SOGo Webmailers (hell/dunkel) kann in den Einstellungen angepasst werden.
-[→ E-Mail-Einstellungen](/docs/edulution-ui/administration/einstellungen#e-mails)
+[→ E-Mail-Einstellungen](/docs/edulution-plattform/administration/einstellungen#e-mails)
 
 ## Synchronisation
 

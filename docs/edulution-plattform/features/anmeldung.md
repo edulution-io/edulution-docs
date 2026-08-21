@@ -1,6 +1,6 @@
 # Anmeldung
 
-Die **Anmeldeseite** ist die erste Seite, die Benutzer von edulution zu sehen bekommen. Sie wurde mit edulution-ui v2.0 neu gestaltet und zeigt neben dem Anmeldeformular die **Informationen Ihrer Organisation** – Logo, Name, ein frei gestaltbarer Begrüßungstext und ein großflächiges Hintergrundbild.
+Die **Anmeldeseite** ist die erste Seite, die Benutzer von edulution zu sehen bekommen. Sie wurde mit der edulution Plattform v2.0 neu gestaltet und zeigt neben dem Anmeldeformular die **Informationen Ihrer Organisation** – Logo, Name, ein frei gestaltbarer Begrüßungstext und ein großflächiges Hintergrundbild.
 
 Alle angezeigten Organisationsinformationen stammen aus den [Globalen Einstellungen](../administration/einstellungen.md) und werden bereits **vor der Anmeldung** geladen. Es ist also keine Anmeldung nötig, um Ihre Schule oder Behörde auf der Startseite wiederzuerkennen.
 

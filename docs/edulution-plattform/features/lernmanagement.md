@@ -1,6 +1,6 @@
 # Lernmanagement (Moodle)
 
-Mit edulution-ui v2.0 ist **Moodle** direkt in edulution integriert. Die Lernplattform öffnet sich als App **Lernmanagement** innerhalb der edulution-Oberfläche, und der bisher nötige **zweite Login entfällt**: Wer in edulution angemeldet ist, ist auch in Moodle angemeldet (Single Sign-On).
+Mit der edulution Plattform v2.0 ist **Moodle** direkt in edulution integriert. Die Lernplattform öffnet sich als App **Lernmanagement** innerhalb der edulution-Oberfläche, und der bisher nötige **zweite Login entfällt**: Wer in edulution angemeldet ist, ist auch in Moodle angemeldet (Single Sign-On).
 
 Kurse, Kategorien und Einschreibungen entstehen dabei automatisch aus den Gruppen Ihrer Schule – die Klasse 10a in edulution ist dieselbe Klasse 10a in Moodle.
 

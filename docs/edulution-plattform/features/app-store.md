@@ -41,7 +41,7 @@ Mit der **"Eingebettet"**-App können Sie rechtliche Pflichtseiten wie Impressum
 
 **Wichtig:** Der Seitenname muss exakt **"Impressum"**, **"Imprint"**, **"Datenschutz"** oder **"Privacy"** lauten, damit die automatische Footer-Integration funktioniert.
 
-[→ Ausführliche Anleitung: Impressum und Datenschutz einrichten](/docs/edulution-ui/features/impressum-datenschutz)
+[→ Ausführliche Anleitung: Impressum und Datenschutz einrichten](/docs/edulution-plattform/features/impressum-datenschutz)
 :::
 
 ## App-Launcher

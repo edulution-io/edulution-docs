@@ -1,7 +1,7 @@
 ---
 id: administration
 title: Administration
-slug: /edulution-ui/administration/administration
+slug: /edulution-plattform/administration/administration
 ---
 
 Dieser Bereich beschreibt die grundlegende Verwaltung und Konfiguration

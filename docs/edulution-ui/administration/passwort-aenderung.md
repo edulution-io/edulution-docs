@@ -17,8 +17,8 @@ flowchart TD
 ```
 
 1. **Aktuelles Passwort prüfen** – edulution fordert mit Benutzername und altem Passwort ein Token am OIDC-Token-Endpunkt des edulution-Realms an. Schlägt das fehl, ist das eingegebene Passwort falsch.
-2. **Neues Passwort setzen** – über die Keycloak-Administrationsschnittstelle wird das Passwort des Benutzers ersetzt. Es wird **nicht** als temporär markiert; der Benutzer muss es bei der nächsten Anmeldung also nicht erneut ändern.
-3. **Hinterlegte Kopie aktualisieren** – edulution hält eine verschlüsselte Kopie des Passworts vor, die Dienste wie WebDAV und das Mailsystem benötigen. Sie wird mitgeführt, und das zwischengespeicherte Linuxmuster-API-Token wird verworfen, damit die nächste Anfrage ein neues Token mit dem geänderten Passwort erhält.
+2. **Neues Passwort setzen** – über die Keycloak-Administrationsschnittstelle wird das Passwort des Benutzers ersetzt, womit von nun an dass neue Passwort gültig ist.
+3. **Hinterlegte Kopie aktualisieren** – edulution hält eine verschlüsselte Kopie des Passworts vor, die Dienste wie WebDAV und das Mailsystem benötigen. Sie wird mitgeführt, und das zwischengespeicherte Linuxmuster-API-Token wird verworfen, damit die nächste Anfrage ein neues Token mit dem geänderten Passwort erhält muss die Kopie aktualisiert werden.
 4. **Rückfallweg Linuxmuster** – schlägt einer der Schritte fehl, wiederholt edulution die Änderung über `linuxmuster-api7`. Das geschieht nur, wenn die **Zielplattform** auf **Linuxmuster** steht und für den Benutzer ein gültiges Linuxmuster-API-Token vorliegt. In allen anderen Fällen erhält der Benutzer die Fehlermeldung.
 
 :::note[Prüfung des alten Passworts auf Linuxmuster-Systemen]

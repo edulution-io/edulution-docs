@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  expertOnly: true
+---
+
 # Installation
 
 Die Installation der edulution Plattform erfolgt in mehreren Schritten. Diese Anleitung führt Sie durch den gesamten Prozess - von den Voraussetzungen über die Einrichtung bis zur erfolgreichen Inbetriebnahme.

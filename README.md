@@ -67,6 +67,31 @@ Text nur für Admins …
 </ExpertOnly>
 ```
 
+### Hinweis für Nicht-Admins einblenden
+
+`<NormalUserOnly>` ist das Gegenstück und nur bei **ausgeschaltetem** Expertenmodus sichtbar.
+Gedacht für den kurzen Hinweis, der an die Stelle eines ausgeblendeten Administrations-Abschnitts
+tritt – sonst steht ein Benutzer ratlos vor einer fehlenden App:
+
+```mdx
+<NormalUserOnly>
+
+Wer die App verwenden darf, legt die Administration Ihrer Schule fest.
+
+</NormalUserOnly>
+
+<ExpertOnly>
+
+## Einrichtung (für Administratoren)
+
+Zugriffsgruppen unter Einstellungen → … pflegen.
+
+</ExpertOnly>
+```
+
+Nur ergänzen, wo die Information dem Benutzer sonst wirklich fehlt – steht sie bereits im
+sichtbaren Text, ist ein zusätzlicher Hinweis nur Rauschen.
+
 ### Ganze Seite ausblenden
 
 Im Front Matter markieren:
@@ -99,7 +124,8 @@ In `sidebars.ts` an der Kategorie:
 `<ExpertOnly>`-Abschnitte werden über `ignoreCssSelectors` aus dem Suchindex entfernt – ein
 Treffer würde sonst auf unsichtbaren Text springen. Ganze Experten-**Seiten** bleiben dagegen
 auffindbar, damit Admins sie über die Suche erreichen; ohne Expertenmodus landet man dort auf
-dem Hinweis.
+dem Hinweis. `<NormalUserOnly>` bleibt ebenfalls im Index, weil der ausgeschaltete
+Expertenmodus der Normalfall ist.
 
 ### Beteiligte Dateien
 
@@ -107,6 +133,7 @@ dem Hinweis.
 | --- | --- |
 | `src/components/ExpertMode.tsx` | Context, LocalStorage, Abgleich des Inhaltsverzeichnisses |
 | `src/components/ExpertOnly.tsx` | Wrapper für einzelne Abschnitte |
+| `src/components/NormalUserOnly.tsx` | Gegenstück, nur ohne Expertenmodus sichtbar |
 | `src/components/ExpertModeToggle.tsx` | Schalter in der Navigationsleiste |
 | `src/plugins/expert-mode.js` | Inline-Skript, setzt `data-expert` vor dem ersten Paint |
 | `src/theme/DocSidebarItem/index.tsx` | Blendet Sidebar-Einträge aus |

@@ -155,6 +155,12 @@ Sind Sie als Berechtigter für ein **freigegebenes Postfach** eingetragen, könn
 
 Die Sprache des über **In SOGo öffnen** erreichbaren Webmailers richtet sich nach der Sprache, die Sie unter [Mein Profil → Sprache](../benutzer/mein-profil.md#sprache) gewählt haben; dasselbe gilt für Benachrichtigungen, die das Mailsystem selbst verschickt. Das **Theme** des Webmailers legt dagegen die Administration fest.
 
+<NormalUserOnly>
+
+Ob die E-Mail-App für Sie sichtbar ist, an welcher Stelle sie in der App-Liste erscheint und welches Theme der Webmailer verwendet, legt die Administration Ihrer Schule fest. Dasselbe gilt für den Zugriff auf **freigegebene Postfächer**: Fehlt Ihnen ein Postfach, für das Sie berechtigt sein sollten, kann nur die Administration das einrichten.
+
+</NormalUserOnly>
+
 <ExpertOnly>
 
 ## Einrichtung (für Administratoren)

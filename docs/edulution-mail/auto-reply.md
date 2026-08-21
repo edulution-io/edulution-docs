@@ -57,6 +57,12 @@ darf.
   dem Postfach und ist für alle Delegierten sichtbar; es ist immer nur eine
   Vorlage aktiv.
 
+<NormalUserOnly>
+
+Die automatische Antwort für **freigegebene** Postfächer setzt eine serverseitige Einrichtung voraus, um die sich die Administration Ihrer Schule kümmert. Lässt sich für ein freigegebenes Postfach keine automatische Antwort speichern, fehlt diese Einrichtung. Für Ihr **eigenes** Postfach ist sie nicht erforderlich.
+
+</NormalUserOnly>
+
 <ExpertOnly>
 
 ## Voraussetzung für Administratoren: ManageSieve-Master-Benutzer

@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  expertOnly: true
+---
+
 # SSL-Zertifikate & Reverse-Proxy
 
 **Zertifikat-Speicherort**

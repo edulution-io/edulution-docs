@@ -24,6 +24,8 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Schnellstart',
       collapsed: false,
+      // Nur im Expertenmodus sichtbar (siehe src/components/ExpertMode.tsx)
+      customProps: { expertOnly: true },
       link: {
         type: 'generated-index',
         title: 'Schnellstart-Anleitungen',
@@ -57,6 +59,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Installation',
           collapsed: true,
+          // Nur im Expertenmodus sichtbar (siehe src/components/ExpertMode.tsx)
+          customProps: { expertOnly: true },
           items: [
             'edulution-plattform/installation/voraussetzungen',
             'edulution-plattform/installation/einrichtung',
@@ -69,6 +73,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Upgrade',
           collapsed: true,
+          // Nur im Expertenmodus sichtbar (siehe src/components/ExpertMode.tsx)
+          customProps: { expertOnly: true },
           items: [
             {
               type: 'category',

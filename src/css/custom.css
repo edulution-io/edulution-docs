@@ -464,7 +464,10 @@ table.mail-compat-table tbody td:first-child {
      .expert-page  – komplette Experten-Seite. Bleibt im Suchindex; wer ohne
                      Expertenmodus darauf landet, sieht .expert-page-fallback.
      .expert-nav   – Sidebar-Eintrag. Eigene Klasse, damit die Suche die
-                     Breadcrumbs aus der Sidebar weiterhin lesen kann. */
+                     Breadcrumbs aus der Sidebar weiterhin lesen kann.
+     .normal-only  – Gegenstück (<NormalUserOnly>): nur ohne Expertenmodus
+                     sichtbar. Bleibt im Suchindex, weil das der Normalfall
+                     ist und Benutzer diese Hinweise finden können sollen. */
 
 /* Wrapper dürfen das umgebende Layout nicht verändern, solange sie sichtbar sind. */
 .expert-nav {
@@ -478,9 +481,16 @@ html[data-expert='false'] .expert-nav {
   display: none !important;
 }
 
+/* Gegenstück: nur ohne Expertenmodus sichtbar. */
+html[data-expert='true'] .normal-only {
+  display: none !important;
+}
+
 /* Inhaltsverzeichnis-Einträge, die auf ausgeblendete Überschriften zeigen
-   (wird von ExpertModeTocSync in src/components/ExpertMode.tsx gesetzt). */
-html[data-expert='false'] .expert-only-toc {
+   (wird von ExpertModeTocSync in src/components/ExpertMode.tsx gesetzt –
+   die Klasse sitzt nur auf Einträgen, die im aktuellen Modus ins Leere
+   führen würden). */
+.table-of-contents .toc-hidden {
   display: none;
 }
 
@@ -496,6 +506,14 @@ html[data-expert='false'] .expert-page-fallback {
 /* Optische Kennzeichnung eingeblendeter Experten-Abschnitte. */
 html[data-expert='true'] .expert-only {
   border-left: 3px solid #8fc046;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* Der Hinweis für Nicht-Admins soll sich vom Fließtext abheben, aber
+   zurückhaltender als ein Experten-Abschnitt. */
+.normal-only {
+  border-left: 3px solid var(--ifm-color-emphasis-300);
   padding-left: 1rem;
   margin: 1.5rem 0;
 }

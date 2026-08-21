@@ -9,7 +9,7 @@ Alle Informationen zu edulution.io finden Sie auf der Webseite
 
 ## Produkte
 
-### [edulution Plattform](/docs/edulution-plattform/installation/voraussetzungen)
+### [edulution Plattform](/docs/edulution-plattform/features/navigation)
 
 Die zentrale Plattform für digitales Lernen - mit Dateiverwaltung, Konferenzen, Whiteboard und mehr.
 

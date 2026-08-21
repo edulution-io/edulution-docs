@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  expertOnly: true
+---
+
 # Voraussetzungen
 
 Bevor Sie mit der Installation der edulution Plattform beginnen, stellen Sie bitte sicher, dass Ihr System die folgenden Voraussetzungen erfüllt. Eine sorgfältige Vorbereitung gewährleistet einen reibungslosen Installationsprozess.

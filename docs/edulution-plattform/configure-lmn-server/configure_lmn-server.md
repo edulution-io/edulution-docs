@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  expertOnly: true
+---
+
 # Anpassung am Linuxmuster-Server
 
 ## Linuxmuster-API

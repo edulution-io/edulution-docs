@@ -16,6 +16,12 @@ Die Seitennavigation von edulution bleibt dabei erhalten. Wechseln Sie zu einer 
 Sichtbar sind die Kurse, in die Sie eingeschrieben sind. Lehrkräfte werden automatisch als **Trainer** eingeschrieben, Schülerinnen und Schüler als **Teilnehmer**. Die Zuordnung stammt aus den Gruppen und Rollen Ihrer Schule und wird regelmäßig abgeglichen – Sie müssen sich also nicht selbst in Kurse eintragen.
 :::
 
+<NormalUserOnly>
+
+Die Anbindung an Moodle richtet die Administration Ihrer Schule einmalig ein. Erscheint **Lernmanagement** bei Ihnen nicht in der Seitenleiste, ist die App für Ihre Instanz noch nicht eingerichtet oder nicht für Sie freigegeben – wenden Sie sich an Ihre Administration.
+
+</NormalUserOnly>
+
 <ExpertOnly>
 
 ## Einrichtung durch Administratoren

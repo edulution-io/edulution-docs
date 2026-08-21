@@ -103,7 +103,8 @@ export function useExpertMode(): ExpertModeContextType {
 /**
  * Das Inhaltsverzeichnis wird aus allen Überschriften der Seite erzeugt – auch
  * aus denen in ausgeblendeten Abschnitten. Diese Einträge würden sonst ins
- * Leere führen. Hier werden sie passend zum Expertenmodus mit ausgeblendet.
+ * Leere führen. Hier werden sie passend zum Expertenmodus mit ausgeblendet –
+ * je nach Modus betrifft das `.expert-only`/`.expert-page` oder `.normal-only`.
  */
 function ExpertModeTocSync({ expertMode }: { expertMode: boolean }): null {
   const location = useLocation();
@@ -111,8 +112,13 @@ function ExpertModeTocSync({ expertMode }: { expertMode: boolean }): null {
   useEffect(() => {
     // Nach dem Rendern des neuen Seiteninhalts ausführen.
     const frame = window.requestAnimationFrame(() => {
+      // Je nach Modus ist die jeweils andere Seite ausgeblendet.
+      const hiddenSelector = expertMode
+        ? '.normal-only [id]'
+        : '.expert-only [id], .expert-page [id]';
+
       const hiddenIds = new Set<string>();
-      document.querySelectorAll('.expert-only [id], .expert-page [id]').forEach((element) => {
+      document.querySelectorAll(hiddenSelector).forEach((element) => {
         hiddenIds.add(element.id);
       });
 
@@ -122,7 +128,7 @@ function ExpertModeTocSync({ expertMode }: { expertMode: boolean }): null {
         if (!listItem) {
           return;
         }
-        listItem.classList.toggle('expert-only-toc', hiddenIds.has(id));
+        listItem.classList.toggle('toc-hidden', hiddenIds.has(id));
       });
     });
 

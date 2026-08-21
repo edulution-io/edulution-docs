@@ -138,7 +138,7 @@ const config: Config = {
           items: [
             {
               label: 'edulution Plattform',
-              to: '/docs/edulution-plattform/installation/voraussetzungen',
+              to: '/docs/edulution-plattform/features/navigation',
             },
             {
               label: 'edulution Mail',

@@ -128,6 +128,12 @@ Diese Einschränkung betrifft ausschließlich Ihre Eingabe, nicht die Kontakte s
 Die Suche bezieht sich immer nur auf das aktuell ausgewählte Adressbuch, nicht auf alle Adressbücher gleichzeitig.
 :::
 
+<NormalUserOnly>
+
+Die Adressbücher und die Verbindung zum Adressbuch-Server richtet die Administration Ihrer Schule ein. Bleibt die Kontaktliste leer oder fehlen Ihnen Adressbücher, lässt sich das nicht in der Kontakte-App selbst beheben – wenden Sie sich in diesem Fall an Ihre Administration.
+
+</NormalUserOnly>
+
 <ExpertOnly>
 
 ## Einrichtung (für Administratoren)

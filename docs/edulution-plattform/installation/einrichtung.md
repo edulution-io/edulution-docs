@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  expertOnly: true
+---
+
 # Einrichtung
 
 Diese Anleitung führt Sie Schritt für Schritt durch die Installation der edulution Plattform.

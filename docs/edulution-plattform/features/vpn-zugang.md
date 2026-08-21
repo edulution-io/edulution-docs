@@ -46,6 +46,12 @@ Für die Einrichtung am **Computer**. Über **Konfiguration herunterladen** lade
 Die passende Client-Software für alle Plattformen finden Sie auf der offiziellen Seite [wireguard.com/install](https://www.wireguard.com/install/).
 :::
 
+<NormalUserOnly>
+
+Den VPN-Zugang richtet die Administration Ihrer Schule ein und legt dabei fest, wer ihn nutzen darf. Erscheint in Ihren Benutzereinstellungen kein Eintrag **VPN-Zugang**, ist der Dienst für Sie noch nicht freigeschaltet – wenden Sie sich an Ihre Administration.
+
+</NormalUserOnly>
+
 <ExpertOnly>
 
 ## Für Administratoren: WireGuard einrichten

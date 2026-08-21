@@ -445,3 +445,122 @@ table.mail-compat-table tbody td:first-child {
 [data-theme="dark"] .navbar__search-input:focus {
   border-color: #8fc046;
 }
+
+/* ==========================================================================
+   Expertenmodus
+   --------------------------------------------------------------------------
+   Sichtbarkeit hängt allein am Attribut `data-expert` des <html>-Elements.
+   Das setzt ein Inline-Skript vor dem ersten Paint (src/plugins/expert-mode.js),
+   deshalb flackert nichts und Server- und Client-Render bleiben identisch.
+
+   Hinweis: reine Anzeige-Einstellung, keine Zugriffskontrolle – die Inhalte
+   liegen weiterhin im ausgelieferten HTML.
+   ========================================================================== */
+
+/* Drei Fälle, bewusst mit eigenen Klassen:
+     .expert-only  – einzelner Abschnitt in einer normalen Seite (<ExpertOnly>).
+                     Wird zusätzlich aus dem Suchindex entfernt, weil ein
+                     Treffer sonst auf unsichtbaren Text springen würde.
+     .expert-page  – komplette Experten-Seite. Bleibt im Suchindex; wer ohne
+                     Expertenmodus darauf landet, sieht .expert-page-fallback.
+     .expert-nav   – Sidebar-Eintrag. Eigene Klasse, damit die Suche die
+                     Breadcrumbs aus der Sidebar weiterhin lesen kann. */
+
+/* Wrapper dürfen das umgebende Layout nicht verändern, solange sie sichtbar sind. */
+.expert-nav {
+  display: contents;
+}
+
+html[data-expert='false'] .expert-only,
+html[data-expert='false'] .expert-page,
+html[data-expert='false'] .expert-nav {
+  /* `!important` schlägt das `display: contents` der Wrapper. */
+  display: none !important;
+}
+
+/* Inhaltsverzeichnis-Einträge, die auf ausgeblendete Überschriften zeigen
+   (wird von ExpertModeTocSync in src/components/ExpertMode.tsx gesetzt). */
+html[data-expert='false'] .expert-only-toc {
+  display: none;
+}
+
+/* Hinweis auf reinen Experten-Seiten – Gegenstück zu .expert-page. */
+.expert-page-fallback {
+  display: none;
+}
+
+html[data-expert='false'] .expert-page-fallback {
+  display: block;
+}
+
+/* Optische Kennzeichnung eingeblendeter Experten-Abschnitte. */
+html[data-expert='true'] .expert-only {
+  border-left: 3px solid #8fc046;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* Navbar-Schalter */
+.expert-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  margin: 0 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+.expert-mode-toggle input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.expert-mode-toggle__track {
+  position: relative;
+  display: inline-block;
+  width: 2.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background-color: var(--ifm-color-emphasis-300);
+  transition: background-color 150ms ease;
+  flex: none;
+}
+
+.expert-mode-toggle__thumb {
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  transition: transform 150ms ease;
+}
+
+.expert-mode-toggle input:checked + .expert-mode-toggle__track {
+  background-color: #8fc046;
+}
+
+.expert-mode-toggle input:checked + .expert-mode-toggle__track .expert-mode-toggle__thumb {
+  transform: translateX(1rem);
+}
+
+.expert-mode-toggle input:focus-visible + .expert-mode-toggle__track {
+  outline: 2px solid #8fc046;
+  outline-offset: 2px;
+}
+
+.expert-mode-toggle__label {
+  white-space: nowrap;
+}
+
+@media (max-width: 996px) {
+  .expert-mode-toggle__label {
+    display: none;
+  }
+}

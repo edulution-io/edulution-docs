@@ -157,6 +157,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Administration',
           collapsed: true,
+          // Nur im Expertenmodus sichtbar (siehe src/components/ExpertMode.tsx)
+          customProps: { expertOnly: true },
           items: [
             'edulution-plattform/administration/administration',
             'edulution-plattform/administration/einstellungen',

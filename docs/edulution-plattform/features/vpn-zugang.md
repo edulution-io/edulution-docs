@@ -46,6 +46,8 @@ Für die Einrichtung am **Computer**. Über **Konfiguration herunterladen** lade
 Die passende Client-Software für alle Plattformen finden Sie auf der offiziellen Seite [wireguard.com/install](https://www.wireguard.com/install/).
 :::
 
+<ExpertOnly>
+
 ## Für Administratoren: WireGuard einrichten
 
 Der VPN-Zugang wird als native **WireGuard**-App über den [App-Store](app-store.md) hinzugefügt und anschließend unter **Einstellungen** konfiguriert.
@@ -97,6 +99,8 @@ Eine dauerhafte Verbindung zwischen zwei **Standorten bzw. Netzen**.
 :::note[Satelliten]
 Die WireGuard-App ist unabhängig von den [Satelliten](../administration/satelliten.md), die ebenfalls über einen WireGuard-Tunnel angebunden werden. Der hier beschriebene VPN-Zugang dient dem Zugriff einzelner Benutzer und Standorte, nicht der Kopplung von Satelliten-Appliances.
 :::
+
+</ExpertOnly>
 
 ## Siehe auch
 

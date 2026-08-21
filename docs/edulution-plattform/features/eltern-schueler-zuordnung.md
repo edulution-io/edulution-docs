@@ -53,6 +53,8 @@ Der Bereich **Zuweisungen** listet Ihre bestehenden und angefragten Verknüpfung
 
 Solange keine Verknüpfung besteht, erscheint der Hinweis *„Noch keine Zuweisungen."*.
 
+<ExpertOnly>
+
 ## Elternzuweisung (für Administratoren)
 
 Die Freigabe der Anfragen erfolgt in der **Linuxmuster**-App über den Bereich **Elternzuweisung** (*„Eltern-Schüler-Zuweisungen verwalten."*). Die Seite steht Lehrkräften und Administratoren mit Zugriff auf die Linuxmuster-App zur Verfügung.
@@ -84,6 +86,8 @@ Sie zeigt die Zuordnungen in einer Tabelle mit folgenden Spalten:
 - Super-Administratoren steht zusätzlich eine **Schulauswahl** zur Verfügung, um Anfragen schulübergreifend zu bearbeiten.
 
 ![Geöffneter Status-Filter mit den Optionen Alle, Ausstehend, Akzeptiert und Abgelehnt](/img/eltern-schueler-zuordnung/elternzuweisung-filter.png)
+
+</ExpertOnly>
 
 ## Ablauf im Überblick
 

@@ -57,6 +57,8 @@ darf.
   dem Postfach und ist für alle Delegierten sichtbar; es ist immer nur eine
   Vorlage aktiv.
 
+<ExpertOnly>
+
 ## Voraussetzung für Administratoren: ManageSieve-Master-Benutzer
 
 Damit edulution die automatische Antwort eines **freigegebenen** Postfachs
@@ -95,3 +97,5 @@ Der ManageSieve-Server (Host/Port) wird ebenfalls unter **Einstellungen ▸
 E-Mail** konfiguriert. Ohne eigene Angabe wird der IMAP-Host verwendet; der
 Standard-Port ist `4190`.
 :::
+
+</ExpertOnly>

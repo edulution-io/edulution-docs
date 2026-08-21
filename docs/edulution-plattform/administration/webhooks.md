@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  expertOnly: true
+---
+
 # Webhooks
 
 Über Webhooks melden externe Dienste Ereignisse an edulution. edulution stellt dazu einen zentralen Endpunkt bereit, an den ein Dienst per HTTP-POST ein Ereignis schickt – zum Beispiel der edulution Eventhandler, wenn sich ein Benutzer an einem Client anmeldet.

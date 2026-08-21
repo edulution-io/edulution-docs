@@ -38,6 +38,7 @@ const config: Config = {
 
   plugins: [
     './src/plugins/tailwind-config.js',
+    './src/plugins/expert-mode.js',
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -93,6 +94,9 @@ const config: Config = {
         docsRouteBasePath: '/docs',
         indexBlog: false,
         searchBarShortcutHint: false,
+        // Experten-Inhalte nicht indexieren – sonst führen Treffer auf
+        // Abschnitte, die im normalen Modus ausgeblendet sind.
+        ignoreCssSelectors: ['.expert-only'],
       },
     ],
   ],
@@ -166,6 +170,10 @@ const config: Config = {
           to: '/docs/changelog',
           label: 'Changelog',
           position: 'left',
+        },
+        {
+          type: 'custom-expertModeToggle',
+          position: 'right',
         },
         {
           href: 'https://edulution.io',

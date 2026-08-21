@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  expertOnly: true
+---
+
 # Experten-Tipps
 
 :::tip[Keycloak-Administrationsoberfläche aufrufen]

@@ -16,6 +16,8 @@ Die Seitennavigation von edulution bleibt dabei erhalten. Wechseln Sie zu einer 
 Sichtbar sind die Kurse, in die Sie eingeschrieben sind. Lehrkräfte werden automatisch als **Trainer** eingeschrieben, Schülerinnen und Schüler als **Teilnehmer**. Die Zuordnung stammt aus den Gruppen und Rollen Ihrer Schule und wird regelmäßig abgeglichen – Sie müssen sich also nicht selbst in Kurse eintragen.
 :::
 
+<ExpertOnly>
+
 ## Einrichtung durch Administratoren
 
 Die folgenden Schritte führen Sie einmalig als Global-Admin in edulution durch.
@@ -67,6 +69,8 @@ Aktivieren Sie zuerst die Synchronisation und danach das Cookie Auth. Angemeldet
 ### Schritt 4: Sichtbarkeit festlegen
 
 Wie bei jeder App legen Sie unter **Einstellungen** → **Lernmanagement** fest, wo die App erscheint (Seitenleiste, Menüleiste, App-Launcher) und welche Nutzergruppen sie sehen. Details dazu unter [Einstellungen](../administration/einstellungen.md).
+
+</ExpertOnly>
 
 ## Fehlerbehebung
 

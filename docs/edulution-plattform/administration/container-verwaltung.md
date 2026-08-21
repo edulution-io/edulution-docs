@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  expertOnly: true
+---
+
 # Container-Verwaltung
 
 Die edulution Plattform verwaltet die Docker-Container Ihres Servers direkt aus der Oberfläche heraus: Sie sehen alle Container mit ihrem aktuellen Zustand, installieren die Container zusätzlicher Dienste (Plugins), aktualisieren sie auf das neueste Image und steuern ihren Lebenszyklus – starten, stoppen, neu starten, erzwungen beenden und löschen.

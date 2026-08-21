@@ -386,6 +386,13 @@ Nach der Konfiguration des Volume-Mounts:
 
 Die Theme-Änderung wird sofort für alle Benutzer wirksam.
 
+## Weitere Einrichtung
+
+Die Verbindungsdaten des integrierten E-Mail-Clients – Mailcow-API,
+IMAP, SMTP, ManageSieve und DAV – werden in den Einstellungen der
+Mail-App gepflegt. Siehe
+[Mail-App konfigurieren](mail-app-konfiguration.md).
+
 {/* ![Auswahl des SOGo-Themes](assets/setupMailTheme.webp) */}
 
 ## Fehlerbehebung

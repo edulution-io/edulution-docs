@@ -46,13 +46,13 @@ Für die Einrichtung am **Computer**. Über **Konfiguration herunterladen** lade
 Die passende Client-Software für alle Plattformen finden Sie auf der offiziellen Seite [wireguard.com/install](https://www.wireguard.com/install/).
 :::
 
-<NormalUserOnly>
+<Audience roles="user">
 
 Den VPN-Zugang richtet die Administration Ihrer Schule ein und legt dabei fest, wer ihn nutzen darf. Erscheint in Ihren Benutzereinstellungen kein Eintrag **VPN-Zugang**, ist der Dienst für Sie noch nicht freigeschaltet – wenden Sie sich an Ihre Administration.
 
-</NormalUserOnly>
+</Audience>
 
-<ExpertOnly>
+<Audience roles="admin">
 
 ## Für Administratoren: WireGuard einrichten
 
@@ -106,7 +106,7 @@ Eine dauerhafte Verbindung zwischen zwei **Standorten bzw. Netzen**.
 Die WireGuard-App ist unabhängig von den [Satelliten](../administration/satelliten.md), die ebenfalls über einen WireGuard-Tunnel angebunden werden. Der hier beschriebene VPN-Zugang dient dem Zugriff einzelner Benutzer und Standorte, nicht der Kopplung von Satelliten-Appliances.
 :::
 
-</ExpertOnly>
+</Audience>
 
 ## Siehe auch
 

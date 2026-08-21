@@ -1,6 +1,6 @@
 ---
 sidebar_custom_props:
-  expertOnly: true
+  audience: admin-setup
 ---
 
 # Installation

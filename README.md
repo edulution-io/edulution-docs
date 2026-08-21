@@ -43,102 +43,113 @@ Dieser Befehl generiert statische Inhalte im `build` Verzeichnis.
 - `/static` - Statische Assets (Bilder, Icons, etc.)
 - `/src` - Custom React Komponenten und Styles
 
-## Expertenmodus
+## Zielgruppen (Rollen, Organisationstyp, Modul)
 
-Über den Schalter **Expertenmodus** in der Navigationsleiste lassen sich Administrations-Inhalte
-ein- und ausblenden. Die Einstellung wird im LocalStorage gespeichert und gilt für alle Seiten.
+Die Dokumentation lässt sich auf die Lesenden zuschneiden. Auf der [Startseite](docs/index.md)
+beantwortet man drei Fragen; die Auswahl liegt im LocalStorage und gilt für alle Seiten. Oben rechts
+in der Navigationsleiste zeigt ein Badge die aktive Rolle und erlaubt das schnelle Umschalten.
+
+**Ohne Auswahl ist nichts ausgeblendet.** Wer die Fragen überspringt, sieht die vollständige
+Dokumentation – die Auswahl ist eine Lesehilfe, kein Zugriffsschutz.
 
 > **Kein Zugriffsschutz.** Docusaurus erzeugt statisches HTML – ausgeblendete Inhalte werden
-> weiterhin an jeden Besucher ausgeliefert und sind im Quelltext lesbar. Der Schalter reduziert
-> nur die Informationsflut, er schützt nichts.
+> weiterhin an jeden Besucher ausgeliefert und sind im Quelltext lesbar.
 
-### Einzelnen Abschnitt ausblenden
+### Die drei Achsen
 
-`<ExpertOnly>` ist global registriert und braucht keinen Import. Die Leerzeilen sind wichtig,
-sonst wird das Markdown im Block nicht gerendert:
+| Achse | Werte | Wirkung |
+| --- | --- | --- |
+| `role` | `student`, `teacher`, `parent`, `staff`, `admin-setup`, `admin-operate` | blendet Inhalte anderer Rollen aus |
+| `org` | `school`, `business`, `public-administration` | blendet Inhalte anderer Organisationstypen aus |
+| `module` | `plattform`, `mail`, `app`, `infrastruktur` | sortiert nur die Einstiegskarten, blendet nichts aus |
 
-```mdx
-<ExpertOnly>
+Die Rollenwerte folgen den Benutzertypen von edulution, die Organisationstypen den Werten von
+`EDUI_ORGANIZATION_TYPE`. Definiert sind sie in
+[`src/components/audience/taxonomy.ts`](src/components/audience/taxonomy.ts) – neue Werte gehören
+dorthin und brauchen zusätzlich eine CSS-Regel in `src/css/custom.css`.
 
-## Einrichtung (für Administratoren)
+### Abschnitt auszeichnen
 
-Text nur für Admins …
-
-</ExpertOnly>
-```
-
-### Hinweis für Nicht-Admins einblenden
-
-`<NormalUserOnly>` ist das Gegenstück und nur bei **ausgeschaltetem** Expertenmodus sichtbar.
-Gedacht für den kurzen Hinweis, der an die Stelle eines ausgeblendeten Administrations-Abschnitts
-tritt – sonst steht ein Benutzer ratlos vor einer fehlenden App:
+`<Audience>` ist global registriert und braucht keinen Import. Die Leerzeilen sind wichtig, sonst
+wird das Markdown im Block nicht gerendert:
 
 ```mdx
-<NormalUserOnly>
+<Audience roles="user">
 
 Wer die App verwenden darf, legt die Administration Ihrer Schule fest.
 
-</NormalUserOnly>
+</Audience>
 
-<ExpertOnly>
+<Audience roles="admin">
 
 ## Einrichtung (für Administratoren)
 
 Zugriffsgruppen unter Einstellungen → … pflegen.
 
-</ExpertOnly>
+</Audience>
 ```
 
-Nur ergänzen, wo die Information dem Benutzer sonst wirklich fehlt – steht sie bereits im
-sichtbaren Text, ist ein zusätzlicher Hinweis nur Rauschen.
+- `roles` – eine oder mehrere Rollen, durch Leerzeichen oder Komma getrennt. Die Kürzel `admin`
+  (beide Administrations-Rollen) und `user` (alle Endnutzer-Rollen) sparen das Aufzählen.
+- `org` – ein oder mehrere Organisationstypen.
+- Beide Angaben werden mit UND verknüpft: `roles="teacher" org="school"` zeigt den Abschnitt
+  Lehrkräften in Schulumgebungen.
+- Ohne Angabe gilt die jeweilige Achse als unbeschränkt.
 
-### Ganze Seite ausblenden
+Ein unbekannter Name lässt den Build fehlschlagen – besser ein roter Build als ein Abschnitt, der
+wegen eines Tippfehlers stumm für alle sichtbar bleibt.
 
-Im Front Matter markieren:
+Nur auszeichnen, wo es wirklich nötig ist. Steht die Information für die andere Zielgruppe schon im
+sichtbaren Text, ist ein zusätzlicher Block nur Rauschen.
+
+### Ganze Seite auszeichnen
 
 ```yaml
 ---
 sidebar_custom_props:
-  expertOnly: true
+  audience: admin-setup
 ---
 ```
 
-Die Seite verschwindet damit aus der Sidebar. Wer sie direkt aufruft, sieht statt des Inhalts
-einen Hinweis mit Knopf zum Einschalten des Expertenmodus.
+Die Seite verschwindet damit aus der Sidebar. Wer sie direkt aufruft, sieht statt des Inhalts einen
+Hinweis, für welche Rollen sie geschrieben ist, samt Knopf zum Umschalten.
 
-### Ganze Kategorie ausblenden
+### Ganze Kategorie auszeichnen
 
 In `sidebars.ts` an der Kategorie:
 
 ```ts
 {
   type: 'category',
-  label: 'Administration',
-  customProps: { expertOnly: true },
+  label: 'Installation',
+  customProps: { audience: 'admin-setup' },
   items: [ /* … */ ],
 }
 ```
 
-### Suchindex
+### Inhaltsverzeichnis und Suche
 
-`<ExpertOnly>`-Abschnitte werden über `ignoreCssSelectors` aus dem Suchindex entfernt – ein
-Treffer würde sonst auf unsichtbaren Text springen. Ganze Experten-**Seiten** bleiben dagegen
-auffindbar, damit Admins sie über die Suche erreichen; ohne Expertenmodus landet man dort auf
-dem Hinweis. `<NormalUserOnly>` bleibt ebenfalls im Index, weil der ausgeschaltete
-Expertenmodus der Normalfall ist.
+- Einträge im Inhaltsverzeichnis, die auf eine ausgeblendete Überschrift zeigen, werden mit
+  ausgeblendet.
+- Der Suchindex bleibt **vollständig**. Ohne Auswahl ist ohnehin alles sichtbar; führt ein
+  Suchtreffer oder ein geteilter Link jemanden mit gewählter Rolle auf einen Anker in einem
+  ausgeblendeten Abschnitt, wird genau dieser Abschnitt aufgedeckt statt zu fehlen.
 
 ### Beteiligte Dateien
 
 | Datei | Zweck |
 | --- | --- |
-| `src/components/ExpertMode.tsx` | Context, LocalStorage, Abgleich des Inhaltsverzeichnisses |
-| `src/components/ExpertOnly.tsx` | Wrapper für einzelne Abschnitte |
-| `src/components/NormalUserOnly.tsx` | Gegenstück, nur ohne Expertenmodus sichtbar |
-| `src/components/ExpertModeToggle.tsx` | Schalter in der Navigationsleiste |
-| `src/plugins/expert-mode.js` | Inline-Skript, setzt `data-expert` vor dem ersten Paint |
+| `src/components/audience/taxonomy.ts` | Rollen, Organisationstypen, Module, Auflösung der Kürzel |
+| `src/components/audience/AudienceContext.tsx` | Auswahl, LocalStorage, Inhaltsverzeichnis und Aufdecken |
+| `src/components/audience/Audience.tsx` | Wrapper für einzelne Abschnitte |
+| `src/components/audience/AudiencePicker.tsx` | Die drei Fragen auf der Startseite |
+| `src/components/audience/AudienceBadge.tsx` | Anzeige und Umschalten in der Navigationsleiste |
+| `src/components/audience/ModuleCards.tsx` | Einstiegskarten, sortiert nach gewähltem Modul |
+| `src/plugins/audience.js` | Inline-Skript, setzt `data-role`/`data-org` vor dem ersten Paint |
 | `src/theme/DocSidebarItem/index.tsx` | Blendet Sidebar-Einträge aus |
 | `src/theme/DocItem/Content/index.tsx` | Blendet ganze Seiten aus, zeigt den Hinweis |
-| `src/css/custom.css` | Sichtbarkeitsregeln (`html[data-expert]`) |
+| `src/css/custom.css` | Sichtbarkeitsregeln (`html[data-role]`, `html[data-org]`) |
+
 
 ## Deployment
 

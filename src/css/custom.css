@@ -447,138 +447,322 @@ table.mail-compat-table tbody td:first-child {
 }
 
 /* ==========================================================================
-   Expertenmodus
+   Zielgruppen (Rolle / Organisationstyp)
    --------------------------------------------------------------------------
-   Sichtbarkeit hängt allein am Attribut `data-expert` des <html>-Elements.
-   Das setzt ein Inline-Skript vor dem ersten Paint (src/plugins/expert-mode.js),
-   deshalb flackert nichts und Server- und Client-Render bleiben identisch.
+   Sichtbarkeit haengt allein an den Attributen `data-role` und `data-org`
+   des <html>-Elements. Ein Inline-Skript setzt sie vor dem ersten Paint
+   (src/plugins/audience.js), deshalb flackert nichts und Server- und
+   Client-Render bleiben identisch.
+
+   Ein Element traegt `.aud--roled` bzw. `.aud--orged`, sobald es die
+   jeweilige Achse einschraenkt, dazu je eine `.aud-role-*`/`.aud-org-*`
+   Klasse pro erlaubtem Wert. Ausgeblendet wird also nur, was die Achse
+   ueberhaupt einschraenkt und den aktuellen Wert nicht nennt. Ohne Auswahl
+   steht `all` – dann greift keine Regel und alles bleibt sichtbar.
+
+   `.aud--revealed` deckt einen einzelnen Abschnitt wieder auf, wenn ein
+   Link von aussen genau dorthin zeigt (siehe AudienceContext).
 
    Hinweis: reine Anzeige-Einstellung, keine Zugriffskontrolle – die Inhalte
    liegen weiterhin im ausgelieferten HTML.
    ========================================================================== */
 
-/* Drei Fälle, bewusst mit eigenen Klassen:
-     .expert-only  – einzelner Abschnitt in einer normalen Seite (<ExpertOnly>).
-                     Wird zusätzlich aus dem Suchindex entfernt, weil ein
-                     Treffer sonst auf unsichtbaren Text springen würde.
-     .expert-page  – komplette Experten-Seite. Bleibt im Suchindex; wer ohne
-                     Expertenmodus darauf landet, sieht .expert-page-fallback.
-     .expert-nav   – Sidebar-Eintrag. Eigene Klasse, damit die Suche die
-                     Breadcrumbs aus der Sidebar weiterhin lesen kann.
-     .normal-only  – Gegenstück (<NormalUserOnly>): nur ohne Expertenmodus
-                     sichtbar. Bleibt im Suchindex, weil das der Normalfall
-                     ist und Benutzer diese Hinweise finden können sollen. */
-
-/* Wrapper dürfen das umgebende Layout nicht verändern, solange sie sichtbar sind. */
-.expert-nav {
+/* Wrapper duerfen das umgebende Layout nicht veraendern, solange sie
+   sichtbar sind (Sidebar-Eintraege, ganze Seiteninhalte). */
+.aud--contents {
   display: contents;
 }
 
-html[data-expert='false'] .expert-only,
-html[data-expert='false'] .expert-page,
-html[data-expert='false'] .expert-nav {
-  /* `!important` schlägt das `display: contents` der Wrapper. */
+html[data-role='student'] .aud--roled:not(.aud-role-student):not(.aud--revealed) {
+  display: none !important;
+}
+html[data-role='teacher'] .aud--roled:not(.aud-role-teacher):not(.aud--revealed) {
+  display: none !important;
+}
+html[data-role='parent'] .aud--roled:not(.aud-role-parent):not(.aud--revealed) {
+  display: none !important;
+}
+html[data-role='staff'] .aud--roled:not(.aud-role-staff):not(.aud--revealed) {
+  display: none !important;
+}
+html[data-role='admin-setup'] .aud--roled:not(.aud-role-admin-setup):not(.aud--revealed) {
+  display: none !important;
+}
+html[data-role='admin-operate'] .aud--roled:not(.aud-role-admin-operate):not(.aud--revealed) {
   display: none !important;
 }
 
-/* Gegenstück: nur ohne Expertenmodus sichtbar. */
-html[data-expert='true'] .normal-only {
+html[data-org='school'] .aud--orged:not(.aud-org-school):not(.aud--revealed) {
+  display: none !important;
+}
+html[data-org='business'] .aud--orged:not(.aud-org-business):not(.aud--revealed) {
+  display: none !important;
+}
+html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administration):not(.aud--revealed) {
   display: none !important;
 }
 
-/* Inhaltsverzeichnis-Einträge, die auf ausgeblendete Überschriften zeigen
-   (wird von ExpertModeTocSync in src/components/ExpertMode.tsx gesetzt –
-   die Klasse sitzt nur auf Einträgen, die im aktuellen Modus ins Leere
-   führen würden). */
-.table-of-contents .toc-hidden {
-  display: none;
-}
-
-/* Hinweis auf reinen Experten-Seiten – Gegenstück zu .expert-page. */
-.expert-page-fallback {
-  display: none;
-}
-
-html[data-expert='false'] .expert-page-fallback {
-  display: block;
-}
-
-/* Optische Kennzeichnung eingeblendeter Experten-Abschnitte. */
-html[data-expert='true'] .expert-only {
-  border-left: 3px solid #8fc046;
-  padding-left: 1rem;
-  margin: 1.5rem 0;
-}
-
-/* Der Hinweis für Nicht-Admins soll sich vom Fließtext abheben, aber
-   zurückhaltender als ein Experten-Abschnitt. */
-.normal-only {
+/* Optische Kennzeichnung eines Abschnitts, der nur fuer bestimmte Rollen
+   geschrieben ist – aber nur, wenn er als eigener Block im Text steht. */
+.aud--roled:not(.aud--contents) {
   border-left: 3px solid var(--ifm-color-emphasis-300);
   padding-left: 1rem;
   margin: 1.5rem 0;
 }
 
-/* Navbar-Schalter */
-.expert-mode-toggle {
-  display: inline-flex;
+html[data-role='admin-setup'] .aud-role-admin-setup:not(.aud--contents),
+html[data-role='admin-operate'] .aud-role-admin-operate:not(.aud--contents) {
+  border-left-color: #8fc046;
+}
+
+/* Ein von aussen verlinkter Abschnitt wird aufgedeckt und markiert. */
+.aud--revealed {
+  border-left-color: #8fc046 !important;
+}
+
+/* Inhaltsverzeichnis-Eintraege, die auf eine ausgeblendete Ueberschrift
+   zeigen (wird von HiddenContentSync gesetzt). */
+.table-of-contents .toc-hidden {
+  display: none;
+}
+
+/* Hinweis auf Seiten, die sich komplett an eine andere Zielgruppe richten.
+   Gegenstueck zum Seiten-Wrapper: genau eines von beiden ist sichtbar. */
+.aud-fallback {
+  display: none;
+}
+
+html[data-role='student'] .aud--roled:not(.aud-role-student):not(.aud--revealed) + .aud-fallback,
+html[data-role='teacher'] .aud--roled:not(.aud-role-teacher):not(.aud--revealed) + .aud-fallback,
+html[data-role='parent'] .aud--roled:not(.aud-role-parent):not(.aud--revealed) + .aud-fallback,
+html[data-role='staff'] .aud--roled:not(.aud-role-staff):not(.aud--revealed) + .aud-fallback,
+html[data-role='admin-setup'] .aud--roled:not(.aud-role-admin-setup):not(.aud--revealed) + .aud-fallback,
+html[data-role='admin-operate'] .aud--roled:not(.aud-role-admin-operate):not(.aud--revealed) + .aud-fallback,
+html[data-org='school'] .aud--orged:not(.aud-org-school):not(.aud--revealed) + .aud-fallback,
+html[data-org='business'] .aud--orged:not(.aud-org-business):not(.aud--revealed) + .aud-fallback,
+html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administration):not(.aud--revealed) + .aud-fallback {
+  display: block;
+}
+
+/* --- Die drei Fragen auf der Startseite ---------------------------------- */
+
+.audience-picker {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem 1rem;
+  margin: 2rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.audience-picker__question + .audience-picker__question {
+  margin-top: 1.25rem;
+}
+
+.audience-picker__label {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  cursor: pointer;
-  user-select: none;
-  margin: 0 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1;
+  font-weight: 600;
+  margin: 0;
 }
 
-.expert-mode-toggle input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.expert-mode-toggle__track {
-  position: relative;
-  display: inline-block;
-  width: 2.25rem;
-  height: 1.25rem;
-  border-radius: 999px;
-  background-color: var(--ifm-color-emphasis-300);
-  transition: background-color 150ms ease;
+.audience-picker__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: #8fc046;
+  color: #10240a;
+  font-size: 0.8125rem;
+  font-weight: 700;
   flex: none;
 }
 
-.expert-mode-toggle__thumb {
-  position: absolute;
-  top: 0.1875rem;
-  left: 0.1875rem;
-  width: 0.875rem;
-  height: 0.875rem;
-  border-radius: 50%;
-  background-color: #ffffff;
-  transition: transform 150ms ease;
+.audience-picker__hint {
+  margin: 0.25rem 0 0.625rem 2rem;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
 }
 
-.expert-mode-toggle input:checked + .expert-mode-toggle__track {
-  background-color: #8fc046;
+.audience-picker__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-left: 2rem;
 }
 
-.expert-mode-toggle input:checked + .expert-mode-toggle__track .expert-mode-toggle__thumb {
-  transform: translateX(1rem);
+.audience-chip {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: transparent;
+  color: inherit;
+  border-radius: 999px;
+  padding: 0.3125rem 0.875rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: border-color 120ms ease, background-color 120ms ease;
 }
 
-.expert-mode-toggle input:focus-visible + .expert-mode-toggle__track {
-  outline: 2px solid #8fc046;
-  outline-offset: 2px;
+.audience-chip:hover {
+  border-color: #8fc046;
 }
 
-.expert-mode-toggle__label {
+.audience-chip--on {
+  border-color: #8fc046;
+  background: rgba(143, 192, 70, 0.15);
+  font-weight: 600;
+}
+
+.audience-chip--any {
+  color: var(--ifm-color-emphasis-700);
+}
+
+.audience-picker__footer {
+  margin: 1.25rem 0 0;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.audience-picker__reset {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--ifm-link-color);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: inherit;
+}
+
+/* --- Einstiegskarten ----------------------------------------------------- */
+
+.module-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.module-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  padding: 1rem;
+  text-decoration: none !important;
+  color: inherit;
+  transition: border-color 120ms ease, transform 120ms ease;
+}
+
+.module-card:hover {
+  border-color: #8fc046;
+  transform: translateY(-2px);
+}
+
+.module-card--match {
+  border-color: #8fc046;
+}
+
+.module-card__title {
+  font-weight: 600;
+}
+
+.module-card__text {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* --- Anzeige der Auswahl in der Navigationsleiste ------------------------ */
+
+.audience-badge {
+  position: relative;
+  display: inline-flex;
+  margin: 0 0.5rem;
+}
+
+.audience-badge__button {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: transparent;
+  color: inherit;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
+  cursor: pointer;
   white-space: nowrap;
 }
 
+.audience-badge__button--set {
+  border-color: #8fc046;
+  background: rgba(143, 192, 70, 0.15);
+}
+
+.audience-badge__org {
+  opacity: 0.75;
+}
+
+.audience-badge__menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 200;
+  min-width: 16rem;
+  padding: 0.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.audience-badge__group + .audience-badge__group {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.audience-badge__group-title {
+  margin: 0 0 0.25rem;
+  padding: 0 0.5rem;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.audience-badge__item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  color: inherit;
+  padding: 0.3125rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.audience-badge__item:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.audience-badge__item--on {
+  font-weight: 600;
+  color: #8fc046;
+}
+
+.audience-badge__link {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.4375rem 0.5rem 0.1875rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 0.8125rem;
+}
+
 @media (max-width: 996px) {
-  .expert-mode-toggle__label {
+  .audience-badge__org {
     display: none;
   }
 }

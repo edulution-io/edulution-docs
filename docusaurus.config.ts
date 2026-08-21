@@ -38,7 +38,7 @@ const config: Config = {
 
   plugins: [
     './src/plugins/tailwind-config.js',
-    './src/plugins/expert-mode.js',
+    './src/plugins/audience.js',
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -94,9 +94,11 @@ const config: Config = {
         docsRouteBasePath: '/docs',
         indexBlog: false,
         searchBarShortcutHint: false,
-        // Experten-Inhalte nicht indexieren – sonst führen Treffer auf
-        // Abschnitte, die im normalen Modus ausgeblendet sind.
-        ignoreCssSelectors: ['.expert-only'],
+        // Bewusst kein `ignoreCssSelectors`: Ohne Rollenauswahl ist alles
+        // sichtbar, ein Treffer geht also nie ins Leere. Wer eine Rolle
+        // gewählt hat und über die Suche auf einen Abschnitt einer anderen
+        // Zielgruppe kommt, bekommt genau diesen Abschnitt aufgedeckt
+        // (siehe HiddenContentSync in AudienceContext.tsx).
       },
     ],
   ],
@@ -172,7 +174,7 @@ const config: Config = {
           position: 'left',
         },
         {
-          type: 'custom-expertModeToggle',
+          type: 'custom-audienceBadge',
           position: 'right',
         },
         {

@@ -368,13 +368,13 @@ Termine, die Sie sehen, aber nicht bearbeiten dürfen, öffnen sich beim Anklick
 
 Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit sehen**, nennt die Detailansicht ausschließlich den Zeitraum und den Kalender und weist die Zeit als belegt aus — Titel, Ort, Beschreibung und Teilnehmer bleiben verborgen. Termine, für die Sie die Rolle **Keine** besitzen, erscheinen gar nicht erst im Kalender.
 
-<NormalUserOnly>
+<Audience roles="user">
 
 Die Verbindung zum Kalender-Server richtet die Administration Ihrer Schule ein. Davon hängt auch ab, ob sich Kalender [freigeben und abonnieren](#kalender-freigeben) lassen – fehlen Ihnen diese Möglichkeiten, unterstützt der eingerichtete Server sie nicht. Das reine Anlegen und Synchronisieren von Terminen funktioniert davon unabhängig.
 
-</NormalUserOnly>
+</Audience>
 
-<ExpertOnly>
+<Audience roles="admin">
 
 ## Einrichtung (für Administratoren)
 
@@ -382,7 +382,7 @@ Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](
 
 Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
 
-</ExpertOnly>
+</Audience>
 
 ## Siehe auch
 

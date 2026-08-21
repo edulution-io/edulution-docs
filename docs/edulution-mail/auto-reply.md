@@ -57,13 +57,13 @@ darf.
   dem Postfach und ist für alle Delegierten sichtbar; es ist immer nur eine
   Vorlage aktiv.
 
-<NormalUserOnly>
+<Audience roles="user">
 
 Die automatische Antwort für **freigegebene** Postfächer setzt eine serverseitige Einrichtung voraus, um die sich die Administration Ihrer Schule kümmert. Lässt sich für ein freigegebenes Postfach keine automatische Antwort speichern, fehlt diese Einrichtung. Für Ihr **eigenes** Postfach ist sie nicht erforderlich.
 
-</NormalUserOnly>
+</Audience>
 
-<ExpertOnly>
+<Audience roles="admin">
 
 ## Voraussetzung für Administratoren: ManageSieve-Master-Benutzer
 
@@ -104,4 +104,4 @@ E-Mail** konfiguriert. Ohne eigene Angabe wird der IMAP-Host verwendet; der
 Standard-Port ist `4190`.
 :::
 
-</ExpertOnly>
+</Audience>

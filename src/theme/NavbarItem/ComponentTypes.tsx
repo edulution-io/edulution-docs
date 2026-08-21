@@ -1,7 +1,7 @@
 import ComponentTypes from '@theme-original/NavbarItem/ComponentTypes';
-import ExpertModeToggle from '@site/src/components/ExpertModeToggle';
+import AudienceBadge from '@site/src/components/audience/AudienceBadge';
 
 export default {
   ...ComponentTypes,
-  'custom-expertModeToggle': ExpertModeToggle,
+  'custom-audienceBadge': AudienceBadge,
 };

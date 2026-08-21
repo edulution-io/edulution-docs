@@ -16,13 +16,13 @@ Die Seitennavigation von edulution bleibt dabei erhalten. Wechseln Sie zu einer 
 Sichtbar sind die Kurse, in die Sie eingeschrieben sind. Lehrkräfte werden automatisch als **Trainer** eingeschrieben, Schülerinnen und Schüler als **Teilnehmer**. Die Zuordnung stammt aus den Gruppen und Rollen Ihrer Schule und wird regelmäßig abgeglichen – Sie müssen sich also nicht selbst in Kurse eintragen.
 :::
 
-<NormalUserOnly>
+<Audience roles="user">
 
 Die Anbindung an Moodle richtet die Administration Ihrer Schule einmalig ein. Erscheint **Lernmanagement** bei Ihnen nicht in der Seitenleiste, ist die App für Ihre Instanz noch nicht eingerichtet oder nicht für Sie freigegeben – wenden Sie sich an Ihre Administration.
 
-</NormalUserOnly>
+</Audience>
 
-<ExpertOnly>
+<Audience roles="admin">
 
 ## Einrichtung durch Administratoren
 
@@ -76,7 +76,7 @@ Aktivieren Sie zuerst die Synchronisation und danach das Cookie Auth. Angemeldet
 
 Wie bei jeder App legen Sie unter **Einstellungen** → **Lernmanagement** fest, wo die App erscheint (Seitenleiste, Menüleiste, App-Launcher) und welche Nutzergruppen sie sehen. Details dazu unter [Einstellungen](../administration/einstellungen.md).
 
-</ExpertOnly>
+</Audience>
 
 ## Fehlerbehebung
 

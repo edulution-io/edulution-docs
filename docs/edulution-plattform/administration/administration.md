@@ -3,7 +3,7 @@ id: administration
 title: Administration
 slug: /edulution-plattform/administration/administration
 sidebar_custom_props:
-  expertOnly: true
+  audience: admin
 ---
 
 Dieser Bereich beschreibt die grundlegende Verwaltung und Konfiguration

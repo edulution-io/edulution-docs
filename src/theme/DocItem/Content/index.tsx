@@ -4,49 +4,75 @@ import type ContentType from '@theme/DocItem/Content';
 import type { WrapperProps } from '@docusaurus/types';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import Link from '@docusaurus/Link';
-import { useExpertMode } from '@site/src/components/ExpertMode';
+import { useAudience } from '@site/src/components/audience/AudienceContext';
+import {
+  audienceClassNames,
+  labelFor,
+  resolveOrgs,
+  resolveRoles,
+  ORGS,
+  ROLES,
+} from '@site/src/components/audience/taxonomy';
 
 type Props = WrapperProps<typeof ContentType>;
 
 /**
- * Seiten, die im Front Matter `sidebar_custom_props: { expertOnly: true }`
- * tragen, sind komplett Experten-Inhalt. Ist der Expertenmodus aus, wird
- * statt des Inhalts ein Hinweis mit Einschalt-Möglichkeit gezeigt.
+ * Seiten koennen sich im Front Matter komplett an eine Zielgruppe richten:
  *
- * Beides wird immer gerendert und per CSS umgeschaltet, damit es weder
- * flackert noch zu Hydration-Mismatches kommt.
+ * ```yaml
+ * sidebar_custom_props:
+ *   audience: admin
+ * ```
  *
- * Bewusst `.expert-page` statt `.expert-only`: Ganze Experten-Seiten bleiben
- * im Suchindex, damit Admins sie finden. Wer ohne Expertenmodus auf einem
- * Treffer landet, sieht den Hinweis unten mit Einschalt-Knopf. Nur einzelne
- * `<ExpertOnly>`-Abschnitte werden aus dem Index entfernt – dort gäbe es
- * keinen solchen Hinweis, der Treffer würde ins Leere führen.
+ * Passt die Auswahl nicht, tritt an die Stelle des Inhalts ein Hinweis mit
+ * den passenden Rollen und einem Knopf zum Umschalten. Beides wird immer
+ * gerendert und per CSS umgeschaltet – kein Flackern, keine
+ * Hydration-Mismatches.
  */
 export default function ContentWrapper(props: Props): React.JSX.Element {
   const { frontMatter } = useDoc();
-  const { setExpertMode } = useExpertMode();
-  const expertOnly = Boolean(
-    (frontMatter.sidebar_custom_props as { expertOnly?: boolean } | undefined)?.expertOnly,
-  );
+  const audience = useAudience();
+  const custom = frontMatter.sidebar_custom_props as
+    | { audience?: string | string[]; audienceOrg?: string | string[] }
+    | undefined;
 
-  if (!expertOnly) {
+  const roles = resolveRoles(custom?.audience);
+  const orgs = resolveOrgs(custom?.audienceOrg);
+
+  if (!roles.length && !orgs.length) {
     return <OriginalContent {...props} />;
   }
 
+  const audiences = [
+    ...roles.map((id) => labelFor(ROLES, id)),
+    ...orgs.map((id) => labelFor(ORGS, id)),
+  ].filter(Boolean);
+
   return (
     <>
-      <div className="expert-page">
+      <div className={`${audienceClassNames(roles, orgs)} aud--contents`}>
         <OriginalContent {...props} />
       </div>
-      <div className="expert-page-fallback">
-        <h1>Nur im Expertenmodus</h1>
+      <div className="aud-fallback">
+        <h1>Diese Seite richtet sich an eine andere Zielgruppe</h1>
         <p>
-          Diese Seite richtet sich an Administratorinnen und Administratoren und ist im
-          normalen Modus ausgeblendet.
+          Sie ist geschrieben für: <strong>{audiences.join(', ')}</strong>. Ihre aktuelle Auswahl
+          blendet sie deshalb aus.
         </p>
         <p>
-          <button type="button" className="button button--primary" onClick={() => setExpertMode(true)}>
-            Expertenmodus einschalten
+          {roles.length > 0 && (
+            <>
+              <button
+                type="button"
+                className="button button--primary"
+                onClick={() => audience.setAxis('role', roles[0])}
+              >
+                Als {labelFor(ROLES, roles[0])} ansehen
+              </button>{' '}
+            </>
+          )}
+          <button type="button" className="button button--secondary" onClick={audience.reset}>
+            Alles anzeigen
           </button>{' '}
           <Link className="button button--secondary" to="/docs/">
             Zur Übersicht

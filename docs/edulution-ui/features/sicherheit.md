@@ -50,10 +50,10 @@ Die Zwei-Faktor-Authentifizierung bietet eine zusätzliche Sicherheitsebene für
 
 ### Passwort-Anforderungen
 
-- Mindestens 8 Zeichen
-- Kombination aus Groß- und Kleinbuchstaben
-- Mindestens eine Zahl
-- Mindestens ein Sonderzeichen
+- Mindestens 8 Zeichen – diese Länge prüft das Formular direkt bei der Eingabe
+- Kombination aus Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen erhöht die Sicherheit
+
+Darüber hinausgehende Anforderungen legt Ihre Einrichtung zentral fest. Sie werden erst beim Speichern geprüft; ein Passwort, das ihnen nicht genügt, wird mit einer Fehlermeldung abgewiesen.
 
 ### Schritte zum Ändern
 
@@ -62,6 +62,12 @@ Die Zwei-Faktor-Authentifizierung bietet eine zusätzliche Sicherheitsebene für
 3. Geben Sie Ihr aktuelles Passwort ein
 4. Geben Sie das neue Passwort zweimal ein
 5. Klicken Sie auf **Passwort ändern**
+
+Das neue Passwort wird zentral in der Benutzerverwaltung hinterlegt und gilt für alle Dienste, die Sie über edulution nutzen.
+
+:::tip[Für Administratoren]
+Die Einrichtung der Passwortänderung – Voraussetzungen in Keycloak, Rückfallweg über die Linuxmuster-API und mögliche Fehlermeldungen – beschreibt [Passwortänderung einrichten](../administration/passwort-aenderung.md).
+:::
 
 ## Best Practices
 

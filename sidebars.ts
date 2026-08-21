@@ -163,6 +163,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/administration/master-key',
             'edulution-ui/administration/container-verwaltung',
             'edulution-ui/administration/satelliten',
+            'edulution-ui/administration/passwort-aenderung',
             'edulution-ui/administration/linuxmuster',
             'edulution-ui/administration/benutzerverwaltung',
             'edulution-ui/administration/wiki-einstellungen',

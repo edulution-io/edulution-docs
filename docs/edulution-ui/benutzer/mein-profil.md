@@ -101,6 +101,12 @@ So ändern Sie Ihr Passwort:
 - Mindestens eine Zahl empfohlen
 - Sonderzeichen erhöhen die Sicherheit
 
+Das geänderte Passwort gilt für alle Dienste, die Sie über edulution nutzen – etwa Dateien, E-Mail und die Anmeldung an der Oberfläche selbst. Ihre Einrichtung kann darüber hinaus strengere Anforderungen festlegen; diese werden erst beim Speichern geprüft.
+
+:::tip[Für Administratoren]
+Wie die Passwortänderung eingerichtet wird und welche Voraussetzungen Keycloak und der Linuxmuster-Server dafür erfüllen müssen, beschreibt [Passwortänderung einrichten](../administration/passwort-aenderung.md).
+:::
+
 ### Zwei-Faktor-Authentifizierung
 
 Zusätzliche Sicherheit für Ihr Konto:

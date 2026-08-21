@@ -55,6 +55,8 @@ Unter **Gesendet** blenden Sie über das Info-Symbol die Empfängerliste ein. Do
 
 Ergänzend zur Liste in edulution können Ereignisse als **Push-Benachrichtigung** auf Ihr Mobilgerät zugestellt werden. Voraussetzung ist die edulution-App: Die Zustellung wird beim Anmelden in der mobilen App eingerichtet, nicht in der Weboberfläche. Ein Tippen auf eine Push-Benachrichtigung führt zum selben Ziel wie ein Klick in der Liste.
 
+Push-Benachrichtigungen entstehen aus denselben Quellen, die auch in der Liste erscheinen: neue E-Mails, Mitteilungen vom Infoboard, gestartete Konferenzen, erstellte oder aktualisierte Umfragen sowie neue Chat-Nachrichten.
+
 Damit wiederkehrende Ereignisse aus derselben Quelle – etwa mehrere neue E-Mails kurz nacheinander – nicht zu einer Flut von Push-Benachrichtigungen führen, wird pro Quelle höchstens alle 30 Minuten eine Push-Benachrichtigung verschickt. In der Liste in edulution erscheint gleichwohl jedes Ereignis.
 
 ## Aufbewahrung

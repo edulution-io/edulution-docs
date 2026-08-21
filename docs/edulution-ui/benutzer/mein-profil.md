@@ -101,6 +101,12 @@ So ändern Sie Ihr Passwort:
 - Mindestens eine Zahl empfohlen
 - Sonderzeichen erhöhen die Sicherheit
 
+Das geänderte Passwort gilt für alle Dienste, die Sie über edulution nutzen – etwa Dateien, E-Mail und die Anmeldung an der Oberfläche selbst. Ihre Einrichtung kann darüber hinaus strengere Anforderungen festlegen; diese werden erst beim Speichern geprüft.
+
+:::tip[Für Administratoren]
+Wie die Passwortänderung eingerichtet wird und welche Voraussetzungen Keycloak und der Linuxmuster-Server dafür erfüllen müssen, beschreibt [Passwortänderung einrichten](../administration/passwort-aenderung.md).
+:::
+
 ### Zwei-Faktor-Authentifizierung
 
 Zusätzliche Sicherheit für Ihr Konto:
@@ -455,9 +461,11 @@ Weitere Details unter [Mobile App & Tablet-Nutzung](../features/mobile-app.md).
 
 ## VPN-Zugang
 
-_(Sichtbar als Administrator)_
+_(Sichtbar, wenn die WireGuard-App eingerichtet ist)_
 
-Als Administrator können Sie hier einen VPN-Zugang über WireGuard einrichten.
+Hier rufen Sie Ihren persönlichen VPN-Zugang über WireGuard ab – Verbindungsstatus, QR-Code zur Einrichtung auf dem Mobilgerät und die Konfigurationsdatei für den Computer.
+
+Ausführliche Informationen finden Sie unter [VPN-Zugang (WireGuard)](../features/vpn-zugang.md).
 
 ---
 

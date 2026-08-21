@@ -5,7 +5,7 @@ Die App **Schulserver** verbindet die edulution UI mit Ihrem Linuxmuster-Server 
 Alle Daten werden direkt über die Linuxmuster-API (`linuxmuster-api7`) geladen – die edulution UI hält dafür keinen eigenen Zwischenspeicher.
 
 :::warning[Voraussetzungen]
-Der Bereich steht nur zur Verfügung, wenn die **Zielplattform** in den globalen Einstellungen auf **Linuxmuster** gesetzt ist und die Linuxmuster-API mindestens in **Version 7.3.26** vorliegt. Bei einer älteren API-Version wird die App nicht angezeigt, sondern durch den Hinweis *„Die Linuxmuster API-Version ist zu alt"* ersetzt.
+Der Bereich steht nur zur Verfügung, wenn die **Plattform** in den globalen Einstellungen auf **Linuxmuster** gesetzt ist und die Linuxmuster-API mindestens in **Version 7.3.26** vorliegt. Bei einer älteren API-Version wird die App nicht angezeigt, sondern durch den Hinweis *„Die Linuxmuster API-Version ist zu alt"* ersetzt.
 :::
 
 ## Aufbau der App
@@ -22,7 +22,7 @@ Die Unterseiten wählen Sie über die Seitenleiste der App:
 | **Versionsübersicht** | Versionen der beteiligten Linuxmuster-Komponenten |
 
 :::note[Elternzuweisung]
-Die **Elternzuweisung** erscheint nur in Schulumgebungen. In Unternehmensumgebungen entfällt der Eintrag.
+Die **Elternzuweisung** erscheint nur in Schulumgebungen. Beim [Organisationstyp](einstellungen.md#organisationstyp) **Unternehmen** entfällt der Eintrag.
 :::
 
 :::note[LINBO nur für Globaladmins]
@@ -59,6 +59,10 @@ Die schreibenden Aktionen **Speichern** und **Prüfen** stehen nur **Globaladmin
 ### Passwörter
 
 Über die **Passwort-Aktionen** eines Kontos setzen Sie Passwörter neu. **Erstpasswort wiederherstellen** setzt das Konto auf das ursprünglich vergebene Erstpasswort zurück.
+
+:::tip[Ausführliche Anleitung]
+Eine vollständige Beschreibung der Benutzerverwaltung – Benutzertabelle, Sophomorix-Status, Spalten der Verwaltungslisten, CSV-Import und -Export sowie der Prüf- und Übernahmeprozess – finden Sie unter [Benutzerverwaltung](benutzerverwaltung.md).
+:::
 
 ## Geräteverwaltung
 
@@ -160,7 +164,8 @@ Das Bearbeiten der `start.conf` aus der edulution UI heraus ist derzeit nicht m�
 
 ## Einrichtung (für Administratoren)
 
-- Die **Zielplattform** stellen Sie unter [Einstellungen → Globale Einstellungen → Allgemein](einstellungen.md#allgemein) auf **Linuxmuster**.
+- Die **Plattform** stellen Sie unter [Einstellungen → Globale Einstellungen → Allgemein](einstellungen.md#allgemein) auf **Linuxmuster**.
+- Welche Bereiche dieser App sichtbar sind und wie sie beschriftet werden, hängt zusätzlich vom [Organisationstyp](einstellungen.md#organisationstyp) ab.
 - Die Verbindung zum Schulserver richten Sie nach der Anleitung [Linuxmuster verbinden](../configure-lmn-server/configure_lmn-server.md) ein.
 
 ## Siehe auch

@@ -82,6 +82,18 @@ const sidebars: SidebarsConfig = {
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'MongoDB',
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'edulution-ui/upgrade/mongodb/replica-set',
+                  label: 'Replica Set einrichten',
+                },
+              ],
+            },
           ],
         },
         {
@@ -89,6 +101,8 @@ const sidebars: SidebarsConfig = {
           label: 'Nutzerhandbuch',
           collapsed: false,
           items: [
+            'edulution-ui/features/navigation',
+            'edulution-ui/features/anmeldung',
             'edulution-ui/benutzer/mein-profil',
             'edulution-ui/features/dashboard',
             {
@@ -100,21 +114,32 @@ const sidebars: SidebarsConfig = {
                 id: 'edulution-ui/features/dateien/index',
               },
               items: [
-                'edulution-ui/features/dateien/browser-download-einstellungen',
                 'edulution-ui/features/dateien/webdav-windows',
                 'edulution-ui/features/dateien/webdav-macos',
                 'edulution-ui/features/dateien/webdav-linux',
+                'edulution-ui/features/dateien/ansicht-und-navigation',
+                'edulution-ui/features/dateien/vorschau-und-drucken',
+                'edulution-ui/features/dateien/drawio',
+                'edulution-ui/features/dateien/teilen',
+                'edulution-ui/features/dateien/speicherplatz-und-quota',
+                'edulution-ui/features/dateien/upload-schutzmechanismen',
+                'edulution-ui/features/dateien/browser-download-einstellungen',
                 'edulution-ui/features/goodnotes',
               ],
             },
             'edulution-ui/features/e-mail',
             'edulution-ui/features/chat',
             'edulution-ui/features/kontakte',
+            'edulution-ui/features/eltern-schueler-zuordnung',
             'edulution-ui/features/kalender',
             'edulution-ui/features/klassenzimmer',
+            'edulution-ui/features/mdm',
+            'edulution-ui/features/geraeteverwaltung',
             'edulution-ui/features/konferenzen',
             'edulution-ui/features/whiteboard',
             'edulution-ui/features/wiki',
+            'edulution-ui/features/wiki-editor',
+            'edulution-ui/features/lernmanagement',
             'edulution-ui/features/markdown-hilfe',
             'edulution-ui/features/app-store',
             'edulution-ui/features/impressum-datenschutz',
@@ -125,6 +150,7 @@ const sidebars: SidebarsConfig = {
             'edulution-ui/features/infoboard',
             'edulution-ui/features/umfragen',
             'edulution-ui/features/benachrichtigungen',
+            'edulution-ui/features/vpn-zugang',
           ],
         },
         {
@@ -134,9 +160,14 @@ const sidebars: SidebarsConfig = {
           items: [
             'edulution-ui/administration/administration',
             'edulution-ui/administration/einstellungen',
-            'edulution-ui/administration/wiki-einstellungen',
-            'edulution-ui/administration/linuxmuster',
+            'edulution-ui/administration/master-key',
+            'edulution-ui/administration/container-verwaltung',
             'edulution-ui/administration/satelliten',
+            'edulution-ui/administration/passwort-aenderung',
+            'edulution-ui/administration/linuxmuster',
+            'edulution-ui/administration/benutzerverwaltung',
+            'edulution-ui/administration/wiki-einstellungen',
+            'edulution-ui/administration/webhooks',
             'edulution-ui/administration/experten-tipps',
           ],
         },
@@ -167,6 +198,11 @@ const sidebars: SidebarsConfig = {
               type: 'doc',
               id: 'edulution-mail/administration',
               label: 'Administration',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/mail-app-konfiguration',
+              label: 'Mail-App konfigurieren',
             },
           ],
         },
@@ -240,6 +276,11 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: 'doc',
+              id: 'edulution-mail/mailbox-verwaltung',
+              label: 'Mailboxen & geteilte Postfächer',
+            },
+            {
+              type: 'doc',
               id: 'edulution-mail/verteilerlisten',
               label: 'Verteilerlisten',
             },
@@ -269,6 +310,119 @@ const sidebars: SidebarsConfig = {
               type: 'doc',
               id: 'edulution-mail/changelog-config-anpassungen',
               label: 'Changelog & Config-Anpassungen',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'edulution Satellite',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'edulution-satellite/index',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-satellite/einrichtung-mit-edulution',
+          label: 'Einrichtung mit edulution',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/standalone',
+          label: 'Standalone einrichten',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/wireguard-traefik',
+          label: 'WireGuard über Traefik',
+        }
+      ]
+    },
+    {
+      type: 'category',
+      label: 'edulution Moodle',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'edulution-moodle/index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Installation',
+          collapsed: false,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/voraussetzungen',
+              label: 'Voraussetzungen',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/schnellstart',
+              label: 'Schnellstart',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/detailliert',
+              label: 'Detaillierte Installation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/installation/migration',
+              label: 'Migration',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Konfiguration',
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/umgebungsvariablen',
+              label: 'Umgebungsvariablen',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/synchronisation',
+              label: 'Synchronisation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/namensschemas',
+              label: 'Gruppen-Namensschemas',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/cookie-auth',
+              label: 'Cookie Auth (SSO)',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/konfiguration/plugins',
+              label: 'Plugin-Verwaltung',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Administration',
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-moodle/administration/admin-ui',
+              label: 'Admin-Oberfläche',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-moodle/administration/backup',
+              label: 'Backup & Wiederherstellung',
             },
           ],
         },
@@ -384,6 +538,48 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'edulution-collabora/index',
           label: '⚙️ Installation',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Anbindungen',
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'anbindungen/index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Nextcloud Cookie Auth',
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'anbindungen/nextcloud',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'anbindungen/voraussetzungen',
+              label: 'Voraussetzungen',
+            },
+            {
+              type: 'doc',
+              id: 'anbindungen/installation',
+              label: 'Installation',
+            },
+            {
+              type: 'doc',
+              id: 'anbindungen/konfiguration',
+              label: 'Konfiguration',
+            },
+            {
+              type: 'doc',
+              id: 'anbindungen/troubleshooting',
+              label: 'Troubleshooting',
+            },
+          ],
         },
       ],
     },

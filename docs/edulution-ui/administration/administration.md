@@ -97,6 +97,13 @@ Nach einem Update sollten Sie:
 2.  Die Logs auf Fehler prüfen: `docker compose logs -f --tail=50`
 3.  Bei Problemen können Sie über den VM-Snapshot zurückrollen
 
+:::info[Update auf v2.0 oder neuer]
+Beim ersten Start nach dem Update verschlüsselt die API die gespeicherten
+Schlüssel und Passwörter mit einem Master-Schlüssel. Sichern Sie diesen
+Schlüssel unbedingt zusammen mit der Datenbank – siehe
+[Master-Key-Verschlüsselung](./master-key.md).
+:::
+
 ## 2.5 Erste Anmeldung und Konfiguration
 
 

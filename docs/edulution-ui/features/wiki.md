@@ -30,6 +30,8 @@ Klicken Sie in der Seitenleiste auf einen Wiki-Eintrag, um den Inhalt zu öffnen
 
 Klicken Sie auf **Bearbeiten** (Stift-Symbol), um in den Bearbeitungsmodus zu wechseln (Voraussetzung: Schreibrecht auf der zugrundeliegenden Datei-Freigabe). Mit **Schließen** verlassen Sie den Editor wieder.
 
+Formatierungen werden beim Schreiben sofort dargestellt – Sie sehen also immer das fertige Ergebnis und müssen keine Markdown-Zeichen kennen.
+
 ### Werkzeugleiste
 
 Die Editor-Leiste bietet:
@@ -38,13 +40,25 @@ Die Editor-Leiste bietet:
 - **Fett**, **Kursiv**, **Durchgestrichen**
 - **Inline-Code** und **Code-Blöcke**
 - **Aufzählungen**, **Nummerierte Listen**, **Aufgabenlisten**
-- Zitat, horizontale Linie
-- **Bilder** und **Links**
+- Zitat, **Hinweisboxen**, horizontale Linie
+- **Formeln** in LaTeX-Schreibweise
+- **Links**, **Wiki-Verlinkung**, **Medien** (Bild per URL, Datei hochladen, vorhandene Datei einfügen)
 - **Tabellen**
+- **Suchen und ersetzen**
+
+Dieselben Blöcke erreichen Sie ohne Maus über das **Slash-Menü**: Tippen Sie am Anfang einer leeren Zeile ein `/` und filtern Sie die Liste durch Weitertippen.
+
+:::info[Alle Editor-Funktionen im Detail]
+Slash-Menü, Hinweisboxen, Formeln, Dateianhänge, Emojis, Codeblock-Werkzeugleiste, Suchen/Ersetzen und alle Tastenkombinationen sind unter [Wiki-Editor](wiki-editor.md) beschrieben.
+:::
 
 ### Wiki-Verlinkung
 
-Verweise auf andere Wiki-Seiten lassen sich über die Syntax `[[Seitenname]]` einfügen. Während der Eingabe schlägt der Editor passende Seiten zur Auswahl vor.
+Verweise auf andere Wiki-Seiten lassen sich über die Syntax `[[Seitenname]]` einfügen. Während der Eingabe schlägt der Editor passende Seiten zur Auswahl vor. Mit `[[Seitenname|Anzeigetext]]` vergeben Sie einen abweichenden Linktext.
+
+### Dateien anhängen
+
+Dateien lassen sich per Drag & Drop, über die Zwischenablage oder über **Medien einfügen** in eine Seite hochladen. Sie werden auf der WebDAV-Freigabe des Wikis gespeichert – Bilder erscheinen direkt im Text, andere Dateien als Dateikarte mit Vorschau, Download und Entfernen. Über die App [Dateien](dateien/index.md) erreichen Sie dieselben Dateien und können sie dort [ansehen und bearbeiten](dateien/vorschau-und-drucken.md#vorschau-öffnen).
 
 ### Speichern
 
@@ -141,6 +155,7 @@ Das Wiki nutzt Standard-Markdown. Eine Übersicht der unterstützten Formatierun
 
 ## Siehe auch
 
+- [Wiki-Editor](wiki-editor.md) – Slash-Menü, Anhänge, Formeln und Suchen/Ersetzen
 - [Markdown-Hilfe](markdown-hilfe.md) – unterstützte Formatierungen im Wiki-Editor
 - [Wiki-Einstellungen (Admin)](../administration/wiki-einstellungen.md) – Sichtbarkeit pro Freigabe steuern
 - [Wiki-Infrastruktur (Admin)](../../edulution-fileproxy/wiki-infrastruktur.md) – Server-seitige Einrichtung des Suchindex

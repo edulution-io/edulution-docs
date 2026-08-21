@@ -76,9 +76,7 @@ Alle Aktionen außer **Erstellen** und **Terminal** wirken auf die gesamte Auswa
 
 ### Geschützte Container
 
-Für die Container der edulution-Basisinstallation werden **keine** Aktionsschaltflächen angeboten, sobald sie Teil der Auswahl sind:
-
-`edulution-api` · `edulution-ui` · `edulution-db` · `edulution-redis` · `edulution-traefik` · `edulution-keycloak` · `edulution-keycloak-db`
+Solange ein Container in der edulution-Basisinstallation eingebunden ist, gilt dieser als geschützt. Deshalb werden dann **keine** Aktionsschaltflächen angeboten.
 
 Ein Stoppen oder Löschen dieser Container würde die edulution UI selbst außer Betrieb setzen. Die Sperre gilt zusätzlich serverseitig: Auch ein direkter Aufruf der Schnittstelle wird für Start, Stopp, Neustart, Beenden und Löschen abgewiesen.
 

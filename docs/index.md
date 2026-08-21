@@ -9,13 +9,13 @@ Alle Informationen zu edulution.io finden Sie auf der Webseite
 
 ## Produkte
 
-### [edulution UI](/docs/edulution-ui/installation/voraussetzungen)
+### [edulution Plattform](/docs/edulution-plattform/installation/voraussetzungen)
 
 Die zentrale Plattform für digitales Lernen - mit Dateiverwaltung, Konferenzen, Whiteboard und mehr.
 
 ### [edulution Mail](/docs/edulution-mail/installation)
 
-E-Mail-Lösung basierend auf Mailcow - vollständig integriert mit edulution UI und Linuxmuster.
+E-Mail-Lösung basierend auf Mailcow - vollständig integriert mit edulution Plattform und Linuxmuster.
 
 ### [edulution FileProxy](/docs/edulution-fileproxy/)
 
@@ -33,7 +33,7 @@ OnlyOffice-Integration für die Dateiverwaltung
 
 Collabora-Online-Integration für die Dateiverwaltung
 
-## Kann ich die edulution UI testen?
+## Kann ich die edulution Plattform testen?
 
 Sehr gerne sogar! Sie finden eine Demo unter [https://demo.edulution.io](https://demo.edulution.io). Um
 Zugangsdaten zu erhalten, können Sie uns gerne per E-Mail oder Telefon

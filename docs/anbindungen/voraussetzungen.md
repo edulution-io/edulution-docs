@@ -9,7 +9,7 @@ sidebar_position: 3
 :::danger Wichtig
 Nextcloud **muss** unter einer Subdomain der edulution-Domain laufen.
 
-| edulution UI | Nextcloud | Funktioniert? |
+| edulution Plattform | Nextcloud | Funktioniert? |
 |--------------|-----------|---------------|
 | `edu.schule.de` | `cloud.edu.schule.de` | ✅ Ja |
 | `edu.schule.de` | `nextcloud.schule.de` | ❌ Nein |

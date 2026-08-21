@@ -1,7 +1,7 @@
 {
   "name": "edulution-docs",
   "version": "1.0.0",
-  "description": "Offizielle Dokumentation für edulution UI und edulution Mail",
+  "description": "Offizielle Dokumentation für edulution Plattform und edulution Mail",
   "author": "edulution.io",
   "license": "MIT",
   "private": true,
@@ -20,6 +20,7 @@
   "dependencies": {
     "@docusaurus/core": "3.10.1",
     "@docusaurus/faster": "^3.10.1",
+    "@docusaurus/plugin-client-redirects": "^3.10.1",
     "@docusaurus/preset-classic": "3.10.1",
     "@docusaurus/theme-mermaid": "3.10.1",
     "@easyops-cn/docusaurus-search-local": "^0.52.1",

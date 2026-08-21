@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Mailboxen und geteilte Postfächer
 
-Mailboxen lassen sich direkt aus edulution UI heraus anlegen, bearbeiten und löschen – ein Wechsel in die Mailcow-Oberfläche ist dafür nicht mehr nötig. Zusätzlich verwaltet edulution hier geteilte Postfächer: Postfächer, auf die mehrere Benutzer zugreifen und in deren Namen sie E-Mails versenden dürfen.
+Mailboxen lassen sich direkt aus edulution Plattform heraus anlegen, bearbeiten und löschen – ein Wechsel in die Mailcow-Oberfläche ist dafür nicht mehr nötig. Zusätzlich verwaltet edulution hier geteilte Postfächer: Postfächer, auf die mehrere Benutzer zugreifen und in deren Namen sie E-Mails versenden dürfen.
 
 :::caution Nur Global-Admin
 Die Mailbox-Verwaltung ist ausschließlich für Global-Administratoren sichtbar. Alle Aktionen wirken unmittelbar auf dem Mailserver.
@@ -67,7 +67,7 @@ Diese Schalter entsprechen den gleichnamigen Optionen in Mailcow und gelten für
 | **SMTP Zugriff** | Versand über den Mailserver |
 
 :::warning[IMAP nicht abschalten]
-Der in edulution UI integrierte E-Mail-Client greift über IMAP und SMTP auf den Mailserver zu. Ist **IMAP Zugriff** oder **SMTP Zugriff** deaktiviert, kann der Benutzer die Mail-App nicht mehr verwenden – auch dann nicht, wenn die Webmail-Oberfläche weiterhin funktioniert.
+Der in edulution Plattform integrierte E-Mail-Client greift über IMAP und SMTP auf den Mailserver zu. Ist **IMAP Zugriff** oder **SMTP Zugriff** deaktiviert, kann der Benutzer die Mail-App nicht mehr verwenden – auch dann nicht, wenn die Webmail-Oberfläche weiterhin funktioniert.
 :::
 
 ## Benutzer-ACL

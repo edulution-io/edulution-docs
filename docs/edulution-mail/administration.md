@@ -68,7 +68,7 @@ Das Webmail-Interface basiert auf SOGo und ist über `https://mail.ihre-domain.d
 
 **Theme anpassen:**
 Das Design des SOGo Webmailers (hell/dunkel) kann in den Einstellungen angepasst werden.
-[→ E-Mail-Einstellungen](/docs/edulution-ui/administration/einstellungen#e-mails)
+[→ E-Mail-Einstellungen](/docs/edulution-plattform/administration/einstellungen#e-mails)
 
 ## Synchronisation
 
@@ -237,8 +237,8 @@ Der Token wird über die edulution-mail API mit Keycloak validiert. Bei erfolgre
 
 Die folgenden Themen sind in separaten Dokumenten verfügbar:
 
-- [Mail-App konfigurieren](mail-app-konfiguration) - Mailcow-API, IMAP/SMTP und externe Provider in edulution UI
-- [Mailboxen und geteilte Postfächer](mailbox-verwaltung) - Mailboxen aus edulution UI heraus verwalten
+- [Mail-App konfigurieren](mail-app-konfiguration) - Mailcow-API, IMAP/SMTP und externe Provider in edulution Plattform
+- [Mailboxen und geteilte Postfächer](mailbox-verwaltung) - Mailboxen aus edulution Plattform heraus verwalten
 - [Mail-Migration für Administratoren](admin_mail_migration) - E-Mail-Synchronisierung einrichten
 - [Mail-Migration für Benutzer](user_mail_migration) - Eigene E-Mails migrieren
 - [Verteilerlisten](verteilerlisten) - Projekt-basierte E-Mail-Verteiler

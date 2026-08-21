@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Mail-App konfigurieren
 
-Der in edulution UI integrierte E-Mail-Client greift nicht über die Mailcow-Oberfläche auf den Mailserver zu, sondern spricht IMAP, SMTP, ManageSieve und die Mailcow-API direkt an. Alle dafür nötigen Angaben werden in den **Einstellungen** der Mail-App gepflegt – die Konfiguration per Umgebungsvariable entfällt.
+Der in edulution Plattform integrierte E-Mail-Client greift nicht über die Mailcow-Oberfläche auf den Mailserver zu, sondern spricht IMAP, SMTP, ManageSieve und die Mailcow-API direkt an. Alle dafür nötigen Angaben werden in den **Einstellungen** der Mail-App gepflegt – die Konfiguration per Umgebungsvariable entfällt.
 
 :::caution Nur Global-Admin
 Die App-Einstellungen sind ausschließlich für Global-Administratoren sichtbar und änderbar.
@@ -126,7 +126,7 @@ Host, Port und Verschlüsselung eines Providers sind ausschließlich für Global
 
 ## Siehe auch
 
-- [Mailboxen und geteilte Postfächer](mailbox-verwaltung.md) – Mailboxen aus edulution UI heraus verwalten
+- [Mailboxen und geteilte Postfächer](mailbox-verwaltung.md) – Mailboxen aus edulution Plattform heraus verwalten
 - [Administration](administration.md) – Mailcow-Oberfläche und Webmail
 - [Server-Einstellungen](clients/server-settings.md) – dieselben Daten für externe Mail-Clients
 - [Admin: Migration einrichten](admin_mail_migration.md) – Sync-Jobs für die Migration

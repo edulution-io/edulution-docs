@@ -6,12 +6,12 @@ description: Übersicht über den edulution Satellite, seine Betriebsarten und d
 
 # edulution Satellite
 
-Der **edulution Satellite** ist eine Appliance für entfernte Standorte – als MikroTik-Hardware oder als virtuelle Maschine. Er stellt vor Ort Netzwerke (VLANs), DHCP und Dienste wie mDNS-Repeater, RADIUS, KMS oder File Server bereit und lässt sich wahlweise **zentral aus der edulution UI** oder **eigenständig über seine lokale Oberfläche** verwalten.
+Der **edulution Satellite** ist eine Appliance für entfernte Standorte – als MikroTik-Hardware oder als virtuelle Maschine. Er stellt vor Ort Netzwerke (VLANs), DHCP und Dienste wie mDNS-Repeater, RADIUS, KMS oder File Server bereit und lässt sich wahlweise **zentral aus der edulution Plattform** oder **eigenständig über seine lokale Oberfläche** verwalten.
 
 Technisch läuft der Satellit als drei Container (Datenbank, API, UI) direkt auf dem Gerät. Im zentral verwalteten Betrieb verbindet er sich über einen **WireGuard-Tunnel** mit Ihrer edulution-Instanz.
 
 ```text
-[ Satellit: Datenbank + API + UI ] --WireGuard--> [ edulution UI ] --> [ linuxmuster-Server ]
+[ Satellit: Datenbank + API + UI ] --WireGuard--> [ edulution Plattform ] --> [ linuxmuster-Server ]
     LAN-Ports / VLANs vor Ort                      App „Satellites"       zentrales DHCP/DNS
 ```
 
@@ -21,7 +21,7 @@ Technisch läuft der Satellit als drei Container (Datenbank, API, UI) direkt auf
 
 | | **Mit edulution** | **Standalone** |
 |---|---|---|
-| Verwaltung | zentral aus der edulution UI | lokal auf dem Satelliten |
+| Verwaltung | zentral aus der edulution Plattform | lokal auf dem Satelliten |
 | Verbindung zur Zentrale | WebSocket | – |
 | WireGuard-Tunnel | nur für zentrale Netze | nicht nötig |
 | Zentrale Netze (linuxmuster) über VLAN | ✔ | ✘ |
@@ -65,4 +65,4 @@ Läuft der Satellit als VM, entfällt der Management-Port. Der Zugang erfolgt da
 - [Einrichtung mit edulution](./einrichtung-mit-edulution.md) – Apps installieren, WireGuard starten, Gerät koppeln, zentrale Netze bereitstellen.
 - [Standalone einrichten](./standalone.md) – Satellit ohne zentrale edulution-Instanz in Betrieb nehmen.
 - [WireGuard-Server über Traefik](./wireguard-traefik.md) – einmalige Vorbereitung auf dem edulution-Server.
-- [Satelliten verwalten](../edulution-ui/administration/satelliten.md) – laufender Betrieb in der edulution UI.
+- [Satelliten verwalten](../edulution-plattform/administration/satelliten.md) – laufender Betrieb in der edulution Plattform.

@@ -19,7 +19,7 @@ In den Einstellungen unter **Dateien** den Reiter **Allgemeine Einstellungen**
 
 Im Bereich **EuroOffice Integration** folgende Werte eintragen:
 
-- **EuroOffice-URL**: Die edulution UI Domain mit dem Pfad `/eurooffice/`, z. B.
+- **EuroOffice-URL**: Die edulution Plattform Domain mit dem Pfad `/eurooffice/`, z. B.
   `https://ui.example.de/eurooffice/`
 - **EuroOffice JWT Secret**: Wird automatisch generiert
 

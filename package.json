@@ -1,7 +1,7 @@
 {
   "name": "edulution-docs",
   "version": "1.0.0",
-  "description": "Offizielle Dokumentation für edulution UI und edulution Mail",
+  "description": "Offizielle Dokumentation für edulution Plattform und edulution Mail",
   "author": "edulution.io",
   "license": "MIT",
   "private": true,

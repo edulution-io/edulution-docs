@@ -1,6 +1,6 @@
 # Container-Verwaltung
 
-Die edulution UI verwaltet die Docker-Container Ihres Servers direkt aus der Oberfläche heraus: Sie sehen alle Container mit ihrem aktuellen Zustand, installieren die Container zusätzlicher Dienste (Plugins), aktualisieren sie auf das neueste Image und steuern ihren Lebenszyklus – starten, stoppen, neu starten, erzwungen beenden und löschen.
+Die edulution Plattform verwaltet die Docker-Container Ihres Servers direkt aus der Oberfläche heraus: Sie sehen alle Container mit ihrem aktuellen Zustand, installieren die Container zusätzlicher Dienste (Plugins), aktualisieren sie auf das neueste Image und steuern ihren Lebenszyklus – starten, stoppen, neu starten, erzwungen beenden und löschen.
 
 :::caution[Nur Global-Admin]
 Die Container-Verwaltung ist ausschließlich für Global-Admins zugänglich. Alle Aufrufe der zugehörigen Schnittstelle sind serverseitig auf diese Rolle beschränkt.
@@ -49,7 +49,7 @@ Die Tabelle listet **alle** Container des Docker-Hosts – auch gestoppte. Über
 Auf kleinen Bildschirmen werden **Image**, **Port**, **Status** und **Erstellt am** ausgeblendet.
 
 :::tip[Die Tabelle aktualisiert sich selbst]
-Die edulution UI hört auf die Ereignisse des Docker-Daemons. Startet, stoppt oder verschwindet ein Container – auch außerhalb der UI, etwa per SSH –, aktualisiert sich die Tabelle automatisch. Die Schaltfläche **Neu laden** erzwingt zusätzlich ein sofortiges Neuladen.
+Die edulution Plattform hört auf die Ereignisse des Docker-Daemons. Startet, stoppt oder verschwindet ein Container – auch außerhalb der UI, etwa per SSH –, aktualisiert sich die Tabelle automatisch. Die Schaltfläche **Neu laden** erzwingt zusätzlich ein sofortiges Neuladen.
 :::
 
 ## Aktionen
@@ -78,7 +78,7 @@ Alle Aktionen außer **Erstellen** und **Terminal** wirken auf die gesamte Auswa
 
 Solange ein Container in der edulution-Basisinstallation eingebunden ist, gilt dieser als geschützt. Deshalb werden dann **keine** Aktionsschaltflächen angeboten.
 
-Ein Stoppen oder Löschen dieser Container würde die edulution UI selbst außer Betrieb setzen. Die Sperre gilt zusätzlich serverseitig: Auch ein direkter Aufruf der Schnittstelle wird für Start, Stopp, Neustart, Beenden und Löschen abgewiesen.
+Ein Stoppen oder Löschen dieser Container würde die edulution Plattform selbst außer Betrieb setzen. Die Sperre gilt zusätzlich serverseitig: Auch ein direkter Aufruf der Schnittstelle wird für Start, Stopp, Neustart, Beenden und Löschen abgewiesen.
 
 Enthält die Auswahl einen geschützten Container, verschwindet die gesamte Aktionsleiste – auch für die übrigen ausgewählten Container. Nehmen Sie den geschützten Container aus der Auswahl, um mit den anderen weiterzuarbeiten.
 
@@ -166,7 +166,7 @@ Ist die App **Desktop-Bereitstellung** konfiguriert und läuft der Container `ed
 
 1. **Terminal** anklicken.
 2. Im Dialog **SSH Anmeldedaten** Benutzername und Passwort des Servers eingeben.
-3. Mit **Verbinden** bestätigen – die Sitzung öffnet sich in einem Fenster innerhalb der edulution UI.
+3. Mit **Verbinden** bestätigen – die Sitzung öffnet sich in einem Fenster innerhalb der edulution Plattform.
 
 Fehlt die Schaltfläche, prüfen Sie, ob unter **Einstellungen → Desktop-Bereitstellung** eine URL hinterlegt ist und ob der Guacamole-Container läuft.
 

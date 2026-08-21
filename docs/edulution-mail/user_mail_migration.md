@@ -4,7 +4,7 @@ Nachdem der Administrator das Sync-Profil angelegt hat, kann jeder
 Benutzer die Synchronisierung für sein eigenes Postfach individuell
 starten.
 
-1.  **Zum eigenen Profil navigieren:** Klicken Sie in der edulution UI
+1.  **Zum eigenen Profil navigieren:** Klicken Sie in der edulution Plattform
     unten links auf **\"Benutzereinstellungen\"** und wählen Sie den Reiter
     **\"Mail\"**.
 

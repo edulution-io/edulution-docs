@@ -14,7 +14,7 @@ an folgendem Ort gespeichert:
 
 Um ein bestehendes Zertifikat manuell auszutauschen, ersetzen Sie
 einfach die Dateien `cert.cert` und `cert.key` im oben genannten
-Verzeichnis und starten Sie die edulution UI neu.
+Verzeichnis und starten Sie die edulution Plattform neu.
 
 :::note
 Wenn Sie bei der Installation **Let's Encrypt** gewählt haben, werden
@@ -25,12 +25,12 @@ Speicherort dafür ist `/srv/docker/edulution-ui/data/letsencrypt/`.
 
 **Betrieb hinter einem Reverse-Proxy oder einer Firewall**
 
-Häufig wird die edulution UI nicht direkt aus dem Internet erreichbar
+Häufig wird die edulution Plattform nicht direkt aus dem Internet erreichbar
 sein, sondern hinter einer Firewall mit "Web Server Protection" oder
 einem anderen Reverse-Proxy betrieben.
 
 In diesem Szenario übernimmt die Firewall oder der Proxy die
-SSL-Terminierung (die Verschlüsselung). Die edulution UI selbst wird
+SSL-Terminierung (die Verschlüsselung). Die edulution Plattform selbst wird
 dann unverschlüsselt über HTTP betrieben.
 
 Das System erkennt automatisch, wenn es hinter einem Reverse-Proxy
@@ -38,5 +38,5 @@ betrieben wird (anhand von `X-Forwarded-For` Headern in der Anfrage) und
 passt sein Verhalten entsprechend an. Während der Installation wird in
 diesem Fall der Schritt zur SSL-Einrichtung übersprungen. Hierbei ist
 wichtig dass auf der Firewall/Proxy Websocket-Verbindungen erlaubt sind,
-da die edulutionUI diese für die Kommunikation mit dem Browser benötigt.
+da die edulution Plattform diese für die Kommunikation mit dem Browser benötigt.
 Wo diese Einstellung zu finden ist, hängt vom jeweiligen Produkt ab.

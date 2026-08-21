@@ -27,7 +27,7 @@ Der Rückfallweg greift bei **jedem** Fehler des Keycloak-Wegs – also auch dan
 
 ## Voraussetzungen in Keycloak
 
-Die Keycloak-Administrationsoberfläche erreichen Sie über die URL Ihrer edulution UI gefolgt von `/auth` (siehe [Experten-Tipps](experten-tipps.md)). Realm- und Client-Namen entnehmen Sie den Variablen `KEYCLOAK_EDU_UI_REALM` und `KEYCLOAK_EDU_UI_CLIENT_ID` aus `/srv/docker/edulution-ui/edulution.env`.
+Die Keycloak-Administrationsoberfläche erreichen Sie über die URL Ihrer edulution Plattform gefolgt von `/auth` (siehe [Experten-Tipps](experten-tipps.md)). Realm- und Client-Namen entnehmen Sie den Variablen `KEYCLOAK_EDU_UI_REALM` und `KEYCLOAK_EDU_UI_CLIENT_ID` aus `/srv/docker/edulution-ui/edulution.env`.
 
 | Voraussetzung | Ort in Keycloak | Wozu |
 |---|---|---|

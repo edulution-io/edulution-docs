@@ -50,7 +50,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'edulution UI',
+      label: 'edulution Plattform',
       collapsed: false,
       items: [
         {
@@ -180,7 +180,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'edulution Mail Dokumentation',
-        description: 'E-Mail-Lösung basierend auf Mailcow - vollständig integriert mit edulution UI und Linuxmuster.',
+        description: 'E-Mail-Lösung basierend auf Mailcow - vollständig integriert mit edulution Plattform und Linuxmuster.',
         slug: '/category/edulution-mail',
       },
       items: [

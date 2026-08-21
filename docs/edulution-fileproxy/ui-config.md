@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # FileProxy in der UI einrichten
 
-In diesem Abschnitt richten Sie den FileProxy in der edulution UI ein, damit Ihre Benutzer auf ihre Netzlaufwerke zugreifen können.
+In diesem Abschnitt richten Sie den FileProxy in der edulution Plattform ein, damit Ihre Benutzer auf ihre Netzlaufwerke zugreifen können.
 
 ## Warum FileProxy?
 

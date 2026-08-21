@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: Einrichtung mit edulution
-description: Schritt-für-Schritt-Anleitung zur Inbetriebnahme eines Satelliten mit zentraler Verwaltung über die edulution UI
+description: Schritt-für-Schritt-Anleitung zur Inbetriebnahme eines Satelliten mit zentraler Verwaltung über die edulution Plattform
 ---
 
 # Einrichtung mit edulution

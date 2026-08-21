@@ -5,7 +5,7 @@ slug: /edulution-ui/administration/administration
 ---
 
 Dieser Bereich beschreibt die grundlegende Verwaltung und Konfiguration
-der edulution UI nach der Installation.
+der edulution Plattform nach der Installation.
 
 ------------------------------------------------------------------------
 
@@ -28,12 +28,12 @@ müssen nicht zwingend gesichert werden.
 
 ## 2.3 Ports und Firewall
 
-Die edulution UI verwendet folgende Ports:
+Die edulution Plattform verwendet folgende Ports:
 
 | Port | Protokoll | Beschreibung |
 |------|-----------|--------------|
 | 80/tcp | HTTP | Weiterleitung zu HTTPS |
-| 443/tcp | HTTPS | Web-Interface (edulution UI) |
+| 443/tcp | HTTPS | Web-Interface (edulution Plattform) |
 | 143/tcp | IMAP | E-Mail unverschlüsselt (nur intern) |
 | 993/tcp | IMAPS | E-Mail verschlüsselt (SSL/TLS) |
 
@@ -52,15 +52,15 @@ ufw allow from 10.0.0.0/8 to any port 143
 ## 2.4 Updates
 
 
-### 2.4.1 edulution UI aktualisieren
+### 2.4.1 edulution Plattform aktualisieren
 
 :::danger
 Erstellen Sie vor jedem Update einen Snapshot Ihrer VM!
 :::
 
-Um die edulution UI zu aktualisieren:
+Um die edulution Plattform zu aktualisieren:
 
-1.  Wechseln Sie in das edulution UI Verzeichnis:
+1.  Wechseln Sie in das edulution Plattform Verzeichnis:
 
     ``` bash
     cd /srv/docker/edulution-ui
@@ -85,7 +85,7 @@ Um die edulution UI zu aktualisieren:
     ```
 
 :::note
-Das Update dauert in der Regel nur wenige Minuten. Die edulution UI
+Das Update dauert in der Regel nur wenige Minuten. Die edulution Plattform
 bleibt während des Updates kurz nicht erreichbar.
 :::
 
@@ -93,7 +93,7 @@ bleibt während des Updates kurz nicht erreichbar.
 
 Nach einem Update sollten Sie:
 
-1.  Die Funktionalität der edulution UI testen
+1.  Die Funktionalität der edulution Plattform testen
 2.  Die Logs auf Fehler prüfen: `docker compose logs -f --tail=50`
 3.  Bei Problemen können Sie über den VM-Snapshot zurückrollen
 
@@ -109,14 +109,14 @@ Schlüssel unbedingt zusammen mit der Datenbank – siehe
 
 ### 2.5.1 Anmeldung als global-admin
 
-Nach der erfolgreichen Installation können Sie sich an der edulution UI
+Nach der erfolgreichen Installation können Sie sich an der edulution Plattform
 anmelden:
 
-1.  Öffnen Sie einen Webbrowser und navigieren Sie zur edulution UI-URL
+1.  Öffnen Sie einen Webbrowser und navigieren Sie zur edulution Plattform-URL
 2.  Melden Sie sich als **global-admin** an, um Konfigurationen
     vorzunehmen
 
-{/* ![edulution UI Login-Seite](login.png) */}
+{/* ![edulution Plattform Login-Seite](login.png) */}
 
 :::warning
 Verwenden Sie für die erste Anmeldung immer den **global-admin**
@@ -127,7 +127,7 @@ Account, um alle administrativen Funktionen nutzen zu können.
 
 Nach der erfolgreichen Anmeldung gelangen Sie zum Dashboard:
 
-{/* ![edulution UI Dashboard](dashboard.png) */}
+{/* ![edulution Plattform Dashboard](dashboard.png) */}
 
 Das Dashboard bietet Ihnen:
 
@@ -157,7 +157,7 @@ Anwendungen:
 1.  Klicken Sie in der Seitenleiste auf **\"App Store\"**
 2.  Sie sehen eine Übersicht aller verfügbaren Apps
 
-{/* ![edulution UI App Store](appstore.png) */}
+{/* ![edulution Plattform App Store](appstore.png) */}
 
 **App-Status verstehen:**
 
@@ -226,7 +226,7 @@ Hier können Sie präzise festlegen, welche Benutzergruppen oder Rollen
 Zugriff auf die jeweilige App haben.
 
 :::note
-**Integration mit Linuxmuster:** Die edulution UI nutzt die vorhandenen
+**Integration mit Linuxmuster:** Die edulution Plattform nutzt die vorhandenen
 Gruppen und Rollen aus Ihrem Linuxmuster-System. Sie müssen keine
 separaten Berechtigungen pflegen.
 :::
@@ -237,7 +237,7 @@ separaten Berechtigungen pflegen.
 ### 2.6.1 App Frame - Externe Webseiten einbinden
 
 Mit dem **App Frame** können Sie externe Webseiten direkt in die
-edulution UI einbetten.
+edulution Plattform einbetten.
 
 {/* ![App Frame Konfiguration - Speiseplan Beispiel](app-frame-speiseplan.png) */}
 
@@ -273,7 +273,7 @@ dass die Seite korrekt angezeigt wird.
 
 ## 2.7 KI-Chat konfigurieren
 
-Die edulution UI unterstützt OpenAI, Anthropic, Google Gemini, Ollama
+Die edulution Plattform unterstützt OpenAI, Anthropic, Google Gemini, Ollama
 und OpenAI-kompatible Dienste. Ergänzen Sie die Variablen des gewünschten
 Anbieters in der `.edulution.env` im Installationsverzeichnis
 `/srv/docker/edulution-ui`.

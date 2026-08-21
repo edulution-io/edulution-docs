@@ -19,7 +19,7 @@ In den Einstellungen unter **Dateien** den Reiter **Allgemeine Einstellungen**
 
 Im Bereich **OnlyOffice Integration** folgende Werte eintragen:
 
-- **OnlyOffice-URL**: Die edulution UI Domain mit dem Pfad `/docservice/`, z. B.
+- **OnlyOffice-URL**: Die edulution Plattform Domain mit dem Pfad `/docservice/`, z. B.
   `https://ui.example.de/docservice/`
 - **OnlyOffice JWT Secret**: Wird automatisch generiert
 

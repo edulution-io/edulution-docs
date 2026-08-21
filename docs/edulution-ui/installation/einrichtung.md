@@ -1,6 +1,6 @@
 # Einrichtung
 
-Diese Anleitung führt Sie Schritt für Schritt durch die Installation der edulution UI.
+Diese Anleitung führt Sie Schritt für Schritt durch die Installation der edulution Plattform.
 
 ## Inhaltsverzeichnis
 
@@ -37,11 +37,11 @@ Das Installationsprogramm startet und installiert alle benötigten
     Pakete. Sobald folgende Meldung erscheint, geht es weiter:
 
     ``` text
-    [*] Starte den edulution UI Web-Installer...
+    [*] Starte den edulution Plattform Web-Installer...
 
     ########################################################
 
-        edulution UI Web-Installer
+        edulution Plattform Web-Installer
 
         Sie erreichen die Oberfläche wie folgt:
 
@@ -77,8 +77,8 @@ Hier sollten die Daten auf Richtigkeit geprüft bzw. manuell
     :::warning
     - Um LDAPs (Port 636) zu verwenden, wird ein gültiges
       LDAP-Zertifikat benötigt!
-    - Unter "Externe Domain der edulution UI" **muss** die Domain
-      stehen, unter der die edulution UI erreichbar ist. **Der Zugriff
+    - Unter "Externe Domain der edulution Plattform" **muss** die Domain
+      stehen, unter der die edulution Plattform erreichbar ist. **Der Zugriff
       von einer anderen Domain aus ist nicht möglich!**
     :::
 
@@ -90,7 +90,7 @@ Nach der Grundkonfiguration werden Sie nach der SSL-Zertifikat
     Einrichtung gefragt.
 
     :::note
-    Falls Ihre edulution UI hinter einem Reverse-Proxy betrieben wird,
+    Falls Ihre edulution Plattform hinter einem Reverse-Proxy betrieben wird,
     der bereits SSL-Terminierung übernimmt, können Sie diesen Schritt
     überspringen.
     :::
@@ -144,7 +144,7 @@ Anschließend wird der Zugriff auf die Linuxmuster-WebUI (Port 443),
 ## 8. Installation abschließen
 
 Erscheint in der Konsole folgender Text, ist die Installation
-    abgeschlossen und die edulution UI kann verwendet werden!
+    abgeschlossen und die edulution Plattform kann verwendet werden!
 
 > ``` text
 > ########################################################
@@ -155,7 +155,7 @@ Erscheint in der Konsole folgender Text, ist die Installation
 >  | |_| | | |_| | (__|   <  \ V  V /| |_| | | | \__ \ (__| | | |_|
 >  \____|_|\__,_|\___|_|\_\  \_/\_/  \__,_|_| |_|___/\___|_| |_(_)
 >
->     Die Installation der edulution UI ist abgeschlossen!
+>     Die Installation der edulution Plattform ist abgeschlossen!
 >
 >     Sie erreichen die Oberfläche wie folgt:
 >

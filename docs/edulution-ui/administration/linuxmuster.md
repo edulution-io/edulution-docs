@@ -1,8 +1,8 @@
 # Linuxmuster / LINBO
 
-Die App **Schulserver** verbindet die edulution UI mit Ihrem Linuxmuster-Server und bündelt die Verwaltung von Benutzerkonten, Geräten und Elternzuweisungen. Der Bereich **LINBO** innerhalb dieser App zeigt zusätzlich die Hosts, Konfigurationen und Images Ihrer LINBO-Installation.
+Die App **Schulserver** verbindet die edulution Plattform mit Ihrem Linuxmuster-Server und bündelt die Verwaltung von Benutzerkonten, Geräten und Elternzuweisungen. Der Bereich **LINBO** innerhalb dieser App zeigt zusätzlich die Hosts, Konfigurationen und Images Ihrer LINBO-Installation.
 
-Alle Daten werden direkt über die Linuxmuster-API (`linuxmuster-api7`) geladen – die edulution UI hält dafür keinen eigenen Zwischenspeicher.
+Alle Daten werden direkt über die Linuxmuster-API (`linuxmuster-api7`) geladen – die edulution Plattform hält dafür keinen eigenen Zwischenspeicher.
 
 :::warning[Voraussetzungen]
 Der Bereich steht nur zur Verfügung, wenn die **Plattform** in den globalen Einstellungen auf **Linuxmuster** gesetzt ist und die Linuxmuster-API mindestens in **Version 7.3.26** vorliegt. Bei einer älteren API-Version wird die App nicht angezeigt, sondern durch den Hinweis *„Die Linuxmuster API-Version ist zu alt"* ersetzt.
@@ -160,7 +160,7 @@ Einige Aktionen sind in der Oberfläche bereits vorhanden, aber noch nicht angeb
 - die Aktion **Sync** im Bereich **Konfigurationen**
 - die Spalten **Status** und **Geplant** der Hostliste
 
-Das Bearbeiten der `start.conf` aus der edulution UI heraus ist derzeit nicht möglich; die Konfigurationen werden ausschließlich angezeigt.
+Das Bearbeiten der `start.conf` aus der edulution Plattform heraus ist derzeit nicht möglich; die Konfigurationen werden ausschließlich angezeigt.
 
 ## Einrichtung (für Administratoren)
 

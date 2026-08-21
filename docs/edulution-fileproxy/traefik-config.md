@@ -8,19 +8,19 @@ Reverse Proxy für FileProxy einrichten.
 
 ## Übersicht
 
-Traefik leitet `/webdav` Anfragen von der edulution UI an den FileProxy-Server weiter.
+Traefik leitet `/webdav` Anfragen von der edulution Plattform an den FileProxy-Server weiter.
 
 ## Voraussetzungen
 
 - [FileProxy installiert und läuft](./installation)
-- Traefik auf edulution UI VM
+- Traefik auf edulution Plattform VM
 - FileProxy-Server IP-Adresse bekannt
 
 ## Konfiguration
 
 ### Config-Datei erstellen
 
-Auf der **edulution UI VM**:
+Auf der **edulution Plattform VM**:
 
 ```bash
 sudo nano /srv/docker/edulution-ui/data/traefik/config/webdav.yml
@@ -59,4 +59,4 @@ docker-compose restart traefik
 
 ## Nächster Schritt
 
-Aktivieren Sie WebDAV in der [edulution UI](./ui-config) →
+Aktivieren Sie WebDAV in der [edulution Plattform](./ui-config) →

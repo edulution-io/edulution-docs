@@ -130,7 +130,7 @@ Die Eingebettete App arbeitet eng mit anderen edulution-Features zusammen:
 ### Frame
 - Einbettung externer Anwendungen
 - iFrame-basierte Integration
-- Nahtlose Integration in edulution UI
+- Nahtlose Integration in edulution Plattform
 - Eigene JavaScript-Skripte beim Laden und beim Abmelden, siehe [Skripte in Frame-Apps](#skripte-in-frame-apps)
 - Adresszeile und Deep-Links, siehe [URL-Verarbeitung und Deep-Links](#url-verarbeitung-und-deep-links)
 

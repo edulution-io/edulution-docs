@@ -113,7 +113,7 @@ const config: Config = {
           position: 'left',
           items: [
             {
-              label: 'edulution UI',
+              label: 'edulution Plattform',
               to: '/docs/edulution-ui/installation/voraussetzungen',
             },
             {
@@ -166,11 +166,11 @@ const config: Config = {
           title: 'Dokumentation',
           items: [
             {
-              label: 'edulution UI Installation',
+              label: 'edulution Plattform Installation',
               to: '/docs/edulution-ui/installation/einrichtung',
             },
             {
-              label: 'edulution UI Administration',
+              label: 'edulution Plattform Administration',
               to: '/docs/edulution-ui/administration/administration',
             },
             {

@@ -12,7 +12,7 @@ Die angepasste Proxy-Konfiguration setzt **edulution-mail v1.3.2 oder höher** v
 
 ### Schritt 1: Mailcow-API-URL prüfen
 
-**edulution-UI → Einstellungen → E-Mails → Mailserver**
+**edulution-Plattform → Einstellungen → E-Mails → Mailserver**
 
 Prüfen Sie, welcher Wert im Feld **URL** eingetragen ist. Er muss lauten:
 
@@ -30,7 +30,7 @@ Die restlichen Werte des Abschnitts sind in der [Installations-Anleitung, Schrit
 
 ### Schritt 2: Proxy-Konfiguration anpassen
 
-**edulution-UI → Einstellungen → E-Mails → Proxy-Konfiguration (Expertenmodus)**
+**edulution-Plattform → Einstellungen → E-Mails → Proxy-Konfiguration (Expertenmodus)**
 
 Zwei Änderungen an der dynamischen Mail-Konfiguration:
 
@@ -92,11 +92,11 @@ Beim Update der **edulution-ui** und **edulution-api** Container auf v2.0.156 od
 Ohne Update von edulution-mail auf v1.1.13+ findet die edulution-ui den Mail-Stack nach dem Update der edu-ui/edu-api Container nicht mehr.
 :::
 
-### Mailserver-Hosts in der edulution-UI anpassen
+### Mailserver-Hosts in der edulution-Plattform anpassen
 
 Da edulution-api jetzt direkt im Mailcow-Netzwerk hängt, müssen IMAP- und SMTP-Server auf die internen Container-Hostnamen umgestellt werden:
 
-**edulution-UI → Einstellungen → E-Mails → Mailserver**
+**edulution-Plattform → Einstellungen → E-Mails → Mailserver**
 
 | Feld | Wert |
 |------|------|
@@ -107,7 +107,7 @@ Da edulution-api jetzt direkt im Mailcow-Netzwerk hängt, müssen IMAP- und SMTP
 | **SMTP-Server** | `postfix` |
 | **SMTP Port** | `587` |
 
-Ohne den korrekten URL-Wert kann die edulution-UI nicht mit der Mailcow-API kommunizieren. Anschließend oben rechts auf **Speichern** klicken.
+Ohne den korrekten URL-Wert kann die edulution-Plattform nicht mit der Mailcow-API kommunizieren. Anschließend oben rechts auf **Speichern** klicken.
 
 ### Optionales Aufräumen: IMAP/IMAPS in Traefik
 
@@ -126,7 +126,7 @@ Sobald edulution-api über das Mailcow-Netzwerk direkt mit Dovecot sprechen kann
 
 #### Dynamische Mail-Traefik-Konfiguration
 
-In **edulution-UI → Einstellungen → E-Mails → Proxy-Konfiguration (Expertenmodus)** den kompletten `tcp:`-Block entfernen (Router `imap`/`imaps`, Services `mail-imap`/`mail-imap-ssl`) — er referenziert die oben entfernten EntryPoints und sollte zusammen mit ihnen verschwinden.
+In **edulution-Plattform → Einstellungen → E-Mails → Proxy-Konfiguration (Expertenmodus)** den kompletten `tcp:`-Block entfernen (Router `imap`/`imaps`, Services `mail-imap`/`mail-imap-ssl`) — er referenziert die oben entfernten EntryPoints und sollte zusammen mit ihnen verschwinden.
 
 Die finale dyn. Mail-Konfiguration (ohne `tcp:`-Block) finden Sie in der [Installations-Anleitung, Schritt 3](/docs/edulution-mail/installation#schritt-3-proxy-konfiguration-hinzufügen) — sie kann 1:1 in den Expertenmodus übernommen werden.
 

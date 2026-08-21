@@ -1,9 +1,9 @@
 # MDM – Mobile Device Management (Relution)
 
-Die App **MDM** (Mobile Device Management) verwaltet die mobilen Geräte Ihrer Schule – Tablets, Smartphones und Computer. edulution UI dient dabei als Oberfläche für das **Relution-MDM-Backend**: Sie sehen und steuern hier Ihre Geräteflotte, ohne die Relution-Konsole separat öffnen zu müssen.
+Die App **MDM** (Mobile Device Management) verwaltet die mobilen Geräte Ihrer Schule – Tablets, Smartphones und Computer. edulution Plattform dient dabei als Oberfläche für das **Relution-MDM-Backend**: Sie sehen und steuern hier Ihre Geräteflotte, ohne die Relution-Konsole separat öffnen zu müssen.
 
 :::info[Relution als Backend]
-Alle Daten stammen aus einer angebundenen **Relution**-Instanz und werden live über deren API geladen. edulution UI hält dafür keinen eigenen Zwischenspeicher. Der Name **Relution** taucht in der Oberfläche nur in Beschreibungen, der Benutzerverwaltung und in Fehlermeldungen auf – überall sonst heißt die App schlicht **MDM**.
+Alle Daten stammen aus einer angebundenen **Relution**-Instanz und werden live über deren API geladen. edulution Plattform hält dafür keinen eigenen Zwischenspeicher. Der Name **Relution** taucht in der Oberfläche nur in Beschreibungen, der Benutzerverwaltung und in Fehlermeldungen auf – überall sonst heißt die App schlicht **MDM**.
 :::
 
 ## Voraussetzungen
@@ -42,7 +42,7 @@ Administratoren sehen über den gemeinsamen Admin-Zugang **alle** Geräte, Apps 
 :::
 
 :::tip[Zugriffsgruppen und Sync-Gruppen zusammen denken]
-Beide Gruppenlisten wirken unabhängig voneinander: Die **Zugriffsgruppen** entscheiden, wer die App in edulution UI öffnen darf, die **Gruppen für Sync** entscheiden, wer einen eigenen Relution-Zugang erhält. Damit reguläre Benutzer tatsächlich Geräte sehen, sollten sie in beiden Listen enthalten sein – sonst öffnen sie die App zwar, erhalten aber nur den Hinweis auf den fehlenden Relution-Zugang.
+Beide Gruppenlisten wirken unabhängig voneinander: Die **Zugriffsgruppen** entscheiden, wer die App in edulution Plattform öffnen darf, die **Gruppen für Sync** entscheiden, wer einen eigenen Relution-Zugang erhält. Damit reguläre Benutzer tatsächlich Geräte sehen, sollten sie in beiden Listen enthalten sein – sonst öffnen sie die App zwar, erhalten aber nur den Hinweis auf den fehlenden Relution-Zugang.
 :::
 
 ## Aufbau der App

@@ -153,7 +153,7 @@ Die E-Mail-Einstellungen ermöglichen die Konfiguration der Mail-App und des SOG
 - Das Ändern des Themes startet die nuspezifischen Container neu
 
 :::info
-Das Theme beeinflusst nur die Darstellung des SOGo Webmailers (`https://mail.ihre-domain.de/SOGo`). Die edulution UI verwendet weiterhin das systemweite Dark/Light Mode Setting.
+Das Theme beeinflusst nur die Darstellung des SOGo Webmailers (`https://mail.ihre-domain.de/SOGo`). Die edulution Plattform verwendet weiterhin das systemweite Dark/Light Mode Setting.
 :::
 
 **Standard-Signatur**

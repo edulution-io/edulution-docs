@@ -237,8 +237,8 @@ Der Token wird über die edulution-mail API mit Keycloak validiert. Bei erfolgre
 
 Die folgenden Themen sind in separaten Dokumenten verfügbar:
 
-- [Mail-App konfigurieren](mail-app-konfiguration) - Mailcow-API, IMAP/SMTP und externe Provider in edulution UI
-- [Mailboxen und geteilte Postfächer](mailbox-verwaltung) - Mailboxen aus edulution UI heraus verwalten
+- [Mail-App konfigurieren](mail-app-konfiguration) - Mailcow-API, IMAP/SMTP und externe Provider in edulution Plattform
+- [Mailboxen und geteilte Postfächer](mailbox-verwaltung) - Mailboxen aus edulution Plattform heraus verwalten
 - [Mail-Migration für Administratoren](admin_mail_migration) - E-Mail-Synchronisierung einrichten
 - [Mail-Migration für Benutzer](user_mail_migration) - Eigene E-Mails migrieren
 - [Verteilerlisten](verteilerlisten) - Projekt-basierte E-Mail-Verteiler

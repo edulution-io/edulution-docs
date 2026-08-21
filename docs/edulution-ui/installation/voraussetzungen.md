@@ -1,6 +1,6 @@
 # Voraussetzungen
 
-Bevor Sie mit der Installation der edulution UI beginnen, stellen Sie bitte sicher, dass Ihr System die folgenden Voraussetzungen erfüllt. Eine sorgfältige Vorbereitung gewährleistet einen reibungslosen Installationsprozess.
+Bevor Sie mit der Installation der edulution Plattform beginnen, stellen Sie bitte sicher, dass Ihr System die folgenden Voraussetzungen erfüllt. Eine sorgfältige Vorbereitung gewährleistet einen reibungslosen Installationsprozess.
 
 ## Inhaltsverzeichnis
 
@@ -31,19 +31,19 @@ Bevor Sie mit der Installation der edulution UI beginnen, stellen Sie bitte sich
 
 ## Benötigte Ports
 
-Die edulution UI und die zugehörigen Dienste benötigen die Freigabe
+Die edulution Plattform und die zugehörigen Dienste benötigen die Freigabe
 bestimmter Ports. Beachten Sie, dass einige Ports nur intern zugänglich
 sein sollten.
 
 :::note
 Die Ports für E-Mail-Dienste (SMTP, IMAP, IMAPS) werden nur benötigt,
-wenn die E-Mail-Funktionalität der edulution UI genutzt wird.
+wenn die E-Mail-Funktionalität der edulution Plattform genutzt wird.
 :::
 
 | Port | Beschreibung |
 |------|--------------|
 | 80 | HTTP (für automatische Weiterleitung zu HTTPS, Let's Encrypt Validierung) |
-| 443 | HTTPS (edulution UI Web-Interface, extern zugänglich) |
+| 443 | HTTPS (edulution Plattform Web-Interface, extern zugänglich) |
 | 389 | LDAP (unverschlüsselte LDAP-Verbindung, primär intern) |
 | 636 | LDAPS (verschlüsselte LDAP-Verbindung, extern zugänglich, gültiges Zertifikat nötig) |
 | 25 | SMTP (Standard-Port für E-Mail-Versand) |

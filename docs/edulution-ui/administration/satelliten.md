@@ -1,9 +1,9 @@
 # Satelliten
 
-Satelliten sind eigenständige edulution-Geräte (Appliances) an entfernten Standorten, die über einen WireGuard-Tunnel mit Ihrer zentralen edulution-Instanz verbunden sind. Nach der Kopplung lassen sich ihre Netzwerke (VLANs), Authentifizierungs-Anbieter (LDAP) und Dienste wie der mDNS-Repeater und der RADIUS-Server zentral aus der edulution UI heraus verwalten und überwachen.
+Satelliten sind eigenständige edulution-Geräte (Appliances) an entfernten Standorten, die über einen WireGuard-Tunnel mit Ihrer zentralen edulution-Instanz verbunden sind. Nach der Kopplung lassen sich ihre Netzwerke (VLANs), Authentifizierungs-Anbieter (LDAP) und Dienste wie der mDNS-Repeater und der RADIUS-Server zentral aus der edulution Plattform heraus verwalten und überwachen.
 
 :::tip[Satelliten erstmalig in Betrieb nehmen]
-Diese Seite beschreibt den **laufenden Betrieb** in der edulution UI. Die Erstinbetriebnahme eines Geräts – Apps installieren, WireGuard starten, Gerät koppeln und zentrale Netze bereitstellen – ist unter [edulution Satellite](../../edulution-satellite/index.md) beschrieben.
+Diese Seite beschreibt den **laufenden Betrieb** in der edulution Plattform. Die Erstinbetriebnahme eines Geräts – Apps installieren, WireGuard starten, Gerät koppeln und zentrale Netze bereitstellen – ist unter [edulution Satellite](../../edulution-satellite/index.md) beschrieben.
 :::
 
 Die Verwaltung gliedert sich in zwei Bereiche:

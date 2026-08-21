@@ -1,6 +1,6 @@
 # Installation
 
-Die Installation der edulution UI erfolgt in mehreren Schritten. Diese Anleitung führt Sie durch den gesamten Prozess - von den Voraussetzungen über die Einrichtung bis zur erfolgreichen Inbetriebnahme.
+Die Installation der edulution Plattform erfolgt in mehreren Schritten. Diese Anleitung führt Sie durch den gesamten Prozess - von den Voraussetzungen über die Einrichtung bis zur erfolgreichen Inbetriebnahme.
 
 ## Übersicht
 

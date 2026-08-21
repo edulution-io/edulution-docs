@@ -76,3 +76,10 @@ Die Einrichtung der Passwortänderung – Voraussetzungen in Keycloak, Rückfall
 - Ändern Sie Ihre Passwörter regelmäßig
 - Teilen Sie niemals Ihre Zugangsdaten
 - Nutzen Sie den Passwort-Tresor für sichere Verwaltung
+
+## Verschlüsselung auf dem Server
+
+Passwörter werden bereits im Browser verschlüsselt und auf dem Server zusätzlich
+mit einem Master-Schlüssel geschützt. Wie das Verfahren funktioniert und was
+Administratoren beim Betrieb und beim Backup beachten müssen, beschreibt
+[Master-Key-Verschlüsselung](../administration/master-key.md).

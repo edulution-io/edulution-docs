@@ -134,10 +134,17 @@ Die Anbindung der Kontakte-App an den CardDAV-Server wird in den [Einstellungen]
 
 Diese Verbindung gilt ausschließlich für die Kontakte-App. Die Kalender- und die E-Mail-App verwenden jeweils ihre eigene; eine hier abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die übrigen Apps aus, und eine fehlerhafte CardDAV-URL legt nur die Kontakte-App still.
 
+### Wenn keine Adressbücher erscheinen
+
+Scheitert die Verbindung zum CardDAV-Server, benennt die Fehlermeldung, welche der beiden Ursachen vorliegt:
+
+- **"Der CardDAV-Server hat die Anmeldung abgelehnt"** – Der Server ist erreichbar, weist die Zugangsdaten dieses Benutzers aber zurück. Der häufigste Fall ist ein Konto, für das auf dem SOGo-Server kein Postfach existiert; die CardDAV-URL ist dann korrekt. Prüfen Sie stattdessen, ob der Benutzer auf dem Mailserver angelegt ist. Betrifft die Meldung nur einzelne Benutzer, ist dies die wahrscheinliche Ursache.
+- **"Verbindung zum CardDAV-Server fehlgeschlagen"** – Der Server war nicht erreichbar. Prüfen Sie die [CardDAV-URL](../administration/einstellungen.md#carddav-verbindung), die Namensauflösung des dort eingetragenen Hostnamens und das Zertifikat. Diese Meldung betrifft in der Regel alle Benutzer gleichzeitig.
+
 ## Aktuelle Einschränkungen
 
 - Das **Teilen von Adressbüchern** kann derzeit nicht über die Oberfläche verwaltet werden. Geteilte und schreibgeschützte Adressbücher werden angezeigt, die Freigabe selbst erfolgt serverseitig.
-- Als Authentifizierungsmodus ist aktuell ausschließlich **Basic Auth** verfügbar.
+- Als Authentifizierungsmodus ist aktuell ausschließlich **Basic Auth** verfügbar; ein anderweitig hinterlegter Modus wird übergangen.
 - Kontakte lassen sich über **Kategorien** verschlagworten; **Verteilerlisten** (SOGo-Listen) werden in der Oberfläche derzeit noch nicht angezeigt.
 - Es gibt keine Sammelaktionen (z.B. Mehrfachauswahl oder Sammellöschung).
 - Der Import unterstützt vCard-Dateien (`.vcf`), jeweils **eine** Datei pro Vorgang; ein CSV-Import ist nicht verfügbar.

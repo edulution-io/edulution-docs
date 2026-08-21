@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin-operate
+---
+
 # MongoDB als Replica Set betreiben
 
 Ab Version 2.2 benötigt die edulution API MongoDB als Replica Set.

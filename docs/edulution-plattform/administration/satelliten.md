@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin
+---
+
 # Satelliten
 
 Satelliten sind eigenständige edulution-Geräte (Appliances) an entfernten Standorten, die über einen WireGuard-Tunnel mit Ihrer zentralen edulution-Instanz verbunden sind. Nach der Kopplung lassen sich ihre Netzwerke (VLANs), Authentifizierungs-Anbieter (LDAP) und Dienste wie der mDNS-Repeater und der RADIUS-Server zentral aus der edulution Plattform heraus verwalten und überwachen.

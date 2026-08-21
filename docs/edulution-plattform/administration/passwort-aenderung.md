@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin
+---
+
 # Passwortänderung einrichten
 
 Benutzer ändern ihr Passwort selbst über **Benutzereinstellungen → Sicherheit → Passwort ändern**. Diese Änderung läuft über **Keycloak**: edulution prüft das bisherige Passwort am Keycloak-Realm und setzt das neue Passwort über die Keycloak-Administrationsschnittstelle. Auf Linuxmuster-Systemen bleibt die Linuxmuster-API als **Rückfallweg** erhalten, falls die Änderung über Keycloak nicht möglich ist.

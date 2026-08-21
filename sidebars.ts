@@ -24,6 +24,8 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Schnellstart',
       collapsed: false,
+      // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
+      customProps: { audience: 'admin-setup' },
       link: {
         type: 'generated-index',
         title: 'Schnellstart-Anleitungen',
@@ -57,6 +59,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Installation',
           collapsed: true,
+          // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
+          customProps: { audience: 'admin-setup' },
           items: [
             'edulution-plattform/installation/voraussetzungen',
             'edulution-plattform/installation/einrichtung',
@@ -69,6 +73,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Upgrade',
           collapsed: true,
+          // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
+          customProps: { audience: 'admin-operate' },
           items: [
             {
               type: 'category',
@@ -157,6 +163,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Administration',
           collapsed: true,
+          // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
+          customProps: { audience: 'admin' },
           items: [
             'edulution-plattform/administration/administration',
             'edulution-plattform/administration/einstellungen',

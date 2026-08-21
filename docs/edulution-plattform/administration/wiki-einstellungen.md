@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin
+---
+
 # Wiki-Einstellungen
 
 Die Sichtbarkeit von Wikis lässt sich pro WebDAV-Freigabe steuern – unabhängig vom Datei-Zugriff. So können einzelne Wikis komplett deaktiviert oder auf bestimmte Benutzergruppen eingeschränkt werden.

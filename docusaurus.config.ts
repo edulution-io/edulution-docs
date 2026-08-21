@@ -38,6 +38,7 @@ const config: Config = {
 
   plugins: [
     './src/plugins/tailwind-config.js',
+    './src/plugins/audience.js',
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -93,6 +94,11 @@ const config: Config = {
         docsRouteBasePath: '/docs',
         indexBlog: false,
         searchBarShortcutHint: false,
+        // Bewusst kein `ignoreCssSelectors`: Ohne Rollenauswahl ist alles
+        // sichtbar, ein Treffer geht also nie ins Leere. Wer eine Rolle
+        // gewählt hat und über die Suche auf einen Abschnitt einer anderen
+        // Zielgruppe kommt, bekommt genau diesen Abschnitt aufgedeckt
+        // (siehe HiddenContentSync in AudienceContext.tsx).
       },
     ],
   ],
@@ -134,7 +140,7 @@ const config: Config = {
           items: [
             {
               label: 'edulution Plattform',
-              to: '/docs/edulution-plattform/installation/voraussetzungen',
+              to: '/docs/edulution-plattform/features/navigation',
             },
             {
               label: 'edulution Mail',
@@ -166,6 +172,10 @@ const config: Config = {
           to: '/docs/changelog',
           label: 'Changelog',
           position: 'left',
+        },
+        {
+          type: 'custom-audienceBadge',
+          position: 'right',
         },
         {
           href: 'https://edulution.io',

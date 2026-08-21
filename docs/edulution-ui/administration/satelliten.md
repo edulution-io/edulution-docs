@@ -51,7 +51,7 @@ Für jeden Satelliten werden Name, Status, Version, zugewiesene Schule, URL sowi
 |--------|---------------------|
 | Ausstehend | **Akzeptieren**, **Ablehnen**, **Entfernen** |
 | Abgelehnt | **Akzeptieren**, **Entfernen** |
-| Akzeptiert | **Updates prüfen** (wenn online), **Entkoppeln** (nur bei zuvor per Seriennummer gekoppelten Geräten), **Entfernen**, Schule zuweisen |
+| Akzeptiert | **Updates prüfen** (wenn online), **Entkoppeln**, **Entfernen**, Schule zuweisen |
 
 - **Akzeptieren** gibt den Satelliten frei; er erscheint anschließend im Satelliten-Bereich.
 - **Ablehnen** weist die Anfrage ab.

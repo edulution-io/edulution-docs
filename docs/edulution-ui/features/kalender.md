@@ -374,6 +374,15 @@ Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](
 
 Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
 
+### Wenn keine Kalender erscheinen
+
+Scheitert die Verbindung zum CalDAV-Server, benennt die Fehlermeldung, welche der beiden Ursachen vorliegt:
+
+- **"Der CalDAV-Server hat die Anmeldung abgelehnt"** – Der Server ist erreichbar, weist die Zugangsdaten dieses Benutzers aber zurück. Der häufigste Fall ist ein Konto, für das auf dem SoGo-Server kein Postfach existiert; die CalDAV-URL ist dann korrekt und muss nicht geändert werden. Prüfen Sie stattdessen, ob der Benutzer auf dem Mailserver angelegt ist. Betrifft die Meldung nur einzelne Benutzer, ist dies die wahrscheinliche Ursache.
+- **"Verbindung zum CalDAV-Server fehlgeschlagen"** – Der Server war nicht erreichbar. Prüfen Sie die [CalDAV-URL](../administration/einstellungen.md#caldav-verbindung), die Namensauflösung des dort eingetragenen Hostnamens und das Zertifikat. Diese Meldung betrifft in der Regel alle Benutzer gleichzeitig.
+
+Eine leere Kalenderliste ist kein Hinweis auf ein Anmeldeproblem: Werden dem Benutzer keine Kalender angezeigt, prüft edulution die Zugangsdaten erneut und meldet eine zwischenzeitliche Ablehnung — etwa nach einer Kennwortänderung — ausdrücklich, statt eine leere Liste darzustellen.
+
 ## Siehe auch
 
 - [Dashboard](dashboard.md) – Schnellzugriff auf den Kalender

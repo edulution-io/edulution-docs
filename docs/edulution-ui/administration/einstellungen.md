@@ -291,7 +291,7 @@ Endet die CalDAV-URL nicht auf `/dav`, funktionieren Kalender und Termine trotzd
 - Optionen: **Basic**, **Digest**, **OAuth**
 
 :::info
-Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic eingestellt; weitere Modi sind in Vorbereitung.
+Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic eingestellt; weitere Modi sind in Vorbereitung. Ein auf anderem Weg hinterlegter Modus wird beim Verbindungsaufbau übergangen: edulution verwendet Basic Auth und vermerkt den ignorierten Modus im Protokoll.
 :::
 
 **Nicht zertifizierte Verbindungen ablehnen**
@@ -356,7 +356,7 @@ Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie
 - Optionen: **Basic**, **Digest**, **OAuth**
 
 :::info
-Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic eingestellt; weitere Modi sind in Vorbereitung.
+Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic eingestellt; weitere Modi sind in Vorbereitung. Ein auf anderem Weg hinterlegter Modus wird beim Verbindungsaufbau übergangen: edulution verwendet Basic Auth und vermerkt den ignorierten Modus im Protokoll.
 :::
 
 **Nicht zertifizierte Verbindungen ablehnen**

@@ -126,7 +126,7 @@ Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalt
 
 ### Gruppen
 
-Eine **Hardwaregruppe** ist eine `start.conf` auf dem Server: sie beschreibt das Plattenlayout und die Betriebssysteme aller Rechner, die ihr zugeordnet sind. Die Seite hieß früher **Konfigurationen** und listete die GRUB-Konfigurationen; sie zeigt jetzt die Gruppen selbst. Die alte Adresse leitet auf die neue weiter.
+Eine **Hardwaregruppe** ist eine `start.conf` auf dem Server: sie beschreibt das Plattenlayout und die Betriebssysteme aller Rechner, die ihr zugeordnet sind. Die Seite listet die Hardwaregruppen des Servers.
 
 Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleibt erhalten und gilt auch nach einem Neuladen:
 
@@ -138,10 +138,6 @@ Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleib
 | **Tabelle** | ID, Dateiname und Änderungszeitpunkt |
 
 Ein Banner über der Liste nennt den **Sync-Status**: ob die **LMN-API** erreichbar ist, wie viele Hosts und Gruppen gefunden wurden und wann zuletzt geladen wurde. Meldet die API einen eingeschränkten Zustand, steht der Grund im Klartext daneben – etwa dass `devices.csv` für diese Schule fehlt oder `/srv/linbo` nicht vorhanden ist.
-
-:::note[Warum es keinen „letzten Sync" gibt]
-Die Daten kommen bei jedem Aufruf direkt aus der Linuxmuster-API; die Plattform hält dafür keinen eigenen Zwischenspeicher. Der Zeitpunkt im Banner ist deshalb der Ladezeitpunkt, kein Abgleich.
-:::
 
 #### Aktionen einer Gruppe
 

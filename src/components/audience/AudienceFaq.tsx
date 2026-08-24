@@ -102,7 +102,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie hänge ich einen weiteren Standort an?',
       a: 'Satelliten binden entfernte Netze über einen verschlüsselten Tunnel an.',
-      to: '/docs/edulution-plattform/apps/vpn-zugang/konfiguration/satelliten',
+      to: '/docs/edulution-plattform/konfiguration/satelliten',
     },
     {
       q: 'Welche Apps sehen meine Nutzer überhaupt?',
@@ -221,7 +221,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie komme ich von unterwegs ins Netz?',
       a: 'VPN-Zugang über WireGuard einrichten.',
-      to: '/docs/edulution-plattform/apps/vpn-zugang/',
+      to: '/docs/edulution-plattform/apps/vpn-zugang',
     },
   ],
 };

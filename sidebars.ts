@@ -62,6 +62,7 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/konfiguration/benutzerverwaltung',
             'edulution-plattform/konfiguration/passwort-aenderung',
             'edulution-plattform/konfiguration/linuxmuster',
+            'edulution-plattform/konfiguration/satelliten',
             'edulution-plattform/konfiguration/wiki-einstellungen',
             'edulution-plattform/konfiguration/webhooks',
             'edulution-plattform/konfiguration/experten-tipps',
@@ -473,58 +474,7 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/apps/mdm',
             'edulution-plattform/apps/geraeteverwaltung',
             'edulution-plattform/apps/mobile-app',
-            {
-              type: 'category',
-              label: 'VPN-Zugang',
-              collapsed: true,
-              link: {
-                type: 'doc',
-                id: 'edulution-plattform/apps/vpn-zugang/index',
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: 'Konfiguration',
-                  collapsed: true,
-                  // WireGuard und die Satelliten-Appliances - fuer Endnutzer
-                  // ausgeblendet (siehe src/components/audience/taxonomy.ts).
-                  customProps: { audience: 'admin' },
-                  items: [
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/vpn-zugang/konfiguration/satelliten',
-                      label: 'Satelliten verwalten',
-                    },
-                    {
-                      type: 'category',
-                      label: 'edulution Satellite',
-                      collapsed: true,
-                      link: {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/vpn-zugang/konfiguration/index',
-                      },
-                      items: [
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/vpn-zugang/konfiguration/einrichtung-mit-edulution',
-                          label: 'Einrichtung mit edulution',
-                        },
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/vpn-zugang/konfiguration/standalone',
-                          label: 'Standalone einrichten',
-                        },
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/vpn-zugang/konfiguration/wireguard-traefik',
-                          label: 'WireGuard über Traefik',
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
+            'edulution-plattform/apps/vpn-zugang',
             'edulution-plattform/apps/infoboard',
             'edulution-plattform/apps/umfragen',
             'edulution-plattform/apps/app-store',
@@ -535,6 +485,38 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/apps/impressum-datenschutz',
             'edulution-plattform/apps/weitere-features',
           ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'edulution Satellite',
+      // Reine Administrationsthemen - fuer Endnutzer ausgeblendet
+      // (siehe src/components/audience/taxonomy.ts). Der Satellite ist eine
+      // Appliance fuer entfernte Standorte und gehoert damit zu keiner App:
+      // der VPN-Zugang unter Apps ist der WireGuard-Zugang einzelner
+      // Benutzer, nicht die Kopplung von Appliances.
+      customProps: { audience: 'admin' },
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'edulution-satellite/index',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-satellite/einrichtung-mit-edulution',
+          label: 'Einrichtung mit edulution',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/standalone',
+          label: 'Standalone einrichten',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/wireguard-traefik',
+          label: 'WireGuard über Traefik',
         },
       ],
     },

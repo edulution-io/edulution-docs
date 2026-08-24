@@ -67,4 +67,4 @@ Läuft der Satellit als VM, entfällt der Management-Port. Der Zugang erfolgt da
 - [Einrichtung mit edulution](./einrichtung-mit-edulution.md) – Apps installieren, WireGuard starten, Gerät koppeln, zentrale Netze bereitstellen.
 - [Standalone einrichten](./standalone.md) – Satellit ohne zentrale edulution-Instanz in Betrieb nehmen.
 - [WireGuard-Server über Traefik](./wireguard-traefik.md) – einmalige Vorbereitung auf dem edulution-Server.
-- [Satelliten verwalten](./satelliten.md) – laufender Betrieb in der edulution Plattform.
+- [Satelliten verwalten](../edulution-plattform/konfiguration/satelliten.md) – laufender Betrieb in der edulution Plattform.

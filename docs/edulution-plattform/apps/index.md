@@ -29,7 +29,7 @@ die App und ihre **Nutzung**. Als Endnutzer:in sehen Sie die administrativen Tei
 - **[Mobile App](./mobile-app.md)** – edulution auf iOS und Android.
 - **[MDM](./mdm.md)** und **[Geräteverwaltung](./geraeteverwaltung.md)** – Tablets, Smartphones und
   Computer verwalten.
-- **[VPN-Zugang](./vpn-zugang/index.md)** – von außen ins Netz der Einrichtung.
+- **[VPN-Zugang](./vpn-zugang.md)** – von außen ins Netz der Einrichtung.
 
 ## Rund um die Oberfläche
 

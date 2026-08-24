@@ -5,32 +5,27 @@ description: Einstieg in die Dokumentation von edulution.io – Plattform, Mail,
 
 # edulution.io Dokumentation
 
-**edulution** ist eine Arbeitsumgebung für Schulen, Unternehmen und öffentliche Verwaltungen. Sie
-bündelt in einer einzigen Weboberfläche, wofür sonst mehrere getrennte Systeme nötig wären:
+**edulution** ist eine Arbeitsumgebung, sie bündelt in einer einzigen Weboberfläche, wofür sonst mehrere getrennte Systeme nötig wären:
 Dateiverwaltung, E-Mail, Kalender, Kontakte, Chat, Videokonferenzen, Whiteboard, Umfragen und
-Lernmanagement. Angemeldet wird man einmal – innerhalb der Oberfläche entfällt jeder weitere Login.
+Lernmanagement.
 
-## 1. Um welche Art von Organisation geht es?
+### 1. Um welche Art von Organisation geht es?
 
 Edulution benennt Dinge je nach Einrichtung anders und je nach Organizationstyp werden manche Funktionen ein- oder aus-geblendet.
 
 <AudiencePicker axis="org" />
 
-## 2. Welche Rolle haben Sie?
+### 2. Welche Rolle haben Sie?
 
 Als normaler user werden einem zum beispiel wesentlich weniger informationen angezeigt als einem Administrator, welcher es gewohnt sein sollte sich mit vielen tief gehenden Einstellungen auseinander zu setzen.
 
 <AudiencePicker axis="role" />
 
-## 3. Gibt es fragen zu einem bestimmten Modul?
-
-Jede Karte führt dorthin, wo Ihre Rolle anfangen sollte: Endnutzer landen im Nutzerhandbuch, die
-Ersteinrichtung bei der Installation, der laufende Betrieb in der Administration. Rein
-administrative Komponenten erscheinen für Endnutzer gar nicht erst.
+### 3. Gibt es fragen zu einem bestimmten Modul?
 
 <AppCards />
 
-## Häufige Fragen
+### Häufige Fragen
 
 Die Fragen, mit denen man üblicherweise ankommt – zugeschnitten auf die Rolle, die Sie oben gewählt
 haben. Jede führt direkt zur passenden Seite.

@@ -95,7 +95,7 @@ Die maximale Upload-Größe hängt davon ab, ob FileProxy eingerichtet ist:
 \* *Abhängig von verfügbarem Speicherplatz und Quotas*
 
 **FileProxy einrichten:**
-Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richten Sie den [edulution FileProxy](../../../edulution-fileproxy/ui-config.md) ein. Dieser bietet:
+Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richten Sie den [edulution FileProxy](./konfiguration/fileproxy/ui-config.md) ein. Dieser bietet:
 - Unbegrenzte Upload-Größe
 - Deutlich höhere Performance
 - Schnellere Up- und Downloads

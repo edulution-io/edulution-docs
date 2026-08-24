@@ -156,6 +156,67 @@ const sidebars: SidebarsConfig = {
                 id: 'edulution-plattform/apps/dateien/index',
               },
               items: [
+                {
+                  type: 'category',
+                  label: 'Konfiguration',
+                  collapsed: true,
+                  // Office-Server und FileProxy aufsetzen - fuer Endnutzer
+                  // ausgeblendet (siehe src/components/audience/taxonomy.ts).
+                  customProps: { audience: 'admin' },
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/dateien/konfiguration/onlyoffice',
+                      label: 'OnlyOffice',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/dateien/konfiguration/collabora',
+                      label: 'Collabora',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/dateien/konfiguration/eurooffice',
+                      label: 'EuroOffice',
+                    },
+                    {
+                      type: 'category',
+                      label: 'FileProxy',
+                      collapsed: true,
+                      link: {
+                        type: 'doc',
+                        id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/index',
+                      },
+                      items: [
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/package-server',
+                          label: 'Package Server',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/installation',
+                          label: 'Installation',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/traefik-config',
+                          label: 'Traefik Konfiguration',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/ui-config',
+                          label: 'UI Konfiguration',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/wiki-infrastruktur',
+                          label: 'Wiki-Infrastruktur',
+                        },
+                      ],
+                    },
+                  ],
+                },
                 'edulution-plattform/apps/dateien/ansicht-und-navigation',
                 'edulution-plattform/apps/dateien/vorschau-und-drucken',
                 'edulution-plattform/apps/dateien/teilen',
@@ -163,7 +224,7 @@ const sidebars: SidebarsConfig = {
                 'edulution-plattform/apps/dateien/upload-schutzmechanismen',
                 'edulution-plattform/apps/dateien/browser-download-einstellungen',
                 'edulution-plattform/apps/dateien/drawio',
-                'edulution-plattform/apps/goodnotes',
+                'edulution-plattform/apps/dateien/goodnotes',
                 {
                   type: 'category',
                   label: 'WebDAV',
@@ -450,45 +511,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'edulution FileProxy',
-      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
-      // (siehe src/components/audience/taxonomy.ts)
-      customProps: { audience: 'admin' },
-      collapsed: false,
-      link: {
-        type: 'doc',
-        id: 'edulution-fileproxy/index',
-      },
-      items: [
-        {
-          type: 'doc',
-          id: 'edulution-fileproxy/package-server',
-          label: 'Package Server',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-fileproxy/installation',
-          label: 'Installation',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-fileproxy/traefik-config',
-          label: 'Traefik Konfiguration',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-fileproxy/ui-config',
-          label: 'UI Konfiguration',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-fileproxy/wiki-infrastruktur',
-          label: 'Wiki-Infrastruktur',
-        },
-      ],
-    },
-    {
-      type: 'category',
       label: 'edulution App',
       collapsed: false,
       link: {
@@ -507,69 +529,6 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'edulution-app/setup',
           label: '⚙️ Einrichtung',
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'edulution OnlyOffice',
-      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
-      // (siehe src/components/audience/taxonomy.ts)
-      customProps: { audience: 'admin' },
-      collapsed: false,
-      link: {
-        type: 'generated-index',
-        title: 'edulution OnlyOffice',
-        description: 'OnlyOffice-Integration für die Dateiverwaltung.',
-        slug: '/category/edulution-onlyoffice',
-      },
-      items: [
-        {
-          type: 'doc',
-          id: 'edulution-onlyoffice/index',
-          label: '⚙️ Installation',
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'edulution EuroOffice',
-      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
-      // (siehe src/components/audience/taxonomy.ts)
-      customProps: { audience: 'admin' },
-      collapsed: false,
-      link: {
-        type: 'generated-index',
-        title: 'edulution EuroOffice',
-        description: 'EuroOffice-Integration für die Dateiverwaltung.',
-        slug: '/category/edulution-eurooffice',
-      },
-      items: [
-        {
-          type: 'doc',
-          id: 'edulution-eurooffice/index',
-          label: '⚙️ Installation',
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'edulution Collabora',
-      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
-      // (siehe src/components/audience/taxonomy.ts)
-      customProps: { audience: 'admin' },
-      collapsed: false,
-      link: {
-        type: 'generated-index',
-        title: 'edulution Collabora',
-        description: 'Collabora-Online-Integration für die Dateiverwaltung.',
-        slug: '/category/edulution-collabora',
-      },
-      items: [
-        {
-          type: 'doc',
-          id: 'edulution-collabora/index',
-          label: '⚙️ Installation',
         },
       ],
     },

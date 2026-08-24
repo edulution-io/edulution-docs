@@ -153,7 +153,7 @@ Der Lauf durchsucht den Share nach `.wiki/**/*.md`-Dateien und indiziert sie. W�
 
 In der edulution Plattform ist die Verbindung zum FileProxy in den **Datei-Freigaben** hinterlegt (siehe [UI-Konfiguration](./ui-config)). Pro Freigabe wird die FileProxy-URL gespeichert; ein einzelner FileProxy kann beliebig viele SMB-Backend-Server bedienen.
 
-Die Sichtbarkeit pro Wiki steuert der Global-Admin in der edulution Plattform unter **Einstellungen → Wiki → Wiki-Sichtbarkeit** (siehe [Wiki-Einstellungen](../edulution-plattform/konfiguration/wiki-einstellungen)).
+Die Sichtbarkeit pro Wiki steuert der Global-Admin in der edulution Plattform unter **Einstellungen → Wiki → Wiki-Sichtbarkeit** (siehe [Wiki-Einstellungen](../../../../konfiguration/wiki-einstellungen)).
 
 ## Berechtigungen
 
@@ -164,7 +164,7 @@ Die Berechtigungsprüfung erfolgt **fail-closed**:
 3. Elasticsearch filtert mit einem Terms-Filter auf das Feld `acl_allow` jedes Dokuments.
 4. Dokumente ohne passende ACL erscheinen weder in der Suche noch in der Listenansicht.
 
-Zusätzlich wird in der edulution Plattform die [Wiki-Sichtbarkeit](../edulution-plattform/konfiguration/wiki-einstellungen) pro Freigabe geprüft (Wiki aktiv? Zugriffsgruppen?). Diese zweite Stufe wirkt **vor** dem FileProxy-Aufruf – ein deaktiviertes Wiki wird gar nicht erst abgefragt.
+Zusätzlich wird in der edulution Plattform die [Wiki-Sichtbarkeit](../../../../konfiguration/wiki-einstellungen) pro Freigabe geprüft (Wiki aktiv? Zugriffsgruppen?). Diese zweite Stufe wirkt **vor** dem FileProxy-Aufruf – ein deaktiviertes Wiki wird gar nicht erst abgefragt.
 
 ## Multi-Server-Deployments
 
@@ -281,5 +281,5 @@ Ein `.wiki/`-Ordner enthält ausschließlich Markdown-Dateien (`*.md`), keine we
 
 - [Installation](./installation) – Grundinstallation des FileProxy
 - [UI-Konfiguration](./ui-config) – FileProxy-URL und Freigaben in der edulution Plattform
-- [Wiki (Nutzerhandbuch)](../edulution-plattform/apps/wiki) – Funktionen aus Sicht der Endbenutzer
-- [Wiki-Einstellungen (Admin)](../edulution-plattform/konfiguration/wiki-einstellungen) – Sichtbarkeit pro Freigabe steuern
+- [Wiki (Nutzerhandbuch)](../../../wiki) – Funktionen aus Sicht der Endbenutzer
+- [Wiki-Einstellungen (Admin)](../../../../konfiguration/wiki-einstellungen) – Sichtbarkeit pro Freigabe steuern

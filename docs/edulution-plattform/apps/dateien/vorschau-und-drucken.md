@@ -42,7 +42,7 @@ Bei allen anderen Dateitypen wird durch einen Klick auf den Namen die Datei ausg
 
 ## Office-Dokumente
 
-Office-Dokumente setzen voraus, dass Ihr Administrator einen Dokumenten-Editor eingerichtet hat – [OnlyOffice](../../../edulution-onlyoffice/index.md) beziehungsweise Euro-Office oder [Collabora](../../../edulution-collabora/index.md). Ist keiner konfiguriert, lässt sich ein Office-Dokument nicht öffnen; PDF-Dateien öffnen sich unabhängig davon.
+Office-Dokumente setzen voraus, dass Ihr Administrator einen Dokumenten-Editor eingerichtet hat – [OnlyOffice](./konfiguration/onlyoffice.md) beziehungsweise Euro-Office oder [Collabora](./konfiguration/collabora.md). Ist keiner konfiguriert, lässt sich ein Office-Dokument nicht öffnen; PDF-Dateien öffnen sich unabhängig davon.
 
 ### Office-Dokumente auf dem Smartphone
 

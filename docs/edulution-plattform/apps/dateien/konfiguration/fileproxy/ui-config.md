@@ -144,7 +144,7 @@ Mit aktiviertem FileProxy können Ihre Benutzer Dateien jeder Größe hochladen:
 
 \* *Abhängig von verfügbarem Speicherplatz und Quotas*
 
-Mehr dazu in der [Dateien-App Dokumentation](../edulution-plattform/apps/dateien/index.md#dateigröße).
+Mehr dazu in der [Dateien-App Dokumentation](../../index.md#dateigröße).
 
 ## Benutzer testen
 
@@ -183,7 +183,7 @@ Ihre Benutzer können jetzt auf ihre Dateien zugreifen:
 **Prüfen Sie:**
 1. Speicherplatz auf SMB-Server verfügbar?
 2. Benutzer hat Schreibrechte auf dem Share?
-3. Quota nicht überschritten? (siehe [Dashboard](../edulution-plattform/erste-schritte/dashboard.md))
+3. Quota nicht überschritten? (siehe [Dashboard](../../../../erste-schritte/dashboard.md))
 
 ## Nächste Schritte
 

@@ -155,8 +155,8 @@ const CARDS: AppCard[] = [
     text: 'WebDAV-zu-SMB-Proxy für plattformübergreifenden Zugriff auf Windows-Freigaben.',
     roles: 'admin',
     targets: {
-      default: { to: '/docs/edulution-fileproxy/', label: 'Übersicht' },
-      'admin-setup': { to: '/docs/edulution-fileproxy/installation', label: 'Installation' },
+      default: { to: '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/', label: 'Übersicht' },
+      'admin-setup': { to: '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/installation', label: 'Installation' },
     },
   },
   {
@@ -166,8 +166,8 @@ const CARDS: AppCard[] = [
     text: 'OnlyOffice, Collabora und EuroOffice zum Bearbeiten von Dokumenten aus der Dateiverwaltung heraus.',
     targets: {
       default: { to: '/docs/edulution-plattform/apps/dateien/', label: 'Dateien' },
-      'admin-setup': { to: '/docs/category/edulution-onlyoffice', label: 'Installation' },
-      'admin-operate': { to: '/docs/category/edulution-onlyoffice', label: 'Installation' },
+      'admin-setup': { to: '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice', label: 'Installation' },
+      'admin-operate': { to: '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice', label: 'Installation' },
     },
   },
 ];

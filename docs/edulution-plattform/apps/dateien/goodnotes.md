@@ -79,6 +79,6 @@ Nach erfolgreicher Einrichtung werden alle GoodNotes-Notizbücher automatisch al
 
 ## Siehe auch
 
-- [Dateien-Übersicht](./dateien/index.md) - Alle Funktionen der Dateien-App
-- [WebDAV unter macOS](./dateien/webdav-macos.md) - Dateien im Finder einbinden
-- [Mobile App](./mobile-app.md) - Weitere mobile Nutzungsmöglichkeiten
+- [Dateien-Übersicht](./index.md) - Alle Funktionen der Dateien-App
+- [WebDAV unter macOS](./webdav-macos.md) - Dateien im Finder einbinden
+- [Mobile App](../mobile-app.md) - Weitere mobile Nutzungsmöglichkeiten

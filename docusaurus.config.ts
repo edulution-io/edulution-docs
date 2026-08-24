@@ -71,10 +71,26 @@ const config: Config = {
             '/docs/edulution-plattform/apps/e-mail/konfiguration/mailformate': [
               '/docs/edulution-mail/benutzer_mailformate',
             ],
+            '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice': [
+              '/docs/edulution-onlyoffice/',
+              '/docs/category/edulution-onlyoffice',
+            ],
+            '/docs/edulution-plattform/apps/dateien/konfiguration/collabora': [
+              '/docs/edulution-collabora/',
+              '/docs/category/edulution-collabora',
+            ],
+            '/docs/edulution-plattform/apps/dateien/konfiguration/eurooffice': [
+              '/docs/edulution-eurooffice/',
+              '/docs/category/edulution-eurooffice',
+            ],
+            '/docs/edulution-plattform/apps/dateien/goodnotes': [
+              '/docs/edulution-plattform/features/goodnotes',
+            ],
           };
 
           const PREFIXES: [string, string][] = [
             // neu                                        // alt
+            ['/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/', '/docs/edulution-fileproxy/'],
             ['/docs/edulution-plattform/apps/e-mail/clients/', '/docs/edulution-mail/clients/'],
             ['/docs/edulution-plattform/apps/e-mail/konfiguration/', '/docs/edulution-mail/'],
             ['/docs/edulution-plattform/apps/e-mail/auto-reply', '/docs/edulution-mail/auto-reply'],
@@ -206,15 +222,15 @@ const config: Config = {
             },
             {
               label: 'edulution OnlyOffice',
-              to: '/docs/category/edulution-onlyoffice',
+              to: '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice',
             },
             {
               label: 'edulution EuroOffice',
-              to: '/docs/category/edulution-eurooffice',
+              to: '/docs/edulution-plattform/apps/dateien/konfiguration/eurooffice',
             },
             {
               label: 'edulution Collabora',
-              to: '/docs/category/edulution-collabora',
+              to: '/docs/edulution-plattform/apps/dateien/konfiguration/collabora',
             },
           ],
         },

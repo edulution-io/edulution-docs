@@ -7,7 +7,7 @@ import Tag from './Tag'; // Importiere die Tag-Komponente
  *
  * Expected format:
  *
- * ## v1.2.0 | 2024-03-15 | edulution-ui
+ * ## v1.2.0 | 2024-03-15 | edulution-plattform
  *
  * ![Optional Image](path/to/image.png)
  *

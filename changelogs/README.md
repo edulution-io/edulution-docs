@@ -5,7 +5,7 @@ Eine schöne Timeline-basierte Changelog-Komponente im Tailwind Commit-Stil für
 ## Features
 
 - **Timeline-Design** mit animierten Verbindungslinien
-- **Tag-System** für verschiedene Projekte (edulution-ui, edulution-mail, etc.)
+- **Tag-System** für verschiedene Projekte (edulution-plattform, edulution-mail, etc.)
 - **Markdown-Support** - schreibe Changelogs als einfache Markdown-Dateien
 - **Versionsnummern** mit automatischer Formatierung
 - **Bilder** - füge Screenshots oder Bilder zu jedem Eintrag hinzu
@@ -30,7 +30,7 @@ npm install --save-dev raw-loader
 1. Erstelle eine Markdown-Datei in `changelogs/`:
 
 ```markdown
-## v1.2.0 | 2024-03-15 | edulution-ui, edulution-mail
+## v1.2.0 | 2024-03-15 | edulution-plattform, edulution-mail
 
 ### Feature Title
 
@@ -82,7 +82,7 @@ import { Changelog } from "@site/src/components/Changelog";
       date: "2024-03-15",
       title: "Feature Title",
       description: "Description of the feature",
-      tags: [{ name: "edulution-ui" }, { name: "edulution-mail" }],
+      tags: [{ name: "edulution-plattform" }, { name: "edulution-mail" }],
       image: "/img/screenshot.png", // optional
       improvements: ["Improvement 1", "Improvement 2"],
       links: [{ text: "Docs", url: "/docs" }],
@@ -102,13 +102,13 @@ import { Changelog } from "@site/src/components/Changelog";
 Beispiel:
 
 ```markdown
-## v2.1.0 | 2025-03-15 | edulution-ui, edulution-mail
+## v2.1.0 | 2025-03-15 | edulution-plattform, edulution-mail
 ```
 
 ### Vollständiges Beispiel
 
 ```markdown
-## v2.1.0 | 2025-03-15 | edulution-ui, edulution-mail
+## v2.1.0 | 2025-03-15 | edulution-plattform, edulution-mail
 
 ![Optional Screenshot](/img/feature.png)
 
@@ -133,7 +133,7 @@ und wird automatisch formatiert.
 
 Die Komponente erkennt automatisch diese Tags und wendet passende Farben an:
 
-- `edulution-ui` - Grün (#8FC046)
+- `edulution-plattform` - Grün (#8FC046)
 - `edulution-mail` - Blau (#0081c6)
 - `edulution-fileproxy` - Rot (#dc2626)
 - `edulution-backend` - Gelb (#FFD700)
@@ -167,7 +167,7 @@ Falls du das Styling anpassen möchtest, bearbeite `src/components/Changelog.css
 ### Einfacher Eintrag
 
 ```markdown
-## v1.0.0 | 2024-01-15 | edulution-ui
+## v1.0.0 | 2024-01-15 | edulution-plattform
 
 ### Erste Version
 
@@ -198,7 +198,7 @@ Neue interaktive Mail-Konfigurationskomponente.
 ### Eintrag mit mehreren Tags und Links
 
 ```markdown
-## v2.0.0 | 2025-01-20 | edulution-ui, edulution-mail, edulution-fileproxy
+## v2.0.0 | 2025-01-20 | edulution-plattform, edulution-mail, edulution-fileproxy
 
 ### Major Release
 

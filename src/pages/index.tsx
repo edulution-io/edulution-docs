@@ -38,14 +38,14 @@ function HomepageContent() {
       <div className="row">
         <div className="col col--4">
           <div className="text--center padding-horiz--md">
-            <Heading as="h3">🚀 edulution UI</Heading>
+            <Heading as="h3">🚀 edulution Plattform</Heading>
             <p>
               Eine moderne Weboberfläche für Schulnetzwerke mit Linuxmuster.net Integration. Einfache Installation und
               intuitive Bedienung.
             </p>
             <Link
               className="button button--primary button--sm"
-              to="/docs/edulution-ui/installation/einrichtung"
+              to="/docs/edulution-plattform/installation/einrichtung"
             >
               Installation starten
             </Link>
@@ -55,7 +55,7 @@ function HomepageContent() {
           <div className="text--center padding-horiz--md">
             <Heading as="h3">📧 edulution Mail</Heading>
             <p>
-              Mailserver-Lösung basierend auf Mailcow mit vollständiger Integration in die edulution UI und
+              Mailserver-Lösung basierend auf Mailcow mit vollständiger Integration in die edulution Plattform und
               Linuxmuster.net.
             </p>
             <Link
@@ -88,7 +88,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title="Willkommen"
-      description="Dokumentation für edulution UI und edulution Mail - Moderne Schulnetzwerk-Lösung"
+      description="Dokumentation für edulution Plattform und edulution Mail - Moderne Schulnetzwerk-Lösung"
     >
       <HomepageHeader />
       <main>

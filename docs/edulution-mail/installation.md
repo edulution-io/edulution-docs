@@ -16,16 +16,16 @@ edulution-mail integriert Mailcow nahtlos in die edulution-Plattform und linuxmu
 
 Für die Installation von edulution-mail benötigen Sie lediglich:
 
-- **edulution-UI** bereits installiert und konfiguriert
+- **edulution-Plattform** bereits installiert und konfiguriert
 - **Ausreichend Speicherplatz** auf dem Server
 
 :::info[Automatische Konfiguration]
-Die Installation über edulution-UI richtet automatisch alle notwendigen Komponenten ein (Docker, Keycloak-Integration, Netzwerk, etc.). Es sind keine manuellen Vorarbeiten erforderlich.
+Die Installation über edulution-Plattform richtet automatisch alle notwendigen Komponenten ein (Docker, Keycloak-Integration, Netzwerk, etc.). Es sind keine manuellen Vorarbeiten erforderlich.
 :::
 
-## Installation über edulution-UI
+## Installation über edulution-Plattform
 
-Die Installation von edulution-mail erfolgt direkt über die edulution-UI Administrationsoberfläche.
+Die Installation von edulution-mail erfolgt direkt über die edulution-Plattform Administrationsoberfläche.
 
 :::info[Installationsverzeichnis]
 Der Installer erstellt automatisch das Verzeichnis `/srv/docker/edulution-mail`, in dem alle Mailcow-Daten, Konfigurationsdateien und Logs gespeichert werden.
@@ -40,7 +40,7 @@ Der Installer erstellt automatisch das Verzeichnis `/srv/docker/edulution-mail`,
 
 ### Schritt 1: E-Mails App installieren
 
-1. Melden Sie sich als Administrator in der edulution-UI an
+1. Melden Sie sich als Administrator in der edulution-Plattform an
 2. Navigieren Sie zu **Einstellungen** → **App-Store**
 3. Klicken Sie auf die Kachel **E-Mails**
 4. Unten erscheint ein **+** Button - klicken Sie darauf
@@ -175,7 +175,7 @@ Die Mailcow-API-URL unter **Einstellungen → E-Mails → Mailserver** muss auf 
 :::
 
 :::warning[edulution-mail beim Update mit aktualisieren]
-Beim Update der **edulution-ui/edulution-api Container auf v2.0.156 oder höher** muss **edulution-mail auf v1.1.13 (oder höher) aktualisiert** werden. edulution verbindet sich dann selbstständig mit dem Mailcow-Netzwerk (per `docker network connect` für den edu-api Container).
+Beim Update der **edulution-plattform/edulution-api Container auf v2.0.156 oder höher** muss **edulution-mail auf v1.1.13 (oder höher) aktualisiert** werden. edulution verbindet sich dann selbstständig mit dem Mailcow-Netzwerk (per `docker network connect` für den edu-api Container).
 :::
 
 :::info[Optionales Aufräumen]
@@ -208,7 +208,7 @@ Damit die edulution-api direkt mit dem Mailserver kommunizieren kann, müssen IM
 4. Klicken Sie oben rechts auf **Speichern**
 
 :::warning[URL-Feld nicht vergessen]
-Ohne den korrekten URL-Wert kann die edulution-UI nicht mit der Mailcow-API kommunizieren — z.B. Mailbox-Status, Sync-Trigger und Admin-Funktionen schlagen dann fehl.
+Ohne den korrekten URL-Wert kann die edulution-Plattform nicht mit der Mailcow-API kommunizieren — z.B. Mailbox-Status, Sync-Trigger und Admin-Funktionen schlagen dann fehl.
 :::
 
 :::info[Hintergrund]
@@ -284,7 +284,7 @@ Dies ist der wichtigste Sicherheitsschritt und sollte sofort nach der Installati
 
 ### 2. E-Mail-Einstellungen konfigurieren
 
-**Wo:** edulution-UI → [Einstellungen → E-Mails](/docs/edulution-ui/administration/einstellungen#e-mails)
+**Wo:** edulution-Plattform → [Einstellungen → E-Mails](/docs/edulution-plattform/administration/einstellungen#e-mails)
 
 Hier können Sie folgende Einstellungen anpassen:
 
@@ -363,10 +363,10 @@ Mailcow generiert alle notwendigen DNS-Einträge automatisch. Sie müssen diese 
 :::info[Nur für ältere Installationen]
 Dieser Abschnitt ist nur relevant, wenn Sie **edulution-installer < v1.0.0** verwendet haben.
 
-Bei neueren Installationen (edulution-installer >= v1.0.0 und edulution-UI >= v1.6.14) ist dieser Schritt bereits automatisch konfiguriert.
+Bei neueren Installationen (edulution-installer >= v1.0.0 und edulution-Plattform >= v1.6.14) ist dieser Schritt bereits automatisch konfiguriert.
 :::
 
-Um aus der edulution-UI Administrationsoberfläche das SOGo-Theme umstellen zu können, muss ein zusätzlicher Volume-Mount eingerichtet werden.
+Um aus der edulution-Plattform Administrationsoberfläche das SOGo-Theme umstellen zu können, muss ein zusätzlicher Volume-Mount eingerichtet werden.
 
 ### Volume-Mount konfigurieren
 
@@ -380,11 +380,18 @@ sed -i '/^\s*volumes:/a\      - /srv/docker/edulution-mail/mailcow/data/conf/sog
 
 Nach der Konfiguration des Volume-Mounts:
 
-1. Melden Sie sich in der edulution-UI als Administrator an
-2. Navigieren Sie zu [**Einstellungen** → **E-Mails**](/docs/edulution-ui/administration/einstellungen#e-mails)
+1. Melden Sie sich in der edulution-Plattform als Administrator an
+2. Navigieren Sie zu [**Einstellungen** → **E-Mails**](/docs/edulution-plattform/administration/einstellungen#e-mails)
 3. Wählen Sie das gewünschte SOGo-Theme (Hell/Dunkel) aus
 
 Die Theme-Änderung wird sofort für alle Benutzer wirksam.
+
+## Weitere Einrichtung
+
+Die Verbindungsdaten des integrierten E-Mail-Clients – Mailcow-API,
+IMAP, SMTP, ManageSieve und DAV – werden in den Einstellungen der
+Mail-App gepflegt. Siehe
+[Mail-App konfigurieren](mail-app-konfiguration.md).
 
 {/* ![Auswahl des SOGo-Themes](assets/setupMailTheme.webp) */}
 

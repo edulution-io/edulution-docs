@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # FileProxy in der UI einrichten
 
-In diesem Abschnitt richten Sie den FileProxy in der edulution UI ein, damit Ihre Benutzer auf ihre Netzlaufwerke zugreifen können.
+In diesem Abschnitt richten Sie den FileProxy in der edulution Plattform ein, damit Ihre Benutzer auf ihre Netzlaufwerke zugreifen können.
 
 ## Warum FileProxy?
 
@@ -142,7 +142,7 @@ Mit aktiviertem FileProxy können Ihre Benutzer Dateien jeder Größe hochladen:
 
 \* *Abhängig von verfügbarem Speicherplatz und Quotas*
 
-Mehr dazu in der [Dateien-App Dokumentation](../edulution-ui/features/dateien/index.md#dateigröße).
+Mehr dazu in der [Dateien-App Dokumentation](../edulution-plattform/features/dateien/index.md#dateigröße).
 
 ## Benutzer testen
 
@@ -181,7 +181,7 @@ Ihre Benutzer können jetzt auf ihre Dateien zugreifen:
 **Prüfen Sie:**
 1. Speicherplatz auf SMB-Server verfügbar?
 2. Benutzer hat Schreibrechte auf dem Share?
-3. Quota nicht überschritten? (siehe [Dashboard](../edulution-ui/features/dashboard.md))
+3. Quota nicht überschritten? (siehe [Dashboard](../edulution-plattform/features/dashboard.md))
 
 ## Nächste Schritte
 

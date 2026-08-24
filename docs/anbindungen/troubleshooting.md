@@ -16,7 +16,7 @@ curl https://cloud.ihre-edulution-domain.de/apps/nextcloud-app-cookieauth/debug
 
 **Ursache:** Nextcloud läuft nicht unter einer Subdomain von edulution.
 
-| edulution UI | Nextcloud | Status |
+| edulution Plattform | Nextcloud | Status |
 |--------------|-----------|--------|
 | `edu.schule.de` | `cloud.edu.schule.de` | ✅ Funktioniert |
 | `edu.schule.de` | `nextcloud.schule.de` | ❌ Cookie wird nicht gesendet |

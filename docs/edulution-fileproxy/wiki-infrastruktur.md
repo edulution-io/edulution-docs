@@ -17,7 +17,7 @@ Das Wiki erweitert den FileProxy um einen **Elasticsearch-Sidecar** für die Vol
 ```mermaid
 flowchart LR
     Browser([Browser])
-    UI[edulution-ui API]
+    UI[edulution Plattform API]
     FP[edulution-fileproxy]
     AD[(Active Directory)]
     ES[(Elasticsearch)]
@@ -34,7 +34,7 @@ flowchart LR
 
 | Komponente | Aufgabe | Deployment |
 |---|---|---|
-| edulution-ui API | Empfängt Browser-Anfragen, prüft Berechtigungen, leitet an FileProxy weiter | Docker (`edulution-api`) |
+| edulution Plattform API | Empfängt Browser-Anfragen, prüft Berechtigungen, leitet an FileProxy weiter | Docker (`edulution-api`) |
 | edulution-fileproxy | WebDAV-Operationen, Wiki-Endpunkte, Indexierung von Änderungen | Host-Binary via systemd |
 | Elasticsearch | Volltextindex der Wiki-Seiten mit ACL-Filter | Docker-Sidecar (loopback) |
 | SMB-Server | Persistente Speicherung der `.md`-Dateien | Linuxmuster Fileserver |
@@ -149,20 +149,20 @@ Der Lauf durchsucht den Share nach `.wiki/**/*.md`-Dateien und indiziert sie. W�
 
 ### 6. UI-Verbindung prüfen
 
-In edulution-ui ist die Verbindung zum FileProxy in den **Datei-Freigaben** hinterlegt (siehe [UI-Konfiguration](./ui-config)). Pro Freigabe wird die FileProxy-URL gespeichert; ein einzelner FileProxy kann beliebig viele SMB-Backend-Server bedienen.
+In der edulution Plattform ist die Verbindung zum FileProxy in den **Datei-Freigaben** hinterlegt (siehe [UI-Konfiguration](./ui-config)). Pro Freigabe wird die FileProxy-URL gespeichert; ein einzelner FileProxy kann beliebig viele SMB-Backend-Server bedienen.
 
-Die Sichtbarkeit pro Wiki steuert der Global-Admin in der edulution-UI unter **Einstellungen → Wiki → Wiki-Sichtbarkeit** (siehe [Wiki-Einstellungen](../edulution-ui/administration/wiki-einstellungen)).
+Die Sichtbarkeit pro Wiki steuert der Global-Admin in der edulution Plattform unter **Einstellungen → Wiki → Wiki-Sichtbarkeit** (siehe [Wiki-Einstellungen](../edulution-plattform/administration/wiki-einstellungen)).
 
 ## Berechtigungen
 
 Die Berechtigungsprüfung erfolgt **fail-closed**:
 
-1. edulution-ui sendet bei jedem FileProxy-Aufruf den Header `X-Edulution-Groups` mit den AD-Gruppen des Users.
+1. Die edulution Plattform sendet bei jedem FileProxy-Aufruf den Header `X-Edulution-Groups` mit den AD-Gruppen des Users.
 2. FileProxy übersetzt die Gruppen in SIDs.
 3. Elasticsearch filtert mit einem Terms-Filter auf das Feld `acl_allow` jedes Dokuments.
 4. Dokumente ohne passende ACL erscheinen weder in der Suche noch in der Listenansicht.
 
-Zusätzlich wird in edulution-ui die [Wiki-Sichtbarkeit](../edulution-ui/administration/wiki-einstellungen) pro Freigabe geprüft (Wiki aktiv? Zugriffsgruppen?). Diese zweite Stufe wirkt **vor** dem FileProxy-Aufruf – ein deaktiviertes Wiki wird gar nicht erst abgefragt.
+Zusätzlich wird in der edulution Plattform die [Wiki-Sichtbarkeit](../edulution-plattform/administration/wiki-einstellungen) pro Freigabe geprüft (Wiki aktiv? Zugriffsgruppen?). Diese zweite Stufe wirkt **vor** dem FileProxy-Aufruf – ein deaktiviertes Wiki wird gar nicht erst abgefragt.
 
 ## Multi-Server-Deployments
 
@@ -228,14 +228,14 @@ sudo edulution-fileproxy-reindex --share <share-name>
 **Seite öffnen**
 
 ```
-Browser → edulution-ui API → fileproxy (WebDAV GET) → SMB
+Browser → edulution Plattform API → fileproxy (WebDAV GET) → SMB
                                                      → ETag im Header
 ```
 
 **Seite speichern (mit Konflikterkennung)**
 
 ```
-Browser → edulution-ui API → fileproxy (WebDAV PUT, If-Match)
+Browser → edulution Plattform API → fileproxy (WebDAV PUT, If-Match)
                               ├─ SMB schreiben
                               └─ PostWriteHook → Elasticsearch upsert
 ```
@@ -243,7 +243,7 @@ Browser → edulution-ui API → fileproxy (WebDAV PUT, If-Match)
 **Suchen**
 
 ```
-Browser → edulution-ui API → fileproxy POST /wiki/search
+Browser → edulution Plattform API → fileproxy POST /wiki/search
                               → Elasticsearch query mit ACL-Filter
                               ← Treffer mit Snippets
 ```
@@ -278,6 +278,6 @@ Ein `.wiki/`-Ordner enthält ausschließlich Markdown-Dateien (`*.md`), keine we
 ## Siehe auch
 
 - [Installation](./installation) – Grundinstallation des FileProxy
-- [UI-Konfiguration](./ui-config) – FileProxy-URL und Freigaben in edulution-ui
-- [Wiki (Nutzerhandbuch)](../edulution-ui/features/wiki) – Funktionen aus Sicht der Endbenutzer
-- [Wiki-Einstellungen (Admin)](../edulution-ui/administration/wiki-einstellungen) – Sichtbarkeit pro Freigabe steuern
+- [UI-Konfiguration](./ui-config) – FileProxy-URL und Freigaben in der edulution Plattform
+- [Wiki (Nutzerhandbuch)](../edulution-plattform/features/wiki) – Funktionen aus Sicht der Endbenutzer
+- [Wiki-Einstellungen (Admin)](../edulution-plattform/administration/wiki-einstellungen) – Sichtbarkeit pro Freigabe steuern

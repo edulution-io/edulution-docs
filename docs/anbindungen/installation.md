@@ -52,7 +52,7 @@ Nextcloud muss als App Frame in edulution angelegt werden:
 2. URL eingeben: `https://cloud.ihre-edulution-domain.de`
 3. Name und Berechtigungen konfigurieren
 
-→ Siehe [App Frame - Externe Webseiten einbinden](/docs/edulution-ui/administration/administration#261-app-frame---externe-webseiten-einbinden) für Details.
+→ Siehe [App Frame - Externe Webseiten einbinden](/docs/edulution-plattform/administration/administration#261-app-frame---externe-webseiten-einbinden) für Details.
 
 ## Testen
 

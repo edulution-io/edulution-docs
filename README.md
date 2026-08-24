@@ -34,7 +34,7 @@ Dieser Befehl generiert statische Inhalte im `build` Verzeichnis.
 
 - `/docs` - Dokumentationsinhalte
 
-  - `/edulution-ui` - edulution UI Dokumentation
+  - `/edulution-plattform` - edulution Plattform Dokumentation
   - `/edulution-mail` - edulution Mail Dokumentation
   - `/edulution-fileproxy` - edulution FileProxy Dokumentation
   - `/edulution-onlyoffice` - edulution OnlyOffice Dokumentation

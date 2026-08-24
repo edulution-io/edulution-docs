@@ -19,7 +19,7 @@ In den Einstellungen unter **Dateien** den Reiter **Allgemeine Einstellungen**
 
 Im Bereich **Collabora Online Integration** folgende Werte eintragen:
 
-- **Collabora URL**: Die edulution UI Domain mit dem Pfad `/collabora`, z. B.
+- **Collabora URL**: Die edulution Plattform Domain mit dem Pfad `/collabora`, z. B.
   `https://ui.example.de/collabora`
 - **Collabora WOPI-Geheimschlüssel**: Einen selbst gewählten, geheimen
   Schlüssel eintragen. Empfohlen wird ein ausreichend langer, zufälliger

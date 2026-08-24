@@ -69,7 +69,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie kommt der Mailserver dazu?',
       a: 'edulution Mail wird getrennt installiert und dann eingebunden.',
-      to: '/docs/edulution-plattform/apps/e-mail/konfiguration/installation',
+      to: '/docs/edulution-plattform/apps/mit-einrichtung/e-mail/konfiguration/installation',
     },
     {
       q: 'Wir sind keine Schule – was muss ich umstellen?',
@@ -115,34 +115,34 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie sammle ich Dateien von meiner Gruppe ein?',
       a: 'Im Klassenzimmer austeilen, einsammeln und Bildschirme beaufsichtigen.',
-      to: '/docs/edulution-plattform/apps/klassenzimmer',
+      to: '/docs/edulution-plattform/apps/direkt-einsatzbereit/klassenzimmer',
     },
     {
       q: 'Wie starte ich eine Videokonferenz?',
       a: 'Konferenzen anlegen, Teilnehmende einladen und moderieren.',
-      to: '/docs/edulution-plattform/apps/konferenzen',
+      to: '/docs/edulution-plattform/apps/mit-einrichtung/konferenzen',
     },
     {
       q: 'Wie teile ich eine Datei mit anderen?',
       a: 'Freigaben innerhalb von edulution und Links nach außen.',
-      to: '/docs/edulution-plattform/apps/dateien/teilen',
+      to: '/docs/edulution-plattform/apps/mit-einrichtung/dateien/teilen',
     },
     {
       q: 'Wo finde ich meine Moodle-Kurse?',
       a: 'Lernmanagement öffnet Moodle ohne zweiten Login; Kurse entstehen aus Ihren Gruppen.',
-      to: '/docs/edulution-plattform/apps/lernmanagement/',
+      to: '/docs/edulution-plattform/apps/mit-einrichtung/lernmanagement/',
     },
     {
       q: 'Wie ordne ich Eltern ihren Kindern zu?',
       a: 'Die Zuordnung schaltet die Elternfunktionen für ein Konto frei.',
-      to: '/docs/edulution-plattform/apps/eltern-schueler-zuordnung',
+      to: '/docs/edulution-plattform/apps/direkt-einsatzbereit/eltern-schueler-zuordnung',
       // Die Elternzuweisung entfaellt beim Organisationstyp Unternehmen.
       orgs: 'school public-administration',
     },
     {
       q: 'Wie frage ich schnell etwas in der Gruppe ab?',
       a: 'Umfragen erstellen, verteilen und auswerten.',
-      to: '/docs/edulution-plattform/apps/umfragen',
+      to: '/docs/edulution-plattform/apps/direkt-einsatzbereit/umfragen',
     },
   ],
 
@@ -155,17 +155,17 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wo finde ich meine Dateien?',
       a: 'Eigene Ablage, Tauschverzeichnisse und die Verzeichnisse Ihrer Gruppen.',
-      to: '/docs/edulution-plattform/apps/dateien/',
+      to: '/docs/edulution-plattform/apps/mit-einrichtung/dateien/',
     },
     {
       q: 'Wie nehme ich an einer Konferenz teil?',
       a: 'Einer Konferenz beitreten, Kamera und Mikrofon einrichten.',
-      to: '/docs/edulution-plattform/apps/konferenzen',
+      to: '/docs/edulution-plattform/apps/mit-einrichtung/konferenzen',
     },
     {
       q: 'Kann ich edulution auf dem Handy nutzen?',
       a: 'Die mobile Ansicht, die App und der digitale Ausweis.',
-      to: '/docs/edulution-plattform/apps/mobile-app',
+      to: '/docs/edulution-plattform/apps/direkt-einsatzbereit/mobile-app',
     },
     {
       q: 'Wie ändere ich mein Passwort?',
@@ -178,7 +178,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie komme ich an einen Zugang für mein Kind?',
       a: 'Die Eltern-Schüler-Zuordnung legt die Verbindung an – eingerichtet von der Schule.',
-      to: '/docs/edulution-plattform/apps/eltern-schueler-zuordnung',
+      to: '/docs/edulution-plattform/apps/direkt-einsatzbereit/eltern-schueler-zuordnung',
     },
     {
       q: 'Wie melde ich mich an?',
@@ -188,12 +188,12 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wo sehe ich Mitteilungen der Schule?',
       a: 'Benachrichtigungen sammeln, was Sie betrifft.',
-      to: '/docs/edulution-plattform/apps/benachrichtigungen',
+      to: '/docs/edulution-plattform/apps/direkt-einsatzbereit/benachrichtigungen',
     },
     {
       q: 'Wo finde ich das Schwarze Brett?',
       a: 'Das Infoboard zeigt Aushänge und aktuelle Hinweise.',
-      to: '/docs/edulution-plattform/apps/infoboard',
+      to: '/docs/edulution-plattform/apps/direkt-einsatzbereit/infoboard',
     },
   ],
 
@@ -206,22 +206,22 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wo finde ich meine Dateien?',
       a: 'Eigene Ablage, Tauschverzeichnisse und die Verzeichnisse Ihrer Gruppen.',
-      to: '/docs/edulution-plattform/apps/dateien/',
+      to: '/docs/edulution-plattform/apps/mit-einrichtung/dateien/',
     },
     {
       q: 'Wie richte ich mein Mailprogramm ein?',
       a: 'Server, Ports und Verschlüsselung für Outlook, Thunderbird und Apple Mail.',
-      to: '/docs/edulution-plattform/apps/e-mail/clients/server-settings',
+      to: '/docs/edulution-plattform/apps/mit-einrichtung/e-mail/clients/server-settings',
     },
     {
       q: 'Wie lege ich eine Abwesenheitsnotiz an?',
       a: 'Automatische Antwort mit Zeitraum und eigenem Text.',
-      to: '/docs/edulution-plattform/apps/e-mail/auto-reply',
+      to: '/docs/edulution-plattform/apps/mit-einrichtung/e-mail/auto-reply',
     },
     {
       q: 'Wie komme ich von unterwegs ins Netz?',
       a: 'VPN-Zugang über WireGuard einrichten.',
-      to: '/docs/edulution-plattform/apps/vpn-zugang',
+      to: '/docs/edulution-plattform/apps/mit-einrichtung/vpn-zugang',
     },
   ],
 };

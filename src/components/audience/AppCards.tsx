@@ -88,9 +88,9 @@ const CARDS: AppCard[] = [
     tagline: 'Der integrierte Mailserver',
     text: 'Mailserver auf Mailcow-Basis mit Postfächern, Verteilerlisten und Anleitungen für alle gängigen Mail-Clients.',
     targets: {
-      default: { to: '/docs/edulution-plattform/apps/e-mail', label: 'Mail-App nutzen' },
-      'admin-setup': { to: '/docs/edulution-plattform/apps/e-mail/konfiguration/installation', label: 'Installation' },
-      'admin-operate': { to: '/docs/edulution-plattform/apps/e-mail/konfiguration/administration', label: 'Administration' },
+      default: { to: '/docs/edulution-plattform/apps/mit-einrichtung/e-mail', label: 'Mail-App nutzen' },
+      'admin-setup': { to: '/docs/edulution-plattform/apps/mit-einrichtung/e-mail/konfiguration/installation', label: 'Installation' },
+      'admin-operate': { to: '/docs/edulution-plattform/apps/mit-einrichtung/e-mail/konfiguration/administration', label: 'Administration' },
     },
   },
   {
@@ -111,12 +111,12 @@ const CARDS: AppCard[] = [
     text: 'Moodle ohne zweiten Login. Kurse und Einschreibungen entstehen automatisch aus Ihren Gruppen.',
     targets: {
       default: {
-        to: '/docs/edulution-plattform/apps/lernmanagement/',
+        to: '/docs/edulution-plattform/apps/mit-einrichtung/lernmanagement/',
         label: 'Lernmanagement öffnen',
       },
-      'admin-setup': { to: '/docs/edulution-plattform/apps/lernmanagement/installation/schnellstart', label: 'Schnellstart' },
+      'admin-setup': { to: '/docs/edulution-plattform/apps/mit-einrichtung/lernmanagement/installation/schnellstart', label: 'Schnellstart' },
       'admin-operate': {
-        to: '/docs/edulution-plattform/apps/lernmanagement/konfiguration/administration/admin-ui',
+        to: '/docs/edulution-plattform/apps/mit-einrichtung/lernmanagement/konfiguration/administration/admin-ui',
         label: 'Admin-Oberfläche',
       },
     },
@@ -127,7 +127,7 @@ const CARDS: AppCard[] = [
     tagline: 'Geräteverwaltung mit Relution',
     text: 'Tablets, Smartphones und Computer zentral verwalten – ohne die Relution-Konsole zu öffnen.',
     targets: {
-      default: { to: '/docs/edulution-plattform/apps/mdm', label: 'MDM-App' },
+      default: { to: '/docs/edulution-plattform/apps/mit-einrichtung/mdm', label: 'MDM-App' },
     },
   },
   {
@@ -155,8 +155,8 @@ const CARDS: AppCard[] = [
     text: 'WebDAV-zu-SMB-Proxy für plattformübergreifenden Zugriff auf Windows-Freigaben.',
     roles: 'admin',
     targets: {
-      default: { to: '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/', label: 'Übersicht' },
-      'admin-setup': { to: '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/installation', label: 'Installation' },
+      default: { to: '/docs/edulution-plattform/apps/mit-einrichtung/dateien/konfiguration/fileproxy/', label: 'Übersicht' },
+      'admin-setup': { to: '/docs/edulution-plattform/apps/mit-einrichtung/dateien/konfiguration/fileproxy/installation', label: 'Installation' },
     },
   },
   {
@@ -165,9 +165,9 @@ const CARDS: AppCard[] = [
     tagline: 'Dokumente direkt im Browser',
     text: 'OnlyOffice, Collabora und EuroOffice zum Bearbeiten von Dokumenten aus der Dateiverwaltung heraus.',
     targets: {
-      default: { to: '/docs/edulution-plattform/apps/dateien/', label: 'Dateien' },
-      'admin-setup': { to: '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice', label: 'Installation' },
-      'admin-operate': { to: '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice', label: 'Installation' },
+      default: { to: '/docs/edulution-plattform/apps/mit-einrichtung/dateien/', label: 'Dateien' },
+      'admin-setup': { to: '/docs/edulution-plattform/apps/mit-einrichtung/dateien/konfiguration/onlyoffice', label: 'Installation' },
+      'admin-operate': { to: '/docs/edulution-plattform/apps/mit-einrichtung/dateien/konfiguration/onlyoffice', label: 'Installation' },
     },
   },
 ];

@@ -80,6 +80,6 @@ Diese Seite beschreibt die Passwortänderung durch den Benutzer selbst. Das **Zu
 ## Siehe auch
 
 - [Benutzereinstellungen → Sicherheit](../erste-schritte/mein-profil.md#sicherheit) – Passwortänderung aus Benutzersicht
-- [Sicherheit & Authentifizierung](../apps/sicherheit.md) – Zwei-Faktor-Authentifizierung und Passwort-Tresor
+- [Sicherheit & Authentifizierung](../apps/direkt-einsatzbereit/sicherheit.md) – Zwei-Faktor-Authentifizierung und Passwort-Tresor
 - [Experten-Tipps](./experten-tipps.md) – Zugang zur Keycloak-Administrationsoberfläche
 - [Anpassung am Linuxmuster-Server](../installation/configure_lmn-server.md) – Linuxmuster-API und Setup-Token

@@ -9,30 +9,42 @@ Jede Anwendung in edulution hat hier ihren eigenen Bereich. Er beginnt – sofer
 einzurichten gibt – mit **Installation** und **Konfiguration**, danach folgen die **Übersicht** über
 die App und ihre **Nutzung**. Als Endnutzer:in sehen Sie die administrativen Teile gar nicht erst.
 
-## Arbeiten und Ablegen
+Die Apps stehen in zwei Gruppen, weil sie unterschiedlich viel Aufwand machen.
 
-- **[Dateien](./dateien)** – Ihre Laufwerke im Browser, Freigaben, WebDAV und die Office-Integration.
-- **[E-Mail](./e-mail)** – der integrierte Mail-Client, Mail-Clients einrichten, Migration.
-- **[Kalender](./kalender.md)** und **[Kontakte](./kontakte.md)** – Termine und Adressbücher.
-- **[Whiteboard](./whiteboard.md)** und **[Wiki](./wiki.md)** – gemeinsam skizzieren und dokumentieren.
+## Mit eigener Einrichtung
 
-## Zusammenarbeiten
+Diese Apps setzen einen eigenen Serverdienst voraus. Solange der nicht steht, erscheinen sie in
+edulution gar nicht oder bleiben leer – ihre Bereiche bringen deshalb eine eigene Installations-
+und Konfigurations-Strecke mit.
 
-- **[Chat](./chat.md)** und **[Konferenzen](./konferenzen.md)** – Nachrichten und Videokonferenzen.
-- **[Klassenzimmer](./klassenzimmer.md)** – Gruppen betreuen, Dateien einsammeln, Bildschirme
-  beaufsichtigen.
-- **[Lernmanagement](./lernmanagement/index.md)** – Moodle ohne zweiten Login.
-- **[Umfragen](./umfragen.md)** und **[Infoboard](./infoboard.md)**.
+| App | Was zusätzlich nötig ist |
+| --- | --- |
+| **[Dateien](mit-einrichtung/dateien/)** | FileProxy und ein Office-Server (OnlyOffice, Collabora oder EuroOffice) |
+| **[E-Mail](mit-einrichtung/e-mail/)** | edulution Mail auf Mailcow-Basis |
+| **[Lernmanagement](mit-einrichtung/lernmanagement/)** | Moodle |
+| **[Konferenzen](mit-einrichtung/konferenzen.md)** | BigBlueButton |
+| **[MDM](mit-einrichtung/mdm.md)** | Relution |
+| **[VPN-Zugang](mit-einrichtung/vpn-zugang.md)** | die WireGuard-App |
 
-## Geräte und Zugang
+## Direkt einsatzbereit
 
-- **[Mobile App](./mobile-app.md)** – edulution auf iOS und Android.
-- **[MDM](./mdm.md)** und **[Geräteverwaltung](./geraeteverwaltung.md)** – Tablets, Smartphones und
-  Computer verwalten.
-- **[VPN-Zugang](./vpn-zugang.md)** – von außen ins Netz der Einrichtung.
+Diese Apps gehören zur Plattform. Hier ist nichts zu installieren – höchstens im **App-Store** zu
+aktivieren und in den Einstellungen freizugeben.
 
-## Rund um die Oberfläche
-
-- **[App-Store](./app-store.md)** – welche Apps überhaupt zur Verfügung stehen.
-- **[Benachrichtigungen](./benachrichtigungen.md)**, **[Markdown-Hilfe](./markdown-hilfe.md)**,
-  **[Eingebettete App](./eingebettete-app.md)**, **[Weitere Features](./weitere-features.md)**.
+- **[Chat](direkt-einsatzbereit/chat.md)**, **[Kontakte](direkt-einsatzbereit/kontakte.md)** und
+  **[Kalender](direkt-einsatzbereit/kalender.md)** – Nachrichten, Adressbücher, Termine.
+- **[Klassenzimmer](direkt-einsatzbereit/klassenzimmer.md)** – Gruppen betreuen, Dateien einsammeln,
+  Bildschirme beaufsichtigen.
+- **[Whiteboard](direkt-einsatzbereit/whiteboard.md)**, **[Wiki](direkt-einsatzbereit/wiki.md)** und
+  **[Wiki-Editor](direkt-einsatzbereit/wiki-editor.md)** – gemeinsam skizzieren und dokumentieren.
+- **[Infoboard](direkt-einsatzbereit/infoboard.md)**, **[Umfragen](direkt-einsatzbereit/umfragen.md)**
+  und **[Benachrichtigungen](direkt-einsatzbereit/benachrichtigungen.md)** – informieren und nachfragen.
+- **[Eltern-Schüler-Zuordnung](direkt-einsatzbereit/eltern-schueler-zuordnung.md)** und
+  **[Geräteverwaltung](direkt-einsatzbereit/geraeteverwaltung.md)**.
+- **[Mobile App](direkt-einsatzbereit/mobile-app.md)** – edulution auf iOS und Android.
+- **[App-Store](direkt-einsatzbereit/app-store.md)**,
+  **[Eingebettete App](direkt-einsatzbereit/eingebettete-app.md)**,
+  **[Impressum & Datenschutz](direkt-einsatzbereit/impressum-datenschutz.md)**,
+  **[Markdown-Hilfe](direkt-einsatzbereit/markdown-hilfe.md)**,
+  **[Sicherheit](direkt-einsatzbereit/sicherheit.md)** und
+  **[Weitere Features](direkt-einsatzbereit/weitere-features.md)**.

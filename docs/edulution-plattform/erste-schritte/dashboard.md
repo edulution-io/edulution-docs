@@ -59,7 +59,7 @@ Zugriff auf die Plattform von mobilen Geräten:
 - **QR-Code**: Schneller Zugriff über QR-Code-Scan
 - **PWA**: Progressive Web App für mobile Nutzung
 
-Erfahren Sie mehr unter [Mobile App & Tablet-Nutzung](../apps/mobile-app.md).
+Erfahren Sie mehr unter [Mobile App & Tablet-Nutzung](../apps/direkt-einsatzbereit/mobile-app.md).
 
 ### Quotas
 
@@ -76,7 +76,7 @@ Die visuelle Fortschrittsanzeige zeigt den aktuellen Verbrauch an.
 
 Das Widget **Termine** zeigt einen gleitenden Ausschnitt von drei Tagen – **Gestern**, **Heute** und **Morgen** – als Stundenleiste. Es erscheint nur, wenn es im Dashboard-Layout aktiviert ist (siehe [Dashboard anpassen](#dashboard-anpassen)).
 
-Über der Stundenleiste stehen der gerade sichtbare Tag und die Anzahl seiner Termine; blättern Sie in der Leiste, wechselt diese Beschriftung auf den jeweils sichtbaren Tag. Hat der gerade sichtbare Tag keine Termine, erscheint an dieser Stelle – statt der Anzahl – **Keine Termine an diesem Tag**. Ganztägige Termine stehen nicht in der Stundenleiste, sondern als eigene Reihe kleiner Schaltflächen darüber – je mit einem farbigen Punkt und dem gekürzten Titel. Angezeigt werden höchstens zwei; weitere fasst eine Angabe wie **+3** zusammen. Unterhalb der Leiste nennt eine Fußzeile unter **Jetzt** und **Als Nächstes** den laufenden und den darauffolgenden Termin. Die Farben entsprechen den Kalenderfarben aus der [Kalender-Seitenleiste](../apps/kalender.md#seitenleiste-und-kalenderliste).
+Über der Stundenleiste stehen der gerade sichtbare Tag und die Anzahl seiner Termine; blättern Sie in der Leiste, wechselt diese Beschriftung auf den jeweils sichtbaren Tag. Hat der gerade sichtbare Tag keine Termine, erscheint an dieser Stelle – statt der Anzahl – **Keine Termine an diesem Tag**. Ganztägige Termine stehen nicht in der Stundenleiste, sondern als eigene Reihe kleiner Schaltflächen darüber – je mit einem farbigen Punkt und dem gekürzten Titel. Angezeigt werden höchstens zwei; weitere fasst eine Angabe wie **+3** zusammen. Unterhalb der Leiste nennt eine Fußzeile unter **Jetzt** und **Als Nächstes** den laufenden und den darauffolgenden Termin. Die Farben entsprechen den Kalenderfarben aus der [Kalender-Seitenleiste](../apps/direkt-einsatzbereit/kalender.md#seitenleiste-und-kalenderliste).
 
 Was ein Klick auf einen Termin bewirkt, hängt von Ihren Rechten am zugehörigen Kalender ab:
 
@@ -86,7 +86,7 @@ Was ein Klick auf einen Termin bewirkt, hängt von Ihren Rechten am zugehörigen
 | Der Termin ist sichtbar, darf aber nicht geändert werden | Die schreibgeschützten **Termindetails** öffnen sich. |
 | Nur die belegte Zeit ist sichtbar | Die Termindetails öffnen sich und zeigen anstelle der Inhalte **Belegt**. |
 
-Ein Termin aus einem eigenen Kalender lässt sich damit direkt vom Dashboard aus bearbeiten, ein freigegebener nur dann, wenn Ihnen der Besitzer das Recht **Ändern** für dessen Sichtbarkeit eingeräumt hat – siehe [Kalender freigeben](../apps/kalender.md#kalender-freigeben).
+Ein Termin aus einem eigenen Kalender lässt sich damit direkt vom Dashboard aus bearbeiten, ein freigegebener nur dann, wenn Ihnen der Besitzer das Recht **Ändern** für dessen Sichtbarkeit eingeräumt hat – siehe [Kalender freigeben](../apps/direkt-einsatzbereit/kalender.md#kalender-freigeben).
 
 ### Current Affairs
 
@@ -95,7 +95,7 @@ Aktuelle Aktivitäten und Benachrichtigungen:
 #### Info Board
 - Anzeige von Ankündigungen und wichtigen Mitteilungen
 - Status: "No new bulletins" wenn keine neuen Mitteilungen vorliegen
-- Zugriff auf das [Infoboard](../apps/infoboard.md)
+- Zugriff auf das [Infoboard](../apps/direkt-einsatzbereit/infoboard.md)
 
 #### Conferences
 - Übersicht laufender oder geplanter Konferenzen
@@ -110,7 +110,7 @@ Aktuelle Aktivitäten und Benachrichtigungen:
 #### Surveys
 - Offene Umfragen
 - Status: "No open survey" wenn keine aktiven Umfragen
-- Direktlink zu [Umfragen](../apps/umfragen.md)
+- Direktlink zu [Umfragen](../apps/direkt-einsatzbereit/umfragen.md)
 
 ## Rollenspezifische Unterschiede
 
@@ -193,7 +193,7 @@ Das Dashboard passt sich automatisch an verschiedene Bildschirmgrößen an:
 - Größere Touch-Targets
 - Optimierte Darstellung für mittlere Bildschirme
 
-Mehr dazu unter [Mobile App & Tablet-Nutzung](../apps/mobile-app.md).
+Mehr dazu unter [Mobile App & Tablet-Nutzung](../apps/direkt-einsatzbereit/mobile-app.md).
 
 ### Mobile Ansicht
 - Gestapeltes Layout für kleine Bildschirme
@@ -203,7 +203,7 @@ Mehr dazu unter [Mobile App & Tablet-Nutzung](../apps/mobile-app.md).
 ## Weitere Informationen
 
 - [Benutzereinstellungen](./mein-profil.md) - Profileinstellungen verwalten
-- [Sicherheitseinstellungen](../apps/sicherheit.md) - Passwort ändern und Sicherheit konfigurieren
-- [Mobile App](../apps/mobile-app.md) - Mobile Nutzung einrichten
-- [Infoboard](../apps/infoboard.md) - Mitteilungen verwalten
-- [Umfragen](../apps/umfragen.md) - Umfragen erstellen und bearbeiten
+- [Sicherheitseinstellungen](../apps/direkt-einsatzbereit/sicherheit.md) - Passwort ändern und Sicherheit konfigurieren
+- [Mobile App](../apps/direkt-einsatzbereit/mobile-app.md) - Mobile Nutzung einrichten
+- [Infoboard](../apps/direkt-einsatzbereit/infoboard.md) - Mitteilungen verwalten
+- [Umfragen](../apps/direkt-einsatzbereit/umfragen.md) - Umfragen erstellen und bearbeiten

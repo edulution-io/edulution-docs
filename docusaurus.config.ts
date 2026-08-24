@@ -58,55 +58,56 @@ const config: Config = {
         createRedirects(existingPath: string) {
           // Einzelne Seiten, die beim Umzug auch den Namen gewechselt haben.
           const RENAMED: Record<string, string[]> = {
-            '/docs/edulution-plattform/apps/e-mail/': [
+            '/docs/edulution-plattform/apps/mit-einrichtung/e-mail/': [
               '/docs/edulution-mail',
               '/docs/category/edulution-mail',
             ],
-            '/docs/edulution-plattform/apps/e-mail/migration': [
+            '/docs/edulution-plattform/apps/mit-einrichtung/e-mail/migration': [
               '/docs/edulution-mail/user_mail_migration',
             ],
-            '/docs/edulution-plattform/apps/e-mail/konfiguration/migration-einrichten': [
+            '/docs/edulution-plattform/apps/mit-einrichtung/e-mail/konfiguration/migration-einrichten': [
               '/docs/edulution-mail/admin_mail_migration',
             ],
-            '/docs/edulution-plattform/apps/e-mail/konfiguration/mailformate': [
+            '/docs/edulution-plattform/apps/mit-einrichtung/e-mail/konfiguration/mailformate': [
               '/docs/edulution-mail/benutzer_mailformate',
             ],
-            '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice': [
+            '/docs/edulution-plattform/apps/mit-einrichtung/dateien/konfiguration/onlyoffice': [
               '/docs/edulution-onlyoffice/',
               '/docs/category/edulution-onlyoffice',
             ],
-            '/docs/edulution-plattform/apps/dateien/konfiguration/collabora': [
+            '/docs/edulution-plattform/apps/mit-einrichtung/dateien/konfiguration/collabora': [
               '/docs/edulution-collabora/',
               '/docs/category/edulution-collabora',
             ],
-            '/docs/edulution-plattform/apps/dateien/konfiguration/eurooffice': [
+            '/docs/edulution-plattform/apps/mit-einrichtung/dateien/konfiguration/eurooffice': [
               '/docs/edulution-eurooffice/',
               '/docs/category/edulution-eurooffice',
             ],
-            '/docs/edulution-plattform/apps/dateien/goodnotes': [
+            '/docs/edulution-plattform/apps/mit-einrichtung/dateien/goodnotes': [
               '/docs/edulution-plattform/features/goodnotes',
             ],
-            '/docs/edulution-plattform/apps/lernmanagement/konfiguration/': [
+            '/docs/edulution-plattform/apps/mit-einrichtung/lernmanagement/konfiguration/': [
               '/docs/edulution-moodle/',
             ],
           };
 
           const PREFIXES: [string, string][] = [
             // neu                                        // alt
-            ['/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/', '/docs/edulution-fileproxy/'],
-            ['/docs/edulution-plattform/apps/lernmanagement/installation/', '/docs/edulution-moodle/installation/'],
-            ['/docs/edulution-plattform/apps/lernmanagement/konfiguration/administration/', '/docs/edulution-moodle/administration/'],
-            ['/docs/edulution-plattform/apps/lernmanagement/konfiguration/', '/docs/edulution-moodle/konfiguration/'],
-            ['/docs/edulution-plattform/apps/e-mail/clients/', '/docs/edulution-mail/clients/'],
-            ['/docs/edulution-plattform/apps/e-mail/konfiguration/', '/docs/edulution-mail/'],
-            ['/docs/edulution-plattform/apps/e-mail/auto-reply', '/docs/edulution-mail/auto-reply'],
+            ['/docs/edulution-plattform/apps/mit-einrichtung/dateien/konfiguration/fileproxy/', '/docs/edulution-fileproxy/'],
+            ['/docs/edulution-plattform/apps/mit-einrichtung/lernmanagement/installation/', '/docs/edulution-moodle/installation/'],
+            ['/docs/edulution-plattform/apps/mit-einrichtung/lernmanagement/konfiguration/administration/', '/docs/edulution-moodle/administration/'],
+            ['/docs/edulution-plattform/apps/mit-einrichtung/lernmanagement/konfiguration/', '/docs/edulution-moodle/konfiguration/'],
+            ['/docs/edulution-plattform/apps/mit-einrichtung/e-mail/clients/', '/docs/edulution-mail/clients/'],
+            ['/docs/edulution-plattform/apps/mit-einrichtung/e-mail/konfiguration/', '/docs/edulution-mail/'],
+            ['/docs/edulution-plattform/apps/mit-einrichtung/e-mail/auto-reply', '/docs/edulution-mail/auto-reply'],
             ['/docs/edulution-plattform/erste-schritte/mein-profil', '/docs/edulution-plattform/benutzer/mein-profil'],
             ['/docs/edulution-plattform/erste-schritte/', '/docs/edulution-plattform/features/'],
             ['/docs/edulution-plattform/installation/configure_lmn-server', '/docs/edulution-plattform/configure-lmn-server/configure_lmn-server'],
             ['/docs/edulution-plattform/konfiguration/anbindungen/', '/docs/anbindungen/'],
             ['/docs/edulution-plattform/konfiguration/upgrade/', '/docs/edulution-plattform/upgrade/'],
             ['/docs/edulution-plattform/konfiguration/', '/docs/edulution-plattform/administration/'],
-            ['/docs/edulution-plattform/apps/', '/docs/edulution-plattform/features/'],
+            ['/docs/edulution-plattform/apps/mit-einrichtung/', '/docs/edulution-plattform/features/'],
+            ['/docs/edulution-plattform/apps/direkt-einsatzbereit/', '/docs/edulution-plattform/features/'],
           ];
 
           const from = [
@@ -216,7 +217,7 @@ const config: Config = {
             },
             {
               label: 'edulution Mail',
-              to: '/docs/edulution-plattform/apps/e-mail/',
+              to: '/docs/edulution-plattform/apps/mit-einrichtung/e-mail/',
             },
             {
               label: 'edulution App',
@@ -228,15 +229,15 @@ const config: Config = {
             },
             {
               label: 'edulution OnlyOffice',
-              to: '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice',
+              to: '/docs/edulution-plattform/apps/mit-einrichtung/dateien/konfiguration/onlyoffice',
             },
             {
               label: 'edulution EuroOffice',
-              to: '/docs/edulution-plattform/apps/dateien/konfiguration/eurooffice',
+              to: '/docs/edulution-plattform/apps/mit-einrichtung/dateien/konfiguration/eurooffice',
             },
             {
               label: 'edulution Collabora',
-              to: '/docs/edulution-plattform/apps/dateien/konfiguration/collabora',
+              to: '/docs/edulution-plattform/apps/mit-einrichtung/dateien/konfiguration/collabora',
             },
           ],
         },
@@ -277,7 +278,7 @@ const config: Config = {
             },
             {
               label: 'edulution Mail',
-              to: '/docs/edulution-plattform/apps/e-mail/konfiguration/installation',
+              to: '/docs/edulution-plattform/apps/mit-einrichtung/e-mail/konfiguration/installation',
             },
           ],
         },

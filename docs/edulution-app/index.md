@@ -41,7 +41,7 @@ Die edulution.io App nutzt Push-Benachrichtigungen über Apple Push Notification
 
 **Wir empfehlen dringend**, dass Ihre Schule oder Organisation eine **eigene Datenschutzerklärung** in der edulution-Plattform hinterlegt, die alle genutzten Dienste und Funktionen abdeckt.
 
-[→ Anleitung: Impressum und Datenschutzerklärung einrichten](/docs/edulution-plattform/apps/impressum-datenschutz)
+[→ Anleitung: Impressum und Datenschutzerklärung einrichten](/docs/edulution-plattform/apps/direkt-einsatzbereit/impressum-datenschutz)
 :::
 
 ## Datei-Integration [tags: ios]
@@ -65,7 +65,7 @@ Du musst die Plattform nicht verlassen, um an die Funktionen der App zu kommen. 
 
 Die Schnellaktionen setzen App-Version **2.0** voraus, das Einmalpasswort **2.1.11**.
 
-[→ Details: Mobile Kopfleiste und App-Funktionen](/docs/edulution-plattform/apps/mobile-app)
+[→ Details: Mobile Kopfleiste und App-Funktionen](/docs/edulution-plattform/apps/direkt-einsatzbereit/mobile-app)
 
 ---
 

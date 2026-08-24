@@ -243,8 +243,8 @@ Die `.info`-Datei ist Pflicht: ohne sie lässt sich das Image nicht mehr einlese
 
 **Sicherungen verwalten** listet je Sicherung Datum, Zeitstempel und Größe, mit **Wiederherstellen** und **Sicherung löschen**.
 
-:::warning[Registry-Patch und Skripte überleben eine Wiederherstellung nicht]
-Beim Wiederherstellen legt der Server zuerst eine neue Sicherung des aktuellen Images an. Die Dateien `.reg`, `.prestart` und `.postsync` wandern dabei in diese Sicherung und stehen dem Image danach nicht mehr zur Verfügung – dies ist ein bekannter Fehler in `linuxmuster-tools7`. Sichern Sie den Inhalt dieser Dateien vorher, wenn Sie ihn behalten wollen. Zwei Wiederherstellungen desselben Images innerhalb derselben Minute schlagen fehl; ein erneuter Versuch nach einer Minute gelingt.
+:::note[Wiederherstellen ist umkehrbar]
+Der Server legt vor dem Wiederherstellen eine neue Sicherung des aktuellen Images an, sodass sich der Schritt zurücknehmen lässt. Zwei Wiederherstellungen desselben Images innerhalb derselben Minute schlagen fehl; ein erneuter Versuch nach einer Minute gelingt.
 :::
 
 ## Versionsübersicht

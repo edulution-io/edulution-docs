@@ -156,7 +156,7 @@ Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API*
 
 #### Aktionen einer Gruppe
 
-**Vorschau anzeigen** liegt als eigene Schaltfläche auf der Karte. Alle Aktionen zusammen finden Sie im Menü hinter der Schaltfläche mit den drei Punkten – auf der Karte oben rechts neben dem Namen, in der Tabelle in der Spalte **Aktionen**:
+**Vorschau anzeigen** liegt als eigene Schaltfläche auf der Karte. Alle Aktionen zusammen finden Sie im Menü hinter der Schaltfläche mit den drei Punkten, auf der Karte oben rechts neben dem Namen. In der **Tabelle** steht in der Spalte **Aktionen** das Löschen; die Vorschau öffnen Sie dort per Klick auf die Zeile – beim Überfahren weist die Spalte **Aktualisiert** darauf hin.
 
 | Aktion | Wirkung |
 |--------|---------|
@@ -165,9 +165,13 @@ Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API*
 | **Duplizieren** | legt eine Kopie unter neuem Namen an |
 | **Gruppe löschen** | löscht die `start.conf` der Gruppe auf dem Server |
 
-Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
+Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
 
-**Gruppe anlegen** bleibt deaktiviert, solange die Serverdaten nicht geladen sind – etwa bei nicht erreichbarer Linuxmuster-API. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste.
+Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach; gelingt das nicht, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste.
+
+:::note[Vorlagen zielen auf die erste SATA-Platte]
+Alle fünf Vorlagen legen ihr Layout auf `/dev/sda` an. Auf Rechnern mit NVMe- oder VirtIO-Platten passt das nicht: Die Gruppe entsteht zwar, ihre Gerätenamen gehen aber an der Hardware vorbei und müssen anschließend in der `start.conf` korrigiert werden. Das Gerät steht im Hinweis unter der Vorlagenauswahl, bevor Sie schreiben.
+:::
 
 :::warning[Vorhandene Gruppe wird nicht überschrieben]
 Vor dem Anlegen prüft die Plattform auf dem Server, ob für den Namen bereits eine `start.conf` existiert – auch dann, wenn die Liste sie nicht anzeigt. In diesem Fall bricht der Vorgang mit einem Hinweis ab, statt die vorhandene Gruppe zu ersetzen.

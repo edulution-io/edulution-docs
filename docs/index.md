@@ -5,57 +5,42 @@ description: Einstieg in die Dokumentation von edulution.io – Plattform, Mail,
 
 # edulution.io Dokumentation
 
-## Was ist edulution?
-
 **edulution** ist eine Arbeitsumgebung für Schulen, Unternehmen und öffentliche Verwaltungen. Sie
 bündelt in einer einzigen Weboberfläche, wofür sonst mehrere getrennte Systeme nötig wären:
 Dateiverwaltung, E-Mail, Kalender, Kontakte, Chat, Videokonferenzen, Whiteboard, Umfragen und
 Lernmanagement. Angemeldet wird man einmal – innerhalb der Oberfläche entfällt jeder weitere Login.
 
-Alle Konten, Klassen, Projekte und Gruppen stammen aus dem angebundenen Verzeichnisdienst, in
-Schulen typischerweise **Linuxmuster**. Eine Klasse muss also nirgends doppelt gepflegt werden: Wer
-in der Schulverwaltung angelegt ist, findet seine Kurse, Freigaben und Postfächer automatisch vor.
+## 1. Um welche Art von Organisation geht es?
 
-Wie umfangreich sich edulution zeigt, hängt von zwei Dingen ab:
+Edulution benennt Dinge je nach Einrichtung anders und je nach Organizationstyp werden manche Funktionen ein- oder aus-geblendet.
 
-- **Vom Organisationstyp.** In Schulen heißen Dinge *Klasse* und *Schülerausweis* und es gibt eine
-  Elternzuweisung; in Unternehmen entfallen die schulspezifischen Funktionen, und aus *Klasse* wird
-  *Primärgruppe*.
-- **Von Ihrer Rolle.** Eine Schülerin sieht andere Bereiche als eine Lehrkraft, und wieder andere
-  als jemand, der den Server betreut.
+<AudiencePicker axis="org" />
 
-Genau danach lässt sich auch diese Dokumentation zuschneiden.
+## 2. Welche Rolle haben Sie?
 
-## Auf welche Fragen sollen die Anleitungen antworten?
+Als normaler user werden einem zum beispiel wesentlich weniger informationen angezeigt als einem Administrator, welcher es gewohnt sein sollte sich mit vielen tief gehenden Einstellungen auseinander zu setzen.
 
-Beantworten Sie die drei Fragen – die Dokumentation blendet dann aus, was für andere Zielgruppen
-geschrieben ist, und rückt Ihren Einstieg nach vorn. Die Auswahl bleibt gespeichert und lässt sich
-oben rechts in der Navigationsleiste jederzeit ändern.
+<AudiencePicker axis="role" />
 
-<AudiencePicker />
+## 3. Gibt es fragen zu einem bestimmten Modul?
 
-## Wo möchten Sie einsteigen?
+Jede Karte führt dorthin, wo Ihre Rolle anfangen sollte: Endnutzer landen im Nutzerhandbuch, die
+Ersteinrichtung bei der Installation, der laufende Betrieb in der Administration. Rein
+administrative Komponenten erscheinen für Endnutzer gar nicht erst.
 
-<ModuleCards />
+<AppCards />
 
-## Die Rollen im Überblick
+## Häufige Fragen
 
-Die Rollen der Dokumentation folgen den Benutzertypen von edulution. Zusätzlich ist die
-Administration nach der **Situation** unterteilt, in der man sich befindet – eine Instanz zum
-ersten Mal aufzusetzen ist eine andere Aufgabe, als eine laufende zu betreuen.
+Die Fragen, mit denen man üblicherweise ankommt – zugeschnitten auf die Rolle, die Sie oben gewählt
+haben. Jede führt direkt zur passenden Seite.
 
-| Rolle | Wofür sie steht | Typische Seiten |
-| --- | --- | --- |
-| **Schüler:in** | Nutzt edulution im Unterricht: Dateien, Aufgaben, Konferenzen. | Nutzerhandbuch |
-| **Lehrkraft** | Unterrichtet mit edulution, betreut Klassen und Projekte, sammelt Dateien ein und beaufsichtigt Bildschirme. | Nutzerhandbuch, Klassenraum, Elternzuweisung |
-| **Eltern** | Begleiten ihr Kind, nutzen die Elternzuordnung und die zugehörigen Benachrichtigungen. | Nutzerhandbuch, Eltern-Schüler-Zuordnung |
-| **Mitarbeiter:in** | Arbeitet mit edulution, ohne zu unterrichten – der übliche Fall in Unternehmen und Verwaltungen. | Nutzerhandbuch |
-| **Administration – Ersteinrichtung** | Setzt eine neue Instanz auf: Voraussetzungen, Installation, SSL und Reverse Proxy, Anbindung an Linuxmuster. | Schnellstart, Installation |
-| **Administration – Betrieb** | Betreut eine laufende Instanz: Einstellungen, Benutzer, Container, Updates und Upgrades. | Administration, Upgrade |
+<AudienceFaq />
 
-:::info[Ohne Auswahl sehen Sie alles]
-Solange Sie keine Rolle wählen, ist nichts ausgeblendet. Die Auswahl ist eine Lesehilfe und keine
-Zugriffsbeschränkung – sie entscheidet nur, was Ihnen angezeigt wird, nicht, was Sie dürfen.
+:::info[Eine Lesehilfe, keine Zugriffsbeschränkung]
+Die Auswahl entscheidet nur, was Ihnen **angezeigt** wird – nicht, was Sie dürfen. Ohne Auswahl ist
+nichts ausgeblendet, und ausgeblendete Abschnitte sind weiterhin Teil der Seite: Ein Link von außen
+auf eine solche Stelle deckt sie automatisch wieder auf.
 :::
 
 ## Kann ich edulution testen?

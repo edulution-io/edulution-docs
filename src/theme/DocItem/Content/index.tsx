@@ -10,8 +10,8 @@ import {
   labelFor,
   resolveOrgs,
   resolveRoles,
+  roleLabel,
   ORGS,
-  ROLES,
 } from '@site/src/components/audience/taxonomy';
 
 type Props = WrapperProps<typeof ContentType>;
@@ -43,8 +43,10 @@ export default function ContentWrapper(props: Props): React.JSX.Element {
     return <OriginalContent {...props} />;
   }
 
+  // Rollen in der Sprache der gewaehlten Organisation benennen – wer
+  // "Fuehrungskraft" ausgewaehlt hat, soll hier nicht "Lehrkraft" lesen.
   const audiences = [
-    ...roles.map((id) => labelFor(ROLES, id)),
+    ...roles.map((id) => roleLabel(audience.org, id)),
     ...orgs.map((id) => labelFor(ORGS, id)),
   ].filter(Boolean);
 
@@ -67,7 +69,7 @@ export default function ContentWrapper(props: Props): React.JSX.Element {
                 className="button button--primary"
                 onClick={() => audience.setAxis('role', roles[0])}
               >
-                Als {labelFor(ROLES, roles[0])} ansehen
+                Als {roleLabel(audience.org, roles[0])} ansehen
               </button>{' '}
             </>
           )}

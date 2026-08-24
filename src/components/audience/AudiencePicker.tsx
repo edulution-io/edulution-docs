@@ -1,96 +1,84 @@
 import React from 'react';
 import { useAudience, Axis } from './AudienceContext';
-import { ANY, MODULES, ORGS, ROLES, Option } from './taxonomy';
-
-const QUESTIONS: { axis: Axis; question: string; hint: string; options: Option[] }[] = [
-  {
-    axis: 'role',
-    question: 'Wer sind Sie?',
-    hint: 'Bestimmt, ob Administrations-Abschnitte eingeblendet werden.',
-    options: ROLES,
-  },
-  {
-    axis: 'org',
-    question: 'Um welche Art von Organisation geht es?',
-    hint: 'edulution benennt und zeigt manche Funktionen je nach Organisationstyp unterschiedlich.',
-    options: ORGS,
-  },
-  {
-    axis: 'module',
-    question: 'Womit möchten Sie starten?',
-    hint: 'Sortiert die Einstiegskarten weiter unten – ausgeblendet wird dadurch nichts.',
-    options: MODULES,
-  },
-];
+import { ANY, ORGS, Option, rolesFor } from './taxonomy';
+import RoleSummary from './RoleSummary';
+import OrgSummary from './OrgSummary';
 
 /**
- * Die drei Fragen am Kopf der Startseite.
+ * Eine der beiden Fragen am Kopf der Startseite – welche, bestimmt `axis`:
+ *
+ * ```mdx
+ * <AudiencePicker axis="org" />
+ * <AudiencePicker axis="role" />
+ * ```
+ *
+ * Überschrift und beschreibender Satz stehen im Markdown daneben, damit sie
+ * sich ohne Eingriff in den Code umformulieren lassen. Die Komponente
+ * liefert nur die Schaltflächen und das, was vom Zustand abhängt.
+ *
+ * Die Reihenfolge ist nicht beliebig: Der Organisationstyp beschriftet die
+ * zweite Frage überhaupt erst. Dieselbe Rolle heißt in einer Schule
+ * *Lehrkraft*, in einer Behörde *Lehrende:r* und in einem Unternehmen
+ * *Führungskraft*.
  *
  * Beantworten ist freiwillig: Ohne Auswahl bleibt die gesamte Dokumentation
  * sichtbar. Die Auswahl blendet nur weg, was für andere Zielgruppen
  * geschrieben ist.
  */
-export default function AudiencePicker(): React.JSX.Element {
+export default function AudiencePicker({ axis = 'org' }: { axis?: Axis }): React.JSX.Element {
   const audience = useAudience();
+  const isRole = axis === 'role';
+
+  const options: Option[] = isRole
+    ? rolesFor(audience.org === ANY ? undefined : audience.org)
+    : ORGS;
+  const selected = isRole ? audience.role : audience.org;
+  const label = isRole ? 'Ihre Rolle' : 'Ihre Organisation';
 
   return (
-    <section className="audience-picker" aria-label="Dokumentation auf Ihre Rolle zuschneiden">
-      {QUESTIONS.map(({ axis, question, hint, options }, index) => {
-        const selected = audience[axis];
-        return (
-          <div className="audience-picker__question" key={axis}>
-            <p className="audience-picker__label">
-              <span className="audience-picker__number" aria-hidden="true">
-                {index + 1}
-              </span>
-              {question}
-            </p>
-            <p className="audience-picker__hint">{hint}</p>
-            <div className="audience-picker__options" role="group" aria-label={question}>
-              {options.map((option) => (
-                <button
-                  key={option.id}
-                  type="button"
-                  title={option.description}
-                  aria-pressed={selected === option.id}
-                  className={`audience-chip${selected === option.id ? ' audience-chip--on' : ''}`}
-                  onClick={() => audience.setAxis(axis, selected === option.id ? ANY : option.id)}
-                >
-                  {option.label}
-                </button>
-              ))}
-              <button
-                type="button"
-                title="Keine Einschränkung – alles anzeigen"
-                aria-pressed={selected === ANY}
-                className={`audience-chip audience-chip--any${
-                  selected === ANY ? ' audience-chip--on' : ''
-                }`}
-                onClick={() => audience.setAxis(axis, ANY)}
-              >
-                Alles anzeigen
-              </button>
-            </div>
-          </div>
-        );
-      })}
+    <section className="audience-picker" aria-label={label}>
+      <div className="audience-picker__options" role="group" aria-label={label}>
+        {options.map((option) => (
+          <button
+            key={option.id}
+            type="button"
+            title={option.description}
+            aria-pressed={selected === option.id}
+            className={`audience-chip${selected === option.id ? ' audience-chip--on' : ''}`}
+            // Erneuter Klick auf die aktive Auswahl hebt sie wieder auf.
+            onClick={() => audience.setAxis(axis, selected === option.id ? ANY : option.id)}
+          >
+            {option.label}
+          </button>
+        ))}
+        <button
+          type="button"
+          title="Keine Einschränkung – alles anzeigen"
+          aria-pressed={selected === ANY}
+          className={`audience-chip audience-chip--any${
+            selected === ANY ? ' audience-chip--on' : ''
+          }`}
+          onClick={() => audience.setAxis(axis, ANY)}
+        >
+          Egal
+        </button>
+      </div>
 
-      <p className="audience-picker__footer">
-        {audience.hasSelection ? (
-          <>
-            Ihre Auswahl gilt für die gesamte Dokumentation und bleibt gespeichert. Sie lässt sich
-            jederzeit oben rechts in der Navigationsleiste ändern.{' '}
-            <button type="button" className="audience-picker__reset" onClick={audience.reset}>
-              Auswahl zurücksetzen
-            </button>
-          </>
-        ) : (
-          <>
-            Solange Sie nichts auswählen, sehen Sie <strong>die vollständige Dokumentation</strong> –
-            also auch alles, was nur für die Administration gedacht ist.
-          </>
-        )}
-      </p>
+      {!isRole && <OrgSummary />}
+
+      {/* Hinweis und Rollenbeschreibung schliessen einander aus: ohne
+          gewaehlte Organisation der Hinweis, sonst die Beschreibung. Welche
+          von beiden erscheint, entscheidet CSS – so steht schon vor dem
+          ersten Paint das Richtige da. */}
+      {isRole && (
+        <>
+          <p className="audience-picker__note">
+            Angezeigt sind die Rollen einer <strong>Schule</strong> – der Voreinstellung von
+            edulution. Beantworten Sie die Frage darüber, wenn die Rollen bei Ihnen anders heißen.
+          </p>
+          <RoleSummary />
+        </>
+      )}
     </section>
   );
 }

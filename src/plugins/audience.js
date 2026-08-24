@@ -1,6 +1,6 @@
 /**
- * Setzt `data-role`, `data-org` und `data-module` am <html>-Element, bevor
- * die Seite gezeichnet wird.
+ * Setzt `data-org` und `data-role` am <html>-Element, bevor die Seite
+ * gezeichnet wird.
  *
  * Ohne dieses Skript waeren Inhalte anderer Zielgruppen bei jedem
  * Seitenaufruf kurz sichtbar, bis React hydriert und den LocalStorage liest.
@@ -9,9 +9,8 @@
 const script = `
 (function () {
   var axes = {
-    'data-role': 'edulution-audience-role',
     'data-org': 'edulution-audience-org',
-    'data-module': 'edulution-audience-module'
+    'data-role': 'edulution-audience-role'
   };
   Object.keys(axes).forEach(function (attribute) {
     var value = 'all';

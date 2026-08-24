@@ -7,18 +7,17 @@ import React, {
   ReactNode,
 } from 'react';
 import { useLocation } from '@docusaurus/router';
-import { ANY } from './taxonomy';
+import { ANY, roleExistsIn } from './taxonomy';
 
 export const STORAGE_KEYS = {
-  role: 'edulution-audience-role',
   org: 'edulution-audience-org',
-  module: 'edulution-audience-module',
+  role: 'edulution-audience-role',
 } as const;
 
 export type Axis = keyof typeof STORAGE_KEYS;
 
 /**
- * Auswahl der Lesenden (Rolle, Organisationstyp, Modul).
+ * Auswahl der Lesenden (Organisationstyp und Rolle).
  *
  * Die Sichtbarkeit steuert allein CSS über die Attribute `data-role` und
  * `data-org` am <html>-Element. Ein Inline-Skript setzt sie vor dem ersten
@@ -32,9 +31,8 @@ export type Axis = keyof typeof STORAGE_KEYS;
  */
 
 interface AudienceState {
-  role: string;
   org: string;
-  module: string;
+  role: string;
 }
 
 interface AudienceContextType extends AudienceState {
@@ -44,7 +42,7 @@ interface AudienceContextType extends AudienceState {
   hasSelection: boolean;
 }
 
-const DEFAULTS: AudienceState = { role: ANY, org: ANY, module: ANY };
+const DEFAULTS: AudienceState = { org: ANY, role: ANY };
 
 const AudienceContext = createContext<AudienceContextType | undefined>(undefined);
 
@@ -60,9 +58,14 @@ function apply(state: AudienceState): void {
     return;
   }
   const root = document.documentElement;
-  root.setAttribute('data-role', state.role);
   root.setAttribute('data-org', state.org);
-  root.setAttribute('data-module', state.module);
+  root.setAttribute('data-role', state.role);
+}
+
+function store(axis: Axis, value: string): void {
+  if (typeof window !== 'undefined') {
+    window.localStorage.setItem(STORAGE_KEYS[axis], value);
+  }
 }
 
 export function AudienceProvider({ children }: { children: ReactNode }) {
@@ -72,11 +75,20 @@ export function AudienceProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<AudienceState>(DEFAULTS);
 
   useEffect(() => {
-    const stored: AudienceState = {
-      role: read('role'),
-      org: read('org'),
-      module: read('module'),
-    };
+    const stored: AudienceState = { org: read('org'), role: read('role') };
+
+    // Bis zur Umstellung waren Organisation und Rolle unabhaengig
+    // voneinander waehlbar, es konnte also "Unternehmen" und "Eltern"
+    // zugleich gespeichert sein. Solche Kombinationen gibt es nicht mehr:
+    // Die Rolle faellt auf "alles" zurueck und wird gleich zurueck-
+    // geschrieben, damit sich der Zustand einmalig selbst repariert.
+    if (!roleExistsIn(stored.org, stored.role)) {
+      stored.role = ANY;
+      store('role', ANY);
+    }
+    // Die dritte Achse "Modul" ist entfallen; ihren Schluessel aufraeumen.
+    window.localStorage.removeItem('edulution-audience-module');
+
     setState(stored);
     apply(stored);
   }, []);
@@ -84,10 +96,17 @@ export function AudienceProvider({ children }: { children: ReactNode }) {
   const setAxis = useCallback((axis: Axis, value: string) => {
     setState((previous) => {
       const next = { ...previous, [axis]: value };
-      apply(next);
-      if (typeof window !== 'undefined') {
-        window.localStorage.setItem(STORAGE_KEYS[axis], value);
+      // Nicht jede Rolle kommt in jeder Organisation vor: Eltern gibt es in
+      // einem Unternehmen nicht. Beim Wechsel des Organisationstyps fällt
+      // eine Rolle, die es dort nicht gibt, deshalb auf "alles" zurück –
+      // sonst bliebe eine Auswahl aktiv, die im Auswahldialog gar nicht
+      // mehr auftaucht und sich nicht abwählen ließe.
+      if (axis === 'org' && !roleExistsIn(value, next.role)) {
+        next.role = ANY;
+        store('role', ANY);
       }
+      apply(next);
+      store(axis, value);
       return next;
     });
   }, []);
@@ -119,7 +138,7 @@ export function AudienceProvider({ children }: { children: ReactNode }) {
     return () => window.removeEventListener('storage', onStorage);
   }, []);
 
-  const hasSelection = state.role !== ANY || state.org !== ANY || state.module !== ANY;
+  const hasSelection = state.org !== ANY || state.role !== ANY;
 
   return (
     <AudienceContext.Provider value={{ ...state, setAxis, reset, hasSelection }}>

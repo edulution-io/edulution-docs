@@ -4,6 +4,17 @@
  * Dark mode by default
  */
 
+:root {
+  --edu-green: #8fc046;
+  /* Auf hellem Grund reicht das Markengruen fuer Text nicht aus (Kontrast
+     unter 3:1), deshalb eine abgedunkelte Variante fuer Schrift. */
+  --edu-green-text: #4e7a13;
+}
+
+[data-theme="dark"] {
+  --edu-green-text: #a7d45f;
+}
+
 /* Responsive Table Wrapper for Mail Client Tables */
 .mail-table-wrapper {
   overflow-x: auto;
@@ -503,15 +514,17 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
 }
 
 /* Optische Kennzeichnung eines Abschnitts, der nur fuer bestimmte Rollen
-   geschrieben ist – aber nur, wenn er als eigener Block im Text steht. */
-.aud--roled:not(.aud--contents) {
+   geschrieben ist – aber nur, wenn er als eigener Block im Text steht.
+   `.aud--plain` nimmt Elemente mit eigenem Layout aus (Einstiegskarten,
+   Rollentabellen): sie werden gefiltert, aber nicht umrandet. */
+.aud--roled:not(.aud--contents):not(.aud--plain) {
   border-left: 3px solid var(--ifm-color-emphasis-300);
   padding-left: 1rem;
   margin: 1.5rem 0;
 }
 
-html[data-role='admin-setup'] .aud-role-admin-setup:not(.aud--contents),
-html[data-role='admin-operate'] .aud-role-admin-operate:not(.aud--contents) {
+html[data-role='admin-setup'] .aud-role-admin-setup:not(.aud--contents):not(.aud--plain),
+html[data-role='admin-operate'] .aud-role-admin-operate:not(.aud--contents):not(.aud--plain) {
   border-left-color: #8fc046;
 }
 
@@ -544,53 +557,19 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   display: block;
 }
 
-/* --- Die drei Fragen auf der Startseite ---------------------------------- */
+/* --- Die zwei Fragen auf der Startseite ---------------------------------- */
 
+/* Jede Frage steht fuer sich: Ueberschrift und beschreibender Satz kommen
+   aus dem Markdown, die Komponente steuert nur die Schaltflaechen bei. Kein
+   Kasten drumherum – die Chips selbst sind die einzige Umrandung. */
 .audience-picker {
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem 1rem;
-  margin: 2rem 0;
-  background: var(--ifm-background-surface-color);
-}
-
-.audience-picker__question + .audience-picker__question {
-  margin-top: 1.25rem;
-}
-
-.audience-picker__label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.audience-picker__number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  background: #8fc046;
-  color: #10240a;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  flex: none;
-}
-
-.audience-picker__hint {
-  margin: 0.25rem 0 0.625rem 2rem;
-  font-size: 0.875rem;
-  color: var(--ifm-color-emphasis-700);
+  margin: 1rem 0 2rem;
 }
 
 .audience-picker__options {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-left: 2rem;
 }
 
 .audience-chip {
@@ -598,31 +577,37 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   background: transparent;
   color: inherit;
   border-radius: 999px;
-  padding: 0.3125rem 0.875rem;
+  padding: 0.3125rem 0.9375rem;
   font-size: 0.875rem;
+  line-height: 1.4;
   cursor: pointer;
+  white-space: nowrap;
   transition: border-color 120ms ease, background-color 120ms ease;
 }
 
 .audience-chip:hover {
-  border-color: #8fc046;
+  border-color: var(--edu-green);
 }
 
 .audience-chip--on {
-  border-color: #8fc046;
+  border-color: var(--edu-green);
   background: rgba(143, 192, 70, 0.15);
   font-weight: 600;
 }
 
 .audience-chip--any {
+  color: var(--ifm-color-emphasis-600);
+}
+
+.audience-picker__note {
+  margin: 0.75rem 0 0;
+  font-size: 0.8125rem;
   color: var(--ifm-color-emphasis-700);
 }
 
 .audience-picker__footer {
-  margin: 1.25rem 0 0;
-  padding-top: 0.875rem;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
-  font-size: 0.875rem;
+  margin: 0.875rem 0 0;
+  font-size: 0.8125rem;
   color: var(--ifm-color-emphasis-700);
 }
 
@@ -636,43 +621,237 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   font-size: inherit;
 }
 
-/* --- Einstiegskarten ----------------------------------------------------- */
+/* --- Einstiegskarten je Komponente --------------------------------------- */
 
-.module-cards {
+.app-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
   gap: 1rem;
   margin: 1.5rem 0 2rem;
 }
 
-.module-card {
+.app-card {
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
+  align-items: flex-start;
+  gap: 0.1875rem;
+  padding: 1.125rem 1.25rem 1rem;
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 10px;
-  padding: 1rem;
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  color: inherit !important;
   text-decoration: none !important;
-  color: inherit;
-  transition: border-color 120ms ease, transform 120ms ease;
+  transition: border-color 120ms ease, transform 120ms ease, box-shadow 120ms ease;
 }
 
-.module-card:hover {
-  border-color: #8fc046;
+/* Fuer Rollen, deren Arbeit sich vor allem in der Plattform abspielt, nimmt
+   deren Karte zwei Spalten ein und fuehrt das Raster damit sichtbar an.
+   Erst ab 768px – darunter hat das Raster nur eine Spalte, und ein
+   `span 2` wuerde eine zweite, ueberlaufende Spalte erzeugen. */
+@media (min-width: 768px) {
+  html[data-role='teacher'] .app-card--wide,
+  html[data-role='admin-setup'] .app-card--wide,
+  html[data-role='admin-operate'] .app-card--wide {
+    grid-column: span 2;
+  }
+}
+
+.app-card:hover {
+  border-color: var(--edu-green);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-.module-card--match {
-  border-color: #8fc046;
+/* Logo-Lockup: gruene Marke, Schriftzug, Kuerzel der Komponente. */
+.app-card__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.625rem;
 }
 
-.module-card__title {
-  font-weight: 600;
+.app-card__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.5rem;
+  background: var(--edu-green);
+  color: #10240a;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
-.module-card__text {
+.app-card__lockup {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.app-card__word {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.app-card__tld {
+  font-weight: 400;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.app-card__badge {
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.app-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.app-card__tagline {
   font-size: 0.875rem;
+  color: var(--edu-green-text);
+}
+
+.app-card__text {
+  margin-top: 0.375rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: var(--ifm-color-emphasis-700);
+}
+
+/* `margin-top: auto` haelt den Link am unteren Rand, damit die Karten einer
+   Reihe trotz unterschiedlich langer Texte gleich abschliessen. */
+.app-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: auto;
+  padding-top: 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ifm-link-color);
+}
+
+.app-card__chevron {
+  transition: transform 120ms ease;
+}
+
+.app-card:hover .app-card__chevron {
+  transform: translateX(3px);
+}
+
+/* --- Haeufige Fragen je Rolle -------------------------------------------- */
+
+/* Wie bei der Rollenuebersicht steht je Rolle ein Block im HTML; sichtbar
+   ist genau einer. Ohne Rollenauswahl uebernimmt `.faq--default`. Die
+   Blockrollen selbst blenden die `.aud-role-*`-Regeln weiter oben aus. */
+html[data-role='all'] .faq:not(.faq--default) {
+  display: none;
+}
+
+html[data-role='student'] .faq--default,
+html[data-role='teacher'] .faq--default,
+html[data-role='parent'] .faq--default,
+html[data-role='staff'] .faq--default,
+html[data-role='admin-setup'] .faq--default,
+html[data-role='admin-operate'] .faq--default {
+  display: none;
+}
+
+.faq {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 0.625rem;
+  margin: 1rem 0 2rem;
+}
+
+.faq__item {
+  display: block;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-left: 3px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  color: inherit !important;
+  text-decoration: none !important;
+  transition: border-color 120ms ease, background-color 120ms ease;
+}
+
+.faq__item:hover {
+  border-color: var(--ifm-color-emphasis-300);
+  border-left-color: var(--edu-green);
+}
+
+.faq__q {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.faq__a {
+  display: block;
+  margin-top: 0.1875rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* --- Die gewaehlte Rolle unter den Schaltflaechen ------------------------- */
+
+/* Sichtbar nur, wenn beides gewaehlt ist – und dann genau eine Zeile. Ohne
+   Organisation tritt stattdessen der Hinweis darueber an ihre Stelle; die
+   uebrigen Paarungen blenden die `.aud-role-*`- und `.aud-org-*`-Regeln
+   weiter oben aus. */
+html[data-org='all'] .role-summary,
+html[data-role='all'] .role-summary,
+html[data-org='all'] .org-summary {
+  display: none;
+}
+
+/* Gegenstueck dazu: Der Hinweis gilt nur ohne gewaehlte Organisation. */
+html[data-org='school'] .audience-picker__note,
+html[data-org='business'] .audience-picker__note,
+html[data-org='public-administration'] .audience-picker__note {
+  display: none;
+}
+
+/* In den Farben der aktiven Schaltflaeche, damit die Zeile als Ergebnis der
+   Auswahl erkennbar ist und nicht als weiteres Eingabefeld. Label und Text
+   trennt der Schriftschnitt: der Name klein, gruen und in Versalien, die
+   Beschreibung dagegen fett im Fliesstextgrad. */
+.role-summary,
+.org-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.375rem 0.75rem;
+  margin: 0.875rem 0 0;
+  padding: 0.625rem 0.875rem;
+  border-left: 3px solid var(--edu-green);
+  border-radius: 0 8px 8px 0;
+  background: rgba(143, 192, 70, 0.12);
+}
+
+.aud-summary__label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--edu-green-text);
+  white-space: nowrap;
+}
+
+.aud-summary__text {
+  flex: 1 1 16rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 /* --- Anzeige der Auswahl in der Navigationsleiste ------------------------ */

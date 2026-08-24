@@ -599,12 +599,6 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   color: var(--ifm-color-emphasis-600);
 }
 
-.audience-picker__note {
-  margin: 0.75rem 0 0;
-  font-size: 0.8125rem;
-  color: var(--ifm-color-emphasis-700);
-}
-
 .audience-picker__footer {
   margin: 0.875rem 0 0;
   font-size: 0.8125rem;
@@ -802,22 +796,32 @@ html[data-role='admin-operate'] .faq--default {
   color: var(--ifm-color-emphasis-700);
 }
 
-/* --- Die gewaehlte Rolle unter den Schaltflaechen ------------------------- */
+/* --- Die gewaehlte Antwort unter den Schaltflaechen ----------------------- */
 
-/* Sichtbar nur, wenn beides gewaehlt ist – und dann genau eine Zeile. Ohne
-   Organisation tritt stattdessen der Hinweis darueber an ihre Stelle; die
-   uebrigen Paarungen blenden die `.aud-role-*`- und `.aud-org-*`-Regeln
-   weiter oben aus. */
-html[data-org='all'] .role-summary,
-html[data-role='all'] .role-summary,
-html[data-org='all'] .org-summary {
+/* Unter jeder Frage steht genau eine Zeile. Die Zeile zu einer Rolle setzt
+   beide Antworten voraus – dieselbe Rollen-ID heisst je Organisationstyp
+   anders –, die zum Organisationstyp nur die eigene. Welche Paarung uebrig
+   bleibt, entscheiden die `.aud-role-*`- und `.aud-org-*`-Regeln weiter
+   oben. */
+html[data-org='all'] .role-summary:not(.role-summary--any),
+html[data-role='all'] .role-summary:not(.role-summary--any),
+html[data-org='all'] .org-summary:not(.org-summary--any) {
   display: none;
 }
 
-/* Gegenstueck dazu: Der Hinweis gilt nur ohne gewaehlte Organisation. */
-html[data-org='school'] .audience-picker__note,
-html[data-org='business'] .audience-picker__note,
-html[data-org='public-administration'] .audience-picker__note {
+/* Gegenstueck dazu: Die »Egal«-Zeile gilt genau solange, wie ihre Frage
+   unbeantwortet ist. Die Werte stehen einzeln da und nicht als
+   `:not([data-org='all'])`, damit ohne JavaScript – also ohne die Attribute
+   ueberhaupt – dasselbe erscheint wie ohne Auswahl. */
+html[data-org='school'] .org-summary--any,
+html[data-org='business'] .org-summary--any,
+html[data-org='public-administration'] .org-summary--any,
+html[data-role='student'] .role-summary--any,
+html[data-role='teacher'] .role-summary--any,
+html[data-role='parent'] .role-summary--any,
+html[data-role='staff'] .role-summary--any,
+html[data-role='admin-setup'] .role-summary--any,
+html[data-role='admin-operate'] .role-summary--any {
   display: none;
 }
 
@@ -836,6 +840,26 @@ html[data-org='public-administration'] .audience-picker__note {
   border-left: 3px solid var(--edu-green);
   border-radius: 0 8px 8px 0;
   background: rgba(143, 192, 70, 0.12);
+}
+
+/* Die »Egal«-Zeile ist keine Antwort, sondern der Zustand davor – und
+   deshalb gedaempft: grauer Rand, ruhiger Grund, Text im normalen
+   Schriftschnitt. Sonst laese sie sich wie eine getroffene Auswahl. */
+.org-summary--any,
+.role-summary--any {
+  border-left-color: var(--ifm-color-emphasis-300);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.org-summary--any .aud-summary__label,
+.role-summary--any .aud-summary__label {
+  color: var(--ifm-color-emphasis-700);
+}
+
+.org-summary--any .aud-summary__text,
+.role-summary--any .aud-summary__text {
+  font-weight: 400;
+  color: var(--ifm-color-emphasis-800);
 }
 
 .aud-summary__label {

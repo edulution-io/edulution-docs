@@ -1,5 +1,5 @@
 import React from 'react';
-import { audienceClassNames, ORGS } from './taxonomy';
+import { ANY_ORG, audienceClassNames, ORGS } from './taxonomy';
 
 /**
  * Eine Zeile zum gewählten Organisationstyp, unter dessen Schaltflächen.
@@ -8,12 +8,20 @@ import { audienceClassNames, ORGS } from './taxonomy';
  * das, was er tatsächlich umstellt – gerade weil die vollständige Liste der
  * Auswirkungen in der Administration liegt und Endnutzern verborgen bleibt.
  *
- * Alle drei Zeilen stehen im HTML, CSS blendet zwei davon aus. Ohne Auswahl
- * erscheint keine.
+ * Solange nichts gewählt ist, tritt die Zeile zu *Egal* an ihre Stelle. Sie
+ * sagt nicht nur, dass alles sichtbar bleibt, sondern auch, dass die Rollen
+ * der zweiten Frage bis dahin die Namen einer Schule tragen – ohne diese
+ * Frage hier ließe sich das nicht ändern.
+ *
+ * Alle vier Zeilen stehen im HTML, CSS blendet drei davon aus.
  */
 export default function OrgSummary(): React.JSX.Element {
   return (
     <>
+      <div className="org-summary org-summary--any">
+        <span className="aud-summary__label">{ANY_ORG.label}</span>
+        <span className="aud-summary__text">{ANY_ORG.overview}</span>
+      </div>
       {ORGS.map((org) => (
         <div
           key={org.id}

@@ -64,21 +64,11 @@ export default function AudiencePicker({ axis = 'org' }: { axis?: Axis }): React
         </button>
       </div>
 
-      {!isRole && <OrgSummary />}
-
-      {/* Hinweis und Rollenbeschreibung schliessen einander aus: ohne
-          gewaehlte Organisation der Hinweis, sonst die Beschreibung. Welche
-          von beiden erscheint, entscheidet CSS – so steht schon vor dem
-          ersten Paint das Richtige da. */}
-      {isRole && (
-        <>
-          <p className="audience-picker__note">
-            Angezeigt sind die Rollen einer <strong>Schule</strong> – der Voreinstellung von
-            edulution. Beantworten Sie die Frage darüber, wenn die Rollen bei Ihnen anders heißen.
-          </p>
-          <RoleSummary />
-        </>
-      )}
+      {/* Unter den Schaltflaechen steht immer genau eine Zeile: die zur
+          gewaehlten Antwort, oder – solange die Frage offen ist – die zu
+          *Egal*. Welche davon erscheint, entscheidet CSS; so steht schon vor
+          dem ersten Paint das Richtige da. */}
+      {isRole ? <RoleSummary /> : <OrgSummary />}
     </section>
   );
 }

@@ -120,6 +120,33 @@ export const ORGS: OrgView[] = [
   },
 ];
 
+/** Die Zeile zu einer noch offenen Frage – Gegenstueck zu `OrgView`. */
+export interface AnyView {
+  label: string;
+  overview: string;
+}
+
+/**
+ * Was »Egal« bedeutet – je Frage eine Zeile.
+ *
+ * Sie steht hier bei den uebrigen Beschreibungen, weil sie an derselben
+ * Stelle erscheint und dasselbe leistet: sagen, was die aktuelle Antwort
+ * bewirkt. Die Zeile zum Organisationstyp traegt zusaetzlich den Hinweis,
+ * woher die Rollennamen der zweiten Frage stammen, solange hier nichts
+ * gewaehlt ist – naemlich aus der Schule, siehe `rolesFor`.
+ */
+export const ANY_ORG: AnyView = {
+  label: 'Egal',
+  overview:
+    'Ohne Auswahl bleibt alles sichtbar – die Rollen unten tragen dann die Namen einer Schule, der Voreinstellung von edulution. Wählen Sie hier, wenn die Rollen bei Ihnen anders heißen.',
+};
+
+export const ANY_ROLE: AnyView = {
+  label: 'Egal',
+  overview:
+    'Ohne Auswahl bleibt alles sichtbar – auch das, was nur eine einzelne Rolle betrifft, von den ersten Schritten bis zur Administration.',
+};
+
 /**
  * Die beiden Administrations-Rollen. Sie heißen überall gleich – ein Server
  * wird in einer Behörde nicht anders eingerichtet als in einer Schule.

@@ -126,7 +126,7 @@ Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalt
 
 ### Gruppen
 
-Eine **Hardwaregruppe** ist eine `start.conf` auf dem Server: sie beschreibt das Plattenlayout und die Betriebssysteme aller Rechner, die ihr zugeordnet sind. Die Seite hieß früher **Konfigurationen** und listete die GRUB-Konfigurationen; sie zeigt jetzt die Gruppen selbst. Die alte Adresse leitet auf die neue weiter.
+Eine **Hardwaregruppe** ist eine `start.conf` auf dem Server: sie beschreibt das Plattenlayout und die Betriebssysteme aller Rechner, die ihr zugeordnet sind. Die Seite listet die Hardwaregruppen des Servers.
 
 Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleibt erhalten und gilt auch nach einem Neuladen:
 
@@ -138,10 +138,6 @@ Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleib
 | **Tabelle** | ID, Dateiname und Änderungszeitpunkt |
 
 Ein Banner über der Liste nennt den **Sync-Status**: ob die **LMN-API** erreichbar ist, wie viele Hosts und Gruppen gefunden wurden und wann zuletzt geladen wurde. Meldet die API einen eingeschränkten Zustand, steht der Grund im Klartext daneben – etwa dass `devices.csv` für diese Schule fehlt oder `/srv/linbo` nicht vorhanden ist.
-
-:::note[Warum es keinen „letzten Sync" gibt]
-Die Daten kommen bei jedem Aufruf direkt aus der Linuxmuster-API; die Plattform hält dafür keinen eigenen Zwischenspeicher. Der Zeitpunkt im Banner ist deshalb der Ladezeitpunkt, kein Abgleich.
-:::
 
 #### Aktionen einer Gruppe
 
@@ -247,8 +243,8 @@ Die `.info`-Datei ist Pflicht: ohne sie lässt sich das Image nicht mehr einlese
 
 **Sicherungen verwalten** listet je Sicherung Datum, Zeitstempel und Größe, mit **Wiederherstellen** und **Sicherung löschen**.
 
-:::warning[Registry-Patch und Skripte überleben eine Wiederherstellung nicht]
-Beim Wiederherstellen legt der Server zuerst eine neue Sicherung des aktuellen Images an. Die Dateien `.reg`, `.prestart` und `.postsync` wandern dabei in diese Sicherung und stehen dem Image danach nicht mehr zur Verfügung – dies ist ein bekannter Fehler in `linuxmuster-tools7`. Sichern Sie den Inhalt dieser Dateien vorher, wenn Sie ihn behalten wollen. Zwei Wiederherstellungen desselben Images innerhalb derselben Minute schlagen fehl; ein erneuter Versuch nach einer Minute gelingt.
+:::note[Wiederherstellen ist umkehrbar]
+Der Server legt vor dem Wiederherstellen eine neue Sicherung des aktuellen Images an, sodass sich der Schritt zurücknehmen lässt. Zwei Wiederherstellungen desselben Images innerhalb derselben Minute schlagen fehl; ein erneuter Versuch nach einer Minute gelingt.
 :::
 
 ## Versionsübersicht

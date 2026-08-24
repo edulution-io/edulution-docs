@@ -1,6 +1,8 @@
 ---
 sidebar_position: 1
 title: Umgebungsvariablen
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Umgebungsvariablen

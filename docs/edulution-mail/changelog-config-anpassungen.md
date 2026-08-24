@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin
+---
+
 # Changelog & Config-Anpassungen
 
 Diese Seite dokumentiert Konfigurationsänderungen, die bei einem Update von edulution manuell nachgezogen werden müssen.

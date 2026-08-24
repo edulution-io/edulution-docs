@@ -1,5 +1,7 @@
 ---
 title: edulution OnlyOffice
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Installation

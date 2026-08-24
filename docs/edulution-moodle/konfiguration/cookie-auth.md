@@ -1,6 +1,8 @@
 ---
 sidebar_position: 5
 title: Cookie Auth (SSO)
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Cookie Auth (SSO)

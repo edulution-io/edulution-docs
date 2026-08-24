@@ -1,6 +1,8 @@
 ---
 sidebar_position: 3
 title: Detaillierte Installation
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Detaillierte Installation

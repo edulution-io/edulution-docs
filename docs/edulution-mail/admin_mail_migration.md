@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin
+---
+
 # Mail-Migration für Administratoren
 
 Damit Benutzer ihre E-Mails von einem externen IMAP-Server in die

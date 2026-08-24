@@ -1,6 +1,8 @@
 ---
 sidebar_position: 2
 title: Schnellstart
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Schnellstart

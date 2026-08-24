@@ -1,6 +1,8 @@
 ---
 sidebar_position: 4
 title: Migration
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Migration einer bestehenden Moodle-Installation

@@ -1,5 +1,7 @@
 ---
 title: edulution EuroOffice
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Installation

@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin
+---
+
 # Verteilerlisten
 
 Verteilerlisten in der edulution Plattform basieren auf Projekten in

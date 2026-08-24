@@ -1,6 +1,8 @@
 ---
 sidebar_position: 1
 title: Übersicht
+sidebar_custom_props:
+  audience: admin
 ---
 
 # edulution Moodle Plugin

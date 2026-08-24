@@ -1,6 +1,8 @@
 ---
 sidebar_position: 3
 title: Plugin-Verwaltung
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Plugin-Verwaltung

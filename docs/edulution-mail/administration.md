@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin
+---
+
 # Administration
 
 Diese Seite beschreibt die grundlegende Administration der edulution Mail Lösung.

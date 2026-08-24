@@ -1,6 +1,8 @@
 ---
 sidebar_position: 0
 title: Installation
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Installation

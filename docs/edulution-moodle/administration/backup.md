@@ -1,6 +1,8 @@
 ---
 sidebar_position: 2
 title: Backup & Wiederherstellung
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Backup & Wiederherstellung

@@ -145,7 +145,14 @@ Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleib
 | **Datenblatt** | die gesetzten Schlüssel der Gruppe: Server, Cache, Download-Typ, Systemtyp, Abmeldung nach, Kernel-Optionen und Virtueller Desktop |
 | **Tabelle** | ID, Dateiname und Änderungszeitpunkt |
 
-Ein Banner über der Liste nennt den **Sync-Status**: ob die **LMN-API** erreichbar ist, wie viele Hosts und Gruppen gefunden wurden und wann zuletzt geladen wurde. Meldet die API einen eingeschränkten Zustand, steht der Grund im Klartext daneben – etwa dass `devices.csv` für diese Schule fehlt oder `/srv/linbo` nicht vorhanden ist.
+Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API**, wie viele Hosts und Gruppen gefunden wurden und wann zuletzt geladen wurde. Die API-Anzeige unterscheidet vier Zustände:
+
+| Anzeige | Bedeutung |
+|---------|-----------|
+| **Wird geprüft …** | Die Abfrage läuft noch. Nach einem Wechsel der Schule erscheint der Zustand erneut, bis die Antwort für die neue Schule vorliegt. |
+| **Verbunden** | Die API antwortet und meldet alle Prüfungen als bestanden. |
+| **Eingeschränkt** | Die API antwortet, meldet aber einen fehlenden Bestandteil. Der Grund steht im Klartext daneben – etwa dass `devices.csv` für diese Schule fehlt oder `/srv/linbo` nicht vorhanden ist. Nennt die API keinen Grund, weist der Text ausdrücklich darauf hin. |
+| **Nicht verfügbar** | Die API antwortet nicht – oder es steht keine Schule zur Auswahl, für die gefragt werden könnte. Im zweiten Fall fragt die Plattform gar nicht erst an; der Server kann dabei einwandfrei laufen. |
 
 #### Aktionen einer Gruppe
 
@@ -167,6 +174,10 @@ Vor dem Anlegen prüft die Plattform auf dem Server, ob für den Namen bereits e
 :::
 
 Beim **Duplizieren** übernimmt die Kopie Partitionen, Betriebssysteme und Einstellungen der Vorlage; der Gruppenname in der Datei wird dabei auf den neuen Namen umgeschrieben.
+
+:::warning[Wer Gruppen schreiben darf, entscheidet die Linuxmuster-API]
+Anlegen, Speichern, Duplizieren und Löschen einer Gruppe reicht die Plattform für Schul- und globale Administratoren an die Linuxmuster-API weiter; welche Rolle die Aktion ausführen darf, prüft die API. Bis einschließlich **Version 7.4.11** sind diese Schreibrouten globalen Administratoren vorbehalten: Als Schuladministrator erreichen Sie die Aktion in der Oberfläche, der Server weist sie aber ab – mit der Meldung *„start.conf konnte nicht gespeichert werden"* beziehungsweise *„start.conf konnte nicht gelöscht werden"*. Gibt eine neuere API-Version die Routen auch für Schuladministratoren frei, stehen sie ohne Änderung an der Plattform zur Verfügung. Lesen und Vorschau sind von der Einschränkung nicht betroffen.
+:::
 
 :::warning[Was beim Löschen verschwindet]
 Gelöscht werden die `start.conf` **und** die GRUB-Konfiguration der Gruppe. Rechner dieser Gruppe starten danach ohne Konfiguration, bis ihnen eine andere Gruppe zugewiesen wird. Der Server legt vor dem Löschen eine Sicherung der `start.conf` an.
@@ -207,6 +218,16 @@ Unter den Platten listet der Abschnitt **Betriebssysteme** die Einträge der Gru
 Bearbeitet wird ein Betriebssystem auf der Unterregisterkarte **Betriebssystem** des Partitionsdialogs. Dort stehen **Name**, **Version**, **Standardaktion**, **Symbol**, **Basisimage**, die **Startknöpfe im LINBO-Menü** – *Start*, *Sync & Start*, *Neu & Start* und *Autostart* – sowie das **Autostart-Timeout (Sekunden)**. Hinter **Erweitert** liegen **Kernel**, **Initrd**, **Zusätzliche Kernel-Parameter**, **Opsi-Setup erzwingen**, **Opsi-Status wiederherstellen** und **Im Startmenü ausblenden**.
 
 Solange ungespeicherte Änderungen vorliegen, fragt der Editor beim Schließen nach, ob Sie sie verwerfen wollen.
+
+:::note[Was beim Speichern geprüft wird]
+Bevor die Plattform eine `start.conf` auf den Server schreibt, prüft sie deren Abschnitt `[LINBO]` und weist die Datei mit einer Meldung ab, wenn
+
+- kein **Group**-Eintrag vorhanden ist,
+- der **Group**-Eintrag nicht dem Namen entspricht, unter dem die Gruppe gespeichert wird – der Dateiname *ist* die Identität der Gruppe, beide müssen übereinstimmen – oder
+- keine **Cache**-Partition genannt ist; ohne Cache startet LINBO die Gruppe nicht.
+
+Gewertet wird dabei ausschließlich der Abschnitt `[LINBO]`: ein `Cache`-Eintrag in einer Partitionssektion oder eine auskommentierte Zeile zählt nicht. Die Linuxmuster-API selbst prüft den Inhalt nicht – eine `start.conf`, die Sie direkt auf dem Server ablegen, durchläuft diese Prüfung nicht.
+:::
 
 ### Images
 

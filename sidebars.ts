@@ -154,388 +154,387 @@ const sidebars: SidebarsConfig = {
               // Teil der Plattform - hier ist nichts zu installieren,
               // hoechstens im App-Store zu aktivieren.
               items: [
-  'edulution-plattform/apps/native-apps/chat',
-  'edulution-plattform/apps/native-apps/kontakte',
-  'edulution-plattform/apps/native-apps/kalender',
-  'edulution-plattform/apps/native-apps/eltern-schueler-zuordnung',
-  'edulution-plattform/apps/native-apps/klassenzimmer',
-  'edulution-plattform/apps/native-apps/whiteboard',
-  'edulution-plattform/apps/native-apps/wiki',
-  'edulution-plattform/apps/native-apps/wiki-editor',
-  'edulution-plattform/apps/native-apps/geraeteverwaltung',
-  'edulution-plattform/apps/native-apps/mobile-app',
-  'edulution-plattform/apps/native-apps/infoboard',
-  'edulution-plattform/apps/native-apps/umfragen',
-  'edulution-plattform/apps/native-apps/app-store',
-  'edulution-plattform/apps/native-apps/benachrichtigungen',
-  'edulution-plattform/apps/native-apps/markdown-hilfe',
-  'edulution-plattform/apps/native-apps/eingebettete-app',
-  'edulution-plattform/apps/native-apps/sicherheit',
-  'edulution-plattform/apps/native-apps/impressum-datenschutz',
-  'edulution-plattform/apps/native-apps/weitere-features',
+                'edulution-plattform/apps/native-apps/chat',
+                'edulution-plattform/apps/native-apps/kontakte',
+                'edulution-plattform/apps/native-apps/kalender',
+                'edulution-plattform/apps/native-apps/eltern-schueler-zuordnung',
+                'edulution-plattform/apps/native-apps/klassenzimmer',
+                'edulution-plattform/apps/native-apps/whiteboard',
+                'edulution-plattform/apps/native-apps/wiki',
+                'edulution-plattform/apps/native-apps/wiki-editor',
+                'edulution-plattform/apps/native-apps/geraeteverwaltung',
+                'edulution-plattform/apps/native-apps/mobile-app',
+                'edulution-plattform/apps/native-apps/infoboard',
+                'edulution-plattform/apps/native-apps/umfragen',
+                'edulution-plattform/apps/native-apps/app-store',
+                'edulution-plattform/apps/native-apps/benachrichtigungen',
+                'edulution-plattform/apps/native-apps/markdown-hilfe',
+                'edulution-plattform/apps/native-apps/eingebettete-app',
+                'edulution-plattform/apps/native-apps/sicherheit',
+                'edulution-plattform/apps/native-apps/impressum-datenschutz',
+                'edulution-plattform/apps/native-apps/weitere-features',
               ],
             },
-{
-                type: 'category',
-                label: 'Dateien',
-                collapsed: true,
-                link: {
-                  type: 'doc',
-                  id: 'edulution-plattform/apps/dateien/index',
-                },
-                items: [
-                  {
-                    type: 'category',
-                    label: 'Konfiguration',
-                    collapsed: true,
-                    // Office-Server und FileProxy aufsetzen - fuer Endnutzer
-                    // ausgeblendet (siehe src/components/audience/taxonomy.ts).
-                    customProps: { audience: 'admin' },
-                    items: [
-                      {
+            {
+              type: 'category',
+              label: 'Dateien',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'edulution-plattform/apps/dateien/index',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Konfiguration',
+                  collapsed: true,
+                  // Office-Server und FileProxy aufsetzen - fuer Endnutzer
+                  // ausgeblendet (siehe src/components/audience/taxonomy.ts).
+                  customProps: { audience: 'admin' },
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/dateien/konfiguration/onlyoffice',
+                      label: 'OnlyOffice',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/dateien/konfiguration/collabora',
+                      label: 'Collabora',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/dateien/konfiguration/eurooffice',
+                      label: 'EuroOffice',
+                    },
+                    {
+                      type: 'category',
+                      label: 'FileProxy',
+                      collapsed: true,
+                      link: {
                         type: 'doc',
-                        id: 'edulution-plattform/apps/dateien/konfiguration/onlyoffice',
-                        label: 'OnlyOffice',
+                        id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/index',
                       },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/dateien/konfiguration/collabora',
-                        label: 'Collabora',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/dateien/konfiguration/eurooffice',
-                        label: 'EuroOffice',
-                      },
-                      {
-                        type: 'category',
-                        label: 'FileProxy',
-                        collapsed: true,
-                        link: {
+                      items: [
+                        {
                           type: 'doc',
-                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/index',
+                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/package-server',
+                          label: 'Package Server',
                         },
-                        items: [
-                          {
-                            type: 'doc',
-                            id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/package-server',
-                            label: 'Package Server',
-                          },
-                          {
-                            type: 'doc',
-                            id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/installation',
-                            label: 'Installation',
-                          },
-                          {
-                            type: 'doc',
-                            id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/traefik-config',
-                            label: 'Traefik Konfiguration',
-                          },
-                          {
-                            type: 'doc',
-                            id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/ui-config',
-                            label: 'UI Konfiguration',
-                          },
-                          {
-                            type: 'doc',
-                            id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/wiki-infrastruktur',
-                            label: 'Wiki-Infrastruktur',
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                  'edulution-plattform/apps/dateien/ansicht-und-navigation',
-                  'edulution-plattform/apps/dateien/vorschau-und-drucken',
-                  'edulution-plattform/apps/dateien/teilen',
-                  'edulution-plattform/apps/dateien/speicherplatz-und-quota',
-                  'edulution-plattform/apps/dateien/upload-schutzmechanismen',
-                  'edulution-plattform/apps/dateien/browser-download-einstellungen',
-                  'edulution-plattform/apps/dateien/drawio',
-                  'edulution-plattform/apps/dateien/goodnotes',
-                  {
-                    type: 'category',
-                    label: 'WebDAV',
-                    collapsed: true,
-                    items: [
-                      'edulution-plattform/apps/dateien/webdav-windows',
-                      'edulution-plattform/apps/dateien/webdav-macos',
-                      'edulution-plattform/apps/dateien/webdav-linux',
-                    ],
-                  },
-                ],
-              },
-{
-                type: 'category',
-                label: 'E-Mail',
-                collapsed: true,
-                link: {
-                  type: 'doc',
-                  id: 'edulution-plattform/apps/e-mail/index',
-                },
-                items: [
-                  {
-                    type: 'category',
-                    label: 'Konfiguration',
-                    collapsed: true,
-                    // Mailserver aufsetzen und betreiben - fuer Endnutzer
-                    // ausgeblendet (siehe src/components/audience/taxonomy.ts).
-                    customProps: { audience: 'admin' },
-                    items: [
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/konfiguration/installation',
-                        label: 'Installation',
-                        customProps: { audience: 'admin-setup' },
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/konfiguration/administration',
-                        label: 'Administration',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/konfiguration/mail-app-konfiguration',
-                        label: 'Mail-App konfigurieren',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/konfiguration/mailbox-verwaltung',
-                        label: 'Mailboxen & geteilte Postfächer',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/konfiguration/verteilerlisten',
-                        label: 'Verteilerlisten',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/konfiguration/gruppen-mail-sync',
-                        label: 'Gruppen-Mail-Synchronisation',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/konfiguration/migration-einrichten',
-                        label: 'Migration einrichten',
-                      },
-                      {
-                        type: 'category',
-                        label: 'Erweiterte Konfiguration',
-                        collapsed: true,
-                        items: [
-                          {
-                            type: 'doc',
-                            id: 'edulution-plattform/apps/e-mail/konfiguration/mailformate',
-                            label: 'E-Mail-Adressen-Format',
-                          },
-                          {
-                            type: 'doc',
-                            id: 'edulution-plattform/apps/e-mail/konfiguration/admin-features',
-                            label: 'Admin-Features & Tipps',
-                          },
-                          {
-                            type: 'doc',
-                            id: 'edulution-plattform/apps/e-mail/konfiguration/changelog-config-anpassungen',
-                            label: 'Changelog & Config-Anpassungen',
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                  {
-                    type: 'doc',
-                    id: 'edulution-plattform/apps/e-mail/auto-reply',
-                    label: 'Automatische Antwort',
-                  },
-                  {
-                    type: 'doc',
-                    id: 'edulution-plattform/apps/e-mail/migration',
-                    label: 'E-Mails migrieren',
-                  },
-                  {
-                    type: 'category',
-                    label: 'Mail-Clients',
-                    collapsed: true,
-                    items: [
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/clients/compatibility-matrix',
-                        label: 'Client-Kompatibilität',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/clients/server-settings',
-                        label: 'Server-Einstellungen',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/clients/apple-mail',
-                        label: 'Apple Mail',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/clients/thunderbird',
-                        label: 'Thunderbird',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/clients/outlook',
-                        label: 'Outlook',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/e-mail/clients/troubleshooting',
-                        label: 'Troubleshooting',
-                      },
-                    ],
-                  },
-                ],
-              },
-{
-                type: 'category',
-                label: 'Lernmanagement',
-                collapsed: true,
-                link: {
-                  type: 'doc',
-                  id: 'edulution-plattform/apps/lernmanagement/index',
-                },
-                items: [
-                  {
-                    type: 'category',
-                    label: 'Installation',
-                    collapsed: true,
-                    // Moodle bereitstellen - nur fuer die Ersteinrichtung.
-                    customProps: { audience: 'admin-setup' },
-                    link: {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/lernmanagement/installation/index',
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/installation',
+                          label: 'Installation',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/traefik-config',
+                          label: 'Traefik Konfiguration',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/ui-config',
+                          label: 'UI Konfiguration',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/wiki-infrastruktur',
+                          label: 'Wiki-Infrastruktur',
+                        },
+                      ],
                     },
-                    items: [
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/lernmanagement/installation/voraussetzungen',
-                        label: 'Voraussetzungen',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/lernmanagement/installation/schnellstart',
-                        label: 'Schnellstart',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/lernmanagement/installation/detailliert',
-                        label: 'Detaillierte Installation',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/lernmanagement/installation/migration',
-                        label: 'Migration',
-                      },
-                    ],
-                  },
-                  {
-                    type: 'category',
-                    label: 'Konfiguration',
-                    collapsed: true,
-                    // Moodle-Anbindung betreiben - fuer Endnutzer ausgeblendet.
-                    customProps: { audience: 'admin' },
-                    link: {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/index',
-                    },
-                    items: [
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/lernmanagement/konfiguration/umgebungsvariablen',
-                        label: 'Umgebungsvariablen',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/lernmanagement/konfiguration/synchronisation',
-                        label: 'Synchronisation',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/lernmanagement/konfiguration/namensschemas',
-                        label: 'Gruppen-Namensschemas',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/lernmanagement/konfiguration/cookie-auth',
-                        label: 'Cookie Auth (SSO)',
-                      },
-                      {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/lernmanagement/konfiguration/plugins',
-                        label: 'Plugin-Verwaltung',
-                      },
-                      {
-                        type: 'category',
-                        label: 'Administration',
-                        collapsed: true,
-                        items: [
-                          {
-                            type: 'doc',
-                            id: 'edulution-plattform/apps/lernmanagement/konfiguration/administration/admin-ui',
-                            label: 'Admin-Oberfläche',
-                          },
-                          {
-                            type: 'doc',
-                            id: 'edulution-plattform/apps/lernmanagement/konfiguration/administration/backup',
-                            label: 'Backup & Wiederherstellung',
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                ],
+                  ],
+                },
+                'edulution-plattform/apps/dateien/ansicht-und-navigation',
+                'edulution-plattform/apps/dateien/vorschau-und-drucken',
+                'edulution-plattform/apps/dateien/teilen',
+                'edulution-plattform/apps/dateien/speicherplatz-und-quota',
+                'edulution-plattform/apps/dateien/upload-schutzmechanismen',
+                'edulution-plattform/apps/dateien/browser-download-einstellungen',
+                'edulution-plattform/apps/dateien/drawio',
+                'edulution-plattform/apps/dateien/goodnotes',
+                {
+                  type: 'category',
+                  label: 'WebDAV',
+                  collapsed: true,
+                  items: [
+                    'edulution-plattform/apps/dateien/webdav-windows',
+                    'edulution-plattform/apps/dateien/webdav-macos',
+                    'edulution-plattform/apps/dateien/webdav-linux',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'E-Mail',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'edulution-plattform/apps/e-mail/index',
               },
-'edulution-plattform/apps/konferenzen',
-'edulution-plattform/apps/mdm',
-'edulution-plattform/apps/vpn-zugang',
-],
+              items: [
+                {
+                  type: 'category',
+                  label: 'Konfiguration',
+                  collapsed: true,
+                  // Mailserver aufsetzen und betreiben - fuer Endnutzer
+                  // ausgeblendet (siehe src/components/audience/taxonomy.ts).
+                  customProps: { audience: 'admin' },
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/installation',
+                      label: 'Installation',
+                      customProps: { audience: 'admin-setup' },
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/administration',
+                      label: 'Administration',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/mail-app-konfiguration',
+                      label: 'Mail-App konfigurieren',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/mailbox-verwaltung',
+                      label: 'Mailboxen & geteilte Postfächer',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/verteilerlisten',
+                      label: 'Verteilerlisten',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/gruppen-mail-sync',
+                      label: 'Gruppen-Mail-Synchronisation',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/migration-einrichten',
+                      label: 'Migration einrichten',
+                    },
+                    {
+                      type: 'category',
+                      label: 'Erweiterte Konfiguration',
+                      collapsed: true,
+                      items: [
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/e-mail/konfiguration/mailformate',
+                          label: 'E-Mail-Adressen-Format',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/e-mail/konfiguration/admin-features',
+                          label: 'Admin-Features & Tipps',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/e-mail/konfiguration/changelog-config-anpassungen',
+                          label: 'Changelog & Config-Anpassungen',
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-plattform/apps/e-mail/auto-reply',
+                  label: 'Automatische Antwort',
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-plattform/apps/e-mail/migration',
+                  label: 'E-Mails migrieren',
+                },
+                {
+                  type: 'category',
+                  label: 'Mail-Clients',
+                  collapsed: true,
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/clients/compatibility-matrix',
+                      label: 'Client-Kompatibilität',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/clients/server-settings',
+                      label: 'Server-Einstellungen',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/clients/apple-mail',
+                      label: 'Apple Mail',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/clients/thunderbird',
+                      label: 'Thunderbird',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/clients/outlook',
+                      label: 'Outlook',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/clients/troubleshooting',
+                      label: 'Troubleshooting',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Lernmanagement',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'edulution-plattform/apps/lernmanagement/index',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Installation',
+                  collapsed: true,
+                  // Moodle bereitstellen - nur fuer die Ersteinrichtung.
+                  customProps: { audience: 'admin-setup' },
+                  link: {
+                    type: 'doc',
+                    id: 'edulution-plattform/apps/lernmanagement/installation/index',
+                  },
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/installation/voraussetzungen',
+                      label: 'Voraussetzungen',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/installation/schnellstart',
+                      label: 'Schnellstart',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/installation/detailliert',
+                      label: 'Detaillierte Installation',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/installation/migration',
+                      label: 'Migration',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Konfiguration',
+                  collapsed: true,
+                  // Moodle-Anbindung betreiben - fuer Endnutzer ausgeblendet.
+                  customProps: { audience: 'admin' },
+                  link: {
+                    type: 'doc',
+                    id: 'edulution-plattform/apps/lernmanagement/konfiguration/index',
+                  },
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/umgebungsvariablen',
+                      label: 'Umgebungsvariablen',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/synchronisation',
+                      label: 'Synchronisation',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/namensschemas',
+                      label: 'Gruppen-Namensschemas',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/cookie-auth',
+                      label: 'Cookie Auth (SSO)',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/plugins',
+                      label: 'Plugin-Verwaltung',
+                    },
+                    {
+                      type: 'category',
+                      label: 'Administration',
+                      collapsed: true,
+                      items: [
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/lernmanagement/konfiguration/administration/admin-ui',
+                          label: 'Admin-Oberfläche',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/lernmanagement/konfiguration/administration/backup',
+                          label: 'Backup & Wiederherstellung',
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            'edulution-plattform/apps/konferenzen',
+            'edulution-plattform/apps/mdm',
+            'edulution-plattform/apps/vpn-zugang',
+            {
+              type: 'category',
+              label: 'Satellite',
+              collapsed: true,
+              // Eine Appliance fuer entfernte Standorte - es gibt dazu nichts
+              // fuer Endnutzer, deshalb ist der ganze Block ausgezeichnet.
+              // Nicht mit dem VPN-Zugang verwechseln: der ist der WireGuard-
+              // Tunnel einzelner Benutzer, nicht die Kopplung von Appliances.
+              customProps: { audience: 'admin' },
+              link: {
+                type: 'doc',
+                id: 'edulution-plattform/apps/satellite/index',
+              },
+              items: [
+                {
+                  type: 'doc',
+                  id: 'edulution-plattform/apps/satellite/einrichtung-mit-edulution',
+                  label: 'Einrichtung mit edulution',
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-plattform/apps/satellite/standalone',
+                  label: 'Standalone einrichten',
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-plattform/apps/satellite/wireguard-traefik',
+                  label: 'WireGuard über Traefik',
+                },
+              ],
+            },
+          ],
         },
       ],
     },
     {
       type: 'category',
-      label: 'edulution Satellite',
-      // Reine Administrationsthemen - fuer Endnutzer ausgeblendet
-      // (siehe src/components/audience/taxonomy.ts). Der Satellite ist eine
-      // Appliance fuer entfernte Standorte und gehoert damit zu keiner App:
-      // der VPN-Zugang unter Apps ist der WireGuard-Zugang einzelner
-      // Benutzer, nicht die Kopplung von Appliances.
-      customProps: { audience: 'admin' },
-      collapsed: false,
-      link: {
-        type: 'doc',
-        id: 'edulution-satellite/index',
-      },
-      items: [
-        {
-          type: 'doc',
-          id: 'edulution-satellite/einrichtung-mit-edulution',
-          label: 'Einrichtung mit edulution',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-satellite/standalone',
-          label: 'Standalone einrichten',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-satellite/wireguard-traefik',
-          label: 'WireGuard über Traefik',
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'edulution App',
+      label: 'edulution Mobile App',
       collapsed: false,
       link: {
         type: 'generated-index',
-        title: 'edulution App',
+        title: 'edulution Mobile App',
         description: 'Die mobile App für die edulution-Plattform.',
         slug: '/category/edulution-app',
       },

@@ -19,12 +19,13 @@ und Konfigurations-Strecke mit.
 
 | App | Was zusätzlich nötig ist |
 | --- | --- |
-| **[Dateien](dateien/)** | FileProxy und ein Office-Server (OnlyOffice, Collabora oder EuroOffice) |
-| **[E-Mail](e-mail/)** | edulution Mail auf Mailcow-Basis |
-| **[Lernmanagement](lernmanagement/)** | Moodle |
+| **[Dateien](./dateien)** | FileProxy und ein Office-Server (OnlyOffice, Collabora oder EuroOffice) |
+| **[E-Mail](./e-mail)** | edulution Mail auf Mailcow-Basis |
+| **[Lernmanagement](./lernmanagement)** | Moodle |
 | **[Konferenzen](./konferenzen.md)** | BigBlueButton |
 | **[MDM](./mdm.md)** | Relution |
 | **[VPN-Zugang](./vpn-zugang.md)** | die WireGuard-App |
+| **[Satellite](./satellite/)** | eine Satellite-Appliance am entfernten Standort |
 
 ## Native Apps
 

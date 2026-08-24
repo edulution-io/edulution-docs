@@ -138,14 +138,14 @@ const CARDS: AppCard[] = [
     roles: 'admin',
     targets: {
       'admin-setup': {
-        to: '/docs/edulution-satellite/einrichtung-mit-edulution',
+        to: '/docs/edulution-plattform/apps/satellite/einrichtung-mit-edulution',
         label: 'Einrichtung',
       },
       'admin-operate': {
         to: '/docs/edulution-plattform/konfiguration/satelliten',
         label: 'Satelliten verwalten',
       },
-      default: { to: '/docs/edulution-satellite/', label: 'Übersicht' },
+      default: { to: '/docs/edulution-plattform/apps/satellite/', label: 'Übersicht' },
     },
   },
   {

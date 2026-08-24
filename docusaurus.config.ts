@@ -58,13 +58,8 @@ const config: Config = {
         createRedirects(existingPath: string) {
           // Einzelne Seiten, die beim Umzug auch den Namen gewechselt haben.
           const RENAMED: Record<string, string[]> = {
-            '/docs/edulution-plattform/apps/e-mail/': [
-              '/docs/edulution-mail',
-              '/docs/category/edulution-mail',
-            ],
-            '/docs/edulution-plattform/apps/e-mail/migration': [
-              '/docs/edulution-mail/user_mail_migration',
-            ],
+            '/docs/edulution-plattform/apps/e-mail/': ['/docs/edulution-mail', '/docs/category/edulution-mail'],
+            '/docs/edulution-plattform/apps/e-mail/migration': ['/docs/edulution-mail/user_mail_migration'],
             '/docs/edulution-plattform/apps/e-mail/konfiguration/migration-einrichten': [
               '/docs/edulution-mail/admin_mail_migration',
             ],
@@ -83,31 +78,34 @@ const config: Config = {
               '/docs/edulution-eurooffice/',
               '/docs/category/edulution-eurooffice',
             ],
-            '/docs/edulution-plattform/apps/dateien/goodnotes': [
-              '/docs/edulution-plattform/features/goodnotes',
-            ],
-            '/docs/edulution-plattform/apps/lernmanagement/konfiguration/': [
-              '/docs/edulution-moodle/',
-            ],
+            '/docs/edulution-plattform/apps/dateien/goodnotes': ['/docs/edulution-plattform/features/goodnotes'],
+            '/docs/edulution-plattform/apps/lernmanagement/konfiguration/': ['/docs/edulution-moodle/'],
           };
 
           const PREFIXES: [string, string][] = [
             // neu                                        // alt
             ['/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/', '/docs/edulution-fileproxy/'],
             ['/docs/edulution-plattform/apps/lernmanagement/installation/', '/docs/edulution-moodle/installation/'],
-            ['/docs/edulution-plattform/apps/lernmanagement/konfiguration/administration/', '/docs/edulution-moodle/administration/'],
+            [
+              '/docs/edulution-plattform/apps/lernmanagement/konfiguration/administration/',
+              '/docs/edulution-moodle/administration/',
+            ],
             ['/docs/edulution-plattform/apps/lernmanagement/konfiguration/', '/docs/edulution-moodle/konfiguration/'],
             ['/docs/edulution-plattform/apps/e-mail/clients/', '/docs/edulution-mail/clients/'],
             ['/docs/edulution-plattform/apps/e-mail/konfiguration/', '/docs/edulution-mail/'],
             ['/docs/edulution-plattform/apps/e-mail/auto-reply', '/docs/edulution-mail/auto-reply'],
             ['/docs/edulution-plattform/erste-schritte/mein-profil', '/docs/edulution-plattform/benutzer/mein-profil'],
             ['/docs/edulution-plattform/erste-schritte/', '/docs/edulution-plattform/features/'],
-            ['/docs/edulution-plattform/installation/configure_lmn-server', '/docs/edulution-plattform/configure-lmn-server/configure_lmn-server'],
+            [
+              '/docs/edulution-plattform/installation/configure_lmn-server',
+              '/docs/edulution-plattform/configure-lmn-server/configure_lmn-server',
+            ],
             ['/docs/edulution-plattform/konfiguration/anbindungen/', '/docs/anbindungen/'],
             ['/docs/edulution-plattform/konfiguration/upgrade/', '/docs/edulution-plattform/upgrade/'],
             ['/docs/edulution-plattform/konfiguration/', '/docs/edulution-plattform/administration/'],
             ['/docs/edulution-plattform/apps/', '/docs/edulution-plattform/features/'],
             ['/docs/edulution-plattform/apps/native-apps/', '/docs/edulution-plattform/features/'],
+            ['/docs/edulution-plattform/apps/satellite/', '/docs/edulution-satellite/'],
           ];
 
           // Mehrere Regeln koennen passen - etwa konfiguration/ und
@@ -119,9 +117,7 @@ const config: Config = {
 
           const from = [
             ...(RENAMED[existingPath] ?? []),
-            ...matching
-              .filter(([to]) => to.length === longest)
-              .map(([to, old]) => old + existingPath.slice(to.length)),
+            ...matching.filter(([to]) => to.length === longest).map(([to, old]) => old + existingPath.slice(to.length)),
           ];
 
           // Jede Alt-URL, die selbst unter /docs/edulution-plattform/ lag,
@@ -232,7 +228,7 @@ const config: Config = {
             },
             {
               label: 'edulution Satellite',
-              to: '/docs/edulution-satellite/',
+              to: '/docs/edulution-plattform/apps/satellite/',
             },
             {
               label: 'edulution OnlyOffice',

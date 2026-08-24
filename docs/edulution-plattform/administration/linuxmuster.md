@@ -126,7 +126,15 @@ Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalt
 
 ### Gruppen
 
-Eine **Hardwaregruppe** ist eine `start.conf` auf dem Server: sie beschreibt das Plattenlayout und die Betriebssysteme aller Rechner, die ihr zugeordnet sind. Die Seite listet die Hardwaregruppen des Servers.
+Eine **Hardwaregruppe** ist eine `start.conf` auf dem Server: sie beschreibt das Plattenlayout und die Betriebssysteme aller Rechner, die ihr zugeordnet sind. Die Seite listet die Hardwaregruppen des Servers – also genau die Gruppen, für die eine `start.conf` vorliegt.
+
+:::note[Gruppen sind nicht schulgebunden]
+Die `start.conf`-Dateien liegen serverweit und nicht je Schule. Ein Wechsel der Schule über die Auswahl oberhalb der Liste ändert die Gruppen deshalb nicht; Sync-Status und Hostzahl im Banner beziehen sich weiterhin auf die gewählte Schule.
+:::
+
+:::warning[API-Version für die Gruppenliste]
+Die Gruppenliste benötigt die Linuxmuster-API in **Version 7.4.11** oder neuer. Ist die API älter, bleibt die Liste leer und meldet einen Fehler, während die übrigen Bereiche der App weiterarbeiten.
+:::
 
 Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleibt erhalten und gilt auch nach einem Neuladen:
 
@@ -150,7 +158,9 @@ Ein Banner über der Liste nennt den **Sync-Status**: ob die **LMN-API** erreich
 | **Duplizieren** | legt eine Kopie unter neuem Namen an |
 | **Gruppe löschen** | löscht die `start.conf` der Gruppe auf dem Server |
 
-Über **Gruppe anlegen** unten rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt.
+Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
+
+**Gruppe anlegen** bleibt deaktiviert, solange die Serverdaten nicht geladen sind – etwa bei nicht erreichbarer Linuxmuster-API. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste.
 
 :::warning[Vorhandene Gruppe wird nicht überschrieben]
 Vor dem Anlegen prüft die Plattform auf dem Server, ob für den Namen bereits eine `start.conf` existiert – auch dann, wenn die Liste sie nicht anzeigt. In diesem Fall bricht der Vorgang mit einem Hinweis ab, statt die vorhandene Gruppe zu ersetzen.

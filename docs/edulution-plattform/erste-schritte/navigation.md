@@ -17,7 +17,7 @@ Die App-Leiste steht am rechten Rand und ist von oben nach unten so aufgebaut:
 | **App Launcher** | edulution-Logo mit der Beschriftung *App Launcher* – öffnet die Übersicht aller Apps |
 | **Favoriten** | Alle Apps, die dauerhaft angepinnt sind |
 | **Laufende Apps** | Durch eine Trennlinie abgesetzt: alle geöffneten Apps, die nicht angepinnt sind |
-| **Benachrichtigungen** | Glockensymbol mit Zähler ungelesener [Benachrichtigungen](../apps/direkt-einsatzbereit/benachrichtigungen.md) |
+| **Benachrichtigungen** | Glockensymbol mit Zähler ungelesener [Benachrichtigungen](../apps/native-apps/benachrichtigungen.md) |
 | **Benutzermenü** | Profilbild und Name mit den Einträgen *Benutzereinstellungen* und *Abmelden* |
 
 Ein Klick auf einen Eintrag öffnet die App. Die aktive App ist hervorgehoben; fahren Sie mit der Maus über einen Eintrag, klappt zusätzlich der vollständige App-Name auf.
@@ -95,19 +95,19 @@ Derzeit gibt es das Suchfeld in diesen Apps:
 | App | Sucht in | Besonderheit |
 |---|---|---|
 | **Einstellungen** | Allen Einstellungsseiten und App-Namen | – |
-| **[Wiki](../apps/direkt-einsatzbereit/wiki.md)** | Der Baumansicht aller Wikis und Seiten | `Enter` öffnet zusätzlich die Volltextsuche über alle Inhalte |
+| **[Wiki](../apps/native-apps/wiki.md)** | Der Baumansicht aller Wikis und Seiten | `Enter` öffnet zusätzlich die Volltextsuche über alle Inhalte |
 
 ### Fußbereich
 
 Einige Apps blenden unterhalb der Menüeinträge einen festen Fußbereich ein:
 
-- **[Dateien](../apps/mit-einrichtung/dateien/index.md)**: Zugangsdaten für [WebDAV](../apps/mit-einrichtung/dateien/webdav-windows.md) sowie die Anzeige des belegten Speicherplatzes
-- **[Kontakte](../apps/direkt-einsatzbereit/kontakte.md)**: Schaltfläche zum Anlegen eines neuen Adressbuchs
-- **[E-Mail](../apps/mit-einrichtung/e-mail/index.md)**: Hinweis, solange die Ordnerliste noch geladen wird
+- **[Dateien](../apps/dateien/index.md)**: Zugangsdaten für [WebDAV](../apps/dateien/webdav-windows.md) sowie die Anzeige des belegten Speicherplatzes
+- **[Kontakte](../apps/native-apps/kontakte.md)**: Schaltfläche zum Anlegen eines neuen Adressbuchs
+- **[E-Mail](../apps/e-mail/index.md)**: Hinweis, solange die Ordnerliste noch geladen wird
 
 ## Bedienung auf Tablet und Smartphone
 
-Auf schmalen Bildschirmen und in der [mobilen App](../apps/direkt-einsatzbereit/mobile-app.md) sind beide Leisten eingeklappt. Stattdessen erscheint oben eine schmale Leiste mit je einer Schaltfläche:
+Auf schmalen Bildschirmen und in der [mobilen App](../apps/native-apps/mobile-app.md) sind beide Leisten eingeklappt. Stattdessen erscheint oben eine schmale Leiste mit je einer Schaltfläche:
 
 | Schaltfläche | Wirkung |
 |---|---|
@@ -123,6 +123,6 @@ Die eingeblendete App-Leiste zeigt die Apps mit vollem Namen untereinander – z
 ## Weitere Informationen
 
 - [Dashboard](./dashboard.md) – Startseite nach der Anmeldung
-- [Benachrichtigungen](../apps/direkt-einsatzbereit/benachrichtigungen.md) – Benachrichtigungsbereich hinter dem Glockensymbol
+- [Benachrichtigungen](../apps/native-apps/benachrichtigungen.md) – Benachrichtigungsbereich hinter dem Glockensymbol
 - [Mein Profil](./mein-profil.md) – Einträge des Benutzermenüs
 - [Einstellungen](../konfiguration/einstellungen.md) – Apps anpinnen und Nutzergruppen freischalten

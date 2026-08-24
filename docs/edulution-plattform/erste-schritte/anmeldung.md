@@ -15,7 +15,7 @@ Die Seite ist zweigeteilt:
 | **Links: Anmeldeformular** | edulution-Logo, Überschrift **Anmelden** mit dem Hinweis *„Willkommen zurück! Bitte gib deine Zugangsdaten ein."*, die Felder **Benutzername** und **Passwort**, die Schaltflächen **Anmelden** und **Anmelden mit QR-Login** sowie die Fußzeile |
 | **Rechts: Organisationsbereich** | Login-Bild als Hintergrund, darauf das Logo Ihrer Organisation sowie ein abgesetzter Kasten mit **Organisationsname** und **Login-Text** |
 
-Die Fußzeile enthält die Versionsnummer der Oberfläche und – sofern eingerichtet – die Links zu **Impressum** und **Datenschutz** (siehe [Impressum und Datenschutz einrichten](../apps/direkt-einsatzbereit/impressum-datenschutz.md)).
+Die Fußzeile enthält die Versionsnummer der Oberfläche und – sofern eingerichtet – die Links zu **Impressum** und **Datenschutz** (siehe [Impressum und Datenschutz einrichten](../apps/native-apps/impressum-datenschutz.md)).
 
 :::info[Organisationsbereich nur auf großen Bildschirmen]
 Der rechte Organisationsbereich wird erst ab einer Fensterbreite von etwa 1024 Pixeln eingeblendet. Auf Smartphones, Tablets und in schmalen Browserfenstern nimmt das Anmeldeformular die gesamte Breite ein; Logo, Organisationsname und Login-Text werden dort nicht angezeigt.
@@ -62,7 +62,7 @@ Nach erfolgreicher Anmeldung werden Sie automatisch weitergeleitet – entweder 
 Mit der Schaltfläche **Anmelden mit QR-Login** melden Sie sich ohne Eingabe von Zugangsdaten über die edulution.io App an:
 
 1. Klicken Sie auf **Anmelden mit QR-Login**. Anstelle der Eingabefelder erscheint ein QR-Code mit dem Hinweis *„Öffne die edulution.io APP um dich einfach mit dem QR-Code anzumelden."*
-2. Scannen Sie den QR-Code mit der [edulution.io App](../apps/direkt-einsatzbereit/mobile-app.md).
+2. Scannen Sie den QR-Code mit der [edulution.io App](../apps/native-apps/mobile-app.md).
 3. Die Anmeldung wird daraufhin automatisch abgeschlossen – Sie müssen am Rechner nichts weiter eingeben.
 
 Mit **Abbrechen** kehren Sie zum Anmeldeformular zurück.
@@ -77,7 +77,7 @@ Ist für Ihr Konto die Zwei-Faktor-Authentisierung eingerichtet oder für Ihre B
 
 Geben Sie den sechsstelligen Code aus Ihrer Authenticator-App ein; die Anmeldung wird abgeschickt, sobald die letzte Ziffer eingetragen ist. Über **Abbrechen** gelangen Sie zurück zum Anmeldeformular.
 
-Einrichtung und unterstützte Apps sind unter [Sicherheit & Authentifizierung](../apps/direkt-einsatzbereit/sicherheit.md#zwei-faktor-authentifizierung-2fa) beschrieben.
+Einrichtung und unterstützte Apps sind unter [Sicherheit & Authentifizierung](../apps/native-apps/sicherheit.md#zwei-faktor-authentifizierung-2fa) beschrieben.
 
 ## Meldungen auf der Anmeldeseite
 
@@ -97,6 +97,6 @@ Einrichtung und unterstützte Apps sind unter [Sicherheit & Authentifizierung](.
 ## Siehe auch
 
 - [Einstellungen (Settings)](../konfiguration/einstellungen.md) – Branding und Organisationsinformationen pflegen
-- [Impressum und Datenschutz einrichten](../apps/direkt-einsatzbereit/impressum-datenschutz.md) – Links in der Fußzeile
-- [Sicherheit & Authentifizierung](../apps/direkt-einsatzbereit/sicherheit.md) – Zwei-Faktor-Authentisierung und Passwörter
-- [Mobile App](../apps/direkt-einsatzbereit/mobile-app.md) – edulution.io App für den QR-Login
+- [Impressum und Datenschutz einrichten](../apps/native-apps/impressum-datenschutz.md) – Links in der Fußzeile
+- [Sicherheit & Authentifizierung](../apps/native-apps/sicherheit.md) – Zwei-Faktor-Authentisierung und Passwörter
+- [Mobile App](../apps/native-apps/mobile-app.md) – edulution.io App für den QR-Login

@@ -124,7 +124,7 @@ PDFs werden im PDF-Betrachter des Browsers geöffnet und nicht mehr an OnlyOffic
 
 ## Wenn die Vorschau fehlschlägt
 
-Lässt sich der Inhalt einer Datei nicht laden, zeigt die Vorschau eine Fehlermeldung **Vorschau konnte nicht geladen werden** – anstatt dauerhaft eine Ladeanzeige zu drehen. Darunter stehen der Grund und der Name der betroffenen Datei, etwa *Kein Zugriff auf diese Ressource*, wenn Ihnen die Berechtigung fehlt, oder *Nicht gefunden*, wenn die Datei inzwischen verschoben oder gelöscht wurde.
+Lässt sich der Inhalt einer Datei nicht laden, zeigt die Vorschau eine Fehlermeldung **Vorschau konnte nicht geladen werden** – anstatt dauerhaft eine Ladeanzeige zu drehen. Darunter stehen der Grund und der Name der betroffenen Datei, etwa *Kein Zugriff auf diese Ressource*, wenn Ihnen die Berechtigung fehlt, oder *Datei nicht gefunden*, wenn die Datei inzwischen verschoben oder gelöscht wurde.
 
 Unterhalb der Meldung finden Sie **Erneut versuchen**. Damit laden Sie dieselbe Datei noch einmal, ohne die Vorschau schließen und neu öffnen zu müssen – hilfreich, wenn die Verbindung nur kurzzeitig gestört war.
 

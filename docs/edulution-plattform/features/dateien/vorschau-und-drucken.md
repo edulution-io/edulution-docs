@@ -42,13 +42,23 @@ Bei allen anderen Dateitypen wird durch einen Klick auf den Namen die Datei ausg
 
 ## Office-Dokumente
 
-Office-Dokumente setzen voraus, dass Ihr Administrator einen Dokumenten-Editor eingerichtet hat – [OnlyOffice](../../../edulution-onlyoffice/index.md) beziehungsweise Euro-Office oder [Collabora](../../../edulution-collabora/index.md). Ist keiner konfiguriert, lässt sich ein Office-Dokument nicht öffnen; PDF-Dateien öffnen sich unabhängig davon.
+Office-Dokumente setzen voraus, dass Ihr Administrator einen Dokumenten-Editor eingerichtet hat – [OnlyOffice](../../../edulution-onlyoffice/index.md), [Euro-Office](../../../edulution-eurooffice/index.md) oder [Collabora](../../../edulution-collabora/index.md). Ist keiner konfiguriert, lässt sich ein Office-Dokument nicht öffnen; PDF-Dateien öffnen sich unabhängig davon.
 
 ### Office-Dokumente auf dem Smartphone
 
-OnlyOffice und Euro-Office lassen sich auf einem Smartphone beziehungsweise in einem sehr schmalen Browserfenster nicht sinnvoll bedienen. Tippen Sie dort auf ein Office-Dokument, erscheint deshalb der Hinweis *„Office-Dokumente lassen sich auf dem Smartphone nicht öffnen. Bitte nutzen Sie ein Tablet oder einen Computer."*, und das Dokument bleibt geschlossen. Auf einem Tablet öffnet es sich normal.
+Ob sich ein Office-Dokument auf einem Smartphone – beziehungsweise in einem sehr schmalen Browserfenster – öffnen lässt, hängt vom eingerichteten Dokumenten-Editor ab:
 
-Ist Collabora als Dokumenten-Editor eingerichtet, gilt diese Einschränkung nicht – dort öffnen sich Office-Dokumente auch auf dem Smartphone. PDF-Dateien, Bilder, Medien- und Textdateien sind ebenfalls nicht betroffen.
+| Dokumenten-Editor | Office-Dokument auf dem Smartphone |
+|---|---|
+| **OnlyOffice** | Öffnet sich nicht |
+| **Euro-Office** | Öffnet sich und lässt sich auch bearbeiten |
+| **Collabora** | Öffnet sich |
+
+Mit OnlyOffice erscheint beim Tippen auf ein Office-Dokument der Hinweis *„Office-Dokumente lassen sich auf dem Smartphone nicht öffnen. Bitte nutzen Sie ein Tablet oder einen Computer."*, und das Dokument bleibt geschlossen. Auf einem Tablet öffnet es sich normal.
+
+Mit Euro-Office entfällt diese Einschränkung: Office-Dokumente öffnen sich auf dem Smartphone und lassen sich dort auch bearbeiten. Ob Sie ein Dokument bearbeiten dürfen, richtet sich weiterhin nach Ihren Berechtigungen – über einen Freigabe-Link ohne Schreibrechte bleibt es auch auf dem Smartphone schreibgeschützt.
+
+PDF-Dateien, Bilder, Medien- und Textdateien sind von der Einschränkung nicht betroffen.
 
 ## Text- und Markdown-Dateien
 
@@ -114,7 +124,11 @@ PDFs werden im PDF-Betrachter des Browsers geöffnet und nicht mehr an OnlyOffic
 
 ## Wenn die Vorschau fehlschlägt
 
-Lässt sich der Inhalt einer Datei nicht laden, zeigt die Vorschau eine Fehlermeldung **Vorschau konnte nicht geladen werden** – anstatt dauerhaft eine Ladeanzeige zu drehen. Darunter stehen der Grund und der Name der betroffenen Datei, etwa *Zugriff verweigert*, wenn Ihnen die Berechtigung fehlt, oder *Nicht gefunden*, wenn die Datei inzwischen verschoben oder gelöscht wurde. Dieselbe Meldung erscheint, wenn Sie die Vorschau in einem eigenen Browser-Tab oder über einen Freigabe-Link geöffnet haben, und ebenso, wenn der Dokumenten-Editor ein Office-Dokument nicht öffnen konnte – das Vorschaufenster bleibt in diesem Fall nicht mehr leer.
+Lässt sich der Inhalt einer Datei nicht laden, zeigt die Vorschau eine Fehlermeldung **Vorschau konnte nicht geladen werden** – anstatt dauerhaft eine Ladeanzeige zu drehen. Darunter stehen der Grund und der Name der betroffenen Datei, etwa *Kein Zugriff auf diese Ressource*, wenn Ihnen die Berechtigung fehlt, oder *Nicht gefunden*, wenn die Datei inzwischen verschoben oder gelöscht wurde.
+
+Unterhalb der Meldung finden Sie **Erneut versuchen**. Damit laden Sie dieselbe Datei noch einmal, ohne die Vorschau schließen und neu öffnen zu müssen – hilfreich, wenn die Verbindung nur kurzzeitig gestört war.
+
+Die Meldung gehört immer zu der Datei, die gerade in der Vorschau geöffnet ist: Schlägt der Download einer anderen Datei fehl, bleibt Ihre geöffnete Vorschau davon unberührt. Dieselbe Meldung erscheint, wenn Sie die Vorschau in einem eigenen Browser-Tab oder über einen Freigabe-Link geöffnet haben, ebenso wenn der Dokumenten-Editor ein Office-Dokument nicht öffnen konnte und wenn ein PDF zwar geladen, aber nicht dargestellt werden kann – das Vorschaufenster bleibt in diesen Fällen nicht mehr leer.
 
 ## Häufige Fragen
 
@@ -122,7 +136,7 @@ Lässt sich der Inhalt einer Datei nicht laden, zeigt die Vorschau eine Fehlerme
 Für diesen Dateityp gibt es keine Vorschau. Laden Sie die Datei herunter, um sie mit einem Programm auf Ihrem Gerät zu öffnen.
 
 **Ein Office-Dokument lässt sich nicht öffnen.**
-Für `.docx`, `.xlsx` und `.pptx` wird ein Dokumenten-Editor benötigt. Ist keiner eingerichtet, bleibt die Vorschau aus. Mit OnlyOffice oder Euro-Office öffnen sich Office-Dokumente zudem nicht auf dem Smartphone – auf einem Tablet dagegen schon, mit Collabora auch auf dem Smartphone. Siehe [Office-Dokumente](#office-dokumente).
+Für `.docx`, `.xlsx` und `.pptx` wird ein Dokumenten-Editor benötigt. Ist keiner eingerichtet, bleibt die Vorschau aus. Mit OnlyOffice öffnen sich Office-Dokumente zudem nicht auf dem Smartphone – auf einem Tablet dagegen schon; mit Euro-Office und Collabora auch auf dem Smartphone. Siehe [Office-Dokumente](#office-dokumente).
 
 **Das Drucker-Symbol fehlt.**
 Es erscheint nur bei textbasierten Dateien und nur in der Ansicht. Wechseln Sie über das Augen-Symbol aus dem Bearbeitungsmodus zurück.

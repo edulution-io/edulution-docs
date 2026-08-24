@@ -31,12 +31,12 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Ich betreue eine laufende Instanz.',
       a: 'Die Administration bündelt Einstellungen, Benutzer und Container.',
-      to: '/docs/edulution-plattform/administration/administration',
+      to: '/docs/edulution-plattform/konfiguration/administration',
     },
     {
       q: 'Ich nutze edulution und suche eine Funktion.',
       a: 'Die Navigation zeigt, wo in der Oberfläche was liegt.',
-      to: '/docs/edulution-plattform/features/navigation',
+      to: '/docs/edulution-plattform/erste-schritte/navigation',
     },
     {
       q: 'Ich will es erst einmal ausprobieren.',
@@ -59,7 +59,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie binde ich meinen Linuxmuster-Server an?',
       a: 'Danach stammen Konten, Klassen und Projekte aus dem Verzeichnisdienst.',
-      to: '/docs/edulution-plattform/configure-lmn-server/configure_lmn-server',
+      to: '/docs/edulution-plattform/installation/configure_lmn-server',
     },
     {
       q: 'Wie bekomme ich HTTPS und einen Reverse Proxy davor?',
@@ -74,7 +74,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wir sind keine Schule – was muss ich umstellen?',
       a: 'Der Organisationstyp ändert Begriffe und Funktionsumfang systemweit.',
-      to: '/docs/edulution-plattform/administration/einstellungen#organisationstyp',
+      to: '/docs/edulution-plattform/konfiguration/einstellungen#organisationstyp',
     },
   ],
 
@@ -82,32 +82,32 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie lege ich Benutzer an oder importiere sie?',
       a: 'Benutzertypen, CSV-Import und der Sophomorix-Status der Konten.',
-      to: '/docs/edulution-plattform/administration/benutzerverwaltung',
+      to: '/docs/edulution-plattform/konfiguration/benutzerverwaltung',
     },
     {
       q: 'Jemand hat sein Passwort vergessen.',
       a: 'Passwörter einzeln oder für eine ganze Gruppe zurücksetzen.',
-      to: '/docs/edulution-plattform/administration/passwort-aenderung',
+      to: '/docs/edulution-plattform/konfiguration/passwort-aenderung',
     },
     {
       q: 'Wie aktualisiere ich edulution?',
       a: 'Container einzeln oder gesammelt neu ziehen und neu starten.',
-      to: '/docs/edulution-plattform/administration/container-verwaltung',
+      to: '/docs/edulution-plattform/konfiguration/container-verwaltung',
     },
     {
       q: 'Ich brauche Zugriff auf Daten eines gesperrten Kontos.',
       a: 'Der Master Key entschlüsselt Dateien, ohne das Passwort zu kennen.',
-      to: '/docs/edulution-plattform/administration/master-key',
+      to: '/docs/edulution-plattform/konfiguration/master-key',
     },
     {
       q: 'Wie hänge ich einen weiteren Standort an?',
       a: 'Satelliten binden entfernte Netze über einen verschlüsselten Tunnel an.',
-      to: '/docs/edulution-plattform/administration/satelliten',
+      to: '/docs/edulution-plattform/konfiguration/satelliten',
     },
     {
       q: 'Welche Apps sehen meine Nutzer überhaupt?',
       a: 'Sichtbarkeit und Zugriffsgruppen je App in den Einstellungen.',
-      to: '/docs/edulution-plattform/administration/einstellungen',
+      to: '/docs/edulution-plattform/konfiguration/einstellungen',
     },
   ],
 
@@ -115,34 +115,34 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie sammle ich Dateien von meiner Gruppe ein?',
       a: 'Im Klassenzimmer austeilen, einsammeln und Bildschirme beaufsichtigen.',
-      to: '/docs/edulution-plattform/features/klassenzimmer',
+      to: '/docs/edulution-plattform/apps/klassenzimmer',
     },
     {
       q: 'Wie starte ich eine Videokonferenz?',
       a: 'Konferenzen anlegen, Teilnehmende einladen und moderieren.',
-      to: '/docs/edulution-plattform/features/konferenzen',
+      to: '/docs/edulution-plattform/apps/konferenzen',
     },
     {
       q: 'Wie teile ich eine Datei mit anderen?',
       a: 'Freigaben innerhalb von edulution und Links nach außen.',
-      to: '/docs/edulution-plattform/features/dateien/teilen',
+      to: '/docs/edulution-plattform/apps/dateien/teilen',
     },
     {
       q: 'Wo finde ich meine Moodle-Kurse?',
       a: 'Lernmanagement öffnet Moodle ohne zweiten Login; Kurse entstehen aus Ihren Gruppen.',
-      to: '/docs/edulution-plattform/features/lernmanagement',
+      to: '/docs/edulution-plattform/apps/lernmanagement',
     },
     {
       q: 'Wie ordne ich Eltern ihren Kindern zu?',
       a: 'Die Zuordnung schaltet die Elternfunktionen für ein Konto frei.',
-      to: '/docs/edulution-plattform/features/eltern-schueler-zuordnung',
+      to: '/docs/edulution-plattform/apps/eltern-schueler-zuordnung',
       // Die Elternzuweisung entfaellt beim Organisationstyp Unternehmen.
       orgs: 'school public-administration',
     },
     {
       q: 'Wie frage ich schnell etwas in der Gruppe ab?',
       a: 'Umfragen erstellen, verteilen und auswerten.',
-      to: '/docs/edulution-plattform/features/umfragen',
+      to: '/docs/edulution-plattform/apps/umfragen',
     },
   ],
 
@@ -150,27 +150,27 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie melde ich mich an?',
       a: 'Anmeldung, Zwei-Faktor-Authentisierung und was bei Problemen hilft.',
-      to: '/docs/edulution-plattform/features/anmeldung',
+      to: '/docs/edulution-plattform/erste-schritte/anmeldung',
     },
     {
       q: 'Wo finde ich meine Dateien?',
       a: 'Eigene Ablage, Tauschverzeichnisse und die Verzeichnisse Ihrer Gruppen.',
-      to: '/docs/edulution-plattform/features/dateien/',
+      to: '/docs/edulution-plattform/apps/dateien/',
     },
     {
       q: 'Wie nehme ich an einer Konferenz teil?',
       a: 'Einer Konferenz beitreten, Kamera und Mikrofon einrichten.',
-      to: '/docs/edulution-plattform/features/konferenzen',
+      to: '/docs/edulution-plattform/apps/konferenzen',
     },
     {
       q: 'Kann ich edulution auf dem Handy nutzen?',
       a: 'Die mobile Ansicht, die App und der digitale Ausweis.',
-      to: '/docs/edulution-plattform/features/mobile-app',
+      to: '/docs/edulution-plattform/apps/mobile-app',
     },
     {
       q: 'Wie ändere ich mein Passwort?',
       a: 'Passwort, Profilbild und persönliche Einstellungen im eigenen Profil.',
-      to: '/docs/edulution-plattform/benutzer/mein-profil',
+      to: '/docs/edulution-plattform/erste-schritte/mein-profil',
     },
   ],
 
@@ -178,22 +178,22 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie komme ich an einen Zugang für mein Kind?',
       a: 'Die Eltern-Schüler-Zuordnung legt die Verbindung an – eingerichtet von der Schule.',
-      to: '/docs/edulution-plattform/features/eltern-schueler-zuordnung',
+      to: '/docs/edulution-plattform/apps/eltern-schueler-zuordnung',
     },
     {
       q: 'Wie melde ich mich an?',
       a: 'Anmeldung, Zwei-Faktor-Authentisierung und was bei Problemen hilft.',
-      to: '/docs/edulution-plattform/features/anmeldung',
+      to: '/docs/edulution-plattform/erste-schritte/anmeldung',
     },
     {
       q: 'Wo sehe ich Mitteilungen der Schule?',
       a: 'Benachrichtigungen sammeln, was Sie betrifft.',
-      to: '/docs/edulution-plattform/features/benachrichtigungen',
+      to: '/docs/edulution-plattform/apps/benachrichtigungen',
     },
     {
       q: 'Wo finde ich das Schwarze Brett?',
       a: 'Das Infoboard zeigt Aushänge und aktuelle Hinweise.',
-      to: '/docs/edulution-plattform/features/infoboard',
+      to: '/docs/edulution-plattform/apps/infoboard',
     },
   ],
 
@@ -201,12 +201,12 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie melde ich mich an?',
       a: 'Anmeldung, Zwei-Faktor-Authentisierung und was bei Problemen hilft.',
-      to: '/docs/edulution-plattform/features/anmeldung',
+      to: '/docs/edulution-plattform/erste-schritte/anmeldung',
     },
     {
       q: 'Wo finde ich meine Dateien?',
       a: 'Eigene Ablage, Tauschverzeichnisse und die Verzeichnisse Ihrer Gruppen.',
-      to: '/docs/edulution-plattform/features/dateien/',
+      to: '/docs/edulution-plattform/apps/dateien/',
     },
     {
       q: 'Wie richte ich mein Mailprogramm ein?',
@@ -221,7 +221,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie komme ich von unterwegs ins Netz?',
       a: 'VPN-Zugang über WireGuard einrichten.',
-      to: '/docs/edulution-plattform/features/vpn-zugang',
+      to: '/docs/edulution-plattform/apps/vpn-zugang',
     },
   ],
 };

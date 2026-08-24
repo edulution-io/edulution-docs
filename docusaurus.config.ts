@@ -42,18 +42,45 @@ const config: Config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
-        // Die Dokumentation lag bis zur Umbenennung unter /docs/edulution-ui/.
-        // Alte Links (Lesezeichen, externe Verweise) bleiben damit gültig.
+        // Zwei Umbauten liegen hinter uns, und beide sollen alte Links
+        // (Lesezeichen, Forenbeitraege, externe Verweise) am Leben lassen:
+        //
+        //   1. Die Umbenennung von /docs/edulution-ui/ nach
+        //      /docs/edulution-plattform/.
+        //   2. Der Umbau auf einen einzigen Wurzelbereich, bei dem die
+        //      Produktbereiche in edulution-plattform/apps/ gewandert sind
+        //      und aus administration/ die konfiguration/ wurde.
+        //
+        // `createRedirects` bekommt den *neuen* Pfad und liefert die alten.
+        // Weil alle Umzuege reine Praefix-Ersetzungen waren, genuegen Regeln
+        // statt einer Tabelle mit 60 Zeilen — eine neue Seite unter apps/
+        // bekommt ihre Weiterleitung damit automatisch.
         createRedirects(existingPath: string) {
-          if (existingPath.startsWith('/docs/edulution-plattform/')) {
-            return [
-              existingPath.replace(
-                '/docs/edulution-plattform/',
-                '/docs/edulution-ui/',
-              ),
-            ];
-          }
-          return undefined;
+          const PREFIXES: [string, string][] = [
+            // neu                                        // alt
+            ['/docs/edulution-plattform/erste-schritte/mein-profil', '/docs/edulution-plattform/benutzer/mein-profil'],
+            ['/docs/edulution-plattform/erste-schritte/', '/docs/edulution-plattform/features/'],
+            ['/docs/edulution-plattform/installation/configure_lmn-server', '/docs/edulution-plattform/configure-lmn-server/configure_lmn-server'],
+            ['/docs/edulution-plattform/konfiguration/anbindungen/', '/docs/anbindungen/'],
+            ['/docs/edulution-plattform/konfiguration/upgrade/', '/docs/edulution-plattform/upgrade/'],
+            ['/docs/edulution-plattform/konfiguration/', '/docs/edulution-plattform/administration/'],
+            ['/docs/edulution-plattform/apps/', '/docs/edulution-plattform/features/'],
+          ];
+
+          const from = PREFIXES.filter(([to]) => existingPath.startsWith(to)).map(
+            ([to, old]) => old + existingPath.slice(to.length),
+          );
+
+          // Jede Alt-URL, die selbst unter /docs/edulution-plattform/ lag,
+          // hatte zusaetzlich einen /docs/edulution-ui/-Zwilling.
+          const all = [existingPath, ...from].flatMap((path) =>
+            path.startsWith('/docs/edulution-plattform/')
+              ? [path, path.replace('/docs/edulution-plattform/', '/docs/edulution-ui/')]
+              : [path],
+          );
+
+          const redirects = [...new Set(all)].filter((path) => path !== existingPath);
+          return redirects.length ? redirects : undefined;
         },
       },
     ],
@@ -140,7 +167,7 @@ const config: Config = {
           items: [
             {
               label: 'edulution Plattform',
-              to: '/docs/edulution-plattform/features/navigation',
+              to: '/docs/edulution-plattform/erste-schritte/navigation',
             },
             {
               label: 'edulution Mail',
@@ -201,7 +228,7 @@ const config: Config = {
             },
             {
               label: 'edulution Plattform Administration',
-              to: '/docs/edulution-plattform/administration/administration',
+              to: '/docs/edulution-plattform/konfiguration/administration',
             },
             {
               label: 'edulution Mail',

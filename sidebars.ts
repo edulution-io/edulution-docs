@@ -3,17 +3,19 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /**
- * Creating a sidebar enables you to:
- - create an ordered group of docs
- - render a sidebar for each doc of that group
- - provide next/previous navigation
-
- The sidebars can be generated from the filesystem, or explicitly defined here.
-
- Create as many sidebars as you want.
+ * Die Dokumentation hat einen einzigen Wurzelbereich: edulution Plattform.
+ *
+ * Darunter wiederholt sich überall dieselbe Gliederung – Installation,
+ * Konfiguration, Übersicht, Nutzung. Das gilt für die Plattform selbst und
+ * für jede App darin. Die administrativen Zweige tragen
+ * `customProps: { audience: … }` und sind für Endnutzer ausgeblendet
+ * (siehe src/theme/DocSidebarItem/index.tsx), deshalb stört die Installation
+ * niemanden, der nur wissen will, wie er eine Mail schreibt.
+ *
+ * Die Rollen-IDs stehen in src/components/audience/taxonomy.ts; ein Tippfehler
+ * hält den Build an.
  */
 const sidebars: SidebarsConfig = {
-  // Haupt-Dokumentation
   mainSidebar: [
     {
       type: 'doc',
@@ -24,6 +26,10 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'edulution Plattform',
       collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'edulution-plattform/index',
+      },
       items: [
         {
           type: 'category',
@@ -36,37 +42,86 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/installation/einrichtung',
             'edulution-plattform/installation/installation',
             'edulution-plattform/installation/ssl_und_reverse_proxy',
-            'edulution-plattform/configure-lmn-server/configure_lmn-server',
+            'edulution-plattform/installation/configure_lmn-server',
           ],
         },
         {
           type: 'category',
-          label: 'Upgrade',
+          label: 'Konfiguration',
           collapsed: true,
           // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
-          customProps: { audience: 'admin-operate' },
+          customProps: { audience: 'admin' },
+          link: {
+            type: 'doc',
+            id: 'edulution-plattform/konfiguration/administration',
+          },
           items: [
+            'edulution-plattform/konfiguration/einstellungen',
+            'edulution-plattform/konfiguration/master-key',
+            'edulution-plattform/konfiguration/container-verwaltung',
+            'edulution-plattform/konfiguration/benutzerverwaltung',
+            'edulution-plattform/konfiguration/passwort-aenderung',
+            'edulution-plattform/konfiguration/linuxmuster',
+            'edulution-plattform/konfiguration/satelliten',
+            'edulution-plattform/konfiguration/wiki-einstellungen',
+            'edulution-plattform/konfiguration/webhooks',
+            'edulution-plattform/konfiguration/experten-tipps',
             {
               type: 'category',
-              label: 'Keycloak',
+              label: 'Anbindungen',
               collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'edulution-plattform/konfiguration/anbindungen/index',
+              },
               items: [
                 {
-                  type: 'doc',
-                  id: 'edulution-plattform/upgrade/keycloak/to-26',
-                  label: '25 auf 26.4',
+                  type: 'category',
+                  label: 'Nextcloud Cookie Auth',
+                  collapsed: true,
+                  link: {
+                    type: 'doc',
+                    id: 'edulution-plattform/konfiguration/anbindungen/nextcloud',
+                  },
+                  items: [
+                    'edulution-plattform/konfiguration/anbindungen/voraussetzungen',
+                    'edulution-plattform/konfiguration/anbindungen/installation',
+                    'edulution-plattform/konfiguration/anbindungen/konfiguration',
+                    'edulution-plattform/konfiguration/anbindungen/troubleshooting',
+                  ],
                 },
               ],
             },
             {
               type: 'category',
-              label: 'MongoDB',
+              label: 'Upgrade',
               collapsed: true,
+              // Betrifft nur bereits laufende Instanzen.
+              customProps: { audience: 'admin-operate' },
               items: [
                 {
-                  type: 'doc',
-                  id: 'edulution-plattform/upgrade/mongodb/replica-set',
-                  label: 'Replica Set einrichten',
+                  type: 'category',
+                  label: 'Keycloak',
+                  collapsed: true,
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/konfiguration/upgrade/keycloak/to-26',
+                      label: '25 auf 26.4',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'MongoDB',
+                  collapsed: true,
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/konfiguration/upgrade/mongodb/replica-set',
+                      label: 'Replica Set einrichten',
+                    },
+                  ],
                 },
               ],
             },
@@ -74,79 +129,77 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Nutzerhandbuch',
+          label: 'Erste Schritte',
           collapsed: false,
           items: [
-            'edulution-plattform/features/navigation',
-            'edulution-plattform/features/anmeldung',
-            'edulution-plattform/benutzer/mein-profil',
-            'edulution-plattform/features/dashboard',
+            'edulution-plattform/erste-schritte/navigation',
+            'edulution-plattform/erste-schritte/anmeldung',
+            'edulution-plattform/erste-schritte/mein-profil',
+            'edulution-plattform/erste-schritte/dashboard',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Apps',
+          collapsed: false,
+          link: {
+            type: 'doc',
+            id: 'edulution-plattform/apps/index',
+          },
+          items: [
             {
               type: 'category',
               label: 'Dateien',
               collapsed: true,
               link: {
                 type: 'doc',
-                id: 'edulution-plattform/features/dateien/index',
+                id: 'edulution-plattform/apps/dateien/index',
               },
               items: [
-                'edulution-plattform/features/dateien/webdav-windows',
-                'edulution-plattform/features/dateien/webdav-macos',
-                'edulution-plattform/features/dateien/webdav-linux',
-                'edulution-plattform/features/dateien/ansicht-und-navigation',
-                'edulution-plattform/features/dateien/vorschau-und-drucken',
-                'edulution-plattform/features/dateien/drawio',
-                'edulution-plattform/features/dateien/teilen',
-                'edulution-plattform/features/dateien/speicherplatz-und-quota',
-                'edulution-plattform/features/dateien/upload-schutzmechanismen',
-                'edulution-plattform/features/dateien/browser-download-einstellungen',
-                'edulution-plattform/features/goodnotes',
+                'edulution-plattform/apps/dateien/ansicht-und-navigation',
+                'edulution-plattform/apps/dateien/vorschau-und-drucken',
+                'edulution-plattform/apps/dateien/teilen',
+                'edulution-plattform/apps/dateien/speicherplatz-und-quota',
+                'edulution-plattform/apps/dateien/upload-schutzmechanismen',
+                'edulution-plattform/apps/dateien/browser-download-einstellungen',
+                'edulution-plattform/apps/dateien/drawio',
+                'edulution-plattform/apps/goodnotes',
+                {
+                  type: 'category',
+                  label: 'WebDAV',
+                  collapsed: true,
+                  items: [
+                    'edulution-plattform/apps/dateien/webdav-windows',
+                    'edulution-plattform/apps/dateien/webdav-macos',
+                    'edulution-plattform/apps/dateien/webdav-linux',
+                  ],
+                },
               ],
             },
-            'edulution-plattform/features/e-mail',
-            'edulution-plattform/features/chat',
-            'edulution-plattform/features/kontakte',
-            'edulution-plattform/features/eltern-schueler-zuordnung',
-            'edulution-plattform/features/kalender',
-            'edulution-plattform/features/klassenzimmer',
-            'edulution-plattform/features/mdm',
-            'edulution-plattform/features/geraeteverwaltung',
-            'edulution-plattform/features/konferenzen',
-            'edulution-plattform/features/whiteboard',
-            'edulution-plattform/features/wiki',
-            'edulution-plattform/features/wiki-editor',
-            'edulution-plattform/features/lernmanagement',
-            'edulution-plattform/features/markdown-hilfe',
-            'edulution-plattform/features/app-store',
-            'edulution-plattform/features/impressum-datenschutz',
-            'edulution-plattform/features/eingebettete-app',
-            'edulution-plattform/features/mobile-app',
-            'edulution-plattform/features/sicherheit',
-            'edulution-plattform/features/weitere-features',
-            'edulution-plattform/features/infoboard',
-            'edulution-plattform/features/umfragen',
-            'edulution-plattform/features/benachrichtigungen',
-            'edulution-plattform/features/vpn-zugang',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Administration',
-          collapsed: true,
-          // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
-          customProps: { audience: 'admin' },
-          items: [
-            'edulution-plattform/administration/administration',
-            'edulution-plattform/administration/einstellungen',
-            'edulution-plattform/administration/master-key',
-            'edulution-plattform/administration/container-verwaltung',
-            'edulution-plattform/administration/satelliten',
-            'edulution-plattform/administration/passwort-aenderung',
-            'edulution-plattform/administration/linuxmuster',
-            'edulution-plattform/administration/benutzerverwaltung',
-            'edulution-plattform/administration/wiki-einstellungen',
-            'edulution-plattform/administration/webhooks',
-            'edulution-plattform/administration/experten-tipps',
+            'edulution-plattform/apps/e-mail',
+            'edulution-plattform/apps/chat',
+            'edulution-plattform/apps/kontakte',
+            'edulution-plattform/apps/kalender',
+            'edulution-plattform/apps/eltern-schueler-zuordnung',
+            'edulution-plattform/apps/klassenzimmer',
+            'edulution-plattform/apps/konferenzen',
+            'edulution-plattform/apps/whiteboard',
+            'edulution-plattform/apps/wiki',
+            'edulution-plattform/apps/wiki-editor',
+            'edulution-plattform/apps/lernmanagement',
+            'edulution-plattform/apps/mdm',
+            'edulution-plattform/apps/geraeteverwaltung',
+            'edulution-plattform/apps/mobile-app',
+            'edulution-plattform/apps/vpn-zugang',
+            'edulution-plattform/apps/infoboard',
+            'edulution-plattform/apps/umfragen',
+            'edulution-plattform/apps/app-store',
+            'edulution-plattform/apps/benachrichtigungen',
+            'edulution-plattform/apps/markdown-hilfe',
+            'edulution-plattform/apps/eingebettete-app',
+            'edulution-plattform/apps/sicherheit',
+            'edulution-plattform/apps/impressum-datenschutz',
+            'edulution-plattform/apps/weitere-features',
           ],
         },
       ],
@@ -544,51 +597,6 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'edulution-collabora/index',
           label: '⚙️ Installation',
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Anbindungen',
-      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
-      // (siehe src/components/audience/taxonomy.ts)
-      customProps: { audience: 'admin' },
-      collapsed: false,
-      link: {
-        type: 'doc',
-        id: 'anbindungen/index',
-      },
-      items: [
-        {
-          type: 'category',
-          label: 'Nextcloud Cookie Auth',
-          collapsed: true,
-          link: {
-            type: 'doc',
-            id: 'anbindungen/nextcloud',
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'anbindungen/voraussetzungen',
-              label: 'Voraussetzungen',
-            },
-            {
-              type: 'doc',
-              id: 'anbindungen/installation',
-              label: 'Installation',
-            },
-            {
-              type: 'doc',
-              id: 'anbindungen/konfiguration',
-              label: 'Konfiguration',
-            },
-            {
-              type: 'doc',
-              id: 'anbindungen/troubleshooting',
-              label: 'Troubleshooting',
-            },
-          ],
         },
       ],
     },

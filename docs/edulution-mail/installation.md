@@ -289,7 +289,7 @@ Dies ist der wichtigste Sicherheitsschritt und sollte sofort nach der Installati
 
 ### 2. E-Mail-Einstellungen konfigurieren
 
-**Wo:** edulution-Plattform → [Einstellungen → E-Mails](/docs/edulution-plattform/administration/einstellungen#e-mails)
+**Wo:** edulution-Plattform → [Einstellungen → E-Mails](/docs/edulution-plattform/konfiguration/einstellungen#e-mails)
 
 Hier können Sie folgende Einstellungen anpassen:
 
@@ -386,7 +386,7 @@ sed -i '/^\s*volumes:/a\      - /srv/docker/edulution-mail/mailcow/data/conf/sog
 Nach der Konfiguration des Volume-Mounts:
 
 1. Melden Sie sich in der edulution-Plattform als Administrator an
-2. Navigieren Sie zu [**Einstellungen** → **E-Mails**](/docs/edulution-plattform/administration/einstellungen#e-mails)
+2. Navigieren Sie zu [**Einstellungen** → **E-Mails**](/docs/edulution-plattform/konfiguration/einstellungen#e-mails)
 3. Wählen Sie das gewünschte SOGo-Theme (Hell/Dunkel) aus
 
 Die Theme-Änderung wird sofort für alle Benutzer wirksam.

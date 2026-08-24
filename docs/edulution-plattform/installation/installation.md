@@ -24,7 +24,7 @@ Die Installation gliedert sich in folgende Bereiche:
 - SSL-Zertifikate einrichten
 - Systemtest durchführen
 
-### 3. [Linuxmuster Integration](../configure-lmn-server/configure_lmn-server)
+### 3. [Linuxmuster Integration](./configure_lmn-server)
 - Linuxmuster-API installieren
 - BindUser erstellen
 - Setup-Token generieren

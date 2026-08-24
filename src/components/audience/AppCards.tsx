@@ -44,13 +44,13 @@ const CARDS: AppCard[] = [
     wide: true,
     text: 'Dateien, E-Mail, Kalender, Kontakte, Chat, Konferenzen und Whiteboard – alles nach einer einzigen Anmeldung.',
     targets: {
-      default: { to: '/docs/edulution-plattform/features/navigation', label: 'Nutzerhandbuch' },
+      default: { to: '/docs/edulution-plattform/erste-schritte/navigation', label: 'Nutzerhandbuch' },
       'admin-setup': {
         to: '/docs/edulution-plattform/installation/voraussetzungen',
         label: 'Installation',
       },
       'admin-operate': {
-        to: '/docs/edulution-plattform/administration/administration',
+        to: '/docs/edulution-plattform/konfiguration/administration',
         label: 'Administration',
       },
     },
@@ -69,15 +69,15 @@ const CARDS: AppCard[] = [
     roles: 'admin',
     targets: {
       'admin-setup': {
-        to: '/docs/edulution-plattform/configure-lmn-server/configure_lmn-server',
+        to: '/docs/edulution-plattform/installation/configure_lmn-server',
         label: 'Linuxmuster verbinden',
       },
       'admin-operate': {
-        to: '/docs/edulution-plattform/administration/linuxmuster',
+        to: '/docs/edulution-plattform/konfiguration/linuxmuster',
         label: 'Serververwaltung',
       },
       default: {
-        to: '/docs/edulution-plattform/administration/linuxmuster',
+        to: '/docs/edulution-plattform/konfiguration/linuxmuster',
         label: 'Serververwaltung',
       },
     },
@@ -88,7 +88,7 @@ const CARDS: AppCard[] = [
     tagline: 'Der integrierte Mailserver',
     text: 'Mailserver auf Mailcow-Basis mit Postfächern, Verteilerlisten und Anleitungen für alle gängigen Mail-Clients.',
     targets: {
-      default: { to: '/docs/edulution-plattform/features/e-mail', label: 'Mail-App nutzen' },
+      default: { to: '/docs/edulution-plattform/apps/e-mail', label: 'Mail-App nutzen' },
       'admin-setup': { to: '/docs/edulution-mail/installation', label: 'Installation' },
       'admin-operate': { to: '/docs/edulution-mail/administration', label: 'Administration' },
     },
@@ -111,7 +111,7 @@ const CARDS: AppCard[] = [
     text: 'Moodle ohne zweiten Login. Kurse und Einschreibungen entstehen automatisch aus Ihren Gruppen.',
     targets: {
       default: {
-        to: '/docs/edulution-plattform/features/lernmanagement',
+        to: '/docs/edulution-plattform/apps/lernmanagement',
         label: 'Lernmanagement öffnen',
       },
       'admin-setup': { to: '/docs/edulution-moodle/installation/schnellstart', label: 'Schnellstart' },
@@ -127,7 +127,7 @@ const CARDS: AppCard[] = [
     tagline: 'Geräteverwaltung mit Relution',
     text: 'Tablets, Smartphones und Computer zentral verwalten – ohne die Relution-Konsole zu öffnen.',
     targets: {
-      default: { to: '/docs/edulution-plattform/features/mdm', label: 'MDM-App' },
+      default: { to: '/docs/edulution-plattform/apps/mdm', label: 'MDM-App' },
     },
   },
   {
@@ -142,7 +142,7 @@ const CARDS: AppCard[] = [
         label: 'Einrichtung',
       },
       'admin-operate': {
-        to: '/docs/edulution-plattform/administration/satelliten',
+        to: '/docs/edulution-plattform/konfiguration/satelliten',
         label: 'Satelliten verwalten',
       },
       default: { to: '/docs/edulution-satellite/', label: 'Übersicht' },
@@ -165,7 +165,7 @@ const CARDS: AppCard[] = [
     tagline: 'Dokumente direkt im Browser',
     text: 'OnlyOffice, Collabora und EuroOffice zum Bearbeiten von Dokumenten aus der Dateiverwaltung heraus.',
     targets: {
-      default: { to: '/docs/edulution-plattform/features/dateien/', label: 'Dateien' },
+      default: { to: '/docs/edulution-plattform/apps/dateien/', label: 'Dateien' },
       'admin-setup': { to: '/docs/category/edulution-onlyoffice', label: 'Installation' },
       'admin-operate': { to: '/docs/category/edulution-onlyoffice', label: 'Installation' },
     },

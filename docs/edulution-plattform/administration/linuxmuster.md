@@ -1,6 +1,6 @@
 # Linuxmuster / LINBO
 
-Die App **Schulserver** verbindet die edulution Plattform mit Ihrem Linuxmuster-Server und bündelt die Verwaltung von Benutzerkonten, Geräten und Elternzuweisungen. Der Bereich **LINBO** innerhalb dieser App zeigt zusätzlich die Hosts, Konfigurationen und Images Ihrer LINBO-Installation.
+Die App **Schulserver** verbindet die edulution Plattform mit Ihrem Linuxmuster-Server und bündelt die Verwaltung von Benutzerkonten, Geräten und Elternzuweisungen. Der Bereich **LINBO** innerhalb dieser App zeigt zusätzlich die Hosts, Hardwaregruppen und Images Ihrer LINBO-Installation.
 
 Alle Daten werden direkt über die Linuxmuster-API (`linuxmuster-api7`) geladen – die edulution Plattform hält dafür keinen eigenen Zwischenspeicher.
 
@@ -18,7 +18,7 @@ Die Unterseiten wählen Sie über die Seitenleiste der App:
 | **Benutzerverwaltung** | Benutzerkonten anzeigen, importieren und Passwörter verwalten |
 | **Geräteverwaltung** | Geräteliste pflegen und in Linuxmuster importieren |
 | **Elternzuweisung** | Eltern ihren Kindern zuordnen |
-| **LINBO** | Hosts, Konfigurationen und Images der LINBO-Installation |
+| **LINBO** | Hosts, Hardwaregruppen und Images der LINBO-Installation |
 | **Versionsübersicht** | Versionen der beteiligten Linuxmuster-Komponenten |
 
 :::note[Elternzuweisung]
@@ -95,7 +95,7 @@ Hier ordnen Sie Elternkonten den zugehörigen Schülerkonten zu. Die Tabelle zei
 
 ## LINBO
 
-Der Bereich **LINBO** ist in vier Unterseiten gegliedert: **Übersicht**, **Hosts**, **Konfigurationen** und **Images**.
+Der Bereich **LINBO** ist in vier Unterseiten gegliedert: **Übersicht**, **Hosts**, **Gruppen** und **Images**.
 
 ### Übersicht
 
@@ -124,29 +124,132 @@ Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalt
 **Status** und **Geplant** bleiben ohne einen edulution-Satellite leer: der Online-/Offline-Zustand ist über die Linuxmuster-API allein nicht verfügbar, und geplante Aktionen werden vom Satellite verwaltet. Beide Spalten sind in dieser Version noch nicht angebunden.
 :::
 
-### Konfigurationen
+### Gruppen
 
-Die Tabelle listet die GRUB-Konfigurationen mit ID, Dateiname und Änderungszeitpunkt. Ein Banner darüber zeigt, ob die **LMN-API** erreichbar ist, sowie die Zahl der Hosts und Konfigurationen.
+Eine **Hardwaregruppe** ist eine `start.conf` auf dem Server: sie beschreibt das Plattenlayout und die Betriebssysteme aller Rechner, die ihr zugeordnet sind. Die Seite hieß früher **Konfigurationen** und listete die GRUB-Konfigurationen; sie zeigt jetzt die Gruppen selbst. Die alte Adresse leitet auf die neue weiter.
 
-Ein Klick auf eine Zeile öffnet die Vorschau **Konfiguration \<ID\>** mit drei Registerkarten:
+Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleibt erhalten und gilt auch nach einem Neuladen:
+
+| Ansicht | Zeigt |
+|---------|-------|
+| **Plattenkarte** (Vorgabe) | jede Platte der Gruppe als Balken ihrer Partitionen, nach Rolle eingefärbt, dazu die Betriebssysteme mit Autostart-Zeit |
+| **Kacheln** | Systemtyp, Betriebssysteme und die Zahl der zugeordneten Rechner |
+| **Datenblatt** | die gesetzten Schlüssel der Gruppe: Server, Cache, Download-Typ, Systemtyp, Abmeldung nach, Kernel-Optionen und Virtueller Desktop |
+| **Tabelle** | ID, Dateiname und Änderungszeitpunkt |
+
+Ein Banner über der Liste nennt den **Sync-Status**: ob die **LMN-API** erreichbar ist, wie viele Hosts und Gruppen gefunden wurden und wann zuletzt geladen wurde. Meldet die API einen eingeschränkten Zustand, steht der Grund im Klartext daneben – etwa dass `devices.csv` für diese Schule fehlt oder `/srv/linbo` nicht vorhanden ist.
+
+:::note[Warum es keinen „letzten Sync" gibt]
+Die Daten kommen bei jedem Aufruf direkt aus der Linuxmuster-API; die Plattform hält dafür keinen eigenen Zwischenspeicher. Der Zeitpunkt im Banner ist deshalb der Ladezeitpunkt, kein Abgleich.
+:::
+
+#### Aktionen einer Gruppe
+
+**Vorschau anzeigen** liegt als eigene Schaltfläche auf der Karte. Alle Aktionen zusammen finden Sie im Menü hinter der Schaltfläche mit den drei Punkten – auf der Karte oben rechts neben dem Namen, in der Tabelle in der Spalte **Aktionen**:
+
+| Aktion | Wirkung |
+|--------|---------|
+| **Bearbeiten** | öffnet den Gruppen-Editor (siehe unten) |
+| **Vorschau anzeigen** | zeigt die ausgewertete `start.conf`, ihre Rohdaten und die GRUB-Konfiguration |
+| **Duplizieren** | legt eine Kopie unter neuem Namen an |
+| **Gruppe löschen** | löscht die `start.conf` der Gruppe auf dem Server |
+
+Über **Gruppe anlegen** unten rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt.
+
+:::warning[Vorhandene Gruppe wird nicht überschrieben]
+Vor dem Anlegen prüft die Plattform auf dem Server, ob für den Namen bereits eine `start.conf` existiert – auch dann, wenn die Liste sie nicht anzeigt. In diesem Fall bricht der Vorgang mit einem Hinweis ab, statt die vorhandene Gruppe zu ersetzen.
+:::
+
+Beim **Duplizieren** übernimmt die Kopie Partitionen, Betriebssysteme und Einstellungen der Vorlage; der Gruppenname in der Datei wird dabei auf den neuen Namen umgeschrieben.
+
+:::warning[Was beim Löschen verschwindet]
+Gelöscht werden die `start.conf` **und** die GRUB-Konfiguration der Gruppe. Rechner dieser Gruppe starten danach ohne Konfiguration, bis ihnen eine andere Gruppe zugewiesen wird. Der Server legt vor dem Löschen eine Sicherung der `start.conf` an.
+:::
+
+#### Die Vorschau
+
+Die Vorschau **Gruppe \<ID\>** hat drei Registerkarten:
 
 - **Zusammenfassung** – die ausgewertete `start.conf`: der Abschnitt `[LINBO]` als Liste der gesetzten Schlüssel, die **Partitionen** mit Gerät, Bezeichnung, Größe, Dateisystem und der Markierung *Bootfähig* sowie die **Betriebssysteme** mit Name, Version, Basis-Image, Boot-Partition und der Markierung *Autostart*.
 - **Rohdaten** – der unveränderte Inhalt der `start.conf`.
 - **GRUB cfg** – der Inhalt der GRUB-Konfiguration.
 
-Existiert zu einer GRUB-Konfiguration keine `start.conf`, entfallen die ersten beiden Registerkarten und es erscheint der Hinweis *„Für diese GRUB-Konfiguration existiert keine start.conf."*
+Existiert zu einer Gruppe keine `start.conf`, entfallen die ersten beiden Registerkarten.
 
 :::note[Auswertung der start.conf]
 Die Zusammenfassung liest die Datei so, wie LINBO selbst sie liest: Abschnitts- und Schlüsselnamen werden unabhängig von der Groß- und Kleinschreibung erkannt, und als Ja-Wert gelten ausschließlich `yes`, `true` und `enable`. Ein Schlüssel mit einem anderen Wert – etwa `Autostart = 1` – zählt daher als *aus*. Ein leerer oder fehlender Schlüssel erhält den Standardwert, den auch der LINBO-Client annimmt.
 :::
 
+#### Der Gruppen-Editor
+
+**Bearbeiten** öffnet die Gruppe unter einer eigenen Adresse (`…/linbo/groups/<Name>`). Diese Adresse lässt sich verlinken und übersteht ein Neuladen; ein unbekannter Name führt mit einem Hinweis zurück auf die Liste. Der Editor hat drei Registerkarten.
+
+**Allgemein** enthält die Felder der Gruppe, gegliedert in *Hardware*, *Startoptionen* und *Darstellung*. Drei Werte sind hier bewusst nicht änderbar: der Gruppenname, der Server und die Cache-Partition – letztere ergibt sich aus dem Partitionslayout. Die Schaltfläche **Erweitert** im Fuß des Dialogs blendet die selten benötigten Felder ein; sie wirkt nur für den geöffneten Dialog und wird nicht gemerkt.
+
+:::warning[Beim Start formatieren]
+**Beim Start partitionieren** legt das Plattenlayout bei jedem Start neu an, **Beim Start formatieren** formatiert dabei alle Partitionen. Lokal auf den Rechnern gespeicherte Daten gehen dann bei jedem Start verloren.
+:::
+
+**Partitionen** zeigt je Platte eine Karte. Über die Preset-Schaltflächen fügen Sie eine Partition mit sinnvoller Vorgabegröße hinzu: *EFI*, *MSR*, *Windows*, *Linux*, *Swap*, *Daten*, *Erweitert* und *Cache*. Der **Plattentyp** – SATA, VirtIO, Xen, IDE, MMC, NVMe oder allgemein – bestimmt die Gerätenamen; ein Wechsel nummeriert die Partitionen der Platte samt aller Verweise darauf um. Ein Klick auf eine Partition öffnet einen Dialog mit den Unterregisterkarten **Partition** und **Betriebssystem**.
+
+Im Feld **Größe** gilt: eine nackte Zahl sind Kibibytes, ein Suffix `M`, `G` oder `T` legt die Einheit fest, und ein leeres Feld bedeutet *Rest der Platte* (in der Plattenkarte als `∞` dargestellt). Unter dem Feld steht laufend, welche Größe daraus wird.
+
+**Betriebssysteme** listet die Einträge der Gruppe mit Partition, Basisimage, Kernel, Initrd und den Schaltern für Autostart, Sync und Start. Der Reiter ist lesend: bearbeitet wird ein Betriebssystem im Partitionsdialog. Zeigt das Root-Gerät eines Eintrags auf keine Partition des Layouts, wird der Eintrag als verwaist gekennzeichnet und lässt sich hier löschen.
+
+Solange ungespeicherte Änderungen vorliegen, fragt der Editor beim Schließen nach, ob Sie sie verwerfen wollen.
+
 ### Images
 
-Die Tabelle zeigt Name, Größe, vorhandene **Sidecars** und den Änderungszeitpunkt jedes Images. Über die Aktionen einer Zeile laden Sie ein Image **herunter** oder öffnen die **Details**.
+Oben rechts wählen Sie wie bei den Gruppen zwischen vier Ansichten; die Wahl bleibt erhalten:
+
+| Ansicht | Zeigt |
+|---------|-------|
+| **Kacheln** (Vorgabe) | Betriebssystem-Symbol, Größe, vorhandene Sidecars und die erste Zeile der Beschreibung |
+| **Speicher** | wie voll die Partition mit dem Image ist, dazu Partitionsgerät und Dateizahl |
+| **Datenblatt** | Dateiname, Größe, Partition, Partitionsgröße, ob eine Prüfsumme vorliegt, Dateizahl und Änderungszeitpunkt |
+| **Tabelle** | Name, Größe, Sidecars und Änderungszeitpunkt |
+
+:::note[Zwei Namen, ein Image]
+Ein Image heißt nach seinem Verzeichnis auf dem Server (`debian13`); die Bilddatei darin trägt zusätzlich die Endung (`debian13.qcow2`). Angezeigt und in allen Aktionen verwendet wird der Name des Images, nicht der der Datei.
+:::
 
 Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.info`), VDI-Konfiguration (`.vdi`), Torrent (`.torrent`), Maschinenkonto (`.macct`), Prüfsumme (`.md5`), Hashsumme (`.hash`), Registry (`.reg`), Pre-Start-Skript (`.prestart`) und Post-Sync-Skript (`.postsync`). In der Spalte **Sidecars** steht je vorhandener Datei ein Buchstabenkürzel; welcher Dateityp dahintersteht, erscheint, sobald Sie mit dem Mauszeiger darauf zeigen. Der Detaildialog zeigt zusätzlich Dateiname, Image-Ordner, Pfad, Größe, MD5-Summe und – sofern ein `.info`-Sidecar vorliegt – Erstellungszeitpunkt, Image- und Partitionsgröße sowie die Beschreibung.
 
 Über die Schaltfläche zum Hochladen fügen Sie ein Image hinzu. Zulässig sind Image-Dateien (`.qcow2`, `.qdiff`, `.cloop`, `.rsync`) und alle oben genannten Beipack-Dateien; andere Dateitypen weist der Dialog ab. Während eines laufenden Downloads sind weitere Downloads gesperrt.
+
+#### Aktionen eines Images
+
+**Herunterladen** liegt als eigene Schaltfläche auf der Karte. Die übrigen Aktionen stehen im Menü hinter der Schaltfläche mit den drei Punkten daneben, in der Tabelle in der Spalte **Aktionen**:
+
+| Aktion | Wirkung |
+|--------|---------|
+| **Details anzeigen** | Dateiname, Pfad, Prüfsumme und der Inhalt des `.info`-Sidecars |
+| **Beschreibung und Skripte bearbeiten** | öffnet den Sidecar-Editor (siehe unten) |
+| **Sicherungen verwalten** | listet die Sicherungen des Images zum Wiederherstellen oder Löschen |
+| **Umbenennen** | benennt Image, Sicherungen und alle Beipack-Dateien um |
+| **Duplizieren** | kopiert das Image samt Beschreibung, Registry-Patch und Skripten, aber ohne Sicherungen |
+| **Differenzimage löschen** | erscheint nur, wenn zum Image ein Differenzimage existiert |
+| **Löschen** | löscht das Image mit Sicherungen, Differenzimage und Beipack-Dateien |
+
+Beim Umbenennen und Duplizieren erlaubt der Name Buchstaben, Ziffern sowie `.`, `_`, `+` und `-`; er muss mit einem Buchstaben oder einer Ziffer beginnen. Ein Name, den ein anderes Image bereits trägt, wird ebenso abgewiesen wie der unveränderte Name.
+
+#### Beschreibung und Skripte bearbeiten
+
+Der Editor hat je eine Registerkarte für die Dateien, die Sie ändern können: **Beschreibung** (`.desc`), **Info** (`.info`), **Registry** (`.reg`), **Pre-Start Script** (`.prestart`) und **Post-Sync Script** (`.postsync`). Für Registry-Patch und Skripte bietet der Editor oben rechts **Aus anderem Image übernehmen** an – die Auswahl listet alle Images, die für diesen Dateityp Inhalt haben, und übernimmt ihn in das Feld.
+
+:::warning[Ein leeres Feld löscht die Datei]
+Der Server schreibt beim Speichern immer alle Beipack-Dateien neu und löscht dabei jede, für die kein Inhalt ankommt. Ein Feld, das Sie leeren, löscht also die zugehörige Datei auf dem Server. Die VDI-Konfiguration hat keine Registerkarte, wird aber unverändert mitgeschrieben und bleibt dadurch erhalten.
+:::
+
+Die `.info`-Datei ist Pflicht: ohne sie lässt sich das Image nicht mehr einlesen. Ist ihr Feld leer, sperrt der Editor das Speichern und weist darauf hin. Der Inhalt stammt vom Server – Zeitstempel, Image- und Partitionsgröße – und sollte nur mit Bedacht geändert werden.
+
+#### Sicherungen
+
+**Sicherungen verwalten** listet je Sicherung Datum, Zeitstempel und Größe, mit **Wiederherstellen** und **Sicherung löschen**.
+
+:::warning[Registry-Patch und Skripte überleben eine Wiederherstellung nicht]
+Beim Wiederherstellen legt der Server zuerst eine neue Sicherung des aktuellen Images an. Die Dateien `.reg`, `.prestart` und `.postsync` wandern dabei in diese Sicherung und stehen dem Image danach nicht mehr zur Verfügung – dies ist ein bekannter Fehler in `linuxmuster-tools7`. Sichern Sie den Inhalt dieser Dateien vorher, wenn Sie ihn behalten wollen. Zwei Wiederherstellungen desselben Images innerhalb derselben Minute schlagen fehl; ein erneuter Versuch nach einer Minute gelingt.
+:::
 
 ## Versionsübersicht
 
@@ -157,10 +260,12 @@ Die Seite **Versionsübersicht** listet die Versionen der beteiligten Linuxmuste
 Einige Aktionen sind in der Oberfläche bereits vorhanden, aber noch nicht angebunden. Sie melden beim Aufruf *„Diese Aktion wird in dieser Version noch nicht unterstützt."*:
 
 - die Host-Aktionen **Wake-on-LAN**, **Sync**, **Start**, **Neu starten**, **Herunterfahren** und **Treiber-Profil**
-- die Aktion **Sync** im Bereich **Konfigurationen**
+- die Aktion **Sync** im Bereich **Gruppen**
 - die Spalten **Status** und **Geplant** der Hostliste
 
-Das Bearbeiten der `start.conf` aus der edulution Plattform heraus ist derzeit nicht möglich; die Konfigurationen werden ausschließlich angezeigt.
+Die Schaltfläche **Versionsstände** im Bereich **Gruppen** ist sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet dafür keine Schnittstelle. Der Grund steht am Knopf.
+
+Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich in dieser Version nicht bearbeiten. Das Datenblatt zeigt, ob er in der `start.conf` aktiviert ist; die zugehörige Konfigurationsdatei ist über die Linuxmuster-API noch nicht erreichbar.
 
 ## Einrichtung (für Administratoren)
 

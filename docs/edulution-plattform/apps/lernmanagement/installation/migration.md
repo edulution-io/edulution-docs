@@ -474,6 +474,6 @@ Falls die Migration fehlschlägt:
 
 Nach erfolgreicher Migration:
 
-- [Synchronisation konfigurieren](/docs/edulution-moodle/konfiguration/synchronisation)
-- [Plugins verwalten](/docs/edulution-moodle/konfiguration/plugins)
-- [Backup einrichten](/docs/edulution-moodle/administration/backup)
+- [Synchronisation konfigurieren](/docs/edulution-plattform/apps/lernmanagement/konfiguration/synchronisation)
+- [Plugins verwalten](/docs/edulution-plattform/apps/lernmanagement/konfiguration/plugins)
+- [Backup einrichten](/docs/edulution-plattform/apps/lernmanagement/konfiguration/administration/backup)

@@ -62,7 +62,6 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/konfiguration/benutzerverwaltung',
             'edulution-plattform/konfiguration/passwort-aenderung',
             'edulution-plattform/konfiguration/linuxmuster',
-            'edulution-plattform/konfiguration/satelliten',
             'edulution-plattform/konfiguration/wiki-einstellungen',
             'edulution-plattform/konfiguration/webhooks',
             'edulution-plattform/konfiguration/experten-tipps',
@@ -372,11 +371,160 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/apps/whiteboard',
             'edulution-plattform/apps/wiki',
             'edulution-plattform/apps/wiki-editor',
-            'edulution-plattform/apps/lernmanagement',
+            {
+              type: 'category',
+              label: 'Lernmanagement',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'edulution-plattform/apps/lernmanagement/index',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Installation',
+                  collapsed: true,
+                  // Moodle bereitstellen - nur fuer die Ersteinrichtung.
+                  customProps: { audience: 'admin-setup' },
+                  link: {
+                    type: 'doc',
+                    id: 'edulution-plattform/apps/lernmanagement/installation/index',
+                  },
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/installation/voraussetzungen',
+                      label: 'Voraussetzungen',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/installation/schnellstart',
+                      label: 'Schnellstart',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/installation/detailliert',
+                      label: 'Detaillierte Installation',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/installation/migration',
+                      label: 'Migration',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Konfiguration',
+                  collapsed: true,
+                  // Moodle-Anbindung betreiben - fuer Endnutzer ausgeblendet.
+                  customProps: { audience: 'admin' },
+                  link: {
+                    type: 'doc',
+                    id: 'edulution-plattform/apps/lernmanagement/konfiguration/index',
+                  },
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/umgebungsvariablen',
+                      label: 'Umgebungsvariablen',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/synchronisation',
+                      label: 'Synchronisation',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/namensschemas',
+                      label: 'Gruppen-Namensschemas',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/cookie-auth',
+                      label: 'Cookie Auth (SSO)',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/plugins',
+                      label: 'Plugin-Verwaltung',
+                    },
+                    {
+                      type: 'category',
+                      label: 'Administration',
+                      collapsed: true,
+                      items: [
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/lernmanagement/konfiguration/administration/admin-ui',
+                          label: 'Admin-Oberfläche',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/lernmanagement/konfiguration/administration/backup',
+                          label: 'Backup & Wiederherstellung',
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
             'edulution-plattform/apps/mdm',
             'edulution-plattform/apps/geraeteverwaltung',
             'edulution-plattform/apps/mobile-app',
-            'edulution-plattform/apps/vpn-zugang',
+            {
+              type: 'category',
+              label: 'VPN-Zugang',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'edulution-plattform/apps/vpn-zugang/index',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Konfiguration',
+                  collapsed: true,
+                  // WireGuard und die Satelliten-Appliances - fuer Endnutzer
+                  // ausgeblendet (siehe src/components/audience/taxonomy.ts).
+                  customProps: { audience: 'admin' },
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/vpn-zugang/konfiguration/satelliten',
+                      label: 'Satelliten verwalten',
+                    },
+                    {
+                      type: 'category',
+                      label: 'edulution Satellite',
+                      collapsed: true,
+                      link: {
+                        type: 'doc',
+                        id: 'edulution-plattform/apps/vpn-zugang/konfiguration/index',
+                      },
+                      items: [
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/vpn-zugang/konfiguration/einrichtung-mit-edulution',
+                          label: 'Einrichtung mit edulution',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/vpn-zugang/konfiguration/standalone',
+                          label: 'Standalone einrichten',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/vpn-zugang/konfiguration/wireguard-traefik',
+                          label: 'WireGuard über Traefik',
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
             'edulution-plattform/apps/infoboard',
             'edulution-plattform/apps/umfragen',
             'edulution-plattform/apps/app-store',
@@ -386,125 +534,6 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/apps/sicherheit',
             'edulution-plattform/apps/impressum-datenschutz',
             'edulution-plattform/apps/weitere-features',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'edulution Satellite',
-      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
-      // (siehe src/components/audience/taxonomy.ts)
-      customProps: { audience: 'admin' },
-      collapsed: false,
-      link: {
-        type: 'doc',
-        id: 'edulution-satellite/index',
-      },
-      items: [
-        {
-          type: 'doc',
-          id: 'edulution-satellite/einrichtung-mit-edulution',
-          label: 'Einrichtung mit edulution',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-satellite/standalone',
-          label: 'Standalone einrichten',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-satellite/wireguard-traefik',
-          label: 'WireGuard über Traefik',
-        }
-      ]
-    },
-    {
-      type: 'category',
-      label: 'edulution Moodle',
-      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
-      // (siehe src/components/audience/taxonomy.ts)
-      customProps: { audience: 'admin' },
-      collapsed: false,
-      link: {
-        type: 'doc',
-        id: 'edulution-moodle/index',
-      },
-      items: [
-        {
-          type: 'category',
-          label: 'Installation',
-          collapsed: false,
-          items: [
-            {
-              type: 'doc',
-              id: 'edulution-moodle/installation/voraussetzungen',
-              label: 'Voraussetzungen',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-moodle/installation/schnellstart',
-              label: 'Schnellstart',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-moodle/installation/detailliert',
-              label: 'Detaillierte Installation',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-moodle/installation/migration',
-              label: 'Migration',
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Konfiguration',
-          collapsed: true,
-          items: [
-            {
-              type: 'doc',
-              id: 'edulution-moodle/konfiguration/umgebungsvariablen',
-              label: 'Umgebungsvariablen',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-moodle/konfiguration/synchronisation',
-              label: 'Synchronisation',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-moodle/konfiguration/namensschemas',
-              label: 'Gruppen-Namensschemas',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-moodle/konfiguration/cookie-auth',
-              label: 'Cookie Auth (SSO)',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-moodle/konfiguration/plugins',
-              label: 'Plugin-Verwaltung',
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Administration',
-          collapsed: true,
-          items: [
-            {
-              type: 'doc',
-              id: 'edulution-moodle/administration/admin-ui',
-              label: 'Admin-Oberfläche',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-moodle/administration/backup',
-              label: 'Backup & Wiederherstellung',
-            },
           ],
         },
       ],

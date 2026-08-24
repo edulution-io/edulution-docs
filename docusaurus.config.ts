@@ -86,11 +86,25 @@ const config: Config = {
             '/docs/edulution-plattform/apps/dateien/goodnotes': [
               '/docs/edulution-plattform/features/goodnotes',
             ],
+            '/docs/edulution-plattform/apps/lernmanagement/konfiguration/': [
+              '/docs/edulution-moodle/',
+            ],
+            '/docs/edulution-plattform/apps/vpn-zugang/konfiguration/': [
+              '/docs/edulution-satellite/',
+            ],
+            '/docs/edulution-plattform/apps/vpn-zugang/konfiguration/satelliten': [
+              '/docs/edulution-plattform/administration/satelliten',
+              '/docs/edulution-plattform/konfiguration/satelliten',
+            ],
           };
 
           const PREFIXES: [string, string][] = [
             // neu                                        // alt
             ['/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/', '/docs/edulution-fileproxy/'],
+            ['/docs/edulution-plattform/apps/lernmanagement/installation/', '/docs/edulution-moodle/installation/'],
+            ['/docs/edulution-plattform/apps/lernmanagement/konfiguration/administration/', '/docs/edulution-moodle/administration/'],
+            ['/docs/edulution-plattform/apps/lernmanagement/konfiguration/', '/docs/edulution-moodle/konfiguration/'],
+            ['/docs/edulution-plattform/apps/vpn-zugang/konfiguration/', '/docs/edulution-satellite/'],
             ['/docs/edulution-plattform/apps/e-mail/clients/', '/docs/edulution-mail/clients/'],
             ['/docs/edulution-plattform/apps/e-mail/konfiguration/', '/docs/edulution-mail/'],
             ['/docs/edulution-plattform/apps/e-mail/auto-reply', '/docs/edulution-mail/auto-reply'],
@@ -218,7 +232,7 @@ const config: Config = {
             },
             {
               label: 'edulution Satellite',
-              to: '/docs/edulution-satellite/',
+              to: '/docs/edulution-plattform/apps/vpn-zugang/konfiguration/',
             },
             {
               label: 'edulution OnlyOffice',

@@ -179,6 +179,6 @@ Vor der Installation:
 
 Wenn alle Voraussetzungen erfüllt sind, können Sie mit der Installation fortfahren:
 
-- [Schnellstart](/docs/edulution-moodle/installation/schnellstart) - Schnelle Installation in 10 Minuten
-- [Detaillierte Installation](/docs/edulution-moodle/installation/detailliert) - Ausführliche Anleitung
-- [Migration](/docs/edulution-moodle/installation/migration) - Bestehende Installation migrieren
+- [Schnellstart](/docs/edulution-plattform/apps/lernmanagement/installation/schnellstart) - Schnelle Installation in 10 Minuten
+- [Detaillierte Installation](/docs/edulution-plattform/apps/lernmanagement/installation/detailliert) - Ausführliche Anleitung
+- [Migration](/docs/edulution-plattform/apps/lernmanagement/installation/migration) - Bestehende Installation migrieren

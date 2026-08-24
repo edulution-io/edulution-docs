@@ -455,4 +455,4 @@ Im Dashboard können Sie vor der Synchronisierung eine **Vorschau** anzeigen las
 
 - [Synchronisation konfigurieren](./synchronisation.md)
 - [Kategorien einrichten](./umgebungsvariablen.md#gruppen-sync)
-- [Dashboard nutzen](../administration/admin-ui.md)
+- [Dashboard nutzen](./administration/admin-ui.md)

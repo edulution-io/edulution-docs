@@ -176,5 +176,5 @@ Das Bearbeiten der `start.conf` aus der edulution Plattform heraus ist derzeit n
 ## Siehe auch
 
 - [Einstellungen](./einstellungen.md) – weitere globale Konfigurationsoptionen
-- [Satelliten](./satelliten.md) – Standorte anbinden und Dienste betreiben
+- [Satelliten](../apps/vpn-zugang/konfiguration/satelliten.md) – Standorte anbinden und Dienste betreiben
 - [Administration](./administration.md) – allgemeine Admin-Aufgaben

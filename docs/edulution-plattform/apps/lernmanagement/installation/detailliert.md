@@ -525,6 +525,6 @@ docker compose exec moodle moosh config-get core
 
 ## Nächste Schritte
 
-- [Umgebungsvariablen](/docs/edulution-moodle/konfiguration/umgebungsvariablen) - Alle Einstellungen
-- [Synchronisation](/docs/edulution-moodle/konfiguration/synchronisation) - Sync-Konfiguration
-- [Admin-UI](/docs/edulution-moodle/administration/admin-ui) - Verwaltungsoberfläche
+- [Umgebungsvariablen](/docs/edulution-plattform/apps/lernmanagement/konfiguration/umgebungsvariablen) - Alle Einstellungen
+- [Synchronisation](/docs/edulution-plattform/apps/lernmanagement/konfiguration/synchronisation) - Sync-Konfiguration
+- [Admin-UI](/docs/edulution-plattform/apps/lernmanagement/konfiguration/administration/admin-ui) - Verwaltungsoberfläche

@@ -102,7 +102,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie hänge ich einen weiteren Standort an?',
       a: 'Satelliten binden entfernte Netze über einen verschlüsselten Tunnel an.',
-      to: '/docs/edulution-plattform/konfiguration/satelliten',
+      to: '/docs/edulution-plattform/apps/vpn-zugang/konfiguration/satelliten',
     },
     {
       q: 'Welche Apps sehen meine Nutzer überhaupt?',
@@ -130,7 +130,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wo finde ich meine Moodle-Kurse?',
       a: 'Lernmanagement öffnet Moodle ohne zweiten Login; Kurse entstehen aus Ihren Gruppen.',
-      to: '/docs/edulution-plattform/apps/lernmanagement',
+      to: '/docs/edulution-plattform/apps/lernmanagement/',
     },
     {
       q: 'Wie ordne ich Eltern ihren Kindern zu?',
@@ -221,7 +221,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie komme ich von unterwegs ins Netz?',
       a: 'VPN-Zugang über WireGuard einrichten.',
-      to: '/docs/edulution-plattform/apps/vpn-zugang',
+      to: '/docs/edulution-plattform/apps/vpn-zugang/',
     },
   ],
 };

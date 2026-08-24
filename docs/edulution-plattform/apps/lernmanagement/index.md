@@ -59,14 +59,14 @@ Die Proxy-Konfiguration für das Lernmanagement wird von edulution automatisch a
 
 **b) Bestehende Moodle-Instanz anbinden**
 
-Betreiben Sie Moodle bereits selbst, tragen Sie unter **Einstellungen** → **Lernmanagement** lediglich die **URL** Ihrer Moodle-Instanz ein. Die Installation und Konfiguration von Moodle beschreibt der [Schnellstart](/docs/edulution-moodle/installation/schnellstart) im Bereich edulution Moodle.
+Betreiben Sie Moodle bereits selbst, tragen Sie unter **Einstellungen** → **Lernmanagement** lediglich die **URL** Ihrer Moodle-Instanz ein. Die Installation und Konfiguration von Moodle beschreibt der [Schnellstart](/docs/edulution-plattform/apps/lernmanagement/installation/schnellstart) im Bereich edulution Moodle.
 
 ### Schritt 3: Plugin in Moodle konfigurieren
 
 Das Single Sign-On und die Kursstruktur liefert das lokale Moodle-Plugin **edulution**:
 
-1. **Keycloak-Verbindung** herstellen und die [Synchronisation](/docs/edulution-moodle/konfiguration/synchronisation) aktivieren, damit Benutzer, Kurse und Einschreibungen entstehen.
-2. **Cookie Auth (SSO)** aktivieren: *Site-Administration → Plugins → Edulution → Cookie Auth (SSO)*. Für edulution sind die Standardwerte richtig – Cookie-Name `authToken`, Benutzer-Claim `preferred_username`. Alle Einstellungen beschreibt die Seite [Cookie Auth (SSO)](/docs/edulution-moodle/konfiguration/cookie-auth).
+1. **Keycloak-Verbindung** herstellen und die [Synchronisation](/docs/edulution-plattform/apps/lernmanagement/konfiguration/synchronisation) aktivieren, damit Benutzer, Kurse und Einschreibungen entstehen.
+2. **Cookie Auth (SSO)** aktivieren: *Site-Administration → Plugins → Edulution → Cookie Auth (SSO)*. Für edulution sind die Standardwerte richtig – Cookie-Name `authToken`, Benutzer-Claim `preferred_username`. Alle Einstellungen beschreibt die Seite [Cookie Auth (SSO)](/docs/edulution-plattform/apps/lernmanagement/konfiguration/cookie-auth).
 
 :::note[Reihenfolge]
 Aktivieren Sie zuerst die Synchronisation und danach das Cookie Auth. Angemeldet werden können nur Benutzer, die in Moodle bereits existieren.
@@ -74,7 +74,7 @@ Aktivieren Sie zuerst die Synchronisation und danach das Cookie Auth. Angemeldet
 
 ### Schritt 4: Sichtbarkeit festlegen
 
-Wie bei jeder App legen Sie unter **Einstellungen** → **Lernmanagement** fest, wo die App erscheint (Seitenleiste, Menüleiste, App-Launcher) und welche Nutzergruppen sie sehen. Details dazu unter [Einstellungen](../konfiguration/einstellungen.md).
+Wie bei jeder App legen Sie unter **Einstellungen** → **Lernmanagement** fest, wo die App erscheint (Seitenleiste, Menüleiste, App-Launcher) und welche Nutzergruppen sie sehen. Details dazu unter [Einstellungen](../../konfiguration/einstellungen.md).
 
 </Audience>
 
@@ -83,17 +83,17 @@ Wie bei jeder App legen Sie unter **Einstellungen** → **Lernmanagement** fest,
 | Beobachtung | Ursache und Abhilfe |
 | --- | --- |
 | Moodle zeigt trotzdem ein **Anmeldeformular** | Cookie Auth ist im Moodle-Plugin nicht aktiviert. Prüfen Sie *Plugins → Edulution → Cookie Auth (SSO)*. |
-| Anmeldung schlägt für **einzelne Benutzer** fehl | Das Konto existiert noch nicht in Moodle. Führen Sie die [Synchronisation](/docs/edulution-moodle/konfiguration/synchronisation) aus. |
+| Anmeldung schlägt für **einzelne Benutzer** fehl | Das Konto existiert noch nicht in Moodle. Führen Sie die [Synchronisation](/docs/edulution-plattform/apps/lernmanagement/konfiguration/synchronisation) aus. |
 | SSO funktioniert **für niemanden** | Läuft Moodle unter einer fremden Domain oder ohne HTTPS, wird das Cookie nicht übertragen. Prüfen Sie Domain und Zertifikate. |
 | Der Bereich bleibt **leer** | Die hinterlegte URL ist nicht erreichbar oder verbietet die Einbettung. Prüfen Sie die URL unter *Einstellungen → Lernmanagement* und die Proxy-Konfiguration. |
-| Kurse fehlen oder heißen **unerwartet** | Die Kurse entstehen aus den Gruppennamen. Siehe [Gruppen-Namensschemas](/docs/edulution-moodle/konfiguration/namensschemas). |
+| Kurse fehlen oder heißen **unerwartet** | Die Kurse entstehen aus den Gruppennamen. Siehe [Gruppen-Namensschemas](/docs/edulution-plattform/apps/lernmanagement/konfiguration/namensschemas). |
 
-Bleibt das Problem bestehen, hilft die Testseite des Plugins weiter, die Cookie, Token und Konfiguration anzeigt – beschrieben unter [Cookie Auth (SSO) → Testen](/docs/edulution-moodle/konfiguration/cookie-auth#testen).
+Bleibt das Problem bestehen, hilft die Testseite des Plugins weiter, die Cookie, Token und Konfiguration anzeigt – beschrieben unter [Cookie Auth (SSO) → Testen](/docs/edulution-plattform/apps/lernmanagement/konfiguration/cookie-auth#testen).
 
 ## Siehe auch
 
-- [edulution Moodle – Übersicht](/docs/edulution-moodle/) – Plugin, Synchronisation und Kursstruktur
-- [Cookie Auth (SSO)](/docs/edulution-moodle/konfiguration/cookie-auth) – alle Einstellungen der automatischen Anmeldung
-- [Synchronisation](/docs/edulution-moodle/konfiguration/synchronisation) – Benutzer, Kurse und Einschreibungen abgleichen
-- [App-Store & Anwendungen](./app-store.md) – Apps hinzufügen und verwalten
-- [Einstellungen (Settings)](../konfiguration/einstellungen.md) – Container, Nutzergruppen und Anzeigeorte
+- [edulution Moodle – Übersicht](/docs/edulution-plattform/apps/lernmanagement/konfiguration/) – Plugin, Synchronisation und Kursstruktur
+- [Cookie Auth (SSO)](/docs/edulution-plattform/apps/lernmanagement/konfiguration/cookie-auth) – alle Einstellungen der automatischen Anmeldung
+- [Synchronisation](/docs/edulution-plattform/apps/lernmanagement/konfiguration/synchronisation) – Benutzer, Kurse und Einschreibungen abgleichen
+- [App-Store & Anwendungen](../app-store.md) – Apps hinzufügen und verwalten
+- [Einstellungen (Settings)](../../konfiguration/einstellungen.md) – Container, Nutzergruppen und Anzeigeorte

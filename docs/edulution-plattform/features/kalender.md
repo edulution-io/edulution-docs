@@ -169,6 +169,10 @@ Termine, die vor der Einführung der Zeitzonen-Unterstützung angelegt wurden, t
 
 Kennt Ihr Browser die Zeitzone eines Termins nicht – etwa, weil sie erst vor Kurzem eingeführt wurde und Ihr Gerät veraltet ist –, weist der Dialog unterhalb des Auswahlfelds darauf hin und nennt die Zeitzone, in der die Uhrzeiten stattdessen angezeigt und gespeichert werden. Prüfen Sie eingetragene Uhrzeiten in diesem Fall besonders sorgfältig und aktualisieren Sie nach Möglichkeit Ihren Browser.
 
+:::info[Zeitumstellung: doppelte Uhrzeiten]
+In der Nacht der Umstellung von Sommer- auf Winterzeit tritt eine Uhrzeit zweimal auf – in Berliner Zeit etwa 02:30 Uhr. Tragen Sie einen Termin auf eine solche Uhrzeit ein, wird stets der **frühere** der beiden Zeitpunkte gewählt, also derjenige noch in der Sommerzeit. Das gilt ebenso, wenn Sie in der Stundenplan-Ansicht direkt auf die betreffende Zeile klicken.
+:::
+
 ### Zeitzone und Serientermine
 
 Bei Serienterminen bestimmt die Zeitzone des Termins auch, auf welchen Wochentag beziehungsweise welchen Tag des Monats sich die Wiederholung bezieht. Maßgeblich ist stets das Datum, das der Termin in seiner eigenen Zeitzone hat – nicht das Datum in einer anderen Zeitzone. Das macht sich bei Terminen kurz nach oder kurz vor Mitternacht bemerkbar: Ein Termin um 00:30 Uhr Berliner Zeit wiederholt sich monatlich an dem Tag, den der Kalender in Berliner Zeit anzeigt.

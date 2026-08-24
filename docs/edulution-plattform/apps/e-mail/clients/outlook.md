@@ -1,7 +1,3 @@
----
-sidebar_position: 5
----
-
 # Outlook einrichten
 
 import MailServerConfig from '@site/src/components/MailServerConfig';
@@ -150,7 +146,7 @@ Das neue Outlook (Web) überträgt Ihre **Zugangsdaten an Microsoft-Server**. Di
 **Alternativen:**
 - Verwenden Sie das klassische Outlook (falls verfügbar)
 - Wechseln Sie zu [Thunderbird](./thunderbird)
-- Nutzen Sie das [Webmail-Interface](../administration#webmail-sogo) direkt
+- Nutzen Sie das [Webmail-Interface](../konfiguration/administration#webmail-sogo) direkt
 :::
 
 ## Troubleshooting
@@ -238,5 +234,5 @@ Bei weiteren Problemen wenden Sie sich an Ihren Administrator oder die [edulutio
 
 **Empfohlene Lösungen:**
 1. **Beste Option:** Migration zu [Thunderbird](./thunderbird) oder [Apple Mail](./apple-mail)
-2. **Alternative:** Kombination aus Outlook (nur E-Mail) + [Webmail](../administration#webmail-sogo) (Kalender & Kontakte)
+2. **Alternative:** Kombination aus Outlook (nur E-Mail) + [Webmail](../konfiguration/administration#webmail-sogo) (Kalender & Kontakte)
 3. **Notlösung:** Kostenpflichtige Plugins (nicht empfohlen)

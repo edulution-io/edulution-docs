@@ -103,7 +103,7 @@ Einige Apps blenden unterhalb der Menüeinträge einen festen Fußbereich ein:
 
 - **[Dateien](../apps/dateien/index.md)**: Zugangsdaten für [WebDAV](../apps/dateien/webdav-windows.md) sowie die Anzeige des belegten Speicherplatzes
 - **[Kontakte](../apps/kontakte.md)**: Schaltfläche zum Anlegen eines neuen Adressbuchs
-- **[E-Mail](../apps/e-mail.md)**: Hinweis, solange die Ordnerliste noch geladen wird
+- **[E-Mail](../apps/e-mail/index.md)**: Hinweis, solange die Ordnerliste noch geladen wird
 
 ## Bedienung auf Tablet und Smartphone
 

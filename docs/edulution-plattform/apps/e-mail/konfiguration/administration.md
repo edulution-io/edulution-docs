@@ -36,7 +36,7 @@ Browser unter `https://localhost:8443`.
 Die Bindung an `127.0.0.1` gilt ab **edulution-mail v1.3.2**. Ältere
 Installationen binden Port 8443 an alle Netzwerkschnittstellen —
 aktualisieren Sie edulution-mail, siehe
-[Changelog & Config-Anpassungen](/docs/edulution-mail/changelog-config-anpassungen).
+[Changelog & Config-Anpassungen](/docs/edulution-plattform/apps/e-mail/konfiguration/changelog-config-anpassungen).
 Bis dahin gehören Port 8443 in der Firewall gesperrt und das
 Standardpasswort geändert.
 :::
@@ -242,10 +242,10 @@ Der Token wird über die edulution-mail API mit Keycloak validiert. Bei erfolgre
 
 Die folgenden Themen sind in separaten Dokumenten verfügbar:
 
-- [Mail-App konfigurieren](mail-app-konfiguration) - Mailcow-API, IMAP/SMTP und externe Provider in edulution Plattform
-- [Mailboxen und geteilte Postfächer](mailbox-verwaltung) - Mailboxen aus edulution Plattform heraus verwalten
-- [Mail-Migration für Administratoren](admin_mail_migration) - E-Mail-Synchronisierung einrichten
-- [Mail-Migration für Benutzer](user_mail_migration) - Eigene E-Mails migrieren
-- [Verteilerlisten](verteilerlisten) - Projekt-basierte E-Mail-Verteiler
-- [Benutzer-Mailformate anpassen](benutzer_mailformate) - E-Mail-Adressen-Schema konfigurieren
-- [Automatische Antwort](auto-reply) - Abwesenheitsnotiz für eigene und freigegebene Postfächer (inkl. ManageSieve-Master-Benutzer)
+- [Mail-App konfigurieren](./mail-app-konfiguration) - Mailcow-API, IMAP/SMTP und externe Provider in edulution Plattform
+- [Mailboxen und geteilte Postfächer](./mailbox-verwaltung) - Mailboxen aus edulution Plattform heraus verwalten
+- [Mail-Migration für Administratoren](./migration-einrichten) - E-Mail-Synchronisierung einrichten
+- [Mail-Migration für Benutzer](../migration) - Eigene E-Mails migrieren
+- [Verteilerlisten](./verteilerlisten) - Projekt-basierte E-Mail-Verteiler
+- [Benutzer-Mailformate anpassen](./mailformate) - E-Mail-Adressen-Schema konfigurieren
+- [Automatische Antwort](../auto-reply) - Abwesenheitsnotiz für eigene und freigegebene Postfächer (inkl. ManageSieve-Master-Benutzer)

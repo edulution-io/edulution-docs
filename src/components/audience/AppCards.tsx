@@ -89,8 +89,8 @@ const CARDS: AppCard[] = [
     text: 'Mailserver auf Mailcow-Basis mit Postfächern, Verteilerlisten und Anleitungen für alle gängigen Mail-Clients.',
     targets: {
       default: { to: '/docs/edulution-plattform/apps/e-mail', label: 'Mail-App nutzen' },
-      'admin-setup': { to: '/docs/edulution-mail/installation', label: 'Installation' },
-      'admin-operate': { to: '/docs/edulution-mail/administration', label: 'Administration' },
+      'admin-setup': { to: '/docs/edulution-plattform/apps/e-mail/konfiguration/installation', label: 'Installation' },
+      'admin-operate': { to: '/docs/edulution-plattform/apps/e-mail/konfiguration/administration', label: 'Administration' },
     },
   },
   {

@@ -176,7 +176,132 @@ const sidebars: SidebarsConfig = {
                 },
               ],
             },
-            'edulution-plattform/apps/e-mail',
+            {
+              type: 'category',
+              label: 'E-Mail',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'edulution-plattform/apps/e-mail/index',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Konfiguration',
+                  collapsed: true,
+                  // Mailserver aufsetzen und betreiben - fuer Endnutzer
+                  // ausgeblendet (siehe src/components/audience/taxonomy.ts).
+                  customProps: { audience: 'admin' },
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/installation',
+                      label: 'Installation',
+                      customProps: { audience: 'admin-setup' },
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/administration',
+                      label: 'Administration',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/mail-app-konfiguration',
+                      label: 'Mail-App konfigurieren',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/mailbox-verwaltung',
+                      label: 'Mailboxen & geteilte Postfächer',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/verteilerlisten',
+                      label: 'Verteilerlisten',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/gruppen-mail-sync',
+                      label: 'Gruppen-Mail-Synchronisation',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/konfiguration/migration-einrichten',
+                      label: 'Migration einrichten',
+                    },
+                    {
+                      type: 'category',
+                      label: 'Erweiterte Konfiguration',
+                      collapsed: true,
+                      items: [
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/e-mail/konfiguration/mailformate',
+                          label: 'E-Mail-Adressen-Format',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/e-mail/konfiguration/admin-features',
+                          label: 'Admin-Features & Tipps',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'edulution-plattform/apps/e-mail/konfiguration/changelog-config-anpassungen',
+                          label: 'Changelog & Config-Anpassungen',
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-plattform/apps/e-mail/auto-reply',
+                  label: 'Automatische Antwort',
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-plattform/apps/e-mail/migration',
+                  label: 'E-Mails migrieren',
+                },
+                {
+                  type: 'category',
+                  label: 'Mail-Clients',
+                  collapsed: true,
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/clients/compatibility-matrix',
+                      label: 'Client-Kompatibilität',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/clients/server-settings',
+                      label: 'Server-Einstellungen',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/clients/apple-mail',
+                      label: 'Apple Mail',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/clients/thunderbird',
+                      label: 'Thunderbird',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/clients/outlook',
+                      label: 'Outlook',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'edulution-plattform/apps/e-mail/clients/troubleshooting',
+                      label: 'Troubleshooting',
+                    },
+                  ],
+                },
+              ],
+            },
             'edulution-plattform/apps/chat',
             'edulution-plattform/apps/kontakte',
             'edulution-plattform/apps/kalender',
@@ -200,158 +325,6 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/apps/sicherheit',
             'edulution-plattform/apps/impressum-datenschutz',
             'edulution-plattform/apps/weitere-features',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'edulution Mail',
-      collapsed: false,
-      link: {
-        type: 'generated-index',
-        title: 'edulution Mail Dokumentation',
-        description: 'E-Mail-Lösung basierend auf Mailcow - vollständig integriert mit edulution Plattform und Linuxmuster.',
-        slug: '/category/edulution-mail',
-      },
-      items: [
-        {
-          type: 'category',
-          label: 'Erste Schritte',
-          collapsed: false,
-          // Installation, Administration und Mail-App-Konfiguration sind
-          // durchweg Administrationsthemen.
-          customProps: { audience: 'admin' },
-          items: [
-            {
-              type: 'doc',
-              id: 'edulution-mail/installation',
-              label: 'Installation',
-              customProps: { audience: 'admin-setup' },
-            },
-            {
-              type: 'doc',
-              id: 'edulution-mail/administration',
-              label: 'Administration',
-              customProps: { audience: 'admin' },
-            },
-            {
-              type: 'doc',
-              id: 'edulution-mail/mail-app-konfiguration',
-              label: 'Mail-App konfigurieren',
-              customProps: { audience: 'admin' },
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Mail-Clients',
-          collapsed: true,
-          link: {
-            type: 'generated-index',
-            title: 'Mail-Clients einrichten',
-            description: 'Anleitungen zur Einrichtung verschiedener E-Mail-Clients.',
-            slug: '/category/mail-clients',
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'edulution-mail/clients/compatibility-matrix',
-              label: 'Client-Kompatibilität',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-mail/clients/server-settings',
-              label: 'Server-Einstellungen',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-mail/clients/apple-mail',
-              label: 'Apple Mail',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-mail/clients/thunderbird',
-              label: 'Thunderbird',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-mail/clients/outlook',
-              label: 'Outlook',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-mail/clients/troubleshooting',
-              label: 'Troubleshooting',
-            },
-            // Vorbereitet für zukünftige Inhalte
-            // 'edulution-mail/clients/webmail',
-            // 'edulution-mail/clients/mobile',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Migration',
-          collapsed: true,
-          items: [
-            {
-              type: 'doc',
-              id: 'edulution-mail/admin_mail_migration',
-              label: 'Admin: Migration einrichten',
-              customProps: { audience: 'admin' },
-            },
-            {
-              type: 'doc',
-              id: 'edulution-mail/user_mail_migration',
-              label: 'Benutzer: E-Mails migrieren',
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Verwaltung',
-          collapsed: true,
-          items: [
-            {
-              type: 'doc',
-              id: 'edulution-mail/mailbox-verwaltung',
-              label: 'Mailboxen & geteilte Postfächer',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-mail/verteilerlisten',
-              label: 'Verteilerlisten',
-              customProps: { audience: 'admin' },
-            },
-            {
-              type: 'doc',
-              id: 'edulution-mail/auto-reply',
-              label: 'Automatische Antwort',
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Erweiterte Konfiguration',
-          collapsed: true,
-          // Hooks, Mailformate und Config-Migrationen – nur Administration.
-          customProps: { audience: 'admin' },
-          items: [
-            {
-              type: 'doc',
-              id: 'edulution-mail/benutzer_mailformate',
-              label: 'E-Mail-Adressen-Format',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-mail/admin-features',
-              label: 'Admin-Features & Tipps',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-mail/changelog-config-anpassungen',
-              label: 'Changelog & Config-Anpassungen',
-            },
           ],
         },
       ],

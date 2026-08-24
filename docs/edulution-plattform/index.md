@@ -11,15 +11,15 @@ einzigen Anmeldung.
 
 Diese Dokumentation ist überall gleich aufgebaut: erst **Installation**, dann **Konfiguration**,
 dann die **Übersicht** und die **Nutzung**. Dasselbe gilt innerhalb jeder App. Was Sie davon sehen,
-hängt von der Rolle ab, die Sie auf der [Startseite](../) gewählt haben.
+hängt von der Rolle ab, die Sie auf der [Startseite](..) gewählt haben.
 
 <Audience roles="user">
 
 ## Wo Sie anfangen
 
-- **[Erste Schritte](erste-schritte/navigation.md)** – wie die Oberfläche aufgebaut ist, wie Sie
+- **[Erste Schritte](./erste-schritte/navigation.md)** – wie die Oberfläche aufgebaut ist, wie Sie
   sich anmelden und was im Dashboard steht.
-- **[Apps](apps/)** – die einzelnen Anwendungen, von Dateien über E-Mail bis Lernmanagement.
+- **[Apps](./apps)** – die einzelnen Anwendungen, von Dateien über E-Mail bis Lernmanagement.
 
 </Audience>
 
@@ -27,10 +27,10 @@ hängt von der Rolle ab, die Sie auf der [Startseite](../) gewählt haben.
 
 ## Wo Sie anfangen
 
-- **[Installation](installation/voraussetzungen.md)** – Voraussetzungen, Einrichtung, SSL und
+- **[Installation](./installation/voraussetzungen.md)** – Voraussetzungen, Einrichtung, SSL und
   Reverse Proxy, Anbindung an Linuxmuster.
-- **[Konfiguration](konfiguration/administration.md)** – Einstellungen, Benutzer, Container,
+- **[Konfiguration](./konfiguration/administration.md)** – Einstellungen, Benutzer, Container,
   Updates und Upgrades der laufenden Instanz.
-- **[Apps](apps/)** – jede App bringt ihre eigene Installation und Konfiguration mit.
+- **[Apps](./apps)** – jede App bringt ihre eigene Installation und Konfiguration mit.
 
 </Audience>

@@ -56,8 +56,28 @@ const config: Config = {
         // statt einer Tabelle mit 60 Zeilen — eine neue Seite unter apps/
         // bekommt ihre Weiterleitung damit automatisch.
         createRedirects(existingPath: string) {
+          // Einzelne Seiten, die beim Umzug auch den Namen gewechselt haben.
+          const RENAMED: Record<string, string[]> = {
+            '/docs/edulution-plattform/apps/e-mail/': [
+              '/docs/edulution-mail',
+              '/docs/category/edulution-mail',
+            ],
+            '/docs/edulution-plattform/apps/e-mail/migration': [
+              '/docs/edulution-mail/user_mail_migration',
+            ],
+            '/docs/edulution-plattform/apps/e-mail/konfiguration/migration-einrichten': [
+              '/docs/edulution-mail/admin_mail_migration',
+            ],
+            '/docs/edulution-plattform/apps/e-mail/konfiguration/mailformate': [
+              '/docs/edulution-mail/benutzer_mailformate',
+            ],
+          };
+
           const PREFIXES: [string, string][] = [
             // neu                                        // alt
+            ['/docs/edulution-plattform/apps/e-mail/clients/', '/docs/edulution-mail/clients/'],
+            ['/docs/edulution-plattform/apps/e-mail/konfiguration/', '/docs/edulution-mail/'],
+            ['/docs/edulution-plattform/apps/e-mail/auto-reply', '/docs/edulution-mail/auto-reply'],
             ['/docs/edulution-plattform/erste-schritte/mein-profil', '/docs/edulution-plattform/benutzer/mein-profil'],
             ['/docs/edulution-plattform/erste-schritte/', '/docs/edulution-plattform/features/'],
             ['/docs/edulution-plattform/installation/configure_lmn-server', '/docs/edulution-plattform/configure-lmn-server/configure_lmn-server'],
@@ -67,9 +87,12 @@ const config: Config = {
             ['/docs/edulution-plattform/apps/', '/docs/edulution-plattform/features/'],
           ];
 
-          const from = PREFIXES.filter(([to]) => existingPath.startsWith(to)).map(
-            ([to, old]) => old + existingPath.slice(to.length),
-          );
+          const from = [
+            ...(RENAMED[existingPath] ?? []),
+            ...PREFIXES.filter(([to]) => existingPath.startsWith(to)).map(
+              ([to, old]) => old + existingPath.slice(to.length),
+            ),
+          ];
 
           // Jede Alt-URL, die selbst unter /docs/edulution-plattform/ lag,
           // hatte zusaetzlich einen /docs/edulution-ui/-Zwilling.
@@ -171,7 +194,7 @@ const config: Config = {
             },
             {
               label: 'edulution Mail',
-              to: '/docs/category/edulution-mail',
+              to: '/docs/edulution-plattform/apps/e-mail/',
             },
             {
               label: 'edulution App',
@@ -232,7 +255,7 @@ const config: Config = {
             },
             {
               label: 'edulution Mail',
-              to: '/docs/edulution-mail/installation',
+              to: '/docs/edulution-plattform/apps/e-mail/konfiguration/installation',
             },
           ],
         },

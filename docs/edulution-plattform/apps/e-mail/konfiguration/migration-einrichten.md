@@ -36,10 +36,10 @@ Auswahlliste enthält ausschließlich den Namen des Providers.
 Angelegt werden die Provider in den **Einstellungen** der Mail-App im
 Abschnitt **Externe Mail-Provider**. Alle Felder des Dialogs sowie das
 Bearbeiten und Löschen bestehender Einträge sind unter
-[Mail-App konfigurieren → Externe Mail-Provider](mail-app-konfiguration.md#externe-mail-provider)
+[Mail-App konfigurieren → Externe Mail-Provider](./mail-app-konfiguration.md#externe-mail-provider)
 beschrieben.
 
 ## Siehe auch
 
-- [Mail-App konfigurieren](mail-app-konfiguration.md#externe-mail-provider) – alle Felder des Abschnitts im Detail
-- [Benutzer: E-Mails migrieren](user_mail_migration.md) – Sync-Job aus Benutzersicht
+- [Mail-App konfigurieren](./mail-app-konfiguration.md#externe-mail-provider) – alle Felder des Abschnitts im Detail
+- [Benutzer: E-Mails migrieren](../migration.md) – Sync-Job aus Benutzersicht

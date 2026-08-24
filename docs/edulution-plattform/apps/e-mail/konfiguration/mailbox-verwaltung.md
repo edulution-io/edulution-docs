@@ -1,5 +1,6 @@
 ---
-sidebar_position: 2
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Mailboxen und geteilte Postfächer
@@ -10,7 +11,7 @@ Mailboxen lassen sich direkt aus edulution Plattform heraus anlegen, bearbeiten 
 Die Mailbox-Verwaltung ist ausschließlich für Global-Administratoren sichtbar. Alle Aktionen wirken unmittelbar auf dem Mailserver.
 :::
 
-Die Verwaltung finden Sie unter **Einstellungen → E-Mails → Mailbox-Verwaltung**. Voraussetzung ist ein gültiger Mailcow-API-Zugang, siehe [Mail-App konfigurieren](mail-app-konfiguration.md#allgemein).
+Die Verwaltung finden Sie unter **Einstellungen → E-Mails → Mailbox-Verwaltung**. Voraussetzung ist ein gültiger Mailcow-API-Zugang, siehe [Mail-App konfigurieren](./mail-app-konfiguration.md#allgemein).
 
 ## Die Mailbox-Tabelle
 
@@ -75,7 +76,7 @@ Der in edulution Plattform integrierte E-Mail-Client greift über IMAP und SMTP 
 Der Abschnitt **Benutzer-ACL** erscheint beim Bearbeiten einer Mailbox und legt fest, welche Einstellungen der Benutzer in der Webmail-Oberfläche selbst ändern darf: **Spam-Alias**, **TLS-Richtlinie**, **Spam-Score**, **Spam-Richtlinie**, **Trennzeichen-Aktion**, **Sync-Jobs**, **EAS-Reset**, **SOGo-Profil-Reset**, **Pushover**, **Quarantäne**, **Quarantäne-Anhänge**, **Quarantäne-Benachrichtigung**, **Quarantäne-Kategorie** und **App-Passwörter**.
 
 :::note[Sync-Jobs brauchen das Recht]
-Sollen Benutzer ihre E-Mails aus einem alten Postfach selbst importieren, muss **Sync-Jobs** aktiviert bleiben. Siehe [Benutzer: E-Mails migrieren](user_mail_migration.md).
+Sollen Benutzer ihre E-Mails aus einem alten Postfach selbst importieren, muss **Sync-Jobs** aktiviert bleiben. Siehe [Benutzer: E-Mails migrieren](../migration.md).
 :::
 
 ## Geteilte Postfächer
@@ -124,6 +125,6 @@ Beim Löschen räumt edulution zusätzlich auf: Die Mailbox wird als berechtigte
 
 ## Siehe auch
 
-- [Mail-App konfigurieren](mail-app-konfiguration.md) – Mailcow-API, IMAP, SMTP und externe Provider
-- [Administration](administration.md) – Mailcow-Oberfläche und Webmail
-- [Verteilerlisten](verteilerlisten.md) – projektbasierte E-Mail-Verteiler
+- [Mail-App konfigurieren](./mail-app-konfiguration.md) – Mailcow-API, IMAP, SMTP und externe Provider
+- [Administration](./administration.md) – Mailcow-Oberfläche und Webmail
+- [Verteilerlisten](./verteilerlisten.md) – projektbasierte E-Mail-Verteiler

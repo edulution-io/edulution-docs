@@ -11,13 +11,13 @@ Die Installation der edulution Plattform erfolgt in mehreren Schritten. Diese An
 
 Die Installation gliedert sich in folgende Bereiche:
 
-### 1. [Voraussetzungen](voraussetzungen)
+### 1. [Voraussetzungen](./voraussetzungen)
 - System-Anforderungen prüfen
 - Benötigte Ports freigeben
 - Linuxmuster-Server vorbereiten
 - Netzwerk-Konfiguration
 
-### 2. [Einrichtung](einrichtung)
+### 2. [Einrichtung](./einrichtung)
 - Installations-Skript herunterladen
 - Web-Installer starten
 - Edulution-Setup-Token konfigurieren

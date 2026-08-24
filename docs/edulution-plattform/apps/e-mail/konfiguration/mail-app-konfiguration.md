@@ -1,5 +1,4 @@
 ---
-sidebar_position: 3
 sidebar_custom_props:
   audience: admin
 ---
@@ -23,7 +22,7 @@ Die Seite ist in mehrere Abschnitte gegliedert:
 |---|---|
 | **Allgemein** | Mailcow-API-Zugang, Theme der Webmail-Oberfläche |
 | **Mailserver** | IMAP, SMTP, ManageSieve, DAV und Standard-Signatur des integrierten Clients |
-| **Mailbox-Verwaltung** | Mailcow-Mailboxen anlegen, bearbeiten und löschen – siehe [Mailboxen und geteilte Postfächer](mailbox-verwaltung.md) |
+| **Mailbox-Verwaltung** | Mailcow-Mailboxen anlegen, bearbeiten und löschen – siehe [Mailboxen und geteilte Postfächer](./mailbox-verwaltung.md) |
 | **Externe Mail-Provider** | Vorlagen für die Sync-Jobs der Benutzer |
 | **Container** | Zustand der zugehörigen Docker-Container |
 
@@ -86,7 +85,7 @@ Bleibt das Feld **ManageSieve-Server** leer, verwendet die API den unter **IMAP-
 
 ### DAV
 
-Zwei Funktionen des Clients sprechen nicht IMAP, sondern die DAV-Schnittstelle von SOGo an: die Rechtevergabe für [Postfach-Freigaben](mailbox-verwaltung.md#geteilte-postf%C3%A4cher) und die Synchronisation der Sprache in die Webmail-Oberfläche.
+Zwei Funktionen des Clients sprechen nicht IMAP, sondern die DAV-Schnittstelle von SOGo an: die Rechtevergabe für [Postfach-Freigaben](./mailbox-verwaltung.md#geteilte-postf%C3%A4cher) und die Synchronisation der Sprache in die Webmail-Oberfläche.
 
 | Feld | Bedeutung | Standard |
 |---|---|---|
@@ -105,7 +104,7 @@ Eingebettete Bilder vergrößern jede gesendete E-Mail. Der Editor warnt ab eine
 
 ## Externe Mail-Provider
 
-Damit Benutzer E-Mails aus einem bestehenden Postfach abholen können, legt der Administrator hier die Provider an, die im Sync-Job zur Auswahl stehen. Benutzer tragen die Serverdaten also nicht selbst ein, sondern wählen nur noch einen Eintrag aus der Liste und ergänzen ihre Zugangsdaten – siehe [Benutzer: E-Mails migrieren](user_mail_migration.md).
+Damit Benutzer E-Mails aus einem bestehenden Postfach abholen können, legt der Administrator hier die Provider an, die im Sync-Job zur Auswahl stehen. Benutzer tragen die Serverdaten also nicht selbst ein, sondern wählen nur noch einen Eintrag aus der Liste und ergänzen ihre Zugangsdaten – siehe [Benutzer: E-Mails migrieren](../migration.md).
 
 ### Provider anlegen
 
@@ -128,7 +127,7 @@ Host, Port und Verschlüsselung eines Providers sind ausschließlich für Global
 
 ## Siehe auch
 
-- [Mailboxen und geteilte Postfächer](mailbox-verwaltung.md) – Mailboxen aus edulution Plattform heraus verwalten
-- [Administration](administration.md) – Mailcow-Oberfläche und Webmail
-- [Server-Einstellungen](clients/server-settings.md) – dieselben Daten für externe Mail-Clients
-- [Admin: Migration einrichten](admin_mail_migration.md) – Sync-Jobs für die Migration
+- [Mailboxen und geteilte Postfächer](./mailbox-verwaltung.md) – Mailboxen aus edulution Plattform heraus verwalten
+- [Administration](./administration.md) – Mailcow-Oberfläche und Webmail
+- [Server-Einstellungen](../clients/server-settings.md) – dieselben Daten für externe Mail-Clients
+- [Admin: Migration einrichten](./migration-einrichten.md) – Sync-Jobs für die Migration

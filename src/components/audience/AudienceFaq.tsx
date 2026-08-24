@@ -69,7 +69,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie kommt der Mailserver dazu?',
       a: 'edulution Mail wird getrennt installiert und dann eingebunden.',
-      to: '/docs/edulution-mail/installation',
+      to: '/docs/edulution-plattform/apps/e-mail/konfiguration/installation',
     },
     {
       q: 'Wir sind keine Schule – was muss ich umstellen?',
@@ -211,12 +211,12 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie richte ich mein Mailprogramm ein?',
       a: 'Server, Ports und Verschlüsselung für Outlook, Thunderbird und Apple Mail.',
-      to: '/docs/edulution-mail/clients/server-settings',
+      to: '/docs/edulution-plattform/apps/e-mail/clients/server-settings',
     },
     {
       q: 'Wie lege ich eine Abwesenheitsnotiz an?',
       a: 'Automatische Antwort mit Zeitraum und eigenem Text.',
-      to: '/docs/edulution-mail/auto-reply',
+      to: '/docs/edulution-plattform/apps/e-mail/auto-reply',
     },
     {
       q: 'Wie komme ich von unterwegs ins Netz?',

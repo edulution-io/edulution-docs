@@ -31,7 +31,7 @@ https://mailcowdockerized-nginx-mailcow-1
 Diese Umstellung muss **vor** der Anpassung der Proxy-Konfiguration erfolgen. Andernfalls erreicht die edulution-api die Mailcow-API nicht mehr — Mailbox-Status, Sync-Trigger und Admin-Funktionen schlagen dann fehl.
 :::
 
-Die restlichen Werte des Abschnitts sind in der [Installations-Anleitung, Schritt 5](/docs/edulution-mail/installation#schritt-5-mailserver-hosts-konfigurieren) beschrieben.
+Die restlichen Werte des Abschnitts sind in der [Installations-Anleitung, Schritt 5](/docs/edulution-plattform/apps/e-mail/konfiguration/installation#schritt-5-mailserver-hosts-konfigurieren) beschrieben.
 
 ### Schritt 2: Proxy-Konfiguration anpassen
 
@@ -59,7 +59,7 @@ Der Router `edulution-sogo-mail` veröffentlicht damit genau den Pfad, den der B
 
 Der leere Wert bei `X-Api-Key` entfernt diesen Header aus eingehenden Anfragen, bevor sie an den Mailserver weitergereicht werden; auf diesem Weg wird er nicht benötigt.
 
-Alles Übrige — `strip-sogo-mail-prefix`, `sogo-buffers` und der Service `edulution-sogo` — bleibt wie bisher. Die vollständige Konfiguration zum Übernehmen finden Sie in der [Installations-Anleitung, Schritt 3](/docs/edulution-mail/installation#schritt-3-proxy-konfiguration-hinzufügen).
+Alles Übrige — `strip-sogo-mail-prefix`, `sogo-buffers` und der Service `edulution-sogo` — bleibt wie bisher. Die vollständige Konfiguration zum Übernehmen finden Sie in der [Installations-Anleitung, Schritt 3](/docs/edulution-plattform/apps/e-mail/konfiguration/installation#schritt-3-proxy-konfiguration-hinzufügen).
 
 Anschließend den Mail-Stack neu starten:
 
@@ -133,7 +133,7 @@ Sobald edulution-api über das Mailcow-Netzwerk direkt mit Dovecot sprechen kann
 
 In **edulution-Plattform → Einstellungen → E-Mails → Proxy-Konfiguration (Expertenmodus)** den kompletten `tcp:`-Block entfernen (Router `imap`/`imaps`, Services `mail-imap`/`mail-imap-ssl`) — er referenziert die oben entfernten EntryPoints und sollte zusammen mit ihnen verschwinden.
 
-Die finale dyn. Mail-Konfiguration (ohne `tcp:`-Block) finden Sie in der [Installations-Anleitung, Schritt 3](/docs/edulution-mail/installation#schritt-3-proxy-konfiguration-hinzufügen) — sie kann 1:1 in den Expertenmodus übernommen werden.
+Die finale dyn. Mail-Konfiguration (ohne `tcp:`-Block) finden Sie in der [Installations-Anleitung, Schritt 3](/docs/edulution-plattform/apps/e-mail/konfiguration/installation#schritt-3-proxy-konfiguration-hinzufügen) — sie kann 1:1 in den Expertenmodus übernommen werden.
 
 Nach Änderungen den Mail-Stack neu starten:
 

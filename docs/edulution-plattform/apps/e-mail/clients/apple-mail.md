@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Apple Mail einrichten
 
 import MailServerConfig from '@site/src/components/MailServerConfig';

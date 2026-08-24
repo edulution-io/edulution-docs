@@ -22,7 +22,7 @@ Oben rechts finden Sie in der Aktionen-Leiste die wichtigsten Aktionen:
 | **Oben/Unten teilen** / **Links/Rechts teilen** | Schaltet die Anordnung von Nachrichtenliste und Leseansicht um |
 | **In SOGo öffnen** | Öffnet das vollständige SOGo-Webmail in einem neuen Tab |
 | **Aktualisieren** | Lädt den aktuellen Ordner neu |
-| **E-Mail-Einstellungen** | Öffnet die Mail-Einstellungen (Signatur, automatische Antwort, Weiterleitung, Filter – siehe [Mein Profil](../erste-schritte/mein-profil.md)) |
+| **E-Mail-Einstellungen** | Öffnet die Mail-Einstellungen (Signatur, automatische Antwort, Weiterleitung, Filter – siehe [Mein Profil](../../erste-schritte/mein-profil.md)) |
 
 ## Ordner und Postfächer
 
@@ -49,7 +49,7 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 - **An** sowie optional **CC/BCC** (über **CC/BCC hinzufügen** einblendbar).
 - **Betreff** und der Nachrichtentext im Editor mit Formatierungsfunktionen (fett, kursiv, Listen, Links u. a.).
 - **Anhänge** fügen Sie **vom Gerät** oder **aus Dateien** (Ihrem edulution-Dateibereich) hinzu. Für Text und Anhänge zusammen gilt eine maximale Gesamtgröße.
-- Über **Signatur einfügen** ergänzen Sie Ihre Signatur (siehe [Mein Profil → Signatur](../erste-schritte/mein-profil.md#signatur)).
+- Über **Signatur einfügen** ergänzen Sie Ihre Signatur (siehe [Mein Profil → Signatur](../../erste-schritte/mein-profil.md#signatur)).
 
 Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht.
 
@@ -63,7 +63,7 @@ Sobald Sie in **An**, **CC** oder **BCC** zu tippen beginnen, schlägt edulution
 
 Eine Adresse, die in mehreren Quellen vorkommt, erscheint nur einmal. Die Liste ist auf 50 Vorschläge begrenzt; die am besten passenden stehen oben – eine vollständige Übereinstimmung vor einem Treffer am Namensanfang und dieser vor einem Treffer irgendwo im Namen.
 
-Auf die **Schreibweise von Umlauten und Sonderzeichen** kommt es dabei nicht an: `Müller`, `Mueller` und `Muller` führen zum selben Vorschlag, gleich welche Schreibweise im Verzeichnis oder im Kontakt hinterlegt ist. Dasselbe gilt für `ß` und `ss` sowie für Akzentzeichen. Wie in der [Kontaktsuche](./kontakte.md#suche) wird die Schreibweise bei sehr kurzen Eingaben nicht zusätzlich vereinfacht.
+Auf die **Schreibweise von Umlauten und Sonderzeichen** kommt es dabei nicht an: `Müller`, `Mueller` und `Muller` führen zum selben Vorschlag, gleich welche Schreibweise im Verzeichnis oder im Kontakt hinterlegt ist. Dasselbe gilt für `ß` und `ss` sowie für Akzentzeichen. Wie in der [Kontaktsuche](../kontakte.md#suche) wird die Schreibweise bei sehr kurzen Eingaben nicht zusätzlich vereinfacht.
 
 :::info[Eltern über den Namen des Kindes finden]
 Eltern erreichen Sie auch, indem Sie den Namen ihres Kindes eingeben. Der Vorschlag weist dann zusätzlich aus, über welches Kind er gefunden wurde – hilfreich, wenn mehrere Elternteile denselben Nachnamen tragen. Auch hier spielt die Schreibweise keine Rolle: `Öztürk`, `Oeztuerk` und `Ozturk` führen gleichermaßen zu den Eltern des Kindes.
@@ -98,7 +98,7 @@ Beim Speichern landet die Nachricht im Ordner **Entwürfe**. Beim **Verwerfen** 
 
 ### HTML-Quelltext bearbeiten
 
-Oben rechts im Editor finden Sie – neben **Signatur einfügen** – die **Editor-/Quelltext-Umschaltung**. Damit wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung, wie Sie es bereits von der [Signatur](../erste-schritte/mein-profil.md#signatur) kennen.
+Oben rechts im Editor finden Sie – neben **Signatur einfügen** – die **Editor-/Quelltext-Umschaltung**. Damit wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung, wie Sie es bereits von der [Signatur](../../erste-schritte/mein-profil.md#signatur) kennen.
 
 Die Quelltext-Ansicht benötigen Sie immer dann, wenn Sie fertiges HTML versenden möchten, etwa einen gestalteten Newsletter oder eine Einladung aus einer Vorlage:
 
@@ -147,13 +147,13 @@ Ein Klick auf den Hinweis bringt Sie direkt zu den **E-Mail-Einstellungen**, wo 
 
 ## Einstellungen
 
-Signatur, automatische Antwort (Abwesenheitsnotiz), Weiterleitung und Filter verwalten Sie in den **E-Mail-Einstellungen**. Eine ausführliche Beschreibung finden Sie unter [Mein Profil](../erste-schritte/mein-profil.md).
+Signatur, automatische Antwort (Abwesenheitsnotiz), Weiterleitung und Filter verwalten Sie in den **E-Mail-Einstellungen**. Eine ausführliche Beschreibung finden Sie unter [Mein Profil](../../erste-schritte/mein-profil.md).
 
-Bei der automatischen Antwort können Sie zusätzlich festlegen, welche Absender überhaupt eine Antwort erhalten: alle Absender, nur Absender innerhalb der Domänen Ihrer Organisation (interne Absender) oder ausschließlich externe Absender. Die internen Domänen werden Ihnen dabei direkt angezeigt. Details dazu finden Sie unter [Mein Profil](../erste-schritte/mein-profil.md).
+Bei der automatischen Antwort können Sie zusätzlich festlegen, welche Absender überhaupt eine Antwort erhalten: alle Absender, nur Absender innerhalb der Domänen Ihrer Organisation (interne Absender) oder ausschließlich externe Absender. Die internen Domänen werden Ihnen dabei direkt angezeigt. Details dazu finden Sie unter [Mein Profil](../../erste-schritte/mein-profil.md).
 
-Sind Sie als Berechtigter für ein **freigegebenes Postfach** eingetragen, können Sie dort auch dessen **automatische Antwort** verwalten – siehe [Mein Profil → Automatische Antwort für freigegebene Postfächer](../erste-schritte/mein-profil.md#automatische-antwort-für-freigegebene-postfächer).
+Sind Sie als Berechtigter für ein **freigegebenes Postfach** eingetragen, können Sie dort auch dessen **automatische Antwort** verwalten – siehe [Mein Profil → Automatische Antwort für freigegebene Postfächer](../../erste-schritte/mein-profil.md#automatische-antwort-für-freigegebene-postfächer).
 
-Die Sprache des über **In SOGo öffnen** erreichbaren Webmailers richtet sich nach der Sprache, die Sie unter [Mein Profil → Sprache](../erste-schritte/mein-profil.md#sprache) gewählt haben; dasselbe gilt für Benachrichtigungen, die das Mailsystem selbst verschickt. Das **Theme** des Webmailers legt dagegen die Administration fest.
+Die Sprache des über **In SOGo öffnen** erreichbaren Webmailers richtet sich nach der Sprache, die Sie unter [Mein Profil → Sprache](../../erste-schritte/mein-profil.md#sprache) gewählt haben; dasselbe gilt für Benachrichtigungen, die das Mailsystem selbst verschickt. Das **Theme** des Webmailers legt dagegen die Administration fest.
 
 <Audience roles="user">
 
@@ -165,8 +165,8 @@ Ob die E-Mail-App für Sie sichtbar ist, an welcher Stelle sie in der App-Liste 
 
 ## Einrichtung (für Administratoren)
 
-Welche Nutzergruppen die E-Mail-App überhaupt sehen, an welcher Stelle sie in der App-Liste erscheint und welches Theme der SOGo-Webmailer verwendet, legen Administratoren unter [Einstellungen → E-Mails](../konfiguration/einstellungen.md#e-mails) fest.
+Welche Nutzergruppen die E-Mail-App überhaupt sehen, an welcher Stelle sie in der App-Liste erscheint und welches Theme der SOGo-Webmailer verwendet, legen Administratoren unter [Einstellungen → E-Mails](../../konfiguration/einstellungen.md#e-mails) fest.
 
-Postfach-Freigaben und die Übernahme der Profilsprache in den Webmailer laufen nicht über IMAP, sondern über die [DAV-Verbindung](../konfiguration/einstellungen.md#dav-verbindung) der E-Mail-App. Diese Verbindung gilt ausschließlich für die E-Mail-App: Die Kalender- und die Kontakte-App bringen jeweils eine eigene mit, und eine dort abgeschaltete Zertifikatsprüfung lockert die Prüfung der E-Mail-Verbindung nicht. Ist die DAV-URL fehlerhaft eingetragen, betrifft das nur diese Funktionen — Nachrichten lesen, verfassen, Ordner und Filter bleiben davon unberührt.
+Postfach-Freigaben und die Übernahme der Profilsprache in den Webmailer laufen nicht über IMAP, sondern über die [DAV-Verbindung](../../konfiguration/einstellungen.md#dav-verbindung) der E-Mail-App. Diese Verbindung gilt ausschließlich für die E-Mail-App: Die Kalender- und die Kontakte-App bringen jeweils eine eigene mit, und eine dort abgeschaltete Zertifikatsprüfung lockert die Prüfung der E-Mail-Verbindung nicht. Ist die DAV-URL fehlerhaft eingetragen, betrifft das nur diese Funktionen — Nachrichten lesen, verfassen, Ordner und Filter bleiben davon unberührt.
 
 </Audience>

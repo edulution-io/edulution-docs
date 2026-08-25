@@ -1,4 +1,4 @@
-# VPN-Zugang (WireGuard)
+# VPN-Zugang
 
 Mit dem **VPN-Zugang** greifen Sie über einen [WireGuard](https://www.wireguard.com/)-Tunnel gesichert auf das Schul- bzw. Organisationsnetz zu – etwa um von unterwegs auf interne Dienste zuzugreifen. edulution verwaltet die WireGuard-Peers zentral: Die Administration richtet den Zugang ein, jede Nutzerin und jeder Nutzer ruft die eigene Konfiguration anschließend in den Benutzereinstellungen ab.
 
@@ -6,9 +6,9 @@ Mit dem **VPN-Zugang** greifen Sie über einen [WireGuard](https://www.wireguard
 Der VPN-Zugang erscheint nur, wenn die Administration die **WireGuard**-App eingerichtet hat. Ist die App nicht konfiguriert, fehlt der Eintrag **VPN-Zugang** in den Benutzereinstellungen vollständig.
 :::
 
-## Für Benutzer: eigenen VPN-Zugang abrufen
+## Den eigenen Zugang abrufen
 
-Den eigenen Zugang finden Sie in den [Benutzereinstellungen](../erste-schritte/benutzereinstellungen/index.md) unter **VPN-Zugang**. Die Seite zeigt die persönliche WireGuard-Konfiguration, sofern Ihnen die Administration einen Peer zugewiesen hat.
+Die Seite zeigt die persönliche WireGuard-Konfiguration, sofern Ihnen die Administration einen Peer zugewiesen hat.
 
 Wurde für Ihr Konto noch kein Zugang eingerichtet, erscheint stattdessen der Hinweis, dass noch kein WireGuard-VPN-Zugang vorhanden ist. Wenden Sie sich in diesem Fall an einen Administrator.
 
@@ -54,9 +54,9 @@ Den VPN-Zugang richtet die Administration Ihrer Schule ein und legt dabei fest, 
 
 <Audience roles="admin">
 
-## Für Administratoren: WireGuard einrichten
+## WireGuard einrichten
 
-Der VPN-Zugang wird als native **WireGuard**-App über den [App-Store](./app-store.md) hinzugefügt und anschließend unter **Einstellungen** konfiguriert.
+Der VPN-Zugang wird als native **WireGuard**-App über den [App-Store](../../apps/app-store.md) hinzugefügt und anschließend unter **Einstellungen** konfiguriert.
 
 ### App hinzufügen und verbinden
 
@@ -103,13 +103,12 @@ Eine dauerhafte Verbindung zwischen zwei **Standorten bzw. Netzen**.
 ![Dialog „Peer hinzufügen“ mit dem Typ Site-to-Site](/img/features/wireguard-admin-site-to-site.png)
 
 :::note[Satelliten]
-Die WireGuard-App ist unabhängig von den [Satelliten](../../edulution-satellite/verwaltung.md), die ebenfalls über einen WireGuard-Tunnel angebunden werden. Der hier beschriebene VPN-Zugang dient dem Zugriff einzelner Benutzer und Standorte, nicht der Kopplung von Satelliten-Appliances.
+Die WireGuard-App ist unabhängig von den [Satelliten](../../../edulution-satellite/verwaltung.md), die ebenfalls über einen WireGuard-Tunnel angebunden werden. Der hier beschriebene VPN-Zugang dient dem Zugriff einzelner Benutzer und Standorte, nicht der Kopplung von Satelliten-Appliances.
 :::
 
 </Audience>
 
 ## Siehe auch
 
-- [Benutzereinstellungen](../erste-schritte/benutzereinstellungen/index.md) – Übersicht aller persönlichen Einstellungen
-- [App-Store & Anwendungen](./app-store.md) – Apps hinzufügen und verwalten
-- [Satelliten](../../edulution-satellite/verwaltung.md) – Anbindung entfernter edulution-Standorte
+- [App-Store & Anwendungen](../../apps/app-store.md) – Apps hinzufügen und verwalten
+- [Satelliten](../../../edulution-satellite/verwaltung.md) – Anbindung entfernter edulution-Standorte

@@ -183,7 +183,7 @@ Ihre Benutzer können jetzt auf ihre Dateien zugreifen:
 **Prüfen Sie:**
 1. Speicherplatz auf SMB-Server verfügbar?
 2. Benutzer hat Schreibrechte auf dem Share?
-3. Quota nicht überschritten? (siehe [Dashboard](../edulution-plattform/erste-schritte/dashboard.md))
+3. Quota nicht überschritten? (siehe [Dashboard](../edulution-plattform/uebersicht/dashboard.md))
 
 ## Nächste Schritte
 

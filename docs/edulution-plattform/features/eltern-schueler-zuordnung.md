@@ -108,6 +108,6 @@ Sie zeigt die Zuordnungen in einer Tabelle mit folgenden Spalten:
 
 ## Siehe auch
 
-- [Mein Profil](../erste-schritte/benutzereinstellungen/index.md)
+- [Mein Profil](../uebersicht/benutzereinstellungen/index.md)
 - [Klassenraum](../apps/native-apps/klassenzimmer.md)
 - [Administration → Linuxmuster](../../edulution-server/linuxmuster.md)

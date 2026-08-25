@@ -342,7 +342,7 @@ Der CalDAV-Server kann dem öffentlichen Zugang mehr Rechte speichern, als der F
 Schlägt diese Korrektur fehl, wird die betroffene Zeile mit **Überzählige Rechte weiterhin aktiv** gekennzeichnet und zeigt die tatsächlich gespeicherten Rechte an — nicht die zulässigen. Über die Schaltfläche **Überzählige Rechte zurücknehmen** in derselben Zeile lösen Sie die Korrektur erneut aus.
 :::
 
-Ändern sich die Freigaben eines Kalenders, werden die betroffenen Benutzer zusätzlich per E-Mail benachrichtigt. Diese Benachrichtigung erhalten sie automatisch in der Sprache, die sie in edulution verwenden — maßgeblich ist dabei die Sprache des jeweiligen **Empfängers**, die er unter [Mein Profil → Sprache](../../erste-schritte/benutzereinstellungen/benutzeroberflaeche.md#sprache) auswählt.
+Ändern sich die Freigaben eines Kalenders, werden die betroffenen Benutzer zusätzlich per E-Mail benachrichtigt. Diese Benachrichtigung erhalten sie automatisch in der Sprache, die sie in edulution verwenden — maßgeblich ist dabei die Sprache des jeweiligen **Empfängers**, die er unter [Mein Profil → Sprache](../../uebersicht/benutzereinstellungen/benutzeroberflaeche.md#sprache) auswählt.
 
 :::info[Backend-Voraussetzung]
 
@@ -386,5 +386,5 @@ Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und d
 
 ## Siehe auch
 
-- [Dashboard](../../erste-schritte/dashboard.md) – Schnellzugriff auf den Kalender
+- [Dashboard](../../uebersicht/dashboard.md) – Schnellzugriff auf den Kalender
 - [App-Store](../app-store.md) – Kalender-App aktivieren

@@ -166,5 +166,5 @@ Oder nutzen Sie den **Einrichtungsassistenten** beim ersten Start.
 </div>
 
 :::tip Moodle in edulution nutzen
-Wie Moodle als App **Lernmanagement** in edulution eingebunden wird und wie die Anmeldung ohne zweiten Login abläuft, beschreibt [Lernmanagement (Moodle)](/docs/edulution-lms/).
+Wie Moodle als App **Lernmanagement** in edulution eingebunden wird und wie die Anmeldung ohne zweiten Login abläuft, beschreibt [Lernmanagement (Moodle)](/docs/edulution-lms).
 :::

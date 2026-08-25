@@ -106,5 +106,5 @@ Dies erlaubt eine Beschränkung auf bestimmte **Zugriffsgruppen**. So lassen sic
 
 ## Siehe auch
 
-- [Dashboard](../../erste-schritte/dashboard.md) – Schnellzugriff auf das Infoboard
+- [Dashboard](../../uebersicht/dashboard.md) – Schnellzugriff auf das Infoboard
 - [App-Store](../app-store.md) – Infoboard aktivieren

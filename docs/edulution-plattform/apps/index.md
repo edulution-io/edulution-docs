@@ -55,4 +55,4 @@ Zwei Apps setzen einen Dienst voraus, brauchen aber keine eigene Strecke – sie
 Einstellungen konfiguriert und sind hier vollständig beschrieben:
 
 - **[Konferenzen](./konferenzen.md)** – Videokonferenzen über BigBlueButton.
-- **[VPN-Zugang](./vpn-zugang.md)** – WireGuard-Tunnel ins Schulnetz für einzelne Benutzer.
+- **[VPN-Zugang](../uebersicht/benutzereinstellungen/vpn-zugang.md)** – WireGuard-Tunnel ins Schulnetz für einzelne Benutzer.

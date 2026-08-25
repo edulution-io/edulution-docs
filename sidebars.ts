@@ -38,7 +38,39 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'category',
-          label: 'Installation',
+          label: '📖 Übersicht',
+          collapsed: false,
+          items: [
+            'edulution-plattform/uebersicht/anmeldung',
+            'edulution-plattform/uebersicht/navigation',
+            {
+              type: 'category',
+              label: 'Benutzereinstellungen',
+              collapsed: true,
+              // Der laengste Block der Nutzerdokumentation. Jeder Bereich
+              // des Dialogs ist eine Seite, damit sich einzelne Stellen
+              // verlinken lassen - die Uebersicht bleibt der Einstieg.
+              link: {
+                type: 'doc',
+                id: 'edulution-plattform/uebersicht/benutzereinstellungen/index',
+              },
+              items: [
+                'edulution-plattform/uebersicht/benutzereinstellungen/benutzerdetails',
+                'edulution-plattform/uebersicht/benutzereinstellungen/sicherheit',
+                'edulution-plattform/uebersicht/benutzereinstellungen/e-mail',
+                'edulution-plattform/uebersicht/benutzereinstellungen/benutzeroberflaeche',
+                'edulution-plattform/uebersicht/benutzereinstellungen/app-zugriff',
+                'edulution-plattform/uebersicht/benutzereinstellungen/vpn-zugang',
+                'edulution-plattform/uebersicht/benutzereinstellungen/meine-kinder-eltern',
+                'edulution-plattform/uebersicht/benutzereinstellungen/schnellzugriffe',
+              ],
+            },
+            'edulution-plattform/uebersicht/dashboard',
+          ],
+        },
+        {
+          type: 'category',
+          label: '⚙️ Installation',
           collapsed: true,
           // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
           customProps: { audience: 'admin-setup' },
@@ -51,7 +83,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Konfiguration',
+          label: '⚙️ Konfiguration',
           collapsed: true,
           // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
           customProps: { audience: 'admin' },
@@ -126,38 +158,6 @@ const sidebars: SidebarsConfig = {
                 },
               ],
             },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Erste Schritte',
-          collapsed: false,
-          items: [
-            'edulution-plattform/erste-schritte/anmeldung',
-            'edulution-plattform/erste-schritte/navigation',
-            {
-              type: 'category',
-              label: 'Benutzereinstellungen',
-              collapsed: true,
-              // Der laengste Block der Nutzerdokumentation. Jeder Bereich
-              // des Dialogs ist eine Seite, damit sich einzelne Stellen
-              // verlinken lassen - die Uebersicht bleibt der Einstieg.
-              link: {
-                type: 'doc',
-                id: 'edulution-plattform/erste-schritte/benutzereinstellungen/index',
-              },
-              items: [
-                'edulution-plattform/erste-schritte/benutzereinstellungen/benutzerdetails',
-                'edulution-plattform/erste-schritte/benutzereinstellungen/sicherheit',
-                'edulution-plattform/erste-schritte/benutzereinstellungen/e-mail',
-                'edulution-plattform/erste-schritte/benutzereinstellungen/benutzeroberflaeche',
-                'edulution-plattform/erste-schritte/benutzereinstellungen/app-zugriff',
-                'edulution-plattform/erste-schritte/benutzereinstellungen/vpn-zugang',
-                'edulution-plattform/erste-schritte/benutzereinstellungen/meine-kinder-eltern',
-                'edulution-plattform/erste-schritte/benutzereinstellungen/schnellzugriffe',
-              ],
-            },
-            'edulution-plattform/erste-schritte/dashboard',
           ],
         },
         {
@@ -256,7 +256,6 @@ const sidebars: SidebarsConfig = {
               customProps: { crossRef: '/docs/edulution-fileproxy/dateien/' },
             },
             'edulution-plattform/apps/konferenzen',
-            'edulution-plattform/apps/vpn-zugang',
           ],
         },
       ],
@@ -268,15 +267,16 @@ const sidebars: SidebarsConfig = {
       // Der Schulserver wird aufgesetzt und betrieben, nicht bedient -
       // fuer Endnutzer ist der ganze Bereich ausgeblendet.
       customProps: { audience: 'admin' },
-      link: {
-        type: 'doc',
-        id: 'edulution-server/index',
-      },
       items: [
         {
           type: 'doc',
+          id: 'edulution-server/index',
+          label: '📖 Übersicht',
+        },
+        {
+          type: 'doc',
           id: 'edulution-server/installation',
-          label: 'Installation',
+          label: '⚙️ Installation',
           customProps: { audience: 'admin-setup' },
         },
         {
@@ -295,14 +295,15 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'edulution Mail',
       collapsed: true,
-      link: {
-        type: 'doc',
-        id: 'edulution-mail/index',
-      },
       items: [
         {
+          type: 'doc',
+          id: 'edulution-mail/index',
+          label: '📖 Übersicht',
+        },
+        {
           type: 'category',
-          label: 'Konfiguration',
+          label: '⚙️ Konfiguration',
           collapsed: true,
           // Mailserver aufsetzen und betreiben - fuer Endnutzer
           // ausgeblendet (siehe src/components/audience/taxonomy.ts).
@@ -421,15 +422,16 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'edulution App',
       collapsed: true,
-      link: {
-        type: 'doc',
-        id: 'edulution-app/index',
-      },
       items: [
         {
           type: 'doc',
+          id: 'edulution-app/index',
+          label: '📱 Übersicht',
+        },
+        {
+          type: 'doc',
           id: 'edulution-app/setup',
-          label: 'Einrichtung',
+          label: '⚙️ Einrichtung',
         },
         {
           type: 'doc',
@@ -448,11 +450,12 @@ const sidebars: SidebarsConfig = {
       // WireGuard-Tunnel einzelner Benutzer, nicht die Kopplung von
       // Appliances.
       customProps: { audience: 'admin' },
-      link: {
-        type: 'doc',
-        id: 'edulution-satellite/index',
-      },
       items: [
+        {
+          type: 'doc',
+          id: 'edulution-satellite/index',
+          label: '📖 Übersicht',
+        },
         {
           type: 'doc',
           id: 'edulution-satellite/einrichtung-mit-edulution',
@@ -479,14 +482,15 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'edulution LMS',
       collapsed: true,
-      link: {
-        type: 'doc',
-        id: 'edulution-lms/index',
-      },
       items: [
         {
+          type: 'doc',
+          id: 'edulution-lms/index',
+          label: '📖 Übersicht',
+        },
+        {
           type: 'category',
-          label: 'Installation',
+          label: '⚙️ Installation',
           collapsed: true,
           // Moodle bereitstellen - nur fuer die Ersteinrichtung.
           customProps: { audience: 'admin-setup' },
@@ -519,7 +523,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Konfiguration',
+          label: '⚙️ Konfiguration',
           collapsed: true,
           // Moodle-Anbindung betreiben - fuer Endnutzer ausgeblendet.
           customProps: { audience: 'admin' },
@@ -591,11 +595,12 @@ const sidebars: SidebarsConfig = {
       // Kein `audience` auf der Kategorie: die Dateien-App darin ist die
       // meistgenutzte Anwendung der Plattform. Nur die Einrichtung des
       // Proxys selbst ist Administrationsthema.
-      link: {
-        type: 'doc',
-        id: 'edulution-fileproxy/index',
-      },
       items: [
+        {
+          type: 'doc',
+          id: 'edulution-fileproxy/index',
+          label: '📖 Übersicht',
+        },
         {
           type: 'category',
           label: 'Dateien',
@@ -607,7 +612,7 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: 'category',
-              label: 'Konfiguration',
+              label: '⚙️ Konfiguration',
               collapsed: true,
               // Office-Server aufsetzen - fuer Endnutzer ausgeblendet
               // (siehe src/components/audience/taxonomy.ts).
@@ -652,7 +657,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Proxy einrichten',
+          label: '⚙️ Proxy einrichten',
           collapsed: true,
           // Der Dienst hinter der Dateien-App - Endnutzer merken von ihm
           // nichts und bekommen den Block nicht zu sehen.

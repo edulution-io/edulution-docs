@@ -132,14 +132,23 @@ const config: Config = {
             // alte Sammelseite fuehrt auf die Uebersicht. Anker-Links von
             // aussen landen damit oben statt am Abschnitt - der einzige
             // Verlust, den der Umbau kostet.
-            '/docs/edulution-plattform/erste-schritte/benutzereinstellungen/': [
+            '/docs/edulution-plattform/uebersicht/benutzereinstellungen/': [
               '/docs/edulution-plattform/erste-schritte/mein-profil',
+              '/docs/edulution-plattform/features/mein-profil',
               '/docs/edulution-plattform/benutzer/mein-profil',
+            ],
+            // Der VPN-Zugang stand doppelt da: als Stichwort in den
+            // Benutzereinstellungen und als eigene App-Seite. Jetzt eine
+            // Seite, dort wo man den Zugang abruft.
+            '/docs/edulution-plattform/uebersicht/benutzereinstellungen/vpn-zugang': [
+              '/docs/edulution-plattform/apps/vpn-zugang',
+              '/docs/edulution-plattform/features/vpn-zugang',
+              '/docs/edulution-plattform/uebersicht/benutzereinstellungen/vpn-zugang',
             ],
             // Die beiden Sicherheits-Seiten sind zusammengefuehrt: der
             // Dialog und die Verfahren dahinter standen doppelt da. Beide
             // Alt-Pfade fuehren auf die Seite in den Benutzereinstellungen.
-            '/docs/edulution-plattform/erste-schritte/benutzereinstellungen/sicherheit': [
+            '/docs/edulution-plattform/uebersicht/benutzereinstellungen/sicherheit': [
               '/docs/edulution-plattform/features/sicherheit',
               '/docs/edulution-plattform/apps/native-apps/sicherheit',
             ],
@@ -154,7 +163,7 @@ const config: Config = {
             ],
             // "Weitere Features" ist aufgeloest: Sprache und KI-Chat stehen
             // laengst ausfuehrlicher in den Benutzereinstellungen und im Chat.
-            '/docs/edulution-plattform/erste-schritte/benutzereinstellungen/benutzeroberflaeche': [
+            '/docs/edulution-plattform/uebersicht/benutzereinstellungen/benutzeroberflaeche': [
               '/docs/edulution-plattform/apps/native-apps/weitere-features',
               '/docs/edulution-plattform/features/weitere-features',
             ],
@@ -196,7 +205,8 @@ const config: Config = {
             ['/docs/edulution-satellite/', '/docs/edulution-plattform/apps/satellite/'],
 
             // --- edulution Plattform ----------------------------------
-            ['/docs/edulution-plattform/erste-schritte/', '/docs/edulution-plattform/features/'],
+            ['/docs/edulution-plattform/uebersicht/', '/docs/edulution-plattform/erste-schritte/'],
+            ['/docs/edulution-plattform/uebersicht/', '/docs/edulution-plattform/features/'],
             ['/docs/edulution-plattform/konfiguration/anbindungen/', '/docs/anbindungen/'],
             ['/docs/edulution-plattform/konfiguration/upgrade/', '/docs/edulution-plattform/upgrade/'],
             ['/docs/edulution-plattform/konfiguration/', '/docs/edulution-plattform/administration/'],
@@ -324,7 +334,7 @@ const config: Config = {
           items: [
             {
               label: 'edulution Plattform',
-              to: '/docs/edulution-plattform/erste-schritte/navigation',
+              to: '/docs/edulution-plattform/uebersicht/navigation',
             },
             {
               label: 'edulution Mail',

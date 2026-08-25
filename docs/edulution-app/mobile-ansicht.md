@@ -4,7 +4,7 @@ Die edulution Mobile App bietet vollständigen Zugriff auf alle Funktionen auch 
 
 ## Mobile Kopfleiste
 
-Auf Smartphones und Tablets erscheint über dem Seiteninhalt eine Kopfleiste. Sie ersetzt die dauerhaft eingeblendete Seitenleiste der Desktop-Ansicht – App-Menü und Seitenleiste fahren stattdessen nur bei Bedarf ein. Öffnen Sie die Plattform über die [edulution.io App](/docs/edulution-app/), erscheint die Kopfleiste unabhängig von der Bildschirmgröße, also auch auf einem iPad im Querformat.
+Auf Smartphones und Tablets erscheint über dem Seiteninhalt eine Kopfleiste. Sie ersetzt die dauerhaft eingeblendete Seitenleiste der Desktop-Ansicht – App-Menü und Seitenleiste fahren stattdessen nur bei Bedarf ein. Öffnen Sie die Plattform über die [edulution.io App](/docs/edulution-app), erscheint die Kopfleiste unabhängig von der Bildschirmgröße, also auch auf einem iPad im Querformat.
 
 ### Aufbau
 
@@ -36,9 +36,9 @@ Wird die Plattform über die edulution.io App geöffnet, öffnet das **Handy-Sym
 | **Konto wechseln** | die Konto-Übersicht, in der Sie zwischen Ihren Profilen umschalten | keine – auch auf der Anmeldeseite verfügbar |
 | **QR-Scanner** | den Kamera-Scanner für QR-Codes | angemeldet |
 | **Schülerausweis** bzw. **Mitarbeiterausweis** | den digitalen Ausweis Ihres Kontos | angemeldet |
-| **OTP anzeigen** | das Einmalpasswort (TOTP) des aktiven Kontos | angemeldet, [Zwei-Faktor-Authentifizierung](../edulution-plattform/erste-schritte/benutzereinstellungen/sicherheit.md#zwei-faktor-authentifizierung) aktiv, App ab Version 2.1.11 |
+| **OTP anzeigen** | das Einmalpasswort (TOTP) des aktiven Kontos | angemeldet, [Zwei-Faktor-Authentifizierung](../edulution-plattform/uebersicht/benutzereinstellungen/sicherheit.md#zwei-faktor-authentifizierung) aktiv, App ab Version 2.1.11 |
 
-Wie der Ausweis heißt, richtet sich nach dem Organisationstyp der Installation: In Schulen ist es der **Schülerausweis**, in Unternehmen und in der öffentlichen Verwaltung der **Mitarbeiterausweis**. Was der Ausweis enthält, steht unter [Die edulution.io App](/docs/edulution-app/).
+Wie der Ausweis heißt, richtet sich nach dem Organisationstyp der Installation: In Schulen ist es der **Schülerausweis**, in Unternehmen und in der öffentlichen Verwaltung der **Mitarbeiterausweis**. Was der Ausweis enthält, steht unter [Die edulution.io App](/docs/edulution-app).
 
 **OTP anzeigen** erscheint nur, wenn Sie die Zwei-Faktor-Authentifizierung für Ihr Konto eingerichtet haben. Ohne 2FA gibt es kein Einmalpasswort, das die App anzeigen könnte.
 

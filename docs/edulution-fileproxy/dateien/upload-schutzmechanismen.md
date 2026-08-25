@@ -95,7 +95,7 @@ Derselbe Dialog erscheint, wenn Sie Dateien in eine [Freigabe](./index.md#teilen
 | Dateien innerhalb eines hochgeladenen Ordners | 100 |
 | Maximale Größe je Datei | abhängig vom [FileProxy](./index.md#dateigröße) |
 
-Wird eine Grenze überschritten, erscheint eine rote Warnung – bei Drag & Drop stattdessen eine Meldung am Bildschirmrand. Reicht während der Übertragung der Speicherplatz nicht aus, bricht edulution den Upload ab und meldet *Upload abgebrochen: Nicht genügend Speicherplatz*. Ihre aktuelle Speichernutzung sehen Sie im [Dashboard](../../edulution-plattform/erste-schritte/dashboard.md#quotas).
+Wird eine Grenze überschritten, erscheint eine rote Warnung – bei Drag & Drop stattdessen eine Meldung am Bildschirmrand. Reicht während der Übertragung der Speicherplatz nicht aus, bricht edulution den Upload ab und meldet *Upload abgebrochen: Nicht genügend Speicherplatz*. Ihre aktuelle Speichernutzung sehen Sie im [Dashboard](../../edulution-plattform/uebersicht/dashboard.md#quotas).
 
 ## Bilder werden automatisch in WebP umgewandelt
 
@@ -128,5 +128,5 @@ Bilder, die Sie in der Dateien-App hochladen, werden **unverändert** gespeicher
 ## Siehe auch
 
 - [Dateien](./index.md) – Übersicht über die Dateiverwaltung
-- [Dashboard](../../edulution-plattform/erste-schritte/dashboard.md#quotas) – Speichernutzung und Quota anzeigen
+- [Dashboard](../../edulution-plattform/uebersicht/dashboard.md#quotas) – Speichernutzung und Quota anzeigen
 - [Whiteboard](../../edulution-plattform/apps/native-apps/whiteboard.md) – Bilder auf dem Whiteboard

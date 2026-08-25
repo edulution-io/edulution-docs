@@ -44,7 +44,7 @@ const CARDS: AppCard[] = [
     wide: true,
     text: 'Dateien, E-Mail, Kalender, Kontakte, Chat, Konferenzen und Whiteboard – alles nach einer einzigen Anmeldung.',
     targets: {
-      default: { to: '/docs/edulution-plattform/erste-schritte/navigation', label: 'Nutzerhandbuch' },
+      default: { to: '/docs/edulution-plattform/uebersicht/navigation', label: 'Nutzerhandbuch' },
       'admin-setup': {
         to: '/docs/edulution-plattform/installation/voraussetzungen',
         label: 'Installation',

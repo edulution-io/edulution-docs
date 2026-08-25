@@ -36,7 +36,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Ich nutze edulution und suche eine Funktion.',
       a: 'Die Navigation zeigt, wo in der Oberfläche was liegt.',
-      to: '/docs/edulution-plattform/erste-schritte/navigation',
+      to: '/docs/edulution-plattform/uebersicht/navigation',
     },
     {
       q: 'Ich will es erst einmal ausprobieren.',
@@ -150,7 +150,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie melde ich mich an?',
       a: 'Anmeldung, Zwei-Faktor-Authentisierung und was bei Problemen hilft.',
-      to: '/docs/edulution-plattform/erste-schritte/anmeldung',
+      to: '/docs/edulution-plattform/uebersicht/anmeldung',
     },
     {
       q: 'Wo finde ich meine Dateien?',
@@ -170,7 +170,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie ändere ich mein Passwort?',
       a: 'Passwort, Profilbild und persönliche Einstellungen im eigenen Profil.',
-      to: '/docs/edulution-plattform/erste-schritte/benutzereinstellungen/',
+      to: '/docs/edulution-plattform/uebersicht/benutzereinstellungen/',
     },
   ],
 
@@ -183,7 +183,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie melde ich mich an?',
       a: 'Anmeldung, Zwei-Faktor-Authentisierung und was bei Problemen hilft.',
-      to: '/docs/edulution-plattform/erste-schritte/anmeldung',
+      to: '/docs/edulution-plattform/uebersicht/anmeldung',
     },
     {
       q: 'Wo sehe ich Mitteilungen der Schule?',
@@ -201,7 +201,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie melde ich mich an?',
       a: 'Anmeldung, Zwei-Faktor-Authentisierung und was bei Problemen hilft.',
-      to: '/docs/edulution-plattform/erste-schritte/anmeldung',
+      to: '/docs/edulution-plattform/uebersicht/anmeldung',
     },
     {
       q: 'Wo finde ich meine Dateien?',
@@ -221,7 +221,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie komme ich von unterwegs ins Netz?',
       a: 'VPN-Zugang über WireGuard einrichten.',
-      to: '/docs/edulution-plattform/apps/vpn-zugang',
+      to: '/docs/edulution-plattform/uebersicht/benutzereinstellungen/vpn-zugang',
     },
   ],
 };

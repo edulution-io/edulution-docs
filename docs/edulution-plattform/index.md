@@ -18,7 +18,7 @@ hängt von der Rolle ab, die Sie auf der [Startseite](..) gewählt haben.
 
 ## Wo Sie anfangen
 
-- **[Erste Schritte](./erste-schritte/navigation.md)** – wie die Oberfläche aufgebaut ist, wie Sie
+- **[Erste Schritte](./uebersicht/navigation.md)** – wie die Oberfläche aufgebaut ist, wie Sie
   sich anmelden und was im Dashboard steht.
 - **[Apps](./apps/index.md)** – die Anwendungen, die direkt zur Plattform gehören.
 

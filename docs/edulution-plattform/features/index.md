@@ -17,5 +17,5 @@ in der Seitenleiste – sie wirken quer durch die Plattform.
 ## Siehe auch
 
 - **[Apps](../apps/index.md)** – die Anwendungen mit eigener Kachel.
-- **[Benutzereinstellungen](../erste-schritte/benutzereinstellungen/index.md)** – wo Sie die
+- **[Benutzereinstellungen](../uebersicht/benutzereinstellungen/index.md)** – wo Sie die
   meisten dieser Funktionen für sich selbst einstellen.

@@ -18,7 +18,7 @@ sie vorliegt – bis dahin wenden Sie sich für die Einrichtung an den [Support]
 
 ## Desktop-Bereitstellung
 
-Die virtuellen Desktops finden Sie in den [Benutzereinstellungen](../edulution-plattform/erste-schritte/benutzereinstellungen/index.md)
+Die virtuellen Desktops finden Sie in den [Benutzereinstellungen](../edulution-plattform/uebersicht/benutzereinstellungen/index.md)
 unter **Desktop-Bereitstellung**. Solange keine VDI-Umgebung konfiguriert ist, bleibt der Bereich
 leer.
 

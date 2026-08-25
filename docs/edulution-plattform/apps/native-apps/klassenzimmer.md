@@ -169,6 +169,6 @@ Nützlich für:
 
 ## Siehe auch
 
-- [Dashboard](../../erste-schritte/dashboard.md) - Klassenübersicht
+- [Dashboard](../../uebersicht/dashboard.md) - Klassenübersicht
 - [Einstellungen → Klassenraum (Veyon-Proxy)](../../konfiguration/einstellungen.md#klassenraum-veyon-proxy) - Bildschirmüberwachung einrichten
 - [Linuxmuster verbinden](../../../edulution-server/installation.md)

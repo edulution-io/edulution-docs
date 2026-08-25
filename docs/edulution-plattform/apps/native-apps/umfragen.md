@@ -438,6 +438,6 @@ Das umfragenspezifische [App-Logo](#umfrage-logo) kann später im Editor gegen d
 
 ## Siehe auch
 
-- [Dashboard](../../erste-schritte/dashboard.md) - Offene Umfragen auf der Startseite
+- [Dashboard](../../uebersicht/dashboard.md) - Offene Umfragen auf der Startseite
 - [App-Store](../app-store.md) - Umfragen-App aktivieren
 - [SurveyJS](https://surveyjs.io/) - Die zugrundeliegende Bibliothek

@@ -97,7 +97,7 @@ Bleibt das Problem bestehen, hilft die Testseite des Plugins weiter, die Cookie,
 
 ## Siehe auch
 
-- [edulution Moodle – Übersicht](/docs/edulution-lms/konfiguration/) – Plugin, Synchronisation und Kursstruktur
+- [edulution Moodle – Übersicht](/docs/edulution-lms/konfiguration) – Plugin, Synchronisation und Kursstruktur
 - [Cookie Auth (SSO)](/docs/edulution-lms/konfiguration/cookie-auth) – alle Einstellungen der automatischen Anmeldung
 - [Synchronisation](/docs/edulution-lms/konfiguration/synchronisation) – Benutzer, Kurse und Einschreibungen abgleichen
 - [App-Store & Anwendungen](../edulution-plattform/apps/app-store.md) – Apps hinzufügen und verwalten

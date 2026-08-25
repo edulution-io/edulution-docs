@@ -160,4 +160,4 @@ Das Wiki nutzt Standard-Markdown. Eine Übersicht der unterstützten Formatierun
 - [Wiki-Einstellungen (Admin)](../../konfiguration/wiki-einstellungen.md) – Sichtbarkeit pro Freigabe steuern
 - [Wiki-Infrastruktur (Admin)](../../../edulution-fileproxy/wiki-infrastruktur.md) – Server-seitige Einrichtung des Suchindex
 - [Dateien](../../../edulution-fileproxy/dateien/index.md) – Datei-Freigaben, auf denen Wikis basieren
-- [Benutzereinstellungen](../../erste-schritte/benutzereinstellungen/index.md) – Gruppenzugehörigkeit prüfen
+- [Benutzereinstellungen](../../uebersicht/benutzereinstellungen/index.md) – Gruppenzugehörigkeit prüfen

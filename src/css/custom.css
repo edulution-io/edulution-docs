@@ -559,11 +559,39 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
 
 /* --- Die zwei Fragen auf der Startseite ---------------------------------- */
 
-/* Jede Frage steht fuer sich: Ueberschrift und beschreibender Satz kommen
-   aus dem Markdown, die Komponente steuert nur die Schaltflaechen bei. Kein
-   Kasten drumherum – die Chips selbst sind die einzige Umrandung. */
+/* Zwei Spalten: links die Frage, rechts die Schaltflaechen und darunter die
+   Zeile zur gewaehlten Antwort. Die feste Breite der linken Spalte laesst die
+   Chips beider Fragen fluchten, obwohl die eine Frage laenger ist als die
+   andere. Kein Kasten drumherum – die Chips selbst sind die einzige
+   Umrandung. Der erklaerende Satz kommt weiterhin aus dem Markdown. */
 .audience-picker {
+  display: grid;
+  grid-template-columns: minmax(0, 17rem) 1fr;
+  align-items: baseline;
+  column-gap: 1.5rem;
   margin: 1rem 0 2rem;
+}
+
+.audience-picker__question {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.4;
+  /* Die Chips haben 0.3125rem Innenabstand oben; ohne den Ausgleich sitzt
+     die Frage eine Winzigkeit zu hoch. */
+  padding-top: 0.3125rem;
+}
+
+/* Unter der Breite reicht der Platz nicht fuer zwei Spalten: die Frage
+   rueckt ueber die Schaltflaechen. */
+@media (max-width: 48rem) {
+  .audience-picker {
+    grid-template-columns: 1fr;
+    row-gap: 0.5rem;
+  }
+
+  .audience-picker__question {
+    padding-top: 0;
+  }
 }
 
 .audience-picker__options {

@@ -210,39 +210,50 @@ const sidebars: SidebarsConfig = {
               ],
             },
             // Apps mit eigenem Dienst dahinter werden nicht hier
-            // aufgeklappt, sondern in ihrer Komponente dokumentiert. `ref`
-            // setzt nur den Link: ein Klick springt in den Bereich der
-            // Komponente, statt den Baum hier zu verdoppeln.
+            // aufgeklappt, sondern in ihrer Komponente dokumentiert. Der
+            // Eintrag ist deshalb nur ein Link: `href` bleibt ein
+            // Platzhalter, das echte Ziel steht in `customProps.crossRef`
+            // und wird in src/theme/DocSidebarItem eingesetzt. So gilt der
+            // Eintrag nirgends als aktive Seite - sonst klappte beim Oeffnen
+            // der Dateien-App dieser Ast hier mit auf.
             {
-              type: 'ref',
-              id: 'edulution-fileproxy/dateien/index',
+              type: 'link',
               label: 'Dateien',
+              href: '#',
+              customProps: { crossRef: '/docs/edulution-fileproxy/dateien/' },
             },
             {
-              type: 'ref',
-              id: 'edulution-mail/index',
+              type: 'link',
               label: 'E-Mail',
+              href: '#',
+              customProps: { crossRef: '/docs/edulution-mail/' },
             },
             {
-              type: 'ref',
-              id: 'edulution-lms/index',
+              type: 'link',
               label: 'Lernmanagement',
+              href: '#',
+              customProps: { crossRef: '/docs/edulution-lms/' },
             },
             {
-              type: 'ref',
-              id: 'edulution-server/linuxmuster',
+              type: 'link',
               label: 'Schulserver',
-              customProps: { audience: 'admin' },
+              href: '#',
+              customProps: {
+                crossRef: '/docs/edulution-server/linuxmuster',
+                audience: 'admin',
+              },
             },
             {
-              type: 'ref',
-              id: 'edulution-mdm/index',
+              type: 'link',
               label: 'MDM',
+              href: '#',
+              customProps: { crossRef: '/docs/edulution-mdm/' },
             },
             {
-              type: 'ref',
-              id: 'edulution-vdi/index',
+              type: 'link',
               label: 'Desktop-Bereitstellung',
+              href: '#',
+              customProps: { crossRef: '/docs/edulution-vdi/' },
             },
             'edulution-plattform/apps/konferenzen',
             'edulution-plattform/apps/vpn-zugang',

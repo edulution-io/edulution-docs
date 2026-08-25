@@ -103,7 +103,7 @@ Eine dauerhafte Verbindung zwischen zwei **Standorten bzw. Netzen**.
 ![Dialog „Peer hinzufügen“ mit dem Typ Site-to-Site](/img/features/wireguard-admin-site-to-site.png)
 
 :::note[Satelliten]
-Die WireGuard-App ist unabhängig von den [Satelliten](../konfiguration/satelliten.md), die ebenfalls über einen WireGuard-Tunnel angebunden werden. Der hier beschriebene VPN-Zugang dient dem Zugriff einzelner Benutzer und Standorte, nicht der Kopplung von Satelliten-Appliances.
+Die WireGuard-App ist unabhängig von den [Satelliten](../../edulution-satellite/verwaltung.md), die ebenfalls über einen WireGuard-Tunnel angebunden werden. Der hier beschriebene VPN-Zugang dient dem Zugriff einzelner Benutzer und Standorte, nicht der Kopplung von Satelliten-Appliances.
 :::
 
 </Audience>
@@ -112,4 +112,4 @@ Die WireGuard-App ist unabhängig von den [Satelliten](../konfiguration/satellit
 
 - [Benutzereinstellungen](../erste-schritte/mein-profil.md) – Übersicht aller persönlichen Einstellungen
 - [App-Store & Anwendungen](./native-apps/app-store.md) – Apps hinzufügen und verwalten
-- [Satelliten](../konfiguration/satelliten.md) – Anbindung entfernter edulution-Standorte
+- [Satelliten](../../edulution-satellite/verwaltung.md) – Anbindung entfernter edulution-Standorte

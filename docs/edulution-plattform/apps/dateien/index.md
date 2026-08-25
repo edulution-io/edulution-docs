@@ -69,7 +69,7 @@ Wenn Sie eine Datei auswählen (Checkbox), erscheinen folgende Aktionen:
 
 Rufen Sie die Dateiverwaltung über die [edulution.io App](/docs/edulution-app/) auf, kommt die Aktion **In App öffnen** hinzu. Die Datei wird an die App übergeben und dort mit den Mitteln des Betriebssystems angezeigt – unter iOS über die Dateien-App. Im Browser entfällt die Aktion, ebenso in App-Versionen älter als 2.0.
 
-Siehe auch [Mobile App & Tablet-Nutzung](../native-apps/mobile-app.md).
+Siehe auch [Mobile App & Tablet-Nutzung](../../../edulution-app/mobile-ansicht.md).
 
 ### Teilen (Sharing)
 
@@ -95,7 +95,7 @@ Die maximale Upload-Größe hängt davon ab, ob FileProxy eingerichtet ist:
 \* *Abhängig von verfügbarem Speicherplatz und Quotas*
 
 **FileProxy einrichten:**
-Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richten Sie den [edulution FileProxy](./konfiguration/fileproxy/ui-config.md) ein. Dieser bietet:
+Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richten Sie den [edulution FileProxy](../../../edulution-fileproxy/ui-config.md) ein. Dieser bietet:
 - Unbegrenzte Upload-Größe
 - Deutlich höhere Performance
 - Schnellere Up- und Downloads
@@ -136,6 +136,6 @@ Sie können Ihre Dateien auch direkt über den Dateimanager Ihres Betriebssystem
 
 - [Vorschau und Drucken](./vorschau-und-drucken.md) - Dateien ansehen und ausdrucken
 - [Dashboard](../../erste-schritte/dashboard.md) - Speichernutzung anzeigen
-- [Mobile App](../native-apps/mobile-app.md) - Dateien mobil synchronisieren
+- [Mobile App](../../../edulution-app/mobile-ansicht.md) - Dateien mobil synchronisieren
 - [Eingebettete App](../native-apps/eingebettete-app.md) - HTML/JS/CSS hochladen
 - [Schutzmechanismen beim Hochladen](./upload-schutzmechanismen.md) - Dateinamen, Duplikate und Bildumwandlung

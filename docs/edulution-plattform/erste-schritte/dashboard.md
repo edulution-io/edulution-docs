@@ -59,7 +59,7 @@ Zugriff auf die Plattform von mobilen Geräten:
 - **QR-Code**: Schneller Zugriff über QR-Code-Scan
 - **PWA**: Progressive Web App für mobile Nutzung
 
-Erfahren Sie mehr unter [Mobile App & Tablet-Nutzung](../apps/native-apps/mobile-app.md).
+Erfahren Sie mehr unter [Mobile App & Tablet-Nutzung](../../edulution-app/mobile-ansicht.md).
 
 ### Quotas
 
@@ -193,7 +193,7 @@ Das Dashboard passt sich automatisch an verschiedene Bildschirmgrößen an:
 - Größere Touch-Targets
 - Optimierte Darstellung für mittlere Bildschirme
 
-Mehr dazu unter [Mobile App & Tablet-Nutzung](../apps/native-apps/mobile-app.md).
+Mehr dazu unter [Mobile App & Tablet-Nutzung](../../edulution-app/mobile-ansicht.md).
 
 ### Mobile Ansicht
 - Gestapeltes Layout für kleine Bildschirme
@@ -204,6 +204,6 @@ Mehr dazu unter [Mobile App & Tablet-Nutzung](../apps/native-apps/mobile-app.md)
 
 - [Benutzereinstellungen](./mein-profil.md) - Profileinstellungen verwalten
 - [Sicherheitseinstellungen](../apps/native-apps/sicherheit.md) - Passwort ändern und Sicherheit konfigurieren
-- [Mobile App](../apps/native-apps/mobile-app.md) - Mobile Nutzung einrichten
+- [Mobile App](../../edulution-app/mobile-ansicht.md) - Mobile Nutzung einrichten
 - [Infoboard](../apps/native-apps/infoboard.md) - Mitteilungen verwalten
 - [Umfragen](../apps/native-apps/umfragen.md) - Umfragen erstellen und bearbeiten

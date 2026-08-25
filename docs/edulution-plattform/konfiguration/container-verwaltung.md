@@ -196,4 +196,4 @@ docker logs -f edulution-api
 - [Einstellungen](./einstellungen.md) – die übrigen Bereiche der globalen Einstellungen
 - [Administration](./administration.md) – Updates, Ports und allgemeine Admin-Aufgaben
 - [Passwortänderung einrichten](./passwort-aenderung.md#keycloak-administrationsoberfläche-aufrufen) – Zugang zur Keycloak-Administrationsoberfläche
-- [Satelliten](./satelliten.md) – Container an entfernten Standorten
+- [Satelliten](../../edulution-satellite/verwaltung.md) – Container an entfernten Standorten

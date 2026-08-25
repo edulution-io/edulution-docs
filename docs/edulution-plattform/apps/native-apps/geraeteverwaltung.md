@@ -124,5 +124,5 @@ Der CSV-Export eignet sich gut für Sicherungen vor größeren Änderungen sowie
 ## Siehe auch
 
 - [Klassenraum](./klassenzimmer.md) – Geräte im Unterricht steuern
-- [Linuxmuster verbinden](../../installation/configure_lmn-server.md)
+- [Linuxmuster verbinden](../../../edulution-server/installation.md)
 - [Linuxmuster Dokumentation](https://docs.linuxmuster.net/de/latest/systemadministration/index.html)

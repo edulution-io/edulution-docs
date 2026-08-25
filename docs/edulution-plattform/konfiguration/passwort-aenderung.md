@@ -77,7 +77,7 @@ Der Rückfallweg ist nur auf Linuxmuster-Systemen verfügbar und setzt voraus:
 
 - **Zielplattform** steht unter [Einstellungen → Globale Einstellungen → Allgemein](./einstellungen.md#allgemein) auf **Linuxmuster**.
 - Die **Linuxmuster-API** (`linuxmuster-api7`) ist auf dem Schulserver installiert und über die eingetragene externe Domain erreichbar.
-- Bind-User und Edulution-Setup-Token sind eingerichtet – siehe [Anpassung am Linuxmuster-Server](../installation/configure_lmn-server.md).
+- Bind-User und Edulution-Setup-Token sind eingerichtet – siehe [Anpassung am Linuxmuster-Server](../../edulution-server/installation.md).
 
 Steht die Zielplattform auf **Allgemein**, gibt es keinen Rückfallweg: Die Passwortänderung ist dann ausschließlich über Keycloak möglich.
 
@@ -87,7 +87,7 @@ Diese Seite beschreibt die Passwortänderung durch den Benutzer selbst. Das **Zu
 
 | Weg | Zuständig | Beschreibung |
 |---|---|---|
-| **Schulserver → Benutzerverwaltung → Passwort-Aktionen** | Global- und Schuladmins | Setzt Passwörter über die Linuxmuster-API neu, inklusive **Erstpasswort wiederherstellen**. Siehe [Linuxmuster / LINBO](./linuxmuster.md#passwörter). |
+| **Schulserver → Benutzerverwaltung → Passwort-Aktionen** | Global- und Schuladmins | Setzt Passwörter über die Linuxmuster-API neu, inklusive **Erstpasswort wiederherstellen**. Siehe [Linuxmuster / LINBO](../../edulution-server/linuxmuster.md#passwörter). |
 | **Keycloak → Users → *Benutzer* → Credentials** | Keycloak-Administration | Setzt das Passwort direkt im Realm. Auf Systemen mit `READ_ONLY`-LDAP-Verbund wirkt das nicht auf das Verzeichnis zurück. |
 
 ## Fehlermeldungen
@@ -103,4 +103,4 @@ Diese Seite beschreibt die Passwortänderung durch den Benutzer selbst. Das **Zu
 
 - [Benutzereinstellungen → Sicherheit](../erste-schritte/mein-profil.md#sicherheit) – Passwortänderung aus Benutzersicht
 - [Sicherheit & Authentifizierung](../apps/native-apps/sicherheit.md) – Zwei-Faktor-Authentifizierung und Passwort-Tresor
-- [Anpassung am Linuxmuster-Server](../installation/configure_lmn-server.md) – Linuxmuster-API und Setup-Token
+- [Anpassung am Linuxmuster-Server](../../edulution-server/installation.md) – Linuxmuster-API und Setup-Token

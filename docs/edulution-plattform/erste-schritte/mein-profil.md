@@ -177,7 +177,7 @@ Einrichtung der E-Mail-Synchronisation:
 - **Neu laden**: Button zum Aktualisieren der Sync-Job Liste
 
 :::tip[Hinweis]
-Weitere Informationen zur E-Mail-Migration finden Sie unter [E-Mail Migration](../apps/e-mail/migration.md).
+Weitere Informationen zur E-Mail-Migration finden Sie unter [E-Mail Migration](../../edulution-mail/migration.md).
 :::
 
 ### Signatur
@@ -195,7 +195,7 @@ Hier legen Sie die Signatur fest, die beim Verfassen neuer E-Mails verwendet wir
 Der formatierte Editor unterstützt nicht alle HTML-Formatierungen. Enthält Ihr Quelltext Bestandteile, die er nicht darstellen kann – ganze Elemente wie Tabellen oder eigene Formatvorlagen, aber auch einzelne Formatierungen wie Textausrichtung oder Schriftgröße –, gehen diese beim Zurückschalten in die **Editor**-Ansicht verloren. Vor dem Wechsel erscheint ein Bestätigungsdialog, der die betroffenen Elemente und Formatierungen auflistet: Mit **Abbrechen** bleibt Ihr Quelltext unverändert erhalten, mit **Trotzdem wechseln** übernehmen Sie den Verlust.
 :::
 
-Dieselbe Umschaltung steht Ihnen auch beim [Verfassen einer E-Mail](../apps/e-mail/index.md#html-quelltext-bearbeiten) zur Verfügung.
+Dieselbe Umschaltung steht Ihnen auch beim [Verfassen einer E-Mail](../../edulution-mail/index.md#html-quelltext-bearbeiten) zur Verfügung.
 
 ### Automatische Antwort
 
@@ -370,7 +370,7 @@ Ihre Sprachauswahl wirkt über die edulution-Oberfläche hinaus: edulution über
 Damit erscheinen in Ihrer Sprache:
 
 - Benachrichtigungen, die das Mailsystem selbst verschickt – etwa die E-Mail über [geänderte Kalenderfreigaben](../apps/native-apps/kalender.md#kalender-freigeben).
-- Die Oberfläche des SOGo-Webmailers, den Sie in der E-Mail-App über **In SOGo öffnen** aufrufen (siehe [E-Mail](../apps/e-mail/index.md#aktionen-leiste)).
+- Die Oberfläche des SOGo-Webmailers, den Sie in der E-Mail-App über **In SOGo öffnen** aufrufen (siehe [E-Mail](../../edulution-mail/index.md#aktionen-leiste)).
 
 Übertragen wird immer die Sprache, in der edulution tatsächlich angezeigt wird. Bei der Auswahl **Systemsprache** ist das die erkannte System- beziehungsweise Browsersprache – wird diese nicht unterstützt, entsprechend **Deutsch**.
 
@@ -455,7 +455,7 @@ Folgende Daten werden benötigt:
 - Synchronisation Ihrer Dokumente
 - Offline-Verfügbarkeit (je nach App-Einstellung)
 
-Weitere Details unter [Mobile App & Tablet-Nutzung](../apps/native-apps/mobile-app.md).
+Weitere Details unter [Mobile App & Tablet-Nutzung](../../edulution-app/mobile-ansicht.md).
 
 ---
 
@@ -514,5 +514,5 @@ Vom Dashboard aus erreichen Sie das Profil-Menü über:
 
 - [Dashboard](./dashboard.md) - Zurück zum Dashboard
 - [Sicherheit & Authentifizierung](../apps/native-apps/sicherheit.md) - Detaillierte Sicherheitseinstellungen
-- [Mobile App](../apps/native-apps/mobile-app.md) - Mobile Nutzung
-- [E-Mail Migration](../apps/e-mail/migration.md) - E-Mail einrichten
+- [Mobile App](../../edulution-app/mobile-ansicht.md) - Mobile Nutzung
+- [E-Mail Migration](../../edulution-mail/migration.md) - E-Mail einrichten

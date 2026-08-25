@@ -35,7 +35,7 @@ Die Einstellungen sind in 5 Bereiche gegliedert:
 **Plattform**
 - Auswahl: **Linuxmuster** oder **Generisch**
 - Bestimmt, an welchen Server edulution angebunden wird
-- Bei **Linuxmuster** steht die [Serververwaltung](./linuxmuster.md) zur Verfügung
+- Bei **Linuxmuster** steht die [Serververwaltung](../../edulution-server/linuxmuster.md) zur Verfügung
 
 **Organisationstyp**
 - Auswahl: **Schule**, **Unternehmen** oder **Öffentliche Verwaltung**
@@ -380,7 +380,7 @@ In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" a
 Die Chat-App umfasst einen **KI-Chat**. In den Einstellungen der Chat-App steuern Sie über Nutzergruppen, wer den KI-Chat verwenden darf.
 
 Die Verbindung zu einem KI-Dienst richten Sie unter
-[Administration → KI-Chat konfigurieren](./administration#27-ki-chat-konfigurieren)
+[Administration → KI-Chat konfigurieren](./administration.md#27-ki-chat-konfigurieren)
 ein.
 
 ### KI-Chat-Zugriff
@@ -489,4 +489,4 @@ Nützlich wenn Benutzer:
 - [Administration](./administration.md) - Allgemeine Admin-Aufgaben
 - [Container-Verwaltung](./container-verwaltung.md) - Container installieren, aktualisieren und steuern
 - [Passwortänderung einrichten](./passwort-aenderung.md#keycloak-administrationsoberfläche-aufrufen) - Zugang zur Keycloak-Administrationsoberfläche
-- [Linuxmuster verbinden](../installation/configure_lmn-server.md) - Server-Integration
+- [Linuxmuster verbinden](../../edulution-server/installation.md) - Server-Integration

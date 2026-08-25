@@ -59,7 +59,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie binde ich meinen Linuxmuster-Server an?',
       a: 'Danach stammen Konten, Klassen und Projekte aus dem Verzeichnisdienst.',
-      to: '/docs/edulution-plattform/installation/configure_lmn-server',
+      to: '/docs/edulution-server/installation',
     },
     {
       q: 'Wie bekomme ich HTTPS und einen Reverse Proxy davor?',
@@ -69,7 +69,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie kommt der Mailserver dazu?',
       a: 'edulution Mail wird getrennt installiert und dann eingebunden.',
-      to: '/docs/edulution-plattform/apps/e-mail/konfiguration/installation',
+      to: '/docs/edulution-mail/konfiguration/installation',
     },
     {
       q: 'Wir sind keine Schule – was muss ich umstellen?',
@@ -82,7 +82,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie lege ich Benutzer an oder importiere sie?',
       a: 'Benutzertypen, CSV-Import und der Sophomorix-Status der Konten.',
-      to: '/docs/edulution-plattform/konfiguration/benutzerverwaltung',
+      to: '/docs/edulution-server/benutzerverwaltung',
     },
     {
       q: 'Jemand hat sein Passwort vergessen.',
@@ -102,7 +102,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie hänge ich einen weiteren Standort an?',
       a: 'Satelliten binden entfernte Netze über einen verschlüsselten Tunnel an.',
-      to: '/docs/edulution-plattform/konfiguration/satelliten',
+      to: '/docs/edulution-satellite/verwaltung',
     },
     {
       q: 'Welche Apps sehen meine Nutzer überhaupt?',
@@ -130,7 +130,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wo finde ich meine Moodle-Kurse?',
       a: 'Lernmanagement öffnet Moodle ohne zweiten Login; Kurse entstehen aus Ihren Gruppen.',
-      to: '/docs/edulution-plattform/apps/lernmanagement/',
+      to: '/docs/edulution-lms/',
     },
     {
       q: 'Wie ordne ich Eltern ihren Kindern zu?',
@@ -165,7 +165,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Kann ich edulution auf dem Handy nutzen?',
       a: 'Die mobile Ansicht, die App und der digitale Ausweis.',
-      to: '/docs/edulution-plattform/apps/native-apps/mobile-app',
+      to: '/docs/edulution-app/mobile-ansicht',
     },
     {
       q: 'Wie ändere ich mein Passwort?',
@@ -211,12 +211,12 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie richte ich mein Mailprogramm ein?',
       a: 'Server, Ports und Verschlüsselung für Outlook, Thunderbird und Apple Mail.',
-      to: '/docs/edulution-plattform/apps/e-mail/clients/server-settings',
+      to: '/docs/edulution-mail/clients/server-settings',
     },
     {
       q: 'Wie lege ich eine Abwesenheitsnotiz an?',
       a: 'Automatische Antwort mit Zeitraum und eigenem Text.',
-      to: '/docs/edulution-plattform/apps/e-mail/auto-reply',
+      to: '/docs/edulution-mail/auto-reply',
     },
     {
       q: 'Wie komme ich von unterwegs ins Netz?',

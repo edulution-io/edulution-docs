@@ -3,14 +3,19 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /**
- * Die Dokumentation hat einen einzigen Wurzelbereich: edulution Plattform.
+ * Die Dokumentation folgt den Komponenten von edulution – denselben neun,
+ * die auf edulution.io als Produktkarten stehen: Plattform, Server, Mail,
+ * App, Satellite, LMS, VDI, MDM, FileProxy. Wer ein Produkt gekauft hat,
+ * findet alles dazu an einer Stelle: Installation, Konfiguration, Nutzung.
  *
- * Darunter wiederholt sich überall dieselbe Gliederung – Installation,
- * Konfiguration, Übersicht, Nutzung. Das gilt für die Plattform selbst und
- * für jede App darin. Die administrativen Zweige tragen
- * `customProps: { audience: … }` und sind für Endnutzer ausgeblendet
- * (siehe src/theme/DocSidebarItem/index.tsx), deshalb stört die Installation
- * niemanden, der nur wissen will, wie er eine Mail schreibt.
+ * Unter `edulution Plattform` steht deshalb nur noch, was ohne eigenen
+ * Serverdienst auskommt – die nativen Apps, Dateien, Konferenzen, VPN.
+ * Alles mit eigener Installationsstrecke ist eine Komponente daneben.
+ *
+ * Innerhalb jeder Komponente wiederholt sich dieselbe Gliederung:
+ * Installation, Konfiguration, Übersicht, Nutzung. Die administrativen
+ * Zweige tragen `customProps: { audience: … }` und sind für Endnutzer
+ * ausgeblendet (siehe src/theme/DocSidebarItem/index.tsx).
  *
  * Die Rollen-IDs stehen in src/components/audience/taxonomy.ts; ein Tippfehler
  * hält den Build an.
@@ -42,7 +47,6 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/installation/einrichtung',
             'edulution-plattform/installation/installation',
             'edulution-plattform/installation/ssl_und_reverse_proxy',
-            'edulution-plattform/installation/configure_lmn-server',
           ],
         },
         {
@@ -59,10 +63,7 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/konfiguration/einstellungen',
             'edulution-plattform/konfiguration/master-key',
             'edulution-plattform/konfiguration/container-verwaltung',
-            'edulution-plattform/konfiguration/benutzerverwaltung',
             'edulution-plattform/konfiguration/passwort-aenderung',
-            'edulution-plattform/konfiguration/linuxmuster',
-            'edulution-plattform/konfiguration/satelliten',
             'edulution-plattform/konfiguration/wiki-einstellungen',
             'edulution-plattform/konfiguration/webhooks',
             {
@@ -162,7 +163,6 @@ const sidebars: SidebarsConfig = {
                 'edulution-plattform/apps/native-apps/wiki',
                 'edulution-plattform/apps/native-apps/wiki-editor',
                 'edulution-plattform/apps/native-apps/geraeteverwaltung',
-                'edulution-plattform/apps/native-apps/mobile-app',
                 'edulution-plattform/apps/native-apps/infoboard',
                 'edulution-plattform/apps/native-apps/umfragen',
                 'edulution-plattform/apps/native-apps/app-store',
@@ -187,8 +187,9 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Konfiguration',
                   collapsed: true,
-                  // Office-Server und FileProxy aufsetzen - fuer Endnutzer
-                  // ausgeblendet (siehe src/components/audience/taxonomy.ts).
+                  // Office-Server aufsetzen - fuer Endnutzer ausgeblendet
+                  // (siehe src/components/audience/taxonomy.ts). Der
+                  // FileProxy ist eine eigene Komponente und steht daneben.
                   customProps: { audience: 'admin' },
                   items: [
                     {
@@ -205,42 +206,6 @@ const sidebars: SidebarsConfig = {
                       type: 'doc',
                       id: 'edulution-plattform/apps/dateien/konfiguration/eurooffice',
                       label: 'EuroOffice',
-                    },
-                    {
-                      type: 'category',
-                      label: 'FileProxy',
-                      collapsed: true,
-                      link: {
-                        type: 'doc',
-                        id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/index',
-                      },
-                      items: [
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/package-server',
-                          label: 'Package Server',
-                        },
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/installation',
-                          label: 'Installation',
-                        },
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/traefik-config',
-                          label: 'Traefik Konfiguration',
-                        },
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/ui-config',
-                          label: 'UI Konfiguration',
-                        },
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/dateien/konfiguration/fileproxy/wiki-infrastruktur',
-                          label: 'Wiki-Infrastruktur',
-                        },
-                      ],
                     },
                   ],
                 },
@@ -264,262 +229,318 @@ const sidebars: SidebarsConfig = {
                 },
               ],
             },
-            {
-              type: 'category',
-              label: 'E-Mail',
-              collapsed: true,
-              link: {
-                type: 'doc',
-                id: 'edulution-plattform/apps/e-mail/index',
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: 'Konfiguration',
-                  collapsed: true,
-                  // Mailserver aufsetzen und betreiben - fuer Endnutzer
-                  // ausgeblendet (siehe src/components/audience/taxonomy.ts).
-                  customProps: { audience: 'admin' },
-                  items: [
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/konfiguration/installation',
-                      label: 'Installation',
-                      customProps: { audience: 'admin-setup' },
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/konfiguration/administration',
-                      label: 'Administration',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/konfiguration/mail-app-konfiguration',
-                      label: 'Mail-App konfigurieren',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/konfiguration/mailbox-verwaltung',
-                      label: 'Mailboxen & geteilte Postfächer',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/konfiguration/verteilerlisten',
-                      label: 'Verteilerlisten',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/konfiguration/gruppen-mail-sync',
-                      label: 'Gruppen-Mail-Synchronisation',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/konfiguration/migration-einrichten',
-                      label: 'Migration einrichten',
-                    },
-                    {
-                      type: 'category',
-                      label: 'Erweiterte Konfiguration',
-                      collapsed: true,
-                      items: [
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/e-mail/konfiguration/mailformate',
-                          label: 'E-Mail-Adressen-Format',
-                        },
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/e-mail/konfiguration/admin-features',
-                          label: 'Admin-Features & Tipps',
-                        },
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/e-mail/konfiguration/changelog-config-anpassungen',
-                          label: 'Changelog & Config-Anpassungen',
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  type: 'doc',
-                  id: 'edulution-plattform/apps/e-mail/auto-reply',
-                  label: 'Automatische Antwort',
-                },
-                {
-                  type: 'doc',
-                  id: 'edulution-plattform/apps/e-mail/migration',
-                  label: 'E-Mails migrieren',
-                },
-                {
-                  type: 'category',
-                  label: 'Mail-Clients',
-                  collapsed: true,
-                  items: [
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/clients/compatibility-matrix',
-                      label: 'Client-Kompatibilität',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/clients/server-settings',
-                      label: 'Server-Einstellungen',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/clients/apple-mail',
-                      label: 'Apple Mail',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/clients/thunderbird',
-                      label: 'Thunderbird',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/clients/outlook',
-                      label: 'Outlook',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/e-mail/clients/troubleshooting',
-                      label: 'Troubleshooting',
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Lernmanagement',
-              collapsed: true,
-              link: {
-                type: 'doc',
-                id: 'edulution-plattform/apps/lernmanagement/index',
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: 'Installation',
-                  collapsed: true,
-                  // Moodle bereitstellen - nur fuer die Ersteinrichtung.
-                  customProps: { audience: 'admin-setup' },
-                  link: {
-                    type: 'doc',
-                    id: 'edulution-plattform/apps/lernmanagement/installation/index',
-                  },
-                  items: [
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/lernmanagement/installation/voraussetzungen',
-                      label: 'Voraussetzungen',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/lernmanagement/installation/schnellstart',
-                      label: 'Schnellstart',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/lernmanagement/installation/detailliert',
-                      label: 'Detaillierte Installation',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/lernmanagement/installation/migration',
-                      label: 'Migration',
-                    },
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Konfiguration',
-                  collapsed: true,
-                  // Moodle-Anbindung betreiben - fuer Endnutzer ausgeblendet.
-                  customProps: { audience: 'admin' },
-                  link: {
-                    type: 'doc',
-                    id: 'edulution-plattform/apps/lernmanagement/konfiguration/index',
-                  },
-                  items: [
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/umgebungsvariablen',
-                      label: 'Umgebungsvariablen',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/synchronisation',
-                      label: 'Synchronisation',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/namensschemas',
-                      label: 'Gruppen-Namensschemas',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/cookie-auth',
-                      label: 'Cookie Auth (SSO)',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/lernmanagement/konfiguration/plugins',
-                      label: 'Plugin-Verwaltung',
-                    },
-                    {
-                      type: 'category',
-                      label: 'Administration',
-                      collapsed: true,
-                      items: [
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/lernmanagement/konfiguration/administration/admin-ui',
-                          label: 'Admin-Oberfläche',
-                        },
-                        {
-                          type: 'doc',
-                          id: 'edulution-plattform/apps/lernmanagement/konfiguration/administration/backup',
-                          label: 'Backup & Wiederherstellung',
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
             'edulution-plattform/apps/konferenzen',
-            'edulution-plattform/apps/mdm',
             'edulution-plattform/apps/vpn-zugang',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'edulution Server',
+      collapsed: true,
+      // Der Schulserver wird aufgesetzt und betrieben, nicht bedient -
+      // fuer Endnutzer ist der ganze Bereich ausgeblendet.
+      customProps: { audience: 'admin' },
+      link: {
+        type: 'doc',
+        id: 'edulution-server/index',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-server/installation',
+          label: 'Installation',
+          customProps: { audience: 'admin-setup' },
+        },
+        {
+          type: 'doc',
+          id: 'edulution-server/linuxmuster',
+          label: 'Linuxmuster & LINBO',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-server/benutzerverwaltung',
+          label: 'Benutzerverwaltung',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'edulution Mail',
+      collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'edulution-mail/index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Konfiguration',
+          collapsed: true,
+          // Mailserver aufsetzen und betreiben - fuer Endnutzer
+          // ausgeblendet (siehe src/components/audience/taxonomy.ts).
+          customProps: { audience: 'admin' },
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-mail/konfiguration/installation',
+              label: 'Installation',
+              customProps: { audience: 'admin-setup' },
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/konfiguration/administration',
+              label: 'Administration',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/konfiguration/mail-app-konfiguration',
+              label: 'Mail-App konfigurieren',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/konfiguration/mailbox-verwaltung',
+              label: 'Mailboxen & geteilte Postfächer',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/konfiguration/verteilerlisten',
+              label: 'Verteilerlisten',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/konfiguration/gruppen-mail-sync',
+              label: 'Gruppen-Mail-Synchronisation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/konfiguration/migration-einrichten',
+              label: 'Migration einrichten',
+            },
             {
               type: 'category',
-              label: 'Satellite',
+              label: 'Erweiterte Konfiguration',
               collapsed: true,
-              // Eine Appliance fuer entfernte Standorte - es gibt dazu nichts
-              // fuer Endnutzer, deshalb ist der ganze Block ausgezeichnet.
-              // Nicht mit dem VPN-Zugang verwechseln: der ist der WireGuard-
-              // Tunnel einzelner Benutzer, nicht die Kopplung von Appliances.
-              customProps: { audience: 'admin' },
-              link: {
-                type: 'doc',
-                id: 'edulution-plattform/apps/satellite/index',
-              },
               items: [
                 {
                   type: 'doc',
-                  id: 'edulution-plattform/apps/satellite/einrichtung-mit-edulution',
-                  label: 'Einrichtung mit edulution',
+                  id: 'edulution-mail/konfiguration/mailformate',
+                  label: 'E-Mail-Adressen-Format',
                 },
                 {
                   type: 'doc',
-                  id: 'edulution-plattform/apps/satellite/standalone',
-                  label: 'Standalone einrichten',
+                  id: 'edulution-mail/konfiguration/admin-features',
+                  label: 'Admin-Features & Tipps',
                 },
                 {
                   type: 'doc',
-                  id: 'edulution-plattform/apps/satellite/wireguard-traefik',
-                  label: 'WireGuard über Traefik',
+                  id: 'edulution-mail/konfiguration/changelog-config-anpassungen',
+                  label: 'Changelog & Config-Anpassungen',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'doc',
+          id: 'edulution-mail/auto-reply',
+          label: 'Automatische Antwort',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-mail/migration',
+          label: 'E-Mails migrieren',
+        },
+        {
+          type: 'category',
+          label: 'Mail-Clients',
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-mail/clients/compatibility-matrix',
+              label: 'Client-Kompatibilität',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/clients/server-settings',
+              label: 'Server-Einstellungen',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/clients/apple-mail',
+              label: 'Apple Mail',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/clients/thunderbird',
+              label: 'Thunderbird',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/clients/outlook',
+              label: 'Outlook',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mail/clients/troubleshooting',
+              label: 'Troubleshooting',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'edulution App',
+      collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'edulution-app/index',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-app/setup',
+          label: 'Einrichtung',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-app/mobile-ansicht',
+          label: 'Mobile Ansicht & Tablets',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'edulution Satellite',
+      collapsed: true,
+      // Eine Appliance fuer entfernte Standorte - es gibt dazu nichts
+      // fuer Endnutzer, deshalb ist der ganze Block ausgezeichnet.
+      // Nicht mit dem VPN-Zugang der Plattform verwechseln: der ist der
+      // WireGuard-Tunnel einzelner Benutzer, nicht die Kopplung von
+      // Appliances.
+      customProps: { audience: 'admin' },
+      link: {
+        type: 'doc',
+        id: 'edulution-satellite/index',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-satellite/einrichtung-mit-edulution',
+          label: 'Einrichtung mit edulution',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/standalone',
+          label: 'Standalone einrichten',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/wireguard-traefik',
+          label: 'WireGuard über Traefik',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/verwaltung',
+          label: 'Satelliten verwalten',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'edulution LMS',
+      collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'edulution-lms/index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Installation',
+          collapsed: true,
+          // Moodle bereitstellen - nur fuer die Ersteinrichtung.
+          customProps: { audience: 'admin-setup' },
+          link: {
+            type: 'doc',
+            id: 'edulution-lms/installation/index',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-lms/installation/voraussetzungen',
+              label: 'Voraussetzungen',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-lms/installation/schnellstart',
+              label: 'Schnellstart',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-lms/installation/detailliert',
+              label: 'Detaillierte Installation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-lms/installation/migration',
+              label: 'Migration',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Konfiguration',
+          collapsed: true,
+          // Moodle-Anbindung betreiben - fuer Endnutzer ausgeblendet.
+          customProps: { audience: 'admin' },
+          link: {
+            type: 'doc',
+            id: 'edulution-lms/konfiguration/index',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-lms/konfiguration/umgebungsvariablen',
+              label: 'Umgebungsvariablen',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-lms/konfiguration/synchronisation',
+              label: 'Synchronisation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-lms/konfiguration/namensschemas',
+              label: 'Gruppen-Namensschemas',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-lms/konfiguration/cookie-auth',
+              label: 'Cookie Auth (SSO)',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-lms/konfiguration/plugins',
+              label: 'Plugin-Verwaltung',
+            },
+            {
+              type: 'category',
+              label: 'Administration',
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'edulution-lms/konfiguration/administration/admin-ui',
+                  label: 'Admin-Oberfläche',
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-lms/konfiguration/administration/backup',
+                  label: 'Backup & Wiederherstellung',
                 },
               ],
             },
@@ -528,25 +549,51 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
+      type: 'doc',
+      id: 'edulution-vdi/index',
+      label: 'edulution VDI',
+    },
+    {
+      type: 'doc',
+      id: 'edulution-mdm/index',
+      label: 'edulution MDM',
+    },
+    {
       type: 'category',
-      label: 'edulution Mobile App',
-      collapsed: false,
+      label: 'edulution FileProxy',
+      collapsed: true,
+      // Ein Serverdienst hinter der Dateiverwaltung - Endnutzer merken
+      // von ihm nichts und bekommen den Bereich nicht zu sehen.
+      customProps: { audience: 'admin' },
       link: {
-        type: 'generated-index',
-        title: 'edulution Mobile App',
-        description: 'Die mobile App für die edulution-Plattform.',
-        slug: '/category/edulution-app',
+        type: 'doc',
+        id: 'edulution-fileproxy/index',
       },
       items: [
         {
           type: 'doc',
-          id: 'edulution-app/index',
-          label: '📱 Übersicht',
+          id: 'edulution-fileproxy/package-server',
+          label: 'Package Server',
         },
         {
           type: 'doc',
-          id: 'edulution-app/setup',
-          label: '⚙️ Einrichtung',
+          id: 'edulution-fileproxy/installation',
+          label: 'Installation',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-fileproxy/traefik-config',
+          label: 'Traefik Konfiguration',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-fileproxy/ui-config',
+          label: 'UI Konfiguration',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-fileproxy/wiki-infrastruktur',
+          label: 'Wiki-Infrastruktur',
         },
       ],
     },

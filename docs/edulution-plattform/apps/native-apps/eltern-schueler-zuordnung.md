@@ -110,4 +110,4 @@ Sie zeigt die Zuordnungen in einer Tabelle mit folgenden Spalten:
 
 - [Mein Profil](../../erste-schritte/mein-profil.md)
 - [Klassenraum](./klassenzimmer.md)
-- [Administration → Linuxmuster](../../konfiguration/linuxmuster.md)
+- [Administration → Linuxmuster](../../../edulution-server/linuxmuster.md)

@@ -103,11 +103,11 @@ Einige Apps blenden unterhalb der Menüeinträge einen festen Fußbereich ein:
 
 - **[Dateien](../apps/dateien/index.md)**: Zugangsdaten für [WebDAV](../apps/dateien/webdav-windows.md) sowie die Anzeige des belegten Speicherplatzes
 - **[Kontakte](../apps/native-apps/kontakte.md)**: Schaltfläche zum Anlegen eines neuen Adressbuchs
-- **[E-Mail](../apps/e-mail/index.md)**: Hinweis, solange die Ordnerliste noch geladen wird
+- **[E-Mail](../../edulution-mail/index.md)**: Hinweis, solange die Ordnerliste noch geladen wird
 
 ## Bedienung auf Tablet und Smartphone
 
-Auf schmalen Bildschirmen und in der [mobilen App](../apps/native-apps/mobile-app.md) sind beide Leisten eingeklappt. Stattdessen erscheint oben eine schmale Leiste mit je einer Schaltfläche:
+Auf schmalen Bildschirmen und in der [mobilen App](../../edulution-app/mobile-ansicht.md) sind beide Leisten eingeklappt. Stattdessen erscheint oben eine schmale Leiste mit je einer Schaltfläche:
 
 | Schaltfläche | Wirkung |
 |---|---|

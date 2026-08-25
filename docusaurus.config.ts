@@ -42,30 +42,79 @@ const config: Config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
-        // Zwei Umbauten liegen hinter uns, und beide sollen alte Links
+        // Drei Umbauten liegen hinter uns, und alle drei sollen alte Links
         // (Lesezeichen, Forenbeitraege, externe Verweise) am Leben lassen:
         //
-        //   1. Die Umbenennung von /docs/edulution-ui/ nach
-        //      /docs/edulution-plattform/.
-        //   2. Der Umbau auf einen einzigen Wurzelbereich, bei dem die
-        //      Produktbereiche in edulution-plattform/apps/ gewandert sind
-        //      und aus administration/ die konfiguration/ wurde.
+        //   L1. Ein Bereich je Produkt (/docs/edulution-mail/,
+        //       /docs/edulution-moodle/ …) neben /docs/edulution-ui/, das
+        //       spaeter /docs/edulution-plattform/ hiess.
+        //   L2. Ein einziger Wurzelbereich: alle Produkte wanderten nach
+        //       edulution-plattform/apps/, aus administration/ wurde
+        //       konfiguration/.
+        //   L3. Zurueck zu einem Bereich je Komponente – denselben neun,
+        //       die auf edulution.io als Produktkarten stehen.
         //
         // `createRedirects` bekommt den *neuen* Pfad und liefert die alten.
-        // Weil alle Umzuege reine Praefix-Ersetzungen waren, genuegen Regeln
-        // statt einer Tabelle mit 60 Zeilen — eine neue Seite unter apps/
-        // bekommt ihre Weiterleitung damit automatisch.
+        // Weil die Umzuege im Wesentlichen Praefix-Ersetzungen waren,
+        // genuegen Regeln statt einer Tabelle mit hundert Zeilen — eine neue
+        // Seite in einer Komponente bekommt ihre Weiterleitungen damit
+        // automatisch.
+        //
+        // Achtung bei L1: einige der damaligen Adressen sind heute wieder
+        // echte Seiten (/docs/edulution-mail/, /docs/edulution-satellite/,
+        // /docs/edulution-fileproxy/). Wo alt und neu zusammenfallen, filtert
+        // die Funktion die Regel unten selbst heraus; wo sie sich nur
+        // ueberschneiden — /docs/edulution-mail/installation gegen
+        // /docs/edulution-mail/konfiguration/installation — muss die Regel
+        // den Unterschied treffen, sonst entsteht eine Weiterleitung auf
+        // eine existierende Seite und der Build bricht ab.
         createRedirects(existingPath: string) {
           // Einzelne Seiten, die beim Umzug auch den Namen gewechselt haben.
           const RENAMED: Record<string, string[]> = {
-            '/docs/edulution-plattform/apps/e-mail/': ['/docs/edulution-mail', '/docs/category/edulution-mail'],
-            '/docs/edulution-plattform/apps/e-mail/migration': ['/docs/edulution-mail/user_mail_migration'],
-            '/docs/edulution-plattform/apps/e-mail/konfiguration/migration-einrichten': [
-              '/docs/edulution-mail/admin_mail_migration',
+            // --- edulution Mail ---------------------------------------
+            '/docs/edulution-mail/': ['/docs/category/edulution-mail'],
+            '/docs/edulution-mail/migration': ['/docs/edulution-mail/user_mail_migration'],
+            '/docs/edulution-mail/konfiguration/migration-einrichten': ['/docs/edulution-mail/admin_mail_migration'],
+            '/docs/edulution-mail/konfiguration/mailformate': ['/docs/edulution-mail/benutzer_mailformate'],
+
+            // --- edulution App ----------------------------------------
+            '/docs/edulution-app/': ['/docs/category/edulution-app'],
+            // Die mobile Ansicht lag als native App in der Plattform.
+            '/docs/edulution-app/mobile-ansicht': [
+              '/docs/edulution-plattform/apps/native-apps/mobile-app',
+              '/docs/edulution-plattform/features/mobile-app',
             ],
-            '/docs/edulution-plattform/apps/e-mail/konfiguration/mailformate': [
-              '/docs/edulution-mail/benutzer_mailformate',
+
+            // --- edulution Server -------------------------------------
+            // Drei Seiten aus der Plattform: die Server-Vorbereitung aus der
+            // Installation, die Schulserver-App und die Benutzerverwaltung
+            // aus der Konfiguration.
+            '/docs/edulution-server/installation': [
+              '/docs/edulution-plattform/installation/configure_lmn-server',
+              '/docs/edulution-plattform/configure-lmn-server/configure_lmn-server',
             ],
+            '/docs/edulution-server/linuxmuster': [
+              '/docs/edulution-plattform/konfiguration/linuxmuster',
+              '/docs/edulution-plattform/administration/linuxmuster',
+            ],
+            '/docs/edulution-server/benutzerverwaltung': [
+              '/docs/edulution-plattform/konfiguration/benutzerverwaltung',
+              '/docs/edulution-plattform/administration/benutzerverwaltung',
+            ],
+
+            // --- edulution Satellite ----------------------------------
+            '/docs/edulution-satellite/verwaltung': [
+              '/docs/edulution-plattform/konfiguration/satelliten',
+              '/docs/edulution-plattform/administration/satelliten',
+            ],
+
+            // --- edulution MDM ----------------------------------------
+            '/docs/edulution-mdm/': [
+              '/docs/edulution-plattform/apps/mdm',
+              '/docs/edulution-plattform/features/mdm',
+            ],
+
+            // --- in der Plattform verbliebene Seiten -------------------
             '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice': [
               '/docs/edulution-onlyoffice/',
               '/docs/category/edulution-onlyoffice',
@@ -79,12 +128,6 @@ const config: Config = {
               '/docs/category/edulution-eurooffice',
             ],
             '/docs/edulution-plattform/apps/dateien/goodnotes': ['/docs/edulution-plattform/features/goodnotes'],
-            '/docs/edulution-plattform/apps/lernmanagement/konfiguration/': ['/docs/edulution-moodle/'],
-            // Die Experten-Tipps bestanden nur aus dem Zugang zur
-            // Keycloak-Administrationsoberflaeche. Der steht jetzt als
-            // Unterabschnitt in der Passwortaenderung. Beide Alt-Pfade
-            // stehen hier, weil der /administration/-Zwilling aus der
-            // PREFIXES-Regel nur fuer den *neuen* Pfad entsteht.
             '/docs/edulution-plattform/konfiguration/passwort-aenderung': [
               '/docs/edulution-plattform/konfiguration/experten-tipps',
               '/docs/edulution-plattform/administration/experten-tipps',
@@ -93,28 +136,38 @@ const config: Config = {
 
           const PREFIXES: [string, string][] = [
             // neu                                        // alt
-            ['/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/', '/docs/edulution-fileproxy/'],
-            ['/docs/edulution-plattform/apps/lernmanagement/installation/', '/docs/edulution-moodle/installation/'],
+            // --- edulution Mail ---------------------------------------
+            ['/docs/edulution-mail/konfiguration/', '/docs/edulution-plattform/apps/e-mail/konfiguration/'],
+            ['/docs/edulution-mail/konfiguration/', '/docs/edulution-mail/'],
+            ['/docs/edulution-mail/clients/', '/docs/edulution-plattform/apps/e-mail/clients/'],
+            ['/docs/edulution-mail/', '/docs/edulution-plattform/apps/e-mail/'],
+
+            // --- edulution LMS ----------------------------------------
+            ['/docs/edulution-lms/installation/', '/docs/edulution-plattform/apps/lernmanagement/installation/'],
+            ['/docs/edulution-lms/installation/', '/docs/edulution-moodle/installation/'],
             [
+              '/docs/edulution-lms/konfiguration/administration/',
               '/docs/edulution-plattform/apps/lernmanagement/konfiguration/administration/',
-              '/docs/edulution-moodle/administration/',
             ],
-            ['/docs/edulution-plattform/apps/lernmanagement/konfiguration/', '/docs/edulution-moodle/konfiguration/'],
-            ['/docs/edulution-plattform/apps/e-mail/clients/', '/docs/edulution-mail/clients/'],
-            ['/docs/edulution-plattform/apps/e-mail/konfiguration/', '/docs/edulution-mail/'],
-            ['/docs/edulution-plattform/apps/e-mail/auto-reply', '/docs/edulution-mail/auto-reply'],
+            ['/docs/edulution-lms/konfiguration/administration/', '/docs/edulution-moodle/administration/'],
+            ['/docs/edulution-lms/konfiguration/', '/docs/edulution-plattform/apps/lernmanagement/konfiguration/'],
+            ['/docs/edulution-lms/konfiguration/', '/docs/edulution-moodle/konfiguration/'],
+            ['/docs/edulution-lms/', '/docs/edulution-plattform/apps/lernmanagement/'],
+            ['/docs/edulution-lms/', '/docs/edulution-moodle/'],
+
+            // --- edulution FileProxy und Satellite --------------------
+            // L1 hiess wie L3, deshalb genuegt der Zwischenschritt.
+            ['/docs/edulution-fileproxy/', '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/'],
+            ['/docs/edulution-satellite/', '/docs/edulution-plattform/apps/satellite/'],
+
+            // --- edulution Plattform ----------------------------------
             ['/docs/edulution-plattform/erste-schritte/mein-profil', '/docs/edulution-plattform/benutzer/mein-profil'],
             ['/docs/edulution-plattform/erste-schritte/', '/docs/edulution-plattform/features/'],
-            [
-              '/docs/edulution-plattform/installation/configure_lmn-server',
-              '/docs/edulution-plattform/configure-lmn-server/configure_lmn-server',
-            ],
             ['/docs/edulution-plattform/konfiguration/anbindungen/', '/docs/anbindungen/'],
             ['/docs/edulution-plattform/konfiguration/upgrade/', '/docs/edulution-plattform/upgrade/'],
             ['/docs/edulution-plattform/konfiguration/', '/docs/edulution-plattform/administration/'],
-            ['/docs/edulution-plattform/apps/', '/docs/edulution-plattform/features/'],
             ['/docs/edulution-plattform/apps/native-apps/', '/docs/edulution-plattform/features/'],
-            ['/docs/edulution-plattform/apps/satellite/', '/docs/edulution-satellite/'],
+            ['/docs/edulution-plattform/apps/', '/docs/edulution-plattform/features/'],
           ];
 
           // Mehrere Regeln koennen passen - etwa konfiguration/ und
@@ -229,15 +282,15 @@ const config: Config = {
             },
             {
               label: 'edulution Mail',
-              to: '/docs/edulution-plattform/apps/e-mail/',
+              to: '/docs/edulution-mail/',
             },
             {
               label: 'edulution App',
-              to: '/docs/category/edulution-app',
+              to: '/docs/edulution-app/',
             },
             {
               label: 'edulution Satellite',
-              to: '/docs/edulution-plattform/apps/satellite/',
+              to: '/docs/edulution-satellite/',
             },
             {
               label: 'edulution OnlyOffice',
@@ -290,7 +343,7 @@ const config: Config = {
             },
             {
               label: 'edulution Mail',
-              to: '/docs/edulution-plattform/apps/e-mail/konfiguration/installation',
+              to: '/docs/edulution-mail/konfiguration/installation',
             },
           ],
         },

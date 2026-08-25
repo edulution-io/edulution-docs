@@ -65,7 +65,7 @@ Du musst die Plattform nicht verlassen, um an die Funktionen der App zu kommen. 
 
 Die Schnellaktionen setzen App-Version **2.0** voraus, das Einmalpasswort **2.1.11**.
 
-[→ Details: Mobile Kopfleiste und App-Funktionen](/docs/edulution-plattform/apps/native-apps/mobile-app)
+[→ Details: Mobile Kopfleiste und App-Funktionen](/docs/edulution-app/mobile-ansicht)
 
 ---
 

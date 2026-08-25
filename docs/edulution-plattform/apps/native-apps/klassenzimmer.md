@@ -171,4 +171,4 @@ Nützlich für:
 
 - [Dashboard](../../erste-schritte/dashboard.md) - Klassenübersicht
 - [Einstellungen → Klassenraum (Veyon-Proxy)](../../konfiguration/einstellungen.md#klassenraum-veyon-proxy) - Bildschirmüberwachung einrichten
-- [Linuxmuster verbinden](../../installation/configure_lmn-server.md)
+- [Linuxmuster verbinden](../../../edulution-server/installation.md)

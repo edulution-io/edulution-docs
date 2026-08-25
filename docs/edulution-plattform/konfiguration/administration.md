@@ -281,7 +281,7 @@ Anbieters in der `.edulution.env` im Installationsverzeichnis
 
 Die Freigabe des KI-Chats für einzelne Nutzergruppen konfigurieren Sie
 anschließend unter
-[Einstellungen → Chat (KI-Chat)](./einstellungen#chat-ki-chat).
+[Einstellungen → Chat (KI-Chat)](./einstellungen.md#chat-ki-chat).
 
 ### 2.7.1 Unterstützte Anbieter
 

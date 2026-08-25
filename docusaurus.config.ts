@@ -128,6 +128,29 @@ const config: Config = {
               '/docs/category/edulution-eurooffice',
             ],
             '/docs/edulution-plattform/apps/dateien/goodnotes': ['/docs/edulution-plattform/features/goodnotes'],
+            // Die Benutzereinstellungen sind in Unterseiten zerlegt; die
+            // alte Sammelseite fuehrt auf die Uebersicht. Anker-Links von
+            // aussen landen damit oben statt am Abschnitt - der einzige
+            // Verlust, den der Umbau kostet.
+            '/docs/edulution-plattform/erste-schritte/benutzereinstellungen/': [
+              '/docs/edulution-plattform/erste-schritte/mein-profil',
+              '/docs/edulution-plattform/benutzer/mein-profil',
+            ],
+            // App-Store raus aus der Liste der nativen Apps, darueber.
+            '/docs/edulution-plattform/apps/app-store': [
+              '/docs/edulution-plattform/apps/native-apps/app-store',
+            ],
+            // Impressum & Datenschutz ist eine Konfigurationsaufgabe.
+            '/docs/edulution-plattform/konfiguration/impressum-datenschutz': [
+              '/docs/edulution-plattform/apps/native-apps/impressum-datenschutz',
+              '/docs/edulution-plattform/features/impressum-datenschutz',
+            ],
+            // "Weitere Features" ist aufgeloest: Sprache und KI-Chat stehen
+            // laengst ausfuehrlicher in den Benutzereinstellungen und im Chat.
+            '/docs/edulution-plattform/erste-schritte/benutzereinstellungen/benutzeroberflaeche': [
+              '/docs/edulution-plattform/apps/native-apps/weitere-features',
+              '/docs/edulution-plattform/features/weitere-features',
+            ],
             '/docs/edulution-plattform/konfiguration/passwort-aenderung': [
               '/docs/edulution-plattform/konfiguration/experten-tipps',
               '/docs/edulution-plattform/administration/experten-tipps',
@@ -161,11 +184,11 @@ const config: Config = {
             ['/docs/edulution-satellite/', '/docs/edulution-plattform/apps/satellite/'],
 
             // --- edulution Plattform ----------------------------------
-            ['/docs/edulution-plattform/erste-schritte/mein-profil', '/docs/edulution-plattform/benutzer/mein-profil'],
             ['/docs/edulution-plattform/erste-schritte/', '/docs/edulution-plattform/features/'],
             ['/docs/edulution-plattform/konfiguration/anbindungen/', '/docs/anbindungen/'],
             ['/docs/edulution-plattform/konfiguration/upgrade/', '/docs/edulution-plattform/upgrade/'],
             ['/docs/edulution-plattform/konfiguration/', '/docs/edulution-plattform/administration/'],
+            ['/docs/edulution-plattform/features/', '/docs/edulution-plattform/apps/native-apps/'],
             ['/docs/edulution-plattform/apps/native-apps/', '/docs/edulution-plattform/features/'],
             ['/docs/edulution-plattform/apps/', '/docs/edulution-plattform/features/'],
           ];
@@ -190,7 +213,18 @@ const config: Config = {
               : [path],
           );
 
-          const redirects = [...new Set(all)].filter((path) => path !== existingPath);
+          // /docs/edulution-plattform/features/ ist seit dem Features-Bereich
+          // eine echte Seite. Die apps/-Regel oben wuerde sie als Alt-URL der
+          // Apps-Uebersicht erzeugen; eine Weiterleitung auf eine bestehende
+          // Seite laesst der Build nicht zu.
+          const NEVER_EXISTED = new Set([
+            '/docs/edulution-plattform/features/',
+            '/docs/edulution-ui/features/',
+          ]);
+
+          const redirects = [...new Set(all)].filter(
+            (path) => path !== existingPath && !NEVER_EXISTED.has(path),
+          );
           return redirects.length ? redirects : undefined;
         },
       },

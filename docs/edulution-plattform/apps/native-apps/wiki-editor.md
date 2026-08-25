@@ -215,6 +215,6 @@ Auf macOS steht `Cmd` an der Stelle von `Strg`.
 ## Siehe auch
 
 - [Wiki](./wiki.md) – Aufbau, Seitenverwaltung und Suche
-- [Markdown-Hilfe](./markdown-hilfe.md) – Markdown-Syntax hinter dem Editor
+- [Markdown-Hilfe](../../features/markdown-hilfe.md) – Markdown-Syntax hinter dem Editor
 - [Dateien](../dateien/index.md) – Freigabe, auf der Wiki-Seiten und Anhänge gespeichert werden; dort lassen sich Dateien auch [ansehen und bearbeiten](../dateien/vorschau-und-drucken.md#vorschau-öffnen)
 - [Wiki-Einstellungen (Admin)](../../konfiguration/wiki-einstellungen.md) – Sichtbarkeit pro Freigabe steuern

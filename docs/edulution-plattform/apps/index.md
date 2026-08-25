@@ -13,6 +13,8 @@ weiter unten sagt, welche App zu welcher Komponente gehört.
 ## Native Apps
 
 Diese Apps sind Teil der Plattform und stehen in der Seitenleiste unter **Native Apps** zusammen.
+Jede bringt eine eigene Kachel mit; freigeschaltet werden sie im
+[App-Store](./app-store.md).
 
 - **[Chat](./native-apps/chat.md)**, **[Kontakte](./native-apps/kontakte.md)** und
   **[Kalender](./native-apps/kalender.md)** – Nachrichten, Adressbücher, Termine.
@@ -20,16 +22,14 @@ Diese Apps sind Teil der Plattform und stehen in der Seitenleiste unter **Native
   Bildschirme beaufsichtigen.
 - **[Whiteboard](./native-apps/whiteboard.md)**, **[Wiki](./native-apps/wiki.md)** und
   **[Wiki-Editor](./native-apps/wiki-editor.md)** – gemeinsam skizzieren und dokumentieren.
-- **[Infoboard](./native-apps/infoboard.md)**, **[Umfragen](./native-apps/umfragen.md)**
-  und **[Benachrichtigungen](./native-apps/benachrichtigungen.md)** – informieren und nachfragen.
-- **[Eltern-Schüler-Zuordnung](./native-apps/eltern-schueler-zuordnung.md)** und
-  **[Geräteverwaltung](./native-apps/geraeteverwaltung.md)**.
-- **[App-Store](./native-apps/app-store.md)**,
-  **[Eingebettete App](./native-apps/eingebettete-app.md)**,
-  **[Impressum & Datenschutz](./native-apps/impressum-datenschutz.md)**,
-  **[Markdown-Hilfe](./native-apps/markdown-hilfe.md)**,
-  **[Sicherheit](./native-apps/sicherheit.md)** und
-  **[Weitere Features](./native-apps/weitere-features.md)**.
+- **[Infoboard](./native-apps/infoboard.md)** und **[Umfragen](./native-apps/umfragen.md)** –
+  informieren und nachfragen.
+- **[Geräteverwaltung](./native-apps/geraeteverwaltung.md)** – die eigenen Geräte im Blick.
+- **[Eingebettete App](./native-apps/eingebettete-app.md)** – eine fremde Weboberfläche als
+  eigene Kachel einbinden.
+
+Funktionen, die keine eigene App sind – Benachrichtigungen, die Eltern-Schüler-Zuordnung, der
+Passwort-Tresor und die Markdown-Hilfe – stehen unter **[Features](../features/index.md)**.
 
 ## Apps mit eigenem Bereich
 

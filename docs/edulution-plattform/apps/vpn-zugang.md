@@ -8,7 +8,7 @@ Der VPN-Zugang erscheint nur, wenn die Administration die **WireGuard**-App eing
 
 ## Für Benutzer: eigenen VPN-Zugang abrufen
 
-Den eigenen Zugang finden Sie in den [Benutzereinstellungen](../erste-schritte/mein-profil.md) unter **VPN-Zugang**. Die Seite zeigt die persönliche WireGuard-Konfiguration, sofern Ihnen die Administration einen Peer zugewiesen hat.
+Den eigenen Zugang finden Sie in den [Benutzereinstellungen](../erste-schritte/benutzereinstellungen/index.md) unter **VPN-Zugang**. Die Seite zeigt die persönliche WireGuard-Konfiguration, sofern Ihnen die Administration einen Peer zugewiesen hat.
 
 Wurde für Ihr Konto noch kein Zugang eingerichtet, erscheint stattdessen der Hinweis, dass noch kein WireGuard-VPN-Zugang vorhanden ist. Wenden Sie sich in diesem Fall an einen Administrator.
 
@@ -56,7 +56,7 @@ Den VPN-Zugang richtet die Administration Ihrer Schule ein und legt dabei fest, 
 
 ## Für Administratoren: WireGuard einrichten
 
-Der VPN-Zugang wird als native **WireGuard**-App über den [App-Store](./native-apps/app-store.md) hinzugefügt und anschließend unter **Einstellungen** konfiguriert.
+Der VPN-Zugang wird als native **WireGuard**-App über den [App-Store](./app-store.md) hinzugefügt und anschließend unter **Einstellungen** konfiguriert.
 
 ### App hinzufügen und verbinden
 
@@ -110,6 +110,6 @@ Die WireGuard-App ist unabhängig von den [Satelliten](../../edulution-satellite
 
 ## Siehe auch
 
-- [Benutzereinstellungen](../erste-schritte/mein-profil.md) – Übersicht aller persönlichen Einstellungen
-- [App-Store & Anwendungen](./native-apps/app-store.md) – Apps hinzufügen und verwalten
+- [Benutzereinstellungen](../erste-schritte/benutzereinstellungen/index.md) – Übersicht aller persönlichen Einstellungen
+- [App-Store & Anwendungen](./app-store.md) – Apps hinzufügen und verwalten
 - [Satelliten](../../edulution-satellite/verwaltung.md) – Anbindung entfernter edulution-Standorte

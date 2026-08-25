@@ -54,7 +54,7 @@ Ist Collabora als Dokumenten-Editor eingerichtet, gilt diese Einschränkung nich
 
 Textbasierte Dateien werden direkt im Vorschaufenster angezeigt:
 
-- **Markdown-Dateien** werden formatiert dargestellt – Überschriften, Listen, Tabellen, Zitate und Links erscheinen so, wie sie gemeint sind. Welche Formatierungen möglich sind, zeigt die [Markdown-Hilfe](../native-apps/markdown-hilfe.md)
+- **Markdown-Dateien** werden formatiert dargestellt – Überschriften, Listen, Tabellen, Zitate und Links erscheinen so, wie sie gemeint sind. Welche Formatierungen möglich sind, zeigt die [Markdown-Hilfe](../../features/markdown-hilfe.md)
 - **Alle anderen Textdateien** – etwa Protokolle, CSV-Listen oder Quelltexte – werden als reiner Text angezeigt
 
 ### Bearbeiten
@@ -134,5 +134,5 @@ Vorschaubilder werden nur für Bilddateien erzeugt. Bei sehr großen oder besch�
 
 - [Dateien](./index.md) – Übersicht über die Dateiverwaltung
 - [Diagramme mit Draw.io](./drawio.md) – Diagramme ansehen und bearbeiten
-- [Markdown-Hilfe](../native-apps/markdown-hilfe.md) – unterstützte Formatierungen
+- [Markdown-Hilfe](../../features/markdown-hilfe.md) – unterstützte Formatierungen
 - [Browser Download-Einstellungen](./browser-download-einstellungen.md) – wenn Downloads blockiert werden

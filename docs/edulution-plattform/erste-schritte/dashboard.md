@@ -36,8 +36,8 @@ Zeigt Ihre persönlichen Informationen:
 - **Role**: Ihre Rolle im System (z.B. "Teacher")
 
 #### Schnellaktionen
-- **Change Password**: [Passwort ändern](./mein-profil.md#passwort-ändern)
-- **Change my data**: [Persönliche Daten aktualisieren](./mein-profil.md#benutzerdetails)
+- **Change Password**: [Passwort ändern](./benutzereinstellungen/sicherheit.md#passwort-ändern)
+- **Change my data**: [Persönliche Daten aktualisieren](./benutzereinstellungen/benutzerdetails.md)
 
 ### Classes
 
@@ -202,8 +202,8 @@ Mehr dazu unter [Mobile App & Tablet-Nutzung](../../edulution-app/mobile-ansicht
 
 ## Weitere Informationen
 
-- [Benutzereinstellungen](./mein-profil.md) - Profileinstellungen verwalten
-- [Sicherheitseinstellungen](../apps/native-apps/sicherheit.md) - Passwort ändern und Sicherheit konfigurieren
+- [Benutzereinstellungen](./benutzereinstellungen/index.md) - Profileinstellungen verwalten
+- [Sicherheitseinstellungen](../features/sicherheit.md) - Passwort ändern und Sicherheit konfigurieren
 - [Mobile App](../../edulution-app/mobile-ansicht.md) - Mobile Nutzung einrichten
 - [Infoboard](../apps/native-apps/infoboard.md) - Mitteilungen verwalten
 - [Umfragen](../apps/native-apps/umfragen.md) - Umfragen erstellen und bearbeiten

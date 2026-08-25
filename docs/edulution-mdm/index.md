@@ -202,5 +202,5 @@ Zwei Aktionen stehen bereit:
 ## Siehe auch
 
 - [Einstellungen](../edulution-plattform/konfiguration/einstellungen.md) – App-Konfiguration durch den Global-Admin
-- [App-Store & Anwendungen](../edulution-plattform/apps/native-apps/app-store.md) – Apps installieren und verwalten
+- [App-Store & Anwendungen](../edulution-plattform/apps/app-store.md) – Apps installieren und verwalten
 - [Relution](https://www.relution.io/) – Herstellerseite des MDM-Backends

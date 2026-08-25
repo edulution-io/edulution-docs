@@ -36,7 +36,7 @@ Wird die Plattform über die edulution.io App geöffnet, öffnet das **Handy-Sym
 | **Konto wechseln** | die Konto-Übersicht, in der Sie zwischen Ihren Profilen umschalten | keine – auch auf der Anmeldeseite verfügbar |
 | **QR-Scanner** | den Kamera-Scanner für QR-Codes | angemeldet |
 | **Schülerausweis** bzw. **Mitarbeiterausweis** | den digitalen Ausweis Ihres Kontos | angemeldet |
-| **OTP anzeigen** | das Einmalpasswort (TOTP) des aktiven Kontos | angemeldet, [Zwei-Faktor-Authentifizierung](../edulution-plattform/apps/native-apps/sicherheit.md#zwei-faktor-authentifizierung-2fa) aktiv, App ab Version 2.1.11 |
+| **OTP anzeigen** | das Einmalpasswort (TOTP) des aktiven Kontos | angemeldet, [Zwei-Faktor-Authentifizierung](../edulution-plattform/features/sicherheit.md#zwei-faktor-authentifizierung-2fa) aktiv, App ab Version 2.1.11 |
 
 Wie der Ausweis heißt, richtet sich nach dem Organisationstyp der Installation: In Schulen ist es der **Schülerausweis**, in Unternehmen und in der öffentlichen Verwaltung der **Mitarbeiterausweis**. Was der Ausweis enthält, steht unter [Die edulution.io App](/docs/edulution-app/).
 
@@ -68,7 +68,7 @@ In der App verhält sich die Oberfläche an einigen Stellen anders als im mobile
 
 - Auf der Anmeldeseite entfällt das Passwortfeld – die Anmeldung übernimmt die App mit dem gespeicherten Konto.
 - Konferenzen laufen nicht eingebettet: Beim Beitreten erscheint der Dialog **Dieser Konferenz beitreten** mit der Schaltfläche **In neuem Tab öffnen**.
-- Die Fußzeile entfällt, also auch die dort verlinkten Seiten [Impressum und Datenschutzerklärung](../edulution-plattform/apps/native-apps/impressum-datenschutz.md). Beide bleiben über ihre Adresse erreichbar.
+- Die Fußzeile entfällt, also auch die dort verlinkten Seiten [Impressum und Datenschutzerklärung](../edulution-plattform/konfiguration/impressum-datenschutz.md). Beide bleiben über ihre Adresse erreichbar.
 
 ## Dashboard auf Tablets
 

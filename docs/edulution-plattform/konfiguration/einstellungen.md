@@ -163,7 +163,7 @@ Das Theme beeinflusst nur die Darstellung des SOGo Webmailers (`https://mail.ihr
 
 **Standard-Signatur**
 
-Diese Signatur wird beim Verfassen einer neuen E-Mail automatisch angefügt. Sie gilt für alle Benutzer, die keine eigene Signatur hinterlegt haben (siehe [Mein Profil → Signatur](../erste-schritte/mein-profil.md#signatur)).
+Diese Signatur wird beim Verfassen einer neuen E-Mail automatisch angefügt. Sie gilt für alle Benutzer, die keine eigene Signatur hinterlegt haben (siehe [Mein Profil → Signatur](../erste-schritte/benutzereinstellungen/e-mail.md#signatur)).
 
 - Bearbeiten Sie die Signatur im Editor mit den gewohnten Formatierungsfunktionen
 - Über die Editor-/Quelltext-Umschaltung oben rechts im Editor wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung. HTML, Links und Bilder werden unverändert übernommen

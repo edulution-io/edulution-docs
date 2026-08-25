@@ -41,7 +41,7 @@ Die edulution.io App nutzt Push-Benachrichtigungen über Apple Push Notification
 
 **Wir empfehlen dringend**, dass Ihre Schule oder Organisation eine **eigene Datenschutzerklärung** in der edulution-Plattform hinterlegt, die alle genutzten Dienste und Funktionen abdeckt.
 
-[→ Anleitung: Impressum und Datenschutzerklärung einrichten](/docs/edulution-plattform/apps/native-apps/impressum-datenschutz)
+[→ Anleitung: Impressum und Datenschutzerklärung einrichten](/docs/edulution-plattform/konfiguration/impressum-datenschutz)
 :::
 
 ## Datei-Integration [tags: ios]

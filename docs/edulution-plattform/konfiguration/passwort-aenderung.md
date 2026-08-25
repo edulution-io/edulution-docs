@@ -7,7 +7,7 @@ sidebar_custom_props:
 
 Benutzer ändern ihr Passwort selbst über **Benutzereinstellungen → Sicherheit → Passwort ändern**. Diese Änderung läuft über **Keycloak**: edulution prüft das bisherige Passwort am Keycloak-Realm und setzt das neue Passwort über die Keycloak-Administrationsschnittstelle. Auf Linuxmuster-Systemen bleibt die Linuxmuster-API als **Rückfallweg** erhalten, falls die Änderung über Keycloak nicht möglich ist.
 
-Diese Seite beschreibt, was dafür in Keycloak und – für den Rückfallweg – auf dem Linuxmuster-Server eingerichtet sein muss. Die Bedienung aus Benutzersicht ist unter [Benutzereinstellungen → Sicherheit](../erste-schritte/mein-profil.md#passwort-ändern) beschrieben.
+Diese Seite beschreibt, was dafür in Keycloak und – für den Rückfallweg – auf dem Linuxmuster-Server eingerichtet sein muss. Die Bedienung aus Benutzersicht ist unter [Benutzereinstellungen → Sicherheit](../erste-schritte/benutzereinstellungen/sicherheit.md#passwort-ändern) beschrieben.
 
 ## Ablauf einer Passwortänderung
 
@@ -101,6 +101,6 @@ Diese Seite beschreibt die Passwortänderung durch den Benutzer selbst. Das **Zu
 
 ## Siehe auch
 
-- [Benutzereinstellungen → Sicherheit](../erste-schritte/mein-profil.md#sicherheit) – Passwortänderung aus Benutzersicht
-- [Sicherheit & Authentifizierung](../apps/native-apps/sicherheit.md) – Zwei-Faktor-Authentifizierung und Passwort-Tresor
+- [Benutzereinstellungen → Sicherheit](../erste-schritte/benutzereinstellungen/sicherheit.md) – Passwortänderung aus Benutzersicht
+- [Sicherheit & Authentifizierung](../features/sicherheit.md) – Zwei-Faktor-Authentifizierung und Passwort-Tresor
 - [Anpassung am Linuxmuster-Server](../../edulution-server/installation.md) – Linuxmuster-API und Setup-Token

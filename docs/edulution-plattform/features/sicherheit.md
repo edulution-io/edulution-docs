@@ -2,6 +2,11 @@
 
 edulution bietet umfassende Sicherheitsfunktionen zum Schutz von Zugangsdaten und sensiblen Informationen.
 
+:::tip[Wo Sie das einstellen]
+Diese Seite erklärt die Verfahren. Die Schalter dazu finden Sie in den
+[Benutzereinstellungen → Sicherheit](../erste-schritte/benutzereinstellungen/sicherheit.md).
+:::
+
 ## Passwort-Tresor
 
 ![Passwort-Manager](/img/features/security-password-manager.jpeg)
@@ -66,7 +71,7 @@ Darüber hinausgehende Anforderungen legt Ihre Einrichtung zentral fest. Sie wer
 Das neue Passwort wird zentral in der Benutzerverwaltung hinterlegt und gilt für alle Dienste, die Sie über edulution nutzen.
 
 :::tip[Für Administratoren]
-Die Einrichtung der Passwortänderung – Voraussetzungen in Keycloak, Rückfallweg über die Linuxmuster-API und mögliche Fehlermeldungen – beschreibt [Passwortänderung einrichten](../../konfiguration/passwort-aenderung.md).
+Die Einrichtung der Passwortänderung – Voraussetzungen in Keycloak, Rückfallweg über die Linuxmuster-API und mögliche Fehlermeldungen – beschreibt [Passwortänderung einrichten](../konfiguration/passwort-aenderung.md).
 :::
 
 ## Best Practices
@@ -82,4 +87,4 @@ Die Einrichtung der Passwortänderung – Voraussetzungen in Keycloak, Rückfall
 Passwörter werden bereits im Browser verschlüsselt und auf dem Server zusätzlich
 mit einem Master-Schlüssel geschützt. Wie das Verfahren funktioniert und was
 Administratoren beim Betrieb und beim Backup beachten müssen, beschreibt
-[Master-Key-Verschlüsselung](../../konfiguration/master-key.md).
+[Master-Key-Verschlüsselung](../konfiguration/master-key.md).

@@ -27,7 +27,7 @@ Oben rechts finden Sie in der Aktionen-Leiste die wichtigsten Aktionen:
 | **Oben/Unten teilen** / **Links/Rechts teilen** | Schaltet die Anordnung von Nachrichtenliste und Leseansicht um |
 | **In SOGo öffnen** | Öffnet das vollständige SOGo-Webmail in einem neuen Tab |
 | **Aktualisieren** | Lädt den aktuellen Ordner neu |
-| **E-Mail-Einstellungen** | Öffnet die Mail-Einstellungen (Signatur, automatische Antwort, Weiterleitung, Filter – siehe [Mein Profil](../edulution-plattform/erste-schritte/mein-profil.md)) |
+| **E-Mail-Einstellungen** | Öffnet die Mail-Einstellungen (Signatur, automatische Antwort, Weiterleitung, Filter – siehe [Mein Profil](../edulution-plattform/erste-schritte/benutzereinstellungen/index.md)) |
 
 ## Ordner und Postfächer
 
@@ -54,7 +54,7 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 - **An** sowie optional **CC/BCC** (über **CC/BCC hinzufügen** einblendbar).
 - **Betreff** und der Nachrichtentext im Editor mit Formatierungsfunktionen (fett, kursiv, Listen, Links u. a.).
 - **Anhänge** fügen Sie **vom Gerät** oder **aus Dateien** (Ihrem edulution-Dateibereich) hinzu. Für Text und Anhänge zusammen gilt eine maximale Gesamtgröße.
-- Über **Signatur einfügen** ergänzen Sie Ihre Signatur (siehe [Mein Profil → Signatur](../edulution-plattform/erste-schritte/mein-profil.md#signatur)).
+- Über **Signatur einfügen** ergänzen Sie Ihre Signatur (siehe [Mein Profil → Signatur](../edulution-plattform/erste-schritte/benutzereinstellungen/e-mail.md#signatur)).
 
 Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht.
 
@@ -103,7 +103,7 @@ Beim Speichern landet die Nachricht im Ordner **Entwürfe**. Beim **Verwerfen** 
 
 ### HTML-Quelltext bearbeiten
 
-Oben rechts im Editor finden Sie – neben **Signatur einfügen** – die **Editor-/Quelltext-Umschaltung**. Damit wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung, wie Sie es bereits von der [Signatur](../edulution-plattform/erste-schritte/mein-profil.md#signatur) kennen.
+Oben rechts im Editor finden Sie – neben **Signatur einfügen** – die **Editor-/Quelltext-Umschaltung**. Damit wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung, wie Sie es bereits von der [Signatur](../edulution-plattform/erste-schritte/benutzereinstellungen/e-mail.md#signatur) kennen.
 
 Die Quelltext-Ansicht benötigen Sie immer dann, wenn Sie fertiges HTML versenden möchten, etwa einen gestalteten Newsletter oder eine Einladung aus einer Vorlage:
 
@@ -152,13 +152,13 @@ Ein Klick auf den Hinweis bringt Sie direkt zu den **E-Mail-Einstellungen**, wo 
 
 ## Einstellungen
 
-Signatur, automatische Antwort (Abwesenheitsnotiz), Weiterleitung und Filter verwalten Sie in den **E-Mail-Einstellungen**. Eine ausführliche Beschreibung finden Sie unter [Mein Profil](../edulution-plattform/erste-schritte/mein-profil.md).
+Signatur, automatische Antwort (Abwesenheitsnotiz), Weiterleitung und Filter verwalten Sie in den **E-Mail-Einstellungen**. Eine ausführliche Beschreibung finden Sie unter [Mein Profil](../edulution-plattform/erste-schritte/benutzereinstellungen/index.md).
 
-Bei der automatischen Antwort können Sie zusätzlich festlegen, welche Absender überhaupt eine Antwort erhalten: alle Absender, nur Absender innerhalb der Domänen Ihrer Organisation (interne Absender) oder ausschließlich externe Absender. Die internen Domänen werden Ihnen dabei direkt angezeigt. Details dazu finden Sie unter [Mein Profil](../edulution-plattform/erste-schritte/mein-profil.md).
+Bei der automatischen Antwort können Sie zusätzlich festlegen, welche Absender überhaupt eine Antwort erhalten: alle Absender, nur Absender innerhalb der Domänen Ihrer Organisation (interne Absender) oder ausschließlich externe Absender. Die internen Domänen werden Ihnen dabei direkt angezeigt. Details dazu finden Sie unter [Mein Profil](../edulution-plattform/erste-schritte/benutzereinstellungen/index.md).
 
-Sind Sie als Berechtigter für ein **freigegebenes Postfach** eingetragen, können Sie dort auch dessen **automatische Antwort** verwalten – siehe [Mein Profil → Automatische Antwort für freigegebene Postfächer](../edulution-plattform/erste-schritte/mein-profil.md#automatische-antwort-für-freigegebene-postfächer).
+Sind Sie als Berechtigter für ein **freigegebenes Postfach** eingetragen, können Sie dort auch dessen **automatische Antwort** verwalten – siehe [Mein Profil → Automatische Antwort für freigegebene Postfächer](../edulution-plattform/erste-schritte/benutzereinstellungen/e-mail.md#automatische-antwort-für-freigegebene-postfächer).
 
-Die Sprache des über **In SOGo öffnen** erreichbaren Webmailers richtet sich nach der Sprache, die Sie unter [Mein Profil → Sprache](../edulution-plattform/erste-schritte/mein-profil.md#sprache) gewählt haben; dasselbe gilt für Benachrichtigungen, die das Mailsystem selbst verschickt. Das **Theme** des Webmailers legt dagegen die Administration fest.
+Die Sprache des über **In SOGo öffnen** erreichbaren Webmailers richtet sich nach der Sprache, die Sie unter [Mein Profil → Sprache](../edulution-plattform/erste-schritte/benutzereinstellungen/benutzeroberflaeche.md#sprache) gewählt haben; dasselbe gilt für Benachrichtigungen, die das Mailsystem selbst verschickt. Das **Theme** des Webmailers legt dagegen die Administration fest.
 
 <Audience roles="user">
 

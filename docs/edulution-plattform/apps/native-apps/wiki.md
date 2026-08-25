@@ -150,14 +150,14 @@ Gelöschte Wiki-Seiten können nicht aus der Anwendung wiederhergestellt werden.
 :::
 
 :::info[Markdown-Hinweis]
-Das Wiki nutzt Standard-Markdown. Eine Übersicht der unterstützten Formatierungen finden Sie in der [Markdown-Hilfe](./markdown-hilfe.md).
+Das Wiki nutzt Standard-Markdown. Eine Übersicht der unterstützten Formatierungen finden Sie in der [Markdown-Hilfe](../../features/markdown-hilfe.md).
 :::
 
 ## Siehe auch
 
 - [Wiki-Editor](./wiki-editor.md) – Slash-Menü, Anhänge, Formeln und Suchen/Ersetzen
-- [Markdown-Hilfe](./markdown-hilfe.md) – unterstützte Formatierungen im Wiki-Editor
+- [Markdown-Hilfe](../../features/markdown-hilfe.md) – unterstützte Formatierungen im Wiki-Editor
 - [Wiki-Einstellungen (Admin)](../../konfiguration/wiki-einstellungen.md) – Sichtbarkeit pro Freigabe steuern
 - [Wiki-Infrastruktur (Admin)](../../../edulution-fileproxy/wiki-infrastruktur.md) – Server-seitige Einrichtung des Suchindex
 - [Dateien](../dateien/index.md) – Datei-Freigaben, auf denen Wikis basieren
-- [Benutzereinstellungen](../../erste-schritte/mein-profil.md) – Gruppenzugehörigkeit prüfen
+- [Benutzereinstellungen](../../erste-schritte/benutzereinstellungen/index.md) – Gruppenzugehörigkeit prüfen

@@ -64,6 +64,7 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/konfiguration/master-key',
             'edulution-plattform/konfiguration/container-verwaltung',
             'edulution-plattform/konfiguration/passwort-aenderung',
+            'edulution-plattform/konfiguration/impressum-datenschutz',
             'edulution-plattform/konfiguration/wiki-einstellungen',
             'edulution-plattform/konfiguration/webhooks',
             {
@@ -132,10 +133,49 @@ const sidebars: SidebarsConfig = {
           label: 'Erste Schritte',
           collapsed: false,
           items: [
-            'edulution-plattform/erste-schritte/navigation',
             'edulution-plattform/erste-schritte/anmeldung',
-            'edulution-plattform/erste-schritte/mein-profil',
+            'edulution-plattform/erste-schritte/navigation',
+            {
+              type: 'category',
+              label: 'Benutzereinstellungen',
+              collapsed: true,
+              // Der laengste Block der Nutzerdokumentation. Jeder Bereich
+              // des Dialogs ist eine Seite, damit sich einzelne Stellen
+              // verlinken lassen - die Uebersicht bleibt der Einstieg.
+              link: {
+                type: 'doc',
+                id: 'edulution-plattform/erste-schritte/benutzereinstellungen/index',
+              },
+              items: [
+                'edulution-plattform/erste-schritte/benutzereinstellungen/benutzerdetails',
+                'edulution-plattform/erste-schritte/benutzereinstellungen/sicherheit',
+                'edulution-plattform/erste-schritte/benutzereinstellungen/e-mail',
+                'edulution-plattform/erste-schritte/benutzereinstellungen/benutzeroberflaeche',
+                'edulution-plattform/erste-schritte/benutzereinstellungen/app-zugriff',
+                'edulution-plattform/erste-schritte/benutzereinstellungen/vpn-zugang',
+                'edulution-plattform/erste-schritte/benutzereinstellungen/meine-kinder-eltern',
+                'edulution-plattform/erste-schritte/benutzereinstellungen/schnellzugriffe',
+              ],
+            },
             'edulution-plattform/erste-schritte/dashboard',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Features',
+          collapsed: true,
+          // Funktionen ohne eigene Kachel - sie wirken quer durch die
+          // Plattform oder sitzen in den Benutzereinstellungen. Steht ueber
+          // den Apps, weil man ihnen frueher begegnet als einer einzelnen App.
+          link: {
+            type: 'doc',
+            id: 'edulution-plattform/features/index',
+          },
+          items: [
+            'edulution-plattform/features/benachrichtigungen',
+            'edulution-plattform/features/eltern-schueler-zuordnung',
+            'edulution-plattform/features/sicherheit',
+            'edulution-plattform/features/markdown-hilfe',
           ],
         },
         {
@@ -147,6 +187,9 @@ const sidebars: SidebarsConfig = {
             id: 'edulution-plattform/apps/index',
           },
           items: [
+            // Zuerst der App-Store: hier entscheidet sich, welche der Apps
+            // darunter ueberhaupt in der Seitenleiste erscheinen.
+            'edulution-plattform/apps/app-store',
             {
               type: 'category',
               label: 'Native Apps',
@@ -157,7 +200,6 @@ const sidebars: SidebarsConfig = {
                 'edulution-plattform/apps/native-apps/chat',
                 'edulution-plattform/apps/native-apps/kontakte',
                 'edulution-plattform/apps/native-apps/kalender',
-                'edulution-plattform/apps/native-apps/eltern-schueler-zuordnung',
                 'edulution-plattform/apps/native-apps/klassenzimmer',
                 'edulution-plattform/apps/native-apps/whiteboard',
                 'edulution-plattform/apps/native-apps/wiki',
@@ -165,13 +207,7 @@ const sidebars: SidebarsConfig = {
                 'edulution-plattform/apps/native-apps/geraeteverwaltung',
                 'edulution-plattform/apps/native-apps/infoboard',
                 'edulution-plattform/apps/native-apps/umfragen',
-                'edulution-plattform/apps/native-apps/app-store',
-                'edulution-plattform/apps/native-apps/benachrichtigungen',
-                'edulution-plattform/apps/native-apps/markdown-hilfe',
                 'edulution-plattform/apps/native-apps/eingebettete-app',
-                'edulution-plattform/apps/native-apps/sicherheit',
-                'edulution-plattform/apps/native-apps/impressum-datenschutz',
-                'edulution-plattform/apps/native-apps/weitere-features',
               ],
             },
             {

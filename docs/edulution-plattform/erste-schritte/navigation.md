@@ -17,7 +17,7 @@ Die App-Leiste steht am rechten Rand und ist von oben nach unten so aufgebaut:
 | **App Launcher** | edulution-Logo mit der Beschriftung *App Launcher* – öffnet die Übersicht aller Apps |
 | **Favoriten** | Alle Apps, die dauerhaft angepinnt sind |
 | **Laufende Apps** | Durch eine Trennlinie abgesetzt: alle geöffneten Apps, die nicht angepinnt sind |
-| **Benachrichtigungen** | Glockensymbol mit Zähler ungelesener [Benachrichtigungen](../apps/native-apps/benachrichtigungen.md) |
+| **Benachrichtigungen** | Glockensymbol mit Zähler ungelesener [Benachrichtigungen](../features/benachrichtigungen.md) |
 | **Benutzermenü** | Profilbild und Name mit den Einträgen *Benutzereinstellungen* und *Abmelden* |
 
 Ein Klick auf einen Eintrag öffnet die App. Die aktive App ist hervorgehoben; fahren Sie mit der Maus über einen Eintrag, klappt zusätzlich der vollständige App-Name auf.
@@ -123,6 +123,6 @@ Die eingeblendete App-Leiste zeigt die Apps mit vollem Namen untereinander – z
 ## Weitere Informationen
 
 - [Dashboard](./dashboard.md) – Startseite nach der Anmeldung
-- [Benachrichtigungen](../apps/native-apps/benachrichtigungen.md) – Benachrichtigungsbereich hinter dem Glockensymbol
-- [Mein Profil](./mein-profil.md) – Einträge des Benutzermenüs
+- [Benachrichtigungen](../features/benachrichtigungen.md) – Benachrichtigungsbereich hinter dem Glockensymbol
+- [Mein Profil](./benutzereinstellungen/index.md) – Einträge des Benutzermenüs
 - [Einstellungen](../konfiguration/einstellungen.md) – Apps anpinnen und Nutzergruppen freischalten

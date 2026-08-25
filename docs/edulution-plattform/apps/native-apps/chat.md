@@ -76,12 +76,12 @@ Ein Tooltip („Gelesen von …") nennt die Personen, die die Nachricht gelesen 
 ## Profilbilder
 
 - In den Nachrichten erscheint das **Profilbild** der jeweiligen Person; ohne hinterlegtes Bild werden die Initialen angezeigt.
-- Ihr eigenes Profilbild legen Sie unter [Mein Profil → Profilbild](../../erste-schritte/mein-profil.md#profilbild) fest.
+- Ihr eigenes Profilbild legen Sie unter [Mein Profil → Profilbild](../../erste-schritte/benutzereinstellungen/benutzerdetails.md#profilbild) fest.
 - In der Kopfzeile einer Unterhaltung sehen Sie die Profilbilder der Mitglieder samt Mitgliederzahl.
 
 ## Benachrichtigungen
 
-Bei einer neuen Nachricht erhalten **alle Gruppenmitglieder außer dem Absender** eine [Benachrichtigung](./benachrichtigungen.md):
+Bei einer neuen Nachricht erhalten **alle Gruppenmitglieder außer dem Absender** eine [Benachrichtigung](../../features/benachrichtigungen.md):
 
 - **Titel** – Name der Gruppe
 - **Absender** – Vor- und Nachname
@@ -133,6 +133,6 @@ Welche Nutzergruppen den KI-Chat verwenden dürfen, legen Sie als Global-Admin i
 
 ## Siehe auch
 
-- [Mein Profil → Profilbild](../../erste-schritte/mein-profil.md#profilbild) – Profilbild für den Chat hinterlegen
-- [Benachrichtigungen](./benachrichtigungen.md) – Chat-Nachrichten in der Benachrichtigungsleiste
+- [Mein Profil → Profilbild](../../erste-schritte/benutzereinstellungen/benutzerdetails.md#profilbild) – Profilbild für den Chat hinterlegen
+- [Benachrichtigungen](../../features/benachrichtigungen.md) – Chat-Nachrichten in der Benachrichtigungsleiste
 - [Konferenzen](../konferenzen.md) – Audio- und Videokonferenzen

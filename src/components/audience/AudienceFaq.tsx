@@ -135,7 +135,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie ordne ich Eltern ihren Kindern zu?',
       a: 'Die Zuordnung schaltet die Elternfunktionen für ein Konto frei.',
-      to: '/docs/edulution-plattform/apps/native-apps/eltern-schueler-zuordnung',
+      to: '/docs/edulution-plattform/features/eltern-schueler-zuordnung',
       // Die Elternzuweisung entfaellt beim Organisationstyp Unternehmen.
       orgs: 'school public-administration',
     },
@@ -170,7 +170,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie ändere ich mein Passwort?',
       a: 'Passwort, Profilbild und persönliche Einstellungen im eigenen Profil.',
-      to: '/docs/edulution-plattform/erste-schritte/mein-profil',
+      to: '/docs/edulution-plattform/erste-schritte/benutzereinstellungen/',
     },
   ],
 
@@ -178,7 +178,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie komme ich an einen Zugang für mein Kind?',
       a: 'Die Eltern-Schüler-Zuordnung legt die Verbindung an – eingerichtet von der Schule.',
-      to: '/docs/edulution-plattform/apps/native-apps/eltern-schueler-zuordnung',
+      to: '/docs/edulution-plattform/features/eltern-schueler-zuordnung',
     },
     {
       q: 'Wie melde ich mich an?',
@@ -188,7 +188,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wo sehe ich Mitteilungen der Schule?',
       a: 'Benachrichtigungen sammeln, was Sie betrifft.',
-      to: '/docs/edulution-plattform/apps/native-apps/benachrichtigungen',
+      to: '/docs/edulution-plattform/features/benachrichtigungen',
     },
     {
       q: 'Wo finde ich das Schwarze Brett?',

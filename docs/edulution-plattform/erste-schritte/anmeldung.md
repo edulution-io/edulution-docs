@@ -15,7 +15,7 @@ Die Seite ist zweigeteilt:
 | **Links: Anmeldeformular** | edulution-Logo, Überschrift **Anmelden** mit dem Hinweis *„Willkommen zurück! Bitte gib deine Zugangsdaten ein."*, die Felder **Benutzername** und **Passwort**, die Schaltflächen **Anmelden** und **Anmelden mit QR-Login** sowie die Fußzeile |
 | **Rechts: Organisationsbereich** | Login-Bild als Hintergrund, darauf das Logo Ihrer Organisation sowie ein abgesetzter Kasten mit **Organisationsname** und **Login-Text** |
 
-Die Fußzeile enthält die Versionsnummer der Oberfläche und – sofern eingerichtet – die Links zu **Impressum** und **Datenschutz** (siehe [Impressum und Datenschutz einrichten](../apps/native-apps/impressum-datenschutz.md)).
+Die Fußzeile enthält die Versionsnummer der Oberfläche und – sofern eingerichtet – die Links zu **Impressum** und **Datenschutz** (siehe [Impressum und Datenschutz einrichten](../konfiguration/impressum-datenschutz.md)).
 
 :::info[Organisationsbereich nur auf großen Bildschirmen]
 Der rechte Organisationsbereich wird erst ab einer Fensterbreite von etwa 1024 Pixeln eingeblendet. Auf Smartphones, Tablets und in schmalen Browserfenstern nimmt das Anmeldeformular die gesamte Breite ein; Logo, Organisationsname und Login-Text werden dort nicht angezeigt.
@@ -77,7 +77,7 @@ Ist für Ihr Konto die Zwei-Faktor-Authentisierung eingerichtet oder für Ihre B
 
 Geben Sie den sechsstelligen Code aus Ihrer Authenticator-App ein; die Anmeldung wird abgeschickt, sobald die letzte Ziffer eingetragen ist. Über **Abbrechen** gelangen Sie zurück zum Anmeldeformular.
 
-Einrichtung und unterstützte Apps sind unter [Sicherheit & Authentifizierung](../apps/native-apps/sicherheit.md#zwei-faktor-authentifizierung-2fa) beschrieben.
+Einrichtung und unterstützte Apps sind unter [Sicherheit & Authentifizierung](../features/sicherheit.md#zwei-faktor-authentifizierung-2fa) beschrieben.
 
 ## Meldungen auf der Anmeldeseite
 
@@ -97,6 +97,6 @@ Einrichtung und unterstützte Apps sind unter [Sicherheit & Authentifizierung](.
 ## Siehe auch
 
 - [Einstellungen (Settings)](../konfiguration/einstellungen.md) – Branding und Organisationsinformationen pflegen
-- [Impressum und Datenschutz einrichten](../apps/native-apps/impressum-datenschutz.md) – Links in der Fußzeile
-- [Sicherheit & Authentifizierung](../apps/native-apps/sicherheit.md) – Zwei-Faktor-Authentisierung und Passwörter
+- [Impressum und Datenschutz einrichten](../konfiguration/impressum-datenschutz.md) – Links in der Fußzeile
+- [Sicherheit & Authentifizierung](../features/sicherheit.md) – Zwei-Faktor-Authentisierung und Passwörter
 - [Mobile App](../../edulution-app/mobile-ansicht.md) – edulution.io App für den QR-Login

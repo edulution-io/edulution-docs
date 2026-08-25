@@ -174,7 +174,6 @@ const sidebars: SidebarsConfig = {
           items: [
             'edulution-plattform/features/benachrichtigungen',
             'edulution-plattform/features/eltern-schueler-zuordnung',
-            'edulution-plattform/features/sicherheit',
             'edulution-plattform/features/markdown-hilfe',
           ],
         },

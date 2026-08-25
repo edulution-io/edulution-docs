@@ -77,7 +77,7 @@ Ist für Ihr Konto die Zwei-Faktor-Authentisierung eingerichtet oder für Ihre B
 
 Geben Sie den sechsstelligen Code aus Ihrer Authenticator-App ein; die Anmeldung wird abgeschickt, sobald die letzte Ziffer eingetragen ist. Über **Abbrechen** gelangen Sie zurück zum Anmeldeformular.
 
-Einrichtung und unterstützte Apps sind unter [Sicherheit & Authentifizierung](../features/sicherheit.md#zwei-faktor-authentifizierung-2fa) beschrieben.
+Einrichtung und unterstützte Apps sind unter [Benutzereinstellungen → Sicherheit](./benutzereinstellungen/sicherheit.md#zwei-faktor-authentifizierung) beschrieben.
 
 ## Meldungen auf der Anmeldeseite
 
@@ -98,5 +98,5 @@ Einrichtung und unterstützte Apps sind unter [Sicherheit & Authentifizierung](.
 
 - [Einstellungen (Settings)](../konfiguration/einstellungen.md) – Branding und Organisationsinformationen pflegen
 - [Impressum und Datenschutz einrichten](../konfiguration/impressum-datenschutz.md) – Links in der Fußzeile
-- [Sicherheit & Authentifizierung](../features/sicherheit.md) – Zwei-Faktor-Authentisierung und Passwörter
+- [Benutzereinstellungen → Sicherheit](./benutzereinstellungen/sicherheit.md) – Zwei-Faktor-Authentisierung und Passwörter
 - [Mobile App](../../edulution-app/mobile-ansicht.md) – edulution.io App für den QR-Login

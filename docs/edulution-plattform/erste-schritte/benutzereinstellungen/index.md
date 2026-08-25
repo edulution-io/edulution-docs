@@ -42,6 +42,5 @@ Die Benutzereinstellungen sind unterteilt in:
 ## Siehe auch
 
 - [Dashboard](../dashboard.md) – zurück zum Dashboard
-- [Sicherheit & Authentifizierung](../../features/sicherheit.md) – Passwort-Tresor, 2FA und Verschlüsselung im Detail
 - [Mobile Ansicht & Tablet-Nutzung](../../../edulution-app/mobile-ansicht.md) – edulution auf Smartphone und Tablet
 - [E-Mails migrieren](../../../edulution-mail/migration.md) – bestehendes Postfach übernehmen

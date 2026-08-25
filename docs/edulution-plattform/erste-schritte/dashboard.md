@@ -203,7 +203,7 @@ Mehr dazu unter [Mobile App & Tablet-Nutzung](../../edulution-app/mobile-ansicht
 ## Weitere Informationen
 
 - [Benutzereinstellungen](./benutzereinstellungen/index.md) - Profileinstellungen verwalten
-- [Sicherheitseinstellungen](../features/sicherheit.md) - Passwort ändern und Sicherheit konfigurieren
+- [Benutzereinstellungen → Sicherheit](./benutzereinstellungen/sicherheit.md) - Passwort ändern und Sicherheit konfigurieren
 - [Mobile App](../../edulution-app/mobile-ansicht.md) - Mobile Nutzung einrichten
 - [Infoboard](../apps/native-apps/infoboard.md) - Mitteilungen verwalten
 - [Umfragen](../apps/native-apps/umfragen.md) - Umfragen erstellen und bearbeiten

@@ -102,5 +102,5 @@ Diese Seite beschreibt die Passwortänderung durch den Benutzer selbst. Das **Zu
 ## Siehe auch
 
 - [Benutzereinstellungen → Sicherheit](../erste-schritte/benutzereinstellungen/sicherheit.md) – Passwortänderung aus Benutzersicht
-- [Sicherheit & Authentifizierung](../features/sicherheit.md) – Zwei-Faktor-Authentifizierung und Passwort-Tresor
+- [Benutzereinstellungen → Sicherheit](../erste-schritte/benutzereinstellungen/sicherheit.md) – Zwei-Faktor-Authentifizierung und Passwort-Tresor
 - [Anpassung am Linuxmuster-Server](../../edulution-server/installation.md) – Linuxmuster-API und Setup-Token

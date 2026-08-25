@@ -1,73 +1,111 @@
 # Sicherheit
 
+Unter **Sicherheit** verwalten Sie Passwort, Zwei-Faktor-Authentifizierung und Passwort-Tresor
+Ihres Kontos.
 
-![Sicherheit](/img/benutzer/profil-sicherheit.png)
+![Der Bereich Sicherheit in den Benutzereinstellungen](/img/benutzer/profil-sicherheit.png)
 
-Konfigurieren Sie hier die Sicherheitseinstellungen Ihres Accounts.
-
-:::tip[Die Verfahren dahinter]
-Diese Seite beschreibt den Dialog. Wie Passwort-Tresor und Zwei-Faktor-Authentifizierung
-funktionieren, welche Authenticator-Apps unterstützt werden und wie edulution Passwörter auf dem
-Server verschlüsselt, steht unter
-[Sicherheit & Authentifizierung](../../features/sicherheit.md).
-:::
+Der Bereich besteht aus drei Karten, die Sie über den Pfeil rechts oben einzeln ein- und
+ausklappen. In der linken Leiste der Benutzereinstellungen stehen sie zusätzlich als Sprungmarken:
+**Passwort ändern**, **Zwei-Faktor-Authentifizierung** und **Passwort-Tresor**.
 
 ## Passwort ändern
 
-So ändern Sie Ihr Passwort:
+1. Geben Sie Ihr **Aktuelles Passwort** ein.
+2. Geben Sie Ihr **Neues Passwort** ein.
+3. Wiederholen Sie es unter **Passwort bestätigen**.
+4. Klicken Sie auf **Passwort ändern**.
 
-1. Geben Sie Ihr **Aktuelles Passwort** ein
-2. Geben Sie Ihr **Neues Passwort** ein
-3. Wiederholen Sie das neue Passwort unter **Passwort bestätigen**
-4. Klicken Sie auf den grünen Button **Passwort ändern**
+Über das Auge-Symbol am rechten Rand jedes Feldes machen Sie die Eingabe sichtbar.
 
-**Passwort-Anforderungen:**
-- Mindestens 8 Zeichen
-- Kombination aus Groß- und Kleinbuchstaben empfohlen
-- Mindestens eine Zahl empfohlen
-- Sonderzeichen erhöhen die Sicherheit
+### Anforderungen an das Passwort
 
-Das geänderte Passwort gilt für alle Dienste, die Sie über edulution nutzen – etwa Dateien, E-Mail und die Anmeldung an der Oberfläche selbst. Ihre Einrichtung kann darüber hinaus strengere Anforderungen festlegen; diese werden erst beim Speichern geprüft.
+- **Mindestens 8 Zeichen** – diese Länge prüft das Formular direkt bei der Eingabe.
+- Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen erhöhen die Sicherheit.
+
+Darüber hinausgehende Anforderungen legt Ihre Einrichtung zentral fest. Sie werden erst **beim
+Speichern** geprüft – ein Passwort, das ihnen nicht genügt, wird mit einer Fehlermeldung
+abgewiesen.
+
+Das neue Passwort wird zentral in der Benutzerverwaltung hinterlegt und gilt für alle Dienste, die
+Sie über edulution nutzen – Dateien, E-Mail und die Anmeldung an der Oberfläche selbst.
 
 :::tip[Für Administratoren]
-Wie die Passwortänderung eingerichtet wird und welche Voraussetzungen Keycloak und der Linuxmuster-Server dafür erfüllen müssen, beschreibt [Passwortänderung einrichten](../../konfiguration/passwort-aenderung.md).
+Wie die Passwortänderung eingerichtet wird, welche Voraussetzungen Keycloak dafür erfüllen muss und
+welcher Rückfallweg auf Linuxmuster-Systemen greift, beschreibt
+[Passwortänderung einrichten](../../konfiguration/passwort-aenderung.md).
 :::
 
 ## Zwei-Faktor-Authentifizierung
 
-Zusätzliche Sicherheit für Ihr Konto:
+Die Karte zeigt zunächst den aktuellen Zustand – im Auslieferungszustand *„Aktuell ist die
+Zwei-Faktor-Authentisierung **deaktiviert**."* Rechts daneben steht der Schalter **Aktivieren**.
 
-- **Status**: "Aktuell ist die Zwei-Faktor-Authentifizierung deaktiviert"
-- **Aktivieren**: Schalten Sie den Toggle-Schalter um, um 2FA zu aktivieren
-- Nach Aktivierung erhalten Sie einen QR-Code für Ihre Authenticator-App
-- Unterstützte Apps: Google Authenticator, Microsoft Authenticator, Authy
+So richten Sie den zweiten Faktor ein:
 
-**Vorteile der 2FA:**
-- Erhöhter Schutz gegen unbefugten Zugriff
-- Zweiter Faktor neben dem Passwort erforderlich
-- Schutz auch bei kompromittiertem Passwort
+1. Schalten Sie **Aktivieren** um.
+2. Scannen Sie den erscheinenden QR-Code mit Ihrer Authenticator-App.
+3. Bestätigen Sie die Aktivierung mit einem in der App erzeugten Code.
+
+Ab dann verlangt die Anmeldung neben dem Passwort einen sechsstelligen Einmalcode. Ein gestohlenes
+Passwort allein genügt damit nicht mehr für den Zugriff auf Ihr Konto.
+
+### Unterstützte Authenticator-Apps
+
+Jede App, die zeitbasierte Einmalpasswörter (TOTP) beherrscht – unter anderem:
+
+- Google Authenticator
+- Microsoft Authenticator
+- Authy
+- die [edulution.io App](../../../edulution-app/index.md), die den Code direkt in der Kopfleiste
+  anzeigt (ab App-Version 2.1.11)
 
 ## Passwort-Tresor
 
-Sichere Verwaltung Ihrer Zugangsdaten für verschiedene Anwendungen.
+> *„Hier kannst du deine Zugangsdaten für verschiedene Anwendungen speichern. Diese werden
+> verschlüsselt und sind nur für dich sichtbar."*
 
-**Beschreibung:**
-"Hier kannst du deine Zugangsdaten für verschiedene Anwendungen speichern. Diese werden verschlüsselt und sind nur für dich sichtbar."
+Im Tresor hinterlegen Sie Zugangsdaten für Anwendungen, die eine eigene Anmeldung mitbringen – etwa
+ein Ticketsystem. edulution setzt sie beim Öffnen der jeweiligen Anwendung ein, sodass Sie sie nicht
+jedes Mal eintippen müssen.
 
-**Funktionen:**
-- Zentrale Speicherung von Passwörtern
-- Verschlüsselte Ablage
-- Nur für Sie sichtbar
-- **+** Symbol: Neue Zugangsdaten hinzufügen
-- **-** Symbol: Einträge entfernen
+Über der Tabelle stehen die Zahl der hinterlegten **Konten**, ein Suchfeld **Suche nach Anwendung**
+und die Auswahl **Spalten**, mit der Sie einzelne Spalten aus- und einblenden.
 
-**Tabellenspalten:**
-- **Anwendung**: Name der Anwendung
-- **Benutzername**: Login-Name
-- **Passwort**: Verschlüsseltes Passwort (ausblendbar)
+| Spalte | Inhalt |
+| --- | --- |
+| **Anwendung** | Name der Anwendung, für die die Zugangsdaten gelten |
+| **Benutzername** | der Anmeldename – über das Symbol daneben in die Zwischenablage kopierbar |
+| **Passwort** | verdeckt dargestellt; über das Auge-Symbol sichtbar, über das Kopier-Symbol übernehmbar |
 
-**Status:** "Keine Daten verfügbar", wenn noch keine Einträge vorhanden sind
+Solange nichts hinterlegt ist, steht in der Tabelle **Keine Daten verfügbar**. Unter der Tabelle
+legen Sie mit **+** einen neuen Eintrag an; mit **–** entfernen Sie die zuvor angehakten Einträge.
 
-Weitere Details unter [Sicherheit & Authentifizierung](../../features/sicherheit.md#passwort-tresor).
+### Tresor-PIN
 
----
+![Abfrage der Tresor-PIN beim Entschlüsseln der Zugangsdaten](/img/features/security-tresor-pin.png)
+
+Der Tresor ist zusätzlich durch eine **fünfstellige PIN** geschützt. Sie wird abgefragt, sobald
+Zugangsdaten entschlüsselt werden sollen – also beim Anzeigen, Kopieren oder beim automatischen
+Anmelden an einer Anwendung. Neben den Eingabefeldern blenden Sie über die Tastenfeld-Schaltfläche
+ein Ziffernfeld ein.
+
+### Verschlüsselung auf dem Server
+
+Passwörter werden bereits im Browser verschlüsselt und auf dem Server zusätzlich mit einem
+Master-Schlüssel geschützt. Wie das Verfahren funktioniert und was Administratoren beim Betrieb und
+beim Backup beachten müssen, beschreibt
+[Master-Key-Verschlüsselung](../../konfiguration/master-key.md).
+
+## Empfehlungen
+
+- Verwenden Sie für jeden Dienst ein eigenes Passwort.
+- Aktivieren Sie die Zwei-Faktor-Authentifizierung.
+- Geben Sie Ihre Zugangsdaten niemals weiter – auch nicht an die Administration.
+- Nutzen Sie den Passwort-Tresor, statt Zugangsdaten anderswo zu notieren.
+
+## Siehe auch
+
+- [Anmeldung](../anmeldung.md) – wie sich der zweite Faktor bei der Anmeldung auswirkt
+- [Passwortänderung einrichten](../../konfiguration/passwort-aenderung.md) – die Administrationsseite dazu
+- [Master-Key-Verschlüsselung](../../konfiguration/master-key.md) – wie edulution hinterlegte Passwörter schützt

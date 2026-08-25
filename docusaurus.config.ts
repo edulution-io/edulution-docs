@@ -136,6 +136,13 @@ const config: Config = {
               '/docs/edulution-plattform/erste-schritte/mein-profil',
               '/docs/edulution-plattform/benutzer/mein-profil',
             ],
+            // Die beiden Sicherheits-Seiten sind zusammengefuehrt: der
+            // Dialog und die Verfahren dahinter standen doppelt da. Beide
+            // Alt-Pfade fuehren auf die Seite in den Benutzereinstellungen.
+            '/docs/edulution-plattform/erste-schritte/benutzereinstellungen/sicherheit': [
+              '/docs/edulution-plattform/features/sicherheit',
+              '/docs/edulution-plattform/apps/native-apps/sicherheit',
+            ],
             // App-Store raus aus der Liste der nativen Apps, darueber.
             '/docs/edulution-plattform/apps/app-store': [
               '/docs/edulution-plattform/apps/native-apps/app-store',

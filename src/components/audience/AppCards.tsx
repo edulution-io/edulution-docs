@@ -105,6 +105,24 @@ const CARDS: AppCard[] = [
     },
   },
   {
+    badge: 'SATELLITE',
+    title: 'edulution Satellite',
+    tagline: 'Sichere Brücke zum Standort',
+    text: 'Appliance für entfernte Standorte: Netzwerke, DHCP und Dienste vor Ort, angebunden über einen verschlüsselten Tunnel.',
+    roles: 'admin',
+    targets: {
+      'admin-setup': {
+        to: '/docs/edulution-satellite/einrichtung-mit-edulution',
+        label: 'Einrichtung',
+      },
+      'admin-operate': {
+        to: '/docs/edulution-satellite/verwaltung',
+        label: 'Satelliten verwalten',
+      },
+      default: { to: '/docs/edulution-satellite/', label: 'Übersicht' },
+    },
+  },
+  {
     badge: 'LMS',
     title: 'edulution LMS',
     tagline: 'Lernmanagement mit Moodle',
@@ -137,24 +155,6 @@ const CARDS: AppCard[] = [
     text: 'Tablets, Smartphones und Computer zentral verwalten – ohne die Relution-Konsole zu öffnen.',
     targets: {
       default: { to: '/docs/edulution-mdm', label: 'MDM-App' },
-    },
-  },
-  {
-    badge: 'SATELLITE',
-    title: 'edulution Satellite',
-    tagline: 'Sichere Brücke zum Standort',
-    text: 'Appliance für entfernte Standorte: Netzwerke, DHCP und Dienste vor Ort, angebunden über einen verschlüsselten Tunnel.',
-    roles: 'admin',
-    targets: {
-      'admin-setup': {
-        to: '/docs/edulution-satellite/einrichtung-mit-edulution',
-        label: 'Einrichtung',
-      },
-      'admin-operate': {
-        to: '/docs/edulution-satellite/verwaltung',
-        label: 'Satelliten verwalten',
-      },
-      default: { to: '/docs/edulution-satellite/', label: 'Übersicht' },
     },
   },
   {

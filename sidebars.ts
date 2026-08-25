@@ -218,9 +218,12 @@ const sidebars: SidebarsConfig = {
             // der Dateien-App dieser Ast hier mit auf.
             {
               type: 'link',
-              label: 'Dateien',
+              label: 'Schulserver',
               href: '#',
-              customProps: { crossRef: '/docs/edulution-fileproxy/dateien/' },
+              customProps: {
+                crossRef: '/docs/edulution-server/linuxmuster',
+                audience: 'admin',
+              },
             },
             {
               type: 'link',
@@ -236,12 +239,9 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'link',
-              label: 'Schulserver',
+              label: 'Desktop-Bereitstellung',
               href: '#',
-              customProps: {
-                crossRef: '/docs/edulution-server/linuxmuster',
-                audience: 'admin',
-              },
+              customProps: { crossRef: '/docs/edulution-vdi/' },
             },
             {
               type: 'link',
@@ -251,9 +251,9 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'link',
-              label: 'Desktop-Bereitstellung',
+              label: 'Dateien',
               href: '#',
-              customProps: { crossRef: '/docs/edulution-vdi/' },
+              customProps: { crossRef: '/docs/edulution-fileproxy/dateien/' },
             },
             'edulution-plattform/apps/konferenzen',
             'edulution-plattform/apps/vpn-zugang',

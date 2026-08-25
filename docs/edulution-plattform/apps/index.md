@@ -41,13 +41,13 @@ eine eigene Komponente mit eigener Installations- und Konfigurations-Strecke.
 
 | App in der Plattform | Dienst dahinter | Dokumentation |
 | --- | --- | --- |
-| **Dateien** | FileProxy für Windows-Freigaben | **[Dateien](../../edulution-fileproxy/dateien/index.md)** in [edulution FileProxy](../../edulution-fileproxy/index.md) |
-| **E-Mail** | Mailserver auf Mailcow-Basis | **[edulution Mail](../../edulution-mail/index.md)** |
-| **Lernmanagement** | Moodle | **[edulution LMS](../../edulution-lms/index.md)** |
 | **Schulserver**, **Benutzerverwaltung** | linuxmuster.net | **[edulution Server](../../edulution-server/index.md)** |
-| **MDM** | Relution | **[edulution MDM](../../edulution-mdm/index.md)** |
-| **Desktop-Bereitstellung** | VDI-Umgebung | **[edulution VDI](../../edulution-vdi/index.md)** |
+| **E-Mail** | Mailserver auf Mailcow-Basis | **[edulution Mail](../../edulution-mail/index.md)** |
 | – (Appliance vor Ort) | Satellite | **[edulution Satellite](../../edulution-satellite/index.md)** |
+| **Lernmanagement** | Moodle | **[edulution LMS](../../edulution-lms/index.md)** |
+| **Desktop-Bereitstellung** | VDI-Umgebung | **[edulution VDI](../../edulution-vdi/index.md)** |
+| **MDM** | Relution | **[edulution MDM](../../edulution-mdm/index.md)** |
+| **Dateien** | FileProxy für Windows-Freigaben | **[Dateien](../../edulution-fileproxy/dateien/index.md)** in [edulution FileProxy](../../edulution-fileproxy/index.md) |
 
 ## Ohne eigenen Bereich
 

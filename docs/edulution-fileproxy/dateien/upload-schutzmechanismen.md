@@ -95,7 +95,7 @@ Derselbe Dialog erscheint, wenn Sie Dateien in eine [Freigabe](./index.md#teilen
 | Dateien innerhalb eines hochgeladenen Ordners | 100 |
 | Maximale Größe je Datei | abhängig vom [FileProxy](./index.md#dateigröße) |
 
-Wird eine Grenze überschritten, erscheint eine rote Warnung – bei Drag & Drop stattdessen eine Meldung am Bildschirmrand. Reicht während der Übertragung der Speicherplatz nicht aus, bricht edulution den Upload ab und meldet *Upload abgebrochen: Nicht genügend Speicherplatz*. Ihre aktuelle Speichernutzung sehen Sie im [Dashboard](../../erste-schritte/dashboard.md#quotas).
+Wird eine Grenze überschritten, erscheint eine rote Warnung – bei Drag & Drop stattdessen eine Meldung am Bildschirmrand. Reicht während der Übertragung der Speicherplatz nicht aus, bricht edulution den Upload ab und meldet *Upload abgebrochen: Nicht genügend Speicherplatz*. Ihre aktuelle Speichernutzung sehen Sie im [Dashboard](../../edulution-plattform/erste-schritte/dashboard.md#quotas).
 
 ## Bilder werden automatisch in WebP umgewandelt
 
@@ -115,7 +115,7 @@ Betroffen sind die Formate **JPEG**, **PNG**, **GIF** und **WebP**. Andere Datei
 | Bereich | Maximale Größe | Maximale Kantenlänge |
 |---|---|---|
 | Schwarzes Brett (Anhänge) | 16 MB | 3840 px |
-| [Whiteboard](../native-apps/whiteboard.md) | 16 MB | 3840 px |
+| [Whiteboard](../../edulution-plattform/apps/native-apps/whiteboard.md) | 16 MB | 3840 px |
 | Texteditor (E-Mail, Signatur, Schwarzes Brett, Einstellungen) | 8 MB | 3840 px |
 | App-Symbole und Grafiken in den Einstellungen | 8 MB | 3840 px |
 | Umfragen – Bilder im Editor | 4 MB | 3840 px |
@@ -128,5 +128,5 @@ Bilder, die Sie in der Dateien-App hochladen, werden **unverändert** gespeicher
 ## Siehe auch
 
 - [Dateien](./index.md) – Übersicht über die Dateiverwaltung
-- [Dashboard](../../erste-schritte/dashboard.md#quotas) – Speichernutzung und Quota anzeigen
-- [Whiteboard](../native-apps/whiteboard.md) – Bilder auf dem Whiteboard
+- [Dashboard](../../edulution-plattform/erste-schritte/dashboard.md#quotas) – Speichernutzung und Quota anzeigen
+- [Whiteboard](../../edulution-plattform/apps/native-apps/whiteboard.md) – Bilder auf dem Whiteboard

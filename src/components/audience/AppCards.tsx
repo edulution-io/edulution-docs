@@ -174,9 +174,9 @@ const CARDS: AppCard[] = [
     tagline: 'Dokumente direkt im Browser',
     text: 'OnlyOffice, Collabora und EuroOffice zum Bearbeiten von Dokumenten aus der Dateiverwaltung heraus.',
     targets: {
-      default: { to: '/docs/edulution-plattform/apps/dateien/', label: 'Dateien' },
-      'admin-setup': { to: '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice', label: 'Installation' },
-      'admin-operate': { to: '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice', label: 'Installation' },
+      default: { to: '/docs/edulution-fileproxy/dateien/', label: 'Dateien' },
+      'admin-setup': { to: '/docs/edulution-fileproxy/dateien/konfiguration/onlyoffice', label: 'Installation' },
+      'admin-operate': { to: '/docs/edulution-fileproxy/dateien/konfiguration/onlyoffice', label: 'Installation' },
     },
   },
 ];

@@ -209,60 +209,40 @@ const sidebars: SidebarsConfig = {
                 'edulution-plattform/apps/native-apps/eingebettete-app',
               ],
             },
+            // Apps mit eigenem Dienst dahinter werden nicht hier
+            // aufgeklappt, sondern in ihrer Komponente dokumentiert. `ref`
+            // setzt nur den Link: ein Klick springt in den Bereich der
+            // Komponente, statt den Baum hier zu verdoppeln.
             {
-              type: 'category',
+              type: 'ref',
+              id: 'edulution-fileproxy/dateien/index',
               label: 'Dateien',
-              collapsed: true,
-              link: {
-                type: 'doc',
-                id: 'edulution-plattform/apps/dateien/index',
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: 'Konfiguration',
-                  collapsed: true,
-                  // Office-Server aufsetzen - fuer Endnutzer ausgeblendet
-                  // (siehe src/components/audience/taxonomy.ts). Der
-                  // FileProxy ist eine eigene Komponente und steht daneben.
-                  customProps: { audience: 'admin' },
-                  items: [
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/dateien/konfiguration/onlyoffice',
-                      label: 'OnlyOffice',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/dateien/konfiguration/collabora',
-                      label: 'Collabora',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'edulution-plattform/apps/dateien/konfiguration/eurooffice',
-                      label: 'EuroOffice',
-                    },
-                  ],
-                },
-                'edulution-plattform/apps/dateien/ansicht-und-navigation',
-                'edulution-plattform/apps/dateien/vorschau-und-drucken',
-                'edulution-plattform/apps/dateien/teilen',
-                'edulution-plattform/apps/dateien/speicherplatz-und-quota',
-                'edulution-plattform/apps/dateien/upload-schutzmechanismen',
-                'edulution-plattform/apps/dateien/browser-download-einstellungen',
-                'edulution-plattform/apps/dateien/drawio',
-                'edulution-plattform/apps/dateien/goodnotes',
-                {
-                  type: 'category',
-                  label: 'WebDAV',
-                  collapsed: true,
-                  items: [
-                    'edulution-plattform/apps/dateien/webdav-windows',
-                    'edulution-plattform/apps/dateien/webdav-macos',
-                    'edulution-plattform/apps/dateien/webdav-linux',
-                  ],
-                },
-              ],
+            },
+            {
+              type: 'ref',
+              id: 'edulution-mail/index',
+              label: 'E-Mail',
+            },
+            {
+              type: 'ref',
+              id: 'edulution-lms/index',
+              label: 'Lernmanagement',
+            },
+            {
+              type: 'ref',
+              id: 'edulution-server/linuxmuster',
+              label: 'Schulserver',
+              customProps: { audience: 'admin' },
+            },
+            {
+              type: 'ref',
+              id: 'edulution-mdm/index',
+              label: 'MDM',
+            },
+            {
+              type: 'ref',
+              id: 'edulution-vdi/index',
+              label: 'Desktop-Bereitstellung',
             },
             'edulution-plattform/apps/konferenzen',
             'edulution-plattform/apps/vpn-zugang',
@@ -597,38 +577,102 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'edulution FileProxy',
       collapsed: true,
-      // Ein Serverdienst hinter der Dateiverwaltung - Endnutzer merken
-      // von ihm nichts und bekommen den Bereich nicht zu sehen.
-      customProps: { audience: 'admin' },
+      // Kein `audience` auf der Kategorie: die Dateien-App darin ist die
+      // meistgenutzte Anwendung der Plattform. Nur die Einrichtung des
+      // Proxys selbst ist Administrationsthema.
       link: {
         type: 'doc',
         id: 'edulution-fileproxy/index',
       },
       items: [
         {
-          type: 'doc',
-          id: 'edulution-fileproxy/package-server',
-          label: 'Package Server',
+          type: 'category',
+          label: 'Dateien',
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'edulution-fileproxy/dateien/index',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Konfiguration',
+              collapsed: true,
+              // Office-Server aufsetzen - fuer Endnutzer ausgeblendet
+              // (siehe src/components/audience/taxonomy.ts).
+              customProps: { audience: 'admin' },
+              items: [
+                {
+                  type: 'doc',
+                  id: 'edulution-fileproxy/dateien/konfiguration/onlyoffice',
+                  label: 'OnlyOffice',
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-fileproxy/dateien/konfiguration/collabora',
+                  label: 'Collabora',
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-fileproxy/dateien/konfiguration/eurooffice',
+                  label: 'EuroOffice',
+                },
+              ],
+            },
+            'edulution-fileproxy/dateien/ansicht-und-navigation',
+            'edulution-fileproxy/dateien/vorschau-und-drucken',
+            'edulution-fileproxy/dateien/teilen',
+            'edulution-fileproxy/dateien/speicherplatz-und-quota',
+            'edulution-fileproxy/dateien/upload-schutzmechanismen',
+            'edulution-fileproxy/dateien/browser-download-einstellungen',
+            'edulution-fileproxy/dateien/drawio',
+            'edulution-fileproxy/dateien/goodnotes',
+            {
+              type: 'category',
+              label: 'WebDAV',
+              collapsed: true,
+              items: [
+                'edulution-fileproxy/dateien/webdav-windows',
+                'edulution-fileproxy/dateien/webdav-macos',
+                'edulution-fileproxy/dateien/webdav-linux',
+              ],
+            },
+          ],
         },
         {
-          type: 'doc',
-          id: 'edulution-fileproxy/installation',
-          label: 'Installation',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-fileproxy/traefik-config',
-          label: 'Traefik Konfiguration',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-fileproxy/ui-config',
-          label: 'UI Konfiguration',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-fileproxy/wiki-infrastruktur',
-          label: 'Wiki-Infrastruktur',
+          type: 'category',
+          label: 'Proxy einrichten',
+          collapsed: true,
+          // Der Dienst hinter der Dateien-App - Endnutzer merken von ihm
+          // nichts und bekommen den Block nicht zu sehen.
+          customProps: { audience: 'admin' },
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-fileproxy/package-server',
+              label: 'Package Server',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-fileproxy/installation',
+              label: 'Installation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-fileproxy/traefik-config',
+              label: 'Traefik Konfiguration',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-fileproxy/ui-config',
+              label: 'UI Konfiguration',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-fileproxy/wiki-infrastruktur',
+              label: 'Wiki-Infrastruktur',
+            },
+          ],
         },
       ],
     },

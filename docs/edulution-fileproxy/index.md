@@ -1,10 +1,23 @@
 ---
 sidebar_position: 1
-sidebar_custom_props:
-  audience: admin
+title: edulution FileProxy
+description: Die Dateien-App und der WebDAV-zu-SMB-Proxy dahinter
 ---
 
 # edulution FileProxy
+
+Dieser Bereich umfasst zwei Dinge: die **[Dateien](./dateien/index.md)**-App, mit der Sie in
+edulution Ordner durchsuchen, Dateien teilen und Dokumente bearbeiten – und den **FileProxy**, den
+Dienst, der die Netzlaufwerke Ihrer Einrichtung dafür bereitstellt.
+
+<Audience roles="user">
+
+Als Nutzer:in interessiert Sie die App: **[Dateien](./dateien/index.md)** beschreibt Navigation,
+Freigaben, Vorschau, Quotas und die Einbindung per WebDAV.
+
+</Audience>
+
+## Der Proxy dahinter
 
 WebDAV-zu-SMB Proxy für sicheren Dateizugriff auf Windows-Shares.
 

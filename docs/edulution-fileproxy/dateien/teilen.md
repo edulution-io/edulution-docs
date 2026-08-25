@@ -150,4 +150,4 @@ Entweder ist das Ablaufdatum erreicht, oder der Ersteller hat die Freigabe gelö
 ## Siehe auch
 
 - [Dateien](./index.md) – Übersicht über die Dateiverwaltung
-- [Dashboard](../../erste-schritte/dashboard.md) – Speichernutzung und Quota anzeigen
+- [Dashboard](../../edulution-plattform/erste-schritte/dashboard.md) – Speichernutzung und Quota anzeigen

@@ -144,7 +144,7 @@ Mit aktiviertem FileProxy können Ihre Benutzer Dateien jeder Größe hochladen:
 
 \* *Abhängig von verfügbarem Speicherplatz und Quotas*
 
-Mehr dazu in der [Dateien-App Dokumentation](../edulution-plattform/apps/dateien/index.md#dateigröße).
+Mehr dazu in der [Dateien-App Dokumentation](./dateien/index.md#dateigröße).
 
 ## Benutzer testen
 

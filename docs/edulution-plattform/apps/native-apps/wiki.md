@@ -58,7 +58,7 @@ Verweise auf andere Wiki-Seiten lassen sich über die Syntax `[[Seitenname]]` ei
 
 ### Dateien anhängen
 
-Dateien lassen sich per Drag & Drop, über die Zwischenablage oder über **Medien einfügen** in eine Seite hochladen. Sie werden auf der WebDAV-Freigabe des Wikis gespeichert – Bilder erscheinen direkt im Text, andere Dateien als Dateikarte mit Vorschau, Download und Entfernen. Über die App [Dateien](../dateien/index.md) erreichen Sie dieselben Dateien und können sie dort [ansehen und bearbeiten](../dateien/vorschau-und-drucken.md#vorschau-öffnen).
+Dateien lassen sich per Drag & Drop, über die Zwischenablage oder über **Medien einfügen** in eine Seite hochladen. Sie werden auf der WebDAV-Freigabe des Wikis gespeichert – Bilder erscheinen direkt im Text, andere Dateien als Dateikarte mit Vorschau, Download und Entfernen. Über die App [Dateien](../../../edulution-fileproxy/dateien/index.md) erreichen Sie dieselben Dateien und können sie dort [ansehen und bearbeiten](../../../edulution-fileproxy/dateien/vorschau-und-drucken.md#vorschau-öffnen).
 
 ### Speichern
 
@@ -117,7 +117,7 @@ Ist eine Freigabe vorübergehend nicht erreichbar (z.B. wegen Wartungsarbeiten),
 Über **Löschen** (Papierkorb-Symbol) in der Werkzeugleiste lässt sich die aktuell geöffnete Seite entfernen. Vor dem Löschen erscheint ein Bestätigungsdialog.
 
 :::note[Ordner löschen]
-Das Entfernen ganzer Ordner ist über die Wiki-Oberfläche derzeit nicht möglich – über die Werkzeugleiste lassen sich nur einzelne Seiten löschen. Leere Ordner und nicht mehr benötigte Unterstrukturen können über den direkten Zugriff auf die zugrundeliegende WebDAV-Freigabe (siehe [Dateien](../dateien/index.md)) entfernt werden.
+Das Entfernen ganzer Ordner ist über die Wiki-Oberfläche derzeit nicht möglich – über die Werkzeugleiste lassen sich nur einzelne Seiten löschen. Leere Ordner und nicht mehr benötigte Unterstrukturen können über den direkten Zugriff auf die zugrundeliegende WebDAV-Freigabe (siehe [Dateien](../../../edulution-fileproxy/dateien/index.md)) entfernt werden.
 :::
 
 :::warning[Unwiderruflich]
@@ -159,5 +159,5 @@ Das Wiki nutzt Standard-Markdown. Eine Übersicht der unterstützten Formatierun
 - [Markdown-Hilfe](../../features/markdown-hilfe.md) – unterstützte Formatierungen im Wiki-Editor
 - [Wiki-Einstellungen (Admin)](../../konfiguration/wiki-einstellungen.md) – Sichtbarkeit pro Freigabe steuern
 - [Wiki-Infrastruktur (Admin)](../../../edulution-fileproxy/wiki-infrastruktur.md) – Server-seitige Einrichtung des Suchindex
-- [Dateien](../dateien/index.md) – Datei-Freigaben, auf denen Wikis basieren
+- [Dateien](../../../edulution-fileproxy/dateien/index.md) – Datei-Freigaben, auf denen Wikis basieren
 - [Benutzereinstellungen](../../erste-schritte/benutzereinstellungen/index.md) – Gruppenzugehörigkeit prüfen

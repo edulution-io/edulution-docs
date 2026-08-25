@@ -125,7 +125,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie teile ich eine Datei mit anderen?',
       a: 'Freigaben innerhalb von edulution und Links nach außen.',
-      to: '/docs/edulution-plattform/apps/dateien/teilen',
+      to: '/docs/edulution-fileproxy/dateien/teilen',
     },
     {
       q: 'Wo finde ich meine Moodle-Kurse?',
@@ -155,7 +155,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wo finde ich meine Dateien?',
       a: 'Eigene Ablage, Tauschverzeichnisse und die Verzeichnisse Ihrer Gruppen.',
-      to: '/docs/edulution-plattform/apps/dateien/',
+      to: '/docs/edulution-fileproxy/dateien/',
     },
     {
       q: 'Wie nehme ich an einer Konferenz teil?',
@@ -206,7 +206,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wo finde ich meine Dateien?',
       a: 'Eigene Ablage, Tauschverzeichnisse und die Verzeichnisse Ihrer Gruppen.',
-      to: '/docs/edulution-plattform/apps/dateien/',
+      to: '/docs/edulution-fileproxy/dateien/',
     },
     {
       q: 'Wie richte ich mein Mailprogramm ein?',

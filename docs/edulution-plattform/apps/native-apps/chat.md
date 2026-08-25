@@ -47,7 +47,7 @@ Wählen Sie links eine Klasse, ein Projekt oder eine Gruppe aus und schreiben Si
 - Leere Nachrichten lassen sich nicht senden
 
 :::note Nur Text und Emojis
-Der Messenger überträgt Text und Emojis. Datei- oder Bildanhänge sind im Chat nicht vorgesehen – nutzen Sie dafür die [Dateiverwaltung](../dateien/index.md).
+Der Messenger überträgt Text und Emojis. Datei- oder Bildanhänge sind im Chat nicht vorgesehen – nutzen Sie dafür die [Dateiverwaltung](../../../edulution-fileproxy/dateien/index.md).
 :::
 
 ## Nachrichten bearbeiten und löschen

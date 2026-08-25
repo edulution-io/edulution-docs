@@ -115,19 +115,19 @@ const config: Config = {
             ],
 
             // --- in der Plattform verbliebene Seiten -------------------
-            '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice': [
+            '/docs/edulution-fileproxy/dateien/konfiguration/onlyoffice': [
               '/docs/edulution-onlyoffice/',
               '/docs/category/edulution-onlyoffice',
             ],
-            '/docs/edulution-plattform/apps/dateien/konfiguration/collabora': [
+            '/docs/edulution-fileproxy/dateien/konfiguration/collabora': [
               '/docs/edulution-collabora/',
               '/docs/category/edulution-collabora',
             ],
-            '/docs/edulution-plattform/apps/dateien/konfiguration/eurooffice': [
+            '/docs/edulution-fileproxy/dateien/konfiguration/eurooffice': [
               '/docs/edulution-eurooffice/',
               '/docs/category/edulution-eurooffice',
             ],
-            '/docs/edulution-plattform/apps/dateien/goodnotes': ['/docs/edulution-plattform/features/goodnotes'],
+            '/docs/edulution-fileproxy/dateien/goodnotes': ['/docs/edulution-plattform/features/goodnotes'],
             // Die Benutzereinstellungen sind in Unterseiten zerlegt; die
             // alte Sammelseite fuehrt auf die Uebersicht. Anker-Links von
             // aussen landen damit oben statt am Abschnitt - der einzige
@@ -187,6 +187,11 @@ const config: Config = {
 
             // --- edulution FileProxy und Satellite --------------------
             // L1 hiess wie L3, deshalb genuegt der Zwischenschritt.
+            // Die Dateien-App ist in den FileProxy-Bereich gezogen: die App
+            // und der Dienst, der ihre Netzlaufwerke bereitstellt, gehoeren
+            // zusammen. L1 lag unter features/, L2 unter apps/.
+            ['/docs/edulution-fileproxy/dateien/', '/docs/edulution-plattform/apps/dateien/'],
+            ['/docs/edulution-fileproxy/dateien/', '/docs/edulution-plattform/features/dateien/'],
             ['/docs/edulution-fileproxy/', '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/'],
             ['/docs/edulution-satellite/', '/docs/edulution-plattform/apps/satellite/'],
 
@@ -335,15 +340,15 @@ const config: Config = {
             },
             {
               label: 'edulution OnlyOffice',
-              to: '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice',
+              to: '/docs/edulution-fileproxy/dateien/konfiguration/onlyoffice',
             },
             {
               label: 'edulution EuroOffice',
-              to: '/docs/edulution-plattform/apps/dateien/konfiguration/eurooffice',
+              to: '/docs/edulution-fileproxy/dateien/konfiguration/eurooffice',
             },
             {
               label: 'edulution Collabora',
-              to: '/docs/edulution-plattform/apps/dateien/konfiguration/collabora',
+              to: '/docs/edulution-fileproxy/dateien/konfiguration/collabora',
             },
           ],
         },

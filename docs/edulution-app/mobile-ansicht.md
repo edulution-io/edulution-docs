@@ -44,7 +44,7 @@ Wie der Ausweis heißt, richtet sich nach dem Organisationstyp der Installation:
 
 ## Dateien in der App öffnen [tags: ios, android]
 
-In der App bietet jede Zeile der [Dateiverwaltung](../edulution-plattform/apps/dateien/index.md) zusätzlich die Aktion **In App öffnen**. Damit übergibt die Plattform die Datei an die App, die sie mit den Mitteln des Betriebssystems anzeigt – unter iOS über die Dateien-App. Im Browser entfällt die Aktion.
+In der App bietet jede Zeile der [Dateiverwaltung](../edulution-fileproxy/dateien/index.md) zusätzlich die Aktion **In App öffnen**. Damit übergibt die Plattform die Datei an die App, die sie mit den Mitteln des Betriebssystems anzeigt – unter iOS über die Dateien-App. Im Browser entfällt die Aktion.
 
 Dauerhaften Zugriff auf ganze Freigaben richten Sie stattdessen in den Konto-Einstellungen der App ein, siehe [Dateien in iOS Files-App integrieren](/docs/edulution-app/setup).
 

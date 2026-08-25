@@ -6,9 +6,11 @@ description: Die Anwendungen der edulution Plattform im Überblick
 # Apps
 
 Hier stehen die Anwendungen, die **zur Plattform selbst gehören**. Sie brauchen keinen eigenen
-Serverdienst – höchstens eine Freigabe im **App-Store** und ein paar Einstellungen. Alles, wofür
-zusätzlich etwas zu installieren ist, hat einen eigenen Bereich in der Seitenleiste; die Tabelle
-weiter unten sagt, welche App zu welcher Komponente gehört.
+Serverdienst – höchstens eine Freigabe im **App-Store** und ein paar Einstellungen.
+
+Apps mit einem eigenen Dienst dahinter sind bei ihrer Komponente dokumentiert. In der Seitenleiste
+stehen sie hier trotzdem: Ein Klick springt in den Bereich der Komponente, statt den Baum zu
+verdoppeln. Welche App wohin gehört, sagt die Tabelle weiter unten.
 
 ## Native Apps
 
@@ -39,7 +41,7 @@ eine eigene Komponente mit eigener Installations- und Konfigurations-Strecke.
 
 | App in der Plattform | Dienst dahinter | Dokumentation |
 | --- | --- | --- |
-| **Dateien** | FileProxy für Windows-Freigaben | **[edulution FileProxy](../../edulution-fileproxy/index.md)** |
+| **Dateien** | FileProxy für Windows-Freigaben | **[Dateien](../../edulution-fileproxy/dateien/index.md)** in [edulution FileProxy](../../edulution-fileproxy/index.md) |
 | **E-Mail** | Mailserver auf Mailcow-Basis | **[edulution Mail](../../edulution-mail/index.md)** |
 | **Lernmanagement** | Moodle | **[edulution LMS](../../edulution-lms/index.md)** |
 | **Schulserver**, **Benutzerverwaltung** | linuxmuster.net | **[edulution Server](../../edulution-server/index.md)** |
@@ -47,12 +49,10 @@ eine eigene Komponente mit eigener Installations- und Konfigurations-Strecke.
 | **Desktop-Bereitstellung** | VDI-Umgebung | **[edulution VDI](../../edulution-vdi/index.md)** |
 | – (Appliance vor Ort) | Satellite | **[edulution Satellite](../../edulution-satellite/index.md)** |
 
-## Weitere Apps in der Plattform
+## Ohne eigenen Bereich
 
-Zwei Apps brauchen zwar einen Dienst, aber keine eigene Strecke – sie werden in den Einstellungen
-konfiguriert und sind hier vollständig beschrieben:
+Zwei Apps setzen einen Dienst voraus, brauchen aber keine eigene Strecke – sie werden in den
+Einstellungen konfiguriert und sind hier vollständig beschrieben:
 
-- **[Dateien](./dateien/index.md)** – Ablage, Freigaben und WebDAV. Zum Bearbeiten von Dokumenten
-  kommt ein Office-Server dazu (OnlyOffice, Collabora oder EuroOffice).
 - **[Konferenzen](./konferenzen.md)** – Videokonferenzen über BigBlueButton.
 - **[VPN-Zugang](./vpn-zugang.md)** – WireGuard-Tunnel ins Schulnetz für einzelne Benutzer.

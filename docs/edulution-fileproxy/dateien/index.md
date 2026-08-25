@@ -69,7 +69,7 @@ Wenn Sie eine Datei auswählen (Checkbox), erscheinen folgende Aktionen:
 
 Rufen Sie die Dateiverwaltung über die [edulution.io App](/docs/edulution-app/) auf, kommt die Aktion **In App öffnen** hinzu. Die Datei wird an die App übergeben und dort mit den Mitteln des Betriebssystems angezeigt – unter iOS über die Dateien-App. Im Browser entfällt die Aktion, ebenso in App-Versionen älter als 2.0.
 
-Siehe auch [Mobile App & Tablet-Nutzung](../../../edulution-app/mobile-ansicht.md).
+Siehe auch [Mobile App & Tablet-Nutzung](../../edulution-app/mobile-ansicht.md).
 
 ### Teilen (Sharing)
 
@@ -95,7 +95,7 @@ Die maximale Upload-Größe hängt davon ab, ob FileProxy eingerichtet ist:
 \* *Abhängig von verfügbarem Speicherplatz und Quotas*
 
 **FileProxy einrichten:**
-Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richten Sie den [edulution FileProxy](../../../edulution-fileproxy/ui-config.md) ein. Dieser bietet:
+Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richten Sie den [edulution FileProxy](../ui-config.md) ein. Dieser bietet:
 - Unbegrenzte Upload-Größe
 - Deutlich höhere Performance
 - Schnellere Up- und Downloads
@@ -103,7 +103,7 @@ Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richt
 ### Speicherplatz
 Ihre Speichernutzung steht am unteren Rand der Menüleiste: Schulname, Fortschrittsbalken und die belegten GB. Wird der Platz knapp, erscheint eine Warnung unter der Überschrift **Dateien**; bei sehr geringer Quota werden Hochladen und Erstellen ausgeblendet und Freigaben lassen sich nicht mehr mit Schreibrechten versehen.
 
-Alle Details finden Sie unter [Speicherplatz und Quota](./speicherplatz-und-quota.md), die berechneten Cloud- und E-Mail-Quotas im [Dashboard](../../erste-schritte/dashboard.md#quotas).
+Alle Details finden Sie unter [Speicherplatz und Quota](./speicherplatz-und-quota.md), die berechneten Cloud- und E-Mail-Quotas im [Dashboard](../../edulution-plattform/erste-schritte/dashboard.md#quotas).
 
 ### Unterstützte Formate
 Alle Dateiformate sind möglich. Direkt bearbeiten können Sie:
@@ -135,7 +135,7 @@ Sie können Ihre Dateien auch direkt über den Dateimanager Ihres Betriebssystem
 ## Siehe auch
 
 - [Vorschau und Drucken](./vorschau-und-drucken.md) - Dateien ansehen und ausdrucken
-- [Dashboard](../../erste-schritte/dashboard.md) - Speichernutzung anzeigen
-- [Mobile App](../../../edulution-app/mobile-ansicht.md) - Dateien mobil synchronisieren
-- [Eingebettete App](../native-apps/eingebettete-app.md) - HTML/JS/CSS hochladen
+- [Dashboard](../../edulution-plattform/erste-schritte/dashboard.md) - Speichernutzung anzeigen
+- [Mobile App](../../edulution-app/mobile-ansicht.md) - Dateien mobil synchronisieren
+- [Eingebettete App](../../edulution-plattform/apps/native-apps/eingebettete-app.md) - HTML/JS/CSS hochladen
 - [Schutzmechanismen beim Hochladen](./upload-schutzmechanismen.md) - Dateinamen, Duplikate und Bildumwandlung

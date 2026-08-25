@@ -101,7 +101,7 @@ Derzeit gibt es das Suchfeld in diesen Apps:
 
 Einige Apps blenden unterhalb der Menüeinträge einen festen Fußbereich ein:
 
-- **[Dateien](../apps/dateien/index.md)**: Zugangsdaten für [WebDAV](../apps/dateien/webdav-windows.md) sowie die Anzeige des belegten Speicherplatzes
+- **[Dateien](../../edulution-fileproxy/dateien/index.md)**: Zugangsdaten für [WebDAV](../../edulution-fileproxy/dateien/webdav-windows.md) sowie die Anzeige des belegten Speicherplatzes
 - **[Kontakte](../apps/native-apps/kontakte.md)**: Schaltfläche zum Anlegen eines neuen Adressbuchs
 - **[E-Mail](../../edulution-mail/index.md)**: Hinweis, solange die Ordnerliste noch geladen wird
 

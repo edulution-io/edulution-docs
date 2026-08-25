@@ -27,7 +27,7 @@ Zwei Fälle sind zu beachten:
 - In der Ansicht **Geteilte Dateien** wird die Anzeige ausgeblendet – dort greifen die Quotas der jeweiligen Besitzer, nicht Ihre eigene.
 - Lässt sich keine Quota ermitteln, steht dort `-- / -- GB belegt` und der Balken bleibt leer. Die Dateiverwaltung funktioniert dann uneingeschränkt weiter.
 
-Dieselben Werte finden Sie zusammen mit der berechneten Cloud- und E-Mail-Quota im [Dashboard](../../erste-schritte/dashboard.md#quotas).
+Dieselben Werte finden Sie zusammen mit der berechneten Cloud- und E-Mail-Quota im [Dashboard](../../edulution-plattform/erste-schritte/dashboard.md#quotas).
 
 ## Warnung bei knappem Speicherplatz
 
@@ -75,4 +75,4 @@ Reicht der Platz während eines Uploads nicht mehr aus, bricht edulution den Pro
 ## Siehe auch
 
 - [Dateien](./index.md) – Übersicht über die Dateiverwaltung
-- [Dashboard](../../erste-schritte/dashboard.md#quotas) – Speichernutzung inklusive Cloud- und E-Mail-Quota
+- [Dashboard](../../edulution-plattform/erste-schritte/dashboard.md#quotas) – Speichernutzung inklusive Cloud- und E-Mail-Quota

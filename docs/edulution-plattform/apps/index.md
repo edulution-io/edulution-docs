@@ -30,8 +30,8 @@ Jede bringt eine eigene Kachel mit; freigeschaltet werden sie im
 - **[Eingebettete App](./native-apps/eingebettete-app.md)** – eine fremde Weboberfläche als
   eigene Kachel einbinden.
 
-Funktionen, die keine eigene App sind – Benachrichtigungen, die Eltern-Schüler-Zuordnung, der
-Passwort-Tresor und die Markdown-Hilfe – stehen unter **[Features](../features/index.md)**.
+Dazu kommt die **[Markdown-Hilfe](./native-apps/markdown-hilfe.md)** – die Syntax, die im
+Wiki-Editor gilt.
 
 ## Apps mit eigenem Bereich
 

@@ -1,9 +1,9 @@
 # Markdown-Hilfe
 
-Diese Übersicht zeigt die Markdown-Formatierungen, die im edulution Wiki unterstützt werden. Der Editor bietet alle Aktionen über die Werkzeugleiste und das Slash-Menü an (siehe [Wiki-Editor](../apps/native-apps/wiki-editor.md)) – Sie können die hier gezeigte Markdown-Schreibweise aber auch direkt eingeben, sie wird beim Tippen umgewandelt. Gespeichert wird jede Seite als reine Markdown-Datei.
+Diese Übersicht zeigt die Markdown-Formatierungen, die im edulution Wiki unterstützt werden. Der Editor bietet alle Aktionen über die Werkzeugleiste und das Slash-Menü an (siehe [Wiki-Editor](./wiki-editor.md)) – Sie können die hier gezeigte Markdown-Schreibweise aber auch direkt eingeben, sie wird beim Tippen umgewandelt. Gespeichert wird jede Seite als reine Markdown-Datei.
 
 :::info[Geltungsbereich]
-Diese Hilfe bezieht sich auf den [Wiki](../apps/native-apps/wiki.md)-Editor. Andere Markdown-Felder in edulution unterstützen je nach Kontext einen Teil der hier beschriebenen Formatierungen.
+Diese Hilfe bezieht sich auf den [Wiki](./wiki.md)-Editor. Andere Markdown-Felder in edulution unterstützen je nach Kontext einen Teil der hier beschriebenen Formatierungen.
 :::
 
 ## Textauszeichnung
@@ -191,5 +191,5 @@ Mit `Strg + Umschalt + V` fügen Sie Inhalte aus der Zwischenablage ohne deren F
 
 ## Siehe auch
 
-- [Wiki](../apps/native-apps/wiki.md) – Aufbau und Bedienung des Wikis
-- [Wiki-Editor](../apps/native-apps/wiki-editor.md) – Werkzeugleiste, Slash-Menü, Anhänge und Suchen/Ersetzen
+- [Wiki](./wiki.md) – Aufbau und Bedienung des Wikis
+- [Wiki-Editor](./wiki-editor.md) – Werkzeugleiste, Slash-Menü, Anhänge und Suchen/Ersetzen

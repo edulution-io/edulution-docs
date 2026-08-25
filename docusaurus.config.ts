@@ -152,6 +152,21 @@ const config: Config = {
               '/docs/edulution-plattform/features/sicherheit',
               '/docs/edulution-plattform/apps/native-apps/sicherheit',
             ],
+            // Vier Seiten standen als "Features" fuer sich, gehoerten aber
+            // dorthin, wo man ihnen begegnet: die Markdown-Hilfe zum
+            // Wiki-Editor, die Benachrichtigungen und die Schnellzugriffe in
+            // die Navigation, die Eltern-Schueler-Zuordnung in die
+            // Benutzereinstellungen. Der Bereich ist damit leer.
+            '/docs/edulution-plattform/uebersicht/navigation': [
+              '/docs/edulution-plattform/features/benachrichtigungen',
+              '/docs/edulution-plattform/apps/native-apps/benachrichtigungen',
+              '/docs/edulution-plattform/uebersicht/benutzereinstellungen/schnellzugriffe',
+              '/docs/edulution-plattform/erste-schritte/benutzereinstellungen/schnellzugriffe',
+            ],
+            '/docs/edulution-plattform/uebersicht/benutzereinstellungen/meine-kinder-eltern': [
+              '/docs/edulution-plattform/features/eltern-schueler-zuordnung',
+              '/docs/edulution-plattform/apps/native-apps/eltern-schueler-zuordnung',
+            ],
             // App-Store raus aus der Liste der nativen Apps, darueber.
             '/docs/edulution-plattform/apps/app-store': [
               '/docs/edulution-plattform/apps/native-apps/app-store',
@@ -210,7 +225,6 @@ const config: Config = {
             ['/docs/edulution-plattform/konfiguration/anbindungen/', '/docs/anbindungen/'],
             ['/docs/edulution-plattform/konfiguration/upgrade/', '/docs/edulution-plattform/upgrade/'],
             ['/docs/edulution-plattform/konfiguration/', '/docs/edulution-plattform/administration/'],
-            ['/docs/edulution-plattform/features/', '/docs/edulution-plattform/apps/native-apps/'],
             ['/docs/edulution-plattform/apps/native-apps/', '/docs/edulution-plattform/features/'],
             ['/docs/edulution-plattform/apps/', '/docs/edulution-plattform/features/'],
           ];
@@ -235,18 +249,7 @@ const config: Config = {
               : [path],
           );
 
-          // /docs/edulution-plattform/features/ ist seit dem Features-Bereich
-          // eine echte Seite. Die apps/-Regel oben wuerde sie als Alt-URL der
-          // Apps-Uebersicht erzeugen; eine Weiterleitung auf eine bestehende
-          // Seite laesst der Build nicht zu.
-          const NEVER_EXISTED = new Set([
-            '/docs/edulution-plattform/features/',
-            '/docs/edulution-ui/features/',
-          ]);
-
-          const redirects = [...new Set(all)].filter(
-            (path) => path !== existingPath && !NEVER_EXISTED.has(path),
-          );
+          const redirects = [...new Set(all)].filter((path) => path !== existingPath);
           return redirects.length ? redirects : undefined;
         },
       },

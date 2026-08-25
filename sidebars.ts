@@ -62,7 +62,6 @@ const sidebars: SidebarsConfig = {
                 'edulution-plattform/uebersicht/benutzereinstellungen/app-zugriff',
                 'edulution-plattform/uebersicht/benutzereinstellungen/vpn-zugang',
                 'edulution-plattform/uebersicht/benutzereinstellungen/meine-kinder-eltern',
-                'edulution-plattform/uebersicht/benutzereinstellungen/schnellzugriffe',
               ],
             },
             'edulution-plattform/uebersicht/dashboard',
@@ -162,23 +161,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Features',
-          collapsed: true,
-          // Funktionen ohne eigene Kachel - sie wirken quer durch die
-          // Plattform oder sitzen in den Benutzereinstellungen. Steht ueber
-          // den Apps, weil man ihnen frueher begegnet als einer einzelnen App.
-          link: {
-            type: 'doc',
-            id: 'edulution-plattform/features/index',
-          },
-          items: [
-            'edulution-plattform/features/benachrichtigungen',
-            'edulution-plattform/features/eltern-schueler-zuordnung',
-            'edulution-plattform/features/markdown-hilfe',
-          ],
-        },
-        {
-          type: 'category',
           label: 'Apps',
           collapsed: false,
           link: {
@@ -203,6 +185,7 @@ const sidebars: SidebarsConfig = {
                 'edulution-plattform/apps/native-apps/whiteboard',
                 'edulution-plattform/apps/native-apps/wiki',
                 'edulution-plattform/apps/native-apps/wiki-editor',
+                'edulution-plattform/apps/native-apps/markdown-hilfe',
                 'edulution-plattform/apps/native-apps/geraeteverwaltung',
                 'edulution-plattform/apps/native-apps/infoboard',
                 'edulution-plattform/apps/native-apps/umfragen',

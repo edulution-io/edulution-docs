@@ -81,7 +81,7 @@ Ein Tooltip („Gelesen von …") nennt die Personen, die die Nachricht gelesen 
 
 ## Benachrichtigungen
 
-Bei einer neuen Nachricht erhalten **alle Gruppenmitglieder außer dem Absender** eine [Benachrichtigung](../../features/benachrichtigungen.md):
+Bei einer neuen Nachricht erhalten **alle Gruppenmitglieder außer dem Absender** eine [Benachrichtigung](../../uebersicht/navigation.md#benachrichtigungen):
 
 - **Titel** – Name der Gruppe
 - **Absender** – Vor- und Nachname
@@ -134,5 +134,5 @@ Welche Nutzergruppen den KI-Chat verwenden dürfen, legen Sie als Global-Admin i
 ## Siehe auch
 
 - [Mein Profil → Profilbild](../../uebersicht/benutzereinstellungen/benutzerdetails.md#profilbild) – Profilbild für den Chat hinterlegen
-- [Benachrichtigungen](../../features/benachrichtigungen.md) – Chat-Nachrichten in der Benachrichtigungsleiste
+- [Benachrichtigungen](../../uebersicht/navigation.md#benachrichtigungen) – Chat-Nachrichten in der Benachrichtigungsleiste
 - [Konferenzen](../konferenzen.md) – Audio- und Videokonferenzen

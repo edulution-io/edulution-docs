@@ -96,7 +96,42 @@ Vor dem Speichern werden die Einträge validiert. Doppelte Rechnernamen, MAC- od
 
 ## Elternzuweisung
 
-Hier ordnen Sie Elternkonten den zugehörigen Schülerkonten zu. Die Tabelle zeigt die bestehenden Zuweisungen; die Fußzeile nennt die Zahl der ausgewählten Einträge.
+Hier geben Sie die Verknüpfungen frei, die Eltern und Schüler selbst über einen Zuweisungs-Code
+angefragt haben (*„Eltern-Schüler-Zuweisungen verwalten."*). Wie die Anfrage entsteht, beschreibt
+[Benutzereinstellungen → Meine Kinder/Eltern](../edulution-plattform/uebersicht/benutzereinstellungen/meine-kinder-eltern.md).
+
+![Kachel „Elternzuweisung" auf der Übersichtsseite der Schulserver-App](/img/eltern-schueler-zuordnung/elternzuweisung-kachel.png)
+
+Die Tabelle zeigt die Zuordnungen mit folgenden Spalten; die Fußzeile nennt die Zahl der
+ausgewählten Einträge.
+
+![Tabelle der Eltern-Schüler-Zuweisungen mit Spalten Elternteil, Schüler, Status und Erstellt am](/img/eltern-schueler-zuordnung/elternzuweisung-tabelle.png)
+
+| Spalte | Inhalt |
+| --- | --- |
+| **Elternteil** | Das anfragende bzw. zugeordnete Elternteil |
+| **Schüler** | Der zugeordnete Schüler |
+| **Status** | Ausstehend, Akzeptiert oder Abgelehnt |
+| **Erstellt am** | Zeitpunkt der Anfrage |
+
+### Anfragen bearbeiten
+
+Über die Aktionen einer Zeile geben Sie eine Anfrage frei (**Akzeptieren**) oder lehnen sie ab (**Ablehnen**). Sie können mehrere Einträge auswählen und über die Schaltflächen am unteren Rand gemeinsam bearbeiten. Nach der Bearbeitung erscheint die Rückmeldung *„Status erfolgreich aktualisiert."*.
+
+- Mit **Akzeptieren** wird die Verknüpfung in der Linuxmuster-Umgebung eingerichtet – das Elternteil wird dem Schülerkonto zugeordnet.
+- Mit **Ablehnen** einer bereits akzeptierten Zuordnung wird die Verknüpfung wieder entfernt.
+
+### Filtern und suchen
+
+- Über das **Suchfeld** filtern Sie die Tabelle nach Elternteil oder Schüler (*„Nach Elternteil oder Schüler suchen…"*).
+- Ein **Status-Filter** blendet gezielt *Alle*, *Ausstehend*, *Akzeptiert* oder *Abgelehnt* ein. Standardmäßig sind die **ausstehenden** Anfragen vorausgewählt.
+- Super-Administratoren steht zusätzlich eine **Schulauswahl** zur Verfügung, um Anfragen schulübergreifend zu bearbeiten.
+
+![Geöffneter Status-Filter mit den Optionen Alle, Ausstehend, Akzeptiert und Abgelehnt](/img/eltern-schueler-zuordnung/elternzuweisung-filter.png)
+
+:::info[Nur in Schulumgebungen]
+Der Bereich erscheint ausschließlich in Schulumgebungen.
+:::
 
 ## LINBO
 

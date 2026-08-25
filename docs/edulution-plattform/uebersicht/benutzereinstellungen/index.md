@@ -37,7 +37,6 @@ Die Benutzereinstellungen sind unterteilt in:
   [Zuweisungs-Code](./meine-kinder-eltern.md#mein-zuweisungs-code),
   [Code eingeben](./meine-kinder-eltern.md#code-eingeben) und
   [Zuweisungen](./meine-kinder-eltern.md#zuweisungen).
-- **[Schnellzugriffe](./schnellzugriffe.md)** – die Verknüpfungen im Profil-Menü.
 
 ## Siehe auch
 

@@ -1,4 +1,4 @@
-# VPN-Zugang
+# VPN-Zugang (WireGuard)
 
 Mit dem **VPN-Zugang** greifen Sie über einen [WireGuard](https://www.wireguard.com/)-Tunnel gesichert auf das Schul- bzw. Organisationsnetz zu – etwa um von unterwegs auf interne Dienste zuzugreifen. edulution verwaltet die WireGuard-Peers zentral: Die Administration richtet den Zugang ein, jede Nutzerin und jeder Nutzer ruft die eigene Konfiguration anschließend in den Benutzereinstellungen ab.
 

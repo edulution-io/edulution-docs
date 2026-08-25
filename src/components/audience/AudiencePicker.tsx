@@ -61,42 +61,41 @@ export default function AudiencePicker({
       >
         {label}
       </p>
-      <div className="audience-picker__body">
-        <div
-          className="audience-picker__options"
-          role="group"
-          aria-label={label}
-        >
-          {options.map((option) => (
-            <button
-              key={option.id}
-              type="button"
-              title={option.description}
-              aria-pressed={selected === option.id}
-              className={`audience-chip${selected === option.id ? ' audience-chip--on' : ''}`}
-              // Erneuter Klick auf die aktive Auswahl hebt sie wieder auf.
-              onClick={() => audience.setAxis(axis, selected === option.id ? ANY : option.id)}
-            >
-              {option.label}
-            </button>
-          ))}
+      <div
+        className="audience-picker__options"
+        role="group"
+        aria-label={label}
+      >
+        {options.map((option) => (
           <button
+            key={option.id}
             type="button"
-            title="Keine Einschränkung – alles anzeigen"
-            aria-pressed={selected === ANY}
-            className={`audience-chip audience-chip--any${selected === ANY ? ' audience-chip--on' : ''}`}
-            onClick={() => audience.setAxis(axis, ANY)}
+            title={option.description}
+            aria-pressed={selected === option.id}
+            className={`audience-chip${selected === option.id ? ' audience-chip--on' : ''}`}
+            // Erneuter Klick auf die aktive Auswahl hebt sie wieder auf.
+            onClick={() => audience.setAxis(axis, selected === option.id ? ANY : option.id)}
           >
-            Egal
+            {option.label}
           </button>
-        </div>
+        ))}
+        <button
+          type="button"
+          title="Keine Einschränkung – alles anzeigen"
+          aria-pressed={selected === ANY}
+          className={`audience-chip audience-chip--any${selected === ANY ? ' audience-chip--on' : ''}`}
+          onClick={() => audience.setAxis(axis, ANY)}
+        >
+          Egal
+        </button>
+      </div>
 
-        {/* Unter den Schaltflaechen steht immer genau eine Zeile: die zur
+      {/* Unter Frage und Schaltflaechen steht immer genau eine Zeile: die zur
           gewaehlten Antwort, oder – solange die Frage offen ist – die zu
           *Egal*. Welche davon erscheint, entscheidet CSS; so steht schon vor
-          dem ersten Paint das Richtige da. */}
-        {isRole ? <RoleSummary /> : <OrgSummary />}
-      </div>
+          dem ersten Paint das Richtige da. Sie ist ein eigenes Kind des
+          Rasters und laeuft ueber beide Spalten. */}
+      {isRole ? <RoleSummary /> : <OrgSummary />}
     </section>
   );
 }

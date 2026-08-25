@@ -80,6 +80,15 @@ const config: Config = {
             ],
             '/docs/edulution-plattform/apps/dateien/goodnotes': ['/docs/edulution-plattform/features/goodnotes'],
             '/docs/edulution-plattform/apps/lernmanagement/konfiguration/': ['/docs/edulution-moodle/'],
+            // Die Experten-Tipps bestanden nur aus dem Zugang zur
+            // Keycloak-Administrationsoberflaeche. Der steht jetzt als
+            // Unterabschnitt in der Passwortaenderung. Beide Alt-Pfade
+            // stehen hier, weil der /administration/-Zwilling aus der
+            // PREFIXES-Regel nur fuer den *neuen* Pfad entsteht.
+            '/docs/edulution-plattform/konfiguration/passwort-aenderung': [
+              '/docs/edulution-plattform/konfiguration/experten-tipps',
+              '/docs/edulution-plattform/administration/experten-tipps',
+            ],
           };
 
           const PREFIXES: [string, string][] = [

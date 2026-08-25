@@ -32,7 +32,29 @@ Der Rückfallweg greift bei **jedem** Fehler des Keycloak-Wegs – also auch dan
 
 ## Voraussetzungen in Keycloak
 
-Die Keycloak-Administrationsoberfläche erreichen Sie über die URL Ihrer edulution Plattform gefolgt von `/auth` (siehe [Experten-Tipps](./experten-tipps.md)). Realm- und Client-Namen entnehmen Sie den Variablen `KEYCLOAK_EDU_UI_REALM` und `KEYCLOAK_EDU_UI_CLIENT_ID` aus `/srv/docker/edulution-ui/edulution.env`.
+Die folgenden Einstellungen nehmen Sie in der Keycloak-Administrationsoberfläche vor. Realm- und Client-Namen entnehmen Sie den Variablen `KEYCLOAK_EDU_UI_REALM` und `KEYCLOAK_EDU_UI_CLIENT_ID` aus `/srv/docker/edulution-ui/edulution.env`.
+
+### Keycloak-Administrationsoberfläche aufrufen
+
+1.  **Adresse:** Rufen Sie die URL Ihrer edulution Plattform gefolgt von
+    `/auth` auf. *Beispiel:* `https://ui.musterschule.de/auth`
+
+2.  **Anmeldung:**
+
+    - **Benutzername:** `admin`
+    - **Passwort:** Das Passwort finden Sie in der Konfigurationsdatei
+      auf Ihrem Server.
+
+3.  **Passwort finden:** Verbinden Sie sich per SSH mit Ihrem Server und
+    lassen Sie sich den Inhalt der Datei anzeigen:
+
+    ```bash
+    cat /srv/docker/edulution-ui/edulution.env | grep KEYCLOAK_ADMIN_PASSWORD
+    ```
+
+    Der Befehl zeigt Ihnen die Zeile mit dem benötigten Passwort an.
+
+### Einstellungen im Realm
 
 | Voraussetzung | Ort in Keycloak | Wozu |
 |---|---|---|
@@ -81,5 +103,4 @@ Diese Seite beschreibt die Passwortänderung durch den Benutzer selbst. Das **Zu
 
 - [Benutzereinstellungen → Sicherheit](../erste-schritte/mein-profil.md#sicherheit) – Passwortänderung aus Benutzersicht
 - [Sicherheit & Authentifizierung](../apps/native-apps/sicherheit.md) – Zwei-Faktor-Authentifizierung und Passwort-Tresor
-- [Experten-Tipps](./experten-tipps.md) – Zugang zur Keycloak-Administrationsoberfläche
 - [Anpassung am Linuxmuster-Server](../installation/configure_lmn-server.md) – Linuxmuster-API und Setup-Token

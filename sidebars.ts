@@ -65,7 +65,6 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/konfiguration/satelliten',
             'edulution-plattform/konfiguration/wiki-einstellungen',
             'edulution-plattform/konfiguration/webhooks',
-            'edulution-plattform/konfiguration/experten-tipps',
             {
               type: 'category',
               label: 'Anbindungen',

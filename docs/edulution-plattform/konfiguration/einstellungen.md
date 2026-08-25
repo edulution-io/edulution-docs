@@ -488,5 +488,5 @@ Nützlich wenn Benutzer:
 
 - [Administration](./administration.md) - Allgemeine Admin-Aufgaben
 - [Container-Verwaltung](./container-verwaltung.md) - Container installieren, aktualisieren und steuern
-- [Experten-Tipps](./experten-tipps.md) - Fortgeschrittene Konfiguration
+- [Passwortänderung einrichten](./passwort-aenderung.md#keycloak-administrationsoberfläche-aufrufen) - Zugang zur Keycloak-Administrationsoberfläche
 - [Linuxmuster verbinden](../installation/configure_lmn-server.md) - Server-Integration

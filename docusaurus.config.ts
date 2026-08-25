@@ -115,16 +115,22 @@ const config: Config = {
             ],
 
             // --- in der Plattform verbliebene Seiten -------------------
-            '/docs/edulution-fileproxy/dateien/konfiguration/onlyoffice': [
+            // Die drei Editor-Seiten sind zu einer geworden: Editor
+            // auswaehlen und Container installieren waren wortgleich, nur
+            // die Integrationswerte und die Traefik-Konfiguration
+            // unterscheiden sich.
+            '/docs/edulution-fileproxy/dateien/konfiguration/dokumenten-editor': [
+              '/docs/edulution-fileproxy/dateien/konfiguration/onlyoffice',
+              '/docs/edulution-fileproxy/dateien/konfiguration/collabora',
+              '/docs/edulution-fileproxy/dateien/konfiguration/eurooffice',
+              '/docs/edulution-plattform/apps/dateien/konfiguration/onlyoffice',
+              '/docs/edulution-plattform/apps/dateien/konfiguration/collabora',
+              '/docs/edulution-plattform/apps/dateien/konfiguration/eurooffice',
               '/docs/edulution-onlyoffice/',
-              '/docs/category/edulution-onlyoffice',
-            ],
-            '/docs/edulution-fileproxy/dateien/konfiguration/collabora': [
               '/docs/edulution-collabora/',
-              '/docs/category/edulution-collabora',
-            ],
-            '/docs/edulution-fileproxy/dateien/konfiguration/eurooffice': [
               '/docs/edulution-eurooffice/',
+              '/docs/category/edulution-onlyoffice',
+              '/docs/category/edulution-collabora',
               '/docs/category/edulution-eurooffice',
             ],
             '/docs/edulution-fileproxy/dateien/goodnotes': ['/docs/edulution-plattform/features/goodnotes'],
@@ -352,16 +358,9 @@ const config: Config = {
               to: '/docs/edulution-satellite/',
             },
             {
-              label: 'edulution OnlyOffice',
-              to: '/docs/edulution-fileproxy/dateien/konfiguration/onlyoffice',
-            },
-            {
-              label: 'edulution EuroOffice',
-              to: '/docs/edulution-fileproxy/dateien/konfiguration/eurooffice',
-            },
-            {
-              label: 'edulution Collabora',
-              to: '/docs/edulution-fileproxy/dateien/konfiguration/collabora',
+              // Eine Seite fuer alle drei Editoren - siehe createRedirects.
+              label: 'Dokumenten-Editor',
+              to: '/docs/edulution-fileproxy/dateien/konfiguration/dokumenten-editor',
             },
           ],
         },

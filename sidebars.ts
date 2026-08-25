@@ -603,18 +603,8 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'doc',
-                  id: 'edulution-fileproxy/dateien/konfiguration/onlyoffice',
-                  label: 'OnlyOffice',
-                },
-                {
-                  type: 'doc',
-                  id: 'edulution-fileproxy/dateien/konfiguration/collabora',
-                  label: 'Collabora',
-                },
-                {
-                  type: 'doc',
-                  id: 'edulution-fileproxy/dateien/konfiguration/eurooffice',
-                  label: 'EuroOffice',
+                  id: 'edulution-fileproxy/dateien/konfiguration/dokumenten-editor',
+                  label: 'Dokumenten-Editor',
                 },
               ],
             },

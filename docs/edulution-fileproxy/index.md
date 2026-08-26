@@ -1,12 +1,22 @@
 ---
 sidebar_position: 1
-sidebar_custom_props:
-  audience: admin
+title: edulution FileProxy
+description: Der WebDAV-zu-SMB-Proxy hinter der Dateien-App
 ---
 
 # edulution FileProxy
 
-WebDAV-zu-SMB Proxy für sicheren Dateizugriff auf Windows-Shares.
+Der **FileProxy** ist der Dienst hinter der Dateien-App: Er stellt die Netzlaufwerke Ihrer
+Einrichtung als WebDAV bereit – ein WebDAV-zu-SMB-Proxy für sicheren Dateizugriff auf
+Windows-Freigaben. Wie die App selbst bedient wird, steht im Zweig
+**[Dateien](./dateien/index.md)** daneben.
+
+<Audience roles="user">
+
+Als Nutzer:in interessiert Sie die App: **[Dateien](./dateien/index.md)** beschreibt Navigation,
+Freigaben, Vorschau, Quotas und die Einbindung per WebDAV.
+
+</Audience>
 
 ## Was ist FileProxy?
 
@@ -40,10 +50,10 @@ graph LR
 
 Die Installation erfolgt in 4 Schritten:
 
-1. **[Package Server](./package-server)** - Edulution Repository einrichten
-2. **[FileProxy installieren](./installation)** - Server aufsetzen und konfigurieren
-3. **[Traefik konfigurieren](./traefik-config)** - Reverse Proxy einrichten
-4. **[UI konfigurieren](./ui-config)** - WebDAV in edulution aktivieren
+1. **[Package Server](./konfiguration/package-server.md)** - Edulution Repository einrichten
+2. **[FileProxy installieren](./konfiguration/installation.md)** - Server aufsetzen und konfigurieren
+3. **[Traefik konfigurieren](./konfiguration/traefik-config.md)** - Reverse Proxy einrichten
+4. **[UI konfigurieren](./konfiguration/ui-config.md)** - WebDAV in edulution aktivieren
 
 ## Voraussetzungen
 
@@ -63,4 +73,4 @@ FileProxy sollte auf dem **gleichen Host wie der Fileserver** installiert werden
 
 ## Erste Schritte
 
-Beginnen Sie mit der [Package Server Einrichtung](./package-server) →
+Beginnen Sie mit der [Package Server Einrichtung](./konfiguration/package-server.md) →

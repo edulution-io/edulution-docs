@@ -5,23 +5,16 @@ description: Einstieg in die Dokumentation von edulution.io – Plattform, Mail,
 
 # edulution.io Dokumentation
 
-**edulution** ist eine Arbeitsumgebung, sie bündelt in einer einzigen Weboberfläche, wofür sonst mehrere getrennte Systeme nötig wären:
-Dateiverwaltung, E-Mail, Kalender, Kontakte, Chat, Videokonferenzen, Whiteboard, Umfragen und
-Lernmanagement.
-
-### 1. Um welche Art von Organisation geht es?
-
-Edulution benennt Dinge je nach Einrichtung anders und je nach Organizationstyp werden manche Funktionen ein- oder aus-geblendet.
+Je nach Organizationstyp werden manche Dinge anders benannt und einige Funktionen werden ein- oder aus-geblendet.
 
 <AudiencePicker axis="org" />
 
-### 2. Welche Rolle haben Sie?
-
-Als normaler user werden einem zum beispiel wesentlich weniger informationen angezeigt als einem Administrator, welcher es gewohnt sein sollte sich mit vielen tief gehenden Einstellungen auseinander zu setzen.
+Je nach Rolle in der Organisation werden informationen angezeigt oder ausgeblendet. Beispielsweise sollte ein Administrator es gewohnt sein sich mit vielen tief gehenden Einstellungen auseinander zu setzen.
 
 <AudiencePicker axis="role" />
 
-### 3. Gibt es fragen zu einem bestimmten Modul?
+**edulution** ist eine Arbeitsumgebung, sie bündelt in einer einzigen Weboberfläche, wofür sonst mehrere getrennte Systeme nötig wären:
+Kalender, Kontakte, Chat, Videokonferenzen, Whiteboard, Umfragen (edulution Plattform), Dateiverwaltung (FileProxy), E-Mail, und Lernmanagement.
 
 <AppCards />
 
@@ -31,12 +24,6 @@ Die Fragen, mit denen man üblicherweise ankommt – zugeschnitten auf die Rolle
 haben. Jede führt direkt zur passenden Seite.
 
 <AudienceFaq />
-
-:::info[Eine Lesehilfe, keine Zugriffsbeschränkung]
-Die Auswahl entscheidet nur, was Ihnen **angezeigt** wird – nicht, was Sie dürfen. Ohne Auswahl ist
-nichts ausgeblendet, und ausgeblendete Abschnitte sind weiterhin Teil der Seite: Ein Link von außen
-auf eine solche Stelle deckt sie automatisch wieder auf.
-:::
 
 ## Kann ich edulution testen?
 

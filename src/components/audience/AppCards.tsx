@@ -44,13 +44,13 @@ const CARDS: AppCard[] = [
     wide: true,
     text: 'Dateien, E-Mail, Kalender, Kontakte, Chat, Konferenzen und Whiteboard – alles nach einer einzigen Anmeldung.',
     targets: {
-      default: { to: '/docs/edulution-plattform/features/navigation', label: 'Nutzerhandbuch' },
+      default: { to: '/docs/edulution-plattform/uebersicht/navigation', label: 'Nutzerhandbuch' },
       'admin-setup': {
         to: '/docs/edulution-plattform/installation/voraussetzungen',
         label: 'Installation',
       },
       'admin-operate': {
-        to: '/docs/edulution-plattform/administration/administration',
+        to: '/docs/edulution-plattform/konfiguration/administration',
         label: 'Administration',
       },
     },
@@ -69,15 +69,15 @@ const CARDS: AppCard[] = [
     roles: 'admin',
     targets: {
       'admin-setup': {
-        to: '/docs/edulution-plattform/configure-lmn-server/configure_lmn-server',
+        to: '/docs/edulution-server/installation',
         label: 'Linuxmuster verbinden',
       },
       'admin-operate': {
-        to: '/docs/edulution-plattform/administration/linuxmuster',
+        to: '/docs/edulution-server/linuxmuster',
         label: 'Serververwaltung',
       },
       default: {
-        to: '/docs/edulution-plattform/administration/linuxmuster',
+        to: '/docs/edulution-server/linuxmuster',
         label: 'Serververwaltung',
       },
     },
@@ -88,9 +88,9 @@ const CARDS: AppCard[] = [
     tagline: 'Der integrierte Mailserver',
     text: 'Mailserver auf Mailcow-Basis mit Postfächern, Verteilerlisten und Anleitungen für alle gängigen Mail-Clients.',
     targets: {
-      default: { to: '/docs/edulution-plattform/features/e-mail', label: 'Mail-App nutzen' },
-      'admin-setup': { to: '/docs/edulution-mail/installation', label: 'Installation' },
-      'admin-operate': { to: '/docs/edulution-mail/administration', label: 'Administration' },
+      default: { to: '/docs/edulution-mail', label: 'Mail-App nutzen' },
+      'admin-setup': { to: '/docs/edulution-mail/konfiguration/installation', label: 'Installation' },
+      'admin-operate': { to: '/docs/edulution-mail/konfiguration/administration', label: 'Administration' },
     },
   },
   {
@@ -105,32 +105,6 @@ const CARDS: AppCard[] = [
     },
   },
   {
-    badge: 'LMS',
-    title: 'edulution LMS',
-    tagline: 'Lernmanagement mit Moodle',
-    text: 'Moodle ohne zweiten Login. Kurse und Einschreibungen entstehen automatisch aus Ihren Gruppen.',
-    targets: {
-      default: {
-        to: '/docs/edulution-plattform/features/lernmanagement',
-        label: 'Lernmanagement öffnen',
-      },
-      'admin-setup': { to: '/docs/edulution-moodle/installation/schnellstart', label: 'Schnellstart' },
-      'admin-operate': {
-        to: '/docs/edulution-moodle/administration/admin-ui',
-        label: 'Admin-Oberfläche',
-      },
-    },
-  },
-  {
-    badge: 'MDM',
-    title: 'edulution MDM',
-    tagline: 'Geräteverwaltung mit Relution',
-    text: 'Tablets, Smartphones und Computer zentral verwalten – ohne die Relution-Konsole zu öffnen.',
-    targets: {
-      default: { to: '/docs/edulution-plattform/features/mdm', label: 'MDM-App' },
-    },
-  },
-  {
     badge: 'SATELLITE',
     title: 'edulution Satellite',
     tagline: 'Sichere Brücke zum Standort',
@@ -142,32 +116,67 @@ const CARDS: AppCard[] = [
         label: 'Einrichtung',
       },
       'admin-operate': {
-        to: '/docs/edulution-plattform/administration/satelliten',
+        to: '/docs/edulution-satellite/verwaltung',
         label: 'Satelliten verwalten',
       },
       default: { to: '/docs/edulution-satellite/', label: 'Übersicht' },
     },
   },
   {
+    badge: 'LMS',
+    title: 'edulution LMS',
+    tagline: 'Lernmanagement mit Moodle',
+    text: 'Moodle ohne zweiten Login. Kurse und Einschreibungen entstehen automatisch aus Ihren Gruppen.',
+    targets: {
+      default: {
+        to: '/docs/edulution-lms/',
+        label: 'Lernmanagement öffnen',
+      },
+      'admin-setup': { to: '/docs/edulution-lms/installation/schnellstart', label: 'Schnellstart' },
+      'admin-operate': {
+        to: '/docs/edulution-lms/konfiguration/administration/admin-ui',
+        label: 'Admin-Oberfläche',
+      },
+    },
+  },
+  {
+    badge: 'VDI',
+    title: 'edulution VDI',
+    tagline: 'Virtuelle Desktops für den Unterricht',
+    text: 'Zentral verwaltete Desktops direkt im Browser – jeder Schüler startet mit einer sauberen, vorkonfigurierten Umgebung.',
+    targets: {
+      default: { to: '/docs/edulution-vdi/', label: 'Übersicht' },
+    },
+  },
+  {
+    badge: 'MDM',
+    title: 'edulution MDM',
+    tagline: 'Geräteverwaltung mit Relution',
+    text: 'Tablets, Smartphones und Computer zentral verwalten – ohne die Relution-Konsole zu öffnen.',
+    targets: {
+      default: { to: '/docs/edulution-mdm', label: 'MDM-App' },
+    },
+  },
+  {
     badge: 'FILEPROXY',
     title: 'edulution FileProxy',
-    tagline: 'Sicherer Datei-Proxy',
+    tagline: 'Die Dateien-App und der Proxy dahinter',
     text: 'WebDAV-zu-SMB-Proxy für plattformübergreifenden Zugriff auf Windows-Freigaben.',
     roles: 'admin',
     targets: {
       default: { to: '/docs/edulution-fileproxy/', label: 'Übersicht' },
-      'admin-setup': { to: '/docs/edulution-fileproxy/installation', label: 'Installation' },
+      'admin-setup': { to: '/docs/edulution-fileproxy/konfiguration/installation', label: 'Installation' },
     },
   },
   {
     badge: 'OFFICE',
     title: 'Office-Integrationen',
     tagline: 'Dokumente direkt im Browser',
-    text: 'OnlyOffice, Collabora und EuroOffice zum Bearbeiten von Dokumenten aus der Dateiverwaltung heraus.',
+    text: 'OnlyOffice, Collabora Online oder EuroOffice zum Bearbeiten von Dokumenten aus der Dateiverwaltung heraus.',
     targets: {
-      default: { to: '/docs/edulution-plattform/features/dateien/', label: 'Dateien' },
-      'admin-setup': { to: '/docs/category/edulution-onlyoffice', label: 'Installation' },
-      'admin-operate': { to: '/docs/category/edulution-onlyoffice', label: 'Installation' },
+      default: { to: '/docs/edulution-fileproxy/dateien/', label: 'Dateien' },
+      'admin-setup': { to: '/docs/edulution-fileproxy/dateien/konfiguration/dokumenten-editor', label: 'Installation' },
+      'admin-operate': { to: '/docs/edulution-fileproxy/dateien/konfiguration/dokumenten-editor', label: 'Installation' },
     },
   },
 ];

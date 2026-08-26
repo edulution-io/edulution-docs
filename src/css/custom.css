@@ -559,11 +559,60 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
 
 /* --- Die zwei Fragen auf der Startseite ---------------------------------- */
 
-/* Jede Frage steht fuer sich: Ueberschrift und beschreibender Satz kommen
-   aus dem Markdown, die Komponente steuert nur die Schaltflaechen bei. Kein
-   Kasten drumherum – die Chips selbst sind die einzige Umrandung. */
+/* Zwei Spalten in der ersten Zeile: links die Frage, rechts die
+   Schaltflaechen. Die Zeile zur gewaehlten Antwort steht darunter und laeuft
+   ueber beide – sie beantwortet die Frage und gehoert nicht unter die Chips
+   allein. Die feste Breite der linken Spalte laesst die Chips beider Fragen
+   fluchten, obwohl die eine Frage laenger ist als die andere. Kein Kasten
+   drumherum – die Chips selbst sind die einzige Umrandung. Der erklaerende
+   Satz kommt weiterhin aus dem Markdown. */
 .audience-picker {
+  display: grid;
+  grid-template-columns: minmax(0, 17rem) 1fr;
+  align-items: baseline;
+  column-gap: 1.5rem;
   margin: 1rem 0 2rem;
+}
+
+.audience-picker__question {
+  grid-column: 1;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.4;
+  /* Die Chips haben 0.3125rem Innenabstand oben; ohne den Ausgleich sitzt
+     die Frage eine Winzigkeit zu hoch. */
+  padding-top: 0.3125rem;
+}
+
+.audience-picker__options {
+  grid-column: 2;
+}
+
+/* Nur die Zeilen im Picker spannen ueber beide Spalten – RoleSummary laesst
+   sich auch allein im Markdown verwenden und bleibt dort unberuehrt. Die
+   nicht gewaehlten Zeilen stehen auf `display: none` und belegen deshalb
+   keine Rasterzelle. */
+.audience-picker > .org-summary,
+.audience-picker > .role-summary {
+  grid-column: 1 / -1;
+}
+
+/* Unter der Breite reicht der Platz nicht fuer zwei Spalten: die Frage
+   rueckt ueber die Schaltflaechen. */
+@media (max-width: 48rem) {
+  .audience-picker {
+    grid-template-columns: 1fr;
+    row-gap: 0.5rem;
+  }
+
+  .audience-picker__question {
+    grid-column: 1;
+    padding-top: 0;
+  }
+
+  .audience-picker__options {
+    grid-column: 1;
+  }
 }
 
 .audience-picker__options {

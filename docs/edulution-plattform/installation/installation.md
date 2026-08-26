@@ -11,20 +11,20 @@ Die Installation der edulution Plattform erfolgt in mehreren Schritten. Diese An
 
 Die Installation gliedert sich in folgende Bereiche:
 
-### 1. [Voraussetzungen](voraussetzungen)
+### 1. [Voraussetzungen](./voraussetzungen.md)
 - System-Anforderungen prüfen
 - Benötigte Ports freigeben
 - Linuxmuster-Server vorbereiten
 - Netzwerk-Konfiguration
 
-### 2. [Einrichtung](einrichtung)
+### 2. [Einrichtung](./einrichtung.md)
 - Installations-Skript herunterladen
 - Web-Installer starten
 - Edulution-Setup-Token konfigurieren
 - SSL-Zertifikate einrichten
 - Systemtest durchführen
 
-### 3. [Linuxmuster Integration](../configure-lmn-server/configure_lmn-server)
+### 3. [Linuxmuster Integration](../../edulution-server/installation.md)
 - Linuxmuster-API installieren
 - BindUser erstellen
 - Setup-Token generieren

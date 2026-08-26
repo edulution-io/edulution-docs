@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Server-Einstellungen
 
 import MailServerConfig from '@site/src/components/MailServerConfig';

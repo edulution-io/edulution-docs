@@ -159,8 +159,6 @@ Nützlich für:
 
 ## Linuxmuster-Konzepte
 
-<Audience org="school public-administration">
-
 ### Klassen vs. Projekte
 
 | | Klassen | Projekte |
@@ -168,8 +166,6 @@ Nützlich für:
 | **Verwendung** | Schulklassen (5a, 10b) | Kurse, AGs |
 | **Verwaltung** | Automatisch | Manuell |
 | **Mitglieder** | Alle Schüler | Ausgewählt |
-
-</Audience>
 
 ### Weiterführende Links
 

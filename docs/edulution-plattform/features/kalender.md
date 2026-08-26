@@ -169,8 +169,10 @@ Termine, die vor der Einführung der Zeitzonen-Unterstützung angelegt wurden, t
 
 Kennt Ihr Browser die Zeitzone eines Termins nicht – etwa, weil sie erst vor Kurzem eingeführt wurde und Ihr Gerät veraltet ist –, weist der Dialog unterhalb des Auswahlfelds darauf hin und nennt die Zeitzone, in der die Uhrzeiten stattdessen angezeigt und gespeichert werden. Prüfen Sie eingetragene Uhrzeiten in diesem Fall besonders sorgfältig und aktualisieren Sie nach Möglichkeit Ihren Browser.
 
-:::info[Zeitumstellung: doppelte Uhrzeiten]
-In der Nacht der Umstellung von Sommer- auf Winterzeit tritt eine Uhrzeit zweimal auf – in Berliner Zeit etwa 02:30 Uhr. Tragen Sie einen Termin auf eine solche Uhrzeit ein, wird stets der **frühere** der beiden Zeitpunkte gewählt, also derjenige noch in der Sommerzeit. Das gilt ebenso, wenn Sie in der Stundenplan-Ansicht direkt auf die betreffende Zeile klicken.
+:::info[Zeitumstellung: doppelte und fehlende Uhrzeiten]
+In der Nacht der Umstellung von Sommer- auf Winterzeit tritt eine Uhrzeit zweimal auf – in Berliner Zeit etwa 02:30 Uhr. Tragen Sie einen Termin auf eine solche Uhrzeit ein, wird stets der **spätere** der beiden Zeitpunkte gewählt, also derjenige bereits in der Winterzeit. Das gilt ebenso, wenn Sie in der Stundenplan-Ansicht direkt auf die betreffende Zeile klicken. Ein Termin, der bereits auf dem früheren der beiden Zeitpunkte gespeichert ist, bleibt dort liegen, solange Sie seine Uhrzeit nicht ändern.
+
+In der Nacht der Umstellung von Winter- auf Sommerzeit fehlt umgekehrt eine Stunde – in Berliner Zeit springt die Uhr von 02:00 Uhr auf 03:00 Uhr. Eine Uhrzeit aus dieser Lücke gibt es nicht; ein Termin darauf rückt um die übersprungene Stunde nach hinten, also von 02:30 Uhr auf 03:30 Uhr.
 :::
 
 ### Zeitzone und Serientermine

@@ -173,7 +173,7 @@ Ist die App **Desktop-Bereitstellung** konfiguriert und läuft der Container `ed
 2. Im Dialog **SSH Anmeldedaten** Benutzername und Passwort des Servers eingeben.
 3. Mit **Verbinden** bestätigen – die Sitzung öffnet sich in einem Fenster innerhalb der edulution Plattform.
 
-Fehlt die Schaltfläche, prüfen Sie, ob unter **Einstellungen → Desktop-Bereitstellung** eine URL hinterlegt ist und ob der Guacamole-Container läuft.
+Fehlt die Schaltfläche, prüfen Sie, ob unter **Einstellungen → Desktop-Bereitstellung** eine URL hinterlegt ist und ob der Guacamole-Container läuft – siehe [edulution VDI: App einrichten](../../edulution-vdi/konfiguration/app-einrichten.md).
 
 ## Fehlerbehebung
 

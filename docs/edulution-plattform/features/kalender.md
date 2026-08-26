@@ -173,6 +173,10 @@ Kennt Ihr Browser die Zeitzone eines Termins nicht – etwa, weil sie erst vor K
 In der Nacht der Umstellung von Sommer- auf Winterzeit tritt eine Uhrzeit zweimal auf – in Berliner Zeit etwa 02:30 Uhr. Tragen Sie einen Termin auf eine solche Uhrzeit ein, wird stets der **spätere** der beiden Zeitpunkte gewählt, also derjenige bereits in der Winterzeit. Das gilt ebenso, wenn Sie in der Stundenplan-Ansicht direkt auf die betreffende Zeile klicken. Ein Termin, der bereits auf dem früheren der beiden Zeitpunkte gespeichert ist, bleibt dort liegen, solange Sie seine Uhrzeit nicht ändern.
 
 In der Nacht der Umstellung von Winter- auf Sommerzeit fehlt umgekehrt eine Stunde – in Berliner Zeit springt die Uhr von 02:00 Uhr auf 03:00 Uhr. Eine Uhrzeit aus dieser Lücke gibt es nicht; ein Termin darauf rückt um die übersprungene Stunde nach hinten, also von 02:30 Uhr auf 03:30 Uhr.
+
+In den Rasteransichten **Woche**, **Tag** und **Stundenplan** behält die Stundenskala an beiden Tagen ihre 24 Stunden. Die doppelt auftretende Uhrzeit belegt darin nur **eine** Zeile, die für den späteren der beiden Zeitpunkte steht; der Tag endet wie jeder andere mit der letzten Zeile vor Mitternacht. Die Zeilen der übersprungenen Stunde bleiben sichtbar, lassen sich aber weder anklicken noch als Ziel beim [Verschieben per Drag & Drop](#termine-per-drag--drop-verschieben) verwenden – an diesem Tag stehen daher entsprechend weniger Zeitabschnitte zur Auswahl.
+
+Ein Termin, der über die Umstellung von Sommer- auf Winterzeit hinweg läuft, bleibt an der Zeile seiner Anfangszeit sichtbar. Da die wiederholte Stunde im Raster nur einmal vorkommt, wird er dort kürzer dargestellt, als er tatsächlich dauert; die im Termin gespeicherten Zeiten bleiben davon unberührt.
 :::
 
 ### Zeitzone und Serientermine

@@ -144,15 +144,42 @@ Füllen Sie im Dialog die folgenden Felder aus:
 2. **Titel** – Die Bezeichnung des Termins.
 3. **Beschreibung** – Optionaler ausführlicher Text.
 4. **Ort** – Optionale Ortsangabe.
-5. **Ganztägig** – Schalten Sie diese Option ein, wenn der Termin keinen festen Zeitpunkt hat; die Uhrzeitfelder entfallen dann.
+5. **Ganztägig** – Schalten Sie diese Option ein, wenn der Termin keinen festen Zeitpunkt hat; die Uhrzeitfelder und das Feld **Zeitzone** entfallen dann.
 6. **Beginn** und **Ende** – Start- und Endzeitpunkt des Termins. Das Ende darf nicht vor dem Beginn liegen.
-7. **Wiederholung** – Legt fest, ob der Termin als [Serientermin](#serientermine-und-wiederholungen) wiederkehrt.
-8. **Sichtbarkeit** – **Öffentlich**, **Privat** oder **Vertraulich**.
-9. **Zeit-Status** – Ob die Zeit als **Abwesend (gebucht)** oder **Verfügbar (frei)** gilt.
-10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Auswahl beginnt links mit **Keine Farbe**, darauf folgen die vorgegebenen Farben; ganz rechts öffnet die Schaltfläche **Eigene Farbe** den Farbwähler für eine beliebige Farbe. Die Farbe wirkt sich nur in der Stundenplan-Ansicht aus. Die Beschriftung des Termins wird automatisch dunkel oder hell dargestellt, damit sie vor der gewählten Farbe lesbar bleibt (siehe [Farbwahl und Lesbarkeit](#farbwahl-und-lesbarkeit)).
-11. **Teilnehmer** – Weitere Benutzer, die zum Termin eingeladen werden.
+7. **Zeitzone** – Die Zeitzone, an die die Uhrzeiten des Termins gebunden sind (siehe [Zeitzone von Terminen](#zeitzone-von-terminen)). Das Feld steht unterhalb von **Beginn** und **Ende** und ist bei ganztägigen Terminen ausgeblendet.
+8. **Wiederholung** – Legt fest, ob der Termin als [Serientermin](#serientermine-und-wiederholungen) wiederkehrt.
+9. **Sichtbarkeit** – **Öffentlich**, **Privat** oder **Vertraulich**.
+10. **Zeit-Status** – Ob die Zeit als **Abwesend (gebucht)** oder **Verfügbar (frei)** gilt.
+11. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Auswahl beginnt links mit **Keine Farbe**, darauf folgen die vorgegebenen Farben; ganz rechts öffnet die Schaltfläche **Eigene Farbe** den Farbwähler für eine beliebige Farbe. Die Farbe wirkt sich nur in der Stundenplan-Ansicht aus. Die Beschriftung des Termins wird automatisch dunkel oder hell dargestellt, damit sie vor der gewählten Farbe lesbar bleibt (siehe [Farbwahl und Lesbarkeit](#farbwahl-und-lesbarkeit)).
+12. **Teilnehmer** – Weitere Benutzer, die zum Termin eingeladen werden.
 
 Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.
+
+### Zeitzone von Terminen
+
+Termine mit fester Uhrzeit werden an die **Zeitzone** gebunden, in der Sie sie anlegen – in der Regel die Zeitzone Ihres Geräts. Dadurch bleibt die eingetragene Uhrzeit erhalten: Der Termin wird stets zur festgelegten Ortszeit angezeigt, auch über die Umstellung zwischen Sommer- und Winterzeit hinweg und unabhängig davon, in welcher Zeitzone er später betrachtet wird. Bearbeiten Sie einen bestehenden Termin, behält er seine ursprüngliche Zeitzone – selbst dann, wenn Sie sich inzwischen in einer anderen Zeitzone befinden. Ganztägige Termine haben keine Uhrzeit und sind an keine Zeitzone gebunden.
+
+Im Dialog zum Erstellen und Bearbeiten finden Sie die Zeitzone unterhalb der Felder **Beginn** und **Ende** im Auswahlfeld **Zeitzone**. Vorbelegt ist die Zeitzone Ihres Geräts; über das Auswahlfeld können Sie stattdessen jede andere Zeitzone wählen – etwa, um einen Termin bereits in der Ortszeit des Veranstaltungsorts einzutragen. Bei eingeschalteter Option **Ganztägig** wird das Feld ausgeblendet.
+
+Die Uhrzeiten in **Beginn** und **Ende** verstehen sich immer als Ortszeit der gewählten Zeitzone. Wechseln Sie die Zeitzone, ändern sich die eingetragenen Uhrzeiten daher nicht – der Termin verschiebt sich stattdessen auf den entsprechenden Zeitpunkt in der neuen Zeitzone.
+
+:::info[Termine ohne hinterlegte Zeitzone]
+Termine, die vor der Einführung der Zeitzonen-Unterstützung angelegt wurden, tragen noch keine Zeitzone. Sobald Sie einen solchen Termin zum Bearbeiten öffnen oder ihn im Kalender verschieben, erhält er Ihre eigene Zeitzone. Bis dahin bleibt seine Uhrzeit unverändert gespeichert.
+:::
+
+Kennt Ihr Browser die Zeitzone eines Termins nicht – etwa, weil sie erst vor Kurzem eingeführt wurde und Ihr Gerät veraltet ist –, weist der Dialog unterhalb des Auswahlfelds darauf hin und nennt die Zeitzone, in der die Uhrzeiten stattdessen angezeigt und gespeichert werden. Prüfen Sie eingetragene Uhrzeiten in diesem Fall besonders sorgfältig und aktualisieren Sie nach Möglichkeit Ihren Browser.
+
+:::info[Zeitumstellung: doppelte und fehlende Uhrzeiten]
+In der Nacht der Umstellung von Sommer- auf Winterzeit tritt eine Uhrzeit zweimal auf – in Berliner Zeit etwa 02:30 Uhr. Tragen Sie einen Termin auf eine solche Uhrzeit ein, wird stets der **spätere** der beiden Zeitpunkte gewählt, also derjenige bereits in der Winterzeit. Das gilt ebenso, wenn Sie in der Stundenplan-Ansicht direkt auf die betreffende Zeile klicken. Ein Termin, der bereits auf dem früheren der beiden Zeitpunkte gespeichert ist, bleibt dort liegen, solange Sie seine Uhrzeit nicht ändern.
+
+In der Nacht der Umstellung von Winter- auf Sommerzeit fehlt umgekehrt eine Stunde – in Berliner Zeit springt die Uhr von 02:00 Uhr auf 03:00 Uhr. Eine Uhrzeit aus dieser Lücke gibt es nicht; ein Termin darauf rückt um die übersprungene Stunde nach hinten, also von 02:30 Uhr auf 03:30 Uhr.
+:::
+
+### Zeitzone und Serientermine
+
+Bei Serienterminen bestimmt die Zeitzone des Termins auch, auf welchen Wochentag beziehungsweise welchen Tag des Monats sich die Wiederholung bezieht. Maßgeblich ist stets das Datum, das der Termin in seiner eigenen Zeitzone hat – nicht das Datum in einer anderen Zeitzone. Das macht sich bei Terminen kurz nach oder kurz vor Mitternacht bemerkbar: Ein Termin um 00:30 Uhr Berliner Zeit wiederholt sich monatlich an dem Tag, den der Kalender in Berliner Zeit anzeigt.
+
+Ändern Sie die Zeitzone eines bestehenden Serientermins oder verschieben Sie die gesamte Serie, werden auch einzeln geänderte und gelöschte Termine der Serie mitgeführt: Ein abweichend verschobener Einzeltermin behält seinen Abstand zum regulären Termin, und ein gelöschter Einzeltermin bleibt gelöscht.
 
 ## Termine bearbeiten und löschen
 

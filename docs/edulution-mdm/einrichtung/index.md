@@ -12,24 +12,28 @@ Die App **MDM** bringt kein eigenes Backend mit: Sie ist die Oberfläche zu eine
 
 Die Einrichtung führt ein **Global-Administrator** einmalig durch und besteht aus vier Schritten:
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-  <a href="/docs/edulution-mdm/einrichtung/voraussetzungen" className="card">
-    <h3>1 · Voraussetzungen</h3>
-    <p>Relution-Instanz, Service-Account und API-Token</p>
-  </a>
-  <a href="/docs/edulution-mdm/einrichtung/app-konfiguration" className="card">
-    <h3>2 · App konfigurieren</h3>
-    <p>URL, API-Schlüssel, Nutzergruppen und Sync-Gruppen</p>
-  </a>
-  <a href="/docs/edulution-mdm/einrichtung/benutzer-synchronisation" className="card">
-    <h3>3 · Benutzer-Synchronisation</h3>
-    <p>Wer einen Relution-Zugang bekommt – und wann</p>
-  </a>
-  <a href="/docs/edulution-mdm/einrichtung/fehlerbehebung" className="card">
-    <h3>4 · Fehlerbehebung</h3>
-    <p>Leere Listen, fehlende Zugänge, abgelehnte Aktionen</p>
-  </a>
-</div>
+<Cards>
+  <Card
+    to="/docs/edulution-mdm/einrichtung/voraussetzungen"
+    title="1 · Voraussetzungen"
+    text="Relution-Instanz, Service-Account und API-Token"
+  />
+  <Card
+    to="/docs/edulution-mdm/einrichtung/app-konfiguration"
+    title="2 · App konfigurieren"
+    text="URL, API-Schlüssel, Nutzergruppen und Sync-Gruppen"
+  />
+  <Card
+    to="/docs/edulution-mdm/einrichtung/benutzer-synchronisation"
+    title="3 · Benutzer-Synchronisation"
+    text="Wer einen Relution-Zugang bekommt – und wann"
+  />
+  <Card
+    to="/docs/edulution-mdm/einrichtung/fehlerbehebung"
+    title="4 · Fehlerbehebung"
+    text="Leere Listen, fehlende Zugänge, abgelehnte Aktionen"
+  />
+</Cards>
 
 ## Wie die Anbindung arbeitet
 

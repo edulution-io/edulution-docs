@@ -4,6 +4,7 @@ import AudiencePicker from '@site/src/components/audience/AudiencePicker';
 import AppCards from '@site/src/components/audience/AppCards';
 import RoleSummary from '@site/src/components/audience/RoleSummary';
 import AudienceFaq from '@site/src/components/audience/AudienceFaq';
+import { Cards, Card } from '@site/src/components/Cards';
 
 export default {
   ...MDXComponents,
@@ -13,4 +14,6 @@ export default {
   AppCards,
   RoleSummary,
   AudienceFaq,
+  Cards,
+  Card,
 };

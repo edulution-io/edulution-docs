@@ -673,7 +673,8 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   margin: 1.5rem 0 2rem;
 }
 
-.app-card {
+.app-card,
+.doc-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -699,7 +700,8 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   }
 }
 
-.app-card:hover {
+.app-card:hover,
+.doc-card:hover {
   border-color: var(--edu-green);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
@@ -787,6 +789,42 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
 
 .app-card:hover .app-card__chevron {
   transform: translateX(3px);
+}
+
+/* --- Einstiegskarten auf Kapitelseiten ------------------------------------ */
+
+/* Kachel und Hover teilen sich die Regeln mit `.app-card` weiter oben; hier
+   steht nur, was diese Karten eigen haben. */
+
+.doc-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.doc-card__title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3125rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.doc-card__chevron {
+  color: var(--ifm-link-color);
+  transition: transform 120ms ease;
+}
+
+.doc-card:hover .doc-card__chevron {
+  transform: translateX(3px);
+}
+
+.doc-card__text {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-700);
 }
 
 /* --- Haeufige Fragen je Rolle -------------------------------------------- */

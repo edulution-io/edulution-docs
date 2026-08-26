@@ -415,7 +415,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'edulution Mobile App',
+      label: 'edulution App',
       collapsed: true,
       items: [
         {
@@ -585,7 +585,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'edulution Dateien (FileProxy)',
+      label: 'edulution FileProxy',
       collapsed: true,
       // Zwei Zweige, wie der Name sagt: die Dateien-App, die alle nutzen,
       // und der Proxy, der ihre Netzlaufwerke bereitstellt. Kein `audience`

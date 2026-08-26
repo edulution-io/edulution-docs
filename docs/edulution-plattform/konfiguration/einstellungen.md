@@ -121,7 +121,7 @@ Die Variable setzt nur den Ausgangswert. Danach ändern Sie den Organisationstyp
 - **Stadt**: Stadt (z.B. "Heilbronn")
 - **Organisations-Webseite**: Webseite (z.B. "http://albert-schule-hn.de")
 
-Diese Informationen erscheinen in der edulution Mobile App.
+Diese Informationen erscheinen in der edulution App.
 
 **Speichern** - Button zum Speichern unten
 

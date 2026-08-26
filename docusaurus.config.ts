@@ -77,7 +77,7 @@ const config: Config = {
             '/docs/edulution-mail/konfiguration/migration-einrichten': ['/docs/edulution-mail/admin_mail_migration'],
             '/docs/edulution-mail/konfiguration/mailformate': ['/docs/edulution-mail/benutzer_mailformate'],
 
-            // --- edulution Mobile App ---------------------------------------
+            // --- edulution App ----------------------------------------
             '/docs/edulution-app/': ['/docs/category/edulution-app'],
             // Die mobile Ansicht lag als native App in der Plattform.
             '/docs/edulution-app/mobile-ansicht': [
@@ -385,7 +385,7 @@ const config: Config = {
               to: '/docs/edulution-mail/',
             },
             {
-              label: 'edulution Mobile App',
+              label: 'edulution App',
               to: '/docs/edulution-app/',
             },
             {

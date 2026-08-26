@@ -50,7 +50,7 @@ Ordner **Angebundene Apps** springt direkt dorthin, statt den Baum zu verdoppeln
 | **Lernmanagement** | Moodle | **[edulution LMS](../../edulution-lms/index.md)** |
 | **Desktop-Bereitstellung** | VDI-Umgebung | **[edulution VDI](../../edulution-vdi/index.md)** |
 | **MDM** | Relution | **[edulution MDM](../../edulution-mdm/index.md)** |
-| **Dateien** | FileProxy für Windows-Freigaben | **[Dateien](../../edulution-fileproxy/dateien/index.md)** in [edulution Dateien (FileProxy)](../../edulution-fileproxy/index.md) |
+| **Dateien** | FileProxy für Windows-Freigaben | **[Dateien](../../edulution-fileproxy/dateien/index.md)** in [edulution FileProxy](../../edulution-fileproxy/index.md) |
 
 ## Nicht in dieser Liste
 

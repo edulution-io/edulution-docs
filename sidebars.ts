@@ -151,6 +151,7 @@ const sidebars: SidebarsConfig = {
             'edulution-plattform/features/umfragen',
             'edulution-plattform/features/benachrichtigungen',
             'edulution-plattform/features/vpn-zugang',
+            'edulution-plattform/features/desktop-bereitstellung',
           ],
         },
         {

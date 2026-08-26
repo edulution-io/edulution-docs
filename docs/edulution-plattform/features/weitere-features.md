@@ -5,23 +5,9 @@ edulution bietet eine Vielzahl zusätzlicher Funktionen für den digitalen Unter
 
 ## Desktop-Bereitstellung (VDI)
 
-:::info[Konfiguration erforderlich]
-Die Desktop-Bereitstellung steht erst nach Konfiguration der VDI-Umgebung zur Verfügung. Eine detaillierte Anleitung zur VDI-Konfiguration folgt in einem separaten Dokument.
-:::
+Virtuelle Desktops auf dem Schulserver, die vollständig im Browser laufen: Sie fordern einen freien Client an, die Anmeldung erfolgt automatisch mit Ihren edulution-Zugangsdaten, und die Sitzung öffnet sich in einem Fenster innerhalb der Plattform.
 
-Verbinden Sie sich mit virtuellen Desktops für ressourcenintensive Anwendungen.
-
-### Verfügbare Systeme
-
-- **Windows 10**: Nach Konfiguration verfügbar
-- **Windows 11**: Nach Konfiguration verfügbar
-- **Ubuntu**: Nach Konfiguration verfügbar
-
-### Funktionen (nach VDI-Konfiguration)
-
-- Klicken Sie auf "Starten" für die gewünschte Plattform
-- Desktop-Sitzung wird in neuem Fenster geöffnet
-- Anzeige verfügbarer Client-Slots
+[→ Details: Desktop-Bereitstellung (VDI)](desktop-bereitstellung.md)
 
 ## Spracheinstellungen
 

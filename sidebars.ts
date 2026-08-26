@@ -574,9 +574,47 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: 'doc',
-      id: 'edulution-vdi/index',
+      type: 'category',
       label: 'edulution VDI',
+      collapsed: true,
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-vdi/index',
+          label: '📖 Übersicht',
+        },
+        {
+          type: 'category',
+          label: '⚙️ Konfiguration',
+          collapsed: true,
+          // Die Anbindung an eine vorhandene VDI-Umgebung - fuer
+          // Endnutzer ausgeblendet. Die Umgebung selbst entsteht auf dem
+          // Schulserver, nicht hier.
+          customProps: { audience: 'admin' },
+          link: {
+            type: 'doc',
+            id: 'edulution-vdi/konfiguration/index',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-vdi/konfiguration/app-einrichten',
+              label: 'App einrichten',
+              customProps: { audience: 'admin-setup' },
+            },
+            {
+              type: 'doc',
+              id: 'edulution-vdi/konfiguration/virtuelle-maschinen',
+              label: 'Virtuelle Maschinen',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-vdi/konfiguration/rdp-verbindung',
+              label: 'RDP-Verbindung',
+            },
+          ],
+        },
+      ],
     },
     {
       type: 'doc',

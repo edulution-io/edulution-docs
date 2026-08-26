@@ -146,6 +146,7 @@ const CARDS: AppCard[] = [
     text: 'Zentral verwaltete Desktops direkt im Browser – jeder Schüler startet mit einer sauberen, vorkonfigurierten Umgebung.',
     targets: {
       default: { to: '/docs/edulution-vdi/', label: 'Übersicht' },
+      'admin-setup': { to: '/docs/edulution-vdi/konfiguration/', label: 'Einrichtung' },
     },
   },
   {

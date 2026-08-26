@@ -750,6 +750,10 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'FileProxy',
           collapsed: true,
+          // Der Dienst hinter der Dateien-App. Auch die Uebersicht beschreibt
+          // Architektur und Installationsstrecke - fuer Endnutzer ist der
+          // ganze Zweig ausgeblendet, sie lesen 'Dateien' daneben.
+          customProps: { audience: 'admin' },
           items: [
             {
               type: 'doc',

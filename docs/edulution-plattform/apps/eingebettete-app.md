@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin
+---
+
 # Eingebettete App
 
 Die Eingebettete App ermöglicht das Erstellen und Teilen von Webinhalten sowie das Hochladen eigener Web-Anwendungen.

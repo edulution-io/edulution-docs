@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audienceOrg: school public-administration
+---
+
 # Klassenraum
 
 Der Klassenraum ist das zentrale Tool für Lehrer zur Unterrichtsverwaltung. Hier können Sie Unterricht starten, Schüler überwachen und Projekte verwalten.

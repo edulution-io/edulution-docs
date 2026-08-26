@@ -104,6 +104,8 @@ Wir haben einige standardmäßige Vorlagen vordefiniert, an denen Sie sich orien
 
 Wenn Sie die Kachelansicht öffnen, können Sie eine der Vorlagen nutzen, um ein Grundgerüst zu haben, an dem Sie sich orientieren können.
 
+<Audience roles="admin">
+
 #### Administrator-Ansicht
 
 ![Vorlagen - Kachel-Ansicht - Administrator](/img/umfragen/Screenshot_20260506_113129.png)
@@ -120,6 +122,8 @@ Bei den mitgelieferten Standard-Vorlagen lässt sich ausschließlich der Aktiv-S
 
 
 Administratoren können Vorlagen auch bearbeiten. Dazu muss die Vorlage ausgewählt werden, und beim [Speichern der Umfrage](#umfrage-speichern) muss der Haken an der Checkbox "Als Vorlage speichern" gesetzt werden.
+
+</Audience>
 
 ### Umfrage bearbeiten
 
@@ -389,6 +393,8 @@ In der Vorschau können Sie die Umfrage einmal durchklicken und prüfen, ob alle
 Bei nicht-öffentlichen Umfragen können ausschließlich Gruppen eingeladen werden, die Zugriff auf die Umfragen-App haben. Wählen Sie beim Speichern eine Gruppe ohne App-Zugriff, wird der Vorgang mit dem Hinweis *„Sie können nur Gruppen einladen, die Zugriff auf die Umfragen-App haben."* abgewiesen. Welche Gruppen Zugriff auf die App haben, legen Administratoren über die Zugriffsgruppen der Umfragen-App fest. Bei [öffentlichen Umfragen](#öffentliche-teilnahme) entfällt diese Einschränkung, da die Teilnahme dort auch ohne Benutzerkonto möglich ist. Die Auswahl einzelner **Teilnehmer** ist von dieser Einschränkung nicht betroffen.
 :::
 
+<Audience roles="admin">
+
 ### Administrator-Ansicht
 
 ![Umfrage speichern - Administrator-Ansicht](/img/umfragen/Screenshot_20260506_143406.png)
@@ -399,6 +405,8 @@ Als Administrator können Sie die aktuell bearbeitete Umfrage auch als Vorlage s
 - **Zugriffsgruppen**: Die Vorlage wird in der Kachelansicht nur den Benutzern angezeigt, die Mitglied in mindestens einer der ausgewählten Gruppen sind.
 
 Auf diesem Weg können Administratoren auch bestehende Vorlagen bearbeiten. Dazu muss die entsprechende Vorlage ausgewählt werden. Beim [Speichern der Umfrage](#umfrage-speichern) muss dann der Haken an der Checkbox "Als Vorlage speichern" gesetzt werden.
+
+</Audience>
 
 ### Sichtbarkeit der Umfragen
 
@@ -415,6 +423,8 @@ Es gibt einige Fragetypen, bei denen das PDF-Rendering nicht oder nur eingeschr�
 :::
 
 ---
+
+<Audience roles="admin">
 
 ## Einstellungen
 
@@ -433,6 +443,8 @@ So lässt sich beispielsweise verhindern, dass Schüler eigene Umfragen erstelle
 
 Innerhalb der Umfragen-App kann ein individuelles App-Logo hinterlegt werden, das anschließend in jeder Umfrage standardmäßig verwendet wird.
 Das umfragenspezifische [App-Logo](#umfrage-logo) kann später im Editor gegen das gewünschte Bild ausgetauscht werden.
+
+</Audience>
 
 ---
 

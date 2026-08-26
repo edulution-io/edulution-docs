@@ -2,6 +2,8 @@
 sidebar_position: 1
 title: edulution FileProxy
 description: Der WebDAV-zu-SMB-Proxy hinter der Dateien-App
+sidebar_custom_props:
+  audience: admin
 ---
 
 # edulution FileProxy
@@ -10,13 +12,6 @@ Der **FileProxy** ist der Dienst hinter der Dateien-App: Er stellt die Netzlaufw
 Einrichtung als WebDAV bereit – ein WebDAV-zu-SMB-Proxy für sicheren Dateizugriff auf
 Windows-Freigaben. Wie die App selbst bedient wird, steht im Zweig
 **[Dateien](./dateien/index.md)** daneben.
-
-<Audience roles="user">
-
-Als Nutzer:in interessiert Sie die App: **[Dateien](./dateien/index.md)** beschreibt Navigation,
-Freigaben, Vorschau, Quotas und die Einbindung per WebDAV.
-
-</Audience>
 
 ## Was ist FileProxy?
 

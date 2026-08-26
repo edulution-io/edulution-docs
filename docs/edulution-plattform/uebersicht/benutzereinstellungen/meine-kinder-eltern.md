@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audienceOrg: school
+---
+
 # Meine Kinder/Eltern
 
 Hier verknüpfen Sie Eltern- und Schülerkonten miteinander. Die Verknüpfung stellen Eltern und

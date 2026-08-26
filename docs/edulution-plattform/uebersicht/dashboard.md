@@ -130,6 +130,8 @@ Das Dashboard passt sich automatisch an Ihre Benutzerrolle an:
 - Teilnahme an Konferenzen
 - Eigene Dateien und Aufgaben
 
+<Audience roles="admin">
+
 ### Global-Admin
 - Alle Funktionen von Lehrern
 - Zusätzliche Systemeinstellungen
@@ -138,6 +140,8 @@ Das Dashboard passt sich automatisch an Ihre Benutzerrolle an:
 - Einstellungen für die gesamte Schule/Organisation
 - Zugriff auf administrative Tools und Logs
 - Die Bereiche **Kalender** und **E-Mail** werden auf dem Dashboard nicht angezeigt
+
+</Audience>
 
 :::tip[Hinweis]
 Manche Funktionen und Menüpunkte sind nur für bestimmte Rollen sichtbar. Wenn Sie eine Funktion nicht finden, liegt das möglicherweise an Ihren Berechtigungen.

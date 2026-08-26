@@ -10,10 +10,10 @@ einer sauberen, vorkonfigurierten Umgebung, direkt im Browser und ohne Installat
 Das eignet sich besonders für ressourcenintensive Anwendungen, die auf schuleigenen Geräten sonst
 nicht liefen.
 
-In der Plattform heißt die App **Desktop-Bereitstellung**. Sie fordert beim Linuxmuster-Server eine freie virtuelle Maschine an und öffnet sie über den Fernzugriffsdienst [Apache Guacamole](https://guacamole.apache.org/) in einem Fenster der Plattform. Eine zusätzliche Software auf dem Endgerät ist nicht nötig.
+In der Plattform heißt die App **Desktop-Bereitstellung**. Sie fordert beim Linuxmuster-Server eine freie virtuelle Maschine an und öffnet sie in einem Fenster innerhalb der Plattform. Eine zusätzliche Software auf dem Endgerät ist nicht nötig.
 
 :::info[Voraussetzung]
-Die App erscheint nur, wenn die Administration sie eingerichtet hat (siehe [Konfiguration](konfiguration/index.md)). Die angebotenen Desktops stammen aus der VDI-Konfiguration des Linuxmuster-Servers – ohne dort eingerichtete virtuelle Maschinen bleiben die Karten auf der Seite leer.
+Die App erscheint nur, wenn die Administration sie eingerichtet hat (siehe [Konfiguration](./konfiguration/index.md)). Die angebotenen Desktops stammen aus der VDI-Konfiguration des Linuxmuster-Servers – ohne dort eingerichtete virtuelle Maschinen bleiben die Karten auf der Seite leer.
 :::
 
 ## Die Übersichtsseite
@@ -59,9 +59,9 @@ Eine virtuelle Maschine, an der bereits jemand anderes angemeldet ist, lässt si
 | „Guacamole ist nicht korrekt konfiguriert, bitte kontaktiere den Systemadministrator." | In den App-Einstellungen fehlt die URL des Guacamole-Dienstes. |
 | „Verbindung konnte nicht hergestellt werden. Bitte überprüfe die Anmeldedaten." | Guacamole hat die Sitzung abgelehnt; meist stimmen die hinterlegten Dienst-Zugangsdaten nicht. |
 
-Die letzten vier Meldungen haben ihre Ursache in der Einrichtung – die zugehörigen Stellschrauben beschreibt die [Konfiguration](konfiguration/index.md).
+Die letzten vier Meldungen haben ihre Ursache in der Einrichtung – die zugehörigen Stellschrauben beschreibt die [Konfiguration](./konfiguration/index.md).
 
 ## Weiter
 
-- [Konfiguration](konfiguration/index.md) – die App verbinden und Desktops bereitstellen
+- [Konfiguration](./konfiguration/index.md) – die App verbinden und Desktops bereitstellen
 - [App-Store & Anwendungen](../edulution-plattform/apps/app-store.md) – Apps hinzufügen und verwalten

@@ -121,7 +121,7 @@ Die Variable setzt nur den Ausgangswert. Danach ändern Sie den Organisationstyp
 - **Stadt**: Stadt (z.B. "Heilbronn")
 - **Organisations-Webseite**: Webseite (z.B. "http://albert-schule-hn.de")
 
-Diese Informationen erscheinen in der edulution App.
+Diese Informationen erscheinen in der edulution Mobile App.
 
 **Speichern** - Button zum Speichern unten
 
@@ -432,7 +432,7 @@ Apps, die Inhalte in einem iframe anzeigen, bringen zwei zusätzliche Bereiche i
 - **Skripte** (nur Frame-Apps) — JavaScript, das beim Laden des iframes und beim Abmelden ausgeführt wird, mit Syntaxprüfung und Formatierung im Editor
 - **URL-Verarbeitung** (Frame-Apps sowie Eingebettete Apps im Modus *Separates Layout*) — Adresszeile des Browsers der Navigation im eingebetteten Inhalt folgen lassen und Deep-Links unterstützen
 
-[→ Details: Eingebettete App – Skripte und URL-Verarbeitung](../apps/native-apps/eingebettete-app.md#url-verarbeitung-und-deep-links)
+[→ Details: Eingebettete App – Skripte und URL-Verarbeitung](../apps/eingebettete-app.md#url-verarbeitung-und-deep-links)
 
 ---
 

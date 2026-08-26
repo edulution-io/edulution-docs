@@ -120,7 +120,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie starte ich eine Videokonferenz?',
       a: 'Konferenzen anlegen, Teilnehmende einladen und moderieren.',
-      to: '/docs/edulution-plattform/apps/konferenzen',
+      to: '/docs/edulution-plattform/apps/native-apps/konferenzen',
     },
     {
       q: 'Wie teile ich eine Datei mit anderen?',
@@ -160,7 +160,7 @@ const FAQ: Record<string, Entry[]> = {
     {
       q: 'Wie nehme ich an einer Konferenz teil?',
       a: 'Einer Konferenz beitreten, Kamera und Mikrofon einrichten.',
-      to: '/docs/edulution-plattform/apps/konferenzen',
+      to: '/docs/edulution-plattform/apps/native-apps/konferenzen',
     },
     {
       q: 'Kann ich edulution auf dem Handy nutzen?',

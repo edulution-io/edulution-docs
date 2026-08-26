@@ -95,7 +95,7 @@ const CARDS: AppCard[] = [
   },
   {
     badge: 'APP',
-    title: 'edulution App',
+    title: 'edulution Mobile App',
     tagline: 'Mobil auf iOS und Android',
     text: 'Zugriff auf die Plattform vom Smartphone – inklusive digitalem Ausweis.',
     targets: {
@@ -159,13 +159,13 @@ const CARDS: AppCard[] = [
   },
   {
     badge: 'FILEPROXY',
-    title: 'edulution FileProxy',
-    tagline: 'Sicherer Datei-Proxy',
+    title: 'edulution Dateien (FileProxy)',
+    tagline: 'Die Dateien-App und der Proxy dahinter',
     text: 'WebDAV-zu-SMB-Proxy für plattformübergreifenden Zugriff auf Windows-Freigaben.',
     roles: 'admin',
     targets: {
       default: { to: '/docs/edulution-fileproxy/', label: 'Übersicht' },
-      'admin-setup': { to: '/docs/edulution-fileproxy/installation', label: 'Installation' },
+      'admin-setup': { to: '/docs/edulution-fileproxy/konfiguration/installation', label: 'Installation' },
     },
   },
   {

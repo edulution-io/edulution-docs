@@ -166,6 +166,6 @@ Die Konferenz-Funktion erfordert einen konfigurierten BigBlueButton-Server. Die 
 
 ## Siehe auch
 
-- [Whiteboard](./native-apps/whiteboard.md) - Integriertes Whiteboard in Konferenzen
-- [Klassenraum](./native-apps/klassenzimmer.md) - Konferenzen im Unterricht nutzen
-- [Dashboard](../uebersicht/dashboard.md) - Laufende Konferenzen anzeigen
+- [Whiteboard](./whiteboard.md) - Integriertes Whiteboard in Konferenzen
+- [Klassenraum](./klassenzimmer.md) - Konferenzen im Unterricht nutzen
+- [Dashboard](../../uebersicht/dashboard.md) - Laufende Konferenzen anzeigen

@@ -20,8 +20,8 @@ interface AudienceProps {
  * `href` mit der Adresse im Browser uebereinstimmt – und klappt dann jede
  * Kategorie darueber auf. Fuer einen Querverweis ist das falsch: Die
  * Dateien-App steht in der Liste unter *edulution Plattform → Apps*, aber
- * dokumentiert ist sie unter *edulution FileProxy*. Waere ihr `href` das
- * echte Ziel, wuerden beide Aeste zugleich aufklappen.
+ * dokumentiert ist sie unter *edulution Dateien (FileProxy)*. Waere ihr
+ * `href` das echte Ziel, wuerden beide Aeste zugleich aufklappen.
  *
  * Deshalb traegt der Eintrag in `sidebars.ts` diesen Platzhalter als `href`
  * und das echte Ziel in `customProps.crossRef`. Der Vergleich schlaegt damit

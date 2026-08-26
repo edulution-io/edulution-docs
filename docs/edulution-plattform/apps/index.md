@@ -5,21 +5,25 @@ description: Die Anwendungen der edulution Plattform im Überblick
 
 # Apps
 
-Hier stehen die Anwendungen, die **zur Plattform selbst gehören**. Sie brauchen keinen eigenen
-Serverdienst – höchstens eine Freigabe im **App-Store** und ein paar Einstellungen.
+Ganz oben stehen die beiden Seiten, mit denen Apps überhaupt entstehen: Der
+**[App-Store](./app-store.md)** entscheidet, welche Apps in der Seitenleiste erscheinen, und die
+**[Eingebettete App](./eingebettete-app.md)** ist keine einzelne Anwendung, sondern die Hülle für
+eigene Inhalte – eine hochgeladene Webseite oder eine fremde Oberfläche als eigene Kachel.
 
-Apps mit einem eigenen Dienst dahinter sind bei ihrer Komponente dokumentiert. In der Seitenleiste
-stehen sie hier trotzdem: Ein Klick springt in den Bereich der Komponente, statt den Baum zu
-verdoppeln. Welche App wohin gehört, sagt die Tabelle weiter unten.
+Darunter liegen die Anwendungen in zwei Ordnern: **Native Apps** sind hier vollständig
+beschrieben, **Angebundene Apps** verweisen auf die Komponente, die den Dienst dahinter
+dokumentiert.
 
 ## Native Apps
 
-Diese Apps sind Teil der Plattform und stehen in der Seitenleiste unter **Native Apps** zusammen.
-Jede bringt eine eigene Kachel mit; freigeschaltet werden sie im
-[App-Store](./app-store.md).
+Diese Apps gehören zur Plattform selbst – zu installieren ist nichts, höchstens im
+App-Store freizuschalten. Jede bringt eine eigene Kachel mit.
 
 - **[Chat](./native-apps/chat.md)**, **[Kontakte](./native-apps/kontakte.md)** und
   **[Kalender](./native-apps/kalender.md)** – Nachrichten, Adressbücher, Termine.
+- **[Konferenzen](./native-apps/konferenzen.md)** – Videokonferenzen über BigBlueButton. Der
+  Server dahinter wird in den Einstellungen hinterlegt; eine eigene Komponente braucht die App
+  nicht.
 - **[Klassenzimmer](./native-apps/klassenzimmer.md)** – Gruppen betreuen, Dateien einsammeln,
   Bildschirme beaufsichtigen.
 - **[Whiteboard](./native-apps/whiteboard.md)**, **[Wiki](./native-apps/wiki.md)** und
@@ -27,17 +31,16 @@ Jede bringt eine eigene Kachel mit; freigeschaltet werden sie im
 - **[Infoboard](./native-apps/infoboard.md)** und **[Umfragen](./native-apps/umfragen.md)** –
   informieren und nachfragen.
 - **[Geräteverwaltung](./native-apps/geraeteverwaltung.md)** – die eigenen Geräte im Blick.
-- **[Eingebettete App](./native-apps/eingebettete-app.md)** – eine fremde Weboberfläche als
-  eigene Kachel einbinden.
 
 Dazu kommt die **[Markdown-Hilfe](./native-apps/markdown-hilfe.md)** – die Syntax, die im
 Wiki-Editor gilt.
 
-## Apps mit eigenem Bereich
+## Angebundene Apps
 
 Diese Apps haben zwar eine Kachel in der Seitenleiste, brauchen aber einen Dienst dahinter. Sie
 erscheinen in edulution gar nicht oder bleiben leer, solange der nicht steht – deshalb ist jede
-eine eigene Komponente mit eigener Installations- und Konfigurations-Strecke.
+eine eigene Komponente mit eigener Installations- und Konfigurations-Strecke. Der Eintrag im
+Ordner **Angebundene Apps** springt direkt dorthin, statt den Baum zu verdoppeln.
 
 | App in der Plattform | Dienst dahinter | Dokumentation |
 | --- | --- | --- |
@@ -47,12 +50,10 @@ eine eigene Komponente mit eigener Installations- und Konfigurations-Strecke.
 | **Lernmanagement** | Moodle | **[edulution LMS](../../edulution-lms/index.md)** |
 | **Desktop-Bereitstellung** | VDI-Umgebung | **[edulution VDI](../../edulution-vdi/index.md)** |
 | **MDM** | Relution | **[edulution MDM](../../edulution-mdm/index.md)** |
-| **Dateien** | FileProxy für Windows-Freigaben | **[Dateien](../../edulution-fileproxy/dateien/index.md)** in [edulution FileProxy](../../edulution-fileproxy/index.md) |
+| **Dateien** | FileProxy für Windows-Freigaben | **[Dateien](../../edulution-fileproxy/dateien/index.md)** in [edulution Dateien (FileProxy)](../../edulution-fileproxy/index.md) |
 
-## Ohne eigenen Bereich
+## Nicht in dieser Liste
 
-Zwei Apps setzen einen Dienst voraus, brauchen aber keine eigene Strecke – sie werden in den
-Einstellungen konfiguriert und sind hier vollständig beschrieben:
-
-- **[Konferenzen](./konferenzen.md)** – Videokonferenzen über BigBlueButton.
-- **[VPN-Zugang](../uebersicht/benutzereinstellungen/vpn-zugang.md)** – WireGuard-Tunnel ins Schulnetz für einzelne Benutzer.
+Der **[VPN-Zugang](../uebersicht/benutzereinstellungen/vpn-zugang.md)** – der WireGuard-Tunnel ins
+Schulnetz – ist keine App mit eigener Kachel: Er steht dort, wo man ihn abruft, in den
+Benutzereinstellungen.

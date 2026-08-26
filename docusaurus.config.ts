@@ -77,7 +77,7 @@ const config: Config = {
             '/docs/edulution-mail/konfiguration/migration-einrichten': ['/docs/edulution-mail/admin_mail_migration'],
             '/docs/edulution-mail/konfiguration/mailformate': ['/docs/edulution-mail/benutzer_mailformate'],
 
-            // --- edulution App ----------------------------------------
+            // --- edulution Mobile App ---------------------------------------
             '/docs/edulution-app/': ['/docs/category/edulution-app'],
             // Die mobile Ansicht lag als native App in der Plattform.
             '/docs/edulution-app/mobile-ansicht': [
@@ -134,6 +134,31 @@ const config: Config = {
               '/docs/category/edulution-eurooffice',
             ],
             '/docs/edulution-fileproxy/dateien/goodnotes': ['/docs/edulution-plattform/features/goodnotes'],
+            // Der Bereich hat jetzt zwei gleich gebaute Zweige - die App und
+            // den Proxy, jeder mit Uebersicht und Konfiguration. Die fuenf
+            // Proxy-Seiten lagen dafuer bisher zu weit oben. Neben ihrer
+            // alten Adresse braucht jede auch die aus L2, weil die
+            // Praefix-Regel unten jetzt einen Ordner tiefer greift.
+            '/docs/edulution-fileproxy/konfiguration/package-server': [
+              '/docs/edulution-fileproxy/package-server',
+              '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/package-server',
+            ],
+            '/docs/edulution-fileproxy/konfiguration/installation': [
+              '/docs/edulution-fileproxy/installation',
+              '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/installation',
+            ],
+            '/docs/edulution-fileproxy/konfiguration/traefik-config': [
+              '/docs/edulution-fileproxy/traefik-config',
+              '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/traefik-config',
+            ],
+            '/docs/edulution-fileproxy/konfiguration/ui-config': [
+              '/docs/edulution-fileproxy/ui-config',
+              '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/ui-config',
+            ],
+            '/docs/edulution-fileproxy/konfiguration/wiki-infrastruktur': [
+              '/docs/edulution-fileproxy/wiki-infrastruktur',
+              '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/wiki-infrastruktur',
+            ],
             // Die Benutzereinstellungen sind in Unterseiten zerlegt; die
             // alte Sammelseite fuehrt auf die Uebersicht. Anker-Links von
             // aussen landen damit oben statt am Abschnitt - der einzige
@@ -173,9 +198,19 @@ const config: Config = {
               '/docs/edulution-plattform/features/eltern-schueler-zuordnung',
               '/docs/edulution-plattform/apps/native-apps/eltern-schueler-zuordnung',
             ],
-            // App-Store raus aus der Liste der nativen Apps, darueber.
+            // Konferenzen war die einzige Seite direkt unter Apps und stand
+            // damit neben lauter Querverweisen; jetzt bei den nativen Apps.
+            '/docs/edulution-plattform/apps/native-apps/konferenzen': [
+              '/docs/edulution-plattform/apps/konferenzen',
+            ],
+            // App-Store raus aus der Liste der nativen Apps, darueber - und
+            // die Eingebettete App gleich daneben: beide legen Apps an,
+            // statt eine zu sein.
             '/docs/edulution-plattform/apps/app-store': [
               '/docs/edulution-plattform/apps/native-apps/app-store',
+            ],
+            '/docs/edulution-plattform/apps/eingebettete-app': [
+              '/docs/edulution-plattform/apps/native-apps/eingebettete-app',
             ],
             // Impressum & Datenschutz ist eine Konfigurationsaufgabe.
             '/docs/edulution-plattform/konfiguration/impressum-datenschutz': [
@@ -350,7 +385,7 @@ const config: Config = {
               to: '/docs/edulution-mail/',
             },
             {
-              label: 'edulution App',
+              label: 'edulution Mobile App',
               to: '/docs/edulution-app/',
             },
             {

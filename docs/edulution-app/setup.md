@@ -3,14 +3,14 @@ sidebar_position: 2
 title: Einrichtung
 ---
 
-# Einrichtung der edulution App
+# Einrichtung der edulution Mobile App
 :::warning[Wichtiger Hinweis für bestehende Nutzer]
 Wenn Sie eine App-Version **älter als 2.1.0** verwenden, empfehlen wir dringend, die App zu **deinstallieren und neu herunterzuladen**, um Fehler zu vermeiden.
 :::
 
 ## App herunterladen
 
-Wähle den QR-Code für dein Betriebssystem und scanne ihn, um die edulution App herunterzuladen
+Wähle den QR-Code für dein Betriebssystem und scanne ihn, um die edulution Mobile App herunterzuladen
 
 <div style={{display: 'flex', justifyContent: 'center', gap: '40px'}}>
   <div style={{textAlign: 'center'}}>
@@ -74,7 +74,7 @@ Schneller Login ohne Passwort-Eingabe:
 
 1. Öffne das Web-Interface deiner Schule
 2. Klicke auf **"Anmelden mit QR-Login"**
-3. Scanne den angezeigten QR-Code mit der edulution App
+3. Scanne den angezeigten QR-Code mit der edulution Mobile App
 4. Du wirst automatisch angemeldet
 
 <img src="/img/app/qrLogin.png" alt="QR-Login im Web-Interface" width="50%" />
@@ -87,7 +87,7 @@ Greife auf deine edulution-Dateien direkt über die iOS Files-App zu, indem du F
 
 ### Schritt 1: Einstellungen öffnen
 
-1. Öffne die edulution App
+1. Öffne die edulution Mobile App
 2. Wische die Account-Karte nach links
 3. Tippe auf das **Einstellungen-Symbol**
 
@@ -123,7 +123,7 @@ In den Account-Einstellungen stehen folgende Optionen zur Verfügung:
 ## Datenschutzerklärung hinterlegen
 
 :::warning[Wichtig für Administratoren]
-Wenn Sie die edulution App für Ihre Schule oder Organisation bereitstellen, sollten Sie eine **eigene Datenschutzerklärung** in der edulution-Plattform hinterlegen.
+Wenn Sie die edulution Mobile App für Ihre Schule oder Organisation bereitstellen, sollten Sie eine **eigene Datenschutzerklärung** in der edulution-Plattform hinterlegen.
 
 **Warum?**
 - Die Datenschutzerklärung von edulution.io bezieht sich **ausschließlich auf Push-Benachrichtigungen** über Apple Push Notification Service (APNs)

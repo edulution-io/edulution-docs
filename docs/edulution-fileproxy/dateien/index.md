@@ -95,7 +95,7 @@ Die maximale Upload-Größe hängt davon ab, ob FileProxy eingerichtet ist:
 \* *Abhängig von verfügbarem Speicherplatz und Quotas*
 
 **FileProxy einrichten:**
-Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richten Sie den [edulution FileProxy](../ui-config.md) ein. Dieser bietet:
+Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richten Sie den [edulution FileProxy](../konfiguration/ui-config.md) ein. Dieser bietet:
 - Unbegrenzte Upload-Größe
 - Deutlich höhere Performance
 - Schnellere Up- und Downloads
@@ -137,5 +137,5 @@ Sie können Ihre Dateien auch direkt über den Dateimanager Ihres Betriebssystem
 - [Vorschau und Drucken](./vorschau-und-drucken.md) - Dateien ansehen und ausdrucken
 - [Dashboard](../../edulution-plattform/uebersicht/dashboard.md) - Speichernutzung anzeigen
 - [Mobile App](../../edulution-app/mobile-ansicht.md) - Dateien mobil synchronisieren
-- [Eingebettete App](../../edulution-plattform/apps/native-apps/eingebettete-app.md) - HTML/JS/CSS hochladen
+- [Eingebettete App](../../edulution-plattform/apps/eingebettete-app.md) - HTML/JS/CSS hochladen
 - [Schutzmechanismen beim Hochladen](./upload-schutzmechanismen.md) - Dateinamen, Duplikate und Bildumwandlung

@@ -158,6 +158,6 @@ Das Wiki nutzt Standard-Markdown. Eine Übersicht der unterstützten Formatierun
 - [Wiki-Editor](./wiki-editor.md) – Slash-Menü, Anhänge, Formeln und Suchen/Ersetzen
 - [Markdown-Hilfe](./markdown-hilfe.md) – unterstützte Formatierungen im Wiki-Editor
 - [Wiki-Einstellungen (Admin)](../../konfiguration/wiki-einstellungen.md) – Sichtbarkeit pro Freigabe steuern
-- [Wiki-Infrastruktur (Admin)](../../../edulution-fileproxy/wiki-infrastruktur.md) – Server-seitige Einrichtung des Suchindex
+- [Wiki-Infrastruktur (Admin)](../../../edulution-fileproxy/konfiguration/wiki-infrastruktur.md) – Server-seitige Einrichtung des Suchindex
 - [Dateien](../../../edulution-fileproxy/dateien/index.md) – Datei-Freigaben, auf denen Wikis basieren
 - [Benutzereinstellungen](../../uebersicht/benutzereinstellungen/index.md) – Gruppenzugehörigkeit prüfen

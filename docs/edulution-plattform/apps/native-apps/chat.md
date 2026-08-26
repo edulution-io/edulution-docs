@@ -135,4 +135,4 @@ Welche Nutzergruppen den KI-Chat verwenden dürfen, legen Sie als Global-Admin i
 
 - [Mein Profil → Profilbild](../../uebersicht/benutzereinstellungen/benutzerdetails.md#profilbild) – Profilbild für den Chat hinterlegen
 - [Benachrichtigungen](../../uebersicht/navigation.md#benachrichtigungen) – Chat-Nachrichten in der Benachrichtigungsleiste
-- [Konferenzen](../konferenzen.md) – Audio- und Videokonferenzen
+- [Konferenzen](./konferenzen.md) – Audio- und Videokonferenzen

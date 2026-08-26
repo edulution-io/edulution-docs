@@ -111,7 +111,7 @@ rule: "Path(`/wiki/search`) || Path(`/wiki/list`)"
 `/wiki` ist zugleich die client-seitige Route des Wikis selbst (`/wiki/<Freigabe>/<Seite>`). Eine `PathPrefix`-Regel auf `/wiki` hätte gegenüber der allgemeinen Weiterleitung an das Frontend Vorrang und würde den gesamten Bereich an den FileProxy leiten. Die Folge: Beim direkten Aufruf oder Neuladen einer Wiki-Seite erscheint ein 404, während die Navigation innerhalb der App noch funktioniert.
 :::
 
-Eine fehlerhafte Konfiguration kann dazu führen, dass die Wiki-Suche nicht mehr erreichbar ist. Die serverseitige Einrichtung von FileProxy und Suchindex ist in der [Wiki-Infrastruktur](../../edulution-fileproxy/wiki-infrastruktur.md) beschrieben.
+Eine fehlerhafte Konfiguration kann dazu führen, dass die Wiki-Suche nicht mehr erreichbar ist. Die serverseitige Einrichtung von FileProxy und Suchindex ist in der [Wiki-Infrastruktur](../../edulution-fileproxy/konfiguration/wiki-infrastruktur.md) beschrieben.
 
 ### Die Wiki-Route wird nie von edulution gelöscht
 
@@ -133,6 +133,6 @@ Eine bereits in den Einstellungen gespeicherte Route wird dabei nie überschrieb
 ## Siehe auch
 
 - [Wiki (Nutzerhandbuch)](../apps/native-apps/wiki.md) – Funktionen aus Sicht der Endbenutzer
-- [Wiki-Infrastruktur](../../edulution-fileproxy/wiki-infrastruktur.md) – FileProxy- und Elasticsearch-Setup für die Wiki-Suche
+- [Wiki-Infrastruktur](../../edulution-fileproxy/konfiguration/wiki-infrastruktur.md) – FileProxy- und Elasticsearch-Setup für die Wiki-Suche
 - [Einstellungen](./einstellungen.md) – weitere globale Konfigurationsoptionen
 - [Administration](./administration.md) – allgemeine Admin-Aufgaben

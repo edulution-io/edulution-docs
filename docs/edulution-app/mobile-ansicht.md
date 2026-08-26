@@ -59,7 +59,7 @@ Die App meldet der Plattform ihre Version. Danach entscheidet sich, welche App-F
 | ab 2.1.11 | zusätzlich die Schnellaktion **OTP anzeigen** |
 
 :::tip[Ältere App-Versionen]
-Fehlt das Handy-Symbol, obwohl Sie die App verwenden, ist die App zu alt. Aktualisieren Sie sie im App Store beziehungsweise im Play Store. Bei Versionen älter als 2.1.0 empfehlen wir, die App zu deinstallieren und neu zu installieren – siehe [Einrichtung der edulution App](/docs/edulution-app/setup).
+Fehlt das Handy-Symbol, obwohl Sie die App verwenden, ist die App zu alt. Aktualisieren Sie sie im App Store beziehungsweise im Play Store. Bei Versionen älter als 2.1.0 empfehlen wir, die App zu deinstallieren und neu zu installieren – siehe [Einrichtung der edulution Mobile App](/docs/edulution-app/setup).
 :::
 
 ## Weitere Unterschiede zur Browser-Ansicht [tags: ios, android]

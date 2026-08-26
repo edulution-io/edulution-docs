@@ -1,14 +1,15 @@
 ---
 sidebar_position: 1
 title: edulution FileProxy
-description: Die Dateien-App und der WebDAV-zu-SMB-Proxy dahinter
+description: Der WebDAV-zu-SMB-Proxy hinter der Dateien-App
 ---
 
 # edulution FileProxy
 
-Dieser Bereich umfasst zwei Dinge: die **[Dateien](./dateien/index.md)**-App, mit der Sie in
-edulution Ordner durchsuchen, Dateien teilen und Dokumente bearbeiten – und den **FileProxy**, den
-Dienst, der die Netzlaufwerke Ihrer Einrichtung dafür bereitstellt.
+Der **FileProxy** ist der Dienst hinter der Dateien-App: Er stellt die Netzlaufwerke Ihrer
+Einrichtung als WebDAV bereit – ein WebDAV-zu-SMB-Proxy für sicheren Dateizugriff auf
+Windows-Freigaben. Wie die App selbst bedient wird, steht im Zweig
+**[Dateien](./dateien/index.md)** daneben.
 
 <Audience roles="user">
 
@@ -16,10 +17,6 @@ Als Nutzer:in interessiert Sie die App: **[Dateien](./dateien/index.md)** beschr
 Freigaben, Vorschau, Quotas und die Einbindung per WebDAV.
 
 </Audience>
-
-## Der Proxy dahinter
-
-WebDAV-zu-SMB Proxy für sicheren Dateizugriff auf Windows-Shares.
 
 ## Was ist FileProxy?
 
@@ -53,10 +50,10 @@ graph LR
 
 Die Installation erfolgt in 4 Schritten:
 
-1. **[Package Server](./package-server.md)** - Edulution Repository einrichten
-2. **[FileProxy installieren](./installation.md)** - Server aufsetzen und konfigurieren
-3. **[Traefik konfigurieren](./traefik-config.md)** - Reverse Proxy einrichten
-4. **[UI konfigurieren](./ui-config.md)** - WebDAV in edulution aktivieren
+1. **[Package Server](./konfiguration/package-server.md)** - Edulution Repository einrichten
+2. **[FileProxy installieren](./konfiguration/installation.md)** - Server aufsetzen und konfigurieren
+3. **[Traefik konfigurieren](./konfiguration/traefik-config.md)** - Reverse Proxy einrichten
+4. **[UI konfigurieren](./konfiguration/ui-config.md)** - WebDAV in edulution aktivieren
 
 ## Voraussetzungen
 
@@ -76,4 +73,4 @@ FileProxy sollte auf dem **gleichen Host wie der Fileserver** installiert werden
 
 ## Erste Schritte
 
-Beginnen Sie mit der [Package Server Einrichtung](./package-server.md) →
+Beginnen Sie mit der [Package Server Einrichtung](./konfiguration/package-server.md) →

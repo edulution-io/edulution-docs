@@ -168,9 +168,12 @@ const sidebars: SidebarsConfig = {
             id: 'edulution-plattform/apps/index',
           },
           items: [
-            // Zuerst der App-Store: hier entscheidet sich, welche der Apps
-            // darunter ueberhaupt in der Seitenleiste erscheinen.
+            // Zuerst die beiden Seiten, mit denen Apps ueberhaupt entstehen:
+            // im App-Store entscheidet sich, welche der Apps darunter in der
+            // Seitenleiste erscheinen, und die Eingebettete App ist keine
+            // einzelne Anwendung, sondern die Huelle fuer eigene Inhalte.
             'edulution-plattform/apps/app-store',
+            'edulution-plattform/apps/eingebettete-app',
             {
               type: 'category',
               label: 'Native Apps',
@@ -181,6 +184,7 @@ const sidebars: SidebarsConfig = {
                 'edulution-plattform/apps/native-apps/chat',
                 'edulution-plattform/apps/native-apps/kontakte',
                 'edulution-plattform/apps/native-apps/kalender',
+                'edulution-plattform/apps/native-apps/konferenzen',
                 'edulution-plattform/apps/native-apps/klassenzimmer',
                 'edulution-plattform/apps/native-apps/whiteboard',
                 'edulution-plattform/apps/native-apps/wiki',
@@ -189,56 +193,64 @@ const sidebars: SidebarsConfig = {
                 'edulution-plattform/apps/native-apps/geraeteverwaltung',
                 'edulution-plattform/apps/native-apps/infoboard',
                 'edulution-plattform/apps/native-apps/umfragen',
-                'edulution-plattform/apps/native-apps/eingebettete-app',
               ],
             },
-            // Apps mit eigenem Dienst dahinter werden nicht hier
-            // aufgeklappt, sondern in ihrer Komponente dokumentiert. Der
-            // Eintrag ist deshalb nur ein Link: `href` bleibt ein
-            // Platzhalter, das echte Ziel steht in `customProps.crossRef`
-            // und wird in src/theme/DocSidebarItem eingesetzt. So gilt der
-            // Eintrag nirgends als aktive Seite - sonst klappte beim Oeffnen
-            // der Dateien-App dieser Ast hier mit auf.
+            // Das Gegenstueck zu den nativen Apps: eine Kachel in edulution
+            // hat jede von ihnen auch, aber dahinter steht ein eigener
+            // Dienst mit eigener Installationsstrecke. Dokumentiert sind
+            // sie deshalb in ihrer Komponente, nicht hier.
+            //
+            // Jeder Eintrag ist nur ein Link: `href` bleibt ein Platzhalter,
+            // das echte Ziel steht in `customProps.crossRef` und wird in
+            // src/theme/DocSidebarItem eingesetzt. So gilt der Eintrag
+            // nirgends als aktive Seite - sonst klappte beim Oeffnen der
+            // Dateien-App dieser Ast hier mit auf.
             {
-              type: 'link',
-              label: 'Schulserver',
-              href: '#',
-              customProps: {
-                crossRef: '/docs/edulution-server/linuxmuster',
-                audience: 'admin',
-              },
+              type: 'category',
+              label: 'Angebundene Apps',
+              collapsed: true,
+              items: [
+                {
+                  type: 'link',
+                  label: 'Schulserver',
+                  href: '#',
+                  customProps: {
+                    crossRef: '/docs/edulution-server/',
+                    audience: 'admin',
+                  },
+                },
+                {
+                  type: 'link',
+                  label: 'E-Mail',
+                  href: '#',
+                  customProps: { crossRef: '/docs/edulution-mail/' },
+                },
+                {
+                  type: 'link',
+                  label: 'Lernmanagement',
+                  href: '#',
+                  customProps: { crossRef: '/docs/edulution-lms/' },
+                },
+                {
+                  type: 'link',
+                  label: 'Desktop-Bereitstellung',
+                  href: '#',
+                  customProps: { crossRef: '/docs/edulution-vdi/' },
+                },
+                {
+                  type: 'link',
+                  label: 'MDM',
+                  href: '#',
+                  customProps: { crossRef: '/docs/edulution-mdm/' },
+                },
+                {
+                  type: 'link',
+                  label: 'Dateien',
+                  href: '#',
+                  customProps: { crossRef: '/docs/edulution-fileproxy/dateien/' },
+                },
+              ],
             },
-            {
-              type: 'link',
-              label: 'E-Mail',
-              href: '#',
-              customProps: { crossRef: '/docs/edulution-mail/' },
-            },
-            {
-              type: 'link',
-              label: 'Lernmanagement',
-              href: '#',
-              customProps: { crossRef: '/docs/edulution-lms/' },
-            },
-            {
-              type: 'link',
-              label: 'Desktop-Bereitstellung',
-              href: '#',
-              customProps: { crossRef: '/docs/edulution-vdi/' },
-            },
-            {
-              type: 'link',
-              label: 'MDM',
-              href: '#',
-              customProps: { crossRef: '/docs/edulution-mdm/' },
-            },
-            {
-              type: 'link',
-              label: 'Dateien',
-              href: '#',
-              customProps: { crossRef: '/docs/edulution-fileproxy/dateien/' },
-            },
-            'edulution-plattform/apps/konferenzen',
           ],
         },
       ],
@@ -403,7 +415,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'edulution App',
+      label: 'edulution Mobile App',
       collapsed: true,
       items: [
         {
@@ -573,26 +585,24 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'edulution FileProxy',
+      label: 'edulution Dateien (FileProxy)',
       collapsed: true,
-      // Kein `audience` auf der Kategorie: die Dateien-App darin ist die
-      // meistgenutzte Anwendung der Plattform. Nur die Einrichtung des
-      // Proxys selbst ist Administrationsthema.
+      // Zwei Zweige, wie der Name sagt: die Dateien-App, die alle nutzen,
+      // und der Proxy, der ihre Netzlaufwerke bereitstellt. Kein `audience`
+      // auf der Kategorie - die App darin ist die meistgenutzte Anwendung
+      // der Plattform. Administrationsthema ist nur, was in den beiden
+      // Konfigurations-Ordnern steht.
       items: [
-        {
-          type: 'doc',
-          id: 'edulution-fileproxy/index',
-          label: '📖 Übersicht',
-        },
         {
           type: 'category',
           label: 'Dateien',
           collapsed: true,
-          link: {
-            type: 'doc',
-            id: 'edulution-fileproxy/dateien/index',
-          },
           items: [
+            {
+              type: 'doc',
+              id: 'edulution-fileproxy/dateien/index',
+              label: '📖 Übersicht',
+            },
             {
               type: 'category',
               label: '⚙️ Konfiguration',
@@ -630,36 +640,48 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '⚙️ Proxy einrichten',
+          label: 'FileProxy',
           collapsed: true,
-          // Der Dienst hinter der Dateien-App - Endnutzer merken von ihm
-          // nichts und bekommen den Block nicht zu sehen.
-          customProps: { audience: 'admin' },
           items: [
             {
               type: 'doc',
-              id: 'edulution-fileproxy/package-server',
-              label: 'Package Server',
+              id: 'edulution-fileproxy/index',
+              label: '📖 Übersicht',
             },
             {
-              type: 'doc',
-              id: 'edulution-fileproxy/installation',
-              label: 'Installation',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-fileproxy/traefik-config',
-              label: 'Traefik Konfiguration',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-fileproxy/ui-config',
-              label: 'UI Konfiguration',
-            },
-            {
-              type: 'doc',
-              id: 'edulution-fileproxy/wiki-infrastruktur',
-              label: 'Wiki-Infrastruktur',
+              type: 'category',
+              label: '⚙️ Konfiguration',
+              collapsed: true,
+              // Der Dienst hinter der Dateien-App - Endnutzer merken von ihm
+              // nichts und bekommen den Block nicht zu sehen.
+              customProps: { audience: 'admin' },
+              items: [
+                {
+                  type: 'doc',
+                  id: 'edulution-fileproxy/konfiguration/package-server',
+                  label: 'Package Server',
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-fileproxy/konfiguration/installation',
+                  label: 'Installation',
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-fileproxy/konfiguration/traefik-config',
+                  label: 'Traefik Konfiguration',
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-fileproxy/konfiguration/ui-config',
+                  label: 'UI Konfiguration',
+                },
+                {
+                  type: 'doc',
+                  id: 'edulution-fileproxy/konfiguration/wiki-infrastruktur',
+                  label: 'Wiki-Infrastruktur',
+                },
+              ],
             },
           ],
         },

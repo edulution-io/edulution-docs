@@ -146,24 +146,28 @@ Oder nutzen Sie den **Einrichtungsassistenten** beim ersten Start.
 
 ## Nächste Schritte
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-  <a href="/docs/edulution-plattform/apps/lernmanagement/konfiguration/namensschemas" className="card">
-    <h3>Gruppen-Namensschemas</h3>
-    <p>So benennen Sie Keycloak-Gruppen richtig</p>
-  </a>
-  <a href="/docs/edulution-plattform/apps/lernmanagement/konfiguration/synchronisation" className="card">
-    <h3>Synchronisation</h3>
-    <p>Benutzer und Kurse automatisch synchronisieren</p>
-  </a>
-  <a href="/docs/edulution-plattform/apps/lernmanagement/installation/schnellstart" className="card">
-    <h3>Schnellstart</h3>
-    <p>In 10 Minuten zum Ergebnis</p>
-  </a>
-  <a href="/docs/edulution-plattform/apps/lernmanagement/installation/voraussetzungen" className="card">
-    <h3>Voraussetzungen</h3>
-    <p>Was Sie vor der Installation benötigen</p>
-  </a>
-</div>
+<Cards>
+  <Card
+    to="/docs/edulution-lms/konfiguration/namensschemas"
+    title="Gruppen-Namensschemas"
+    text="So benennen Sie Keycloak-Gruppen richtig"
+  />
+  <Card
+    to="/docs/edulution-lms/konfiguration/synchronisation"
+    title="Synchronisation"
+    text="Benutzer und Kurse automatisch synchronisieren"
+  />
+  <Card
+    to="/docs/edulution-lms/installation/schnellstart"
+    title="Schnellstart"
+    text="In 10 Minuten zum Ergebnis"
+  />
+  <Card
+    to="/docs/edulution-lms/installation/voraussetzungen"
+    title="Voraussetzungen"
+    text="Was Sie vor der Installation benötigen"
+  />
+</Cards>
 
 :::tip Moodle in edulution nutzen
 Wie Moodle als App **Lernmanagement** in edulution eingebunden wird und wie die Anmeldung ohne zweiten Login abläuft, beschreibt [Lernmanagement (Moodle)](/docs/edulution-lms).

@@ -617,9 +617,79 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: 'doc',
-      id: 'edulution-mdm/index',
+      type: 'category',
       label: 'edulution MDM',
+      collapsed: true,
+      // Wie bei den uebrigen Komponenten: die Uebersicht als Einstieg, die
+      // Anbindung an Relution im ausgeblendeten Einrichtungs-Zweig, und
+      // darunter die Bereiche der App in der Reihenfolge ihrer Seitenleiste.
+      // Der Bereich Benutzer verwaltet Relution-Konten und ist deshalb
+      // einzeln als Administrationsthema ausgezeichnet.
+      items: [
+        {
+          type: 'doc',
+          id: 'edulution-mdm/index',
+          label: '📖 Übersicht',
+        },
+        {
+          type: 'category',
+          label: '⚙️ Einrichtung',
+          collapsed: true,
+          // Relution anbinden - fuer Endnutzer ausgeblendet
+          // (siehe src/components/audience/taxonomy.ts).
+          customProps: { audience: 'admin' },
+          link: {
+            type: 'doc',
+            id: 'edulution-mdm/einrichtung/index',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-mdm/einrichtung/voraussetzungen',
+              label: 'Voraussetzungen',
+              customProps: { audience: 'admin-setup' },
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mdm/einrichtung/app-konfiguration',
+              label: 'App konfigurieren',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mdm/einrichtung/benutzer-synchronisation',
+              label: 'Benutzer-Synchronisation',
+            },
+            {
+              type: 'doc',
+              id: 'edulution-mdm/einrichtung/fehlerbehebung',
+              label: 'Fehlerbehebung',
+              customProps: { audience: 'admin-operate' },
+            },
+          ],
+        },
+        {
+          type: 'doc',
+          id: 'edulution-mdm/geraete',
+          label: 'Geräte',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-mdm/einschreibungen',
+          label: 'Geräte einschreiben',
+          customProps: { audience: 'admin' },
+        },
+        {
+          type: 'doc',
+          id: 'edulution-mdm/apps',
+          label: 'Apps',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-mdm/benutzer',
+          label: 'Benutzer',
+          customProps: { audience: 'admin' },
+        },
+      ],
     },
     {
       type: 'category',

@@ -62,6 +62,8 @@ Der eingebettete Editor übernimmt automatisch die Einstellungen der edulution-O
 - **Wiki**: Als Anhang hinterlegte Draw.io-Dateien lassen sich in der Anhang-Vorschau ansehen. Bearbeitet werden sie in der App *Dateien*.
 - **Freigabe-Links**: Draw.io-Dateien, die Sie öffentlich teilen, stehen über den Link zum **Herunterladen** bereit. Die Aktion *Im Browser öffnen* wird für Diagramme nicht angeboten.
 
+<Audience roles="admin">
+
 ## Administration: Draw.io-Instanz festlegen
 
 Standardmäßig verwendet edulution die öffentliche Instanz `https://embed.diagrams.net`. Der Editor wird dabei als eingebettete Seite geladen, die Diagrammdaten selbst bleiben im Browser und werden ausschließlich in Ihre WebDAV-Freigabe zurückgeschrieben.
@@ -77,6 +79,8 @@ Wer den Editor im eigenen Netz betreiben möchte, hinterlegt die URL einer selbs
 :::tip[Eigene Instanz]
 Die Instanz muss das Einbetten erlauben (Draw.io-Embed-Modus). Das offizielle Container-Image `jgraph/drawio` bringt diese Funktion mit. Bleibt das Feld leer, greift wieder die Voreinstellung `https://embed.diagrams.net`.
 :::
+
+</Audience>
 
 ## Siehe auch
 

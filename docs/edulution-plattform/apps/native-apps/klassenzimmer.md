@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audienceOrg: school public-administration
+---
+
 # Klassenraum
 
 Der Klassenraum ist das zentrale Tool für Lehrer zur Unterrichtsverwaltung. Hier können Sie Unterricht starten, Schüler überwachen und Projekte verwalten.
@@ -154,6 +159,8 @@ Nützlich für:
 
 ## Linuxmuster-Konzepte
 
+<Audience org="school public-administration">
+
 ### Klassen vs. Projekte
 
 | | Klassen | Projekte |
@@ -161,6 +168,8 @@ Nützlich für:
 | **Verwendung** | Schulklassen (5a, 10b) | Kurse, AGs |
 | **Verwaltung** | Automatisch | Manuell |
 | **Mitglieder** | Alle Schüler | Ausgewählt |
+
+</Audience>
 
 ### Weiterführende Links
 

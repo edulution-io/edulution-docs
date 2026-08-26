@@ -136,10 +136,14 @@ Gelöschte Wiki-Seiten können nicht aus der Anwendung wiederhergestellt werden.
 - Sehen nur Wikis, die Lese- und ggf. Schreibrechte für ihre Gruppe vorsehen
 - Können Seiten lesen und – sofern auf der Freigabe erlaubt – mitbearbeiten
 
+<Audience roles="admin">
+
 ### Global-Admin
 
 - Sieht alle aktivierten Wikis, sofern die Wiki-Zugriffsgruppen erfüllt sind
 - Verwaltet **Wiki aktivieren** und **Wiki-Zugriffsgruppen** pro Freigabe in den Einstellungen (siehe [Wiki-Einstellungen](../../konfiguration/wiki-einstellungen.md))
+
+</Audience>
 
 ## Tipps für die Nutzung
 

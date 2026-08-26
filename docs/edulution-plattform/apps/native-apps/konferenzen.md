@@ -158,11 +158,15 @@ Klicken Sie auf **Spalten** (Dropdown rechts):
 - Beitreten nur mit Einladung oder Link
 - Teilnahme an öffentlichen Konferenzen möglich
 
+<Audience roles="admin">
+
 ## BigBlueButton Konfiguration
 
 :::caution[Konfiguration erforderlich]
 Die Konferenz-Funktion erfordert einen konfigurierten BigBlueButton-Server. Die detaillierte Anleitung zur Einrichtung folgt in einem separaten Administrations-Dokument.
 :::
+
+</Audience>
 
 ## Siehe auch
 

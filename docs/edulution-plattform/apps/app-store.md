@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin
+---
+
 # App-Store & Anwendungen
 
 Der edulution App-Store ermöglicht es Ihnen, zusätzliche Anwendungen zu installieren und zu verwalten.
@@ -46,32 +51,9 @@ Mit der **"Eingebettet"**-App können Sie rechtliche Pflichtseiten wie Impressum
 
 ## App-Launcher
 
-![App-Launcher](/img/features/app-launcher.png)
-
-Der App-Launcher bietet schnellen Zugriff auf alle installierten Anwendungen:
-
-- **Dashboard**: Übersicht und Startseite
-- **Inkboard**: Interaktives Whiteboard
-- **Drucker**: Druckverwaltung
-- **Umfragen**: Umfrage-Tool
-- **Konferenzen**: Meeting-Räume
-- **E-Mails**: Mail-Client
-- **Ticketsystem**: Support-Tickets
-- **Klassenzimmer**: Monitoring
-- **Lernmanagement**: LMS-Integration
-- **Forum**: Community-Diskussionen
-- **Desktop**: Desktop-Zugriff
-- **KI Chat**: AI-Assistent
-- **Whiteboard**: Kollaboratives Zeichnen
-- **Ressourcen-Bib**: Bibliothek
-- **Zahlenschlüpfel**: Rechentool
-- **Notizen**: Notizen-App
-
-### Launcher starten
-
-Nutzen Sie die Tastenkombination:
-- **⌘ + M** (Mac)
-- **Enter App shortcuts: Enter** (allgemein)
+Welche Apps Sie hier hinzufügen, bestimmt zugleich, was Ihre Nutzerinnen und Nutzer
+im App Launcher als Kachel vorfinden. Wie er sich öffnen und bedienen lässt, steht
+bei der [Navigation](../uebersicht/navigation.md#app-launcher).
 
 ## Apps verwalten
 

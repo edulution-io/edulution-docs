@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin-setup
+---
+
 # Anpassung am Linuxmuster-Server
 
 ## Linuxmuster-API

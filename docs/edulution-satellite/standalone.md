@@ -2,6 +2,8 @@
 sidebar_position: 3
 title: Standalone einrichten
 description: Einen edulution Satellite eigenständig in Betrieb nehmen – auf MikroTik-Hardware oder als virtuelle Maschine
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Standalone einrichten

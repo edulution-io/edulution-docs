@@ -1,5 +1,7 @@
 ---
 title: edulution Collabora
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Installation

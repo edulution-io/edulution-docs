@@ -2,6 +2,8 @@
 sidebar_position: 1
 title: edulution Satellite
 description: Übersicht über den edulution Satellite, seine Betriebsarten und den Zugang zum Gerät
+sidebar_custom_props:
+  audience: admin
 ---
 
 # edulution Satellite

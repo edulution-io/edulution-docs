@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin
+---
+
 # Installation
 
 Die edulution Mail Lösung basiert auf Mailcow und bietet eine vollständige E-Mail-Infrastruktur für Schulen.

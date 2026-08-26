@@ -1,6 +1,8 @@
 ---
 sidebar_position: 4
 title: Gruppen-Namensschemas
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Gruppen-Namensschemas

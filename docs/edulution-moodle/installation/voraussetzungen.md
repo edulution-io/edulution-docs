@@ -1,6 +1,8 @@
 ---
 sidebar_position: 1
 title: Voraussetzungen
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Voraussetzungen

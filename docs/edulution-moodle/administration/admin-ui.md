@@ -1,6 +1,8 @@
 ---
 sidebar_position: 1
 title: Admin-Oberfläche
+sidebar_custom_props:
+  audience: admin
 ---
 
 # Admin-Oberfläche

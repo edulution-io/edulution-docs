@@ -1,47 +1,51 @@
+---
+title: edulution.io Dokumentation
+description: Einstieg in die Dokumentation von edulution.io – Plattform, Mail, App und Infrastruktur
+---
+
 # edulution.io Dokumentation
 
-Herzlich Willkommen bei der Dokumentation von edulution.io!
+**edulution** ist eine Arbeitsumgebung, sie bündelt in einer einzigen Weboberfläche, wofür sonst mehrere getrennte Systeme nötig wären:
+Dateiverwaltung, E-Mail, Kalender, Kontakte, Chat, Videokonferenzen, Whiteboard, Umfragen und
+Lernmanagement.
 
-## Was ist edulution.io?
+### 1. Um welche Art von Organisation geht es?
 
-Alle Informationen zu edulution.io finden Sie auf der Webseite
-[https://edulution.io](https://edulution.io).
+Edulution benennt Dinge je nach Einrichtung anders und je nach Organizationstyp werden manche Funktionen ein- oder aus-geblendet.
 
-## Produkte
+<AudiencePicker axis="org" />
 
-### [edulution Plattform](/docs/edulution-plattform/installation/voraussetzungen)
+### 2. Welche Rolle haben Sie?
 
-Die zentrale Plattform für digitales Lernen - mit Dateiverwaltung, Konferenzen, Whiteboard und mehr.
+Als normaler user werden einem zum beispiel wesentlich weniger informationen angezeigt als einem Administrator, welcher es gewohnt sein sollte sich mit vielen tief gehenden Einstellungen auseinander zu setzen.
 
-### [edulution Mail](/docs/edulution-mail/installation)
+<AudiencePicker axis="role" />
 
-E-Mail-Lösung basierend auf Mailcow - vollständig integriert mit edulution Plattform und Linuxmuster.
+### 3. Gibt es fragen zu einem bestimmten Modul?
 
-### [edulution FileProxy](/docs/edulution-fileproxy/)
+<AppCards />
 
-WebDAV-zu-SMB Proxy für sicheren, plattformübergreifenden Dateizugriff auf Windows-Shares.
+### Häufige Fragen
 
-### [edulution App](/docs/edulution-app/)
+Die Fragen, mit denen man üblicherweise ankommt – zugeschnitten auf die Rolle, die Sie oben gewählt
+haben. Jede führt direkt zur passenden Seite.
 
-Die mobile App für iOS und Android - edulution immer dabei.
+<AudienceFaq />
 
-### [edulution OnlyOffice](/docs/edulution-onlyoffice/)
+:::info[Eine Lesehilfe, keine Zugriffsbeschränkung]
+Die Auswahl entscheidet nur, was Ihnen **angezeigt** wird – nicht, was Sie dürfen. Ohne Auswahl ist
+nichts ausgeblendet, und ausgeblendete Abschnitte sind weiterhin Teil der Seite: Ein Link von außen
+auf eine solche Stelle deckt sie automatisch wieder auf.
+:::
 
-OnlyOffice-Integration für die Dateiverwaltung
+## Kann ich edulution testen?
 
-### [edulution Collabora](/docs/edulution-collabora/)
-
-Collabora-Online-Integration für die Dateiverwaltung
-
-## Kann ich die edulution Plattform testen?
-
-Sehr gerne sogar! Sie finden eine Demo unter [https://demo.edulution.io](https://demo.edulution.io). Um
-Zugangsdaten zu erhalten, können Sie uns gerne per E-Mail oder Telefon
-eine Anfrage schicken. Die Kontaktdaten dazu finden Sie unter
-[https://edulution.io](https://edulution.io)
+Sehr gerne sogar! Sie finden eine Demo unter [https://demo.edulution.io](https://demo.edulution.io).
+Um Zugangsdaten zu erhalten, können Sie uns per E-Mail oder Telefon eine Anfrage schicken. Die
+Kontaktdaten dazu finden Sie unter [https://edulution.io](https://edulution.io).
 
 ## Ich brauche Hilfe!
 
-Sie kommen nicht weiter und benötigen Unterstützung? Gerne kann Sie die
-Community unterstützen! Melden Sie sich im Forum an und stellen Sie Ihre
-Fragen: [https://ask.linuxmuster.net/c/edulution/63](https://ask.linuxmuster.net/c/edulution/63)
+Sie kommen nicht weiter und benötigen Unterstützung? Gerne kann Sie die Community unterstützen!
+Melden Sie sich im Forum an und stellen Sie Ihre Fragen:
+[https://ask.linuxmuster.net/c/edulution/63](https://ask.linuxmuster.net/c/edulution/63)

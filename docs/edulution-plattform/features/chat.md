@@ -123,9 +123,13 @@ Der KI-Chat ist nicht automatisch für alle Nutzer verfügbar, sondern wird von 
 Global-Admins haben unabhängig von der Gruppen-Freigabe immer Zugriff auf den KI-Chat.
 :::
 
+<Audience roles="admin">
+
 ## Einrichtung (für Administratoren)
 
 Welche Nutzergruppen den KI-Chat verwenden dürfen, legen Sie als Global-Admin in den [Einstellungen der Chat-App](../administration/einstellungen.md#chat-ki-chat) fest. Die Anbindung an einen KI-Dienst richten Sie unter [Administration → KI-Chat konfigurieren](../administration/administration.md#27-ki-chat-konfigurieren) ein.
+
+</Audience>
 
 ## Siehe auch
 

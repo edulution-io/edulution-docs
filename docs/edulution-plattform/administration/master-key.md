@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin
+---
+
 # Master-Key-Verschlüsselung
 
 Seit edulution Plattform v2.0 verschlüsselt die edulution API alle sicherheitsrelevanten Schlüssel und Passwörter in der Datenbank mit einem serverseitigen **Master-Schlüssel**. Ohne diesen Schlüssel sind die betroffenen Datensätze in der MongoDB nicht mehr verwendbar. Diese Seite beschreibt das Verschlüsselungsmodell, die Bereitstellung des Schlüssels, die automatische Migration bestehender Installationen sowie Backup und Wiederherstellung.

@@ -1,5 +1,7 @@
 ---
 sidebar_position: 5
+sidebar_custom_props:
+  audience: admin
 ---
 
 # FileProxy in der UI einrichten

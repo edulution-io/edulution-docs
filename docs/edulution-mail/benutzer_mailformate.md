@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin
+---
+
 # Benutzer-E-Mail-Formate anpassen (Hook)
 
 :::caution[Linuxmuster 7.3 Update]

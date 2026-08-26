@@ -22,34 +22,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Schnellstart',
-      collapsed: false,
-      link: {
-        type: 'generated-index',
-        title: 'Schnellstart-Anleitungen',
-        description: 'Starten Sie hier mit der Installation und Einrichtung von edulution.',
-        slug: '/category/schnellstart',
-      },
-      items: [
-        {
-          type: 'doc',
-          id: 'edulution-plattform/installation/voraussetzungen',
-          label: 'Voraussetzungen',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-plattform/installation/einrichtung',
-          label: 'Installation in 10 Minuten',
-        },
-        {
-          type: 'doc',
-          id: 'edulution-plattform/configure-lmn-server/configure_lmn-server',
-          label: 'Linuxmuster verbinden',
-        },
-      ],
-    },
-    {
-      type: 'category',
       label: 'edulution Plattform',
       collapsed: false,
       items: [
@@ -57,6 +29,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Installation',
           collapsed: true,
+          // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
+          customProps: { audience: 'admin-setup' },
           items: [
             'edulution-plattform/installation/voraussetzungen',
             'edulution-plattform/installation/einrichtung',
@@ -69,6 +43,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Upgrade',
           collapsed: true,
+          // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
+          customProps: { audience: 'admin-operate' },
           items: [
             {
               type: 'category',
@@ -157,6 +133,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Administration',
           collapsed: true,
+          // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
+          customProps: { audience: 'admin' },
           items: [
             'edulution-plattform/administration/administration',
             'edulution-plattform/administration/einstellungen',
@@ -188,21 +166,27 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Erste Schritte',
           collapsed: false,
+          // Installation, Administration und Mail-App-Konfiguration sind
+          // durchweg Administrationsthemen.
+          customProps: { audience: 'admin' },
           items: [
             {
               type: 'doc',
               id: 'edulution-mail/installation',
               label: 'Installation',
+              customProps: { audience: 'admin-setup' },
             },
             {
               type: 'doc',
               id: 'edulution-mail/administration',
               label: 'Administration',
+              customProps: { audience: 'admin' },
             },
             {
               type: 'doc',
               id: 'edulution-mail/mail-app-konfiguration',
               label: 'Mail-App konfigurieren',
+              customProps: { audience: 'admin' },
             },
           ],
         },
@@ -261,6 +245,7 @@ const sidebars: SidebarsConfig = {
               type: 'doc',
               id: 'edulution-mail/admin_mail_migration',
               label: 'Admin: Migration einrichten',
+              customProps: { audience: 'admin' },
             },
             {
               type: 'doc',
@@ -283,6 +268,7 @@ const sidebars: SidebarsConfig = {
               type: 'doc',
               id: 'edulution-mail/verteilerlisten',
               label: 'Verteilerlisten',
+              customProps: { audience: 'admin' },
             },
             {
               type: 'doc',
@@ -295,6 +281,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Erweiterte Konfiguration',
           collapsed: true,
+          // Hooks, Mailformate und Config-Migrationen – nur Administration.
+          customProps: { audience: 'admin' },
           items: [
             {
               type: 'doc',
@@ -318,6 +306,9 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'edulution Satellite',
+      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
+      // (siehe src/components/audience/taxonomy.ts)
+      customProps: { audience: 'admin' },
       collapsed: false,
       link: {
         type: 'doc',
@@ -344,6 +335,9 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'edulution Moodle',
+      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
+      // (siehe src/components/audience/taxonomy.ts)
+      customProps: { audience: 'admin' },
       collapsed: false,
       link: {
         type: 'doc',
@@ -431,6 +425,9 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'edulution FileProxy',
+      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
+      // (siehe src/components/audience/taxonomy.ts)
+      customProps: { audience: 'admin' },
       collapsed: false,
       link: {
         type: 'doc',
@@ -490,6 +487,9 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'edulution OnlyOffice',
+      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
+      // (siehe src/components/audience/taxonomy.ts)
+      customProps: { audience: 'admin' },
       collapsed: false,
       link: {
         type: 'generated-index',
@@ -508,6 +508,9 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'edulution EuroOffice',
+      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
+      // (siehe src/components/audience/taxonomy.ts)
+      customProps: { audience: 'admin' },
       collapsed: false,
       link: {
         type: 'generated-index',
@@ -526,6 +529,9 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'edulution Collabora',
+      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
+      // (siehe src/components/audience/taxonomy.ts)
+      customProps: { audience: 'admin' },
       collapsed: false,
       link: {
         type: 'generated-index',
@@ -544,6 +550,9 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Anbindungen',
+      // Reine Administrationsthemen – fuer Endnutzer ausgeblendet
+      // (siehe src/components/audience/taxonomy.ts)
+      customProps: { audience: 'admin' },
       collapsed: false,
       link: {
         type: 'doc',

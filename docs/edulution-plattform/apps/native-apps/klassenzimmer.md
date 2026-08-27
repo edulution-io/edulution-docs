@@ -1,5 +1,6 @@
 ---
 sidebar_custom_props:
+  audience: advanced
   audienceOrg: school public-administration
 ---
 

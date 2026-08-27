@@ -42,13 +42,13 @@ Zeigt Ihre persönlichen Informationen:
 ### Classes
 
 :::note[Abhängig von der Rolle]
-Dieser Bereich ist hauptsächlich für **Lehrer** und **Global-Admins** sichtbar. Schüler sehen hier ihre eigenen Klassen ohne Verwaltungsfunktionen.
+Dieser Bereich ist hauptsächlich für **Lehrende** und **Global-Admins** sichtbar. Alle übrigen Benutzer sehen hier ihre eigenen Gruppen ohne Verwaltungsfunktionen.
 :::
 
-Übersicht über alle Klassen, in denen Sie tätig sind:
-- Anzeige aller zugewiesenen Klassen (z.B. 5a, 9a, 10a, 10b, niclass)
-- Schnelle Navigation zu Klassenfunktionen
-- Direktauswahl für Klassenzimmer-Management (nur Lehrer/Admin)
+Übersicht über alle Gruppen, in denen Sie tätig sind:
+- Anzeige aller zugewiesenen Gruppen – in Schulen und Verwaltungen die Klassen (z. B. 5a, 9a, 10a), in Unternehmen die Primärgruppe
+- Schnelle Navigation zu den Gruppenfunktionen
+- Direktauswahl für den [Klassenraum](../apps/native-apps/klassenzimmer.md) (nur für Lehrende und Administratoren)
 
 ### Mobile Access
 
@@ -116,6 +116,8 @@ Aktuelle Aktivitäten und Benachrichtigungen:
 
 Das Dashboard passt sich automatisch an Ihre Benutzerrolle an:
 
+<Audience roles="advanced">
+
 ### Lehrer
 - Vollständiger Zugriff auf Klassenverwaltung
 - Klassenzimmer-Monitoring verfügbar
@@ -123,12 +125,18 @@ Das Dashboard passt sich automatisch an Ihre Benutzerrolle an:
 - Zugriff auf Ressourcen-Bibliothek
 - Konferenzen starten und verwalten
 
+</Audience>
+
+<Audience roles="basic">
+
 ### Schüler
 - Übersicht eigener Klassen (ohne Verwaltungsfunktionen)
 - Zugriff auf zugewiesene Materialien
 - Teilnahme an Umfragen
 - Teilnahme an Konferenzen
 - Eigene Dateien und Aufgaben
+
+</Audience>
 
 <Audience roles="admin">
 

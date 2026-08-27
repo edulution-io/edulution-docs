@@ -22,6 +22,8 @@ Standardmäßig werden die Kategorien in einer Zeile von links nach rechts aufge
 
 ## Mitteilungen
 
+<Audience roles="advanced">
+
 ### Mitteilung erstellen
 
 ![Infoboard - Neue Mitteilung erstellen](/img/schwarzes-brett/schwarzes-brett-create-new-entry.png)
@@ -65,6 +67,8 @@ Bestehende Mitteilungen lassen sich jederzeit nachträglich anpassen oder entfer
 Über die Einstellung **Aktiv** einer Mitteilung lässt sich diese vorübergehend ausblenden, ohne sie zu löschen. So bleibt der Inhalt erhalten und kann später wieder eingeblendet werden.
 :::
 
+</Audience>
+
 ## Kategorien
 
 Mitteilungen werden Kategorien zugeordnet, nach denen die Tabelle gefiltert werden kann. Typische Kategorien sind:
@@ -79,6 +83,8 @@ Mitteilungen werden Kategorien zugeordnet, nach denen die Tabelle gefiltert werd
 
 - **Mitteilung erstellen** – Siehe [Mitteilung erstellen](#mitteilung-erstellen).
 - **Kategorien verwalten** – (Nur für Administratoren sichtbar) Leitet zu den App-Einstellungen des Infoboards weiter (siehe [Verwalten](#verwalten)).
+
+<Audience roles="admin">
 
 ### Verwalten
 
@@ -103,6 +109,8 @@ Um eine bestimmte Kategorie anzupassen, kann einfach auf die Kategorie geklickt 
 :::info[Infoboard App]
 Dies erlaubt eine Beschränkung auf bestimmte **Zugriffsgruppen**. So lassen sich z. B. Mitteilungen, die nur das Kollegium oder eine einzelne Klasse betreffen, gezielt austeilen.
 :::
+
+</Audience>
 
 ## Siehe auch
 

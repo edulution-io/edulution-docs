@@ -65,6 +65,12 @@ Hier können Sie das Ergebnis einer Umfrage einsehen.
 
 ![Ergebniseinsicht - Schaubild](/img/umfragen/Screenshot_20260506_120623.png)
 
+<Audience roles="advanced">
+
+:::info[Nur für Gruppen, die Umfragen erstellen dürfen]
+Die folgenden Abschnitte beschreiben das Anlegen eigener Umfragen und das Auswerten der Antworten. Welche Gruppen Umfragen anlegen dürfen, legen Administratoren in den App-Einstellungen fest; an fremden Umfragen teilnehmen können auch alle übrigen Benutzer.
+:::
+
 ## Eigene Umfragen
 
 ![Eigene Umfragen - Aktionen-Leiste](/img/umfragen/Screenshot_20260506_121020.png)
@@ -421,6 +427,8 @@ Klicken Sie in der Aktionen-Leiste auf den Button **Als PDF exportieren**, um di
 :::warning[Darstellungsfehler]
 Es gibt einige Fragetypen, bei denen das PDF-Rendering nicht oder nur eingeschränkt funktioniert. Zum Beispiel werden die Bilder der **Bildauswahl** nicht angezeigt.
 :::
+
+</Audience>
 
 ---
 

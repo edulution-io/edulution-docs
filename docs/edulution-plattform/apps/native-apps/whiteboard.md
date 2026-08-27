@@ -24,7 +24,7 @@ Das Whiteboard ist ein kollaboratives Zeichentool für den Unterricht. Lehrer un
    - **Home** - Ihr persönliches Verzeichnis
    - **Projects** - Projekt-Ordner
    - **Shares** - Geteilte Ordner
-   - **Students-Home** - Schüler-Verzeichnisse (für Lehrer)
+   - **Students-Home** - Schüler-Verzeichnisse; nur für Lehrende sichtbar
 
 ![Whiteboard Speichern](/img/features/whiteboard-save.png)
 
@@ -40,15 +40,23 @@ Die Session wird als `.excalidraw`-Datei gespeichert.
 
 ## Tipps
 
+<Audience roles="advanced">
+
 **Für Lehrer:**
 - Speichern Sie Unterrichtsvorbereitungen im **Projects**-Ordner
 - Teilen Sie Templates über **Shares** mit Kollegen
 - Exportieren Sie Whiteboards als PDF für Schüler
 
+</Audience>
+
+<Audience roles="basic">
+
 **Für Schüler:**
 - Speichern Sie Projektarbeiten im **Home**-Ordner
 - Nutzen Sie Haftnotizen für Brainstorming
 - Arbeiten Sie gemeinsam in Echtzeit
+
+</Audience>
 
 ## Siehe auch
 

@@ -19,8 +19,15 @@ import { audienceClassNames, resolveOrgs, resolveRoles } from './taxonomy';
  * ```
  *
  * - `roles` – eine oder mehrere Rollen, durch Leerzeichen oder Komma
- *   getrennt. Die Kürzel `admin` und `user` fassen die jeweiligen Rollen
- *   zusammen. Ohne Angabe gilt der Abschnitt für alle Rollen.
+ *   getrennt, oder eine der Gruppen aus `ROLE_GROUPS`. Ohne Angabe gilt der
+ *   Abschnitt für alle Rollen.
+ *
+ *   Die Gruppen bilden die Zugriffsstufen ab: `advanced` meint Stufe 2 und
+ *   alles darüber, `admin` Stufe 3 und alles darüber – wer höher steht,
+ *   liest also mit. Eine einzelne Rolle oder eine der exklusiven Gruppen
+ *   (`user`, `basic`) grenzt dagegen scharf ab und verbirgt den Abschnitt
+ *   auch vor der Administration; das ist gemeint, wenn zwei Fassungen
+ *   desselben Themas nebeneinanderstehen.
  * - `org` – ein oder mehrere Organisationstypen. Ohne Angabe gilt der
  *   Abschnitt für alle Organisationstypen.
  *

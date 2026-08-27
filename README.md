@@ -68,15 +68,46 @@ Die Rollenwerte folgen den Benutzertypen von edulution, die Organisationstypen d
 [`src/components/audience/taxonomy.ts`](src/components/audience/taxonomy.ts) – neue Werte gehören
 dorthin und brauchen zusätzlich eine CSS-Regel in `src/css/custom.css`.
 
+### Zugriffsstufen
+
+Die Rollen stehen nicht nebeneinander, sondern übereinander. Jede Rolle hat eine Stufe, und wer
+höher steht, liest die Stufen darunter mit – wer eine Instanz einrichtet, betreut sie auch, und wer
+eine Klasse betreut, nutzt dieselben Apps wie die Klasse selbst.
+
+| Stufe | Bezeichnung | Rollen-IDs |
+| --- | --- | --- |
+| 1 | Benutzer | `student`, `parent`, `staff` |
+| 2 | Erweiterter Benutzer | `teacher` |
+| 3 | Admin · Betrieb | `admin-operate` |
+| 4 | Admin · Einrichtung | `admin-setup` |
+
+Die Stufe hängt an der Rollen-ID, nicht am angezeigten Label: `teacher` heißt je nach
+Organisationstyp Lehrkraft, Lehrende:r oder Führungskraft und meint überall dieselbe Aufgabe.
+
+Ausgezeichnet wird mit den Gruppen, die sich daraus ergeben:
+
+| Kürzel | Bedeutung | Rollen |
+| --- | --- | --- |
+| `advanced` | Stufe 2 aufwärts (kumulativ) | `teacher`, `admin-operate`, `admin-setup` |
+| `admin` | Stufe 3 aufwärts (kumulativ) | `admin-operate`, `admin-setup` |
+| `user` | alle Endnutzer, ohne Administration (exklusiv) | `student`, `parent`, `staff`, `teacher` |
+| `basic` | nur Stufe 1 (exklusiv) | `student`, `parent`, `staff` |
+
+Kumulativ ist die Vorgabe. Exklusiv – also die Administration ausdrücklich ausgeschlossen – ist
+gemeint, wenn zwei Fassungen desselben Themas nebeneinanderstehen: »Für Lehrende« neben »Für
+Schüler«. Ohne `basic` bekäme eine Lehrkraft beide Fassungen zu sehen.
+
 ### Abschnitt auszeichnen
 
 `<Audience>` ist global registriert und braucht keinen Import. Die Leerzeilen sind wichtig, sonst
 wird das Markdown im Block nicht gerendert:
 
 ```mdx
-<Audience roles="user">
+<Audience roles="advanced">
 
-Wer die App verwenden darf, legt die Administration Ihrer Schule fest.
+## Mitteilung erstellen
+
+Wer eine Gruppe betreut, legt hier Mitteilungen an – die Administration sieht den Abschnitt mit.
 
 </Audience>
 
@@ -89,8 +120,8 @@ Zugriffsgruppen unter Einstellungen → … pflegen.
 </Audience>
 ```
 
-- `roles` – eine oder mehrere Rollen, durch Leerzeichen oder Komma getrennt. Die Kürzel `admin`
-  (beide Administrations-Rollen) und `user` (alle Endnutzer-Rollen) sparen das Aufzählen.
+- `roles` – eine oder mehrere Rollen, durch Leerzeichen oder Komma getrennt, oder eine der Gruppen
+  aus [Zugriffsstufen](#zugriffsstufen) (`advanced`, `admin`, `user`, `basic`).
 - `org` – ein oder mehrere Organisationstypen.
 - Beide Angaben werden mit UND verknüpft: `roles="teacher" org="school"` zeigt den Abschnitt
   Lehrkräften in Schulumgebungen.

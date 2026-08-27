@@ -126,15 +126,25 @@ Gelöschte Wiki-Seiten können nicht aus der Anwendung wiederhergestellt werden.
 
 ## Rollenspezifische Unterschiede
 
+{/* Stufe 2 und darüber – dazu `staff`, weil der Abschnitt die Mitarbeitenden
+    ausdrücklich mitnennt und die auf Stufe 1 stehen. */}
+<Audience roles="advanced staff">
+
 ### Lehrer und Mitarbeitende
 
 - Lese- und Schreibzugriff auf Wikis, denen Ihre Datei-Freigabe und Ihre Wiki-Zugriffsgruppe zugeordnet sind
 - Können Seiten und Ordner anlegen, bearbeiten und löschen
 
+</Audience>
+
+<Audience roles="student parent">
+
 ### Schüler
 
 - Sehen nur Wikis, die Lese- und ggf. Schreibrechte für ihre Gruppe vorsehen
 - Können Seiten lesen und – sofern auf der Freigabe erlaubt – mitbearbeiten
+
+</Audience>
 
 <Audience roles="admin">
 

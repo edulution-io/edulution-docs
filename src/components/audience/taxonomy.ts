@@ -81,6 +81,71 @@ export const ROLES: Option[] = [
   },
 ];
 
+/**
+ * Zugriffsstufen.
+ *
+ * Die Rollen stehen nicht nebeneinander, sondern übereinander: Wer eine
+ * Instanz einrichtet, betreut sie auch; wer eine Gruppe betreut, arbeitet
+ * mit denselben Apps wie die Gruppe selbst. Jede Rolle bekommt deshalb eine
+ * Stufe, und daraus entstehen weiter unten die kumulativen Gruppen in
+ * `ROLE_GROUPS`: `advanced` ist Stufe 2 und alles darüber, `admin` Stufe 3
+ * und alles darüber.
+ *
+ * Die Stufe hängt an der Rollen-ID, nicht am angezeigten Label. `staff`
+ * heißt in Unternehmen wie in Behörden »Mitarbeiter:in« und meint beide
+ * Male Grundzugriff; `teacher` heißt Lehrkraft, Lehrende:r oder
+ * Führungskraft und meint beide Male jemanden, der eine Gruppe betreut.
+ *
+ * Kumulativ ist die Vorgabe, nicht die einzige Möglichkeit: Ein Abschnitt,
+ * der eine Rolle direkt nennt oder eine der exklusiven Gruppen benutzt,
+ * bleibt allen anderen verborgen – auch der Administration. Das braucht,
+ * wer zwei Fassungen desselben Themas nebeneinanderstellt, etwa »Für
+ * Lehrende« und »Für Schüler«.
+ */
+export interface LevelView {
+  /** 1 bis 4; größer heißt: sieht die Stufen darunter mit. */
+  level: number;
+  label: string;
+  /** Die Rollen dieser Stufe. Zusammen ergeben sie alle Rollen-IDs. */
+  roles: string[];
+  /** Woran zu erkennen ist, dass ein Abschnitt hierher gehört. */
+  description: string;
+}
+
+export const LEVELS: LevelView[] = [
+  {
+    level: 1,
+    label: 'Benutzer',
+    roles: ['student', 'parent', 'staff'],
+    description:
+      'Nutzt edulution für die eigene Arbeit: Dateien, Konferenzen, E-Mail, Aufgaben.',
+  },
+  {
+    level: 2,
+    label: 'Erweiterter Benutzer',
+    roles: ['teacher'],
+    description:
+      'Betreut zusätzlich eine Gruppe: Klassen und Projekte, Bildschirme, eingesammelte Dateien, Umfragen und Mitteilungen anlegen.',
+  },
+  {
+    level: 3,
+    label: 'Admin · Betrieb',
+    roles: ['admin-operate'],
+    description: 'Betreut die laufende Instanz: Einstellungen, Benutzer, Container, Updates.',
+  },
+  {
+    level: 4,
+    label: 'Admin · Einrichtung',
+    roles: ['admin-setup'],
+    description: 'Richtet eine Instanz zum ersten Mal ein: Voraussetzungen, Installation, Anbindungen.',
+  },
+];
+
+/** Die Rollen aller Stufen, auf die `matches` zutrifft. */
+function rolesWhere(matches: (level: number) => boolean): string[] {
+  return LEVELS.filter((entry) => matches(entry.level)).flatMap((entry) => entry.roles);
+}
+
 /** Ein Organisationstyp mit der Beschreibung dessen, was er umstellt. */
 export interface OrgView extends Option {
   /** Wofür der Typ steht – Gegenstück zu `RoleView.overview`. */
@@ -131,7 +196,7 @@ export interface AnyView {
  *
  * Sie steht hier bei den uebrigen Beschreibungen, weil sie an derselben
  * Stelle erscheint und dasselbe leistet: sagen, was die aktuelle Antwort
- * bewirkt. Die Zeile zum Organisationstyp traegt zusaetzlich den Hinweis,
+ * bewirkt. Die Zeile zum Organisationstyp traegt zusätzlich den Hinweis,
  * woher die Rollennamen der zweiten Frage stammen, solange hier nichts
  * gewaehlt ist – naemlich aus der Schule, siehe `rolesFor`.
  */
@@ -290,16 +355,49 @@ function roleView(org: string | undefined, id: string | undefined): Option | und
 }
 
 /**
- * Abkürzungen für die Auszeichnung von Inhalten. `admin` spart das
- * Aufzählen beider Administrations-Rollen, `user` das der Endnutzer-Rollen.
+ * Abkürzungen für die Auszeichnung von Inhalten – jede steht für eine
+ * feste Menge von Rollen-IDs, abgeleitet aus den Stufen in `LEVELS`.
+ *
+ * Kumulativ, also »Mindeststufe«. Wer darüber liegt, liest mit:
+ *
+ *   advanced  Stufe 2 aufwärts – alles, was das Betreuen einer Gruppe
+ *             voraussetzt. Die Administration sieht es mit.
+ *   admin     Stufe 3 aufwärts – Einrichtung und Betrieb zusammen. Für
+ *             nur eine der beiden steht die Rollen-ID selbst da:
+ *             `admin-operate` (Stufe 3) oder `admin-setup` (Stufe 4).
+ *
+ * Exklusiv, also genau diese Rollen. Alle anderen sehen den Abschnitt
+ * nicht, die Administration eingeschlossen:
+ *
+ *   user      alle Endnutzer, aber niemand aus der Administration – für
+ *             den Endnutzer-Teil einer Seite, die weiter unten einen
+ *             eigenen Administrations-Teil hat.
+ *   basic     nur Stufe 1 – das Gegenstück zu `advanced`, wenn zwei
+ *             Fassungen nebeneinanderstehen (»Für Lehrende« neben »Für
+ *             Schüler«). Ohne `basic` würde die Schüler-Fassung auch
+ *             Lehrenden angezeigt, die daneben schon ihre eigene lesen.
+ *
+ * Im Zweifel die kumulative Form: Etwas vor der Administration zu
+ * verbergen, ist eine Entscheidung und kein Nebeneffekt.
  */
 export const ROLE_GROUPS: Record<string, string[]> = {
-  admin: ['admin-setup', 'admin-operate'],
-  user: ['student', 'teacher', 'parent', 'staff'],
+  advanced: rolesWhere((level) => level >= 2),
+  admin: rolesWhere((level) => level >= 3),
+  user: rolesWhere((level) => level < 3),
+  basic: rolesWhere((level) => level === 1),
 };
 
 const ROLE_IDS = new Set(ROLES.map((r) => r.id));
 const ORG_IDS = new Set(ORGS.map((o) => o.id));
+
+// Jede Rolle braucht genau eine Stufe. Fehlt sie, taucht die Rolle in keiner
+// Gruppe mehr auf – ein Abschnitt mit `roles="user"` wäre dann stumm für sie
+// unsichtbar. Lieber ein roter Build.
+for (const id of ROLE_IDS) {
+  if (LEVELS.filter((entry) => entry.roles.includes(id)).length !== 1) {
+    throw new Error(`Die Rolle "${id}" ist in LEVELS nicht genau einer Stufe zugeordnet.`);
+  }
+}
 
 /**
  * Löst eine Angabe wie "admin" oder "teacher student" in konkrete Rollen auf.

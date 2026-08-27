@@ -1,6 +1,6 @@
 ---
 sidebar_custom_props:
-  audience: admin
+  audience: advanced
 ---
 
 # Geräteverwaltung
@@ -94,6 +94,8 @@ Vor dem Speichern werden alle Felder geprüft. Ungültige Werte und doppelte Ein
 - *„Bitte korrigieren Sie alle ungültigen Felder vor dem Speichern"*
 - *„Doppelte Einträge für Rechnername, MAC oder IP gefunden"*
 
+<Audience roles="admin">
+
 ## Speichern und Anwenden
 
 Zwei Aktionen schreiben Ihre Änderungen zurück:
@@ -111,6 +113,8 @@ Nach der Bestätigung laufen die Meldungen *„Geräteliste wird angewendet…"*
 :::warning
 Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen. Wenden Sie Änderungen möglichst außerhalb des Unterrichts an.
 :::
+
+</Audience>
 
 ## CSV-Import und -Export
 

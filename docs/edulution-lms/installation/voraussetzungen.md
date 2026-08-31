@@ -179,6 +179,6 @@ Vor der Installation:
 
 Wenn alle Voraussetzungen erfüllt sind, können Sie mit der Installation fortfahren:
 
-- [Schnellstart](/docs/edulution-lms/installation/schnellstart) - Schnelle Installation in 10 Minuten
+- [Schnellstart](/docs/edulution-lms/installation/schnellstart) - Schnelle Installation
 - [Detaillierte Installation](/docs/edulution-lms/installation/detailliert) - Ausführliche Anleitung
 - [Migration](/docs/edulution-lms/installation/migration) - Bestehende Installation migrieren

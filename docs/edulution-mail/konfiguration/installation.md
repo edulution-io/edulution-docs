@@ -78,10 +78,6 @@ Der Installationsassistent kümmert sich vollautomatisch um:
 - **Globales Adressbuch** - Alle Benutzer sehen sich gegenseitig im Adressbuch
 - **Netzwerk-Integration** - Verbindung mit der edulution-Plattform
 
-:::note[Installationsdauer]
-Die Installation dauert etwa **5-10 Minuten**. Der Fortschritt wird in Echtzeit angezeigt.
-:::
-
 ### Schritt 3: Proxy-Konfiguration hinzufügen
 
 Nach Abschluss der Installation muss die Traefik Proxy-Konfiguration hinzugefügt werden, damit die E-Mail-Dienste über die edulution-URL erreichbar sind.

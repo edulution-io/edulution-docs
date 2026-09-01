@@ -106,6 +106,14 @@ Standardmäßig kann nur der Ersteller eine Konferenz starten; eingeladene Teiln
 
 Die Konferenz öffnet sich in einem neuen Fenster. Der Fenstertitel enthält den Namen der Konferenz (z.B. "Konferenz: Mathe 8a"), sodass bei mehreren geöffneten Fenstern jederzeit ersichtlich ist, um welche Konferenz es sich handelt.
 
+Über das Symbol **In neuem Tab öffnen** in der Fensterleiste verschieben Sie die laufende Konferenz jederzeit aus dem Plattformfenster in einen eigenen Browser-Tab.
+
+:::info[Wenn sich die Konferenz direkt in einem Browser-Tab öffnet]
+Blockiert Ihr Browser Cookies von Drittanbietern, lässt sich BigBlueButton nicht innerhalb der Plattform anzeigen. Die Konferenz öffnet sich dann automatisch in einem neuen Browser-Tab statt im Plattformfenster.
+
+Unterbindet Ihr Browser zusätzlich das selbsttätige Öffnen von Tabs, erscheint stattdessen der Dialog **An dieser Konferenz teilnehmen** mit der Schaltfläche **In neuem Tab öffnen**.
+:::
+
 ## Konferenz-Funktionen
 
 :::info[BigBlueButton Features]

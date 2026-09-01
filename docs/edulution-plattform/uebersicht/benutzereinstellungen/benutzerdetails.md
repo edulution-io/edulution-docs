@@ -37,4 +37,8 @@ Quotas sind die Speicherkapazitäten, die Ihnen zur Verfügung stehen. Hier sehe
 | **Cloudquota** | Dateispeicher | ca. 10 GB |
 | **E-Mailquota** | Mail-Speicher | ca. 1 GB |
 
+Über den Werten stehen Ihre Schule sowie der belegte Anteil Ihres Dateispeichers als **X / Y GB belegt**. Maßgeblich ist dabei immer Ihr eigenes Benutzerverzeichnis – unabhängig davon, welchen Ordner oder welche Freigabe Sie zuletzt in der Dateiverwaltung geöffnet haben.
+
+Wie Sie belegten Speicher wieder freigeben, steht unter [Speicherplatz und Quota](../../../edulution-fileproxy/dateien/speicherplatz-und-quota.md).
+
 ---

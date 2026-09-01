@@ -92,6 +92,14 @@ Nachdem Sie im Unterricht Dateien Ihrer Schüler eingesammelt haben, zeigt edulu
 Die Schaltfläche zum Öffnen der eingesammelten Dateien in der Dateiverwaltung erscheint nur, wenn Sie Zugriff auf die Dateien-App haben. Ohne diesen Zugriff werden die eingesammelten Dateien weiterhin im Dialog angezeigt, lassen sich aber nicht direkt in der Dateiverwaltung öffnen. Welche Benutzer Zugriff auf die App haben, legen Administratoren über die Zugriffsgruppen der Dateien-App fest.
 :::
 
+### Einsammeln bei knappem eigenem Speicherplatz
+
+Eingesammelte Dateien werden in **Ihrem eigenen Benutzerverzeichnis** abgelegt. Ist Ihr Speicherplatz sehr gering – mindestens 95 % belegt und weniger als 5 GB frei –, blendet edulution die Schaltfläche **Einsammeln** in der Aktionsleiste aus. **Austeilen** und die übrigen Aktionen bleiben verfügbar.
+
+Maßgeblich ist dabei immer die Quota **Ihres eigenen Home-Verzeichnisses** – unabhängig davon, welchen Ordner oder welche Freigabe Sie zuletzt in der Dateiverwaltung geöffnet haben. Sobald Sie Speicher freigegeben haben, erscheint die Schaltfläche wieder.
+
+Wie Sie Ihre Speichernutzung einsehen und Platz schaffen, steht unter [Speicherplatz und Quota](../../../edulution-fileproxy/dateien/speicherplatz-und-quota.md).
+
 <Audience roles="admin">
 
 ## Einrichtung (für Administratoren)

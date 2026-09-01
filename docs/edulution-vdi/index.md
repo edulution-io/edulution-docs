@@ -37,7 +37,7 @@ Die Übersicht wird beim Öffnen der Seite einmal geladen. Ändert sich der Best
 ## Eine Sitzung starten
 
 1. Klicken Sie auf der gewünschten Karte auf **Starten**. edulution fordert daraufhin eine freie virtuelle Maschine dieses Systems an und reserviert sie für Ihr Benutzerkonto.
-2. Die Sitzung öffnet sich in einem Fenster innerhalb der Plattform – zunächst bildschirmfüllend. Sie können das Fenster verkleinern, verschieben und minimieren, um nebenbei in anderen edulution-Apps zu arbeiten.
+2. Die Sitzung öffnet sich in einem Fenster innerhalb der Plattform – zunächst bildschirmfüllend. Sie können das Fenster verkleinern, verschieben und minimieren; um nebenbei in einer anderen App zu arbeiten, ist das nicht nötig (siehe [Wechsel in andere Apps](#wechsel-in-andere-apps)).
 3. Die Anmeldung am virtuellen Desktop erfolgt automatisch mit Ihren edulution-Zugangsdaten. Sie müssen dort weder Benutzernamen noch Passwort erneut eingeben.
 
 Ton wird aus der Sitzung übertragen, und auf Tablets lässt sich der Desktop per Touch bedienen. Die Bildschirmauflösung des virtuellen Desktops passt sich der Fenstergröße an.
@@ -46,6 +46,16 @@ Ton wird aus der Sitzung übertragen, und auf Tablets lässt sich der Desktop pe
 
 :::caution[Ein Client gehört immer nur einer Person]
 Eine virtuelle Maschine, an der bereits jemand anderes angemeldet ist, lässt sich nicht ein zweites Mal öffnen – die Verbindung wird mit dem Hinweis abgelehnt, dass die Maschine bereits verwendet wird. Umgekehrt bleibt ein Client Ihnen vorbehalten, solange Sie dort angemeldet sind: Ein versehentlich geschlossenes Sitzungsfenster können Sie also erneut öffnen, ohne den Desktop zu verlieren. Der Vorbehalt greift auch in den ersten Minuten nach dem Anfordern, während die Anmeldung am Desktop noch läuft.
+:::
+
+## Wechsel in andere Apps
+
+Eine laufende Sitzung hindert Sie nicht daran, die übrigen edulution-Apps zu benutzen. Wechseln Sie über die Seitenleiste in eine andere App, legt die Plattform das Sitzungsfenster selbsttätig als Leiste an den unteren Bildschirmrand. Die Verbindung zum virtuellen Desktop bleibt dabei bestehen – was dort läuft, läuft weiter, und der Client bleibt Ihnen vorbehalten.
+
+Kehren Sie zur **Desktop-Bereitstellung** zurück, öffnet sich das Fenster wieder in der Größe, in der Sie es verlassen haben.
+
+:::note[Eine selbst minimierte Sitzung bleibt liegen]
+Haben Sie das Fenster von Hand über **Minimieren** in die Leiste gelegt, bleibt es auch beim Zurückwechseln zur App dort – die Plattform holt nur die Fenster zurück, die sie beim Verlassen der Seite selbst weggelegt hat. Über die Leiste am unteren Rand öffnen Sie die Sitzung jederzeit wieder.
 :::
 
 ## Meldungen und ihre Ursachen

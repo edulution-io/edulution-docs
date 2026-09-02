@@ -141,6 +141,10 @@ Jedes Projekt zeigt:
 
 **Neues Projekt** - Klicken Sie **+ Projekt erste...**
 
+:::note[In welcher Schule das Projekt entsteht]
+Die Schule des Projekts ergibt sich aus der Schule, in der Sie gerade arbeiten — als **Globaladmin** aus der oben gewählten Schulauswahl, für alle anderen Rollen aus Ihrer eigenen Schule. Der Dialog enthält dafür kein eigenes Feld.
+:::
+
 ## Passwörter drucken
 
 ![Passwörter drucken](/img/klassenraum/passwoerter-drucken.png)

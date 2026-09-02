@@ -36,7 +36,13 @@ Der Eintrag **LINBO** in der Seitenleiste – und die gleichnamige Kachel der Ü
 
 Die **Übersicht** ist nach denselben Bereichen gegliedert wie die Seitenleiste. Unter **Benutzerverwaltung** führt je eine Kachel direkt zu den Benutzertypen **Schüler**, **Lehrer**, **Extra-Schüler**, **Eltern**, **Mitarbeiter**, **Schuladmins** und **Globaladmins**; in Unternehmensumgebungen bleiben davon nur **Mitarbeiter** und **Globaladmins** sichtbar. Darunter folgen die Bereiche **Geräteverwaltung**, **Elternzuweisung**, **LINBO** und **System** mit je einer Kachel. Die Kachel **LINBO** öffnet dieselbe Übersicht wie der gleichnamige Eintrag in der Seitenleiste.
 
-In Umgebungen mit mehreren Schulen enthalten die Listenansichten oben rechts eine **Schulauswahl**. Ein Wechsel der Schule verwirft die bereits geladenen Daten und lädt sie für die neue Schule erneut.
+In Umgebungen mit mehreren Schulen enthalten die Listenansichten oben rechts eine **Schulauswahl**. Ein Wechsel der Schule verwirft die bereits geladenen Daten und lädt sie für die neue Schule erneut. Die Auswahl steht **Globaladmins** zur Verfügung; als **Schuladmin** zeigt sie Ihre eigene Schule als einzigen Eintrag.
+
+:::note[Die App arbeitet in Ihrer Schule]
+Benutzerverwaltung, Geräteverwaltung, Verwaltungslisten und Elternzuweisung zeigen die Daten Ihrer eigenen Schule. Nur **Globaladmins** wechseln über die Schulauswahl zu einer anderen Schule des Servers.
+
+Diese Bindung prüft die Plattform auf dem Server und nicht erst in der Oberfläche: Eine Anfrage, die eine fremde Schule nennt, wird abgewiesen — auch beim Speichern von Geräte- und Verwaltungslisten und beim Übernehmen nach Sophomorix.
+:::
 
 ## Benutzerverwaltung
 

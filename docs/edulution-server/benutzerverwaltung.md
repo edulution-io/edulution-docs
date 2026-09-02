@@ -38,6 +38,8 @@ Für Benutzertypen ohne Verwaltungsliste (Schuladmins, Globaladmins) entfällt d
 
 :::note[Schulauswahl]
 In Umgebungen mit mehreren Schulen enthalten die Ansichten oben rechts eine **Schulauswahl**. Ein Wechsel der Schule verwirft die bereits geladenen Daten und lädt die Listen der gewählten Schule erneut. Die Schulauswahl steht **Globaladmins** zur Verfügung.
+
+Als **Schuladmin** arbeiten Sie ausschließlich in Ihrer eigenen Schule: Benutzertabelle, Verwaltungslisten und die Übernahme nach Sophomorix beziehen sich immer auf diese Schule. Die Plattform prüft das auf dem Server und weist eine Anfrage für eine fremde Schule ab.
 :::
 
 ## Registerkarte „Benutzer"

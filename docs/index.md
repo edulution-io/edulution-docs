@@ -1,47 +1,38 @@
+---
+title: edulution.io Dokumentation
+description: Einstieg in die Dokumentation von edulution.io – Plattform, Mail, App und Infrastruktur
+---
+
 # edulution.io Dokumentation
 
-Herzlich Willkommen bei der Dokumentation von edulution.io!
+Je nach Organizationstyp werden manche Dinge anders benannt und einige Funktionen werden ein- oder aus-geblendet.
 
-## Was ist edulution.io?
+<AudiencePicker axis="org" />
 
-Alle Informationen zu edulution.io finden Sie auf der Webseite
-[https://edulution.io](https://edulution.io).
+Je nach Rolle in der Organisation werden informationen angezeigt oder ausgeblendet. Beispielsweise sollte ein Administrator es gewohnt sein sich mit vielen tief gehenden Einstellungen auseinander zu setzen.
 
-## Produkte
+<AudiencePicker axis="role" />
 
-### [edulution Plattform](/docs/edulution-plattform/installation/voraussetzungen)
+**edulution** ist eine Arbeitsumgebung, sie bündelt in einer einzigen Weboberfläche, wofür sonst mehrere getrennte Systeme nötig wären:
+Kalender, Kontakte, Chat, Videokonferenzen, Whiteboard, Umfragen (edulution Plattform), Dateiverwaltung (FileProxy), E-Mail, und Lernmanagement.
 
-Die zentrale Plattform für digitales Lernen - mit Dateiverwaltung, Konferenzen, Whiteboard und mehr.
+<AppCards />
 
-### [edulution Mail](/docs/edulution-mail/installation)
+### Häufige Fragen
 
-E-Mail-Lösung basierend auf Mailcow - vollständig integriert mit edulution Plattform und Linuxmuster.
+Die Fragen, mit denen man üblicherweise ankommt – zugeschnitten auf die Rolle, die Sie oben gewählt
+haben. Jede führt direkt zur passenden Seite.
 
-### [edulution FileProxy](/docs/edulution-fileproxy/)
+<AudienceFaq />
 
-WebDAV-zu-SMB Proxy für sicheren, plattformübergreifenden Dateizugriff auf Windows-Shares.
+## Kann ich edulution testen?
 
-### [edulution App](/docs/edulution-app/)
-
-Die mobile App für iOS und Android - edulution immer dabei.
-
-### [edulution OnlyOffice](/docs/edulution-onlyoffice/)
-
-OnlyOffice-Integration für die Dateiverwaltung
-
-### [edulution Collabora](/docs/edulution-collabora/)
-
-Collabora-Online-Integration für die Dateiverwaltung
-
-## Kann ich die edulution Plattform testen?
-
-Sehr gerne sogar! Sie finden eine Demo unter [https://demo.edulution.io](https://demo.edulution.io). Um
-Zugangsdaten zu erhalten, können Sie uns gerne per E-Mail oder Telefon
-eine Anfrage schicken. Die Kontaktdaten dazu finden Sie unter
-[https://edulution.io](https://edulution.io)
+Sehr gerne sogar! Sie finden eine Demo unter [https://demo.edulution.io](https://demo.edulution.io).
+Um Zugangsdaten zu erhalten, können Sie uns per E-Mail oder Telefon eine Anfrage schicken. Die
+Kontaktdaten dazu finden Sie unter [https://edulution.io](https://edulution.io).
 
 ## Ich brauche Hilfe!
 
-Sie kommen nicht weiter und benötigen Unterstützung? Gerne kann Sie die
-Community unterstützen! Melden Sie sich im Forum an und stellen Sie Ihre
-Fragen: [https://ask.linuxmuster.net/c/edulution/63](https://ask.linuxmuster.net/c/edulution/63)
+Sie kommen nicht weiter und benötigen Unterstützung? Gerne kann Sie die Community unterstützen!
+Melden Sie sich im Forum an und stellen Sie Ihre Fragen:
+[https://ask.linuxmuster.net/c/edulution/63](https://ask.linuxmuster.net/c/edulution/63)

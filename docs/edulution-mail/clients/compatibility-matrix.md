@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Client-Kompatibilität
 
 import CompatIcon from '@site/src/components/CompatIcon';

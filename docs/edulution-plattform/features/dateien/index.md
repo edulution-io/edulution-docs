@@ -65,6 +65,12 @@ Wenn Sie eine Datei auswählen (Checkbox), erscheinen folgende Aktionen:
 - **Kopieren** - Datei duplizieren
 - **Teilen** - Freigabe-Link erstellen
 
+### Download-Fortschritt
+
+Während eine Datei heruntergeladen wird, erscheint eine Meldung **Datei *Name* wird heruntergeladen** mit Fortschrittsbalken, Übertragungsrate, verbleibender Zeit und der bereits übertragenen Datenmenge. Laden Sie einen Ordner herunter, wird er zuvor als ZIP-Archiv gepackt; solange dessen Gesamtgröße noch nicht feststeht, zeigt die Meldung nur die übertragene Datenmenge und keine Prozentangabe.
+
+Schlägt ein Download fehl, nennt dieselbe Meldung den Grund – etwa *Kein Zugriff auf diese Ressource*. Jeder Download hat dabei seine eigene Meldung: Schlägt einer fehl, bleiben gleichzeitig laufende Downloads davon unberührt.
+
 ### In App öffnen [tags: ios, android]
 
 Rufen Sie die Dateiverwaltung über die [edulution.io App](/docs/edulution-app/) auf, kommt die Aktion **In App öffnen** hinzu. Die Datei wird an die App übergeben und dort mit den Mitteln des Betriebssystems angezeigt – unter iOS über die Dateien-App. Im Browser entfällt die Aktion, ebenso in App-Versionen älter als 2.0.

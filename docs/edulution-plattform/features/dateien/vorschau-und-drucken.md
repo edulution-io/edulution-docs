@@ -54,7 +54,7 @@ Ob sich ein Office-Dokument auf einem Smartphone – beziehungsweise in einem se
 | **Euro-Office** | Öffnet sich und lässt sich auch bearbeiten |
 | **Collabora** | Öffnet sich |
 
-Mit OnlyOffice erscheint beim Tippen auf ein Office-Dokument der Hinweis *„Office-Dokumente lassen sich auf dem Smartphone nicht öffnen. Bitte nutzen Sie ein Tablet oder einen Computer."*, und das Dokument bleibt geschlossen. Auf einem Tablet öffnet es sich normal.
+Mit OnlyOffice erscheint beim Tippen auf ein Office-Dokument der Hinweis *„Office-Dokumente lassen sich auf dem Smartphone nicht öffnen. Bitte nutzen Sie ein Tablet oder einen Computer."*, und das Dokument bleibt geschlossen. Auf einem Tablet öffnet es sich normal. Denselben Hinweis erhalten Sie, wenn ein Office-Dokument die Vorschau auf anderem Weg erreicht – etwa weil Sie das Browserfenster nachträglich auf Smartphone-Breite verkleinern.
 
 Mit Euro-Office entfällt diese Einschränkung: Office-Dokumente öffnen sich auf dem Smartphone und lassen sich dort auch bearbeiten. Ob Sie ein Dokument bearbeiten dürfen, richtet sich weiterhin nach Ihren Berechtigungen – über einen Freigabe-Link ohne Schreibrechte bleibt es auch auf dem Smartphone schreibgeschützt.
 

@@ -19,33 +19,25 @@ Die Eingebettete App ist ein vielseitiges Tool zum:
 
 ## Modi
 
+Der Modus legt fest, woher der Inhalt kommt und wie er dargestellt wird. Sie wählen ihn als Global-Admin unter **Einstellungen → \<App\>**.
+
 ### Separates Layout
 
-Der Inhalt wird als eigenständige Seite in einem Rahmen innerhalb der Anwendung angezeigt und als Datei hochgeladen, siehe [Einstiegsdatei](#einstiegsdatei). Dieser Modus eignet sich für:
+Der Inhalt wird als eigenständige Seite in einem Rahmen innerhalb der Anwendung angezeigt, mit eigenem Design und eigenem JavaScript. Sie laden ihn als Dateien hoch, eine HTML-Datei dient dabei als [Einstiegsseite](#einstiegsdatei). Der Modus eignet sich für fertige Web-Anwendungen und für Seiten, die externe Bibliotheken über CDN-Links laden.
 
-- Eigenständig gestaltete Seiten
-- Interaktive Anwendungen mit eigenem JavaScript
-- Fokussierte Darstellung ohne Ablenkung
+Der Rahmen ist abgesichert, einige Browser-Funktionen stehen darin nicht zur Verfügung — siehe [Was der Browser im Separaten Layout blockiert](#was-der-browser-im-separaten-layout-blockiert).
 
 ### Integriertes Layout
 
-Der Inhalt wird direkt in die Oberfläche von edulution eingefügt und sieht deshalb aus wie die Anwendung selbst. Sie pflegen ihn im Editor der App-Einstellungen, statt Dateien hochzuladen. Dieser Modus eignet sich für:
-
-- Textseiten wie Impressum und Datenschutz
-- Inhalte, die sich optisch nahtlos einfügen sollen
-- Kurze Hinweise und Übersichten
-
-#### Was Sie tun können:
-
-- Webseiten mit HTML erstellen
-- Inhalte formatieren und stylen mit CSS
-- Bilder und andere statische Elemente einbetten
+Der Inhalt wird direkt in die Oberfläche von edulution eingefügt und sieht deshalb aus wie die Anwendung selbst. Sie pflegen ihn mit HTML, CSS und Bildern im Editor der App-Einstellungen, statt Dateien hochzuladen. Der Modus eignet sich für Textseiten wie Impressum und Datenschutz.
 
 :::note[Kein JavaScript in diesem Modus]
 Der Editor-Inhalt wird als HTML in die Seite eingefügt; `<script>`-Elemente werden dabei nicht ausgeführt, eingebundene Bibliotheken über CDN-Links ebenso wenig. Für eigene Skripte wählen Sie das **Separate Layout** und laden den Inhalt als Datei hoch.
 :::
 
 ## Dateien hochladen
+
+Der Upload gehört zum Modus **Separates Layout**. Im Integrierten Layout pflegen Sie den Inhalt stattdessen im Editor.
 
 ![Datei-Upload](/img/features/ressourcen-bib.jpeg)
 
@@ -69,7 +61,7 @@ Die integrierte Dateiverwaltung zeigt alle hochgeladenen Dateien in einer übers
 
 ### Einstiegsdatei
 
-Im Modus **Separates Layout** zeigt die App genau eine der hochgeladenen Dateien als Einstiegsseite an: eine Datei mit der Endung `.html`. Alle weiteren Dateien — CSS, JavaScript, Bilder — werden nicht selbst geöffnet, sondern nur geladen, wenn die Einstiegsseite sie referenziert. Eine Datei mit der Endung `.htm` wird nicht als Einstiegsseite erkannt; benennen Sie sie vor dem Hochladen um.
+Die App zeigt genau eine der hochgeladenen Dateien als Einstiegsseite an: eine Datei mit der Endung `.html`. Alle weiteren Dateien — CSS, JavaScript, Bilder — werden nicht selbst geöffnet, sondern nur geladen, wenn die Einstiegsseite sie referenziert. Eine Datei mit der Endung `.htm` wird nicht als Einstiegsseite erkannt; benennen Sie sie vor dem Hochladen um.
 
 Laden Sie mehrere HTML-Dateien hoch, ist nicht vorhersehbar, welche davon als Einstiegsseite dient. Halten Sie deshalb genau eine HTML-Datei in der App und binden Sie weitere Seiten über Links aus dieser Datei ein. Fehlt eine HTML-Datei ganz, erscheint statt des Inhalts eine technische Fehlermeldung — auch in der Vorschau in den [App-Einstellungen](../konfiguration/einstellungen.md).
 
@@ -82,7 +74,7 @@ Laden Sie mehrere HTML-Dateien hoch, ist nicht vorhersehbar, welche davon als Ei
 
 ## Eigene Web-App erstellen
 
-Die folgenden Beispiele beschreiben den Modus **Separates Layout**: Die Dateien werden hochgeladen, die HTML-Datei dient als Einstiegsseite und bindet CSS und JavaScript ein.
+Die folgenden Beispiele gehören zum Modus **Separates Layout**: eine hochgeladene HTML-Datei, die CSS und JavaScript einbindet.
 
 ### Beispiel: Einfache HTML-App
 
@@ -156,7 +148,7 @@ Der Bereich **URL-Verarbeitung** ändert das. Sie finden ihn als Global-Admin un
 - **Frame-Apps**, also der Einbettung einer externen Anwendung, und
 - **Eingebetteten Apps** im Modus **Separates Layout**.
 
-Im Modus *Integriertes Layout* bleiben die Schalter deaktiviert: Dort wird der Inhalt direkt in die Oberfläche eingefügt, es gibt also keine eigene Navigation, die mitgeführt werden könnte.
+Im Modus **Integriertes Layout** bleiben die Schalter deaktiviert: Dort gibt es keine eigene Navigation, die mitgeführt werden könnte.
 
 ### Die beiden Schalter
 
@@ -312,7 +304,7 @@ Die Skripte werden an den Browser jedes Benutzers ausgeliefert, der die App öff
 
 ### Was der Browser im Separaten Layout blockiert
 
-Im Modus **Separates Layout** läuft der Inhalt in einem abgesicherten Rahmen. Einige gewohnte Browser-Funktionen stehen darin nicht zur Verfügung:
+Der Inhalt läuft in einem abgesicherten Rahmen. Diese gewohnten Browser-Funktionen stehen darin nicht zur Verfügung:
 
 | Funktion | Verhalten |
 | --- | --- |

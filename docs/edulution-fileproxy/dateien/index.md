@@ -143,5 +143,5 @@ Sie können Ihre Dateien auch direkt über den Dateimanager Ihres Betriebssystem
 - [Vorschau und Drucken](./vorschau-und-drucken.md) - Dateien ansehen und ausdrucken
 - [Dashboard](../../edulution-plattform/uebersicht/dashboard.md) - Speichernutzung anzeigen
 - [Mobile App](../../edulution-app/mobile-ansicht.md) - Dateien mobil synchronisieren
-- [Eingebettete App](../../edulution-plattform/apps/eingebettete-app.md) - HTML/JS/CSS hochladen
+- [Eingebettete App](../../edulution-plattform/apps/eingebettete-app.md) - Eigene Web-Anwendungen hochladen und in edulution anzeigen
 - [Schutzmechanismen beim Hochladen](./upload-schutzmechanismen.md) - Dateinamen, Duplikate und Bildumwandlung

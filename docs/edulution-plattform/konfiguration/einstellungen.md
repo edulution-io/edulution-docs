@@ -439,8 +439,39 @@ Apps, die Inhalte in einem iframe anzeigen, bringen zwei zusätzliche Bereiche i
 
 - **Skripte** (nur Frame-Apps) — JavaScript, das beim Laden des iframes und beim Abmelden ausgeführt wird, mit Syntaxprüfung und Formatierung im Editor
 - **URL-Verarbeitung** (Frame-Apps sowie Eingebettete Apps im Modus *Separates Layout*) — Adresszeile des Browsers der Navigation im eingebetteten Inhalt folgen lassen und Deep-Links unterstützen
+- **Berechtigungen des eingebetteten Inhalts** (Frame-Apps, Eingebettete Apps und Lernmanagement) — festlegen, welche Browser-Berechtigungen der eingebettete Inhalt nutzen darf, etwa Kamera, Mikrofon oder den Zugriff auf Geräte im lokalen Netzwerk
 
 [→ Details: Eingebettete App – Skripte und URL-Verarbeitung](../apps/eingebettete-app.md#url-verarbeitung-und-deep-links)
+
+### Berechtigungen des eingebetteten Inhalts
+
+Ein eingebetteter Inhalt kann Browser-Funktionen wie Kamera, Mikrofon, Zwischenablage oder angeschlossene USB-Geräte nur nutzen, wenn edulution sie ihm ausdrücklich weitergibt. Im Bereich **Berechtigungen des eingebetteten Inhalts** legen Sie pro App fest, welche das sind.
+
+Das Feld **Weitergegebene Berechtigungen** ist eine Mehrfachauswahl, gruppiert nach **Medien**, **Sensoren**, **Geräte**, **System**, **Netzwerk** sowie **Werbung und Messung**. Die Einträge tragen die technischen Bezeichnungen des Browsers (etwa `camera`, `usb` oder `clipboard-read`), damit Sie sie mit der Dokumentation der eingebetteten Anwendung abgleichen können. Über **Alle auswählen** und **Auswahl löschen** setzen Sie die gesamte Liste in einem Schritt.
+
+| Zustand der Auswahl | Wirkung |
+|---|---|
+| Nie bearbeitet | Der eingebettete Inhalt erhält den Standardsatz – die Berechtigungen, die vor Einführung dieser Einstellung allen Apps weitergegeben wurden. Die Auswahl zeigt diesen Satz vorausgewählt an. |
+| Einzelne Einträge gewählt | Genau diese Berechtigungen werden weitergegeben, alle anderen nicht. |
+| Geleert | Der eingebettete Inhalt erhält **keine** Berechtigung. |
+
+Eine App, deren Auswahl Sie nie verändert haben, verhält sich damit exakt wie zuvor. Wird der Standardsatz in einer späteren Version erweitert, folgt sie ihm automatisch; eine App mit eigener Auswahl behält ihre Liste.
+
+#### Zugriff auf das lokale Netzwerk
+
+Die Einträge `loopback-network` und `local-network` in der Gruppe **Netzwerk** erlauben dem eingebetteten Inhalt, Geräte auf demselben Rechner beziehungsweise im lokalen Netzwerk anzusprechen – etwa einen Etikettendrucker über einen lokal laufenden Druckdienst oder ein Gerät im Schulnetz. Aktuelle Chrome-Versionen verweigern solche Zugriffe aus einem iframe ohne diese Freigabe, ohne den Benutzer zu fragen.
+
+Beide Einträge sind **bewusst nicht Teil des Standardsatzes**. Wählen Sie sie nur für Apps, die den Zugriff tatsächlich benötigen: Die Freigabe gilt für alles, was der eingebettete Inhalt lädt, und bei einer öffentlich freigegebenen Eingebetteten App damit auch für nicht angemeldete Besucher. Der dritte Eintrag `local-network-access` ist der ältere Name derselben Berechtigung für Chrome 142 bis 144; neuere Versionen ignorieren ihn, er schadet also nicht, wenn Sie ihn zusätzlich wählen.
+
+Die Freigabe allein genügt nicht: Der Browser fragt den Benutzer beim ersten Zugriff zusätzlich um Erlaubnis. Diese Anfrage wird edulution zugeordnet, nicht der eingebetteten Anwendung, und gilt nach dem Bestätigen für alle Apps, denen Sie den Zugriff weitergegeben haben. Firefox und Safari kennen diese Berechtigung derzeit nicht.
+
+:::warning[Wirkungslos bei gleicher Domain]
+Die Auswahl greift nur, wenn der eingebettete Inhalt unter einer **anderen Domain** als edulution ausgeliefert wird. Liegt er auf derselben Domain – etwa weil Sie ihn über die **Proxy-Konfiguration** der App einbinden oder weil es sich um hochgeladene Dateien einer Eingebetteten App handelt –, gewährt der Browser die meisten Berechtigungen ohnehin, unabhängig von dieser Einstellung.
+
+Umgekehrt heißt das: Inhalte auf einer fremden Domain erhalten ohne Ihre Freigabe **keine** der aufgelisteten Berechtigungen. Funktionieren Kamera, Mikrofon oder ein angeschlossenes Gerät in einer eingebetteten Anwendung nicht, prüfen Sie zuerst diese Auswahl.
+:::
+
+Speichern Sie die App-Einstellungen anschließend über **Speichern**. Enthält die Auswahl einen Eintrag außerhalb der vorgegebenen Liste, lehnt edulution das Speichern mit der Meldung **"Die ausgewählten Berechtigungen enthalten einen unbekannten Eintrag"** ab.
 
 ---
 

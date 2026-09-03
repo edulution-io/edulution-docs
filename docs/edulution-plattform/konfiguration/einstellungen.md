@@ -472,10 +472,10 @@ Hier legen Sie fest, welche LDAP-Gruppen in edulution als **Administratoren** ge
 
 **Gruppe hinzufügen oder entfernen**
 
-1. Öffnen Sie **Einstellungen → Benutzerverwaltung → Administratorengruppe festlegen**.
-2. Tippen Sie den Gruppennamen in das Suchfeld; die Auswahl schlägt passende LDAP-Gruppen vor.
-3. Wählen Sie die Gruppe aus. Über das **x** an einem Eintrag nehmen Sie eine Gruppe wieder heraus.
-4. Speichern Sie über **Speichern**.
+1. Öffnen Sie **Einstellungen → Benutzer** und dort den Bereich **Administratorengruppe festlegen**.
+2. Tippen Sie den Gruppennamen in das Feld **Nutzergruppen**; die Auswahl schlägt passende LDAP-Gruppen vor.
+3. Wählen Sie die Gruppe aus. Ein erneuter Klick auf einen ausgewählten Eintrag nimmt ihn wieder heraus.
+4. Speichern Sie oben rechts über **Speichern**.
 
 Eine Gruppe muss immer ausgewählt bleiben; andernfalls lehnt edulution das Speichern mit *„Es muss mindestens eine Administratorengruppe ausgewählt sein."* ab. Voreingestellt ist die Gruppe, die Sie bei der Installation angegeben haben.
 

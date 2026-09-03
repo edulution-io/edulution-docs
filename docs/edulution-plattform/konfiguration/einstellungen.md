@@ -13,7 +13,7 @@ Diese Seite ist nur als Global-Administrator sichtbar. Sie erscheint im Menü re
 
 ## Zugriff
 
-Als Global-Admin finden Sie **Einstellungen** (Zahnrad-Symbol) im Menü rechts unten.
+**Einstellungen** (Zahnrad-Symbol) finden Sie im Menü rechts unten. Der Eintrag erscheint nur für Mitglieder einer [Administratorengruppe](#administratorengruppe-festlegen); für alle anderen Rollen ist er ausgeblendet.
 
 ## Tabs
 
@@ -465,6 +465,50 @@ Nützlich wenn Benutzer:
 - Ihr Authenticator-Gerät verloren haben
 - Probleme mit 2FA haben
 - Neues Gerät einrichten müssen
+
+### Administratorengruppe festlegen
+
+Hier legen Sie fest, welche LDAP-Gruppen in edulution als **Administratoren** gelten (*„Hier können zusätzliche Administratoren definiert werden."*). Wer in einer dieser Gruppen ist, hat **innerhalb von edulution alle Rechte** – und keine zusätzlichen Rechte auf dem Linuxmuster-Server.
+
+**Gruppe hinzufügen oder entfernen**
+
+1. Öffnen Sie **Einstellungen → Benutzer** und dort den Bereich **Administratorengruppe festlegen**.
+2. Tippen Sie den Gruppennamen in das Feld **Nutzergruppen**; die Auswahl schlägt passende LDAP-Gruppen vor.
+3. Wählen Sie die Gruppe aus. Ein erneuter Klick auf einen ausgewählten Eintrag nimmt ihn wieder heraus.
+4. Speichern Sie oben rechts über **Speichern**.
+
+Eine Gruppe muss immer ausgewählt bleiben; andernfalls lehnt edulution das Speichern mit *„Es muss mindestens eine Administratorengruppe ausgewählt sein."* ab. Voreingestellt ist die Gruppe, die Sie bei der Installation angegeben haben.
+
+:::info[Der globale Administrator bleibt immer Administrator]
+Konten der Gruppe `role-globaladministrator` sind unabhängig von dieser Einstellung Administratoren. Sie können sich über dieses Feld also nicht selbst aussperren.
+:::
+
+#### Was Mitglieder in edulution dürfen
+
+| Bereich | Freigeschaltet |
+|---------|----------------|
+| **Einstellungen** | der Bereich überhaupt: globale Einstellungen, App-Konfiguration, App Store, Container, Lizenz |
+| **Apps** | alle Apps, unabhängig von deren Zugriffsgruppen – ebenso alle Rechte innerhalb einer App, etwa das Anlegen von Inhalten |
+| **Info Board** | Kategorien verwalten sowie fremde Beiträge bearbeiten und löschen |
+| **Umfragen** | Vorlagen anlegen, aktivieren und löschen, Ergebnisse fremder Umfragen einsehen |
+| **Dateien** | Einstieg im Wurzelverzeichnis des Servers statt im eigenen Benutzerordner |
+| **Klassenraum** | Schulauswahl, alle Klassen statt nur der eigenen, Gruppeneigenschaften bearbeiten |
+| **Schulserver** | Schulauswahl in Benutzerverwaltung, Geräteverwaltung und Elternzuweisung; der Bereich LINBO |
+| **Satelliten, MDM, VPN** | die Verwaltung dieser Bereiche |
+
+Das Dashboard sieht für Administratoren anders aus: Mail- und Kalender-Widget entfallen dort samt der Benachrichtigung über neue E-Mails.
+
+:::warning[In edulution alles, auf dem Schulserver nichts]
+Die Administratorengruppe ist eine Einstellung von edulution. Der Linuxmuster-Server kennt sie nicht: Jede Aktion auf dem Schulserver führt edulution mit dem Konto des angemeldeten Benutzers aus, und welche Rolle dort etwas darf, entscheidet Sophomorix.
+
+- Eine Lehrkraft, die Sie in die Administratorengruppe aufnehmen, erhält in edulution alle Rechte – auf dem Schulserver bleibt sie Lehrkraft.
+- Auf eine **andere Schule** greift nur zu, wer auf dem Schulserver **Globaladministrator** ist. Alle übrigen Konten bleiben auf ihre eigene Schule beschränkt, auch als edulution-Administrator.
+- Aktionen, die die Linuxmuster-API globalen Administratoren vorbehält – etwa das Schreiben der Hardwaregruppen in LINBO – erscheinen in der Oberfläche, werden vom Server aber abgelehnt. Siehe [Linuxmuster / LINBO](../../edulution-server/linuxmuster.md#gruppen).
+:::
+
+:::warning[Wen Sie aufnehmen]
+Die Mitgliedschaft hebelt die Zugriffsgruppen aller Apps aus: Administratoren sehen jede App und deren Inhalte, auch die Beiträge und Umfragen anderer Benutzer. Nehmen Sie deshalb nur Gruppen auf, deren Mitglieder edulution tatsächlich verwalten sollen.
+:::
 
 ---
 

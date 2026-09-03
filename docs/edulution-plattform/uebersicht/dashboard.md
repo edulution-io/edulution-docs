@@ -69,6 +69,8 @@ Angezeigt wird dabei immer die Quota **Ihres eigenen Benutzerverzeichnisses** �
 
 Solange noch keine Werte geladen sind, steht an Stelle der Zahlen `--`.
 
+Die Anzeige aktualisiert sich selbständig, sobald ein Datei-Vorgang abgeschlossen ist – etwa ein Upload in der Dateien-App oder das Einsammeln im Klassenraum. Ein Neuladen der Seite ist dafür nicht nötig.
+
 Ihre einzelnen Kontingente – Cloud- und E-Mailquota – finden Sie unter [Benutzerdetails](./benutzereinstellungen/benutzerdetails.md#quotas). Wie Sie belegten Speicher wieder freigeben, steht unter [Speicherplatz und Quota](../../edulution-fileproxy/dateien/speicherplatz-und-quota.md).
 
 ### Termine

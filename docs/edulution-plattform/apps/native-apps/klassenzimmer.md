@@ -98,6 +98,10 @@ Eingesammelte Dateien werden in **Ihrem eigenen Benutzerverzeichnis** abgelegt. 
 
 Maßgeblich ist dabei immer die Quota **Ihres eigenen Home-Verzeichnisses** – unabhängig davon, welchen Ordner oder welche Freigabe Sie zuletzt in der Dateiverwaltung geöffnet haben. Sobald Sie Speicher freigegeben haben, erscheint die Schaltfläche wieder.
 
+edulution liest die Quota nach jedem abgeschlossenen Datei-Vorgang neu – nach dem Einsammeln ebenso wie nach dem Hochladen, Löschen, Verschieben oder Kopieren. Füllt sich Ihr Benutzerverzeichnis dadurch während einer laufenden Stunde, verschwindet die Schaltfläche **Einsammeln**, ohne dass Sie den Klassenraum verlassen oder die Seite neu laden müssen; nach dem Freigeben von Speicher erscheint sie auf demselben Weg wieder.
+
+Oberhalb des Teilnehmerbereichs erscheint zusätzlich dieselbe Warnung wie in der Dateien-App – **Verbleibendes Quota gering** beziehungsweise **sehr gering** mit Warndreieck. Auch sie bezieht sich auf Ihr eigenes Benutzerverzeichnis.
+
 Wie Sie Ihre Speichernutzung einsehen und Platz schaffen, steht unter [Speicherplatz und Quota](../../../edulution-fileproxy/dateien/speicherplatz-und-quota.md).
 
 <Audience roles="admin">

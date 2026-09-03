@@ -61,7 +61,7 @@ Enthält eine bestehende Freigabe bereits solche Rechte, erscheint derselbe Hinw
 
 Die Einschränkung wirkt auch außerhalb der Dateien-App: Im [Klassenraum](../../edulution-plattform/apps/native-apps/klassenzimmer.md) wird die Schaltfläche **Einsammeln** ausgeblendet, denn eingesammelte Schülerdateien landen in Ihrem eigenen Benutzerverzeichnis. **Austeilen** bleibt möglich.
 
-Dafür zählt immer die Quota Ihres eigenen Home-Verzeichnisses – nicht die des Ordners, den Sie zuletzt in der Dateiverwaltung geöffnet haben.
+Dafür zählt immer die Quota Ihres eigenen Home-Verzeichnisses – nicht die des Ordners, den Sie zuletzt in der Dateiverwaltung geöffnet haben. Nach jedem abgeschlossenen Datei-Vorgang wird sie neu gelesen, sodass die Schaltfläche noch während der laufenden Stunde verschwindet, wenn Ihr Verzeichnis dabei volläuft.
 
 ## Wenn der Speicherplatz nicht ausreicht
 

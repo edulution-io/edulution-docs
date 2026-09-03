@@ -17,18 +17,18 @@ Diese Seite ist nur als Global-Administrator sichtbar. Sie erscheint im Menü re
 
 ## Registerkarten
 
-Oben in den Einstellungen wählen Sie zwischen vier Registerkarten:
+Links stehen die Apps, deren Einstellungen Sie bearbeiten können, darüber der Eintrag **Allgemein**. Erst wenn Sie **Allgemein** anklicken, erscheinen oben die vier Registerkarten der systemweiten Einstellungen:
 
 | Registerkarte | Inhalt |
 |---------------|--------|
 | **Container** | die Docker-Container der Installation verwalten |
-| **Allgemein** | systemweite Einstellungen: Plattform, Organisationstyp, Zwei-Faktor-Authentisierung, LDAP und Branding |
+| **Allgemein** | Plattform, Organisationstyp, Standardanwendung nach dem Login, Zwei-Faktor-Authentisierung, LDAP, Branding, Design-Anpassung, Organisationsinformationen und [Webhooks](./webhooks.md) |
 | **Benutzer** | Zwei-Faktor-Authentisierung einzelner Benutzer zurücksetzen und die Administratorengruppe festlegen |
-| **Lizenz** | Lizenz registrieren und Systeminformationen einsehen |
+| **Lizenz** | die **Lizenzübersicht**: Lizenz registrieren und den Lizenzstatus einsehen |
 
 In der schmalen Ansicht ersetzt eine Auswahlliste die Registerkarten. Dort tragen zwei davon ihren ausgeschriebenen Namen: **Allgemein** heißt **Globale Einstellungen**, **Benutzer** heißt **Benutzerverwaltung**.
 
-Die Einstellungen der einzelnen Apps – etwa [E-Mails](#e-mails), [Kalender](#kalender-caldav) oder [Klassenraum](#klassenraum-veyon-proxy) – liegen nicht auf diesen Registerkarten. Sie erreichen sie über die App in der Liste links.
+Die Einstellungen der einzelnen Apps – etwa [E-Mails](#e-mails), [Kalender](#kalender-caldav) oder [Klassenraum](#klassenraum-veyon-proxy) – liegen nicht auf diesen Registerkarten. Sie erreichen sie über die jeweilige App in der Liste links.
 
 ---
 
@@ -49,9 +49,9 @@ Die Einstellungen der einzelnen Apps – etwa [E-Mails](#e-mails), [Kalender](#k
 - Steuert Beschriftungen, den Funktionsumfang der Serververwaltung und das Logo auf der Login-Seite
 - Ausführlich: [Organisationstyp](#organisationstyp)
 
-**Standard-Anwendung nach Login**
-- Wählen Sie welche App nach Login angezeigt wird
-- Optionen: Dashboard, Info Board, Dateien, etc.
+**Standardanwendung nach dem Login**
+- Legt fest, welche Anwendung Benutzern nach der Anmeldung angezeigt wird (*„Hier kann festgelegt werden, welche Anwendung für Nutzer standardmäßig nach dem Login angezeigt werden soll."*)
+- Zur Auswahl stehen die eingerichteten Apps, etwa Dashboard, Info Board oder Dateien
 
 ### Organisationstyp
 
@@ -130,6 +130,10 @@ Die Variable setzt nur den Ausgangswert. Danach ändern Sie den Organisationstyp
 Diese Informationen erscheinen in der edulution App.
 
 **Speichern** - Button zum Speichern unten
+
+### Webhooks
+
+Im Abschnitt **Webhooks** registrieren Sie die Dienste, die Ereignisse an edulution melden dürfen. Die vollständige Beschreibung steht unter [Webhooks](./webhooks.md).
 
 ---
 

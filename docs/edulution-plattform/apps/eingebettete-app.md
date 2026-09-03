@@ -138,6 +138,7 @@ Die Eingebettete App arbeitet eng mit anderen edulution-Features zusammen:
 - Nahtlose Integration in edulution Plattform
 - Eigene JavaScript-Skripte beim Laden und beim Abmelden, siehe [Skripte in Frame-Apps](#skripte-in-frame-apps)
 - Adresszeile und Deep-Links, siehe [URL-Verarbeitung und Deep-Links](#url-verarbeitung-und-deep-links)
+- Weitergabe von Browser-Berechtigungen wie Kamera, Mikrofon oder lokalem Netzwerkzugriff, siehe [Berechtigungen des eingebetteten Inhalts](#berechtigungen-des-eingebetteten-inhalts)
 
 ## URL-Verarbeitung und Deep-Links
 
@@ -217,6 +218,16 @@ Skripte lassen sich nur in Inhalte einfügen, die unter derselben Domain wie edu
 Die Skripte werden an den Browser jedes Benutzers ausgeliefert, der die App öffnet, und sind dort im Klartext lesbar. Hinterlegen Sie deshalb keine Passwörter, Token oder API-Schlüssel im Skript.
 :::
 
+## Berechtigungen des eingebetteten Inhalts
+
+Ob eine eingebettete Anwendung Kamera, Mikrofon, Zwischenablage, angeschlossene Geräte oder ein Gerät im lokalen Netzwerk nutzen darf, entscheidet nicht die Anwendung selbst, sondern edulution beim Einbetten. Als Global-Admin legen Sie das pro App unter **Einstellungen → \<App\>** im Bereich **Berechtigungen des eingebetteten Inhalts** fest – für Frame-Apps, Eingebettete Apps und das Lernmanagement.
+
+Eine App, deren Auswahl nie bearbeitet wurde, erhält den Standardsatz und verhält sich wie bisher. Der Zugriff auf das lokale Netzwerk – etwa für einen Etikettendrucker über einen lokalen Druckdienst – ist bewusst nicht enthalten und muss ausdrücklich gewählt werden.
+
+Die Auswahl wirkt nur auf Inhalte, die unter einer anderen Domain als edulution ausgeliefert werden. Hochgeladene Dateien einer Eingebetteten App und Inhalte, die über die Proxy-Konfiguration eingebunden sind, liegen auf derselben Domain und erhalten die meisten Berechtigungen unabhängig davon.
+
+Die vollständige Beschreibung der Auswahl, des Standardsatzes und des Netzwerkzugriffs finden Sie unter [Einstellungen – Berechtigungen des eingebetteten Inhalts](../konfiguration/einstellungen.md#berechtigungen-des-eingebetteten-inhalts).
+
 ## Anwendungsfälle
 
 ### Lernressourcen
@@ -281,6 +292,14 @@ Die Skripte werden an den Browser jedes Benutzers ausgeliefert, der die App öff
 
 - Führt die eingebettete Anwendung auf ihrer Startseite eine Anmeldung oder eine Initialisierung durch, aktivieren Sie **Basisseite vorladen**
 - Wird die Adresszeile beim Navigieren nicht mitgeführt (siehe oben), entstehen gar keine Deep-Links, die weitergegeben werden könnten
+
+### Kamera, Mikrofon oder ein Gerät funktioniert in der eingebetteten Anwendung nicht
+
+- Prüfen Sie unter **Einstellungen → \<App\>** im Bereich **Berechtigungen des eingebetteten Inhalts**, ob die benötigte Berechtigung ausgewählt und die Konfiguration gespeichert ist
+- Eine geleerte Auswahl gibt **keine** Berechtigung weiter – wählen Sie die benötigten Einträge oder stellen Sie den Standardsatz über **Alle auswählen** wieder her
+- Für Geräte im lokalen Netzwerk müssen `loopback-network` beziehungsweise `local-network` gewählt sein; sie gehören nicht zum Standardsatz
+- Der Browser fragt beim ersten Zugriff zusätzlich um Erlaubnis – prüfen Sie, ob diese Anfrage abgelehnt wurde
+- Firefox und Safari unterstützen den Zugriff auf das lokale Netzwerk aus einem iframe derzeit nicht
 
 ### Ein Skript wird nicht ausgeführt
 

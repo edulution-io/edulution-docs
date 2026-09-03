@@ -39,7 +39,7 @@ Für Benutzertypen ohne Verwaltungsliste (Schuladmins, Globaladmins) entfällt d
 :::note[Schulauswahl]
 In Umgebungen mit mehreren Schulen enthalten die Ansichten oben rechts eine **Schulauswahl**; ein Wechsel lädt die Listen der gewählten Schule neu. Als **Globaladmin** wählen Sie dort jede Schule des Servers, als **Schuladmin** enthält die Auswahl nur Ihre eigene Schule.
 
-Beim Benutzertyp **Globaladmins** gibt es keine Schulauswahl. Als Schuladmin bleibt diese Liste leer – Globaladmins gehören keiner einzelnen Schule an.
+Als **Schuladmin** bleibt die Benutzertabelle beim Benutzertyp **Globaladmins** ohne Einträge – diese Konten gehören keiner einzelnen Schule an.
 :::
 
 ## Registerkarte „Benutzer"

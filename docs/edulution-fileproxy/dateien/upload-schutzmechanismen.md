@@ -91,11 +91,10 @@ Derselbe Dialog erscheint, wenn Sie Dateien in eine [Freigabe](./index.md#teilen
 
 | Grenze | Wert |
 |---|---|
-| Dateien pro Upload (inklusive Ordnerinhalten) | 100 |
-| Dateien innerhalb eines hochgeladenen Ordners | 100 |
+| Anzahl der Dateien je Upload | nicht begrenzt |
 | Maximale Größe je Datei | abhängig vom [FileProxy](./index.md#dateigröße) |
 
-Wird eine Grenze überschritten, erscheint eine rote Warnung – bei Drag & Drop stattdessen eine Meldung am Bildschirmrand. Reicht während der Übertragung der Speicherplatz nicht aus, bricht edulution den Upload ab und meldet *Upload abgebrochen: Nicht genügend Speicherplatz*. Ihre aktuelle Speichernutzung sehen Sie im [Dashboard](../../edulution-plattform/uebersicht/dashboard.md#quotas).
+Die Anzahl der ausgewählten Dateien ist nicht begrenzt – auch umfangreiche Ordner lassen sich in einem Vorgang übertragen. Wird die Größengrenze einer Datei überschritten, erscheint eine rote Warnung – bei Drag & Drop stattdessen eine Meldung am Bildschirmrand. Reicht während der Übertragung der Speicherplatz nicht aus, bricht edulution den Upload ab und meldet *Upload abgebrochen: Nicht genügend Speicherplatz*. Ihre aktuelle Speichernutzung sehen Sie im [Dashboard](../../edulution-plattform/uebersicht/dashboard.md#quotas).
 
 ## Bilder werden automatisch in WebP umgewandelt
 

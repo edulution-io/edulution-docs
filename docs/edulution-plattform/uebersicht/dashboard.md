@@ -63,14 +63,15 @@ Erfahren Sie mehr unter [Mobile App & Tablet-Nutzung](../../edulution-app/mobile
 
 ### Quotas
 
-Übersicht über Ihre Speichernutzung:
+Das Widget **Quotas** zeigt Ihren belegten Dateispeicher – etwa **4,2 / 10 GB** –, darunter eine Fortschrittsanzeige und den belegten Anteil in Prozent. Ist der Speicher vollständig belegt, erscheint zusätzlich **Speicher voll**.
 
-**Anzeige der Speicherkontingente:**
-- **Schul-Quota**: Verwendeter vs. verfügbarer Speicher (z.B. "--/-- MiB")
-- **Cloud quota calculated**: Berechnetes Cloud-Speicherkontingent
-- **E-Mail quota calculated**: E-Mail-Speicherlimit (z.B. "306 MiB")
+Angezeigt wird dabei immer die Quota **Ihres eigenen Benutzerverzeichnisses** – unabhängig davon, welchen Ordner oder welche Freigabe Sie zuletzt in der Dateiverwaltung geöffnet haben. Eine fast volle Klassen- oder Tauschfreigabe verändert diese Anzeige also nicht.
 
-Die visuelle Fortschrittsanzeige zeigt den aktuellen Verbrauch an.
+Solange noch keine Werte geladen sind, steht an Stelle der Zahlen `--`.
+
+Die Anzeige aktualisiert sich selbständig, sobald ein Datei-Vorgang abgeschlossen ist – etwa ein Upload in der Dateien-App oder das Einsammeln im Klassenraum. Ein Neuladen der Seite ist dafür nicht nötig.
+
+Ihre einzelnen Kontingente – Cloud- und E-Mailquota – finden Sie unter [Benutzerdetails](./benutzereinstellungen/benutzerdetails.md#quotas). Wie Sie belegten Speicher wieder freigeben, steht unter [Speicherplatz und Quota](../../edulution-fileproxy/dateien/speicherplatz-und-quota.md).
 
 ### Termine
 

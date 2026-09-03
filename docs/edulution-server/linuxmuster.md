@@ -30,13 +30,17 @@ Die Unterseiten wählen Sie über die Seitenleiste der App:
 Die **Elternzuweisung** erscheint nur in Schulumgebungen. Beim [Organisationstyp](../edulution-plattform/konfiguration/einstellungen.md#organisationstyp) **Unternehmen** entfällt der Eintrag.
 :::
 
+:::note[Wer den Schulserver verwalten darf]
+Die Bereiche der App **Schulserver** stehen **Globaladmins** und **Schuladmins** offen. Andere Rollen haben gegenüber Linuxmuster keine Verwaltungsrechte – daran ändert auch der Zugriff auf die App nichts.
+:::
+
 :::note[LINBO nur für Globaladmins]
 Der Eintrag **LINBO** in der Seitenleiste – und die gleichnamige Kachel der Übersicht – ist ausschließlich **Globaladmins** vorbehalten. Für alle anderen Rollen entfällt der Bereich; die übrigen Einträge der App bleiben davon unberührt.
 :::
 
 Die **Übersicht** ist nach denselben Bereichen gegliedert wie die Seitenleiste. Unter **Benutzerverwaltung** führt je eine Kachel direkt zu den Benutzertypen **Schüler**, **Lehrer**, **Extra-Schüler**, **Eltern**, **Mitarbeiter**, **Schuladmins** und **Globaladmins**; in Unternehmensumgebungen bleiben davon nur **Mitarbeiter** und **Globaladmins** sichtbar. Darunter folgen die Bereiche **Geräteverwaltung**, **Elternzuweisung**, **LINBO** und **System** mit je einer Kachel. Die Kachel **LINBO** öffnet dieselbe Übersicht wie der gleichnamige Eintrag in der Seitenleiste.
 
-In Umgebungen mit mehreren Schulen enthalten die Listenansichten oben rechts eine **Schulauswahl**. Ein Wechsel der Schule verwirft die bereits geladenen Daten und lädt sie für die neue Schule erneut.
+In Umgebungen mit mehreren Schulen enthalten die Listenansichten oben rechts eine **Schulauswahl**. Benutzerverwaltung, Geräteverwaltung, Verwaltungslisten und Elternzuweisung zeigen die Daten der dort gewählten Schule; ein Wechsel lädt die Listen neu. Als **Globaladmin** wählen Sie jede Schule des Servers, als **Schuladmin** enthält die Auswahl nur Ihre eigene Schule.
 
 ## Benutzerverwaltung
 
@@ -49,7 +53,7 @@ Für Benutzertypen ohne Importunterstützung erscheint der Hinweis *„Für dies
 
 ### Import in drei Schritten
 
-Der Import ist bewusst zweistufig, damit Sie die Auswirkungen vor dem Schreiben sehen:
+Der Import ist bewusst mehrstufig, damit Sie die Auswirkungen vor dem Schreiben sehen:
 
 1. **Speichern** – die bearbeitete Liste wird auf dem Server abgelegt. Die Meldung weist ausdrücklich darauf hin, anschließend **Prüfen** zu verwenden; gespeichert allein bewirkt noch keine Änderung an den Konten.
 2. **Prüfen** – Linuxmuster wertet die Liste aus und meldet das Ergebnis in einem Dialog, gegliedert in eine Übersicht sowie die Konten, die **angelegt**, **aktualisiert** oder **entfernt** würden, und die aufgetretenen **Fehler**.
@@ -102,6 +106,11 @@ angefragt haben (*„Eltern-Schüler-Zuweisungen verwalten."*). Wie die Anfrage 
 
 ![Kachel „Elternzuweisung" auf der Übersichtsseite der Schulserver-App](/img/eltern-schueler-zuordnung/elternzuweisung-kachel.png)
 
+:::note[Zu welcher Schule eine Anfrage gehört]
+Eine Anfrage gehört immer zur **Schule des Schülers**. Gehören Kind und Elternteil verschiedenen
+Schulen an, erscheint sie deshalb nur in der Schule des Kindes und wird auch nur dort freigegeben.
+:::
+
 Die Tabelle zeigt die Zuordnungen mit folgenden Spalten; die Fußzeile nennt die Zahl der
 ausgewählten Einträge.
 
@@ -125,7 +134,7 @@ ausgewählten Einträge.
 
 - Über das **Suchfeld** filtern Sie die Tabelle nach Elternteil oder Schüler (*„Nach Elternteil oder Schüler suchen…"*).
 - Ein **Status-Filter** blendet gezielt *Alle*, *Ausstehend*, *Akzeptiert* oder *Abgelehnt* ein. Standardmäßig sind die **ausstehenden** Anfragen vorausgewählt.
-- Super-Administratoren steht zusätzlich eine **Schulauswahl** zur Verfügung, um Anfragen schulübergreifend zu bearbeiten.
+- Über die **Schulauswahl** oben rechts bearbeiten **Globaladmins** die Anfragen einer anderen Schule.
 
 ![Geöffneter Status-Filter mit den Optionen Alle, Ausstehend, Akzeptiert und Abgelehnt](/img/eltern-schueler-zuordnung/elternzuweisung-filter.png)
 

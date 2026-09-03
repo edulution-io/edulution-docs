@@ -37,9 +37,9 @@ Für Benutzertypen mit Verwaltungsliste ist die Ansicht in zwei Registerkarten g
 Für Benutzertypen ohne Verwaltungsliste (Schuladmins, Globaladmins) entfällt die Registerkarte **Import**; dort erscheint der Hinweis *„Für diesen Benutzertyp ist kein Import verfügbar."*
 
 :::note[Schulauswahl]
-In Umgebungen mit mehreren Schulen enthalten die Ansichten oben rechts eine **Schulauswahl**. Ein Wechsel der Schule verwirft die bereits geladenen Daten und lädt die Listen der gewählten Schule erneut. Als **Globaladmin** wählen Sie dort jede Schule des Servers; als **Schuladmin** enthält die Auswahl nur Ihre eigene Schule.
+In Umgebungen mit mehreren Schulen enthalten die Ansichten oben rechts eine **Schulauswahl**; ein Wechsel lädt die Listen der gewählten Schule neu. Als **Globaladmin** wählen Sie dort jede Schule des Servers, als **Schuladmin** enthält die Auswahl nur Ihre eigene Schule.
 
-Als **Schuladmin** arbeiten Sie ausschließlich in Ihrer eigenen Schule: Benutzertabelle, Verwaltungslisten und die Übernahme nach Sophomorix beziehen sich immer auf diese Schule. Der Benutzertyp **Globaladmins** bleibt dabei ohne Einträge: Diese Konten gehören keiner einzelnen Schule an. Aus demselben Grund entfällt bei diesem Benutzertyp die Schulauswahl.
+Beim Benutzertyp **Globaladmins** gibt es keine Schulauswahl. Als Schuladmin bleibt diese Liste leer – Globaladmins gehören keiner einzelnen Schule an.
 :::
 
 ## Registerkarte „Benutzer"

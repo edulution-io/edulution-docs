@@ -60,7 +60,7 @@ Der Bereich **Zuweisungen** listet Ihre bestehenden und angefragten Verknüpfung
 
 Solange keine Verknüpfung besteht, erscheint der Hinweis *„Noch keine Zuweisungen."*.
 
-Kind und Elternteil müssen nicht derselben Schule angehören – auch schulübergreifende Zuweisungen innerhalb einer Instanz werden auf beiden Seiten angezeigt. Freigegeben wird eine solche Anfrage immer in der **Schule des Kindes**: Nur dort erscheint sie in der [Elternzuweisung](../../../edulution-server/linuxmuster.md#elternzuweisung) der Schulserver-App.
+Kind und Elternteil müssen nicht derselben Schule angehören – auch schulübergreifende Zuweisungen innerhalb einer Instanz werden auf beiden Seiten angezeigt. Freigegeben wird die Anfrage in diesem Fall von der Administration der **Schule des Kindes** – dorthin wenden Sie sich, wenn eine Anfrage längere Zeit **Ausstehend** bleibt.
 
 ## Ablauf im Überblick
 

@@ -36,13 +36,7 @@ Der Eintrag **LINBO** in der Seitenleiste – und die gleichnamige Kachel der Ü
 
 Die **Übersicht** ist nach denselben Bereichen gegliedert wie die Seitenleiste. Unter **Benutzerverwaltung** führt je eine Kachel direkt zu den Benutzertypen **Schüler**, **Lehrer**, **Extra-Schüler**, **Eltern**, **Mitarbeiter**, **Schuladmins** und **Globaladmins**; in Unternehmensumgebungen bleiben davon nur **Mitarbeiter** und **Globaladmins** sichtbar. Darunter folgen die Bereiche **Geräteverwaltung**, **Elternzuweisung**, **LINBO** und **System** mit je einer Kachel. Die Kachel **LINBO** öffnet dieselbe Übersicht wie der gleichnamige Eintrag in der Seitenleiste.
 
-In Umgebungen mit mehreren Schulen enthalten die Listenansichten oben rechts eine **Schulauswahl**. Ein Wechsel der Schule verwirft die bereits geladenen Daten und lädt sie für die neue Schule erneut. Die Auswahl steht **Globaladmins** zur Verfügung; als **Schuladmin** zeigt sie Ihre eigene Schule als einzigen Eintrag.
-
-:::note[Die App arbeitet in Ihrer Schule]
-Benutzerverwaltung, Geräteverwaltung, Verwaltungslisten und Elternzuweisung zeigen die Daten Ihrer eigenen Schule. Nur **Globaladmins** wechseln über die Schulauswahl zu einer anderen Schule des Servers.
-
-Diese Bindung prüft die Plattform auf dem Server und nicht erst in der Oberfläche: Eine Anfrage, die eine fremde Schule nennt, wird abgewiesen — auch beim Speichern von Geräte- und Verwaltungslisten und beim Übernehmen nach Sophomorix.
-:::
+In Umgebungen mit mehreren Schulen enthalten die Listenansichten oben rechts eine **Schulauswahl**. Benutzerverwaltung, Geräteverwaltung, Verwaltungslisten und Elternzuweisung zeigen die Daten der dort gewählten Schule; ein Wechsel lädt die Listen neu. Als **Globaladmin** wählen Sie jede Schule des Servers, als **Schuladmin** enthält die Auswahl nur Ihre eigene Schule.
 
 ## Benutzerverwaltung
 
@@ -55,7 +49,7 @@ Für Benutzertypen ohne Importunterstützung erscheint der Hinweis *„Für dies
 
 ### Import in drei Schritten
 
-Der Import ist bewusst zweistufig, damit Sie die Auswirkungen vor dem Schreiben sehen:
+Der Import ist bewusst mehrstufig, damit Sie die Auswirkungen vor dem Schreiben sehen:
 
 1. **Speichern** – die bearbeitete Liste wird auf dem Server abgelegt. Die Meldung weist ausdrücklich darauf hin, anschließend **Prüfen** zu verwenden; gespeichert allein bewirkt noch keine Änderung an den Konten.
 2. **Prüfen** – Linuxmuster wertet die Liste aus und meldet das Ergebnis in einem Dialog, gegliedert in eine Übersicht sowie die Konten, die **angelegt**, **aktualisiert** oder **entfernt** würden, und die aufgetretenen **Fehler**.
@@ -109,10 +103,8 @@ angefragt haben (*„Eltern-Schüler-Zuweisungen verwalten."*). Wie die Anfrage 
 ![Kachel „Elternzuweisung" auf der Übersichtsseite der Schulserver-App](/img/eltern-schueler-zuordnung/elternzuweisung-kachel.png)
 
 :::note[Zu welcher Schule eine Anfrage gehört]
-Eine Anfrage wird immer unter der **Schule des Schülers** geführt – unabhängig davon, welcher Schule
-das Elternteil angehört und wer von beiden den Zuweisungs-Code eingegeben hat. Gehören Kind und
-Elternteil unterschiedlichen Schulen an, erscheint die Anfrage deshalb nur in der Schule des Kindes
-und wird auch nur dort freigegeben.
+Eine Anfrage gehört immer zur **Schule des Schülers**. Gehören Kind und Elternteil verschiedenen
+Schulen an, erscheint sie deshalb nur in der Schule des Kindes und wird auch nur dort freigegeben.
 :::
 
 Die Tabelle zeigt die Zuordnungen mit folgenden Spalten; die Fußzeile nennt die Zahl der

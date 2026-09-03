@@ -339,7 +339,7 @@ Einige Aktionen sind in der Oberfläche bereits vorhanden, aber noch nicht angeb
 - die Aktion **Sync** im Bereich **Gruppen**
 - die Spalten **Status** und **Geplant** der Geräteliste
 
-Die Schaltflächen **Versionsstände** und **LINBO-Boot herunterladen** im Bereich **Gruppen** sind sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet für beides keine Schnittstelle. Der Grund steht jeweils am Knopf.
+Die Schaltflächen **Versionsstände** und **LINBO-Boot herunterladen** im Bereich **Gruppen** sind sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet für beides keine Schnittstelle. Am Knopf selbst steht nur *(noch nicht verfügbar)*.
 
 Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich in dieser Version nicht bearbeiten. Das Datenblatt zeigt, ob er in der `start.conf` aktiviert ist; die zugehörige Konfigurationsdatei ist über die Linuxmuster-API noch nicht erreichbar.
 

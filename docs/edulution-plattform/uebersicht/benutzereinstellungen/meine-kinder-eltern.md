@@ -60,7 +60,7 @@ Der Bereich **Zuweisungen** listet Ihre bestehenden und angefragten Verknüpfung
 
 Solange keine Verknüpfung besteht, erscheint der Hinweis *„Noch keine Zuweisungen."*.
 
-Kind und Elternteil müssen nicht derselben Schule angehören – auch schulübergreifende Zuweisungen innerhalb einer Instanz werden auf beiden Seiten angezeigt.
+Kind und Elternteil müssen nicht derselben Schule angehören – auch schulübergreifende Zuweisungen innerhalb einer Instanz werden auf beiden Seiten angezeigt. Freigegeben wird eine solche Anfrage immer in der **Schule des Kindes**: Nur dort erscheint sie in der [Elternzuweisung](../../../edulution-server/linuxmuster.md#elternzuweisung) der Schulserver-App.
 
 ## Ablauf im Überblick
 
@@ -74,7 +74,7 @@ Kind und Elternteil müssen nicht derselben Schule angehören – auch schulübe
 
 - Die Seite **Meine Eltern** sehen **Schüler**, die Seite **Meine Kinder** sehen **Eltern**. Als Elternteil gelten dabei auch Konten mit einer Lehrer- oder Personal-Rolle.
 - Eine gültige Zuordnung besteht immer aus **genau einer Eltern-Seite und einem Schüler**. Der Versuch, zwei Schüler oder zwei Elternteile zu verknüpfen – oder sich selbst zuzuweisen –, wird abgewiesen.
-- Bereits bestehende Zuordnungen lassen sich nicht doppelt anlegen; eine erneute Anfrage für dieselbe Verknüpfung wird abgewiesen.
+- Bereits bestehende Zuordnungen lassen sich nicht doppelt anlegen; eine erneute Anfrage für dieselbe Verknüpfung wird abgewiesen (*„Diese Zuweisung existiert bereits."*) – auch dann, wenn die Zuordnung zuvor **abgelehnt** wurde. Eine abgelehnte Zuordnung lässt sich also nicht erneut anfragen; sie kann nur von der Administration nachträglich freigegeben werden.
 - Eine Zuordnung wird erst nach der **Freigabe durch die Administration** wirksam. Bis dahin bleibt sie **Ausstehend**.
 
 ## Siehe auch

@@ -108,6 +108,13 @@ angefragt haben (*„Eltern-Schüler-Zuweisungen verwalten."*). Wie die Anfrage 
 
 ![Kachel „Elternzuweisung" auf der Übersichtsseite der Schulserver-App](/img/eltern-schueler-zuordnung/elternzuweisung-kachel.png)
 
+:::note[Zu welcher Schule eine Anfrage gehört]
+Eine Anfrage wird immer unter der **Schule des Schülers** geführt – unabhängig davon, welcher Schule
+das Elternteil angehört und wer von beiden den Zuweisungs-Code eingegeben hat. Gehören Kind und
+Elternteil unterschiedlichen Schulen an, erscheint die Anfrage deshalb nur in der Schule des Kindes
+und wird auch nur dort freigegeben.
+:::
+
 Die Tabelle zeigt die Zuordnungen mit folgenden Spalten; die Fußzeile nennt die Zahl der
 ausgewählten Einträge.
 
@@ -131,7 +138,7 @@ ausgewählten Einträge.
 
 - Über das **Suchfeld** filtern Sie die Tabelle nach Elternteil oder Schüler (*„Nach Elternteil oder Schüler suchen…"*).
 - Ein **Status-Filter** blendet gezielt *Alle*, *Ausstehend*, *Akzeptiert* oder *Abgelehnt* ein. Standardmäßig sind die **ausstehenden** Anfragen vorausgewählt.
-- Super-Administratoren steht zusätzlich eine **Schulauswahl** zur Verfügung, um Anfragen schulübergreifend zu bearbeiten.
+- Über die **Schulauswahl** oben rechts bearbeiten **Globaladmins** die Anfragen einer anderen Schule.
 
 ![Geöffneter Status-Filter mit den Optionen Alle, Ausstehend, Akzeptiert und Abgelehnt](/img/eltern-schueler-zuordnung/elternzuweisung-filter.png)
 

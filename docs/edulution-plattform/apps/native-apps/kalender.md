@@ -225,6 +225,10 @@ Termine lassen sich direkt mit der Maus verschieben:
 
 In der **Agenda** ist das Verschieben per Drag & Drop nicht möglich, da sie die Termine als Liste und nicht als Zeitraster darstellt.
 
+Bei einem Termin, der sich über mehrere Tage erstreckt, ist der Tag entscheidend, an dem Sie ihn anfassen: Der Termin wird um so viele Tage verschoben, wie zwischen diesem Tag und dem Zieltag liegen. Fassen Sie einen fünftägigen Termin an seinem dritten Tag an und lassen ihn einen Tag weiter los, verschiebt sich der gesamte Termin um einen Tag nach hinten – er beginnt also nicht am Zieltag. Seine Dauer bleibt dabei unverändert.
+
+Ganztägige Termine behalten beim Verschieben ihre Länge und bleiben ganztägig. Sie landen auf dem Tag, auf den Sie sie ziehen – auch dann, wenn zwischen dem bisherigen und dem neuen Datum die Umstellung zwischen Sommer- und Winterzeit liegt. Ziehen Sie einen ganztägigen Termin in der Wochen-, Tages- oder Stundenplanansicht auf einen Zeitabschnitt der Stundenskala, erhält er dadurch keine Uhrzeit: Er wechselt lediglich das Datum und bleibt ganztägig.
+
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
 
 :::info[Termine ohne Bearbeitungsrecht]

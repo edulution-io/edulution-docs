@@ -21,12 +21,10 @@ Links stehen die Apps, deren Einstellungen Sie bearbeiten können, darüber der 
 
 | Registerkarte | Inhalt |
 |---------------|--------|
-| **Container** | die Docker-Container der Installation verwalten |
-| **Allgemein** | Plattform, Organisationstyp, Standardanwendung nach dem Login, Zwei-Faktor-Authentisierung, LDAP, Branding, Design-Anpassung, Organisationsinformationen und [Webhooks](./webhooks.md) |
-| **Benutzer** | Zwei-Faktor-Authentisierung einzelner Benutzer zurücksetzen und die Administratorengruppe festlegen |
-| **Lizenz** | die **Lizenzübersicht**: Lizenz registrieren und den Lizenzstatus einsehen |
-
-In der schmalen Ansicht ersetzt eine Auswahlliste die Registerkarten. Dort tragen zwei davon ihren ausgeschriebenen Namen: **Allgemein** heißt **Globale Einstellungen**, **Benutzer** heißt **Benutzerverwaltung**.
+| **[Container](#container)** | die Docker-Container der Installation verwalten |
+| **[Allgemein](#globale-einstellungen)** | Plattform, Organisationstyp, Standardanwendung nach dem Login, Zwei-Faktor-Authentisierung, LDAP, Branding, Design-Anpassung, Organisationsinformationen und [Webhooks](./webhooks.md) |
+| **[Benutzer](#benutzerverwaltung)** | Zwei-Faktor-Authentisierung einzelner Benutzer zurücksetzen und die Administratorengruppe festlegen |
+| **[Lizenz](#lizenz)** | die **Lizenzübersicht**: Lizenz registrieren und den Lizenzstatus einsehen |
 
 Die Einstellungen der einzelnen Apps – etwa [E-Mails](#e-mails), [Kalender](#kalender-caldav) oder [Klassenraum](#klassenraum-veyon-proxy) – liegen nicht auf diesen Registerkarten. Sie erreichen sie über die jeweilige App in der Liste links.
 

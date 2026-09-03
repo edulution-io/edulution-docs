@@ -52,10 +52,10 @@ Eine virtuelle Maschine, an der bereits jemand anderes angemeldet ist, lässt si
 
 Eine laufende Sitzung hindert Sie nicht daran, die übrigen edulution-Apps zu benutzen. Wechseln Sie über die Seitenleiste in eine andere App, legt die Plattform das Sitzungsfenster selbsttätig als Leiste an den unteren Bildschirmrand. Die Verbindung zum virtuellen Desktop bleibt dabei bestehen – was dort läuft, läuft weiter, und der Client bleibt Ihnen vorbehalten.
 
-Kehren Sie zur **Desktop-Bereitstellung** zurück, öffnet sich das Fenster wieder in der Größe, in der Sie es verlassen haben.
+Kehren Sie zur **Desktop-Bereitstellung** zurück, öffnet sich das Fenster wieder in der Größe und an der Position, in der Sie es verlassen haben.
 
 :::note[Eine selbst minimierte Sitzung bleibt liegen]
-Haben Sie das Fenster von Hand über **Minimieren** in die Leiste gelegt, bleibt es auch beim Zurückwechseln zur App dort – die Plattform holt nur die Fenster zurück, die sie beim Verlassen der Seite selbst weggelegt hat. Über die Leiste am unteren Rand öffnen Sie die Sitzung jederzeit wieder.
+Haben Sie das Fenster von Hand über **Minimieren** in die Leiste gelegt, bleibt es auch beim Zurückwechseln zur App dort – die Plattform holt nur die Fenster zurück, die sie beim Verlassen der Seite selbst weggelegt hat. Über die Leiste am unteren Rand öffnen Sie die Sitzung jederzeit wieder; auch dann erscheint das Fenster in seiner vorherigen Größe und Position.
 :::
 
 ## Meldungen und ihre Ursachen

@@ -15,14 +15,20 @@ Diese Seite ist nur als Global-Administrator sichtbar. Sie erscheint im Menü re
 
 **Einstellungen** (Zahnrad-Symbol) finden Sie im Menü rechts unten. Der Eintrag erscheint nur für Mitglieder einer [Administratorengruppe](#administratorengruppe-festlegen); für alle anderen Rollen ist er ausgeblendet.
 
-## Tabs
+## Registerkarten
 
-Die Einstellungen sind in 5 Bereiche gegliedert:
-- **Container** - Docker Container Verwaltung
-- **Globale Einstellungen** - Systemweite Einstellungen
-- **E-Mails** - E-Mail und SOGo Webmailer Konfiguration
-- **Benutzerverwaltung** - Verwaltung von Benutzerkonten
-- **Info** - Lizenz und Systeminformationen
+Oben in den Einstellungen wählen Sie zwischen vier Registerkarten:
+
+| Registerkarte | Inhalt |
+|---------------|--------|
+| **Container** | die Docker-Container der Installation verwalten |
+| **Allgemein** | systemweite Einstellungen: Plattform, Organisationstyp, Zwei-Faktor-Authentisierung, LDAP und Branding |
+| **Benutzer** | Zwei-Faktor-Authentisierung einzelner Benutzer zurücksetzen und die Administratorengruppe festlegen |
+| **Lizenz** | Lizenz registrieren und Systeminformationen einsehen |
+
+In der schmalen Ansicht ersetzt eine Auswahlliste die Registerkarten. Dort tragen zwei davon ihren ausgeschriebenen Namen: **Allgemein** heißt **Globale Einstellungen**, **Benutzer** heißt **Benutzerverwaltung**.
+
+Die Einstellungen der einzelnen Apps – etwa [E-Mails](#e-mails), [Kalender](#kalender-caldav) oder [Klassenraum](#klassenraum-veyon-proxy) – liegen nicht auf diesen Registerkarten. Sie erreichen sie über die App in der Liste links.
 
 ---
 
@@ -512,7 +518,7 @@ Die Mitgliedschaft hebelt die Zugriffsgruppen aller Apps aus: Administratoren se
 
 ---
 
-## Info
+## Lizenz
 
 ![Info / Lizenz](/img/einstellungen/info-license.webp)
 

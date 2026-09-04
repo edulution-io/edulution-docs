@@ -27,6 +27,8 @@ Wenn Sie Mitteilungen verwalten dürfen, blendet die Einstellung **Ansicht** →
 
 Leere Kategorien, für die Sie nur Leserechte besitzen, bleiben unabhängig davon ausgeblendet.
 
+Enthält keine Ihrer Kategorien eine aktive Mitteilung, weist der Hinweis in der leeren Übersicht Sie darauf hin und bietet **Leere Infoboards anzeigen** direkt als Schaltfläche an – Sie müssen dafür nicht ins Menü **Ansicht** wechseln.
+
 Unabhängig von dieser Einstellung können Sie über **Erstellen** in der Menüleiste jederzeit eine Mitteilung in jeder Kategorie anlegen, für die Sie Schreibrechte besitzen.
 :::
 

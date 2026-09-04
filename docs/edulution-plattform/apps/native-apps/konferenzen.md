@@ -108,6 +108,8 @@ Die Konferenz öffnet sich in einem neuen Fenster. Der Fenstertitel enthält den
 
 Über das Symbol **In neuem Tab öffnen** in der Fensterleiste verschieben Sie die laufende Konferenz jederzeit aus dem Plattformfenster in einen eigenen Browser-Tab.
 
+Es ist immer nur eine Konferenz gleichzeitig geöffnet. Treten Sie derselben Konferenz erneut bei, wechselt die Plattform zum bereits geöffneten Tab, statt einen weiteren zu öffnen. Möchten Sie einer anderen Konferenz beitreten, während noch eine läuft, weist die Plattform Sie darauf hin, die laufende Konferenz zuerst zu schließen.
+
 :::info[Wenn sich die Konferenz direkt in einem Browser-Tab öffnet]
 Blockiert Ihr Browser Cookies von Drittanbietern, lässt sich BigBlueButton nicht innerhalb der Plattform anzeigen. Die Konferenz öffnet sich dann automatisch in einem neuen Browser-Tab statt im Plattformfenster.
 

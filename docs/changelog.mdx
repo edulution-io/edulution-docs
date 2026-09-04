@@ -11,6 +11,20 @@ export const changelogContext = require.context('!!raw-loader!../changelogs/', t
 
 Hier findest du alle Updates, neuen Features und Verbesserungen der edulution Plattform.
 
+:::info Umbenennung: edulution UI → edulution Plattform
+
+Seit dem 21.08.2026 heißt die frühere **edulution UI** durchgängig **edulution Plattform**.
+Betroffen sind nur Name und Dokumentations-URLs – Funktionsumfang, Versionsnummern und
+Installationen bleiben unverändert.
+
+- Der Changelog-Tag `edulution-ui` heißt jetzt `edulution-plattform`. Ältere Einträge oben
+  tragen bereits den neuen Tag; ihr Inhalt wurde bewusst nicht nachträglich umgeschrieben und
+  nennt daher an einzelnen Stellen weiterhin den alten Namen.
+- Die Dokumentation liegt jetzt unter `/docs/edulution-plattform/…`. Alte Links auf
+  `/docs/edulution-ui/…` werden automatisch weitergeleitet.
+
+:::
+
 <ChangelogFromMarkdown
   markdown={changelogContext
     .keys()

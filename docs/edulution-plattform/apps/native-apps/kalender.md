@@ -442,7 +442,9 @@ Der Server ruft jeden abonnierten Web-Kalender **etwa einmal pro Stunde** ab und
 
 Möchten Sie eine Änderung sofort sehen, wählen Sie im Kontextmenü des Kalenders **Jetzt aktualisieren**. Schlägt der Abruf fehl, erhalten Sie die Meldung **Der Kalender konnte nicht geladen werden.**
 
-Ist eine Quelle vorübergehend nicht erreichbar, bleiben die zuletzt geladenen Termine sichtbar; der Kalendereintrag wird in der Seitenleiste zusätzlich mit **Aktualisierung fehlgeschlagen** gekennzeichnet. edulution wartet nach jedem Fehlversuch länger, bevor es erneut abruft, und versucht es bei einer dauerhaft nicht erreichbaren Quelle nur noch etwa einmal täglich. Sobald die Quelle wieder antwortet, verschwindet die Kennzeichnung von selbst.
+Ist eine Quelle vorübergehend nicht erreichbar, bleiben die zuletzt geladenen Termine sichtbar; in der Seitenleiste tritt an die Stelle des Farbfelds ein rotes Warnsymbol. Fahren Sie mit der Maus darüber, erscheint **Aktualisierung fehlgeschlagen**. edulution wartet nach jedem Fehlversuch länger, bevor es erneut abruft, und versucht es bei einer dauerhaft nicht erreichbaren Quelle nur noch etwa einmal täglich. Sobald die Quelle wieder antwortet, verschwindet die Kennzeichnung von selbst.
+
+![Seitenleiste mit einem Web-Kalender, dessen Aktualisierung fehlgeschlagen ist](/img/kalender/web-kalender-aktualisierung-fehlgeschlagen.webp)
 
 ### Web-Kalender bearbeiten und entfernen
 

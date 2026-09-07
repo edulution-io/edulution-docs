@@ -18,7 +18,7 @@ Standardmäßig werden die Kategorien in einer Zeile von links nach rechts aufge
 
 Kategorien ohne aktive Mitteilungen werden nicht angezeigt. Dadurch stehen die Spalten mit aktuellen Mitteilungen immer vorne, und eine wichtige Mitteilung rutscht nicht hinter mehrere leere Kategorien.
 
-Sobald eine Kategorie wieder eine aktive Mitteilung enthält, erscheint sie automatisch erneut – auch ohne die Seite neu zu laden. Enthält keine der für Sie freigegebenen Kategorien eine aktive Mitteilung, erscheint anstelle der Spalten der Hinweis **Derzeit gibt es auf keinem Infoboard offene Themen.**
+Sobald eine Kategorie wieder eine aktive Mitteilung enthält, erscheint sie automatisch erneut – auch ohne die Seite neu zu laden. Enthält keine der für Sie freigegebenen Kategorien eine aktive Mitteilung, erscheint anstelle der Spalten der Hinweis **Derzeit gibt es auf keinem Infoboard aktuelle Mitteilungen.**
 
 <Audience roles="advanced">
 

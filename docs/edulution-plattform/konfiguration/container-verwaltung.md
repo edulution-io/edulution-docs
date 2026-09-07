@@ -45,13 +45,14 @@ Die Tabelle listet **alle** Container des Docker-Hosts – auch gestoppte. Über
 |--------|--------------|
 | **Badge** | Farbpunkt: grün = läuft, rot = läuft nicht |
 | **Container-Name** | Name des Containers |
-| **Image** | Docker-Image samt Tag |
+| **Image** | Docker-Image samt Tag, davor ein Symbol für den Update-Zustand – siehe [Verfügbare Updates erkennen](#verfügbare-updates-erkennen) |
 | **Betriebszustand** | *läuft*, *erstellt*, *neu gestartet*, *pausiert*, *gestoppt* oder *tot* |
 | **Status** | Laufzeit bzw. Zeitpunkt der letzten Zustandsänderung (z. B. *Up 2 days*) |
 | **Port** | Nach außen veröffentlichte Ports |
 | **Erstellt am** | Erstellungszeitpunkt des Containers |
+| **Zuletzt geprüft** | Wann der Update-Zustand des Containers zuletzt ermittelt wurde |
 
-Auf kleinen Bildschirmen werden **Image**, **Port**, **Status** und **Erstellt am** ausgeblendet.
+Auf kleinen Bildschirmen werden **Image**, **Port**, **Status**, **Erstellt am** und **Zuletzt geprüft** ausgeblendet. Das Update-Symbol sitzt in der Spalte **Image** und wird mit ihr ausgeblendet.
 
 :::tip[Die Tabelle aktualisiert sich selbst]
 Die edulution Plattform hört auf die Ereignisse des Docker-Daemons. Startet, stoppt oder verschwindet ein Container – auch außerhalb der UI, etwa per SSH –, aktualisiert sich die Tabelle automatisch. Die Schaltfläche **Neu laden** erzwingt zusätzlich ein sofortiges Neuladen.
@@ -69,7 +70,8 @@ Wählen Sie eine oder mehrere Zeilen aus. Die Schaltflächen der Aktionsleiste a
 | **Neu starten** | mindestens ein Container ausgewählt ist | Startet die Container neu |
 | **Beenden** | alle ausgewählten Container laufen (oder neu starten) | Beendet die Container erzwungen (`kill`) |
 | **Löschen** | kein ausgewählter Container läuft | Entfernt die Container nach Rückfrage |
-| **Update** | mindestens ein Container ausgewählt ist | Lädt das neueste Image und erstellt die Container neu |
+| **Update** | mindestens ein Container ausgewählt ist | Lädt das neueste Image, erstellt die Container neu und prüft anschließend ihren Update-Zustand erneut |
+| **Auf Updates prüfen** | immer | Prüft sofort, ob ein neueres Image bereitliegt – für die Auswahl, sonst für alle Container |
 | **Neu laden** | immer | Lädt die Tabelle neu |
 | **Terminal** | Desktop-Bereitstellung konfiguriert und Guacamole läuft | Öffnet eine SSH-Sitzung zum Server |
 
@@ -145,6 +147,39 @@ Nach der Installation erscheint `edulution-manager-agent` wie jeder andere Conta
 Der Agent kann sein eigenes Update anstoßen, ohne dass sich jemand anmeldet. edulution nimmt diese Anforderung nur an, wenn sie tatsächlich aus dem Container `edulution-manager-agent` stammt: Die API ermittelt zur anfragenden IP-Adresse den zugehörigen Container und weist die Anforderung andernfalls ab. Ein entsprechender Versuch wird protokolliert.
 :::
 
+## Verfügbare Updates erkennen
+
+Einmal täglich – um 04:30 UTC – prüft die edulution Plattform für jeden Container, ob in der Registry ein neueres Image bereitliegt. Zusätzlich prüft sie beim Start der Plattform, sofern die letzte Prüfung länger als einen Tag zurückliegt; nach einem Update oder Neustart steht der Zustand damit sofort zur Verfügung, ohne bis zur nächsten Nacht zu warten. Dabei wird **kein Image heruntergeladen**: Verglichen wird allein die Kennung (der *Digest*) des Images, das der Container ausführt, mit der Kennung, die derzeit hinter seinem Tag liegt.
+
+Geprüft wird **immer innerhalb des Tags**, auf den der Container festgelegt ist. Ein Container auf `26.4` wird gegen `26.4` verglichen; eine neuere Nebenversion wie `26.5` bleibt unberücksichtigt. Der Vergleich entspricht damit genau dem, was ein `docker pull` desselben Tags laden würde. Ein Container auf einem unveränderlichen Tag wie `4.9.1.12` meldet folgerichtig nie ein Update.
+
+Das Ergebnis steht als Symbol **vor dem Image-Namen**; die Spalte **Zuletzt geprüft** nennt den Zeitpunkt der letzten Ermittlung. Fahren Sie mit dem Zeiger über das Symbol, um seine Bedeutung als Text zu sehen.
+
+| Symbol | Bedeutung |
+|--------|-----------|
+| Grünes Häkchen | **Aktuell** – der Container führt das Image aus, das derzeit hinter seinem Tag liegt. |
+| Gelber Kreis mit Pfeil nach oben | **Update verfügbar** – in der Registry liegt hinter demselben Tag ein neueres Image. |
+| Graues Fragezeichen | **Nicht prüfbar** – der Zustand ließ sich nicht ermitteln; der Grund steht im Tooltip. |
+| Blasses graues Fragezeichen | **Noch nicht geprüft** – der Container ist neu hinzugekommen und wird von der nächsten Prüfung erfasst. |
+
+Lässt sich der Zustand nicht ermitteln, nennt der Tooltip den Grund:
+
+| Grund | Ursache |
+|-------|---------|
+| **Auf Digest festgelegt** | Der Container ist auf eine feste Image-Kennung statt auf einen Tag festgelegt. Einen Tag, dem er folgen könnte, gibt es nicht. |
+| **Kein lokaler Digest** | Zum laufenden Image ließ sich keine Kennung ermitteln, gegen die verglichen werden könnte. |
+| **Registry-Abfrage fehlgeschlagen** | Die Registry hat die Anfrage nicht beantwortet. Das betrifft lokal gebaute Images, Images aus einer Registry, die Zugangsdaten verlangt, und Tags, die dort nicht (mehr) existieren. |
+
+:::note[Nicht prüfbar heißt nicht aktuell]
+Ein Container, dessen Zustand sich nicht ermitteln lässt, wird bewusst **nicht** als *Aktuell* geführt. Ob für ihn ein Update vorliegt, bleibt offen.
+:::
+
+Die Schaltfläche **Auf Updates prüfen** stößt die Prüfung sofort an: Sind Zeilen ausgewählt, werden genau diese geprüft, andernfalls alle Container. Der Vorgang kann einen Moment dauern – für jeden Container wird die Registry einzeln befragt. Währenddessen ist die Schaltfläche gesperrt, und neben der Überschrift **Container** dreht sich ein Ladesymbol.
+
+:::info[Auch geschützte Container werden geprüft]
+Das Symbol erscheint für alle Container, also auch für die geschützten der Basisinstallation. Aktualisieren lassen sich diese über die Oberfläche weiterhin nicht; dafür gilt der Weg über die Konsole, siehe [Administration → Updates](./administration.md).
+:::
+
 ## Container aktualisieren
 
 Die Schaltfläche **Update** bringt die ausgewählten Container auf das neueste Image:
@@ -152,6 +187,7 @@ Die Schaltfläche **Update** bringt die ausgewählten Container auf das neueste 
 1. Das im Container hinterlegte Image wird neu geladen (`pull`).
 2. Bringt der Vorgang keine neue Fassung, endet er mit dem Hinweis *„&lt;Container&gt; ist bereits aktuell."* – der Container läuft unverändert weiter.
 3. Andernfalls wird der Container gestoppt, entfernt und mit derselben Konfiguration – Umgebungsvariablen, Volumes, Ports, Netzwerke – aus dem neuen Image neu erstellt und gestartet. Abschließend erscheint *„&lt;Container&gt; erfolgreich aktualisiert."*
+4. Der Update-Zustand der betroffenen Container wird unmittelbar danach neu ermittelt, sodass das Symbol vor dem Image-Namen sofort auf *Aktuell* wechselt.
 
 :::warning[Der Container wird ersetzt, nicht verändert]
 Beim Update wird der Container gelöscht und neu angelegt. Daten in eingebundenen Volumes bleiben erhalten; Dateien, die ausschließlich im Dateisystem des Containers liegen, gehen verloren. Der Dienst ist während des Vorgangs kurz nicht erreichbar.

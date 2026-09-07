@@ -424,6 +424,8 @@ Zum Abonnieren wählen Sie oben rechts in der Aktionen-Leiste **Web-Kalender abo
 | **Name** | Der Name, unter dem der Kalender bei Ihnen erscheint. Lassen Sie das Feld leer, wird der Name aus dem Kalender selbst übernommen. |
 | **Farbe** | Die Farbe, mit der die Termine dieses Kalenders in allen Ansichten gekennzeichnet werden. |
 
+![Dialog zum Abonnieren eines Web-Kalenders](/img/kalender/web-kalender-abonnieren.webp)
+
 Beim Abonnieren wird der Kalender sofort einmal abgerufen. Schlägt das fehl, wird das Abonnement nicht angelegt – Sie können eine unbrauchbare Adresse also nicht versehentlich hinterlegen. Ist die Adresse nicht erreichbar oder enthält sie keinen gültigen Kalender, meldet edulution **Der Kalender konnte nicht geladen werden.**; weist der Server die Adresse grundsätzlich ab – etwa weil sie ins interne Netz zeigt –, erhalten Sie stattdessen **Diese Adresse kann nicht abonniert werden. Bitte prüfen Sie die URL.**
 
 Adressen, die einen Benutzernamen und ein Kennwort enthalten (`https://benutzer:kennwort@…`), werden abgelehnt. Ein Web-Kalender muss ohne Anmeldedaten abrufbar sein.

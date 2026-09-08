@@ -1,7 +1,3 @@
----
-sidebar_position: 5
----
-
 # Outlook einrichten
 
 import MailServerConfig from '@site/src/components/MailServerConfig';
@@ -41,8 +37,8 @@ Anleitung zur Einrichtung von Microsoft Outlook mit edulution Mail.
 </div>
 
 :::warning[Eingeschränkte Kompatibilität]
-Outlook hat eingeschränkte Unterstützung. Wir empfehlen [Thunderbird](./thunderbird) oder [Apple Mail](./apple-mail).
-[Vollständige Kompatibilitätsmatrix](./compatibility-matrix)
+Outlook hat eingeschränkte Unterstützung. Wir empfehlen [Thunderbird](./thunderbird.md) oder [Apple Mail](./apple-mail.md).
+[Vollständige Kompatibilitätsmatrix](./compatibility-matrix.md)
 :::
 
 :::info
@@ -149,8 +145,8 @@ Das neue Outlook (Web) überträgt Ihre **Zugangsdaten an Microsoft-Server**. Di
 
 **Alternativen:**
 - Verwenden Sie das klassische Outlook (falls verfügbar)
-- Wechseln Sie zu [Thunderbird](./thunderbird)
-- Nutzen Sie das [Webmail-Interface](../administration#webmail-sogo) direkt
+- Wechseln Sie zu [Thunderbird](./thunderbird.md)
+- Nutzen Sie das [Webmail-Interface](../konfiguration/administration.md#webmail-sogo) direkt
 :::
 
 ## Troubleshooting
@@ -203,7 +199,7 @@ Aufgrund der massiven Einschränkungen von Outlook empfehlen wir dringend die Mi
 2. **Kalender:** Exportieren Sie aus Outlook als `.ics` und importieren Sie in Thunderbird
 3. **Kontakte:** Exportieren Sie aus Outlook als `.csv` und importieren Sie in Thunderbird
 
-**Anleitung:** [Thunderbird einrichten](./thunderbird)
+**Anleitung:** [Thunderbird einrichten](./thunderbird.md)
 
 ## Webmail als Alternative
 
@@ -219,7 +215,7 @@ Das Webmail-Interface (SOGo) bietet:
 - ✅ Mobile-optimierte Ansicht
 
 :::tip[Weitere Hilfe]
-Weitere Lösungen für häufige Probleme finden Sie auf unserer **[Troubleshooting-Seite](./troubleshooting)**.
+Weitere Lösungen für häufige Probleme finden Sie auf unserer **[Troubleshooting-Seite](./troubleshooting.mdx)**.
 
 Bei weiteren Problemen wenden Sie sich an Ihren Administrator oder die [edulution Community](https://ask.linuxmuster.net/c/edulution/63).
 :::
@@ -237,6 +233,6 @@ Bei weiteren Problemen wenden Sie sich an Ihren Administrator oder die [edulutio
 - ⚠️ ActiveSync instabil (Outlook 2013/2016)
 
 **Empfohlene Lösungen:**
-1. **Beste Option:** Migration zu [Thunderbird](./thunderbird) oder [Apple Mail](./apple-mail)
-2. **Alternative:** Kombination aus Outlook (nur E-Mail) + [Webmail](../administration#webmail-sogo) (Kalender & Kontakte)
+1. **Beste Option:** Migration zu [Thunderbird](./thunderbird.md) oder [Apple Mail](./apple-mail.md)
+2. **Alternative:** Kombination aus Outlook (nur E-Mail) + [Webmail](../konfiguration/administration.md#webmail-sogo) (Kalender & Kontakte)
 3. **Notlösung:** Kostenpflichtige Plugins (nicht empfohlen)

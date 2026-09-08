@@ -309,6 +309,12 @@ Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.
 
 Beim Umbenennen und Duplizieren erlaubt der Name Buchstaben, Ziffern sowie `.`, `_`, `+` und `-`; er muss mit einem Buchstaben oder einer Ziffer beginnen. Ein Name, den ein anderes Image bereits trägt, wird ebenso abgewiesen wie der unveränderte Name.
 
+:::note[Große Images brauchen Zeit – und werden nicht wiederholt]
+**Duplizieren**, **Wiederherstellen**, **Umbenennen** und die Löschaktionen arbeiten auf den vollständigen Image-Dateien auf dem Server. Bei einem Image von mehreren Gigabyte dauert das entsprechend lange, weshalb für sie ein eigenes Zeitlimit von zehn Minuten gilt; es lässt sich anpassen (siehe [Einrichtung (für Administratoren)](#einrichtung-für-administratoren)).
+
+Wird das Zeitlimit überschritten, meldet die Oberfläche einen Fehler, obwohl die Aktion auf dem Server weiterläuft und noch gelingen kann. Die Plattform startet sie deshalb nicht von selbst neu: ein zweiter Anlauf würde beim Wiederherstellen eine weitere Sicherung anlegen und dieselben Dateien noch einmal verschieben. Prüfen Sie in diesem Fall zuerst die Liste der Images, bevor Sie die Aktion erneut auslösen.
+:::
+
 #### Beschreibung und Skripte bearbeiten
 
 Der Editor hat je eine Registerkarte für die Dateien, die Sie ändern können: **Beschreibung** (`.desc`), **Info** (`.info`), **Registry** (`.reg`), **Pre-Start Script** (`.prestart`) und **Post-Sync Script** (`.postsync`). Er öffnet für drei Ziele: das Basisimage, das Differenzimage und jede einzelne Sicherung – die Sicherung über das Zahnrad in ihrer Zeile im Dialog **Sicherungen**. Für Registry-Patch und Skripte bietet der Editor oben rechts **Aus anderem Image übernehmen** an – die Auswahl listet alle Images, die für diesen Dateityp Inhalt haben, und übernimmt ihn in das Feld.
@@ -348,6 +354,7 @@ Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich in dieser Version nicht b
 - Die **Plattform** stellen Sie unter [Einstellungen → Globale Einstellungen → Allgemein](../edulution-plattform/konfiguration/einstellungen.md#allgemein) auf **Linuxmuster**.
 - Welche Bereiche dieser App sichtbar sind und wie sie beschriftet werden, hängt zusätzlich vom [Organisationstyp](../edulution-plattform/konfiguration/einstellungen.md#organisationstyp) ab.
 - Die Verbindung zum Schulserver richten Sie nach der Anleitung [Linuxmuster verbinden](./installation.md) ein.
+- Kopier- und Verschiebeaktionen an Images brechen nach zehn Minuten ab. Dauern sie bei sehr großen Images länger, setzen Sie die Umgebungsvariable `LMN_API_FILE_OPERATION_TIMEOUT_MS` der API auf einen höheren Wert in Millisekunden; ohne Angabe gilt `600000`.
 
 ## Siehe auch
 

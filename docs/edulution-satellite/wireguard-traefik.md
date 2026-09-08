@@ -2,6 +2,8 @@
 sidebar_position: 4
 title: WireGuard-Server über Traefik
 description: Den WireGuard-Server der edulution-Instanz per UDP über Traefik erreichbar machen
+sidebar_custom_props:
+  audience: admin
 ---
 
 # WireGuard-Server über Traefik

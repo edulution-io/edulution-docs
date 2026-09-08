@@ -133,5 +133,5 @@ Wenn Sie die edulution App für Ihre Schule oder Organisation bereitstellen, sol
 **Wie?**
 Eine ausführliche Anleitung zum Erstellen und Hinterlegen von Impressum und Datenschutzerklärung finden Sie hier:
 
-[→ Anleitung: Impressum und Datenschutzerklärung einrichten](/docs/edulution-ui/features/impressum-datenschutz)
+[→ Anleitung: Impressum und Datenschutzerklärung einrichten](/docs/edulution-plattform/konfiguration/impressum-datenschutz)
 :::

@@ -34,7 +34,7 @@ Dieser Befehl generiert statische Inhalte im `build` Verzeichnis.
 
 - `/docs` - Dokumentationsinhalte
 
-  - `/edulution-ui` - edulution UI Dokumentation
+  - `/edulution-plattform` - edulution Plattform Dokumentation
   - `/edulution-mail` - edulution Mail Dokumentation
   - `/edulution-fileproxy` - edulution FileProxy Dokumentation
   - `/edulution-onlyoffice` - edulution OnlyOffice Dokumentation
@@ -42,6 +42,145 @@ Dieser Befehl generiert statische Inhalte im `build` Verzeichnis.
 - `/changelogs` - Versionshistorie und Änderungsprotokolle
 - `/static` - Statische Assets (Bilder, Icons, etc.)
 - `/src` - Custom React Komponenten und Styles
+
+## Zielgruppen (Rollen, Organisationstyp, Modul)
+
+Die Dokumentation lässt sich auf die Lesenden zuschneiden. Auf der [Startseite](docs/index.md)
+beantwortet man drei Fragen; die Auswahl liegt im LocalStorage und gilt für alle Seiten. Oben rechts
+in der Navigationsleiste zeigt ein Badge die aktive Rolle und erlaubt das schnelle Umschalten.
+
+**Ohne Auswahl ist nichts ausgeblendet.** Wer die Fragen überspringt, sieht die vollständige
+Dokumentation – die Auswahl ist eine Lesehilfe, kein Zugriffsschutz.
+
+> **Kein Zugriffsschutz.** Docusaurus erzeugt statisches HTML – ausgeblendete Inhalte werden
+> weiterhin an jeden Besucher ausgeliefert und sind im Quelltext lesbar.
+
+### Die drei Achsen
+
+| Achse | Werte | Wirkung |
+| --- | --- | --- |
+| `role` | `student`, `teacher`, `parent`, `staff`, `admin-setup`, `admin-operate` | blendet Inhalte anderer Rollen aus |
+| `org` | `school`, `business`, `public-administration` | blendet Inhalte anderer Organisationstypen aus |
+| `module` | `plattform`, `mail`, `app`, `infrastruktur` | sortiert nur die Einstiegskarten, blendet nichts aus |
+
+Die Rollenwerte folgen den Benutzertypen von edulution, die Organisationstypen den Werten von
+`EDUI_ORGANIZATION_TYPE`. Definiert sind sie in
+[`src/components/audience/taxonomy.ts`](src/components/audience/taxonomy.ts) – neue Werte gehören
+dorthin und brauchen zusätzlich eine CSS-Regel in `src/css/custom.css`.
+
+### Zugriffsstufen
+
+Die Rollen stehen nicht nebeneinander, sondern übereinander. Jede Rolle hat eine Stufe, und wer
+höher steht, liest die Stufen darunter mit – wer eine Instanz einrichtet, betreut sie auch, und wer
+eine Klasse betreut, nutzt dieselben Apps wie die Klasse selbst.
+
+| Stufe | Bezeichnung | Rollen-IDs |
+| --- | --- | --- |
+| 1 | Benutzer | `student`, `parent`, `staff` |
+| 2 | Erweiterter Benutzer | `teacher` |
+| 3 | Admin · Betrieb | `admin-operate` |
+| 4 | Admin · Einrichtung | `admin-setup` |
+
+Die Stufe hängt an der Rollen-ID, nicht am angezeigten Label: `teacher` heißt je nach
+Organisationstyp Lehrkraft, Lehrende:r oder Führungskraft und meint überall dieselbe Aufgabe.
+
+Ausgezeichnet wird mit den Gruppen, die sich daraus ergeben:
+
+| Kürzel | Bedeutung | Rollen |
+| --- | --- | --- |
+| `advanced` | Stufe 2 aufwärts (kumulativ) | `teacher`, `admin-operate`, `admin-setup` |
+| `admin` | Stufe 3 aufwärts (kumulativ) | `admin-operate`, `admin-setup` |
+| `user` | alle Endnutzer, ohne Administration (exklusiv) | `student`, `parent`, `staff`, `teacher` |
+| `basic` | nur Stufe 1 (exklusiv) | `student`, `parent`, `staff` |
+
+Kumulativ ist die Vorgabe. Exklusiv – also die Administration ausdrücklich ausgeschlossen – ist
+gemeint, wenn zwei Fassungen desselben Themas nebeneinanderstehen: »Für Lehrende« neben »Für
+Schüler«. Ohne `basic` bekäme eine Lehrkraft beide Fassungen zu sehen.
+
+### Abschnitt auszeichnen
+
+`<Audience>` ist global registriert und braucht keinen Import. Die Leerzeilen sind wichtig, sonst
+wird das Markdown im Block nicht gerendert:
+
+```mdx
+<Audience roles="advanced">
+
+## Mitteilung erstellen
+
+Wer eine Gruppe betreut, legt hier Mitteilungen an – die Administration sieht den Abschnitt mit.
+
+</Audience>
+
+<Audience roles="admin">
+
+## Einrichtung (für Administratoren)
+
+Zugriffsgruppen unter Einstellungen → … pflegen.
+
+</Audience>
+```
+
+- `roles` – eine oder mehrere Rollen, durch Leerzeichen oder Komma getrennt, oder eine der Gruppen
+  aus [Zugriffsstufen](#zugriffsstufen) (`advanced`, `admin`, `user`, `basic`).
+- `org` – ein oder mehrere Organisationstypen.
+- Beide Angaben werden mit UND verknüpft: `roles="teacher" org="school"` zeigt den Abschnitt
+  Lehrkräften in Schulumgebungen.
+- Ohne Angabe gilt die jeweilige Achse als unbeschränkt.
+
+Ein unbekannter Name lässt den Build fehlschlagen – besser ein roter Build als ein Abschnitt, der
+wegen eines Tippfehlers stumm für alle sichtbar bleibt.
+
+Nur auszeichnen, wo es wirklich nötig ist. Steht die Information für die andere Zielgruppe schon im
+sichtbaren Text, ist ein zusätzlicher Block nur Rauschen.
+
+### Ganze Seite auszeichnen
+
+```yaml
+---
+sidebar_custom_props:
+  audience: admin-setup
+---
+```
+
+Die Seite verschwindet damit aus der Sidebar. Wer sie direkt aufruft, sieht statt des Inhalts einen
+Hinweis, für welche Rollen sie geschrieben ist, samt Knopf zum Umschalten.
+
+### Ganze Kategorie auszeichnen
+
+In `sidebars.ts` an der Kategorie:
+
+```ts
+{
+  type: 'category',
+  label: 'Installation',
+  customProps: { audience: 'admin-setup' },
+  items: [ /* … */ ],
+}
+```
+
+### Inhaltsverzeichnis und Suche
+
+- Einträge im Inhaltsverzeichnis, die auf eine ausgeblendete Überschrift zeigen, werden mit
+  ausgeblendet.
+- Der Suchindex bleibt **vollständig**. Ohne Auswahl ist ohnehin alles sichtbar; führt ein
+  Suchtreffer oder ein geteilter Link jemanden mit gewählter Rolle auf einen Anker in einem
+  ausgeblendeten Abschnitt, wird genau dieser Abschnitt aufgedeckt statt zu fehlen.
+
+### Beteiligte Dateien
+
+| Datei | Zweck |
+| --- | --- |
+| `src/components/audience/taxonomy.ts` | Rollen, Organisationstypen, Module, Auflösung der Kürzel |
+| `src/components/audience/AudienceContext.tsx` | Auswahl, LocalStorage, Inhaltsverzeichnis und Aufdecken |
+| `src/components/audience/Audience.tsx` | Wrapper für einzelne Abschnitte |
+| `src/components/audience/AudiencePicker.tsx` | Die drei Fragen auf der Startseite |
+| `src/components/audience/AudienceBadge.tsx` | Anzeige und Umschalten in der Navigationsleiste |
+| `src/components/audience/ModuleCards.tsx` | Einstiegskarten, sortiert nach gewähltem Modul |
+| `src/plugins/audience.js` | Inline-Skript, setzt `data-role`/`data-org` vor dem ersten Paint |
+| `src/theme/DocSidebarItem/index.tsx` | Blendet Sidebar-Einträge aus |
+| `src/theme/DocItem/Content/index.tsx` | Blendet ganze Seiten aus, zeigt den Hinweis |
+| `src/css/custom.css` | Sichtbarkeitsregeln (`html[data-role]`, `html[data-org]`) |
+
 
 ## Deployment
 

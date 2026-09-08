@@ -86,9 +86,8 @@ Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalen
 - **Als Standardkalender festlegen** bzw. **Als Standardkalender entfernen** – Bestimmt, welcher Kalender beim [Erstellen eines Termins](#termine-erstellen) vorausgewählt ist.
 - **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
 - **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht an derselben Stelle wie **Freigeben**.
-- **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
-
 - **Jetzt aktualisieren** – Lädt einen [Web-Kalender](#web-kalender-abonnieren) sofort neu, ohne auf die nächste automatische Aktualisierung zu warten; nur bei Web-Kalendern verfügbar.
+- **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
 
 Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
 

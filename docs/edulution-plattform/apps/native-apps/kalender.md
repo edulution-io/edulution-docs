@@ -84,10 +84,11 @@ Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalen
 - **Als Stundenplan markieren** bzw. **Stundenplan-Markierung entfernen** – Verschiebt einen eigenen Kalender in die Gruppe **Stundenplan** oder zurück zu **Meine Kalender** (siehe [Stundenplan](#stundenplan)).
 - **Als Standardkalender festlegen** bzw. **Als Standardkalender entfernen** – Bestimmt, welcher Kalender beim [Erstellen eines Termins](#termine-erstellen) vorausgewählt ist.
 - **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
+- **Kalender veröffentlichen** – Öffnet den [Veröffentlichen-Dialog](#kalender-veröffentlichen), über den Sie den Kalender als Abonnement-Link bereitstellen; nur bei eigenen Kalendern verfügbar.
 - **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht an derselben Stelle wie **Freigeben**.
 - **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
 
-Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
+Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben**, **Kalender veröffentlichen** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
 
 Bei einem als Stundenplan markierten Kalender führt der Eintrag in der Seitenleiste direkt in die [Stundenplan-Ansicht](#stundenplan); sein Kontextmenü enthält deshalb keine Anzeige-Aktionen, sondern **Stundenplan-Markierung entfernen**, **Einstellungen**, **Freigeben** und **Löschen**. Ein Stundenplan lässt sich nicht als Standardkalender festlegen.
 
@@ -373,6 +374,47 @@ Schlägt diese Korrektur fehl, wird die betroffene Zeile mit **Überzählige Rec
 Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktionen von **SoGo** und ist nur verfügbar, wenn als CalDAV-Server SoGo eingesetzt wird. Die reine Terminsynchronisierung funktioniert dagegen mit jedem standardkonformen CalDAV-Server. Welcher CalDAV-Server verwendet wird, legt die Administration in den [Einstellungen der Kalender-App](../../konfiguration/einstellungen.md#kalender-caldav) fest.
 
 :::
+
+## Kalender veröffentlichen
+
+Während eine [Freigabe](#kalender-freigeben) sich an Benutzer und Gruppen Ihrer Schule richtet, stellt das Veröffentlichen einen Kalender **außerhalb** von edulution bereit: Sie erhalten einen Link, den beliebige Kalender-Programme wie Google Kalender, Apple Kalender, Outlook oder Thunderbird abonnieren können. Der veröffentlichte Kalender ist dort ausschließlich lesbar; Änderungen sind nur in edulution möglich.
+
+Öffnen Sie dazu in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Kalender veröffentlichen**. Abonnierte und schreibgeschützte Kalender lassen sich nicht veröffentlichen.
+
+:::warning[Der Link ist das einzige Kennwort]
+Wer den Link besitzt, sieht die Inhalte des Kalenders **ohne Anmeldung**. Es gibt keine weitere Zugangsprüfung. Geben Sie den Link deshalb nur an den vorgesehenen Personenkreis weiter und bedenken Sie, dass er über Browser-Verläufe, Chat-Vorschauen oder Server-Protokolle weitergetragen werden kann.
+:::
+
+Nach dem Klick auf **Veröffentlichen** zeigt der Dialog zwei Adressen zum gleichen Kalender:
+
+- Den **Abonnement-Link** (`https://…`), den Sie in Google Kalender oder Outlook unter „Per URL hinzufügen“ einfügen.
+- Den **Link für einen Klick** (`webcal://…`), der auf macOS, iOS und vielen Desktop-Programmen das Abonnieren direkt startet.
+
+Solange der Kalender veröffentlicht ist, zeigt der Dialog beide Adressen bei jedem Öffnen erneut an — Sie müssen den Link also nicht aufbewahren.
+
+### Was der Link preisgibt
+
+Zwei Einstellungen bestimmen, wie viel der veröffentlichte Kalender verrät. Beide sind zunächst **zurückhaltend eingestellt**; erst wenn Sie sie ändern, enthält der Link mehr:
+
+- **Private und vertrauliche Termine** – Standardmäßig erscheinen Termine mit der [Sichtbarkeit](#rechte-je-sichtbarkeit) **Privat** oder **Vertraulich** gar nicht im veröffentlichten Kalender. Schalten Sie **Nur als „Belegt“ anzeigen** ein, werden sie stattdessen als belegte Zeit ohne Titel, Ort, Beschreibung und Teilnehmer übertragen — Ihre Verfügbarkeit ist dann sichtbar, der Anlass nicht.
+- **E-Mail-Adressen der Teilnehmer** – Standardmäßig überträgt der Kalender keine Teilnehmer- und Organisator-Adressen. Schalten Sie die Option ein, sieht jede Person mit dem Link sämtliche in diesem Kalender eingetragenen Adressen.
+
+Eine geänderte Einstellung gilt sofort für den nächsten Abruf; Sie müssen den Link dafür nicht neu erzeugen.
+
+### Link zurückziehen oder erneuern
+
+- **Veröffentlichung zurückziehen** beendet die Veröffentlichung. Der Link liefert ab dem nächsten Abruf keine Termine mehr.
+- **Neuen Link erzeugen** ersetzt die Adresse durch eine neue. Der bisherige Link wird dabei sofort ungültig — verwenden Sie dies, wenn ein Link in falsche Hände geraten ist, und verteilen Sie anschließend die neue Adresse an alle vorgesehenen Abonnenten.
+
+:::info[Bereits abonnierte Programme aktualisieren verzögert]
+Wie schnell ein Abonnement die Änderung bemerkt, bestimmt das abonnierende Programm, nicht edulution. Google Kalender ruft einen abonnierten Kalender erfahrungsgemäß nur alle acht bis vierundzwanzig Stunden ab, Outlook in ähnlich großen Abständen. Nach dem Zurückziehen oder Erneuern eines Links können dort also noch eine Zeit lang zwischengespeicherte Termine erscheinen. Enthält ein Kalender Termine, die sofort niemand mehr sehen darf, genügt das Zurückziehen des Links allein daher nicht.
+:::
+
+Löschen Sie einen veröffentlichten Kalender, wird seine Veröffentlichung automatisch mit zurückgezogen.
+
+### Umfang des veröffentlichten Kalenders
+
+Der Link überträgt die Termine von fünf Jahren in der Vergangenheit bis fünf Jahre in der Zukunft. Serientermine werden als Serie übertragen, sodass das abonnierende Programm auch Wiederholungen außerhalb dieses Zeitraums fortschreibt. Termine, die Sie in edulution ändern, erscheinen beim nächsten Abruf des abonnierenden Programms.
 
 ## Abonnierte und schreibgeschützte Kalender
 

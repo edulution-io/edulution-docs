@@ -48,6 +48,17 @@ Ein Link kann schließlich direkt **einen bestimmten Termin öffnen** – etwa a
 
 Öffnen Sie den Kalender ohne einen solchen Link – etwa über die Seitenleiste –, wird die **zuletzt von Ihnen verwendete Ansicht** mit dem heutigen Datum angezeigt. Gemerkt wird dabei nur eine Ansicht, die Sie selbst über die Umschaltung gewählt haben: Öffnen Sie den Link einer Kollegin, ändert das nicht, mit welcher Ansicht Ihr eigener Kalender künftig startet. Die zuletzt verwendete Ansicht bleibt über das Abmelden hinaus nicht erhalten: Nach einer erneuten Anmeldung beginnt der Kalender wieder mit der Monatsansicht.
 
+### Neue Einträge anlegen
+
+Oben rechts öffnet die Schaltfläche **Erstellen** ein Menü mit den beiden Anlegen-Aktionen:
+
+- **Termin erstellen** – Öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen).
+- **Kalender anlegen** – Öffnet den Dialog zum [Anlegen eines neuen Kalenders](#kalender-anlegen).
+
+Das Menü steht in allen Ansichten zur Verfügung, auch in der [Stundenplan-Ansicht](#stundenplan).
+
+Solange Sie über keinen Kalender verfügen, in den Sie Termine eintragen dürfen, ist **Termin erstellen** deaktiviert; im Menü erscheint dann der Hinweis, dass dafür ein beschreibbarer Kalender benötigt wird. **Kalender anlegen** bleibt in diesem Fall verfügbar – Sie können sich also zunächst einen eigenen Kalender anlegen und darin anschließend Termine erstellen.
+
 ### Ansicht aktualisieren
 
 Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die Termine des aktuell angezeigten Zeitraums und der aktiven Kalender erneut vom Server, ohne dass Sie die Seite neu laden oder wegblättern müssen – nützlich, um zwischenzeitlich an anderer Stelle geänderte Termine anzuzeigen. Während des Aktualisierens dreht sich das Symbol der Schaltfläche, sie ist vorübergehend deaktiviert und es erscheint die kleine Ladeanzeige.
@@ -58,10 +69,10 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 
 - **Meine Kalender** – Kalender, die Ihnen gehören.
 - **Abonnierte Kalender** – Kalender, die andere für Sie freigegeben haben.
+- **Web-Kalender** – Externe Kalender, die Sie über ihre Adresse abonniert haben (siehe [Web-Kalender abonnieren](#web-kalender-abonnieren)).
 - **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
-- **Kalender anlegen** – Öffnet den Dialog zum [Anlegen eines neuen Kalenders](#kalender-anlegen).
 
-Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender** und **Abonnierte Kalender** führen zur normalen Kalenderansicht, **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf **Meine Kalender** oder **Abonnierte Kalender** wieder in die gewohnte Kalenderansicht zurück. Ansicht und Zeitraum bleiben dabei erhalten: Sie landen in der Ansicht und auf dem Zeitraum, den Sie zuletzt angezeigt haben, nicht auf dem heutigen Datum (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)).
+Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender**, **Abonnierte Kalender** und **Web-Kalender** führen zur normalen Kalenderansicht, **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf einen der drei anderen Gruppeneinträge wieder in die gewohnte Kalenderansicht zurück. Ansicht und Zeitraum bleiben dabei erhalten: Sie landen in der Ansicht und auf dem Zeitraum, den Sie zuletzt angezeigt haben, nicht auf dem heutigen Datum (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)).
 
 Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet den Kalender in allen Ansichten und dient zugleich als Legende. Abonnierte (freigegebene) Kalender werden zusätzlich mit einem gestrichelten Rahmen gekennzeichnet.
 
@@ -85,6 +96,7 @@ Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalen
 - **Als Standardkalender festlegen** bzw. **Als Standardkalender entfernen** – Bestimmt, welcher Kalender beim [Erstellen eines Termins](#termine-erstellen) vorausgewählt ist.
 - **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
 - **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht an derselben Stelle wie **Freigeben**.
+- **Jetzt aktualisieren** – Lädt einen [Web-Kalender](#web-kalender-abonnieren) sofort neu, ohne auf die nächste automatische Aktualisierung zu warten; nur bei Web-Kalendern verfügbar.
 - **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
 
 Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
@@ -107,11 +119,23 @@ Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervo
 
 ### Woche
 
-Die Wochenansicht zeigt die sieben Tage der Woche mit einer Stundenskala. Termine werden zeitlich passend platziert; überlappende Termine werden nebeneinander angeordnet. Ganztägige Termine erscheinen in einer eigenen Zeile oberhalb der Stundenskala. Ein Klick auf einen freien Zeitabschnitt öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit der gewählten Anfangszeit.
+Die Wochenansicht zeigt die sieben Tage der Woche mit einer Stundenskala. Termine werden zeitlich passend platziert; überlappende Termine werden nebeneinander angeordnet. Ganztägige Termine erscheinen in einer eigenen Zeile oberhalb der Stundenskala. Ein Klick auf einen freien Zeitabschnitt öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit der gewählten Anfangszeit. Die Stundenskala umfasst den gesamten Tag von **00:00** bis **23:00**. Da selten alle Stunden gleichzeitig auf den Bildschirm passen, ist die Ansicht beim Öffnen auf **06:00 Uhr** eingestellt; die übrigen Stunden erreichen Sie, indem Sie im Zeitraster blättern (siehe [Zeitraster bedienen](#zeitraster-bedienen)).
 
 ### Tag
 
 Die Tagesansicht entspricht der Wochenansicht, beschränkt sie aber auf einen einzelnen Tag: Sie behalten die Stundenskala, die eigene Zeile für ganztägige Termine, das Anlegen eines Termins per Klick auf einen freien Zeitabschnitt und das Verschieben per Drag & Drop. Da nur ein Tag angezeigt wird, steht für die Termine die volle Breite zur Verfügung – hilfreich an Tagen mit vielen oder sich überschneidenden Terminen sowie auf schmalen Bildschirmen.
+
+### Zeitraster bedienen
+
+Das Zeitraster der **Wochen-**, der **Tages-** und der [**Stundenplan-Ansicht**](#stundenplan) zeigt immer nur einen Ausschnitt des Tages. Die übrigen Stunden erreichen Sie auf drei Wegen:
+
+- **Mit der Maus** über das Mausrad oder die Bildlaufleiste am rechten Rand des Rasters.
+- **Mit der Tastatur**: Mit der Tabulatortaste setzen Sie den Fokus in das Zeitraster. Anschließend blättern Sie mit **Bild auf** und **Bild ab** seitenweise und mit den **Pfeiltasten** in kleinen Schritten; **Pos 1** springt an den Tagesanfang, **Ende** an das Tagesende.
+- **Auf Touchgeräten**, indem Sie im Raster nach oben oder unten wischen. Das gelingt auch dann, wenn die Wischgeste auf einem Termin beginnt.
+
+Die Kopfzeile mit den Wochentagen und die Zeile für ganztägige Termine bleiben dabei stehen, sodass die Spalten den Wochentagen zugeordnet bleiben.
+
+Auch die freien Zeitabschnitte lassen sich mit der Tastatur ansteuern. Jeder Abschnitt trägt seinen Wochentag und seine Uhrzeit als Beschriftung, sodass Sie mit der Eingabetaste gezielt einen Termin zur gewünschten Zeit anlegen können.
 
 ### Agenda
 
@@ -133,7 +157,9 @@ Auch im Stundenplan steht die angezeigte Woche in der Adresse (URL). Sie können
 
 Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)). Wie in den übrigen Rasteransichten verschieben Sie einen Termin auch hier [per Drag & Drop](#termine-per-drag--drop-verschieben) auf einen anderen Zeitabschnitt. Über der Stundenskala liegt wie in der Wochenansicht eine eigene Zeile für **ganztägige** Termine.
 
-Neue Termine legen Sie über die Schaltfläche **Termin erstellen** oben rechts an; ein Klick auf einen leeren Zeitabschnitt öffnet hier – anders als in der Wochen- und der Tagesansicht – keinen neuen Termin. Im Dialog ist der geöffnete Stundenplan bereits als Kalender vorausgewählt, auch wenn Sie an anderer Stelle einen [Standardkalender](#kalenderkontextmenü) festgelegt haben.
+Neue Termine legen Sie oben rechts über **Erstellen** und darin **Termin erstellen** an; ein Klick auf einen leeren Zeitabschnitt öffnet hier – anders als in der Wochen- und der Tagesansicht – keinen neuen Termin. Im Dialog ist der geöffnete Stundenplan bereits als Kalender vorausgewählt, auch wenn Sie an anderer Stelle einen [Standardkalender](#kalenderkontextmenü) festgelegt haben.
+
+Ist der geöffnete Stundenplan nicht mehr vorhanden – etwa weil der Kalender gelöscht oder seine Stundenplan-Markierung entfernt wurde –, wechselt die Ansicht selbsttätig zurück zur Kalenderübersicht. Lässt sich die Kalenderliste dagegen gar nicht laden, etwa weil der CalDAV-Server nicht erreichbar ist, bleiben Sie auf der Stundenplan-Ansicht und es erscheint der Hinweis **Stundenpläne konnten nicht geladen werden.** Ein Ladefehler wird also nicht als gelöschter Stundenplan behandelt; sobald die Verbindung wieder steht, genügt **Neu laden**.
 
 :::info[Termine außerhalb des angezeigten Zeitraums]
 Der Stundenplan zeigt Montag bis Freitag und einen festen Zeitausschnitt am Tag. Ein Termin, der auf ein Wochenende oder außerhalb dieses Zeitausschnitts fällt, erscheint dort nicht – und da Stundenplan-Termine auch in **Monat**, **Woche**, **Tag** und **Agenda** ausgeblendet sind, ist er dann über die Oberfläche nicht erreichbar. Legen Sie solche Termine in einem gewöhnlichen Kalender an oder entfernen Sie die Stundenplan-Markierung vorübergehend über das [Kalenderkontextmenü](#kalenderkontextmenü).
@@ -153,7 +179,7 @@ Termine, die aus einem externen CalDAV-Programm stammen, übernehmen die dort ge
 
 Einen neuen Termin legen Sie auf mehreren Wegen an:
 
-- über die Schaltfläche **Termin erstellen** oben rechts,
+- oben rechts über die Schaltfläche **Erstellen** und darin den Eintrag **Termin erstellen**,
 - mit einem Klick auf einen Tag (Monatsansicht) oder einen Zeitabschnitt (Wochen- und Tagesansicht).
 
 Welcher Zeitpunkt dabei vorbelegt wird, hängt vom gewählten Weg ab:
@@ -249,6 +275,8 @@ Termine lassen sich direkt mit der Maus verschieben:
 
 In der **Agenda** ist das Verschieben per Drag & Drop nicht möglich, da sie die Termine als Liste und nicht als Zeitraster darstellt.
 
+Auf Touchgeräten tippen Sie den Termin an und **halten ihn kurz gedrückt**, bis er sich löst; erst danach ziehen Sie ihn an die neue Position. Eine zügige Wischgeste, die auf einem Termin beginnt, blättert dagegen im [Zeitraster](#zeitraster-bedienen), statt den Termin zu verschieben.
+
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
 
 :::info[Termine ohne Bearbeitungsrecht]
@@ -257,7 +285,7 @@ Verschieben lassen sich nur Termine, für die Sie das Recht zum **Ändern** besi
 
 ## Kalender anlegen
 
-Über **Kalender anlegen** in der Seitenleiste öffnen Sie den gleichnamigen Dialog. Dort legen Sie fest:
+Oben rechts öffnen Sie über die Schaltfläche **Erstellen** und darin den Eintrag **Kalender anlegen** den gleichnamigen Dialog. Dort legen Sie fest:
 
 - **Name** – Der angezeigte Name des Kalenders.
 - **Typ** – Optional die Kennzeichnung **Stundenplan**, mit der der Kalender als Stundenplan gekennzeichnet und in der entsprechenden Gruppe der Seitenleiste angezeigt wird.
@@ -315,6 +343,19 @@ Unabhängig von diesen drei Rollen stehen zwei kalenderweite Optionen zur Verfü
 - **Diese Person kann Objekte in meinem Kalender löschen.** — erlaubt das Löschen von Terminen.
 
 Beide sind vom Recht zum **Ändern** unabhängig: Wer Termine ändern darf, darf deshalb noch keine anlegen oder löschen.
+
+### Alle Rechte auf einmal vergeben oder entziehen
+
+In der **aufgeklappten** Zeile erscheint links neben dem Mülleimer-Symbol eine zusätzliche Schaltfläche, mit der Sie sämtliche Rechte einer Person oder Gruppe in einem Schritt setzen. Solange die Zeile zugeklappt ist, wird sie nicht angeboten.
+
+Ein Klick setzt stets alle Rechte gemeinsam:
+
+- Besitzt die Person **noch gar keine Rechte**, erhält sie alle drei Sichtbarkeiten mit der Rolle **Ändern** sowie beide Häkchen zum Hinzufügen und Löschen.
+- Besitzt sie **irgendein Recht**, werden alle drei Sichtbarkeiten auf **Keine** gesetzt und beide Häkchen entfernt.
+
+Welche der beiden Richtungen der nächste Klick auslöst, erkennen Sie am Symbol der Schaltfläche; ihr Name — **Alle Rechte gewähren** beziehungsweise **Alle Rechte entziehen** — wird beim Zeigen mit der Maus eingeblendet. Als „irgendein Recht“ zählt dabei auch ein einzeln gesetztes Häkchen: Wer ausschließlich Termine hinzufügen darf, sonst aber nichts sehen kann, verliert beim nächsten Klick auch dieses Recht.
+
+Für **Alle authentifizierten Benutzer** und **Öffentlicher Zugang** steht die Schaltfläche nicht zur Verfügung; deren Rechte setzen Sie einzeln.
 
 ### Änderungen werden sofort gespeichert
 
@@ -376,6 +417,8 @@ Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktione
 
 ## Abonnierte und schreibgeschützte Kalender
 
+Dieser Abschnitt beschreibt Kalender, die **andere Benutzer Ihrer Schule** für Sie freigegeben haben. Externe Kalender, die Sie selbst über eine Adresse abonnieren, sind etwas anderes und stehen in der eigenen Gruppe **Web-Kalender** (siehe [Web-Kalender abonnieren](#web-kalender-abonnieren)).
+
 Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
 
 Ein abonnierter Kalender ist **nicht grundsätzlich schreibgeschützt**. Was Sie darin tun dürfen, richtet sich nach den Rechten, die die freigebende Person Ihnen erteilt hat (siehe [Kalender freigeben](#kalender-freigeben)):
@@ -392,6 +435,53 @@ Termine, die Sie sehen, aber nicht bearbeiten dürfen, öffnen sich beim Anklick
 
 Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit sehen**, nennt die Detailansicht ausschließlich den Zeitraum und den Kalender und weist die Zeit als belegt aus — Titel, Ort, Beschreibung und Teilnehmer bleiben verborgen. Termine, für die Sie die Rolle **Keine** besitzen, erscheinen gar nicht erst im Kalender.
 
+## Web-Kalender abonnieren
+
+Neben den Kalendern Ihrer Schule können Sie **externe Kalender** einbinden, die im Internet als ICS-Adresse veröffentlicht sind – etwa Schulferien, Prüfungstermine oder den Spielplan eines Vereins. Ein solcher Web-Kalender wird vom Server regelmäßig abgerufen und erscheint in der Seitenleiste in der eigenen Gruppe **Web-Kalender**.
+
+In der Legende und in den Terminen erkennen Sie einen Web-Kalender an einem **gepunkteten Rahmen** und einem Globus-Symbol. Damit unterscheidet er sich von einem Kalender, den eine andere Person für Sie freigegeben hat: Dieser trägt einen gestrichelten Rahmen und ein Freigabe-Symbol.
+
+Zum Abonnieren wählen Sie oben rechts in der Aktionen-Leiste **Web-Kalender abonnieren** – neben **Erstellen** und **Neu laden** – und füllen den Dialog aus:
+
+| Feld | Bedeutung |
+| --- | --- |
+| **Adresse (URL)** | Die öffentliche ICS-Adresse des Kalenders. Neben `https://` und `http://` werden auch `webcal://`-Adressen angenommen; sie werden automatisch auf `https://` umgestellt. |
+| **Name** | Der Name, unter dem der Kalender bei Ihnen erscheint. Lassen Sie das Feld leer, wird der Name aus dem Kalender selbst übernommen. |
+| **Farbe** | Die Farbe, mit der die Termine dieses Kalenders in allen Ansichten gekennzeichnet werden. |
+
+![Dialog zum Abonnieren eines Web-Kalenders](/img/kalender/web-kalender-abonnieren.webp)
+
+Beim Abonnieren wird der Kalender sofort einmal abgerufen. Schlägt das fehl, wird das Abonnement nicht angelegt – Sie können eine unbrauchbare Adresse also nicht versehentlich hinterlegen. Ist die Adresse nicht erreichbar oder enthält sie keinen gültigen Kalender, meldet edulution **Der Kalender konnte nicht geladen werden.**; weist der Server die Adresse grundsätzlich ab – etwa weil sie ins interne Netz zeigt –, erhalten Sie stattdessen **Diese Adresse kann nicht abonniert werden. Bitte prüfen Sie die URL.**
+
+Adressen, die einen Benutzernamen und ein Kennwort enthalten (`https://benutzer:kennwort@…`), werden abgelehnt. Ein Web-Kalender muss ohne Anmeldedaten abrufbar sein.
+
+### Web-Kalender sind schreibgeschützt
+
+Ein Web-Kalender zeigt ausschließlich die Termine seiner Quelle. Sie können darin **keine Termine anlegen, bearbeiten, verschieben oder löschen**; im Feld **Kalender** des Dialogs zum [Erstellen eines Termins](#termine-erstellen) erscheint er deshalb nicht. Termine eines Web-Kalenders öffnen sich beim Anklicken in der reinen [Detailansicht](#termine-ansehen-ohne-bearbeitungsrecht).
+
+Auch das Freigeben an andere Benutzer, das Markieren als Stundenplan und das Festlegen als Standardkalender stehen für Web-Kalender nicht zur Verfügung.
+
+### Automatische Aktualisierung
+
+Der Server ruft jeden abonnierten Web-Kalender **etwa einmal pro Stunde** ab und übernimmt Änderungen der Quelle automatisch. Sie müssen dafür nichts tun und nicht angemeldet sein.
+
+Möchten Sie eine Änderung sofort sehen, wählen Sie im Kontextmenü des Kalenders **Jetzt aktualisieren**. Schlägt der Abruf fehl, erhalten Sie die Meldung **Der Kalender konnte nicht geladen werden.**
+
+Ist eine Quelle vorübergehend nicht erreichbar, bleiben die zuletzt geladenen Termine sichtbar; in der Seitenleiste erscheint zusätzlich zum Farbfeld ein kleines rotes Warnsymbol. Fahren Sie mit der Maus darüber, erscheint **Aktualisierung fehlgeschlagen**. edulution wartet nach jedem Fehlversuch länger, bevor es erneut abruft, und versucht es bei einer dauerhaft nicht erreichbaren Quelle nur noch etwa einmal täglich. Sobald die Quelle wieder antwortet, verschwindet die Kennzeichnung von selbst.
+
+### Web-Kalender bearbeiten und entfernen
+
+Über **Einstellungen** im Kontextmenü ändern Sie **Name** und **Farbe** eines Web-Kalenders. Die Adresse selbst lässt sich nachträglich nicht ändern – um eine andere Quelle zu verwenden, entfernen Sie das Abonnement und legen es mit der neuen Adresse erneut an.
+
+**Löschen** entfernt das Abonnement aus Ihrer Ansicht. Die Originalquelle im Internet bleibt davon unberührt, und andere Benutzer, die dieselbe Adresse abonniert haben, behalten ihren Kalender.
+
+### Grenzen
+
+- Sie können **bis zu 10 Web-Kalender** gleichzeitig abonnieren. Danach meldet edulution **Sie haben die maximale Anzahl an Web-Kalendern erreicht.**
+- Dieselbe Adresse lässt sich nur einmal abonnieren; ein zweiter Versuch meldet **Dieser Kalender ist bereits abonniert.**
+- Sehr große Quellen werden nur teilweise übernommen: edulution liest je Kalender bis zu 2 MB und bis zu 2000 Termine. Enthält eine Quelle mehr, fehlen die überzähligen Termine in der Ansicht.
+- Aus Sicherheitsgründen werden nur Termindaten übernommen. Anhänge, Verknüpfungen und Erinnerungen einer externen Quelle wertet edulution nicht aus.
+
 <Audience roles="user">
 
 Die Verbindung zum Kalender-Server richtet die Administration Ihrer Schule ein. Davon hängt auch ab, ob sich Kalender [freigeben und abonnieren](#kalender-freigeben) lassen – fehlen Ihnen diese Möglichkeiten, unterstützt der eingerichtete Server sie nicht. Das reine Anlegen und Synchronisieren von Terminen funktioniert davon unabhängig.
@@ -405,6 +495,10 @@ Die Verbindung zum Kalender-Server richtet die Administration Ihrer Schule ein. 
 Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](../../konfiguration/einstellungen.md#kalender-caldav) als Global-Admin konfiguriert (CalDAV-URL, Authentifizierungsmodus und Zertifikatsprüfung). Das [Freigeben und Abonnieren von Kalendern](#kalender-freigeben) setzt dabei einen SoGo-Server voraus; die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server.
 
 Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
+
+[Web-Kalender](#web-kalender-abonnieren) benötigen dagegen **keine CalDAV- oder SoGo-Konfiguration**: Sie werden vom edulution-Server direkt über HTTPS von der jeweiligen Quelle abgerufen. Voraussetzung ist, dass der Server die betreffenden Adressen aus dem Internet erreichen darf – in Umgebungen mit ausgehendem Proxy oder restriktiver Firewall muss der Zugriff dafür freigegeben sein.
+
+Adressen, die auf das interne Netz zeigen, werden dabei grundsätzlich abgewiesen. Der Server prüft dies nicht nur anhand der eingegebenen Adresse, sondern auch anhand der IP-Adresse, auf die ein Name tatsächlich aufgelöst wird, sowie bei jeder Weiterleitung erneut. Ein Web-Kalender kann also nicht dazu verwendet werden, interne Dienste abzufragen.
 
 ### Wenn keine Kalender erscheinen
 

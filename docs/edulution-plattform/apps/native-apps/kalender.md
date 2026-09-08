@@ -444,8 +444,6 @@ Möchten Sie eine Änderung sofort sehen, wählen Sie im Kontextmenü des Kalend
 
 Ist eine Quelle vorübergehend nicht erreichbar, bleiben die zuletzt geladenen Termine sichtbar; in der Seitenleiste erscheint zusätzlich zum Farbfeld ein kleines rotes Warnsymbol. Fahren Sie mit der Maus darüber, erscheint **Aktualisierung fehlgeschlagen**. edulution wartet nach jedem Fehlversuch länger, bevor es erneut abruft, und versucht es bei einer dauerhaft nicht erreichbaren Quelle nur noch etwa einmal täglich. Sobald die Quelle wieder antwortet, verschwindet die Kennzeichnung von selbst.
 
-![Seitenleiste mit einem Web-Kalender, dessen Aktualisierung fehlgeschlagen ist](/img/kalender/web-kalender-aktualisierung-fehlgeschlagen.webp)
-
 ### Web-Kalender bearbeiten und entfernen
 
 Über **Einstellungen** im Kontextmenü ändern Sie **Name** und **Farbe** eines Web-Kalenders. Die Adresse selbst lässt sich nachträglich nicht ändern – um eine andere Quelle zu verwenden, entfernen Sie das Abonnement und legen es mit der neuen Adresse erneut an.

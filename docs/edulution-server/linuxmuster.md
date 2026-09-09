@@ -5,7 +5,7 @@ sidebar_custom_props:
 
 # Linuxmuster / LINBO
 
-Die App **Schulserver** verbindet die edulution Plattform mit Ihrem Linuxmuster-Server und bündelt die Verwaltung von Benutzerkonten, Geräten und Elternzuweisungen. Der Bereich **LINBO** innerhalb dieser App zeigt zusätzlich die Hosts, Hardwaregruppen und Images Ihrer LINBO-Installation.
+Die App **Schulserver** verbindet die edulution Plattform mit Ihrem Linuxmuster-Server und bündelt die Verwaltung von Benutzerkonten, Geräten und Elternzuweisungen. Der Bereich **LINBO** innerhalb dieser App zeigt zusätzlich die Hardwaregruppen und Images Ihrer LINBO-Installation; die Rechner selbst finden Sie unter **Geräteverwaltung**.
 
 Alle Daten werden direkt über die Linuxmuster-API (`linuxmuster-api7`) geladen – die edulution Plattform hält dafür keinen eigenen Zwischenspeicher.
 
@@ -21,9 +21,9 @@ Die Unterseiten wählen Sie über die Seitenleiste der App:
 |---------|--------|
 | **Übersicht** | Kacheln als Einstieg in alle Bereiche der App |
 | **Benutzerverwaltung** | Benutzerkonten anzeigen, importieren und Passwörter verwalten |
-| **Geräteverwaltung** | Geräteliste pflegen und in Linuxmuster importieren |
+| **Geräteverwaltung** | Rechner der LINBO-Installation anzeigen und die Geräteliste in Linuxmuster importieren |
 | **Elternzuweisung** | Eltern ihren Kindern zuordnen |
-| **LINBO** | Hosts, Hardwaregruppen und Images der LINBO-Installation |
+| **LINBO** | Hardwaregruppen und Images der LINBO-Installation |
 | **Versionsübersicht** | Versionen der beteiligten Linuxmuster-Komponenten |
 
 :::note[Elternzuweisung]
@@ -38,7 +38,7 @@ Die Bereiche der App **Schulserver** stehen **Globaladmins** und **Schuladmins**
 Der Eintrag **LINBO** in der Seitenleiste – und die gleichnamige Kachel der Übersicht – ist ausschließlich **Globaladmins** vorbehalten. Für alle anderen Rollen entfällt der Bereich; die übrigen Einträge der App bleiben davon unberührt.
 :::
 
-Die **Übersicht** ist nach denselben Bereichen gegliedert wie die Seitenleiste. Unter **Benutzerverwaltung** führt je eine Kachel direkt zu den Benutzertypen **Schüler**, **Lehrer**, **Extra-Schüler**, **Eltern**, **Mitarbeiter**, **Schuladmins** und **Globaladmins**; in Unternehmensumgebungen bleiben davon nur **Mitarbeiter** und **Globaladmins** sichtbar. Darunter folgen die Bereiche **Geräteverwaltung**, **Elternzuweisung**, **LINBO** und **System** mit je einer Kachel. Die Kachel **LINBO** öffnet dieselbe Übersicht wie der gleichnamige Eintrag in der Seitenleiste.
+Die **Übersicht** ist nach denselben Bereichen gegliedert wie die Seitenleiste. Unter **Benutzerverwaltung** führt je eine Kachel direkt zu den Benutzertypen **Schüler**, **Lehrer**, **Extra-Schüler**, **Eltern**, **Mitarbeiter**, **Schuladmins** und **Globaladmins**; in Unternehmensumgebungen bleiben davon nur **Mitarbeiter** und **Globaladmins** sichtbar. Darunter folgen die Bereiche **Geräteverwaltung**, **Elternzuweisung**, **LINBO** und **System** mit je einer Kachel. Die Kachel **LINBO** führt wie der gleichnamige Eintrag in der Seitenleiste auf die Gruppen.
 
 In Umgebungen mit mehreren Schulen enthalten die Listenansichten oben rechts eine **Schulauswahl**. Benutzerverwaltung, Geräteverwaltung, Verwaltungslisten und Elternzuweisung zeigen die Daten der dort gewählten Schule; ein Wechsel lädt die Listen neu. Als **Globaladmin** wählen Sie jede Schule des Servers, als **Schuladmin** enthält die Auswahl nur Ihre eigene Schule.
 
@@ -75,7 +75,31 @@ Eine vollständige Beschreibung der Benutzerverwaltung – Benutzertabelle, Soph
 
 ## Geräteverwaltung
 
-Die Geräteverwaltung pflegt die Geräteliste (`devices.csv`) von Linuxmuster. Sie bearbeiten die Einträge direkt in der Tabelle, fügen über **Gerät hinzufügen** eine Zeile hinzu oder importieren eine vorhandene CSV-Datei per Drag & Drop.
+Die Geräteverwaltung hat zwei Registerkarten: **Geräte** zeigt die Rechner, die auf dem Server eingetragen sind, **Import** pflegt die Geräteliste (`devices.csv`), aus der sie stammen.
+
+### Geräte
+
+Die Liste ist über die Auswahl **Rolle** oberhalb der Tabelle nach Gerätetyp gefiltert: **Alle**, **Computer**, **Server**, **Drucker**, **iPads**, **Netzwerk** und **Sonstige**. Die Einträge fassen die Geräterollen wie folgt zusammen:
+
+| Auswahl | Enthaltene Rollen |
+|---------|-------------------|
+| **Computer** | Schüler-PC im Klassenzimmer, Lehrer-PC im Klassenzimmer, Fachbereich-Lehrer-PC, Lehrer-PC, Thinclient |
+| **Server** | Server, Domaincontroller |
+| **Drucker** | Drucker |
+| **iPads** | BYOD, Mobiles Gerät |
+| **Netzwerk** | Router, Switch, WLan, VOIP, IP-Only |
+
+Unter *Sonstige* erscheinen Geräte, deren Rolle keiner dieser Gruppen angehört – etwa eine Rolle, die auf Ihrem Server zusätzlich eingerichtet wurde. Zusätzlich lässt sich über das Filtersymbol in der Suchleiste nach einer oder mehreren **Gruppen** einschränken.
+
+Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**. Die Rolle trägt dieselbe Bezeichnung wie im Import; eine Rolle, die Ihre Installation selbst definiert hat, erscheint unter ihrem eigenen Namen, und nur Geräte ganz ohne Rolle zeigen einen Strich.
+
+:::note[Status und geplante Aktionen]
+**Status** und **Geplant** bleiben ohne einen edulution-Satellite leer: der Online-/Offline-Zustand ist über die Linuxmuster-API allein nicht verfügbar, und geplante Aktionen werden vom Satellite verwaltet. Beide Spalten sind in dieser Version noch nicht angebunden.
+:::
+
+### Import
+
+Sie bearbeiten die Einträge direkt in der Tabelle, fügen über **Gerät hinzufügen** eine Zeile hinzu oder importieren eine vorhandene CSV-Datei per Drag & Drop.
 
 Jedes Gerät benötigt neben Rechnername, MAC- und IP-Adresse eine **Rolle** und ein **PXE-Flag**:
 
@@ -144,33 +168,10 @@ Der Bereich erscheint ausschließlich in Schulumgebungen.
 
 ## LINBO
 
-Der Bereich **LINBO** ist in vier Unterseiten gegliedert: **Übersicht**, **Hosts**, **Gruppen** und **Images**.
+Der Bereich **LINBO** ist in zwei Unterseiten gegliedert: **Gruppen** und **Images**. Die Rechner der LINBO-Installation stehen unter [Geräteverwaltung](#geräteverwaltung).
 
-### Übersicht
-
-Sechs Kacheln fassen den Zustand der LINBO-Installation zusammen:
-
-| Kachel | Inhalt |
-|--------|--------|
-| **LINBO-Status** | **OK** oder **Beeinträchtigt**, mit dem Prüfergebnis für `devices.csv` und `/srv/linbo` |
-| **LMN-Server** | Servername, darunter IP-Adresse und Domäne |
-| **Schulen** | Anzahl und Namen der Schulen auf dem Server |
-| **GRUB-Konfigurationen** | Anzahl der gefundenen GRUB-Konfigurationen |
-| **start.conf-Dateien** | Anzahl der gefundenen `start.conf`-Dateien |
-| **Images** | Anzahl der verfügbaren Images |
-
-Der Status gilt als **Beeinträchtigt**, sobald `devices.csv` oder das Verzeichnis `/srv/linbo` nicht gefunden wird.
-
-Darunter erzeugt der **DHCP-Export** aus den erfassten Geräten und Gruppen eine fertige DHCP-Konfiguration zum Herunterladen – entweder für **ISC DHCP** oder für **dnsmasq (Proxy)**.
-
-### Hosts
-
-Die Hostliste ist über Registerkarten nach Gerätetyp gefiltert: **Alle**, **Computer**, **Server**, **Drucker**, **iPads** und **Sonstige**. Geräte mit einer Rolle, die keiner dieser Gruppen entspricht, erscheinen unter *Sonstige*. Zusätzlich lässt sich über das Filtersymbol in der Suchleiste nach einer oder mehreren **Gruppen** einschränken.
-
-Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**.
-
-:::note[Status und geplante Aktionen]
-**Status** und **Geplant** bleiben ohne einen edulution-Satellite leer: der Online-/Offline-Zustand ist über die Linuxmuster-API allein nicht verfügbar, und geplante Aktionen werden vom Satellite verwaltet. Beide Spalten sind in dieser Version noch nicht angebunden.
+:::note[Ältere Adressen]
+`…/linbo/configs` und `…/linbo/hosts` aus früheren Versionen leiten weiter – auf die Gruppen beziehungsweise auf die Geräteverwaltung. Ein Lesezeichen landet also weiterhin.
 :::
 
 ### Gruppen
@@ -178,7 +179,7 @@ Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalt
 Eine **Hardwaregruppe** ist eine `start.conf` auf dem Server: sie beschreibt das Plattenlayout und die Betriebssysteme aller Rechner, die ihr zugeordnet sind. Die Seite listet die Hardwaregruppen des Servers – also genau die Gruppen, für die eine `start.conf` vorliegt.
 
 :::note[Gruppen sind nicht schulgebunden]
-Die `start.conf`-Dateien liegen serverweit und nicht je Schule. Ein Wechsel der Schule über die Auswahl oberhalb der Liste ändert die Gruppen deshalb nicht; Sync-Status und Hostzahl im Banner beziehen sich weiterhin auf die gewählte Schule.
+Die `start.conf`-Dateien liegen serverweit und nicht je Schule. Ein Wechsel der Schule über die Auswahl oben rechts neben der Ansichtsauswahl ändert die Gruppen deshalb nicht; die Zahl der zugeordneten Rechner, die eine Gruppe nennt, bezieht sich weiterhin auf die gewählte Schule.
 :::
 
 :::warning[API-Version für die Gruppenliste]
@@ -192,20 +193,13 @@ Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleib
 | **Plattenkarte** (Vorgabe) | jede Platte der Gruppe als Balken ihrer Partitionen, nach Rolle eingefärbt, dazu die Betriebssysteme mit Autostart-Zeit |
 | **Kacheln** | Systemtyp, Betriebssysteme und die Zahl der zugeordneten Rechner |
 | **Datenblatt** | die gesetzten Schlüssel der Gruppe: Server, Cache, Download-Typ, Systemtyp, Abmeldung nach, Kernel-Optionen und Virtueller Desktop |
-| **Tabelle** | ID, Dateiname und Änderungszeitpunkt |
+| **Tabelle** | ID, Betriebssysteme, verwendete Images, Partitionen, Zahl der Rechner und Änderungszeitpunkt |
 
-Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API**, wie viele Hosts und Gruppen gefunden wurden und wann zuletzt geladen wurde. Die API-Anzeige unterscheidet vier Zustände:
+In den drei Kartenansichten steht in derselben Zeile links neben der Ansichtsauswahl ein **Suchfeld** (*„Gruppen durchsuchen…"*), das nach dem Gruppennamen und dem Dateinamen der `start.conf` filtert; in der **Tabelle** filtert deren eigenes Suchfeld dieselbe Liste.
 
-| Anzeige | Bedeutung |
-|---------|-----------|
-| **Wird geprüft …** | Die Abfrage läuft noch. Nach einem Wechsel der Schule erscheint der Zustand erneut, bis die Antwort für die neue Schule vorliegt. |
-| **Verbunden** | Die API antwortet und meldet alle Prüfungen als bestanden. |
-| **Eingeschränkt** | Die API antwortet, meldet aber einen fehlenden Bestandteil. Der Grund steht im Klartext daneben – etwa dass `devices.csv` für diese Schule fehlt oder `/srv/linbo` nicht vorhanden ist. Nennt die API keinen Grund, weist der Text ausdrücklich darauf hin. |
-| **Nicht verfügbar** | Die API antwortet nicht – oder es steht keine Schule zur Auswahl, für die gefragt werden könnte. Im zweiten Fall fragt die Plattform gar nicht erst an; der Server kann dabei einwandfrei laufen. |
+Ein Klick auf eine Gruppe öffnet den Gruppen-Editor – in den Kartenansichten auf die Karte, in der **Tabelle** auf die Zeile. Schaltflächen und Menüs auf der Karte behalten dabei ihre eigene Wirkung: **Vorschau anzeigen** öffnet die Vorschau, nicht den Editor. Mit der Tastatur wählen Sie die Karte an und drücken Eingabe oder Leertaste.
 
 #### Aktionen einer Gruppe
-
-**Vorschau anzeigen** liegt als eigene Schaltfläche auf der Karte. Alle Aktionen zusammen finden Sie im Menü hinter der Schaltfläche mit den drei Punkten, auf der Karte oben rechts neben dem Namen. In der **Tabelle** steht in der Spalte **Aktionen** das Löschen; die Vorschau öffnen Sie dort per Klick auf die Zeile – beim Überfahren weist die Spalte **Aktualisiert** darauf hin.
 
 | Aktion | Wirkung |
 |--------|---------|
@@ -214,9 +208,11 @@ Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API*
 | **Duplizieren** | legt eine Kopie unter neuem Namen an |
 | **Gruppe löschen** | löscht die `start.conf` der Gruppe auf dem Server |
 
-Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
+Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)* (Vorgabe), *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
 
 Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach; gelingt das nicht, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste.
+
+Die neue Gruppe übernimmt die oben gewählte Schule in ihr Feld **Schule**. Es steht im Gruppen-Editor unter *Startoptionen* und lässt sich dort ändern; ist keine Schule gewählt, bleibt das Feld leer und zeigt als Platzhalter `default-school`.
 
 :::note[Vorlagen zielen auf die erste SATA-Platte]
 Alle fünf Vorlagen legen ihr Layout auf `/dev/sda` an. Auf Rechnern mit NVMe- oder VirtIO-Platten passt das nicht: Die Gruppe entsteht zwar, ihre Gerätenamen gehen aber an der Hardware vorbei und müssen anschließend in der `start.conf` korrigiert werden. Das Gerät steht im Hinweis unter der Vorlagenauswahl, bevor Sie schreiben.
@@ -240,7 +236,7 @@ Gelöscht werden die `start.conf` **und** die GRUB-Konfiguration der Gruppe. Rec
 
 Die Vorschau **Gruppe \<ID\>** hat drei Registerkarten:
 
-- **Zusammenfassung** – die ausgewertete `start.conf`: der Abschnitt `[LINBO]` als Liste der gesetzten Schlüssel, die **Partitionen** mit Gerät, Bezeichnung, Größe, Dateisystem und der Markierung *Bootfähig* sowie die **Betriebssysteme** mit Name, Version, Basis-Image, Boot-Partition und der Markierung *Autostart*.
+- **Zusammenfassung** – die ausgewertete `start.conf`: der Abschnitt `[LINBO]` als Liste der gesetzten Schlüssel, darunter dasselbe Plattenlayout, das auch der Editor zeigt – je Platte ihre Partitionen und darunter die Betriebssysteme. In der Vorschau ist es nur zu lesen: Nichts lässt sich hier verschieben oder öffnen.
 - **Rohdaten** – der unveränderte Inhalt der `start.conf`.
 - **GRUB cfg** – der Inhalt der GRUB-Konfiguration.
 
@@ -252,9 +248,21 @@ Die Zusammenfassung liest die Datei so, wie LINBO selbst sie liest: Abschnitts- 
 
 #### Der Gruppen-Editor
 
-**Bearbeiten** öffnet die Gruppe unter einer eigenen Adresse (`…/linbo/groups/<Name>`). Diese Adresse lässt sich verlinken und übersteht ein Neuladen; ein unbekannter Name führt mit einem Hinweis zurück auf die Liste. Der Editor hat zwei Registerkarten.
+**Bearbeiten** öffnet die Gruppe unter einer eigenen Adresse (`…/linbo/groups/<Name>`). Diese Adresse lässt sich verlinken und übersteht ein Neuladen; ein unbekannter Name führt mit einem Hinweis zurück auf die Liste. Der Editor hat zwei Registerkarten und öffnet jede Gruppe auf **Partitionen**.
 
-**Allgemein** enthält die Felder der Gruppe, gegliedert in *Hardware*, *Startoptionen* und *Darstellung*. Drei Werte sind hier bewusst nicht änderbar: der Gruppenname, der Server und die Cache-Partition – letztere ergibt sich aus dem Partitionslayout. Die Schaltfläche **Erweitert** im Fuß des Dialogs blendet die selten benötigten Felder ein; sie wirkt nur für den geöffneten Dialog und wird nicht gemerkt.
+**Allgemein** enthält die Felder der Gruppe in fünf Abschnitten. Alle Felder sind dabei sichtbar; einen Umschalter für erweiterte Felder gibt es auf dieser Registerkarte nicht.
+
+| Abschnitt | Felder |
+|-----------|--------|
+| **Übersicht** | Gruppe, Server und Cache – nur zum Lesen |
+| **Hardware** | Systemtyp und Download-Typ |
+| **Startoptionen** | Beim Start partitionieren, Beim Start formatieren, Beim Start Cache aktualisieren und das Feld **Schule** |
+| **Darstellung** | Sprache, Hintergrundfarbe, Minimales Layout verwenden und Clientdetails standardmäßig anzeigen |
+| **System** | Abmeldung nach und Kernel-Optionen |
+
+Die drei Werte unter **Übersicht** sind bewusst nicht änderbar: Der Gruppenname ist die Identität der Gruppe, der Server steht fest, und die Cache-Partition ergibt sich aus dem Partitionslayout. Sie stehen dort, weil sie beim Bearbeiten gebraucht werden – nicht, um sie zu ändern.
+
+Bei **Sprache** bedeutet *Vorgabe des Servers*, dass die Gruppe keine eigene Sprache setzt. Die **Hintergrundfarbe** wählen Sie über das Farbfeld oder tragen sie sechsstellig hexadezimal ein; die Vordergrundfarbe passt LINBO selbst an. **Abmeldung nach** erwartet Sekunden und hat die Vorgabe 600.
 
 Zum Feld **Kernel-Optionen** gehören Schaltflächen für die gebräuchlichen Werte: `quiet`, `splash`, `acpi=noirq`, `acpi=off`, `irqpoll` und `dhcpretry=9`. Ein Klick hängt den Wert an die bestehenden Optionen an; ist er bereits gesetzt, ist die Schaltfläche ausgegraut.
 
@@ -262,7 +270,9 @@ Zum Feld **Kernel-Optionen** gehören Schaltflächen für die gebräuchlichen We
 **Beim Start partitionieren** legt das Plattenlayout bei jedem Start neu an, **Beim Start formatieren** formatiert dabei alle Partitionen. Lokal auf den Rechnern gespeicherte Daten gehen dann bei jedem Start verloren.
 :::
 
-**Partitionen** zeigt je Platte eine Karte. Über die Preset-Schaltflächen fügen Sie eine Partition mit sinnvoller Vorgabegröße hinzu: *EFI*, *MSR*, *Windows*, *Linux*, *Swap*, *Daten*, *Erweitert* und *Cache*. Der **Plattentyp** – SATA, VirtIO, Xen, IDE, MMC, NVMe oder allgemein – bestimmt die Gerätenamen; ein Wechsel nummeriert die Partitionen der Platte samt aller Verweise darauf um. Ein Klick auf eine Partition öffnet einen Dialog mit den Unterregisterkarten **Partition** und **Betriebssystem**.
+**Partitionen** zeigt je Platte eine Karte, auf der die Partitionen in ihrer Reihenfolge nebeneinander liegen. Über die Preset-Schaltflächen fügen Sie eine Partition mit sinnvoller Vorgabegröße hinzu: *EFI*, *MSR*, *Windows*, *Linux*, *Swap*, *Daten*, *Erweitert* und *Cache*.
+
+Die Reihenfolge ändern Sie durch Ziehen: Eine Partition lässt sich innerhalb ihrer Platte an eine andere Stelle ziehen, und eine Preset-Schaltfläche lässt sich statt angeklickt direkt an die Stelle gezogen werden, an der die neue Partition entstehen soll – zwischen zwei Partitionen öffnet sich dafür eine Lücke. Ein Klick auf das Preset ohne Ziehen entscheidet die Position selbst: *EFI* kommt an den Anfang, *MSR* dahinter, alles andere ans Ende. Die Gerätenamen und alle Verweise darauf werden nach jeder Änderung neu durchnummeriert. Der **Plattentyp** – SATA, VirtIO, Xen, IDE, MMC, NVMe oder allgemein – bestimmt die Gerätenamen; ein Wechsel nummeriert die Partitionen der Platte samt aller Verweise darauf um. Ein Klick auf eine Partition öffnet einen Dialog mit den Unterregisterkarten **Partition** und **Betriebssystem**. Dieser Dialog öffnet in der einfachen Ansicht; die Schaltfläche **Erweitert** in seinem Fuß blendet die selten benötigten Felder ein – auf **Partition** sind das *Partitionstyp* und *Dateisystem*. Die Wahl gilt nur für die geöffnete Partition: Die nächste öffnet wieder einfach.
 
 Im Feld **Größe** gilt: eine nackte Zahl sind Kibibytes, ein Suffix `M`, `G` oder `T` legt die Einheit fest, und ein leeres Feld bedeutet *Rest der Platte* (in der Plattenkarte als `∞` dargestellt). Unter dem Feld steht laufend, welche Größe daraus wird.
 
@@ -270,7 +280,7 @@ Unter den Platten listet der Abschnitt **Betriebssysteme** die Einträge der Gru
 
 Bearbeitet wird ein Betriebssystem auf der Unterregisterkarte **Betriebssystem** des Partitionsdialogs. Dort stehen **Name**, **Version**, **Standardaktion**, **Symbol**, **Basisimage**, die **Startknöpfe im LINBO-Menü** – *Start*, *Sync & Start*, *Neu & Start* und *Autostart* – sowie das **Autostart-Timeout (Sekunden)**. Hinter **Erweitert** liegen **Kernel**, **Initrd**, **Zusätzliche Kernel-Parameter**, **Opsi-Setup erzwingen**, **Opsi-Status wiederherstellen** und **Im Startmenü ausblenden**.
 
-Solange ungespeicherte Änderungen vorliegen, fragt der Editor beim Schließen nach, ob Sie sie verwerfen wollen.
+Solange ungespeicherte Änderungen vorliegen, fragt der Editor nach, bevor sie verloren gehen – nicht nur beim Schließen des Dialogs, sondern auch, wenn Sie über die Seitenleiste weggehen, den Zurück-Knopf des Browsers benutzen oder eine andere Adresse aufrufen. Sie können dann **Weiter bearbeiten** oder **Verwerfen**. Nach dem Speichern fragt der Editor nicht: Was auf dem Server steht, ist keine ungespeicherte Änderung mehr.
 
 :::note[Was beim Speichern geprüft wird]
 Bevor die Plattform eine `start.conf` auf den Server schreibt, prüft sie deren Abschnitt `[LINBO]` und weist die Datei mit einer Meldung ab, wenn
@@ -288,13 +298,23 @@ Oben rechts wählen Sie wie bei den Gruppen zwischen vier Ansichten; die Wahl bl
 
 | Ansicht | Zeigt |
 |---------|-------|
-| **Kacheln** (Vorgabe) | Betriebssystem-Symbol, Größe, vorhandene Sidecars und die erste Zeile der Beschreibung |
+| **Datenblatt** (Vorgabe) | Dateiname, Größe, Partition, Partitionsgröße, ob eine Prüfsumme vorliegt, Dateizahl und Änderungszeitpunkt |
+| **Kacheln** | Betriebssystem-Symbol, Größe, vorhandene Sidecars und die erste Zeile der Beschreibung |
 | **Speicher** | wie voll die Partition mit dem Image ist, dazu Partitionsgerät und Dateizahl |
-| **Datenblatt** | Dateiname, Größe, Partition, Partitionsgröße, ob eine Prüfsumme vorliegt, Dateizahl und Änderungszeitpunkt |
-| **Tabelle** | Name, Größe, Sidecars und Änderungszeitpunkt |
+| **Tabelle** | Name, Größe, **Verwendet in**, Sidecars und Änderungszeitpunkt |
+
+Auch hier steht in den drei Kartenansichten ein **Suchfeld** (*„Images durchsuchen…"*), das nach Name und Beschreibung des Images filtert.
+
+Ein Klick auf eine Image-Karte öffnet **Details anzeigen**. Anders als bei den Gruppen sind die Zeilen der **Tabelle** nicht anklickbar; dort führt der Weg über die Spalte **Aktionen**. Schaltflächen auf der Karte – etwa **Herunterladen** – behalten ihre eigene Wirkung.
+
+Beide Listen verweisen aufeinander: eine Gruppe nennt die Images, die sie startet, und ein Image nennt unter **Verwendet in** die Gruppen, die es starten. Beide Richtungen stehen in jeder Ansicht – in den Kartenansichten auf der Karte, in der **Tabelle** in der gleichnamigen Spalte. Die Zuordnung liest die Plattform aus den `start.conf`-Dateien.
 
 :::note[Zwei Namen, ein Image]
-Ein Image heißt nach seinem Verzeichnis auf dem Server (`debian13`); die Bilddatei darin trägt zusätzlich die Endung (`debian13.qcow2`). Angezeigt und in allen Aktionen verwendet wird der Name des Images, nicht der der Datei.
+Ein Image heißt nach seinem Verzeichnis auf dem Server (`debian13`); die Abbilddatei darin trägt zusätzlich die Endung (`debian13.qcow2`). Angezeigt und in allen Aktionen verwendet wird der Name des Images, nicht der der Datei.
+:::
+
+:::note[Ein Image mit unlesbarer .info-Datei bleibt sichtbar]
+Ohne lesbare `.info`-Datei fehlt ein Image in der Bestandsliste des Servers – also gerade dann, wenn Sie es am dringendsten finden müssen. Die Liste führt es trotzdem auf, mit der Meldung des Servers als Beschreibung, damit es sich umbenennen, reparieren oder löschen lässt.
 :::
 
 Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.info`), VDI-Konfiguration (`.vdi`), Torrent (`.torrent`), Maschinenkonto (`.macct`), Prüfsumme (`.md5`), Hashsumme (`.hash`), Registry (`.reg`), Pre-Start-Skript (`.prestart`) und Post-Sync-Skript (`.postsync`). In der Spalte **Sidecars** steht je vorhandener Datei ein Buchstabenkürzel; welcher Dateityp dahintersteht, erscheint, sobald Sie mit dem Mauszeiger darauf zeigen. Der Detaildialog zeigt zusätzlich Dateiname, Image-Ordner, Pfad, Größe, MD5-Summe und – sofern ein `.info`-Sidecar vorliegt – Erstellungszeitpunkt, Image- und Partitionsgröße sowie die Beschreibung.
@@ -312,14 +332,21 @@ Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.
 | **Sicherungen verwalten** | listet die Sicherungen des Images zum Wiederherstellen oder Löschen |
 | **Umbenennen** | benennt Image, Sicherungen und alle Beipack-Dateien um |
 | **Duplizieren** | kopiert das Image samt Beschreibung, Registry-Patch und Skripten, aber ohne Sicherungen |
+| **Beschreibung und Skripte des Differenzimages** | öffnet den Sidecar-Editor für das Differenzimage; erscheint nur, wenn eines existiert |
 | **Differenzimage löschen** | erscheint nur, wenn zum Image ein Differenzimage existiert |
 | **Löschen** | löscht das Image mit Sicherungen, Differenzimage und Beipack-Dateien |
 
 Beim Umbenennen und Duplizieren erlaubt der Name Buchstaben, Ziffern sowie `.`, `_`, `+` und `-`; er muss mit einem Buchstaben oder einer Ziffer beginnen. Ein Name, den ein anderes Image bereits trägt, wird ebenso abgewiesen wie der unveränderte Name.
 
+:::note[Große Images brauchen Zeit – und werden nicht wiederholt]
+**Duplizieren**, **Wiederherstellen**, **Umbenennen** und die Löschaktionen arbeiten auf den vollständigen Image-Dateien auf dem Server. Bei einem Image von mehreren Gigabyte dauert das entsprechend lange, weshalb für sie ein eigenes Zeitlimit von zehn Minuten gilt; es lässt sich anpassen (siehe [Einrichtung (für Administratoren)](#einrichtung-für-administratoren)).
+
+Wird das Zeitlimit überschritten, meldet die Oberfläche einen Fehler, obwohl die Aktion auf dem Server weiterläuft und noch gelingen kann. Die Plattform startet sie deshalb nicht von selbst neu: ein zweiter Anlauf würde beim Wiederherstellen eine weitere Sicherung anlegen und dieselben Dateien noch einmal verschieben. Prüfen Sie in diesem Fall zuerst die Liste der Images, bevor Sie die Aktion erneut auslösen.
+:::
+
 #### Beschreibung und Skripte bearbeiten
 
-Der Editor hat je eine Registerkarte für die Dateien, die Sie ändern können: **Beschreibung** (`.desc`), **Info** (`.info`), **Registry** (`.reg`), **Pre-Start Script** (`.prestart`) und **Post-Sync Script** (`.postsync`). Für Registry-Patch und Skripte bietet der Editor oben rechts **Aus anderem Image übernehmen** an – die Auswahl listet alle Images, die für diesen Dateityp Inhalt haben, und übernimmt ihn in das Feld.
+Der Editor hat je eine Registerkarte für die Dateien, die Sie ändern können: **Beschreibung** (`.desc`), **Info** (`.info`), **Registry** (`.reg`), **Pre-Start Script** (`.prestart`) und **Post-Sync Script** (`.postsync`). Er öffnet für drei Ziele: das Basisimage, das Differenzimage und jede einzelne Sicherung – die Sicherung über das Zahnrad in ihrer Zeile im Dialog **Sicherungen**. Für Registry-Patch und Skripte bietet der Editor oben rechts **Aus anderem Image übernehmen** an – die Auswahl listet alle Images, die für diesen Dateityp Inhalt haben, und übernimmt ihn in das Feld.
 
 :::warning[Ein leeres Feld löscht die Datei]
 Der Server schreibt beim Speichern immer alle Beipack-Dateien neu und löscht dabei jede, für die kein Inhalt ankommt. Ein Feld, das Sie leeren, löscht also die zugehörige Datei auf dem Server. Die VDI-Konfiguration hat keine Registerkarte, wird aber unverändert mitgeschrieben und bleibt dadurch erhalten.
@@ -329,7 +356,7 @@ Die `.info`-Datei ist Pflicht: ohne sie lässt sich das Image nicht mehr einlese
 
 #### Sicherungen
 
-**Sicherungen verwalten** listet je Sicherung Datum, Zeitstempel und Größe, mit **Wiederherstellen** und **Sicherung löschen**.
+**Sicherungen verwalten** listet je Sicherung Datum, Zeitstempel und Größe, mit **Wiederherstellen** und **Sicherung löschen**. Über das Zahnrad einer Zeile öffnen Sie **Einstellungen dieser Sicherung** – denselben Sidecar-Editor, dann aber für die Beipack-Dateien dieser Sicherung. Die oberste Zeile ist mit **Basisimage** gekennzeichnet und meint das Image selbst, nicht eine Sicherung.
 
 :::note[Wiederherstellen ist umkehrbar]
 Der Server legt vor dem Wiederherstellen eine neue Sicherung des aktuellen Images an, sodass sich der Schritt zurücknehmen lässt. Zwei Wiederherstellungen desselben Images innerhalb derselben Minute schlagen fehl; ein erneuter Versuch nach einer Minute gelingt.
@@ -344,10 +371,8 @@ Die Seite **Versionsübersicht** listet die Versionen der beteiligten Linuxmuste
 Einige Aktionen sind in der Oberfläche bereits vorhanden, aber noch nicht angebunden. Sie melden beim Aufruf *„Diese Aktion wird in dieser Version noch nicht unterstützt."*:
 
 - die Host-Aktionen **Wake-on-LAN**, **Sync**, **Start**, **Neu starten**, **Herunterfahren** und **Treiber-Profil**
-- die Aktion **Sync** im Bereich **Gruppen**
-- die Spalten **Status** und **Geplant** der Hostliste
-
-Die Schaltfläche **Versionsstände** im Bereich **Gruppen** ist sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet dafür keine Schnittstelle. Der Grund steht am Knopf.
+- die Aktionen **Sync**, **Versionsstände** und **LINBO-Boot herunterladen** im Bereich **Gruppen**
+- die Spalten **Status** und **Geplant** der Geräteliste
 
 Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich in dieser Version nicht bearbeiten. Das Datenblatt zeigt, ob er in der `start.conf` aktiviert ist; die zugehörige Konfigurationsdatei ist über die Linuxmuster-API noch nicht erreichbar.
 
@@ -356,6 +381,7 @@ Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich in dieser Version nicht b
 - Die **Plattform** stellen Sie unter [Einstellungen → Globale Einstellungen → Allgemein](../edulution-plattform/konfiguration/einstellungen.md#allgemein) auf **Linuxmuster**.
 - Welche Bereiche dieser App sichtbar sind und wie sie beschriftet werden, hängt zusätzlich vom [Organisationstyp](../edulution-plattform/konfiguration/einstellungen.md#organisationstyp) ab.
 - Die Verbindung zum Schulserver richten Sie nach der Anleitung [Linuxmuster verbinden](./installation.md) ein.
+- Kopier- und Verschiebeaktionen an Images brechen nach zehn Minuten ab. Dauern sie bei sehr großen Images länger, setzen Sie die Umgebungsvariable `LMN_API_FILE_OPERATION_TIMEOUT_MS` der API auf einen höheren Wert in Millisekunden; ohne Angabe gilt `600000`.
 
 ## Siehe auch
 

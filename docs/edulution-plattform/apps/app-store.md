@@ -22,7 +22,7 @@ Der App-Store organisiert Anwendungen in verschiedene Kategorien:
 - **WebUnits**: Webbasierte Weiterleitungen (nicht WebUntis!)
 - **Frame**: Einbettung externer Anwendungen
 - **Etherpad**: Kollaboratives Schreiben
-- **Eingebettet**: Eigene Webseiten erstellen (HTML/JS/CSS) - z.B. für Impressum und Datenschutz
+- **Eingebettet**: Eigene Seiten im Editor pflegen oder fertige Web-Anwendungen hochladen - z.B. für Impressum und Datenschutz
 
 ## App installieren
 

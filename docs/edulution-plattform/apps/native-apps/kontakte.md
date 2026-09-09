@@ -142,12 +142,22 @@ Die Anbindung der Kontakte-App an den CardDAV-Server wird in den [Einstellungen]
 
 Diese Verbindung gilt ausschließlich für die Kontakte-App. Die Kalender- und die E-Mail-App verwenden jeweils ihre eigene; eine hier abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die übrigen Apps aus, und eine fehlerhafte CardDAV-URL legt nur die Kontakte-App still.
 
+### Wenn keine Adressbücher erscheinen
+
+Erscheinen keine Adressbücher, benennt die Fehlermeldung, welche Ursache vorliegt:
+
+- **"Der CardDAV-Server hat die Anmeldung abgelehnt"** – Der Server ist erreichbar, weist die Zugangsdaten dieses Benutzers aber zurück. Der häufigste Fall ist ein Konto, für das auf dem SOGo-Server kein Postfach existiert; die CardDAV-URL ist dann korrekt. Prüfen Sie stattdessen, ob der Benutzer auf dem Mailserver angelegt ist. Betrifft die Meldung nur einzelne Benutzer, ist dies die wahrscheinliche Ursache.
+- **"Verbindung zum CardDAV-Server fehlgeschlagen"** – Der Server war nicht erreichbar. Prüfen Sie die [CardDAV-URL](../../konfiguration/einstellungen.md#carddav-verbindung), die Namensauflösung des dort eingetragenen Hostnamens und das Zertifikat. Diese Meldung betrifft in der Regel alle Benutzer gleichzeitig.
+- **"Für den Kontakteserver sind in Ihrer edulution-Sitzung keine E-Mail-Adresse und kein Passwort hinterlegt"** – Der Server wurde gar nicht erst kontaktiert. Der Sitzung dieses Benutzers fehlen die Anmeldedaten für den Mailserver; prüfen Sie, ob für das Konto eine E-Mail-Adresse hinterlegt ist, und lassen Sie den Benutzer sich neu anmelden. Die CardDAV-Einstellungen sind in diesem Fall nicht die Ursache.
+
+Wird einem Benutzer, der zuvor Adressbücher sehen konnte, plötzlich keines mehr angezeigt, prüft edulution die Zugangsdaten erneut und meldet die Ablehnung ausdrücklich, statt eine leere Liste darzustellen. Ein Benutzer, der schlicht kein Adressbuch besitzt, sieht weiterhin eine leere Liste ohne Fehlermeldung.
+
 </Audience>
 
 ## Aktuelle Einschränkungen
 
 - Das **Teilen von Adressbüchern** kann derzeit nicht über die Oberfläche verwaltet werden. Geteilte und schreibgeschützte Adressbücher werden angezeigt, die Freigabe selbst erfolgt serverseitig.
-- Als Authentifizierungsmodus ist aktuell ausschließlich **Basic Auth** verfügbar.
+- Als Authentifizierungsmodus ist aktuell ausschließlich **Basic Auth** verfügbar; ein anderweitig hinterlegter Modus wird übergangen.
 - Kontakte lassen sich über **Kategorien** verschlagworten; **Verteilerlisten** (SOGo-Listen) werden in der Oberfläche derzeit noch nicht angezeigt.
 - Es gibt keine Sammelaktionen (z.B. Mehrfachauswahl oder Sammellöschung).
 - Der Import unterstützt vCard-Dateien (`.vcf`), jeweils **eine** Datei pro Vorgang; ein CSV-Import ist nicht verfügbar.

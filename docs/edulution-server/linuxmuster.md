@@ -188,8 +188,6 @@ Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleib
 
 #### Aktionen einer Gruppe
 
-**Vorschau anzeigen** liegt als eigene Schaltfläche auf der Karte. Alle Aktionen zusammen finden Sie im Menü hinter der Schaltfläche mit den drei Punkten, auf der Karte oben rechts neben dem Namen. In der **Tabelle** steht in der Spalte **Aktionen** das Löschen; die Vorschau öffnen Sie dort per Klick auf die Zeile – beim Überfahren weist die Spalte **Aktualisiert** darauf hin.
-
 | Aktion | Wirkung |
 |--------|---------|
 | **Bearbeiten** | öffnet den Gruppen-Editor (siehe unten) |
@@ -278,10 +276,12 @@ Oben rechts wählen Sie wie bei den Gruppen zwischen vier Ansichten; die Wahl bl
 | **Speicher** | wie voll die Partition mit dem Image ist, dazu Partitionsgerät und Dateizahl |
 | **Tabelle** | Name, Größe, **Verwendet in**, Sidecars und Änderungszeitpunkt |
 
-Beide Listen verweisen aufeinander: eine Gruppe nennt die Images, die sie startet, und ein Image nennt in der Spalte **Verwendet in** die Gruppen, die es starten. Die Zuordnung liest die Plattform aus den `start.conf`-Dateien.
+Auch hier steht in den drei Kartenansichten ein **Suchfeld** (*„Images durchsuchen…"*), das nach Name und Beschreibung des Images filtert.
+
+Beide Listen verweisen aufeinander: eine Gruppe nennt die Images, die sie startet, und ein Image nennt unter **Verwendet in** die Gruppen, die es starten. Beide Richtungen stehen in jeder Ansicht – in den Kartenansichten auf der Karte, in der **Tabelle** in der gleichnamigen Spalte. Die Zuordnung liest die Plattform aus den `start.conf`-Dateien.
 
 :::note[Zwei Namen, ein Image]
-Ein Image heißt nach seinem Verzeichnis auf dem Server (`debian13`); die Bilddatei darin trägt zusätzlich die Endung (`debian13.qcow2`). Angezeigt und in allen Aktionen verwendet wird der Name des Images, nicht der der Datei.
+Ein Image heißt nach seinem Verzeichnis auf dem Server (`debian13`); die Abbilddatei darin trägt zusätzlich die Endung (`debian13.qcow2`). Angezeigt und in allen Aktionen verwendet wird der Name des Images, nicht der der Datei.
 :::
 
 :::note[Ein Image mit unlesbarer .info-Datei bleibt sichtbar]
@@ -342,10 +342,8 @@ Die Seite **Versionsübersicht** listet die Versionen der beteiligten Linuxmuste
 Einige Aktionen sind in der Oberfläche bereits vorhanden, aber noch nicht angebunden. Sie melden beim Aufruf *„Diese Aktion wird in dieser Version noch nicht unterstützt."*:
 
 - die Host-Aktionen **Wake-on-LAN**, **Sync**, **Start**, **Neu starten**, **Herunterfahren** und **Treiber-Profil**
-- die Aktion **Sync** im Bereich **Gruppen**
+- die Aktionen **Sync**, **Versionsstände** und **LINBO-Boot herunterladen** im Bereich **Gruppen**
 - die Spalten **Status** und **Geplant** der Geräteliste
-
-Die Schaltflächen **Versionsstände** und **LINBO-Boot herunterladen** im Bereich **Gruppen** sind sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet für beides keine Schnittstelle. Am Knopf selbst steht nur *(noch nicht verfügbar)*.
 
 Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich in dieser Version nicht bearbeiten. Das Datenblatt zeigt, ob er in der `start.conf` aktiviert ist; die zugehörige Konfigurationsdatei ist über die Linuxmuster-API noch nicht erreichbar.
 

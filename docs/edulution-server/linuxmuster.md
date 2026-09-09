@@ -170,7 +170,7 @@ Der Bereich **LINBO** ist in zwei Unterseiten gegliedert: **Gruppen** und **Imag
 Eine **Hardwaregruppe** ist eine `start.conf` auf dem Server: sie beschreibt das Plattenlayout und die Betriebssysteme aller Rechner, die ihr zugeordnet sind. Die Seite listet die Hardwaregruppen des Servers – also genau die Gruppen, für die eine `start.conf` vorliegt.
 
 :::note[Gruppen sind nicht schulgebunden]
-Die `start.conf`-Dateien liegen serverweit und nicht je Schule. Ein Wechsel der Schule über die Auswahl oberhalb der Liste ändert die Gruppen deshalb nicht; die Zahl der zugeordneten Rechner, die eine Gruppe nennt, bezieht sich weiterhin auf die gewählte Schule.
+Die `start.conf`-Dateien liegen serverweit und nicht je Schule. Ein Wechsel der Schule über die Auswahl oben rechts neben der Ansichtsauswahl ändert die Gruppen deshalb nicht; die Zahl der zugeordneten Rechner, die eine Gruppe nennt, bezieht sich weiterhin auf die gewählte Schule.
 :::
 
 :::warning[API-Version für die Gruppenliste]
@@ -186,6 +186,10 @@ Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleib
 | **Datenblatt** | die gesetzten Schlüssel der Gruppe: Server, Cache, Download-Typ, Systemtyp, Abmeldung nach, Kernel-Optionen und Virtueller Desktop |
 | **Tabelle** | ID, Betriebssysteme, verwendete Images, Partitionen, Zahl der Rechner und Änderungszeitpunkt |
 
+In den drei Kartenansichten steht in derselben Zeile links neben der Ansichtsauswahl ein **Suchfeld** (*„Gruppen durchsuchen…"*), das nach dem Gruppennamen und dem Dateinamen der `start.conf` filtert; in der **Tabelle** filtert deren eigenes Suchfeld dieselbe Liste.
+
+Ein Klick auf eine Gruppe öffnet den Gruppen-Editor – in den Kartenansichten auf die Karte, in der **Tabelle** auf die Zeile. Schaltflächen und Menüs auf der Karte behalten dabei ihre eigene Wirkung: **Vorschau anzeigen** öffnet die Vorschau, nicht den Editor. Mit der Tastatur wählen Sie die Karte an und drücken Eingabe oder Leertaste.
+
 #### Aktionen einer Gruppe
 
 | Aktion | Wirkung |
@@ -198,6 +202,8 @@ Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleib
 Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)* (Vorgabe), *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
 
 Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach; gelingt das nicht, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste.
+
+Die neue Gruppe übernimmt die oben gewählte Schule in ihr Feld **Schule**. Es steht im Gruppen-Editor unter *Startoptionen* und lässt sich dort ändern; ist keine Schule gewählt, bleibt das Feld leer und zeigt als Platzhalter `default-school`.
 
 :::note[Vorlagen zielen auf die erste SATA-Platte]
 Alle fünf Vorlagen legen ihr Layout auf `/dev/sda` an. Auf Rechnern mit NVMe- oder VirtIO-Platten passt das nicht: Die Gruppe entsteht zwar, ihre Gerätenamen gehen aber an der Hardware vorbei und müssen anschließend in der `start.conf` korrigiert werden. Das Gerät steht im Hinweis unter der Vorlagenauswahl, bevor Sie schreiben.
@@ -233,9 +239,21 @@ Die Zusammenfassung liest die Datei so, wie LINBO selbst sie liest: Abschnitts- 
 
 #### Der Gruppen-Editor
 
-**Bearbeiten** öffnet die Gruppe unter einer eigenen Adresse (`…/linbo/groups/<Name>`). Diese Adresse lässt sich verlinken und übersteht ein Neuladen; ein unbekannter Name führt mit einem Hinweis zurück auf die Liste. Der Editor hat zwei Registerkarten und öffnet jede Gruppe auf **Partitionen** und in der einfachen Ansicht – auch dann, wenn Sie zuvor eine andere Gruppe im erweiterten Modus bearbeitet haben.
+**Bearbeiten** öffnet die Gruppe unter einer eigenen Adresse (`…/linbo/groups/<Name>`). Diese Adresse lässt sich verlinken und übersteht ein Neuladen; ein unbekannter Name führt mit einem Hinweis zurück auf die Liste. Der Editor hat zwei Registerkarten und öffnet jede Gruppe auf **Partitionen**.
 
-**Allgemein** enthält die Felder der Gruppe, gegliedert in *Hardware*, *Startoptionen* und *Darstellung*. Drei Werte sind hier bewusst nicht änderbar: der Gruppenname, der Server und die Cache-Partition – letztere ergibt sich aus dem Partitionslayout. Die Schaltfläche **Erweitert** im Fuß des Dialogs blendet die selten benötigten Felder ein; sie wirkt nur für den geöffneten Dialog und wird nicht gemerkt.
+**Allgemein** enthält die Felder der Gruppe in fünf Abschnitten. Alle Felder sind dabei sichtbar; einen Umschalter für erweiterte Felder gibt es auf dieser Registerkarte nicht.
+
+| Abschnitt | Felder |
+|-----------|--------|
+| **Übersicht** | Gruppe, Server und Cache – nur zum Lesen |
+| **Hardware** | Systemtyp und Download-Typ |
+| **Startoptionen** | Beim Start partitionieren, Beim Start formatieren, Beim Start Cache aktualisieren und das Feld **Schule** |
+| **Darstellung** | Sprache, Hintergrundfarbe, Minimales Layout verwenden und Clientdetails standardmäßig anzeigen |
+| **System** | Abmeldung nach und Kernel-Optionen |
+
+Die drei Werte unter **Übersicht** sind bewusst nicht änderbar: Der Gruppenname ist die Identität der Gruppe, der Server steht fest, und die Cache-Partition ergibt sich aus dem Partitionslayout. Sie stehen dort, weil sie beim Bearbeiten gebraucht werden – nicht, um sie zu ändern.
+
+Bei **Sprache** bedeutet *Vorgabe des Servers*, dass die Gruppe keine eigene Sprache setzt. Die **Hintergrundfarbe** wählen Sie über das Farbfeld oder tragen sie sechsstellig hexadezimal ein; die Vordergrundfarbe passt LINBO selbst an. **Abmeldung nach** erwartet Sekunden und hat die Vorgabe 600.
 
 Zum Feld **Kernel-Optionen** gehören Schaltflächen für die gebräuchlichen Werte: `quiet`, `splash`, `acpi=noirq`, `acpi=off`, `irqpoll` und `dhcpretry=9`. Ein Klick hängt den Wert an die bestehenden Optionen an; ist er bereits gesetzt, ist die Schaltfläche ausgegraut.
 
@@ -245,7 +263,7 @@ Zum Feld **Kernel-Optionen** gehören Schaltflächen für die gebräuchlichen We
 
 **Partitionen** zeigt je Platte eine Karte, auf der die Partitionen in ihrer Reihenfolge nebeneinander liegen. Über die Preset-Schaltflächen fügen Sie eine Partition mit sinnvoller Vorgabegröße hinzu: *EFI*, *MSR*, *Windows*, *Linux*, *Swap*, *Daten*, *Erweitert* und *Cache*.
 
-Die Reihenfolge ändern Sie durch Ziehen: Eine Partition lässt sich innerhalb ihrer Platte an eine andere Stelle ziehen, und eine Preset-Schaltfläche lässt sich statt angeklickt direkt an die Stelle gezogen werden, an der die neue Partition entstehen soll – zwischen zwei Partitionen öffnet sich dafür eine Lücke. Ein Klick auf das Preset ohne Ziehen entscheidet die Position selbst: *EFI* kommt an den Anfang, *MSR* dahinter, alles andere ans Ende. Die Gerätenamen und alle Verweise darauf werden nach jeder Änderung neu durchnummeriert. Der **Plattentyp** – SATA, VirtIO, Xen, IDE, MMC, NVMe oder allgemein – bestimmt die Gerätenamen; ein Wechsel nummeriert die Partitionen der Platte samt aller Verweise darauf um. Ein Klick auf eine Partition öffnet einen Dialog mit den Unterregisterkarten **Partition** und **Betriebssystem**.
+Die Reihenfolge ändern Sie durch Ziehen: Eine Partition lässt sich innerhalb ihrer Platte an eine andere Stelle ziehen, und eine Preset-Schaltfläche lässt sich statt angeklickt direkt an die Stelle gezogen werden, an der die neue Partition entstehen soll – zwischen zwei Partitionen öffnet sich dafür eine Lücke. Ein Klick auf das Preset ohne Ziehen entscheidet die Position selbst: *EFI* kommt an den Anfang, *MSR* dahinter, alles andere ans Ende. Die Gerätenamen und alle Verweise darauf werden nach jeder Änderung neu durchnummeriert. Der **Plattentyp** – SATA, VirtIO, Xen, IDE, MMC, NVMe oder allgemein – bestimmt die Gerätenamen; ein Wechsel nummeriert die Partitionen der Platte samt aller Verweise darauf um. Ein Klick auf eine Partition öffnet einen Dialog mit den Unterregisterkarten **Partition** und **Betriebssystem**. Dieser Dialog öffnet in der einfachen Ansicht; die Schaltfläche **Erweitert** in seinem Fuß blendet die selten benötigten Felder ein – auf **Partition** sind das *Partitionstyp* und *Dateisystem*. Die Wahl gilt nur für die geöffnete Partition: Die nächste öffnet wieder einfach.
 
 Im Feld **Größe** gilt: eine nackte Zahl sind Kibibytes, ein Suffix `M`, `G` oder `T` legt die Einheit fest, und ein leeres Feld bedeutet *Rest der Platte* (in der Plattenkarte als `∞` dargestellt). Unter dem Feld steht laufend, welche Größe daraus wird.
 
@@ -277,6 +295,8 @@ Oben rechts wählen Sie wie bei den Gruppen zwischen vier Ansichten; die Wahl bl
 | **Tabelle** | Name, Größe, **Verwendet in**, Sidecars und Änderungszeitpunkt |
 
 Auch hier steht in den drei Kartenansichten ein **Suchfeld** (*„Images durchsuchen…"*), das nach Name und Beschreibung des Images filtert.
+
+Ein Klick auf eine Image-Karte öffnet **Details anzeigen**. Anders als bei den Gruppen sind die Zeilen der **Tabelle** nicht anklickbar; dort führt der Weg über die Spalte **Aktionen**. Schaltflächen auf der Karte – etwa **Herunterladen** – behalten ihre eigene Wirkung.
 
 Beide Listen verweisen aufeinander: eine Gruppe nennt die Images, die sie startet, und ein Image nennt unter **Verwendet in** die Gruppen, die es starten. Beide Richtungen stehen in jeder Ansicht – in den Kartenansichten auf der Karte, in der **Tabelle** in der gleichnamigen Spalte. Die Zuordnung liest die Plattform aus den `start.conf`-Dateien.
 

@@ -15,7 +15,7 @@ Das Anlegen und Löschen von Webhook-Clients ist ausschließlich für Global-Adm
 
 ## Webhook-Clients verwalten
 
-Öffnen Sie als Global-Admin die **Einstellungen** (Zahnrad-Symbol unten im Menü), wählen Sie **Globale Einstellungen** und klappen Sie den Abschnitt **Webhooks** auf.
+Öffnen Sie als Global-Admin die **Einstellungen** (Zahnrad-Symbol unten im Menü), klicken Sie links auf **Allgemein**, bleiben Sie auf der Registerkarte **Allgemein** und klappen Sie dort den Abschnitt **Webhooks** auf.
 
 Die Tabelle listet alle registrierten Webhook-Clients mit folgenden Spalten:
 

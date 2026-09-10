@@ -20,7 +20,9 @@ Die Seite ist in mehrere Abschnitte gegliedert:
 
 | Abschnitt | Inhalt |
 |---|---|
-| **Allgemein** | Mailcow-API-Zugang, Theme der Webmail-Oberfläche |
+| **URL** | Adresse der Mailcow-API |
+| **API-Schlüssel** | Schlüssel für die Mailcow-API |
+| **Allgemein** | Theme der Webmail-Oberfläche |
 | **Mailserver** | IMAP, SMTP, ManageSieve, DAV und Standard-Signatur des integrierten Clients |
 | **Mailbox-Verwaltung** | Mailcow-Mailboxen anlegen, bearbeiten und löschen – siehe [Mailboxen und geteilte Postfächer](./mailbox-verwaltung.md) |
 | **Externe Mail-Provider** | Vorlagen für die Sync-Jobs der Benutzer |
@@ -28,14 +30,16 @@ Die Seite ist in mehrere Abschnitte gegliedert:
 
 Änderungen werden erst mit **Speichern** wirksam. Die API übernimmt sie anschließend ohne Neustart – Verbindungen zu IMAP, SMTP und ManageSieve werden mit den neuen Werten aufgebaut.
 
-## Allgemein
+## URL und API-Schlüssel
 
-**URL** und **API-Schlüssel** verweisen auf die Mailcow-API. Sie werden für alles benötigt, was nicht über IMAP läuft: Mailbox-Verwaltung, Domainliste, Sync-Jobs und Absenderrechte.
+Die Abschnitte **URL** und **API-Schlüssel** stehen ganz oben auf der Seite und verweisen auf die Mailcow-API. Sie werden für alles benötigt, was nicht über IMAP läuft: Mailbox-Verwaltung, Domainliste, Sync-Jobs und Absenderrechte.
 
 - **URL** – Basis-URL der Mailcow-Instanz, z. B. `https://mail.ihre-schule.de`
-- **API-Schlüssel** – ein in Mailcow unter *Konfiguration → Zugriff → API* erzeugter Schlüssel mit Schreibrechten
+- **API-Schlüssel** – ein in Mailcow unter *System → Konfiguration → Zugang → API* im Bereich *Lese-Schreib-Zugriff* hinterlegter Schlüssel
 
 Bleiben die Felder leer, greifen die Umgebungsvariablen `MAILCOW_API_URL` und `MAILCOW_API_TOKEN` des API-Containers als Rückfallebene.
+
+## Allgemein
 
 **Theme** steuert das Erscheinungsbild der SOGo-Webmail-Oberfläche (hell oder dunkel). Das Theme gilt systemweit für alle Benutzer; ein Wechsel startet die zugehörigen Container neu. Die **Theme-Versionsprüfung** meldet, wenn für das gewählte Theme eine neuere Version vorliegt.
 

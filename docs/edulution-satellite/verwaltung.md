@@ -14,7 +14,7 @@ Diese Seite beschreibt den **laufenden Betrieb** in der edulution Plattform. Die
 Die Verwaltung gliedert sich in zwei Bereiche:
 
 - **Einstellungen → Satellites** – Satelliten koppeln, genehmigen, einer Schule zuweisen und aktualisieren (nur Global-Admin).
-- **App „Satellites"** – den laufenden Betrieb eines ausgewählten Satelliten einsehen und konfigurieren (Übersicht, Netzwerke, Authentifizierung, Dienste).
+- **App „Satellites"** – den laufenden Betrieb eines ausgewählten Satelliten einsehen und konfigurieren (Übersicht, Netzwerke, Authentifizierung, Dienste, LINBO).
 
 :::warning[Nur Global-Admin]
 Das Koppeln und Verwalten von Satelliten in den **Einstellungen** ist ausschließlich für Global-Admins zugänglich. Der Schulfilter im Satelliten-Bereich erscheint ebenfalls nur für Global-Admins mit mehr als einer Schule.
@@ -84,7 +84,7 @@ Bei akzeptierten, online erreichbaren Satelliten können Sie über **Updates pr�
 
 ## Der Satelliten-Bereich
 
-Den laufenden Betrieb eines Satelliten verwalten Sie in der App **Satellites** (sofern für Sie freigeschaltet). Am oberen Rand befindet sich die Satelliten-Auswahl, darunter wechseln Sie über die Seitenleiste zwischen **Übersicht**, **Netzwerke**, **Authentifizierung** und **Diensten**.
+Den laufenden Betrieb eines Satelliten verwalten Sie in der App **Satellites** (sofern für Sie freigeschaltet). Am oberen Rand befindet sich die Satelliten-Auswahl, darunter wechseln Sie über die Seitenleiste zwischen **Übersicht**, **Netzwerke**, **Authentifizierung**, **Diensten** und **LINBO**.
 
 ### Satellit auswählen
 
@@ -155,6 +155,45 @@ Die Unterseite **Dienste** bündelt die laufenden Dienste in drei ausklappbaren 
 - **Container** – listet die auf dem Satelliten laufenden Container mit **Name**, **Status** und zugeordneten **Netzwerken** (rein informativ).
 
 Über die Aktion zum Neuladen aktualisieren Sie alle drei Listen.
+
+### LINBO
+
+Der Eintrag **LINBO** zeigt, was die LINBO-Installation *des Satelliten* über die Rechner an seinem Standort weiß. Er ist unabhängig vom Bereich **LINBO** der App **Schulserver**: dort sehen Sie die LINBO-Installation Ihres zentralen Linuxmuster-Servers, hier die des ausgewählten Satelliten.
+
+In dieser Version enthält der Bereich die Unterseite **Hosts**.
+
+#### Hosts
+
+Die Tabelle listet alle Rechner, die der Satellit kennt, mit **Hostname**, **MAC-Adresse**, **IP-Adresse**, **Gruppe**, **Raum**, **Status**, **Abbild** und **Zuletzt gesehen**. Über das Suchfeld schränken Sie die Liste auf einen Hostnamen ein, über das Filtersymbol daneben auf eine oder mehrere **Gruppen**. Beide Filter arbeiten im Browser: die Liste wird vollständig geladen, sodass das Filtern ohne erneute Abfrage des Satelliten geschieht.
+
+Die Spalte **Status** nennt den Betriebszustand, den der Satellit zuletzt gemeldet hat:
+
+| Status | Bedeutung |
+|--------|-----------|
+| **Online** | Der Rechner hat sich innerhalb des Meldeintervalls gemeldet. |
+| **Offline** | Innerhalb des Meldeintervalls kam keine Meldung. |
+| **Überträgt** | Der Rechner überträgt gerade ein Abbild. |
+
+:::note[Wann ein Rechner als offline gilt]
+Maßgeblich ist das Meldeintervall des Satelliten – standardmäßig **300 Sekunden**. Ein Rechner, der sich länger nicht gemeldet hat, erscheint als *Offline*, auch wenn er tatsächlich noch läuft. Meldet der Satellit einen Zustand, den die Plattform nicht kennt, wird dieser unverändert angezeigt, statt ihn als *Unbekannt* zu verwerfen.
+:::
+
+Die Spalte **Abbild** vergleicht das Abbild auf dem Rechner mit dem des Satelliten und nennt darunter den Namen des Abbilds:
+
+| Anzeige | Bedeutung |
+|---------|-----------|
+| **Aktuell** | Der Rechner hat den Stand des Satelliten. |
+| **Veraltet** | Auf dem Satelliten liegt eine neuere Fassung. |
+| **Nie synchronisiert** | Der Rechner hat noch kein Abbild bezogen. |
+| **Unbekannt** | Der Satellit meldet für diesen Rechner keinen Abgleichsstand. |
+
+:::note[Nur Anzeige]
+Die Hostliste des Satelliten lässt sich nicht bearbeiten. Die Rechner stammen aus der Synchronisation mit dem Linuxmuster-Server und werden auf dem Satelliten zwischengespeichert; angelegt, geändert und gelöscht werden sie deshalb am Server, nicht am Satelliten. Mit der Aktion zum Neuladen holen Sie den aktuellen Stand.
+:::
+
+:::note[Hostliste und Abbild-Stand werden getrennt geladen]
+Beide Angaben stammen aus verschiedenen Abfragen. Antwortet der Satellit nur auf eine davon, bleibt die andere nutzbar: Die Rechner werden dann ohne Abbild-Stand aufgeführt (alle Zeilen zeigen *Unbekannt*), oder es erscheint eine Fehlermeldung, während die Liste weiterhin steht.
+:::
 
 ## Siehe auch
 

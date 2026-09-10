@@ -160,7 +160,7 @@ Die Unterseite **Dienste** bündelt die laufenden Dienste in drei ausklappbaren 
 
 Der Eintrag **LINBO** zeigt, was die LINBO-Installation *des Satelliten* über die Rechner an seinem Standort weiß. Er ist unabhängig vom Bereich **LINBO** der App **Schulserver**: dort sehen Sie die LINBO-Installation Ihres zentralen Linuxmuster-Servers, hier die des ausgewählten Satelliten.
 
-In dieser Version enthält der Bereich die Unterseite **Hosts**.
+In dieser Version enthält der Bereich die Unterseiten **Konfigurationen** und **Hosts**.
 
 #### Hosts
 
@@ -193,6 +193,44 @@ Die Hostliste des Satelliten lässt sich nicht bearbeiten. Die Rechner stammen a
 
 :::note[Hostliste und Abbild-Stand werden getrennt geladen]
 Beide Angaben stammen aus verschiedenen Abfragen. Antwortet der Satellit nur auf eine davon, bleibt die andere nutzbar: Die Rechner werden dann ohne Abbild-Stand aufgeführt (alle Zeilen zeigen *Unbekannt*), oder es erscheint eine Fehlermeldung, während die Liste weiterhin steht.
+:::
+
+#### Konfigurationen
+
+Die Unterseite **Konfigurationen** listet die Hardwaregruppen, die der Satellit vom Linuxmuster-Server übernommen hat – also die `start.conf`-Dateien, die in seinem Zwischenspeicher liegen. Der Aufbau entspricht der Gruppenliste im Bereich **LINBO** der App **Schulserver**; die Daten stammen jedoch ausschließlich vom ausgewählten Satelliten.
+
+Oben rechts wählen Sie zwischen denselben vier Ansichten wie dort:
+
+| Ansicht | Zeigt |
+|---------|-------|
+| **Plattenkarte** (Vorgabe) | die Partitionen der Gruppe als Balken, dazu die Betriebssysteme mit Symbol und Wurzelpartition |
+| **Kacheln** | Systemtyp, Betriebssysteme und die Zahl der zugeordneten Rechner |
+| **Datenblatt** | die gesetzten Schlüssel der Gruppe |
+| **Tabelle** | Gruppe, Zahl der Partitionen, Betriebssysteme und die Aktion zum Anzeigen der `start.conf` |
+
+:::note[Die Ansichtswahl gilt für beide Bereiche]
+Die gewählte Ansicht wird zusammen mit der Gruppenliste des Schulservers gespeichert. Stellen Sie hier auf **Datenblatt** um, erscheint auch die Gruppenliste im Bereich **LINBO** der App **Schulserver** in dieser Ansicht – und umgekehrt.
+:::
+
+In den Kartenansichten schränken Sie die Liste über das Suchfeld auf einen Gruppennamen ein. Die Zahl der zugeordneten Rechner stammt aus der Hostliste desselben Satelliten: gezählt werden die Rechner, die der Satellit dieser Gruppe zuordnet, nicht die des Linuxmuster-Servers.
+
+:::note[Der Satellit meldet weniger als der Server]
+Die Liste des Satelliten enthält je Gruppe nur den Gruppennamen, den Systemtyp, den Server sowie die Partitionen und Betriebssysteme. Angaben, die die Gruppenliste des Schulservers zusätzlich zeigt – Cache, Download-Typ, Änderungszeitpunkt und die verwendeten Abbilder – liegen dem Satelliten nicht vor und bleiben deshalb leer. Der vollständige Inhalt einer Gruppe steht in der Vorschau.
+:::
+
+Über die Aktion in der Spalte **start.conf** – oder durch Anklicken einer Karte beziehungsweise Tabellenzeile – öffnen Sie die Vorschau. Sie liest die Datei im Moment des Öffnens vom Satelliten und hat zwei Registerkarten:
+
+- **Zusammenfassung** – die ausgewertete `start.conf` mit den gesetzten Schlüsseln und dem Plattenlayout, in derselben Darstellung wie im Bereich **LINBO** der App **Schulserver**.
+- **Rohdaten** – der unveränderte Inhalt der Datei.
+
+Die Registerkarte **GRUB cfg** entfällt hier: Der Satellit stellt keine GRUB-Konfiguration bereit.
+
+:::note[Nur Anzeige]
+Die Konfigurationen des Satelliten lassen sich nicht anlegen, bearbeiten, duplizieren oder löschen. Sie stammen aus der Synchronisation mit dem Linuxmuster-Server; geändert werden sie deshalb am Server, nicht am Satelliten. Mit der Aktion zum Neuladen holen Sie den aktuellen Stand.
+:::
+
+:::note[Wenn eine Datei nicht gelesen werden kann]
+Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, erscheint über der Tabelle ein Hinweis, statt eine leere Liste zu zeigen. Lässt sich eine einzelne `start.conf` nicht lesen – etwa weil die Datei auf dem Satelliten fehlt, obwohl die Gruppe noch in der Liste steht –, meldet die Vorschau dies ausdrücklich. Ist die Datei vorhanden, aber leer, wird sie als leer ausgewiesen.
 :::
 
 ## Siehe auch

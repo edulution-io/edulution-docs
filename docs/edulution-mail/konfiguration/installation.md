@@ -170,7 +170,7 @@ Die Proxy-Konfiguration ist zwingend erforderlich! Ohne diese Konfiguration sind
 :::
 
 :::warning[Voraussetzung: Mailcow-API-URL]
-Die Mailcow-API-URL unter **Einstellungen → E-Mails → Mailserver** muss auf `https://mailcowdockerized-nginx-mailcow-1` stehen (siehe [Schritt 5](#schritt-5-mailserver-hosts-konfigurieren)).
+Die Mailcow-API-URL im Abschnitt **URL** unter **Einstellungen → E-Mails** muss auf `https://mailcowdockerized-nginx-mailcow-1` stehen (siehe [Schritt 5](#schritt-5-mailserver-hosts-konfigurieren)).
 
 Ältere Installationen haben dort teilweise noch `https://edu-traefik/sogo-mail` eingetragen. Dieser Wert funktioniert mit der oben gezeigten Konfiguration nicht mehr und muss vorher umgestellt werden — sonst erreicht die edulution-api die Mailcow-API nicht.
 :::
@@ -190,23 +190,22 @@ Sobald edulution-mail das Mailcow-Netzwerk für edulution-api sichtbar macht, si
 
 ### Schritt 5: Mailserver-Hosts konfigurieren
 
-Damit die edulution-api direkt mit dem Mailserver kommunizieren kann, müssen IMAP- und SMTP-Server auf die internen Mailcow-Hostnamen gesetzt werden.
+Damit die edulution-api direkt mit dem Mailserver kommunizieren kann, müssen die Mailcow-API sowie IMAP- und SMTP-Server auf die internen Mailcow-Hostnamen gesetzt werden.
 
 1. Bleiben Sie in **Einstellungen** → **E-Mails**
-2. Scrollen Sie nach oben zum Abschnitt **Mailserver**
-3. Tragen Sie folgende Werte ein:
+2. Scrollen Sie nach oben zum Abschnitt **URL** und tragen Sie die Adresse der Mailcow-API ein: `https://mailcowdockerized-nginx-mailcow-1`
+3. Prüfen Sie den Abschnitt **API-Schlüssel** direkt darunter. Ist das Feld leer, tragen Sie den API-Key ein, den edulution-mail bei der Installation erzeugt hat. Sie finden ihn in der [Mailcow-Administrationsoberfläche](#zugriff-auf-die-mailcow-administrationsoberfläche) unter **System → Konfiguration → Zugang → API** im Bereich **Lese-Schreib-Zugriff** (mit **+** aufklappen).
+4. Tragen Sie im Abschnitt **Mailserver** folgende Werte ein:
 
 | Feld | Wert |
 |------|------|
-| **URL** (Mailcow-API) | `https://mailcowdockerized-nginx-mailcow-1` |
-| **API-Schlüssel** | `***` |
 | **IMAP-Server** | `dovecot` |
 | **IMAP Port** | `993` |
 | **SMTP-Server** | `postfix` |
 | **SMTP Port** | `587` |
 | **Nicht zertifizierte Verbindungen ablehnen** | aus |
 
-4. Klicken Sie oben rechts auf **Speichern**
+5. Klicken Sie oben rechts auf **Speichern**
 
 :::warning[URL-Feld nicht vergessen]
 Ohne den korrekten URL-Wert kann die edulution-Plattform nicht mit der Mailcow-API kommunizieren — z.B. Mailbox-Status, Sync-Trigger und Admin-Funktionen schlagen dann fehl.

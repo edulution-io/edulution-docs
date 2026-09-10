@@ -17,7 +17,7 @@ Die angepasste Proxy-Konfiguration setzt **edulution-mail v1.3.2 oder höher** v
 
 ### Schritt 1: Mailcow-API-URL prüfen
 
-**edulution-Plattform → Einstellungen → E-Mails → Mailserver**
+**edulution-Plattform → Einstellungen → E-Mails → URL**
 
 Prüfen Sie, welcher Wert im Feld **URL** eingetragen ist. Er muss lauten:
 
@@ -31,7 +31,7 @@ https://mailcowdockerized-nginx-mailcow-1
 Diese Umstellung muss **vor** der Anpassung der Proxy-Konfiguration erfolgen. Andernfalls erreicht die edulution-api die Mailcow-API nicht mehr — Mailbox-Status, Sync-Trigger und Admin-Funktionen schlagen dann fehl.
 :::
 
-Die restlichen Werte des Abschnitts sind in der [Installations-Anleitung, Schritt 5](/docs/edulution-mail/konfiguration/installation#schritt-5-mailserver-hosts-konfigurieren) beschrieben.
+Die übrigen Werte sind in der [Installations-Anleitung, Schritt 5](/docs/edulution-mail/konfiguration/installation#schritt-5-mailserver-hosts-konfigurieren) beschrieben.
 
 ### Schritt 2: Proxy-Konfiguration anpassen
 
@@ -105,14 +105,12 @@ Da edulution-api jetzt direkt im Mailcow-Netzwerk hängt, müssen IMAP- und SMTP
 
 | Feld | Wert |
 |------|------|
-| **URL** (Mailcow-API) | `https://mailcowdockerized-nginx-mailcow-1` |
-| **API-Schlüssel** | `***` |
 | **IMAP-Server** | `dovecot` |
 | **IMAP Port** | `993` |
 | **SMTP-Server** | `postfix` |
 | **SMTP Port** | `587` |
 
-Ohne den korrekten URL-Wert kann die edulution-Plattform nicht mit der Mailcow-API kommunizieren. Anschließend oben rechts auf **Speichern** klicken.
+Außerdem muss im Abschnitt **URL** weiter oben `https://mailcowdockerized-nginx-mailcow-1` stehen und im Abschnitt **API-Schlüssel** ein gültiger Mailcow-API-Key. Ohne den korrekten URL-Wert kann die edulution-Plattform nicht mit der Mailcow-API kommunizieren. Anschließend oben rechts auf **Speichern** klicken.
 
 ### Optionales Aufräumen: IMAP/IMAPS in Traefik
 

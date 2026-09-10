@@ -286,7 +286,7 @@ Setzen Sie **edulution-mail** (mailcow) ein, erreichen Sie den Server direkt üb
 https://mailcowdockerized-nginx-mailcow-1/SOGo/dav/
 ```
 
-Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der **Mailcow-API-URL** unter *Einstellungen → E-Mails → Mailserver*, die denselben Container-Namen **ohne** Pfad verwendet.
+Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der **Mailcow-API-URL** unter *Einstellungen → E-Mails → URL*, die denselben Container-Namen **ohne** Pfad verwendet.
 
 Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie deshalb **Nicht zertifizierte Verbindungen ablehnen** aus, sonst schlägt die Verbindung fehl.
 :::
@@ -359,7 +359,7 @@ Setzen Sie **edulution-mail** (mailcow) ein, erreichen Sie den Server direkt üb
 https://mailcowdockerized-nginx-mailcow-1/SOGo/dav/
 ```
 
-Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der **Mailcow-API-URL** unter *Einstellungen → E-Mails → Mailserver*, die denselben Container-Namen **ohne** Pfad verwendet.
+Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der **Mailcow-API-URL** unter *Einstellungen → E-Mails → URL*, die denselben Container-Namen **ohne** Pfad verwendet.
 
 Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie deshalb **Nicht zertifizierte Verbindungen ablehnen** aus, sonst schlägt die Verbindung fehl.
 :::

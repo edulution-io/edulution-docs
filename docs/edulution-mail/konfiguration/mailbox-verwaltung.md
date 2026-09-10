@@ -11,7 +11,7 @@ Mailboxen lassen sich direkt aus edulution Plattform heraus anlegen, bearbeiten 
 Die Mailbox-Verwaltung ist ausschließlich für Global-Administratoren sichtbar. Alle Aktionen wirken unmittelbar auf dem Mailserver.
 :::
 
-Die Verwaltung finden Sie unter **Einstellungen → E-Mails → Mailbox-Verwaltung**. Voraussetzung ist ein gültiger Mailcow-API-Zugang, siehe [Mail-App konfigurieren](./mail-app-konfiguration.md#allgemein).
+Die Verwaltung finden Sie unter **Einstellungen → E-Mails → Mailbox-Verwaltung**. Voraussetzung ist ein gültiger Mailcow-API-Zugang, siehe [Mail-App konfigurieren](./mail-app-konfiguration.md#url-und-api-schlüssel).
 
 ## Die Mailbox-Tabelle
 

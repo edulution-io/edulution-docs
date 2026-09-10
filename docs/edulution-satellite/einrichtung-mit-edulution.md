@@ -123,7 +123,7 @@ Zurück in edulution unter **Einstellungen → Satellites → Verbundene Satelli
 
 ![Satellit akzeptieren](/img/satellite/satellit-akzeptieren.png)
 
-edulution überträgt dabei die endgültige WireGuard-Konfiguration an den Satelliten. Danach ist er **akzeptiert** und voll verwaltbar; die Schaltflächen **Zentrales Netzwerk** und **Entkoppeln** sowie die Tunnel-Details werden angezeigt.
+edulution überträgt dabei die endgültige WireGuard-Konfiguration an den Satelliten. Danach ist er **akzeptiert** und voll verwaltbar; **Entkoppeln** sowie die Tunnel-Details werden angezeigt. Auf einer **Linuxmuster**-Installation steht zusätzlich **Zentrales Netzwerk** zur Verfügung.
 
 ![Satellit akzeptiert](/img/satellite/satellit-akzeptiert.png)
 
@@ -149,7 +149,7 @@ Für Netze, die der Satellit selbst bereitstellt (eigenes DHCP und Routing), öf
 
 ### Zentrale Netze über WireGuard
 
-Um ein **zentrales Netz** – etwa das linuxmuster-Netz – über den WireGuard-Tunnel an den LAN-Ports des Satelliten bereitzustellen, öffnen Sie in edulution am Satelliten die Schaltfläche **Zentrales Netzwerk**.
+Um eigene **Client-Netze** am Satelliten mit zentralen Diensten Ihrer Linuxmuster-Installation zu verbinden, öffnen Sie in edulution unter **Einstellungen → Satellites** am akzeptierten Gerät die Schaltfläche **Zentrales Netzwerk**. Verwenden Sie dafür freie Subnetze, die sich nicht mit vorhandenen Netzen in der Zentrale oder an anderen Satelliten überschneiden.
 
 ![Dialog „Zentrales Netzwerk"](/img/satellite/zentrales-netzwerk-dialog.png)
 
@@ -168,14 +168,14 @@ Legen Sie über **Netz hinzufügen** ein oder mehrere Netze an. **Jedes Netz wir
 WAN-Port (`ether1`) und LAN-Bridge (`bridge-lan`) werden bei der Installation festgelegt und sind daher **nicht** Teil dieser Konfiguration.
 :::
 
-Mit **Anwenden** richtet edulution automatisch alle drei Seiten ein: den Eintrag am zentralen DHCP-Server (linuxmuster), die Rückrouten am WireGuard-Server sowie VLAN und DHCP-Relay am Satelliten. Der Status wechselt auf **Aktiv**.
+Prüfen Sie den im Dialog angezeigten **DHCP-Bereich**: Er verwendet den größeren zusammenhängenden Adressbereich neben dem Gateway. **Speichern** hinterlegt nur den Entwurf. Mit **Anwenden** richtet edulution automatisch alle drei Seiten ein: den Eintrag am zentralen DHCP-Server (linuxmuster), die Rückrouten am WireGuard-Server sowie VLAN und DHCP-Relay am Satelliten. Der Status wechselt auf **Aktiv**.
 
 ![Zentrales Netzwerk aktiv](/img/satellite/zentrales-netzwerk-aktiv.png)
 
-Am Satelliten entsteht je Netz ein Interface `cn-vlan-<id>` auf `bridge-lan` mit der Gateway-IP sowie ein DHCP-Relay (`cn-relay-<id>`) zum zentralen Server; der DHCP-Verkehr läuft über den WireGuard-Tunnel. Über **Deaktivieren** wird alles wieder rückgängig gemacht.
+Am Satelliten entsteht je Netz ein Interface `cn-vlan-<id>` auf `bridge-lan` mit der Gateway-IP sowie ein DHCP-Relay (`cn-relay-<id>`) zum zentralen Server; der DHCP-Verkehr läuft über den WireGuard-Tunnel. Über **Deaktivieren** bauen Sie diese Konfiguration wieder ab. Meldet der Dialog **Deaktivierung ausstehend**, beheben Sie die angezeigte Ursache und wiederholen Sie die Aktion; bis zum Abschluss bleibt **Anwenden** gesperrt. Weitere Hinweise zu Entwürfen, Konflikten und Wiederholungen finden Sie unter [Zentrales Netzwerk verwalten](./verwaltung.md#zentrales-netzwerk).
 
 :::warning[Voraussetzungen für zentrale Netze]
-Der WireGuard-Tunnel muss stehen (Peer *Connected*, siehe Schritt 6) und der zentrale Server benötigt **linuxmuster-api ab Version 7.4.6** – erst ab dort existiert der benötigte Subnets-Endpunkt.
+Der WireGuard-Tunnel muss stehen (Peer *Connected*, siehe Schritt 6) und der zentrale Server benötigt **linuxmuster-api ab Version 7.4.6** – erst ab dort existiert der benötigte Subnets-Endpunkt. Zusätzlich muss der zentrale Host die Client-Subnetze zum WireGuard-Container routen. Diese Host-Route wird durch **Anwenden** nicht eingerichtet und muss passend zu Ihrer Installation vorhanden sein.
 :::
 
 ## 8. Dienste starten (optional)

@@ -20,6 +20,8 @@ Die Verwaltung gliedert sich in zwei Bereiche:
 Das Koppeln und Verwalten von Satelliten in den **Einstellungen** ist ausschließlich für Global-Admins zugänglich. Der Schulfilter im Satelliten-Bereich erscheint ebenfalls nur für Global-Admins mit mehr als einer Schule.
 :::
 
+Die globale Konfiguration erreichen Sie auch über [Einstellungen → Satellites](../edulution-plattform/konfiguration/einstellungen.md#satellites).
+
 ## Lebenszyklus eines Satelliten
 
 Ein Satellit durchläuft mehrere Zustände, bis er betriebsbereit ist:
@@ -77,6 +79,22 @@ Sobald ein Tunnel besteht, zeigt der Satelliten-Eintrag einen Abschnitt **WireGu
 
 - Ist der Satellit online, wird die Konfiguration sofort übertragen.
 - Ist er offline, wird sie bei der nächsten Verbindung angewendet.
+
+### Zentrales Netzwerk
+
+Bei einer **Linuxmuster**-Installation finden Sie am akzeptierten Satelliten mit hinterlegter Seriennummer die Schaltfläche **Zentrales Netzwerk**. Die Funktion verbindet eigene Client-Netze am Satelliten über WireGuard mit zentralem DHCP und zentralen Diensten. Die Voraussetzungen und Eingabefelder beschreibt [Zentrale Netze über WireGuard](./einrichtung-mit-edulution.md#zentrale-netze-über-wireguard).
+
+**Speichern** hinterlegt einen Entwurf und verändert die laufenden Netze nicht. Erst **Anwenden** überträgt die Konfiguration an Linuxmuster, den WireGuard-Server und den online erreichbaren Satelliten. Der Status **Aktiv** und **Zuletzt angewendet** beziehen sich daher auf den angewendeten Stand; nachträglich gespeicherte Änderungen können davon abweichen. Auch das Entfernen einer Zeile aus dem Entwurf schaltet das laufende Netz noch nicht ab.
+
+Beachten Sie vor dem Anwenden:
+
+- Client-Subnetze dürfen sich weder untereinander noch mit Netzen anderer Satelliten oder bestehenden fremden Linuxmuster-Netzen überschneiden. Ein bereits vorhandenes Schulnetz kann über diesen Dialog nicht übernommen werden.
+- Der angezeigte **DHCP-Bereich** wird aus Client-Subnetz und Gateway berechnet. Verwendet wird der größere zusammenhängende Adressbereich auf einer Seite des Gateways; Netzadresse, Broadcast und Gateway sind ausgeschlossen. Prüfen Sie, ob der Bereich genügend Adressen für Ihre Endgeräte bietet.
+- Während eine andere Netzwerkkonfiguration verarbeitet wird, kann die Aktion mit einem Hinweis abgewiesen werden. Wiederholen Sie sie anschließend. Stimmen Sie gleichzeitige Änderungen direkt auf dem Linuxmuster-Server separat ab.
+
+Mit **Deaktivieren** werden die angewendeten Client-Netze aus Linuxmuster entfernt sowie VLANs, DHCP-Relays und Rückrouten dieser Konfiguration abgebaut. Der gespeicherte Entwurf bleibt erhalten. Schlägt ein Teilschritt fehl, erscheint **Deaktivierung ausstehend** mit einer Fehlermeldung. Beheben Sie die gemeldete Ursache und führen Sie **Deaktivieren** erneut aus. Bis die Bereinigung vollständig abgeschlossen ist, bleiben die betroffenen Subnetze diesem Satelliten zugeordnet und eine erneute Anwendung ist gesperrt.
+
+Wird ein fehlender WireGuard-Peer neu angelegt, übernimmt er die Rückrouten der zuletzt angewendeten, aktiven Client-Netze. Gespeicherte Entwurfsänderungen werden dabei nicht aktiviert.
 
 ### Updates
 

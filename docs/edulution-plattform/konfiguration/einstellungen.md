@@ -433,6 +433,14 @@ Ohne konfigurierten Proxy zeigen die Schülerkarten im Unterricht keine Bildschi
 
 ---
 
+## Satellites
+
+Unter **Einstellungen → Satellites** verwalten Sie gekoppelte Geräte, weisen Schulen zu und konfigurieren deren WireGuard-Verbindung. Die einzelnen Aktionen beschreibt [Satelliten verwalten](../../edulution-satellite/verwaltung.md#satelliten-koppeln-und-verwalten-einstellungen).
+
+Auf der Plattform **Linuxmuster** erscheint an akzeptierten Satelliten mit Seriennummer zusätzlich **Zentrales Netzwerk**. Damit richten Sie Client-VLANs am entfernten Standort mit zentralem DHCP und Routing über WireGuard ein. **Speichern** hält Änderungen zunächst als Entwurf fest; erst **Anwenden** verändert die Netze. Hinweise zu Subnetzkonflikten, DHCP-Bereich und dem Wiederholen einer unvollständigen Deaktivierung finden Sie unter [Zentrales Netzwerk](../../edulution-satellite/verwaltung.md#zentrales-netzwerk).
+
+---
+
 ## Frame- und Eingebettete Apps
 
 Apps, die Inhalte in einem iframe anzeigen, bringen zwei zusätzliche Bereiche in ihren Einstellungen mit:

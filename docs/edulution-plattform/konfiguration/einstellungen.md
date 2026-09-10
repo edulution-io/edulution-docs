@@ -448,9 +448,9 @@ Apps, die Inhalte in einem iframe anzeigen, bringen zwei zusätzliche Bereiche i
 
 ![Container Übersicht](/img/einstellungen/container.webp)
 
-Übersicht aller Docker Container des Systems mit Name, Image, Betriebszustand, Status, Port und Erstellungszeitpunkt. Über die Aktionsleiste am unteren Rand installieren Sie die Container zusätzlicher Dienste, aktualisieren sie und steuern ihren Lebenszyklus.
+Übersicht aller Docker Container des Systems mit Name, Image, Betriebszustand, Status, Port, Erstellungszeitpunkt und dem Zeitpunkt der letzten Update-Prüfung. Ein Symbol vor dem Image-Namen zeigt, ob ein Update bereitliegt. Über die Aktionsleiste am unteren Rand installieren Sie die Container zusätzlicher Dienste, aktualisieren sie und steuern ihren Lebenszyklus.
 
-Die vollständige Beschreibung – Aktionen, geschützte Container, Plugin-Installation, Edulution-Manager-Agent und Fehlerbehebung – finden Sie unter [Container-Verwaltung](./container-verwaltung.md).
+Die vollständige Beschreibung – Aktionen, geschützte Container, Plugin-Installation, Edulution-Manager-Agent, die tägliche Update-Prüfung und Fehlerbehebung – finden Sie unter [Container-Verwaltung](./container-verwaltung.md).
 
 :::info[Fortgeschrittene Verwaltung]
 Die Container-Übersicht ist für fortgeschrittene Administratoren. Änderungen sollten nur mit entsprechendem Docker-Know-how vorgenommen werden.

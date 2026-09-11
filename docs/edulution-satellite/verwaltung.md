@@ -160,7 +160,7 @@ Die Unterseite **Dienste** bündelt die laufenden Dienste in drei ausklappbaren 
 
 Der Eintrag **LINBO** zeigt, was die LINBO-Installation *des Satelliten* über die Rechner an seinem Standort weiß. Er ist unabhängig vom Bereich **LINBO** der App **Schulserver**: dort sehen Sie die LINBO-Installation Ihres zentralen Linuxmuster-Servers, hier die des ausgewählten Satelliten.
 
-In dieser Version enthält der Bereich die Unterseiten **Konfigurationen** und **Hosts**.
+Der Bereich gliedert sich in die Unterseiten **Konfigurationen**, **Hosts**, **Images**, **Synchronisation** und **Einstellungen**.
 
 #### Hosts
 
@@ -231,6 +231,145 @@ Die Konfigurationen des Satelliten lassen sich nicht anlegen, bearbeiten, dupliz
 
 :::note[Wenn eine Datei nicht gelesen werden kann]
 Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, erscheint über der Tabelle ein Hinweis, statt eine leere Liste zu zeigen. Lässt sich eine einzelne `start.conf` nicht lesen – etwa weil die Datei auf dem Satelliten fehlt, obwohl die Gruppe noch in der Liste steht –, meldet die Vorschau dies ausdrücklich. Ist die Datei vorhanden, aber leer, wird sie als leer ausgewiesen.
+:::
+
+#### Images
+
+Die Unterseite **Images** verwaltet die LINBO-Abbilder, die auf dem Satelliten selbst liegen, und gleicht sie mit denen des Schulservers ab. Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Status**, **Abgleich** und **Geändert**; über das Suchfeld schränken Sie die Liste auf einen Namen ein.
+
+| Spalte | Bedeutung |
+|--------|-----------|
+| **Typ** | **Basisimage** oder **Differenzimage** |
+| **Status** | **Verfügbar** – regulär im Imageverzeichnis abgelegt; **Altformat** – außerhalb der Imageverzeichnisse |
+| **Abgleich** | Vergleich mit dem Schulserver: **Gleich**, **Unterschiedlich**, **Nur am Server**, **Nur am Satelliten** oder **Unbekannt** |
+
+:::note[Images im Altformat]
+Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Die Aktionen dieser Zeile – Prüfsumme, Sicherungen, Begleitdateien und Löschen – werden deshalb nicht ausgeführt, sondern mit einem Hinweis abgelehnt.
+:::
+
+Je Zeile stehen folgende Aktionen bereit:
+
+| Aktion | Wirkung |
+|--------|---------|
+| **Prüfsumme prüfen** | vergleicht das Image mit der hinterlegten Prüfsumme |
+| **Wiederherstellen** | öffnet die Sicherungen des Images |
+| **Speichern** | öffnet die Begleitdateien des Images |
+| **Vom Server holen** | ersetzt das Image auf dem Satelliten durch das des Schulservers |
+| **Zum Server übertragen** | ersetzt das Image auf dem Schulserver durch das des Satelliten |
+| **Löschen** | löscht das Image samt seinem Verzeichnis |
+
+##### Prüfsumme prüfen
+
+Der Satellit berechnet die Prüfsumme und meldet, ob sie mit der hinterlegten übereinstimmt. Einen Fortschritt meldet er dabei nicht. Bei großen Images dauert die Berechnung länger, als die Verbindung zum Satelliten zulässt; die Prüfung läuft dann auf dem Satelliten weiter, ihr Ergebnis ist in der Plattform aber nicht mehr abrufbar. Ist für das Image keine Prüfsumme hinterlegt, wird auch das gemeldet.
+
+##### Übertragen
+
+Welche Richtung angeboten wird, entscheidet die Plattform aus dem Vergleich mit dem Schulserver:
+
+- Liegt das Image nur auf einer Seite, ist genau die Richtung möglich, die es auf die andere bringt.
+- Lässt sich nicht feststellen, welche Kopie neuer ist, bleiben **beide** Richtungen gesperrt.
+- Würde die Übertragung die neuere Kopie durch die ältere ersetzen, meldet die Plattform, welche Kopie neuer ist, und startet die Übertragung **nicht**.
+
+:::warning[Was eine Übertragung überschreibt]
+**Vom Server holen** löscht das Imageverzeichnis auf dem Satelliten vollständig – einschließlich aller dortigen Sicherungen und Begleitdateien – und ersetzt es durch den Stand des Servers. **Zum Server übertragen** überschreibt das Image auf dem Schulserver, das auch andere Satelliten nutzen. Beide Schritte lassen sich nicht rückgängig machen.
+:::
+
+Eine gestartete Übertragung meldet der Satellit nicht zurück. Die Plattform bestätigt nur den Start; den Ausgang sehen Sie, wenn Sie die Liste später neu laden.
+
+:::note[Wenn der Abgleich nicht verfügbar ist]
+Antwortet der Schulserver nicht auf den Vergleich, bleibt die Spalte **Abgleich** ohne Aussage und es wird keine Übertragungsrichtung angeboten. Die Imageliste selbst bleibt nutzbar.
+:::
+
+##### Sicherungen
+
+Der Dialog listet die Sicherungen des Images mit Zeitpunkt und Dateizahl. Einzelne Sicherungen lassen sich wiederherstellen oder löschen.
+
+:::warning[Wiederherstellen mischt zwei Stände]
+Beim Wiederherstellen wird die Sicherung selbst gelöscht. Dateien, die im Image vorhanden sind, in der Sicherung aber fehlen, bleiben erhalten – das Ergebnis ist also eine Mischung aus beiden Ständen und nicht der Stand der Sicherung. Der Schritt lässt sich nicht rückgängig machen.
+:::
+
+Meldet der Satellit den Ausgang der Wiederherstellung nicht zurück, weist die Plattform darauf hin, dass der Vorgang noch laufen kann. Laden Sie die Liste in diesem Fall neu, bevor Sie erneut wiederherstellen.
+
+##### Begleitdateien
+
+Der Dialog zeigt die Begleitdateien des Images: **desc** (Freitext, den LINBO im Auswahlmenü anzeigt), **info** (vom Satelliten erzeugte Angaben, nur lesbar), **reg** (Registry-Einträge nach der Synchronisation), **prestart** (Skript vor dem Start des Betriebssystems) und **postsync** (Skript nach der Synchronisation).
+
+:::note[Was sich eine Änderung teilt]
+**reg**, **prestart** und **postsync** gelten gemeinsam für Basis- und Differenzimage – eine Änderung hier wirkt auf beide. Ein leerer Inhalt löscht die Datei nicht, sondern setzt sie auf null Bytes; Begleitdateien zu löschen bietet der Satellit nicht an. Inhalte über 200 KB nimmt der Satellit nicht an und werden nicht gespeichert.
+:::
+
+##### Löschen
+
+Vor dem Löschen ermittelt die Plattform den Umfang und nennt ihn im Bestätigungsdialog: gelöscht wird das gesamte Imageverzeichnis mit allen Dateien und Sicherungen, und der Schritt lässt sich nicht rückgängig machen. Lässt sich der Umfang nicht ermitteln, wird das Image **nicht** gelöscht.
+
+#### Synchronisation
+
+Die Unterseite **Synchronisation** zeigt, was der Satellit vom Linuxmuster-Server übernommen und auf seinem eigenen System angewendet hat – und lässt einen Lauf von Hand anstoßen.
+
+Der Abschnitt **Synchronisationszustand** nennt den **Modus** (**Synchronisiert** oder **Offline**), den Zeitpunkt der letzten Synchronisation und die Zahl der übernommenen Hosts und Konfigurationen. Läuft gerade ein Lauf, wird das hier vermerkt; ein zuletzt gemeldeter Fehler erscheint darunter.
+
+:::note[Offline heißt nicht zwingend abgeschaltet]
+**Offline** meldet der Satellit auch dann, wenn er seine eigenen Einstellungen nicht lesen konnte. Die Anzeige belegt also nicht, dass die Synchronisation abgeschaltet wurde – prüfen Sie im Zweifel die Unterseite **Einstellungen**.
+:::
+
+Darunter steht je Bestandteil eine Karte: **Hosts und Konfigurationen**, **start.conf**, **devices.csv**, **GRUB und hostcfg** sowie **DHCP-Konfiguration**. Jede Karte nennt ihren Zustand als **Aktuell**, **Läuft**, **Fehler** oder **Keine Angabe** und zeigt eine gemeldete Fehlermeldung im Wortlaut.
+
+:::note[Nur DHCP hat einen mehrstufigen Ablauf]
+Die übrigen Bestandteile liegen im LINBO-Dateisystem des Satelliten: Schreiben und Anwenden fallen dort zusammen. Die DHCP-Konfiguration wird dagegen von einem eigenen Dienst übernommen, der den Vollzug zurückmeldet. Nur ihre Karte zeigt deshalb die vier Stufen **Gewünscht**, **Geschrieben**, **Geprüft** und **Aktiv** mit je eigenem Zustand (**Aktuell**, **Läuft**, **Unverändert**, **Fehlgeschlagen**, **Nicht zutreffend**, **Nicht gemeldet** oder **Keine Angabe**). Meldet der Satellit den Vollzug nicht zurück, entfallen die Stufen und die Karte weist darauf hin.
+:::
+
+**Keine Angabe** und **Nicht gemeldet** bedeuten fehlende Information, nicht einen Fehler: Ein Satellit, der noch nie synchronisiert hat, ruht genauso in diesem Zustand wie einer, dessen DHCP-Dienst nicht zurückmeldet. Beide werden deshalb neutral und nicht als Störung dargestellt.
+
+##### Einen Lauf anstoßen
+
+Unten rechts stehen **Synchronisieren**, **Vollständig synchronisieren**, **Zähler zurücksetzen** und die Aktion zum Neuladen. **Synchronisieren** übernimmt nur, was sich seit dem letzten Lauf geändert hat; **Vollständig synchronisieren** übernimmt den gesamten Bestand. **Zähler zurücksetzen** verwirft den Merkposten des letzten Laufs, sodass der nächste gewöhnliche Lauf wieder alles betrachtet.
+
+:::note[Während ein Lauf läuft]
+Die drei Aktionen verschwinden, solange ein Lauf läuft, und der Zustand wird alle fünf Sekunden nachgeladen – aber nur dann: Jede Abfrage kostet den Satelliten eine Prüfung der Verbindung zum Schulserver. Ein Lauf überdauert regelmäßig die Verbindung zum Satelliten; bricht sie ab, gilt der Lauf weiterhin als laufend und wird nicht als fehlgeschlagen gemeldet. Läuft auf dem Satelliten bereits ein Lauf, wird auch das gemeldet, statt einen zweiten zu starten.
+:::
+
+##### Sicherungspunkte
+
+Vor einem Lauf legt der Satellit einen Sicherungspunkt an. Der Abschnitt **Sicherungspunkte** listet sie mit Zeitpunkt und Kennung; je Eintrag können Sie über **Zurücksetzen** auf diesen Stand zurückgehen. Der Satellit hält nur die jüngsten Sicherungspunkte vor – ältere verschwinden von selbst aus der Liste.
+
+:::warning[Was ein Zurücksetzen ersetzt]
+Beim Zurücksetzen werden alle verwalteten `start.conf`-Dateien, alle DHCP- und GRUB-Konfigurationen sowie der zwischengespeicherte Host- und Konfigurationsbestand gelöscht und durch den Stand des Sicherungspunkts ersetzt. Images und Treiber bleiben unberührt. Die Plattform fragt vor dem Schritt nach.
+:::
+
+Solange kein Sicherungspunkt vorliegt, weist der Abschnitt dies aus. Lässt sich der Zustand insgesamt nicht lesen, erscheint über der Seite ein Hinweis, statt eine leere Seite zu zeigen.
+
+#### Einstellungen
+
+Die Unterseite **Einstellungen** pflegt die **Verbindung zum Schulserver**, die der Satellit für die Synchronisation nutzt. Sie wirkt ausschließlich auf den ausgewählten Satelliten; die zentralen Plattformeinstellungen bleiben davon unberührt.
+
+| Feld | Bedeutung |
+|------|-----------|
+| **Synchronisation aktiv** | `true` oder `false` – schaltet die selbsttätige Synchronisation ein oder aus |
+| **Intervall (Sekunden, 0 deaktiviert)** | Abstand zwischen zwei selbsttätigen Läufen; `0` schaltet den Zeitgeber ab |
+| **API-Adresse** | Adresse der Linuxmuster-API des Schulservers |
+| **Benutzer** | Benutzer für die Anmeldung an dieser API |
+| **Passwort** | Passwort dieses Benutzers |
+| **Schule** | Schule, deren Bestand der Satellit übernimmt |
+| **LINBO-Server-IP** | IP-Adresse, die der Satellit den Rechnern als LINBO-Server nennt |
+
+Neben jedem Feld steht, woher der Satellit den Wert bezieht:
+
+| Kennzeichnung | Bedeutung |
+|---------------|-----------|
+| **Standard** | Vorgabewert des Satelliten |
+| **Aus der Umgebung** | bei der Einrichtung des Geräts gesetzt |
+| **Überschrieben** | hier in der Plattform gesetzt |
+
+Jedes Feld wird einzeln gespeichert. **Auf Standard zurücksetzen** verwirft die hier gesetzte Überschreibung, sodass wieder der Wert aus der Umgebung beziehungsweise der Vorgabewert gilt; solange für ein Feld kein Wert hinterlegt ist, steht die Schaltfläche nicht zur Verfügung.
+
+:::note[Das Passwort wird nie zurückgegeben]
+Der Satellit gibt das gespeicherte Passwort nicht heraus; über dem Feld steht deshalb nur, ob eines hinterlegt ist. Das Eingabefeld beginnt bei jedem Aufruf leer – das ist keine Aufforderung, das Passwort zu löschen: Ein leer gelassenes Feld wird nicht gesendet. Nur wenn Sie etwas eintragen und speichern, wird das Passwort ersetzt.
+:::
+
+Über **Verbindung testen** prüft der Satellit, ob er den Schulserver erreicht; das Ergebnis wird als **Der Schulserver ist erreichbar.** oder **Der Schulserver ist nicht erreichbar.** gemeldet.
+
+:::note[Satellitenwechsel verwirft Eingaben]
+Wechseln Sie den Satelliten, während ein Feld noch ungespeichert ist, wird die Eingabe verworfen. So gelangt kein Wert – und vor allem kein Passwort – versehentlich auf das falsche Gerät.
 :::
 
 ## Siehe auch

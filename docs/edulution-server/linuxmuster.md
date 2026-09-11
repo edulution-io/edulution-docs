@@ -169,8 +169,12 @@ Die Hostliste ist über Registerkarten nach Gerätetyp gefiltert: **Alle**, **Co
 
 Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**.
 
-:::note[Status und geplante Aktionen]
-**Status** und **Geplant** bleiben ohne einen edulution-Satellite leer: der Online-/Offline-Zustand ist über die Linuxmuster-API allein nicht verfügbar, und geplante Aktionen werden vom Satellite verwaltet. Beide Spalten sind in dieser Version noch nicht angebunden.
+**Status** nennt je Host **Online** oder **Offline**; die Spaltenüberschrift sagt beim Überfahren, wann der Zustand zuletzt erhoben wurde. Solange für einen Host noch keine Erhebung vorliegt, bleibt das Feld leer.
+
+Über das Menü hinter der Schaltfläche mit den drei Punkten schicken Sie einer Zeile **Wake-on-LAN**, **Neu starten** oder **Herunterfahren**. Ein Host, der nicht erreichbar ist, wird übersprungen und in der Rückmeldung benannt.
+
+:::note[Geplante Aktionen]
+**Geplant** bleibt ohne einen edulution-Satellite leer: geplante Aktionen werden vom Satellite verwaltet und sind in dieser Version nicht angebunden.
 :::
 
 ### Gruppen
@@ -343,9 +347,10 @@ Die Seite **Versionsübersicht** listet die Versionen der beteiligten Linuxmuste
 
 Einige Aktionen sind in der Oberfläche bereits vorhanden, aber noch nicht angebunden. Sie melden beim Aufruf *„Diese Aktion wird in dieser Version noch nicht unterstützt."*:
 
-- die Host-Aktionen **Wake-on-LAN**, **Sync**, **Start**, **Neu starten**, **Herunterfahren** und **Treiber-Profil**
 - die Aktion **Sync** im Bereich **Gruppen**
-- die Spalten **Status** und **Geplant** der Hostliste
+- die Spalte **Geplant** der Hostliste
+
+Die Host-Aktionen **Sync** und **Start** sind sichtbar, aber deaktiviert: beide verlangen die Position des Betriebssystems, und die wählen Sie erst im Kommando-Dialog, den diese Version noch nicht mitbringt.
 
 Die Schaltfläche **Versionsstände** im Bereich **Gruppen** ist sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet dafür keine Schnittstelle. Der Grund steht am Knopf.
 

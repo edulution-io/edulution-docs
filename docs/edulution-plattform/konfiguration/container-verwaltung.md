@@ -173,6 +173,8 @@ Ist die App **Desktop-Bereitstellung** konfiguriert und läuft der Container `ed
 2. Im Dialog **SSH Anmeldedaten** Benutzername und Passwort des Servers eingeben.
 3. Mit **Verbinden** bestätigen – die Sitzung öffnet sich in einem Fenster innerhalb der edulution Plattform.
 
+Über **Minimieren** legen Sie das Terminalfenster als Leiste an den unteren Bildschirmrand; die SSH-Sitzung läuft dabei weiter, und beim Zurückholen erscheint das Fenster wieder in seiner vorherigen Größe und Position. Anders als eine VDI-Sitzung legt sich das Terminalfenster beim Wechsel in eine andere App jedoch nicht selbsttätig weg – minimieren Sie es dafür von Hand. Beim Schließen des Fensters wird die SSH-Verbindung getrennt.
+
 Fehlt die Schaltfläche, prüfen Sie, ob unter **Einstellungen → Desktop-Bereitstellung** eine URL hinterlegt ist und ob der Guacamole-Container läuft – siehe [edulution VDI: App einrichten](../../edulution-vdi/konfiguration/app-einrichten.md).
 
 ## Fehlerbehebung

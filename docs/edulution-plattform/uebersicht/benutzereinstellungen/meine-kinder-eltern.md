@@ -30,6 +30,7 @@ Hier finden Sie Ihren persönlichen **Zuweisungs-Code** als Text sowie als **QR-
 
 - Schüler teilen den Code mit ihrem Elternteil, Eltern teilen ihn mit ihrem Kind.
 - Der Code ist **5 Minuten** gültig. Nach Ablauf muss ein neuer Code erzeugt werden.
+- Der Code ist **einmalig**: Sobald damit eine Zuweisung angefragt wurde, verliert er seine Gültigkeit. Für eine weitere Zuweisung erzeugen Sie einen neuen Code.
 
 Über die Schaltfläche **Neu generieren** (oben rechts) erzeugen Sie jederzeit einen neuen Code; der vorherige verliert damit seine Gültigkeit. Eine Rückmeldung bestätigt: *„Neuer Zuweisungs-Code generiert."*
 
@@ -41,7 +42,9 @@ Es ist unerheblich, wer beginnt: Entweder gibt das Elternteil den Code des Kinde
 
 Im Bereich **Code eingeben** tragen Sie den Code ein, den Sie von der anderen Person erhalten haben, und bestätigen mit **Zuweisen**. Bei Erfolg erscheint der Hinweis *„Zuweisungsanfrage erfolgreich gesendet!"*, und die Anfrage wird zur Freigabe an die Administration übergeben.
 
-Ist der eingegebene Code bereits abgelaufen, erscheint stattdessen der Hinweis *„Der Code ist abgelaufen. Bitte einen neuen Code anfordern."*. Lassen Sie sich in diesem Fall von der anderen Person einen neuen Code geben.
+Die **Groß- und Kleinschreibung spielt dabei keine Rolle** – Sie können den Code auch vollständig in Kleinbuchstaben eingeben. Leerzeichen am Anfang und Ende werden ebenfalls ignoriert.
+
+Lässt sich der eingegebene Code nicht zuordnen, erscheint der Hinweis *„Der Zuweisungs-Code ist unbekannt oder abgelaufen. Bitte einen neuen Code anfordern."*. Ein Tippfehler und ein tatsächlich abgelaufener Code führen zur selben Meldung – prüfen Sie daher zuerst Ihre Eingabe, bevor Sie sich von der anderen Person einen neuen Code geben lassen.
 
 :::info[QR-Code nur in der App]
 Der QR-Code dient dem Scannen mit der [edulution.io App](../../../edulution-app/index.md). In der

@@ -106,6 +106,39 @@ Standardmäßig kann nur der Ersteller eine Konferenz starten; eingeladene Teiln
 
 Die Konferenz öffnet sich in einem neuen Fenster. Der Fenstertitel enthält den Namen der Konferenz (z.B. "Konferenz: Mathe 8a"), sodass bei mehreren geöffneten Fenstern jederzeit ersichtlich ist, um welche Konferenz es sich handelt.
 
+## Öffentliche Konferenzen teilen
+
+Bei einer Konferenz mit der Zutrittsbeschränkung **Öffentlich** erscheint in der Konferenzkachel ein Teilen-Symbol. Es öffnet den Dialog **Konferenz teilen** mit dem **Zugangslink**, den Sie an externe Personen weitergeben können. Bei privaten Konferenzen wird das Symbol nicht angezeigt.
+
+Wer den Zugangslink öffnet, sieht den Namen der Konferenz und ihren Ersteller. Ist die Konferenz passwortgeschützt, wird zusätzlich das Passwort abgefragt; nicht angemeldete Personen geben außerdem ihren vollständigen Namen ein.
+
+### Warteraum des Zugangslinks
+
+Ist die Konferenz noch nicht gestartet, verbleiben Besucher des Zugangslinks im Warteraum und werden automatisch weitergeleitet, sobald die Konferenz beginnt – ein manuelles Neuladen ist dafür nicht erforderlich. Über **Manuell verbinden** lässt sich der Beitritt jederzeit auch selbst auslösen.
+
+:::info[Zwei verschiedene Warteräume]
+Der Warteraum des Zugangslinks ist unabhängig von der Raumeinstellung **Freigabe durch Moderator bevor der Raum betreten werden kann**. Im Warteraum des Zugangslinks wartet man darauf, dass die Konferenz überhaupt gestartet wird; bei der Moderatorfreigabe wartet man innerhalb der bereits laufenden Konferenz auf den Einlass.
+:::
+
+### Änderungen während des Wartens
+
+Bearbeiten Sie eine Konferenz, während Personen im Warteraum stehen, werden deren Seiten unmittelbar aktualisiert:
+
+| Änderung | Auswirkung für Wartende |
+|----------|--------------------------|
+| **Name** geändert | Der neue Name erscheint sofort |
+| **Passwort** hinzugefügt oder geändert | Ein Hinweis erscheint; das zuvor eingegebene Passwort wird verworfen und muss neu eingegeben werden |
+| **Passwort** entfernt | Ein Hinweis erscheint; die Passwortabfrage entfällt |
+| **Zutrittsbeschränkung** auf Privat gesetzt | Die Seite meldet, dass die Konferenz nicht gefunden werden konnte |
+| Konferenz **gelöscht** | Die Seite meldet, dass die Konferenz abgesagt wurde |
+| Konferenz **beendet** | Die Wartenden kehren in den Warteraum zurück und warten auf den nächsten Start |
+
+Dies gilt auch, wenn die Konferenz nicht über die Plattform, sondern in BigBlueButton selbst beendet wird.
+
+:::caution[Zutrittsbeschränkung nachträglich ändern]
+Setzen Sie eine Konferenz von **Öffentlich** zurück auf **Privat**, verliert der Zugangslink sofort seine Gültigkeit – auch für Personen, die die Seite bereits geöffnet haben. Ab diesem Zeitpunkt können ausschließlich der Ersteller und eingeladene Teilnehmer beitreten, unabhängig davon, ob die betreffende Person an der Plattform angemeldet ist und ob sie das Passwort kennt.
+:::
+
 ## Konferenz-Funktionen
 
 :::info[BigBlueButton Features]

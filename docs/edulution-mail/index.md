@@ -54,7 +54,7 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 - **An** sowie optional **CC/BCC** (über **CC/BCC hinzufügen** einblendbar).
 - **Betreff** und der Nachrichtentext im Editor mit Formatierungsfunktionen (fett, kursiv, Listen, Links u. a.).
 - **Anhänge** fügen Sie **vom Gerät** oder **aus Dateien** (Ihrem edulution-Dateibereich) hinzu. Für Text und Anhänge zusammen gilt eine maximale Gesamtgröße.
-- Über **Signatur einfügen** ergänzen Sie Ihre Signatur (siehe [Mein Profil → Signatur](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#signatur)).
+- Ihre Signatur steht bei neuen Nachrichten bereits im Editor. Ob das auch bei Antworten und Weiterleitungen geschieht, stellen Sie unter [Signatur automatisch einfügen bei](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#signatur-automatisch-einfügen-bei) ein. Über **Signatur einfügen** ergänzen Sie sie jederzeit von Hand (siehe [Mein Profil → Signatur](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#signatur)).
 
 Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht.
 

@@ -35,9 +35,9 @@ Weitere Informationen zur E-Mail-Migration finden Sie unter [E-Mail Migration](.
 
 ## Signatur
 
-Hier legen Sie die Signatur fest, die beim Verfassen neuer E-Mails verwendet wird.
+Hier legen Sie fest, welche Signatur verwendet wird und bei welchen Nachrichtentypen edulution sie automatisch einfügt.
 
-- **Eigene Signatur verwenden**: Ist diese Option aktiv, wird beim Verfassen neuer E-Mails Ihre individuelle Signatur anstelle der global vorgegebenen verwendet. Ist sie deaktiviert, gilt weiterhin die globale Signatur.
+- **Eigene Signatur verwenden**: Ist diese Option aktiv, wird Ihre individuelle Signatur anstelle der global vorgegebenen verwendet. Ist sie deaktiviert, gilt weiterhin die globale Signatur.
 - Bei aktivierter Option bearbeiten Sie die Signatur im Editor:
   - **Globale Signatur importieren**: Übernimmt die global vorgegebene Signatur als Ausgangspunkt
   - Über die Editor-/Quelltext-Umschaltung oben rechts im Editor wechseln Sie zwischen der formatierten Ansicht und der direkten HTML-Bearbeitung
@@ -49,6 +49,26 @@ Der formatierte Editor unterstützt nicht alle HTML-Formatierungen. Enthält Ihr
 :::
 
 Dieselbe Umschaltung steht Ihnen auch beim [Verfassen einer E-Mail](../../../edulution-mail/index.md#html-quelltext-bearbeiten) zur Verfügung.
+
+### Signatur automatisch einfügen bei
+
+Unter **Signatur automatisch einfügen bei** bestimmen Sie für jeden Nachrichtentyp einzeln, ob die Signatur beim Öffnen des Schreibfensters schon eingesetzt ist:
+
+| Schalter | Voreinstellung |
+|---|---|
+| **Neuen Nachrichten** | aktiv |
+| **Antworten (auch „Allen antworten")** | inaktiv |
+| **Weiterleitungen** | inaktiv |
+
+Die Schalter wirken unabhängig voneinander und bleiben dauerhaft gespeichert. *Welche* Signatur eingefügt wird, entscheidet weiterhin **Eigene Signatur verwenden**.
+
+Bei Antworten und Weiterleitungen steht die Signatur **über** der zitierten Nachricht, mit freien Zeilen darüber – Sie schreiben Ihren Text also direkt über die Signatur und lassen das Zitat darunter stehen.
+
+:::note[Wann nichts eingefügt wird]
+Ist keine Signatur hinterlegt – weder eine eigene noch eine globale –, fügen die Schalter nichts ein. Die Einstellungsseite weist Sie in diesem Fall darauf hin. Öffnen Sie einen gespeicherten **Entwurf** erneut, bleibt dessen Text unverändert; es wird keine zweite Signatur ergänzt.
+:::
+
+Unabhängig von diesen Schaltern können Sie die Signatur im Schreibfenster jederzeit von Hand über **Signatur einfügen** ergänzen.
 
 ## Automatische Antwort
 

@@ -306,34 +306,38 @@ Vor dem Löschen ermittelt die Plattform den Umfang und nennt ihn im Bestätigun
 
 Die Unterseite **Synchronisation** zeigt, was der Satellit vom Linuxmuster-Server übernommen und auf seinem eigenen System angewendet hat – und lässt einen Lauf von Hand anstoßen.
 
-Der Abschnitt **Synchronisationszustand** nennt den **Modus** (**Synchronisiert** oder **Offline**), den Zeitpunkt der letzten Synchronisation und die Zahl der übernommenen Hosts und Konfigurationen. Läuft gerade ein Lauf, wird das hier vermerkt; ein zuletzt gemeldeter Fehler erscheint darunter.
+Der Abschnitt **Synchronisationszustand** nennt den **Modus** (**Synchronisation aktiv** oder **Offline**), den Zeitpunkt der letzten Synchronisation, die Zahl der übernommenen Hosts und Konfigurationen, wie viele Hosts davon online sind und ob der Satellit die Schulserver-API erreicht. Dazu kommen der **Gesamtzustand** über alle Bestandteile, der **letzte Lauf** – inkrementell, vollständig oder eine Wiederherstellung – mit Ergebnis, Beginn und Ende, der **Cursor** sowie die Zeitpunkte des letzten Sicherungspunkts und der letzten Wiederherstellung. Läuft gerade ein Lauf, wird das hier vermerkt; ein zuletzt gemeldeter Fehler erscheint darunter.
+
+Der **Cursor** ist die Stelle, bis zu der der Satellit die Änderungen des Schulservers zuletzt übernommen hat; der nächste gewöhnliche Lauf liest ab dort weiter. Steht beim Cursor **Keiner – der nächste Lauf liest den gesamten Bestand**, übernimmt der nächste Lauf wieder alles – so erkennen Sie auch, dass **Cursor zurücksetzen** gegriffen hat. Hat der Satellit die verwalteten Dateien aus einem Sicherungspunkt wiederhergestellt – von Hand oder nach einem fehlgeschlagenen Lauf –, vermerkt der letzte Lauf das eigens.
+
+Die Zahl der Hosts online ermittelt die Seite beim Öffnen, beim Neuladen und nach jeder Aktion, nicht bei den Abfragen während eines Laufs.
 
 :::note[Offline heißt nicht zwingend abgeschaltet]
 **Offline** meldet der Satellit auch dann, wenn er seine eigenen Einstellungen nicht lesen konnte. Die Anzeige belegt also nicht, dass die Synchronisation abgeschaltet wurde – prüfen Sie im Zweifel die Unterseite **Einstellungen**.
 :::
 
-Darunter steht je Bestandteil eine Karte: **Hosts und Konfigurationen**, **start.conf**, **devices.csv**, **GRUB und hostcfg** sowie **DHCP-Konfiguration**. Jede Karte nennt ihren Zustand als **Aktuell**, **Läuft**, **Fehler** oder **Keine Angabe** und zeigt eine gemeldete Fehlermeldung im Wortlaut.
+Darunter steht je Bestandteil eine Karte: **Hosts und Konfigurationen**, **start.conf**, **devices.csv**, **GRUB und hostcfg** sowie **DHCP-Konfiguration**. Jede Karte nennt ihren Zustand als **Aktuell**, **Ausstehend**, **Fehler** oder **Keine Angabe** und zeigt eine gemeldete Fehlermeldung im Wortlaut. **Ausstehend** heißt, dass der Satellit noch auf eine Rückmeldung wartet – etwa darauf, dass der DHCP-Dienst die neue Konfiguration übernommen hat.
 
 :::note[Nur DHCP hat einen mehrstufigen Ablauf]
-Die übrigen Bestandteile liegen im LINBO-Dateisystem des Satelliten: Schreiben und Anwenden fallen dort zusammen. Die DHCP-Konfiguration wird dagegen von einem eigenen Dienst übernommen, der den Vollzug zurückmeldet. Nur ihre Karte zeigt deshalb die vier Stufen **Gewünscht**, **Geschrieben**, **Geprüft** und **Aktiv** mit je eigenem Zustand (**Aktuell**, **Läuft**, **Unverändert**, **Fehlgeschlagen**, **Nicht zutreffend**, **Nicht gemeldet** oder **Keine Angabe**). Meldet der Satellit den Vollzug nicht zurück, entfallen die Stufen und die Karte weist darauf hin.
+Die übrigen Bestandteile liegen im LINBO-Dateisystem des Satelliten: Schreiben und Anwenden fallen dort zusammen. Die DHCP-Konfiguration wird dagegen von einem eigenen Dienst übernommen, der den Vollzug zurückmeldet. Nur ihre Karte zeigt deshalb die vier Stufen **Gewünscht**, **Geschrieben**, **Geprüft** und **Angewendet** mit je eigenem Zustand (**Aktuell**, **Ausstehend**, **Unverändert**, **Fehlgeschlagen**, **Nicht zutreffend**, **Nicht gemeldet** oder **Keine Angabe**). Meldet der Satellit den Vollzug nicht zurück, bleiben die Stufen sichtbar – **Geprüft** und **Angewendet** dann als **Nicht gemeldet** – und die Karte weist zusätzlich darauf hin.
 :::
 
 **Keine Angabe** und **Nicht gemeldet** bedeuten fehlende Information, nicht einen Fehler: Ein Satellit, der noch nie synchronisiert hat, ruht genauso in diesem Zustand wie einer, dessen DHCP-Dienst nicht zurückmeldet. Beide werden deshalb neutral und nicht als Störung dargestellt.
 
 ##### Einen Lauf anstoßen
 
-Unten rechts stehen **Synchronisieren**, **Vollständig synchronisieren**, **Zähler zurücksetzen** und die Aktion zum Neuladen. **Synchronisieren** übernimmt nur, was sich seit dem letzten Lauf geändert hat; **Vollständig synchronisieren** übernimmt den gesamten Bestand. **Zähler zurücksetzen** verwirft den Merkposten des letzten Laufs, sodass der nächste gewöhnliche Lauf wieder alles betrachtet.
+Unten rechts stehen **Synchronisieren**, **Vollständig synchronisieren**, **Cursor zurücksetzen** und die Aktion zum Neuladen. **Synchronisieren** übernimmt nur, was sich seit dem Cursor geändert hat; **Vollständig synchronisieren** übernimmt den gesamten Bestand und schreibt alle verwalteten Dateien neu. **Cursor zurücksetzen** verwirft den Cursor, sodass der nächste gewöhnliche Lauf wieder alles betrachtet; einen Lauf startet es selbst nicht. Jede der drei Aktionen fragt vor dem Start nach.
 
 :::note[Während ein Lauf läuft]
-Die drei Aktionen verschwinden, solange ein Lauf läuft, und der Zustand wird alle fünf Sekunden nachgeladen – aber nur dann: Jede Abfrage kostet den Satelliten eine Prüfung der Verbindung zum Schulserver. Ein Lauf überdauert regelmäßig die Verbindung zum Satelliten; bricht sie ab, gilt der Lauf weiterhin als laufend und wird nicht als fehlgeschlagen gemeldet. Läuft auf dem Satelliten bereits ein Lauf, wird auch das gemeldet, statt einen zweiten zu starten.
+Die drei Aktionen verschwinden und Sicherungspunkte lassen sich nicht wiederherstellen, solange ein Lauf läuft – auch einer, den der Satellit selbst nach seinem Zeitplan gestartet hat; der Zustand wird dann alle fünf Sekunden nachgeladen – aber nur dann: Jede Abfrage kostet den Satelliten eine Prüfung der Verbindung zum Schulserver. Ein Lauf überdauert regelmäßig die Verbindung zum Satelliten; bricht sie ab, gilt der Lauf weiterhin als laufend und wird nicht als fehlgeschlagen gemeldet. Die Seite folgt einem Lauf, solange der Satellit ihn als laufend meldet; lässt sich sein Zustand nicht lesen, gibt sie nach fünf Minuten auf – laden Sie sie dann neu. Läuft auf dem Satelliten bereits ein Lauf, wird auch das gemeldet, statt einen zweiten zu starten.
 :::
 
 ##### Sicherungspunkte
 
-Vor einem Lauf legt der Satellit einen Sicherungspunkt an. Der Abschnitt **Sicherungspunkte** listet sie mit Zeitpunkt und Kennung; je Eintrag können Sie über **Zurücksetzen** auf diesen Stand zurückgehen. Der Satellit hält nur die jüngsten Sicherungspunkte vor – ältere verschwinden von selbst aus der Liste.
+Vor einem Lauf legt der Satellit einen Sicherungspunkt an. Der Abschnitt **Sicherungspunkte** listet sie mit Zeitpunkt und Kennung; je Eintrag können Sie über **Wiederherstellen** auf diesen Stand zurückgehen. Der Satellit hält nur die jüngsten Sicherungspunkte vor – ältere verschwinden von selbst aus der Liste.
 
-:::warning[Was ein Zurücksetzen ersetzt]
-Beim Zurücksetzen werden alle verwalteten `start.conf`-Dateien, alle DHCP- und GRUB-Konfigurationen sowie der zwischengespeicherte Host- und Konfigurationsbestand gelöscht und durch den Stand des Sicherungspunkts ersetzt. Images und Treiber bleiben unberührt. Die Plattform fragt vor dem Schritt nach.
+:::warning[Was eine Wiederherstellung ersetzt]
+Beim Wiederherstellen werden alle verwalteten `start.conf`-Dateien, alle DHCP- und GRUB-Konfigurationen sowie der zwischengespeicherte Host- und Konfigurationsbestand gelöscht und durch den Stand des Sicherungspunkts ersetzt. Images und Treiber bleiben unberührt. Die Plattform fragt vor dem Schritt nach und nennt dabei den Sicherungspunkt mit Zeitpunkt und Kennung.
 :::
 
 Solange kein Sicherungspunkt vorliegt, weist der Abschnitt dies aus. Lässt sich der Zustand insgesamt nicht lesen, erscheint über der Seite ein Hinweis, statt eine leere Seite zu zeigen.
@@ -360,13 +364,23 @@ Neben jedem Feld steht, woher der Satellit den Wert bezieht:
 | **Aus der Umgebung** | bei der Einrichtung des Geräts gesetzt |
 | **Überschrieben** | hier in der Plattform gesetzt |
 
-Jedes Feld wird einzeln gespeichert. **Auf Standard zurücksetzen** verwirft die hier gesetzte Überschreibung, sodass wieder der Wert aus der Umgebung beziehungsweise der Vorgabewert gilt; solange für ein Feld kein Wert hinterlegt ist, steht die Schaltfläche nicht zur Verfügung.
+Jedes Feld wird einzeln gespeichert. Die Plattform prüft eine Eingabe nach denselben Regeln wie der Satellit und nennt unter dem Feld den Grund, wenn ein Wert nicht passt; gespeichert werden kann er dann nicht. Leerzeichen am Anfang und Ende entfernt der Satellit beim Speichern. Ein geleertes Feld wird nicht gespeichert; einen hier überschriebenen Wert entfernt **Auf Standard zurücksetzen**.
 
-:::note[Das Passwort wird nie zurückgegeben]
-Der Satellit gibt das gespeicherte Passwort nicht heraus; über dem Feld steht deshalb nur, ob eines hinterlegt ist. Das Eingabefeld beginnt bei jedem Aufruf leer – das ist keine Aufforderung, das Passwort zu löschen: Ein leer gelassenes Feld wird nicht gesendet. Nur wenn Sie etwas eintragen und speichern, wird das Passwort ersetzt.
+**Auf Standard zurücksetzen** verwirft die hier gesetzte Überschreibung, sodass wieder der Wert aus der Umgebung beziehungsweise der Vorgabewert gilt. Die Schaltfläche steht deshalb nur bei Feldern mit der Kennzeichnung **Überschrieben** zur Verfügung – ein Wert aus der Umgebung lässt sich hier nicht zurücksetzen.
+
+:::note[Zeitplan und Intervall starten womöglich sofort einen Lauf]
+Änderungen an **Synchronisation aktiv** und **Intervall** – auch das Zurücksetzen auf den Standard – richten den Zeitplan des Satelliten neu ein. Ist ein Lauf dabei bereits überfällig, startet der Satellit ihn sofort nach dem Speichern. Die Plattform fragt deshalb vorher nach.
 :::
 
-Über **Verbindung testen** prüft der Satellit, ob er den Schulserver erreicht; das Ergebnis wird als **Der Schulserver ist erreichbar.** oder **Der Schulserver ist nicht erreichbar.** gemeldet.
+:::note[Das Passwort wird nie zurückgegeben]
+Der Satellit gibt das gespeicherte Passwort nicht heraus; über dem Feld steht nur die maskierte Form, die er meldet – vier Sterne und die letzten vier Zeichen – oder **Nicht gesetzt**, wenn kein Passwort hinterlegt ist. Das Eingabefeld beginnt bei jedem Aufruf leer – das ist keine Aufforderung, das Passwort zu löschen: Ein leer gelassenes Feld wird nicht gesendet. Nur wenn Sie etwas eintragen und speichern, wird das Passwort ersetzt.
+:::
+
+Über **Verbindung testen** prüft der Satellit, ob er den Schulserver erreicht. Dabei verwendet er die in **API-Adresse**, **Benutzer** und **Passwort** eingetragenen, noch nicht gespeicherten Werte und für leer gelassene Felder die gespeicherten – so lässt sich etwa ein neues Passwort prüfen, bevor es gespeichert wird. Der Test speichert selbst nichts. Das Ergebnis lautet:
+
+- **Der Schulserver ist erreichbar.** – zusammen mit der Version der API und der Antwortzeit,
+- **Der Schulserver antwortet, meldet aber keinen betriebsbereiten Zustand.** – meist sind Benutzer oder Passwort falsch,
+- **Der Schulserver ist nicht erreichbar.**
 
 :::note[Satellitenwechsel verwirft Eingaben]
 Wechseln Sie den Satelliten, während ein Feld noch ungespeichert ist, wird die Eingabe verworfen. So gelangt kein Wert – und vor allem kein Passwort – versehentlich auf das falsche Gerät.

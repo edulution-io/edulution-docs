@@ -98,6 +98,10 @@ Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Kla
 
 Vor dem Speichern werden die Einträge validiert. Doppelte Rechnernamen, MAC- oder IP-Adressen werden gemeldet und müssen zuerst bereinigt werden.
 
+Ungespeicherte Änderungen an der Geräteliste der zuletzt in der Geräteverwaltung gewählten Schule bleiben auch nach einem Neuladen der Seite erhalten – bis Sie sie speichern, mit **Zurücksetzen** verwerfen oder sich abmelden. Ungespeicherte Änderungen an den Gerätelisten anderer Schulen gehen beim Neuladen verloren.
+
+Kann die Geräteliste der gewählten Schule nicht geladen werden, erscheint anstelle der Tabelle der Hinweis *„Die Liste konnte nicht geladen werden. Sie kann erst bearbeitet werden, wenn sie geladen ist."* mit der Schaltfläche **Erneut versuchen**. Bis die Liste geladen ist, sind **Gerät hinzufügen**, **Speichern**, **Anwenden** und der CSV-Import ausgeblendet.
+
 ## Elternzuweisung
 
 Hier geben Sie die Verknüpfungen frei, die Eltern und Schüler selbst über einen Zuweisungs-Code

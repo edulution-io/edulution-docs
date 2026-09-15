@@ -171,7 +171,48 @@ Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalt
 
 **Status** nennt je Host **Online** oder **Offline**; die Spaltenüberschrift sagt beim Überfahren, wann der Zustand zuletzt erhoben wurde. Solange für einen Host noch keine Erhebung vorliegt, bleibt das Feld leer.
 
-Über das Menü hinter der Schaltfläche mit den drei Punkten schicken Sie einer Zeile **Wake-on-LAN**, **Neu starten** oder **Herunterfahren**. Ein Host, der nicht erreichbar ist, wird übersprungen und in der Rückmeldung benannt.
+Über das Menü hinter der Schaltfläche mit den drei Punkten schicken Sie einer Zeile **Wake-on-LAN**, **Neu starten**, **Herunterfahren** oder **Aktion schicken…** – Letzteres öffnet den Kommando-Dialog für genau diesen Host, unabhängig davon, welche Zeilen sonst angehakt sind. Ein Host, der nicht erreichbar ist, wird übersprungen und in der Rückmeldung benannt.
+
+#### Mehrere Hosts auswählen
+
+Die erste Spalte der Tabelle trägt je Zeile ein Auswahlkästchen, das Kästchen in der Kopfzeile wählt alle Zeilen der aktuellen Ansicht. Sobald mindestens ein Host ausgewählt ist, erscheint oberhalb der Tabelle eine Leiste mit der Anzahl und den Aktionen **Auswahl aufwecken**, **Auswahl neu starten**, **Auswahl herunterfahren** und **Aktion schicken**.
+
+:::note[Die Suche bestimmt mit, wen eine Sammelaktion trifft]
+Eine Sammelaktion erreicht nur die Hosts, die gerade **sichtbar** sind. Schränken Sie die Suche ein, nachdem Sie ausgewählt haben, sinkt die Zahl in der Leiste entsprechend – ausgeblendete Hosts bleiben angehakt, werden aber nicht angesprochen. Leeren Sie die Suche wieder, sind sie erneut Teil der Auswahl.
+:::
+
+Nach einer Sammelaktion verlieren nur die Hosts ihr Häkchen, die tatsächlich erreicht wurden. Waren einzelne Rechner offline und wurden übersprungen, bleibt die Auswahl bestehen, damit Sie den Lauf für diese Hosts wiederholen können.
+
+#### Der Kommando-Dialog
+
+**Aktion schicken** öffnet einen Dialog, der die ausgewählten Rechner namentlich nennt und aus einzelnen Schritten eine **Kommandokette** zusammensetzt. Die Kette wird genau in der Reihenfolge ausgeführt, in der die Schritte stehen; über **Nach oben** und **Nach unten** ordnen Sie sie um, über **Entfernen** nehmen Sie einen Schritt wieder heraus. Unten zeigt die **Kommandokette** die Schreibweise, die Sie auch auf der Konsole verwenden würden.
+
+Je nach Schritt verlangt der Dialog ein zusätzliches Argument:
+
+| Schritt | Auswahl |
+|---------|---------|
+| **Sync**, **Neu**, **Start**, **Prestart**, **Postsync** | das Betriebssystem – mit seinem Namen aus der `start.conf`, nicht als Ziffer |
+| **Formatieren** | die Partition, benannt mit Nummer, Gerät und Bezeichnung, oder **Alle Partitionen** |
+| **Cache befüllen** | die Übertragungsart `rsync`, `multicast` oder `torrent` |
+| **Partitionieren**, **Beschriften**, **Neu starten**, **Herunterfahren** | – |
+
+Darunter legen Sie den Modus und die Optionen fest: **Beim nächsten Start ausführen** stellt die Kette zurück, statt sie sofort zu schicken; **Wake-on-LAN** weckt die Rechner vorher, und erst dann lässt sich eine **Wartezeit** eintragen. Weiter stehen **Oberfläche des Clients abschalten**, **Abbild per Broadcast senden** und **Autostart der Gruppe übergehen** zur Verfügung.
+
+:::warning[Bestätigung für zerstörende Schritte]
+**Neu**, **Formatieren** und **Partitionieren** löschen Daten auf den Zielrechnern. Der Dialog verlangt dafür ein zusätzliches Häkchen, das die Anzahl der betroffenen Rechner nennt – und, wenn die Auswahl mehrere Hardwaregruppen umfasst, auch deren Anzahl. Die Bestätigung gilt für **genau diese Kette und genau diese Rechner**: ändern Sie danach einen Schritt, ein Argument oder die Auswahl, wird sie zurückgenommen und Sie bestätigen erneut.
+:::
+
+Steht **Ausführen** nicht zur Verfügung, nennt der Dialog den Grund direkt darüber – etwa ein Schritt, dem noch die Auswahl fehlt, eine ausstehende Bestätigung oder ein Lauf, der bereits läuft.
+
+Nicht jede Aktion steht für jede Auswahl bereit. Fehlt eine, erklärt der Dialog oberhalb der Schaltflächen, warum:
+
+| Hinweis | Ursache |
+|---------|---------|
+| Abbild-Aktionen laufen nur auf genau einem Rechner | **Abbild erstellen**, **Abbild hochladen**, **Differenz erstellen** und **Differenz hochladen** verlangen einen einzelnen Host |
+| Aktionen mit Betriebssystem verlangen dieselbe Hardwaregruppe | die Position des Betriebssystems lässt sich nur aus **einer** `start.conf` auflösen |
+| Für diese Hardwaregruppe gibt es keine `start.conf` | die Gruppe der ausgewählten Rechner ist auf dem Server nicht beschrieben – etwa bei Servern und Druckern in `nopxe` |
+
+Nach dem Abschicken meldet die Plattform, ob die Kette alle Rechner erreicht hat. Waren einzelne Hosts offline, werden sie namentlich genannt; die Statusspalte der betroffenen Zeilen wird anschließend mehrfach nachgefragt, weil ein Rechner, der gerade neu startet, nicht sofort antwortet.
 
 :::note[Geplante Aktionen]
 **Geplant** bleibt ohne einen edulution-Satellite leer: geplante Aktionen werden vom Satellite verwaltet und sind in dieser Version nicht angebunden.
@@ -350,7 +391,7 @@ Einige Aktionen sind in der Oberfläche bereits vorhanden, aber noch nicht angeb
 - die Aktion **Sync** im Bereich **Gruppen**
 - die Spalte **Geplant** der Hostliste
 
-Die Host-Aktionen **Sync** und **Start** sind sichtbar, aber deaktiviert: beide verlangen die Position des Betriebssystems, und die wählen Sie erst im Kommando-Dialog, den diese Version noch nicht mitbringt.
+Eine Kommandokette richtet sich an einen einzelnen Host oder an eine Auswahl von Hosts. Ein ganzer **Raum** lässt sich in dieser Version nicht als Ziel wählen, obwohl die Linuxmuster-API das anbietet.
 
 Die Schaltfläche **Versionsstände** im Bereich **Gruppen** ist sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet dafür keine Schnittstelle. Der Grund steht am Knopf.
 

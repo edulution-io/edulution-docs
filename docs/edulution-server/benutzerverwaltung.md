@@ -164,7 +164,7 @@ Ein über den Dialog importierter CSV-Inhalt ersetzt die Einträge der Tabelle. 
 
 Zeilen, die mit `#` beginnen, sind Kommentare. Sie erscheinen nicht in der Tabelle, sondern nur im CSV-Dialog, und Linuxmuster ignoriert sie beim Import. Beim Speichern bleiben sie vollständig und an ihrer Stelle zwischen den Einträgen erhalten – auch dann, wenn Sie die Liste nur in der Tabelle bearbeitet haben.
 
-Die Stelle eines Kommentars ergibt sich aus der Anzahl der Einträge oberhalb von ihm. Löschen Sie in der Tabelle Einträge oberhalb eines Kommentars, rückt er deshalb um ebenso viele Einträge nach unten. Im CSV-Dialog legen Sie die Stelle dagegen genau fest: Ein Kommentar steht dort, wo Sie ihn in den Text schreiben.
+Löschen Sie Einträge, bleibt ein Kommentar zwischen denselben Einträgen stehen. Neue Einträge fügt die Tabelle am Ende der Liste an – also unterhalb eines Kommentars, der in der letzten Zeile steht. Im CSV-Dialog legen Sie die Stelle eines Kommentars genau fest: Er steht dort, wo Sie ihn in den Text schreiben.
 
 ## Import in drei Schritten
 

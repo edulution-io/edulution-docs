@@ -155,10 +155,16 @@ Vor dem Speichern werden die Einträge geprüft. Solange eine Zelle ungültig is
 
 ![Benutzerverwaltung-Import-CSV](/img/benutzerverwaltung/benutzerverwaltung07-import-csv.png)
 
-- **Importieren** – Sie fügen den CSV-Inhalt direkt in das Textfeld ein und bearbeiten ihn dort, oder Sie ziehen eine Datei per **Drag & Drop** in den Auswahlbereich bzw. wählen sie über den Dateidialog aus. Zulässig sind Dateien mit der Endung `.csv` und `.txt`. Kommentarzeilen, die mit `#` beginnen, bleiben erhalten.
+- **Importieren** – Sie fügen den CSV-Inhalt direkt in das Textfeld ein und bearbeiten ihn dort, oder Sie ziehen eine Datei per **Drag & Drop** in den Auswahlbereich bzw. wählen sie über den Dateidialog aus. Zulässig sind Dateien mit der Endung `.csv` und `.txt`.
 - **Exportieren** – über **CSV Herunterladen** laden Sie die aktuelle Liste als Datei `<Liste>.csv` herunter, etwa als Vorlage für die weitere Bearbeitung.
 
 Ein über den Dialog importierter CSV-Inhalt ersetzt die Einträge der Tabelle. Damit die Änderungen tatsächlich wirksam werden, müssen Sie die Liste anschließend noch **speichern**, **prüfen** und **übernehmen**.
+
+### Kommentarzeilen
+
+Zeilen, die mit `#` beginnen, sind Kommentare. Sie erscheinen nicht in der Tabelle, sondern nur im CSV-Dialog, und Linuxmuster ignoriert sie beim Import. Beim Speichern bleiben sie vollständig und an ihrer Stelle zwischen den Einträgen erhalten – auch dann, wenn Sie die Liste nur in der Tabelle bearbeitet haben.
+
+Die Stelle eines Kommentars ergibt sich aus der Anzahl der Einträge oberhalb von ihm. Löschen Sie in der Tabelle Einträge oberhalb eines Kommentars, rückt er deshalb um ebenso viele Einträge nach unten. Im CSV-Dialog legen Sie die Stelle dagegen genau fest: Ein Kommentar steht dort, wo Sie ihn in den Text schreiben.
 
 ## Import in drei Schritten
 

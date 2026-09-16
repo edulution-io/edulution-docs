@@ -228,11 +228,17 @@ Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API*
 | **Bearbeiten** | öffnet den Gruppen-Editor (siehe unten) |
 | **Vorschau anzeigen** | zeigt die ausgewertete `start.conf`, ihre Rohdaten und die GRUB-Konfiguration |
 | **Duplizieren** | legt eine Kopie unter neuem Namen an |
+| **Sicherungen** | listet die Sicherungen der `start.conf` und spielt eine davon zurück |
+| **VDI** | öffnet die VDI-Konfiguration der Gruppe |
 | **Gruppe löschen** | löscht die `start.conf` der Gruppe auf dem Server |
+
+Solange keine Gruppe ausgewählt ist, steht neben **Gruppe anlegen** ab **Version 7.4.13** der Linuxmuster-API auch **linbo.iso herunterladen**: Die Schaltfläche lädt das Startmedium, das der Server unter `/srv/linbo/linbo.iso` vorhält. Die Datei ist einige hundert Megabyte groß.
 
 Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
 
-Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach; gelingt das nicht, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste.
+Ab **Version 7.4.13** der Linuxmuster-API stehen unter den fünf mitgelieferten Vorlagen zusätzlich die Beispielkonfigurationen, die der Server in `/srv/linbo/examples` bereithält. Eine solche Vorlage wird unverändert übernommen; nur Gruppenname, Serveradresse und Schule schreibt die Plattform beim Anlegen neu.
+
+Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach. Gelingt das nicht – etwa weil `/server-info` globalen Administratoren vorbehalten ist –, verwendet sie die Serveradresse, die eine bereits vorhandene Gruppe nennt. Findet sich auch dort keine, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste.
 
 :::note[Vorlagen zielen auf die erste SATA-Platte]
 Alle fünf Vorlagen legen ihr Layout auf `/dev/sda` an. Auf Rechnern mit NVMe- oder VirtIO-Platten passt das nicht: Die Gruppe entsteht zwar, ihre Gerätenamen gehen aber an der Hardware vorbei und müssen anschließend in der `start.conf` korrigiert werden. Das Gerät steht im Hinweis unter der Vorlagenauswahl, bevor Sie schreiben.
@@ -245,11 +251,31 @@ Vor dem Anlegen prüft die Plattform auf dem Server, ob für den Namen bereits e
 Beim **Duplizieren** übernimmt die Kopie Partitionen, Betriebssysteme und Einstellungen der Vorlage; der Gruppenname in der Datei wird dabei auf den neuen Namen umgeschrieben.
 
 :::warning[Wer Gruppen schreiben darf, entscheidet die Linuxmuster-API]
-Anlegen, Speichern, Duplizieren und Löschen einer Gruppe reicht die Plattform für Schul- und globale Administratoren an die Linuxmuster-API weiter; welche Rolle die Aktion ausführen darf, prüft die API. Bis einschließlich **Version 7.4.11** sind diese Schreibrouten globalen Administratoren vorbehalten: Als Schuladministrator erreichen Sie die Aktion in der Oberfläche, der Server weist sie aber ab – mit der Meldung *„start.conf konnte nicht gespeichert werden"* beziehungsweise *„start.conf konnte nicht gelöscht werden"*. Gibt eine neuere API-Version die Routen auch für Schuladministratoren frei, stehen sie ohne Änderung an der Plattform zur Verfügung. Lesen und Vorschau sind von der Einschränkung nicht betroffen.
+Anlegen, Speichern, Duplizieren und Löschen einer Gruppe reicht die Plattform an die Linuxmuster-API weiter; welche Rolle die Aktion ausführen darf, prüft die API. Bis einschließlich **Version 7.4.12** sind diese Schreibrouten globalen Administratoren vorbehalten: Als Schuladministrator erreichen Sie die Aktion in der Oberfläche, der Server weist sie aber ab – mit der Meldung *„start.conf konnte nicht gespeichert werden"* beziehungsweise *„start.conf konnte nicht gelöscht werden"*. Ab **Version 7.4.13** stehen die LINBO-Routen auch Schuladministratoren offen; der Bereich **LINBO** erscheint dann für sie im Menü. Lesen und Vorschau sind von der Einschränkung nicht betroffen.
+:::
+
+:::note[Die Dateien unter `/srv/linbo` kennen keine Schule]
+`start.conf`-Dateien, Images und Beispielkonfigurationen liegen serverweit, nicht je Schule. Ein Schuladministrator ändert hier also, was alle Schulen des Servers verwenden. Einzig `/server-info` bleibt globalen Administratoren vorbehalten: Die Serveradresse für eine neue Gruppe entnimmt die Plattform dann einer vorhandenen Gruppe.
 :::
 
 :::warning[Was beim Löschen verschwindet]
 Gelöscht werden die `start.conf` **und** die GRUB-Konfiguration der Gruppe. Rechner dieser Gruppe starten danach ohne Konfiguration, bis ihnen eine andere Gruppe zugewiesen wird. Der Server legt vor dem Löschen eine Sicherung der `start.conf` an.
+:::
+
+#### Sicherungen der start.conf
+
+Ab **Version 7.4.13** der Linuxmuster-API listet **Sicherungen** je Eintrag Datum, Zeitstempel und Größe, mit **Wiederherstellen** und einer Schaltfläche zum Löschen. Der Server legt jede Sicherung selbst an, sobald eine `start.conf` geschrieben wird.
+
+:::note[Wiederherstellen ist umkehrbar]
+Vor dem Zurückspielen sichert der Server die aktuelle `start.conf`, sodass sich der Schritt zurücknehmen lässt. Der Server behält die zehn letzten Fassungen und verwirft ältere.
+:::
+
+#### VDI-Konfiguration
+
+Ab **Version 7.4.13** der Linuxmuster-API öffnet **VDI** die Datei `start.conf.<Gruppe>.vdi` der Gruppe. Der Dialog zeigt die Felder, die die Schulkonsole schreibt – darunter **VDI aktiviert**, Name, Hostname, Betriebssystemtyp, IP- und MAC-Adresse, Netzwerkbrücke, Kerne, Arbeitsspeicher und die VM-IDs. **Speichern** ersetzt die Datei als Ganzes, **VDI abschalten** löscht sie; die `start.conf` der Gruppe bleibt in beiden Fällen unberührt.
+
+:::note[Felder außerhalb der Liste bleiben erhalten]
+Die Datei gehört edulution-linbo-vdi. Felder, die der Dialog nicht anzeigt, schreibt die Plattform unverändert zurück, statt sie zu verwerfen.
 :::
 
 #### Die Vorschau
@@ -379,13 +405,17 @@ Einige Aktionen sind in der Oberfläche bereits vorhanden, aber noch nicht angeb
 
 Die Schaltfläche **Versionsstände** im Bereich **Gruppen** ist sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet dafür keine Schnittstelle. Der Grund steht am Knopf.
 
-Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich in dieser Version nicht bearbeiten. Das Datenblatt zeigt, ob er in der `start.conf` aktiviert ist; die zugehörige Konfigurationsdatei ist über die Linuxmuster-API noch nicht erreichbar.
+Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich erst ab **Version 7.4.13** der Linuxmuster-API bearbeiten; ältere Versionen halten die Konfigurationsdatei nicht bereit. Das Datenblatt zeigt unabhängig davon, ob VDI in der `start.conf` aktiviert ist.
 
 ## Einrichtung (für Administratoren)
 
 - Die **Plattform** stellen Sie unter [Einstellungen → Globale Einstellungen → Allgemein](../edulution-plattform/konfiguration/einstellungen.md#allgemein) auf **Linuxmuster**.
 - Welche Bereiche dieser App sichtbar sind und wie sie beschriftet werden, hängt zusätzlich vom [Organisationstyp](../edulution-plattform/konfiguration/einstellungen.md#organisationstyp) ab.
 - Die Verbindung zum Schulserver richten Sie nach der Anleitung [Linuxmuster verbinden](./installation.md) ein.
+
+:::warning[Anmeldelimit der Linuxmuster-API bei vielen gleichzeitigen Anmeldungen]
+Die Plattform meldet jeden Benutzer von ihrer eigenen Adresse aus an der Linuxmuster-API an. Deren Anmelderoute ist auf fünf Anfragen je 60 Sekunden und Adresse begrenzt: Melden sich innerhalb einer Minute mehr Benutzer an – etwa zu Stundenbeginn –, weist die API die weiteren mit *„Die LMN-API hat zu viele Anmeldungen in kurzer Zeit abgewiesen"* ab. Ab **Version 7.4.13** lässt sich das Limit im Abschnitt `rate_limit` der Datei `/etc/linuxmuster/api/config.yml` einstellen; `requests: 0` schaltet es ab, und eine Whitelist nimmt die Adresse der Plattform aus. Die API liest die Datei beim Start, ein Neustart des Dienstes ist also nötig.
+:::
 
 ## Siehe auch
 

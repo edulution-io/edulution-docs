@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # Thunderbird einrichten
 
 import MailServerConfig from '@site/src/components/MailServerConfig';
@@ -138,5 +134,5 @@ Thunderbird 115+ unterstützt CalDAV/CardDAV nativ.
 - Bei Unsicherheit: Administrator kontaktieren
 
 :::tip[Weitere Hilfe]
-Weitere Lösungen für häufige Probleme finden Sie auf unserer **[Troubleshooting-Seite](./troubleshooting)**.
+Weitere Lösungen für häufige Probleme finden Sie auf unserer **[Troubleshooting-Seite](./troubleshooting.mdx)**.
 :::

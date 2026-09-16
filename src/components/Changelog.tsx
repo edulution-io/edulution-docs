@@ -198,6 +198,8 @@ const formatDate = (dateString: string) => {
 
 const Tag: React.FC<{ tag: string }> = ({ tag }) => {
   const colors: Record<string, string> = {
+    'edulution-plattform': 'bg-[rgba(136,216,64,0.15)] text-[#8FC046] border-[#8FC046]/30',
+    // Legacy-Tag früherer Releases – gleiche Farbe wie 'edulution-plattform'
     'edulution-ui': 'bg-[rgba(136,216,64,0.15)] text-[#8FC046] border-[#8FC046]/30',
     'edulution-mail': 'bg-[rgba(0,129,198,0.15)] text-[#0081c6] border-[#0081c6]/30',
     'edulution-fileproxy': 'bg-[rgba(220,38,38,0.15)] text-[#dc2626] border-[#dc2626]/30',
@@ -399,7 +401,7 @@ function ArticleHeader({ id, date, tag }: { id: string; date: string; tag?: stri
               {formatDate(date)}
             </time>
           </a>
-          <Tag tag={tag || 'edulution-ui'} />
+          <Tag tag={tag || 'edulution-plattform'} />
         </div>
       </ContentWrapper>
     </header>

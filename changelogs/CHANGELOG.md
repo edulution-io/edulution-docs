@@ -1,5 +1,12 @@
 # edulution Changelog
 
+> **Hinweis (2026-08-21): Umbenennung `edulution-ui` → `edulution-plattform`**
+>
+> Die frühere *edulution UI* heißt jetzt *edulution Plattform*. Der Changelog-Tag lautet ab
+> sofort `edulution-plattform`; der alte Tag `edulution-ui` wird beim Rendern weiterhin
+> erkannt. Der Text älterer Einträge wurde nicht nachträglich angepasst und nennt an
+> einzelnen Stellen noch den alten Namen.
+
 ## v2.1.0 | 2025-10-29 | edulution-app
 
 ### Release Notes – Edulution App v2.1
@@ -13,7 +20,7 @@ Version 2.1 der Edulution App umfasst eine überarbeitete Benutzeroberfläche un
 #### Neue Funktionen
 
 - **Digitaler Schülerausweis** [tags: school] - Vollständig integrierte Ausweisfunktion mit allen relevanten Informationen
-- **WebDAV-Integration** [tags: ios] - Nahtlose Integration der in der Edulution-Plattform angelegten WebDAV-Shares (Unterstützung für [edulution-fileproxy](https://docs.edulution.io/edulution-ui/edulution-fileproxy/) und Linuxmuster )
+- **WebDAV-Integration** [tags: ios] - Nahtlose Integration der in der Edulution-Plattform angelegten WebDAV-Shares (Unterstützung für [edulution-fileproxy](https://docs.edulution.io/docs/edulution-fileproxy/) und Linuxmuster )
 - **Push-Benachrichtigungen**
     - Benachrichtigung beim Start von Konferenzen
     - Automatische Updates bei Erstellung und Bearbeitung von Umfragen
@@ -24,7 +31,7 @@ Version 2.1 der Edulution App umfasst eine überarbeitete Benutzeroberfläche un
 - Push-Benachrichtigungen werden über Expo Push Notification Service abgewickelt
 --- 
 
-## v1.5.0 | 2025-08-11 | edulution-ui
+## v1.5.0 | 2025-08-11 | edulution-plattform
 
 ### Kompatibilität & Infrastruktur-Verbesserungen
 
@@ -37,11 +44,9 @@ Kompatibilitäts- und Infrastruktur-Verbesserungen, Vorbereitung für Push-Benac
 - LDAP-Sync zu Keycloak (Gruppen → Keycloak)
 - Grundlagen für Push-Benachrichtigungen (edulution-App)
 
-[GitHub Release](https://github.com/edulution-io/edulution-ui/releases/tag/v1.5.0)
-
 ---
 
-## v1.4.0 | 2025-08-01 | edulution-ui
+## v1.4.0 | 2025-08-01 | edulution-plattform
 
 ### Feature-Update
 
@@ -57,7 +62,7 @@ Weitere Verbesserungen und neue Features: sichtbares TOTP-Secret, MFA-Reset durc
 
 ---
 
-## v1.3.0 | 2025-06-30 | edulution-ui
+## v1.3.0 | 2025-06-30 | edulution-plattform
 
 ### Umfragen, Sidebar und Launcher verbessert
 
@@ -74,7 +79,7 @@ Fokus auf Stabilität, Usability und Detailverbesserungen der Oberfläche.
 
 ---
 
-## v1.2.0 | 2025-05-19 | edulution-ui
+## v1.2.0 | 2025-05-19 | edulution-plattform
 
 ### Mehr Kontrolle & Sicherheit
 
@@ -89,8 +94,6 @@ Verbesserungen für App- und Mobile-Experience, neue Passwort-Manager-Features, 
 - TLDraw mit Collaboration & Medien-Upload
 - Integrierter Passwort-Manager mit PIN/2FA
 - Force-MFA für erhöhte Sicherheit
-
-[GitHub Release](https://github.com/edulution-io/edulution-ui/releases/tag/v1.2.0)
 
 ---
 
@@ -109,11 +112,9 @@ Version 1.1 bringt Container-Integration, App-Store, Veyon-/Traefik-Integration 
 - Automatisches Token-Handling für SOGo
 - Verbesserungen: Filesharing, Konferenzen, UI/UX-Anpassungen
 
-[GitHub Releases](https://github.com/edulution-io/edulution-ui/releases)
-
 ---
 
-## v1.0.0 | 2024-10-25 | edulution-ui
+## v1.0.0 | 2024-10-25 | edulution-plattform
 
 ### Erste Version der edulution.io-UI veröffentlicht
 

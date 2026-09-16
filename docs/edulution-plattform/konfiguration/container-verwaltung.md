@@ -176,6 +176,10 @@ Ein Container, dessen Zustand sich nicht ermitteln lässt, wird bewusst **nicht*
 
 Die Schaltfläche **Auf Updates prüfen** stößt die Prüfung sofort an: Sind Zeilen ausgewählt, werden genau diese geprüft, andernfalls alle Container. Der Vorgang kann einen Moment dauern – für jeden Container wird die Registry einzeln befragt. Währenddessen ist die Schaltfläche gesperrt, und neben der Überschrift **Container** dreht sich ein Ladesymbol.
 
+:::note[Es läuft immer nur eine Prüfung]
+Die gesperrte Schaltfläche verhindert nur eine zweite Prüfung aus Ihrer eigenen Sitzung. Läuft bereits eine – etwa die nächtliche Prüfung oder die eines anderen Global-Admins –, meldet die Plattform **„Es läuft bereits eine Update-Prüfung"**. Der angezeigte Zustand bleibt dabei unverändert; versuchen Sie es kurz darauf erneut.
+:::
+
 :::info[Auch geschützte Container werden geprüft]
 Das Symbol erscheint für alle Container, also auch für die geschützten der Basisinstallation. Aktualisieren lassen sich diese über die Oberfläche weiterhin nicht; dafür gilt der Weg über die Konsole, siehe [Administration → Updates](./administration.md).
 :::

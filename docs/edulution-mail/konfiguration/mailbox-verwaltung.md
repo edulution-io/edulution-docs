@@ -30,7 +30,7 @@ Die Tabelle listet alle Mailboxen der angebundenen Mailcow-Instanz:
 | **Aktiv** | Ob die Mailbox nutzbar ist |
 | **Nachrichten** | Anzahl der gespeicherten Nachrichten |
 
-Jede Spaltenüberschrift lässt sich zum Sortieren anklicken, das Suchfeld filtert nach Benutzernamen, und die Tabelle zeigt 10 Einträge je Seite. Der Filter **Nur Shared** blendet alles aus, was kein geteiltes Postfach ist. Auf schmalen Bildschirmen entfallen die Spalten Domain, Quota und Nachrichten, auf Tablets die Spalte Nachrichten.
+Über das Suchfeld filtern Sie nach Benutzernamen; die Tabelle zeigt 10 Einträge je Seite. Der Filter **Nur Shared** blendet alles aus, was kein geteiltes Postfach ist. Auf schmalen Bildschirmen entfallen die Spalten Domain, Quota und Nachrichten, auf Tablets die Spalte Nachrichten.
 
 :::note[Löschen führt nur über den Bearbeiten-Dialog]
 Die Tabelle hat bewusst keine Auswahlkästchen und keinen Löschen-Button – mehrere Mailboxen auf einmal zu löschen ist nicht vorgesehen. Öffnen Sie stattdessen die Mailbox per Klick auf die Zeile und verwenden Sie dort **Löschen**.

@@ -30,10 +30,10 @@ Die Tabelle listet alle Mailboxen der angebundenen Mailcow-Instanz:
 | **Aktiv** | Ob die Mailbox nutzbar ist |
 | **Nachrichten** | Anzahl der gespeicherten Nachrichten |
 
-Über das Suchfeld filtern Sie nach Benutzernamen; die Tabelle zeigt 10 Einträge je Seite. Der Filter **Nur Shared** blendet alles aus, was kein geteiltes Postfach ist. Auf schmalen Bildschirmen entfallen die Spalten Domain, Quota und Nachrichten, auf Tablets die Spalte Nachrichten.
+Über das Suchfeld filtern Sie nach Benutzernamen. Der Filter **Nur Shared** blendet alles aus, was kein geteiltes Postfach ist.
 
 :::note[Löschen führt nur über den Bearbeiten-Dialog]
-Die Tabelle hat bewusst keine Auswahlkästchen und keinen Löschen-Button – mehrere Mailboxen auf einmal zu löschen ist nicht vorgesehen. Öffnen Sie stattdessen die Mailbox per Klick auf die Zeile und verwenden Sie dort **Löschen**.
+Mehrere Mailboxen auf einmal zu löschen ist nicht vorgesehen. Öffnen Sie die Mailbox per Klick auf die Zeile und verwenden Sie dort **Löschen**.
 :::
 
 ## Mailbox anlegen
@@ -51,7 +51,7 @@ Die Schaltfläche **Hinzufügen** unter der Tabelle öffnet den Dialog **Mailbox
 ### Regeln für die Eingaben
 
 - **Lokaler Teil:** Buchstaben, Ziffern, `_`, `+` und `-`, durch einzelne Punkte trennbar; höchstens 64 Zeichen. Die Eingabe wird beim Speichern in Kleinbuchstaben umgewandelt.
-- **Domain:** auswählbar sind ausschließlich Domains, die Mailcow bereits kennt – eine freie Eingabe ist nicht möglich. Existiert genau eine Domain, ist sie vorausgewählt. Bleibt die Liste leer, konnten die Domains nicht geladen werden; prüfen Sie dann zuerst die Mailcow-Verbindung.
+- **Domain:** auswählbar sind ausschließlich Domains, die Mailcow bereits kennt. Existiert genau eine Domain, ist sie vorausgewählt. Bleibt die Liste leer, konnten die Domains nicht geladen werden; prüfen Sie dann zuerst die Mailcow-Verbindung.
 - **Quota:** mindestens 1 MB, höchstens 1.048.576 MB (1 TiB). Eine Quota von 0, die Mailcow als „unbegrenzt“ deutet, lässt sich über diese Oberfläche nicht eintragen.
 - **Passwort:** mindestens 8 Zeichen und mindestens eine Ziffer sowie ein Sonderzeichen.
 
@@ -129,7 +129,7 @@ Ordner, die der Mailserver nur als Zwischenebene für Unterordner führt, könne
 
 ### Passwort des Postfachs
 
-Um die Rechte auf den Ordnern setzen zu können, meldet sich edulution selbst am Postfach an. Solange **Shared Mailbox** aktiv ist und noch keine Zugangsdaten hinterlegt sind, ist **Passwort** deshalb ein Pflichtfeld: Es erscheint der Hinweis „Passwort ist erforderlich, um die Mailbox zu teilen“, und **Speichern** bleibt gesperrt. Das Passwort wird bereits im Browser verschlüsselt, verschlüsselt in der edulution-Datenbank hinterlegt und ausschließlich für die Rechtevergabe verwendet.
+Um die Rechte auf den Ordnern setzen zu können, meldet sich edulution selbst am Postfach an. Solange **Shared Mailbox** aktiv ist und noch keine Zugangsdaten hinterlegt sind, ist **Passwort** deshalb ein Pflichtfeld: Es erscheint der Hinweis „Passwort ist erforderlich, um die Mailbox zu teilen“, und **Speichern** bleibt gesperrt. Das Passwort wird bereits im Browser verschlüsselt, nur verschlüsselt gespeichert und ausschließlich für die Rechtevergabe verwendet.
 
 Ändern Sie das Passwort des Postfachs in Mailcow oder SOGo, tragen Sie es auch hier neu ein. Andernfalls scheitern das Laden der Ordnerliste und jede weitere Freigabe mit der Meldung **„IMAP-Anmeldung fehlgeschlagen: Zugangsdaten wurden abgelehnt“**.
 
@@ -157,7 +157,7 @@ Speichern Sie erneut, sobald die Ursache behoben ist – der fehlgeschlagene Sch
 
 ## Mailbox löschen
 
-Im Dialog **Mailbox bearbeiten** entfernt die Schaltfläche **Löschen** die Mailbox samt Inhalt. edulution fragt vorher nach und nennt dabei die betroffene Adresse; eine Eingabe zur Bestätigung ist nicht erforderlich.
+Im Dialog **Mailbox bearbeiten** entfernt die Schaltfläche **Löschen** die Mailbox samt Inhalt. edulution fragt vorher nach.
 
 :::danger[Nicht umkehrbar]
 Alle E-Mails und Daten der Mailbox werden unwiderruflich gelöscht. Ein Wiederherstellen ist nur aus einer Sicherung des Mailservers möglich.
@@ -174,8 +174,6 @@ Beim Löschen räumt edulution zusätzlich auf: Die Mailbox wird als berechtigte
 | **Die maximale Anzahl an Mailboxen für diese Domain ist erreicht** | Das in Mailcow gesetzte Mailbox-Limit der Domain ist ausgeschöpft |
 | **Die gewünschte Quota überschreitet das verbleibende Domain-Kontingent** | Die Summe aller Quotas würde das Kontingent der Domain übersteigen |
 | **Mailcow hat den Zugriff verweigert (API-Token prüfen)** | Der hinterlegte API-Schlüssel ist ungültig oder hat zu wenig Rechte |
-
-Bei einem Fehler bleibt der Dialog geöffnet und die Tabelle wird neu geladen, sodass Sie sofort sehen, was tatsächlich übernommen wurde.
 
 ## Siehe auch
 

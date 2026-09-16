@@ -103,6 +103,21 @@ Die Spalte **Status** zeigt den Sophomorix-Status des Kontos:
 
 ![Benutzerverwaltung-Benutzer-Passwort](/img/benutzerverwaltung/benutzerverwaltung05-userPasswort.png)
 
+### Passwörter mehrerer Benutzer drucken
+
+Über die Kontrollkästchen am Zeilenanfang wählen Sie in der Registerkarte **Benutzer** mehrere Konten gleichzeitig aus. Sobald mindestens ein Konto markiert ist, erscheint unten die Schaltfläche **Passwörter drucken**.
+
+Im Dialog wählen Sie das Format:
+
+| Format | Inhalt |
+|--------|--------|
+| **PDF** | eine Passwortkarte je Konto, nach Klasse gruppiert; optional eine Karte pro Seite über die Option **Drucke ein Passwort pro Seite** |
+| **CSV** | eine Tabelle mit Name, Schule und Anmeldename |
+
+:::note[Nur für Benutzertypen mit Passwort]
+Die Auswahl steht für **Schüler**, **Lehrer**, **Extra-Schüler**, **Eltern** und **Mitarbeiter** zur Verfügung. Bei **Schuladmins** und **Globaladmins** erscheinen keine Kontrollkästchen; ihre Zugangsdaten lassen sich über diesen Weg nicht drucken.
+:::
+
 ## Registerkarte „Import"
 
 ![Benutzerverwaltung-Import](/img/benutzerverwaltung/benutzerverwaltung06-import.png)

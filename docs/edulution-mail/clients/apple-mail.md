@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Apple Mail einrichten
 
 import MailServerConfig from '@site/src/components/MailServerConfig';
@@ -135,5 +131,5 @@ Falls E-Mails nicht gesendet werden können:
 - Bei anhaltenden Problemen: Administrator kontaktieren
 
 :::tip[Weitere Hilfe]
-Weitere Lösungen für häufige Probleme finden Sie auf unserer **[Troubleshooting-Seite](./troubleshooting)**.
+Weitere Lösungen für häufige Probleme finden Sie auf unserer **[Troubleshooting-Seite](./troubleshooting.mdx)**.
 :::

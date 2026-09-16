@@ -58,6 +58,21 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 
 Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht.
 
+Ist in Ihren E-Mail-Einstellungen das **verzögerte Senden** aktiviert (siehe [Mein Profil → Senden rückgängig machen](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#senden-rückgängig-machen)), wird die Nachricht nach dem Klick auf **Senden** nicht sofort verschickt: Für die eingestellte Dauer erscheint die Meldung **Nachricht wird gesendet …** mit der Schaltfläche **Rückgängig**. Ein Klick auf **Rückgängig** innerhalb dieses Zeitfensters bricht den Versand ab und öffnet die Nachricht mit allen Empfängern, dem Text und den Anhängen erneut zur Bearbeitung. Läuft das Zeitfenster ab, wird die Nachricht verschickt. Das Zurückhalten erfolgt serverseitig – der Versand wird also auch dann ausgeführt, wenn Sie das Fenster oder den Browser zwischenzeitlich schließen.
+
+Die erneut geöffnete Nachricht bleibt mit ihrem automatisch gespeicherten Entwurf verknüpft; es entsteht also kein zweiter Entwurf. Beim Schließen werden Sie gefragt, ob der Entwurf behalten oder verworfen werden soll – auch dann, wenn Sie nichts weiter daran geändert haben.
+
+Ob der Abbruch noch greift und ob der Versand gelingt, erfahren Sie nachträglich über eine Meldung:
+
+| Meldung | Bedeutung |
+|---------|-----------|
+| **Zu spät – die Nachricht wurde bereits gesendet** | Beim Klick auf **Rückgängig** war das Zeitfenster bereits abgelaufen; die Nachricht ist unterwegs |
+| **Das Senden konnte nicht abgebrochen werden – die Nachricht wird trotzdem gesendet** | Der Abbruch hat den Server nicht erreicht, etwa bei einer Netzwerkstörung; der Versand läuft weiter |
+| **Verzögerte Nachricht konnte nicht gesendet werden** | Der Versand ist fehlgeschlagen; die Nachricht bleibt als Entwurf erhalten und geht nicht verloren |
+| **Einige Empfänger sind im System nicht bekannt und wurden nicht beliefert: …** | Die Nachricht wurde zugestellt, die genannten Empfänger jedoch nicht erreicht |
+
+Konnte keiner der Empfänger beliefert werden, bleibt die Nachricht ebenfalls als Entwurf erhalten.
+
 ### Empfängervorschläge im Adressfeld
 
 Sobald Sie in **An**, **CC** oder **BCC** zu tippen beginnen, schlägt edulution passende Empfänger vor. Die Vorschläge stammen aus drei Quellen und erscheinen in dieser Reihenfolge:
@@ -152,7 +167,7 @@ Ein Klick auf den Hinweis bringt Sie direkt zu den **E-Mail-Einstellungen**, wo 
 
 ## Einstellungen
 
-Signatur, automatische Antwort (Abwesenheitsnotiz), Weiterleitung und Filter verwalten Sie in den **E-Mail-Einstellungen**. Eine ausführliche Beschreibung finden Sie unter [Mein Profil](../edulution-plattform/uebersicht/benutzereinstellungen/index.md).
+Signatur, verzögertes Senden (Senden rückgängig machen), automatische Antwort (Abwesenheitsnotiz), Weiterleitung und Filter verwalten Sie in den **E-Mail-Einstellungen**. Eine ausführliche Beschreibung finden Sie unter [Mein Profil](../edulution-plattform/uebersicht/benutzereinstellungen/index.md).
 
 Bei der automatischen Antwort können Sie zusätzlich festlegen, welche Absender überhaupt eine Antwort erhalten: alle Absender, nur Absender innerhalb der Domänen Ihrer Organisation (interne Absender) oder ausschließlich externe Absender. Die internen Domänen werden Ihnen dabei direkt angezeigt. Details dazu finden Sie unter [Mein Profil](../edulution-plattform/uebersicht/benutzereinstellungen/index.md).
 

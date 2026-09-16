@@ -500,6 +500,16 @@ Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und d
 
 Adressen, die auf das interne Netz zeigen, werden dabei grundsätzlich abgewiesen. Der Server prüft dies nicht nur anhand der eingegebenen Adresse, sondern auch anhand der IP-Adresse, auf die ein Name tatsächlich aufgelöst wird, sowie bei jeder Weiterleitung erneut. Ein Web-Kalender kann also nicht dazu verwendet werden, interne Dienste abzufragen.
 
+### Wenn keine Kalender erscheinen
+
+Erscheinen keine Kalender, benennt die Fehlermeldung, welche Ursache vorliegt:
+
+- **"Der CalDAV-Server hat die Anmeldung abgelehnt"** – Der Server ist erreichbar, weist die Zugangsdaten dieses Benutzers aber zurück. Der häufigste Fall ist ein Konto, für das auf dem SoGo-Server kein Postfach existiert; die CalDAV-URL ist dann korrekt und muss nicht geändert werden. Prüfen Sie stattdessen, ob der Benutzer auf dem Mailserver angelegt ist. Betrifft die Meldung nur einzelne Benutzer, ist dies die wahrscheinliche Ursache.
+- **"Verbindung zum CalDAV-Server fehlgeschlagen"** – Der Server war nicht erreichbar. Prüfen Sie die [CalDAV-URL](../../konfiguration/einstellungen.md#caldav-verbindung), die Namensauflösung des dort eingetragenen Hostnamens und das Zertifikat. Diese Meldung betrifft in der Regel alle Benutzer gleichzeitig.
+- **"Für den Kalenderserver sind in Ihrer edulution-Sitzung keine E-Mail-Adresse und kein Passwort hinterlegt"** – Der Server wurde gar nicht erst kontaktiert. Der Sitzung dieses Benutzers fehlen die Anmeldedaten für den Mailserver; prüfen Sie, ob für das Konto eine E-Mail-Adresse hinterlegt ist, und lassen Sie den Benutzer sich neu anmelden. Die CalDAV-Einstellungen sind in diesem Fall nicht die Ursache.
+
+Wird einem Benutzer, der zuvor Kalender sehen konnte, plötzlich keiner mehr angezeigt — etwa nach einer Kennwortänderung oder dem Entzug des Postfachs —, prüft edulution die Zugangsdaten erneut und meldet die Ablehnung ausdrücklich, statt eine leere Liste darzustellen. Ein Benutzer, der schlicht keine Kalender besitzt, sieht weiterhin eine leere Liste ohne Fehlermeldung.
+
 </Audience>
 
 ## Siehe auch

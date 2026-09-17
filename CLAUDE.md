@@ -5,7 +5,7 @@ Die Doku ist deutsch, alles GitHub-Seitige (Commit-Messages, PR-Titel und -Besch
 
 ## Vor dem Schreiben
 
-- **Quelle ist der Code, nicht das Ticket.** Verhalten gegen den aktuellen Stand von `edulution-io/edulution-ui` (Branch `dev`) prüfen, lokal ausgecheckt unter `/home/michael/Code/edulution-ui`. Ein Ticket beschreibt die Absicht, nicht das, was ausgeliefert wurde.
+- **Quelle ist der Code, nicht das Ticket.** Verhalten gegen den aktuellen Stand von `edulution-io/edulution-ui` (Branch `dev`) prüfen. Ein Ticket beschreibt die Absicht, nicht das, was ausgeliefert wurde.
 - **UI-Texte wörtlich übernehmen** aus `apps/frontend/src/locales/de/translation.json`. Meldungen nicht nacherzählen – wer danach sucht, sucht nach dem Originalsatz.
 - **Grenzwerte und Voreinstellungen aus den Konstanten lesen** (z. B. `libs/src/mail/constants/`), nicht schätzen und nicht aus einer älteren Doku übernehmen.
 

@@ -181,7 +181,7 @@ Die erste Spalte der Tabelle trägt je Zeile ein Auswahlkästchen, das Kästchen
 Eine Sammelaktion erreicht nur die Hosts, die gerade **sichtbar** sind. Schränken Sie die Suche ein, nachdem Sie ausgewählt haben, sinkt die Zahl in der Leiste entsprechend – ausgeblendete Hosts bleiben angehakt, werden aber nicht angesprochen. Leeren Sie die Suche wieder, sind sie erneut Teil der Auswahl.
 :::
 
-Nach einer Sammelaktion verlieren nur die Hosts ihr Häkchen, die tatsächlich erreicht wurden. Waren einzelne Rechner offline und wurden übersprungen, bleibt die Auswahl bestehen, damit Sie den Lauf für diese Hosts wiederholen können.
+Nach einer Sammelaktion verlieren die Hosts ihr Häkchen, für die der Server den Auftrag angenommen hat – auch dann, wenn er einzelne davon als offline übersprungen hat. Angehakt bleiben nur Rechner, die der Auftrag gar nicht erreicht hat, etwa weil bei einem großen Lauf ein Teil nicht zugestellt werden konnte. Die Auswahl schrumpft dann auf genau diese Rechner, sodass ein zweiter Versuch die bereits bedienten nicht noch einmal trifft.
 
 #### Der Kommando-Dialog
 
@@ -196,10 +196,14 @@ Je nach Schritt verlangt der Dialog ein zusätzliches Argument:
 | **Cache befüllen** | die Übertragungsart `rsync`, `multicast` oder `torrent` |
 | **Partitionieren**, **Beschriften**, **Neu starten**, **Herunterfahren** | – |
 
+:::note[Woher die Nummern stammen]
+Betriebssysteme und Partitionen werden in der Reihenfolge gezählt, in der ihre Abschnitte in der `start.conf` stehen – nicht nach der Ziffer im Gerätenamen. Der Dialog zählt dabei genauso wie der LINBO-Client: ein auskommentierter Abschnitt steht nicht zur Auswahl, zählt aber mit, sodass die Einträge darunter ihre Nummer behalten. Deshalb kann die Partition `/dev/sda5` die Nummer 3 tragen, und auf einem Rechner mit zwei Festplatten steht jede Partition einzeln zur Wahl, statt mit der gleich nummerierten der anderen Platte zusammengefasst zu werden.
+:::
+
 Darunter legen Sie den Modus und die Optionen fest: **Beim nächsten Start ausführen** stellt die Kette zurück, statt sie sofort zu schicken; **Wake-on-LAN** weckt die Rechner vorher, und erst dann lässt sich eine **Wartezeit** eintragen. Weiter stehen **Oberfläche des Clients abschalten**, **Abbild per Broadcast senden** und **Autostart der Gruppe übergehen** zur Verfügung.
 
 :::warning[Bestätigung für zerstörende Schritte]
-**Neu**, **Formatieren** und **Partitionieren** löschen Daten auf den Zielrechnern. Der Dialog verlangt dafür ein zusätzliches Häkchen, das die Anzahl der betroffenen Rechner nennt – und, wenn die Auswahl mehrere Hardwaregruppen umfasst, auch deren Anzahl. Die Bestätigung gilt für **genau diese Kette und genau diese Rechner**: ändern Sie danach einen Schritt, ein Argument oder die Auswahl, wird sie zurückgenommen und Sie bestätigen erneut.
+**Neu**, **Formatieren** und **Partitionieren** löschen Daten auf den Zielrechnern. Der Dialog verlangt dafür ein zusätzliches Häkchen, das die Anzahl der betroffenen Rechner nennt – und, wenn die Auswahl mehrere Hardwaregruppen umfasst, auch deren Anzahl. Die Bestätigung gilt für **genau diese Kette, genau diese Rechner und genau diese Optionen**: ändern Sie danach einen Schritt, ein Argument, die Auswahl oder eine der Optionen darüber, wird sie zurückgenommen und Sie bestätigen erneut. Das gilt besonders für **Beim nächsten Start ausführen** und **Wake-on-LAN** – das eine verlegt einen begleiteten Lauf auf den nächsten Start der Rechner, das andere weckt auch die, die bewusst ausgeschaltet waren.
 :::
 
 Steht **Ausführen** nicht zur Verfügung, nennt der Dialog den Grund direkt darüber – etwa ein Schritt, dem noch die Auswahl fehlt, eine ausstehende Bestätigung oder ein Lauf, der bereits läuft.
@@ -211,6 +215,9 @@ Nicht jede Aktion steht für jede Auswahl bereit. Fehlt eine, erklärt der Dialo
 | Abbild-Aktionen laufen nur auf genau einem Rechner | **Abbild erstellen**, **Abbild hochladen**, **Differenz erstellen** und **Differenz hochladen** verlangen einen einzelnen Host |
 | Aktionen mit Betriebssystem verlangen dieselbe Hardwaregruppe | die Position des Betriebssystems lässt sich nur aus **einer** `start.conf` auflösen |
 | Für diese Hardwaregruppe gibt es keine `start.conf` | die Gruppe der ausgewählten Rechner ist auf dem Server nicht beschrieben – etwa bei Servern und Druckern in `nopxe` |
+| Die `start.conf` dieser Hardwaregruppe konnte nicht geladen werden | der Server war nicht erreichbar oder hat die Anfrage abgelehnt; die Gruppe kann sehr wohl eine `start.conf` besitzen |
+
+Solange die `start.conf` der Gruppe noch geladen wird, bleiben die Aktionen mit Betriebssystem wählbar. Der Dialog sagt an derselben Stelle, dass die Datei noch geladen wird, und die Auswahlliste füllt sich, sobald sie vorliegt.
 
 Nach dem Abschicken meldet die Plattform, ob die Kette alle Rechner erreicht hat. Waren einzelne Hosts offline, werden sie namentlich genannt; die Statusspalte der betroffenen Zeilen wird anschließend mehrfach nachgefragt, weil ein Rechner, der gerade neu startet, nicht sofort antwortet.
 

@@ -225,13 +225,12 @@ Lehnt der Satellit ab, sagt die Meldung, warum:
 |---------|---------|
 | *Ein Rechner ist bereits mit einem Auftrag beschäftigt, oder zwei ausgewählte Rechner teilen sich eine Adresse.* | Auf einem Rechner läuft schon ein Auftrag, oder zwei ausgewählte Rechner haben dieselbe IP-Adresse. Die Plattform kann beides nicht unterscheiden. |
 | *Der Satellit nimmt gerade keine weiteren Aufträge an.* | Der Satellit nimmt höchstens **30 schreibende Anfragen je Minute** an. Kommen alle Anfragen über dieselbe Verbindung, teilen sich die Administratoren diese Grenze. Versuchen Sie es nach einer Minute erneut. |
-| *Auf diesem Satelliten ist LINBO nicht eingerichtet.* | Die LINBO-Installation des Satelliten ist nicht bereitgestellt. |
 
-In allen drei Fällen bleibt der Dialog geöffnet.
+In beiden Fällen bleibt der Dialog geöffnet. Ist der Satellit nicht erreichbar oder LINBO auf ihm nicht eingerichtet, erscheint die allgemeine Fehlermeldung der Plattform – beide Ursachen liefern dieselbe Antwort und lassen sich nicht unterscheiden.
 
 ##### Aufträge und geplante Aktionen
 
-Unter der Tabelle stehen zwei Abschnitte.
+Unter der Tabelle stehen zwei Abschnitte. Kann der Satellit einen davon nicht liefern, sagt der Abschnitt das, statt eine leere Liste zu zeigen.
 
 **Aufträge** listet die sofort ausgeführten Aufträge der letzten 24 Stunden, jüngste zuerst, zehn je Seite. Ältere Aufträge verwirft der Satellit selbst. Ein Klick auf einen Auftrag öffnet ihn mit jedem beteiligten Rechner: Zustand, aktueller Arbeitsschritt, eine Meldung des Satelliten und das Protokoll. Die Meldungen des Satelliten erscheinen in seinem eigenen Wortlaut. Solange ein Auftrag läuft, lädt die Seite ihn alle fünf Sekunden nach.
 

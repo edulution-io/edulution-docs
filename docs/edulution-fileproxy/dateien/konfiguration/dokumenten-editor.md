@@ -180,10 +180,6 @@ http:
 Statt die Konfiguration einzutragen, können Sie im Abschnitt **Proxy-Konfiguration** auch **Vorlage** wählen. Die Vorlage gehört zum Editor, der unter **Aktiver Dokumenten-Editor** ausgewählt ist. edulution hält diese Route anschließend selbstständig aktuell; siehe [Automatischer Abgleich](../../../edulution-plattform/konfiguration/einstellungen.md#automatischer-abgleich).
 :::
 
-:::caution[Collabora: Zeitüberschreitungen gehen beim Abgleich verloren]
-Die mitgelieferte Collabora-Route enthält den Abschnitt `serversTransports` mit den Zeitüberschreitungen nicht. Das gilt für **Vorlage** ebenso wie für den automatischen Abgleich, der eine von Hand eingetragene Konfiguration beim nächsten Start der edulution-API durch diese Route ersetzt.
-:::
-
 ## Siehe auch
 
 - [Vorschau, Bearbeiten und Drucken](../vorschau-und-drucken.md) – wie sich der Editor in der Dateien-App bemerkbar macht

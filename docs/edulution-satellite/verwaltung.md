@@ -235,7 +235,19 @@ Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, ersc
 
 #### Images
 
-Die Unterseite **Images** verwaltet die LINBO-Abbilder, die auf dem Satelliten selbst liegen, und gleicht sie mit denen des Schulservers ab. Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Status**, **Abgleich** und **Geändert**; über das Suchfeld schränken Sie die Liste auf einen Namen ein.
+Die Unterseite **Images** verwaltet die LINBO-Abbilder, die auf dem Satelliten selbst liegen, und gleicht sie mit denen des Schulservers ab. Oben rechts wählen Sie zwischen denselben vier Ansichten wie im Bereich **LINBO** der App **Schulserver**: **Kacheln** (Vorgabe), **Speicher**, **Datenblatt** und **Tabelle**. In allen Ansichten schränken Sie die Liste über das Suchfeld auf einen Namen ein.
+
+:::note[Die Ansichtswahl gilt für beide Bereiche]
+Die gewählte Ansicht wird zusammen mit der Imageliste des Schulservers gespeichert. Stellen Sie hier auf **Speicher** um, erscheint auch die Imageliste im Bereich **LINBO** der App **Schulserver** in dieser Ansicht – und umgekehrt.
+:::
+
+Ein Klick auf eine Karte öffnet die Begleitdateien des Images; für ein Image im Altformat wird das wie bei der Zeilenaktion mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – stehen nur in der **Tabelle** zur Verfügung.
+
+:::note[Die Karten zeigen weniger als am Schulserver]
+Die Imageliste des Satelliten enthält weder die Beschreibung noch Partitionsangaben oder die Prüfsumme. Beschreibung, Partition und Partitionsgröße bleiben in den Karten deshalb leer, und die Füllanzeige der Ansicht **Speicher** entfällt. Das **Datenblatt** weist bei jedem Image *keine Prüfsumme* aus, auch wenn auf dem Satelliten eine hinterlegt ist – ob eine vorliegt, zeigt erst **Prüfsumme prüfen**.
+:::
+
+Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Status**, **Abgleich** und **Geändert**.
 
 | Spalte | Bedeutung |
 |--------|-----------|
@@ -247,7 +259,7 @@ Die Unterseite **Images** verwaltet die LINBO-Abbilder, die auf dem Satelliten s
 Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Die Aktionen dieser Zeile – Prüfsumme, Sicherungen, Begleitdateien und Löschen – werden deshalb nicht ausgeführt, sondern mit einem Hinweis abgelehnt.
 :::
 
-Je Zeile stehen folgende Aktionen bereit:
+In der Tabelle stehen je Zeile folgende Aktionen bereit:
 
 | Aktion | Wirkung |
 |--------|---------|

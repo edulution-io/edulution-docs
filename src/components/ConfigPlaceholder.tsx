@@ -6,7 +6,7 @@ interface ConfigPlaceholderProps {
   inline?: boolean;
 }
 
-export default function ConfigPlaceholder({ type, inline = true }: ConfigPlaceholderProps): JSX.Element {
+export default function ConfigPlaceholder({ type, inline = true }: ConfigPlaceholderProps): React.JSX.Element {
   const { config } = useMailConfig();
   const [localConfig, setLocalConfig] = React.useState<any>(null);
 

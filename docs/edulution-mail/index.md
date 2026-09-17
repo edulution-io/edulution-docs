@@ -46,6 +46,20 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 - **Anhänge** können Sie herunterladen oder direkt **in Dateien speichern**.
 - Über die Auswahlkästchen markieren Sie mehrere Nachrichten gleichzeitig. Ist mindestens eine Nachricht ausgewählt, erscheint eine Aktionsleiste (**… ausgewählt**) mit **In den Papierkorb verschieben** und einem **Mehr**-Menü für weitere Sammelaktionen (z. B. als gelesen markieren, verschieben, endgültig löschen, als Spam markieren).
 
+### Links in Nachrichten
+
+Links in einer Nachricht öffnen sich in einem neuen Browser-Tab. edulution bleibt dabei im bisherigen Tab geöffnet, sodass Sie weder Ihren Platz in der Nachrichtenliste noch einen begonnenen Entwurf verlieren. In der Leseansicht sind diese Links mit einem kleinen Pfeil (↗) gekennzeichnet, sodass Sie bereits vor dem Klick erkennen, dass ein neuer Tab geöffnet wird.
+
+Nicht in einem neuen Tab geöffnet werden Sprungmarken innerhalb derselben Nachricht – sie führen wie gewohnt an die entsprechende Stelle im Text – sowie E-Mail- und Telefonlinks, die Ihr Mailprogramm bzw. Ihre Telefonanwendung öffnen.
+
+### Darstellung von HTML-Nachrichten
+
+Der Inhalt einer HTML-Nachricht wird vor der Anzeige bereinigt: Skripte und Formulare werden entfernt, damit fremder Code nicht innerhalb von edulution ausgeführt wird. Formatierungen bleiben erhalten – sowohl direkt am Element hinterlegte als auch eine vom Absender mitgelieferte Formatvorlage –, lediglich einzelne gefährliche Konstrukte darin (z. B. externe Importe) werden entfernt.
+
+Ein in der Nachricht eingebettetes Formular – etwa ein Umfrage- oder Anmeldefeld eines Newsletters – lässt sich deshalb nicht innerhalb von edulution ausfüllen. Nutzen Sie in diesem Fall den in der Nachricht angebotenen Link zur Website des Absenders.
+
+Bilder und andere extern nachgeladene Inhalte blendet edulution zum Schutz Ihrer Privatsphäre zunächst aus – unabhängig vom Absender und ohne eine Möglichkeit, einzelne Absender dauerhaft davon auszunehmen. Es erscheint der Hinweis „Um deine Privatsphäre zu schützen, wurde der automatische Download einiger Bilder in dieser Nachricht verhindert.“ mit dem Link **Bilder herunterladen**. Ein Klick lädt die Inhalte für diese Nachricht nach; die Freigabe gilt nur bis zum nächsten Neuladen der Seite. Deshalb können aufwendig gestaltete Newsletter zunächst schlichter aussehen als in anderen Mailprogrammen – auch in der Druckansicht, die denselben Freigabestatus übernimmt.
+
 ## E-Mail verfassen
 
 Über **Verfassen** öffnen Sie das Schreibfenster:

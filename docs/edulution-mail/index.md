@@ -138,7 +138,18 @@ Die Quelltext-Ansicht benötigen Sie immer dann, wenn Sie fertiges HTML versende
 
 1. Schalten Sie über das Symbol in die **Quelltext**-Ansicht um.
 2. Fügen Sie den HTML-Quelltext in das Textfeld ein oder bearbeiten Sie ihn dort direkt.
-3. Versenden Sie die Nachricht mit **Senden**. Der Quelltext wird unverändert als HTML verschickt und beim Empfänger formatiert dargestellt.
+3. Versenden Sie die Nachricht mit **Senden**. Der Quelltext wird als HTML verschickt und beim Empfänger formatiert dargestellt – mit den unten beschriebenen Anpassungen an Abständen und Leerzeichen.
+
+:::info[Anpassungen beim Versand]
+Beim Versand gleicht edulution Abstände und Leerzeichen jeder Nachricht an, auch wenn Sie sie in der Quelltext-Ansicht geschrieben haben. So erscheint die Nachricht in Outlook, Thunderbird und anderen E-Mail-Programmen so, wie Sie sie verfasst haben:
+
+- Absätze, Überschriften, Listen und Zitate erhalten oben und unten keinen zusätzlichen Abstand. Ein leerer Absatz bleibt als Leerzeile sichtbar.
+- Ein **einzelnes geschütztes Leerzeichen** (`&nbsp;`) zwischen zwei Wörtern wird zu einem normalen Leerzeichen, wenn der betreffende Text sonst **keine** normalen Leerzeichen enthält. Ältere Editoren schreiben jeden Wortabstand auf diese Weise – etwa in Signaturen und zitierten Nachrichten aus früheren Versionen. Ohne diese Anpassung liefe ein solcher Absatz beim Empfänger als eine einzige Zeile über den Rand.
+
+Gewollte geschützte Leerzeichen bleiben erhalten, sobald der Text auch normale Leerzeichen enthält – etwa bei „10 €“ oder „Bonjour Marie !“ in einem gewöhnlichen Satz. Ebenfalls unverändert bleiben mehrere aufeinanderfolgende geschützte Leerzeichen, vorformatierter Text und Code, Kommentare sowie Linkadressen und andere Attributwerte.
+
+Besteht ein Text nur aus Wörtern, die mit geschützten Leerzeichen verbunden sind – etwa „10 km“ als eigene Fettschrift –, wird er ebenfalls angepasst und kann beim Empfänger an dieser Stelle umbrechen.
+:::
 
 :::warning[Wechsel zurück in die formatierte Ansicht]
 Der formatierte Editor unterstützt nicht alle HTML-Formatierungen. Schalten Sie mit gestaltetem HTML zurück in die **Editor**-Ansicht, gehen die nicht unterstützten Bestandteile verloren. Betroffen sind sowohl ganze Elemente – etwa Tabellen oder eigene Formatvorlagen – als auch einzelne Formatierungen wie Textausrichtung oder Schriftgröße.

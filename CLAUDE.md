@@ -5,7 +5,7 @@ Die Doku ist deutsch, alles GitHub-Seitige (Commit-Messages, PR-Titel und -Besch
 
 ## Vor dem Schreiben
 
-- **Quelle ist der Code, nicht das Ticket.** Verhalten gegen den aktuellen Stand von `edulution-io/edulution-ui` (Branch `dev`) prüfen. Ein Ticket beschreibt die Absicht, nicht das, was ausgeliefert wurde.
+- **Quelle ist der Code, nicht das Ticket.** Verhalten gegen den aktuellen Stand von `edulution-io/edulution-ui` (Branch `dev`) prüfen, lokal ausgecheckt unter `/home/michael/Code/edulution-ui`. Ein Ticket beschreibt die Absicht, nicht das, was ausgeliefert wurde.
 - **UI-Texte wörtlich übernehmen** aus `apps/frontend/src/locales/de/translation.json`. Meldungen nicht nacherzählen – wer danach sucht, sucht nach dem Originalsatz.
 - **Grenzwerte und Voreinstellungen aus den Konstanten lesen** (z. B. `libs/src/mail/constants/`), nicht schätzen und nicht aus einer älteren Doku übernehmen.
 
@@ -52,7 +52,7 @@ Sparsam und gezielt: dort, wo ein Element schwer zu finden ist oder eine Entsche
 - Bedienelemente fett (**Speichern**), Platzhaltertexte kursiv (*Unverändert lassen*).
 - Admonitions mit Titel in eckigen Klammern: `:::warning[Titel]`. Typ nach Gewicht wählen: `note` < `info` < `caution` < `warning` < `danger`.
 - Feldlisten, Meldungen und Fehlerursachen als Tabelle, nicht als Fließtext.
-- Frontmatter `sidebar_custom_props.audience` und vorhandene `<Audience roles="…">`-Blöcke beibehalten.
+- Frontmatter `sidebar_custom_props.audience` und vorhandene `<Audience roles="…">`-Blöcke beibehalten. Rollen, Organisationstypen und Syntax des Zielgruppen-Systems stehen im [README](README.md#zielgruppen-rollen-organisationstyp-modul).
 - Interne Verweise als relative Links auf die `.md`-Datei, nie als absolute URL.
 
 ## Vor dem Commit

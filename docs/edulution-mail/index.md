@@ -187,6 +187,8 @@ Ob die E-Mail-App für Sie sichtbar ist, an welcher Stelle sie in der App-Liste 
 
 Welche Nutzergruppen die E-Mail-App überhaupt sehen, an welcher Stelle sie in der App-Liste erscheint und welches Theme der SOGo-Webmailer verwendet, legen Administratoren unter [Einstellungen → E-Mails](../edulution-plattform/konfiguration/einstellungen.md#e-mails) fest.
 
+Die Postfächer selbst — anlegen, Speicherplatz vergeben, löschen sowie ein Postfach als **freigegebenes Postfach** an weitere Benutzer freigeben — verwalten Administratoren unter [Mailboxen und geteilte Postfächer](./konfiguration/mailbox-verwaltung.md).
+
 Postfach-Freigaben und die Übernahme der Profilsprache in den Webmailer laufen nicht über IMAP, sondern über die [DAV-Verbindung](../edulution-plattform/konfiguration/einstellungen.md#dav-verbindung) der E-Mail-App. Diese Verbindung gilt ausschließlich für die E-Mail-App: Die Kalender- und die Kontakte-App bringen jeweils eine eigene mit, und eine dort abgeschaltete Zertifikatsprüfung lockert die Prüfung der E-Mail-Verbindung nicht. Ist die DAV-URL fehlerhaft eingetragen, betrifft das nur diese Funktionen — Nachrichten lesen, verfassen, Ordner und Filter bleiben davon unberührt.
 
 </Audience>

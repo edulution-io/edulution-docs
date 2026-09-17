@@ -187,12 +187,64 @@ Die Spalte **Abbild** vergleicht das Abbild auf dem Rechner mit dem des Satellit
 | **Nie synchronisiert** | Der Rechner hat noch kein Abbild bezogen. |
 | **Unbekannt** | Der Satellit meldet für diesen Rechner keinen Abgleichsstand. |
 
-:::note[Nur Anzeige]
+:::note[Rechner werden am Server gepflegt]
 Die Hostliste des Satelliten lässt sich nicht bearbeiten. Die Rechner stammen aus der Synchronisation mit dem Linuxmuster-Server und werden auf dem Satelliten zwischengespeichert; angelegt, geändert und gelöscht werden sie deshalb am Server, nicht am Satelliten. Mit der Aktion zum Neuladen holen Sie den aktuellen Stand.
 :::
 
 :::note[Hostliste und Abbild-Stand werden getrennt geladen]
 Beide Angaben stammen aus verschiedenen Abfragen. Antwortet der Satellit nur auf eine davon, bleibt die andere nutzbar: Die Rechner werden dann ohne Abbild-Stand aufgeführt (alle Zeilen zeigen *Unbekannt*), oder es erscheint eine Fehlermeldung, während die Liste weiterhin steht.
+:::
+
+##### Rechner aufwecken und Aktionen schicken
+
+Die erste Spalte der Tabelle trägt je Zeile ein Auswahlkästchen. Sobald Rechner ausgewählt sind, stehen in der Leiste unten rechts **Auswahl aufwecken** und **Aktion schicken…** bereit. Beide Aktionen erreichen nur die ausgewählten Rechner, die Suche und Gruppenfilter gerade **sichtbar** lassen – ausgeblendete Rechner bleiben angehakt, werden aber nicht angesprochen.
+
+Rechner ohne MAC-Adresse und Rechner, die nicht über LINBO vom Netzwerk starten, lässt die Plattform vorab aus und nennt sie. Der Satellit würde sie sonst ohne jede Rückmeldung übergehen.
+
+**Auswahl aufwecken** sendet Wake-on-LAN-Pakete. Die Meldung zählt die **gesendeten Pakete**, nicht die gestarteten Rechner – ob ein Rechner tatsächlich hochfährt, zeigt erst seine Spalte **Status**. Nur Rechner, deren Paket hinausging, verlieren ihr Häkchen; Rechner, die der Satellit gar nicht kennt, werden namentlich gemeldet.
+
+**Aktion schicken…** öffnet denselben Dialog wie im Bereich **Schulserver**: eine Kommandokette aus einzelnen Schritten, die Auswahl des Betriebssystems mit seinem Namen aus der `start.conf` der Gruppe und die Bestätigung vor **Neu**, **Formatieren** und **Partitionieren**. Aktionen mit Betriebssystem setzen voraus, dass alle ausgewählten Rechner derselben Hardwaregruppe angehören. Beim Satelliten unterscheiden sich die Optionen:
+
+- **Wartezeit** und **Broadcast** fehlen – der Satellit kennt sie nicht.
+- Wake-on-LAN ist ein Schalter: **Rechner nach dem Planen aufwecken**.
+- Wake-on-LAN, **Oberfläche des Clients beim nächsten Start abschalten** und **Automatische Funktionen der start.conf beim nächsten Start übergehen** lassen sich nur zusammen mit **Beim nächsten Start ausführen** wählen.
+
+:::note[Warum Wake-on-LAN nur mit „Beim nächsten Start“ geht]
+Eine sofort ausgeführte Kette mit vorherigem Wecken würde der Satellit erst beantworten, wenn alle Rechner fertig sind – länger, als die Verbindung zum Satelliten offen bleibt. Ein Wiederholen würde die Kette dann ein zweites Mal ausführen. Planen Sie die Kette deshalb für den nächsten Start und lassen Sie die Rechner anschließend wecken.
+:::
+
+Ohne **Beim nächsten Start ausführen** läuft die Kette sofort; der Auftrag erscheint unter **Aufträge**. Mit der Option schreibt der Satellit sie für den nächsten Start der Rechner vor; sie erscheint unter **Beim nächsten Start**. Ist zusätzlich das Wecken gewählt, werden danach nur die Rechner geweckt, für die das Planen gelungen ist. Rechner, die sich nicht planen ließen, nennt die Meldung.
+
+:::warning[Planen ersetzt eine vorhandene Aktion]
+Ist für einen Rechner bereits eine Aktion für den nächsten Start geplant, wird sie ohne Rückfrage durch die neue ersetzt.
+:::
+
+Lehnt der Satellit ab, sagt die Meldung, warum:
+
+| Meldung | Ursache |
+|---------|---------|
+| *Ein Rechner ist bereits mit einem Auftrag beschäftigt, oder zwei ausgewählte Rechner teilen sich eine Adresse.* | Auf einem Rechner läuft schon ein Auftrag, oder zwei ausgewählte Rechner haben dieselbe IP-Adresse. Die Plattform kann beides nicht unterscheiden. |
+| *Der Satellit nimmt gerade keine weiteren Aufträge an.* | Der Satellit nimmt höchstens **30 schreibende Anfragen je Minute** an. Kommen alle Anfragen über dieselbe Verbindung, teilen sich die Administratoren diese Grenze. Versuchen Sie es nach einer Minute erneut. |
+| *Auf diesem Satelliten ist LINBO nicht eingerichtet.* | Die LINBO-Installation des Satelliten ist nicht bereitgestellt. |
+
+In allen drei Fällen bleibt der Dialog geöffnet.
+
+##### Aufträge und geplante Aktionen
+
+Unter der Tabelle stehen zwei Abschnitte.
+
+**Aufträge** listet die sofort ausgeführten Aufträge der letzten 24 Stunden, jüngste zuerst, zehn je Seite. Ältere Aufträge verwirft der Satellit selbst. Ein Klick auf einen Auftrag öffnet ihn mit jedem beteiligten Rechner: Zustand, aktueller Arbeitsschritt, eine Meldung des Satelliten und das Protokoll. Die Meldungen des Satelliten erscheinen in seinem eigenen Wortlaut. Solange ein Auftrag läuft, lädt die Seite ihn alle fünf Sekunden nach.
+
+Der Zustand eines Auftrags richtet sich nach seinen Rechnern, nicht allein nach der Meldung des Satelliten: **Teilweise fehlgeschlagen** heißt, dass mindestens ein Rechner fehlschlug, während andere erfolgreich waren. Ein **abgebrochener** Auftrag nennt weiterhin, wie viele Rechner vor dem Abbruch erfolgreich waren. Hat der Satellit weniger Rechner übernommen als geschickt wurden, weist der Auftrag darauf hin.
+
+:::warning[Abbrechen hält nur wartende Rechner an]
+**Auftrag abbrechen** stoppt nur Rechner, die noch nicht begonnen haben. Rechner, auf denen die Kette bereits läuft, arbeiten weiter und werden danach als abgebrochen geführt – auch wenn ihr Schritt gelungen ist. Bis der letzte Rechner fertig ist, zeigt der Auftrag **Wird abgebrochen**; das kann bis zu zwei Stunden dauern.
+:::
+
+**Beim nächsten Start** listet je Rechner die Kette, die der Satellit für dessen nächsten Start vorgemerkt hat. Über **Entfernen** nehmen Sie sie zurück. Hat der Rechner die Aktion inzwischen beim Start ausgeführt, verschwindet der Eintrag ohne Fehlermeldung.
+
+:::note[Geplante Abbild-Uploads zeigen ihre Befehle nicht]
+Für einen geplanten Upload eines Abbilds legt der Satellit die Zugangsdaten zu seinem Abbild-Speicher mit in die Befehle. Solche Einträge zeigen deshalb statt der Kette nur einen Hinweis.
 :::
 
 #### Konfigurationen

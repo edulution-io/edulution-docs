@@ -182,32 +182,28 @@ Diese Signatur wird beim Verfassen einer neuen E-Mail automatisch angefügt. Sie
 Ein Logo in der Standard-Signatur wird jeder gesendeten E-Mail beigefügt. Verwenden Sie deshalb ein möglichst kleines Bild (unter 100 KB), um das Mailaufkommen nicht unnötig zu vergrößern.
 :::
 
-### IMAP Integration
+### IMAP und SMTP
 
-Die IMAP-Integration ermöglicht den Zugriff auf externe oder interne IMAP-Server.
+Die Verbindung des integrierten E-Mail-Clients zum Mailserver richten Sie im Abschnitt **Mailserver** ein.
 
-**URL**
-- Geben Sie den FQDN (Fully Qualified Domain Name) des IMAP-Servers an
-- Beispiel: `imap.example.com` oder `ui.73.dev.multi.schule`
-- Wird für die Anbindung an den Mail-Server verwendet
+| Feld | Bedeutung | Standard |
+|---|---|---|
+| **IMAP-Server** | FQDN des IMAP-Servers, z. B. `imap.example.com` | – |
+| **SMTP-Server** | FQDN des SMTP-Servers, z. B. `smtp.example.com` | – |
+| **IMAP Port** | Port des IMAP-Servers | `993` |
+| **SMTP Port** | Port des SMTP-Servers | `587` |
+| **Nicht zertifizierte Verbindungen ablehnen** | Zertifikatsprüfung für IMAP, SMTP und ManageSieve | aus |
+| **ManageSieve-Server** | FQDN des ManageSieve-Servers | identisch mit dem IMAP-Server |
+| **ManageSieve-Port** | Port des ManageSieve-Servers | `4190` |
 
-**Port**
-- Port-Nummer des IMAP-Servers
-- Standard: **993** (IMAP über SSL/TLS)
-- Alternative: **143** (IMAP mit STARTTLS)
+- IMAP- und SMTP-Server werden getrennt eingetragen. Sind beide Dienste unter demselben Namen erreichbar, tragen Sie ihn in beide Felder ein: Ohne IMAP-Server ruft die E-Mail-App keine Nachrichten ab, ohne SMTP-Server versendet sie keine
+- Einen Schalter für die Verschlüsselung gibt es nicht: Sie ergibt sich aus dem Port (IMAP `993` und SMTP `465` mit implizitem TLS, alle anderen Ports mit STARTTLS)
+- Bleibt **ManageSieve-Server** leer, wird der IMAP-Server verwendet
 
-**Sichere Verbindung**
-- Toggle-Schalter zum Aktivieren/Deaktivieren
-- Aktiviert: Verbindung über TLS oder STARTTLS
-- Sollte für Produktivumgebungen immer aktiviert sein
-
-**Nicht zertifizierte Verbindungen ablehnen**
-- Toggle-Schalter für Zertifikatsprüfung
-- Aktiviert: SSL/TLS-Zertifikat wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+Die einzelnen Felder beschreibt [Mail-App konfigurieren](../../edulution-mail/konfiguration/mail-app-konfiguration.md#imap-und-smtp) ausführlich.
 
 :::warning[Sicherheitshinweis]
-In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Nicht zertifizierte Verbindungen ablehnen" einschalten, um die Sicherheit der E-Mail-Kommunikation zu gewährleisten.
+Aktivieren Sie in Produktivumgebungen "Nicht zertifizierte Verbindungen ablehnen", um die Sicherheit der E-Mail-Kommunikation zu gewährleisten.
 :::
 
 ### DAV-Verbindung

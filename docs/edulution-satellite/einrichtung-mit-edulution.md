@@ -186,6 +186,19 @@ Zusätzliche Dienste wie mDNS, RADIUS, KMS, File Server oder Proxy laufen als ei
 |---|---|
 | ![KMS-Konfiguration](/img/satellite/satellit-dienst-kms.png) | ![Container-Übersicht](/img/satellite/satellit-container.png) |
 
+## 9. LINBO einrichten (optional)
+
+Soll der Satellit Rechner per LINBO bereitstellen, öffnen Sie am Satelliten **Satellite Linbo** und starten den Assistenten **Setup Satellite Linbo**. Im ersten Schritt **LMN Server** tragen Sie die IP-Adresse des linuxmuster-Servers und das Passwort von `global-admin` ein und klicken auf **Connect**. Kann der Assistent die Serverdaten lesen, übernimmt er Domäne, Gateway und Netz vom Server; andernfalls tragen Sie das Netz im nächsten Schritt selbst ein. Stellt der Server mehrere Schulen bereit, wählen Sie anschließend die Schule.
+
+Die linuxmuster-API erreicht der Satellit auf einem von zwei Wegen:
+
+- **Direkt** (Vorgabe): Der Satellit spricht die linuxmuster-API selbst auf Port 8001 an. Dieser Port muss vom Satelliten aus erreichbar sein.
+- **Fetch LMN data via edulution:** Der Schalter erscheint, sobald der Satellit mit edulution verbunden ist (Schritt 6). edulution ruft dann die linuxmuster-API auf, mit der es selbst verbunden ist, und verwendet dafür die am Satelliten eingegebenen Zugangsdaten. So lässt sich ein Satellit auch einrichten, der den linuxmuster-Server nicht direkt erreicht. Die eingetragene IP-Adresse muss zu genau diesem Server gehören.
+
+:::note[Zugangsdaten werden nur weitergereicht]
+edulution leitet das Passwort ausschließlich an seine eigene linuxmuster-API weiter und speichert es nicht. Weitergereicht werden nur Anfragen an diese API – andere Adressen erreicht der Satellit über diesen Weg nicht.
+:::
+
 ## Passwort ändern
 
 Das lokale Admin-Passwort ändern Sie am Satelliten unter **Settings → Passwort**: aktuelles Passwort, neues Passwort und Bestätigung eingeben, dann **Update Password**. Danach melden Sie sich mit dem neuen Passwort an.
@@ -221,4 +234,7 @@ Das Entfernen der Container, Netze und Firewall-Regeln **auf dem Gerät** erfolg
 | Satellit erscheint nicht in edulution | Internet an `ether1`? Seriennummer korrekt hinterlegt (Schritt 3)? Läuft der WireGuard-Container (Schritt 2)? |
 | Status bleibt *offline*, WireGuard-Peer *Disconnected* | Erreichbarkeit des Servers per UDP – siehe [WireGuard-Server über Traefik](./wireguard-traefik.md) |
 | **Zentrales Netzwerk → Anwenden** schlägt fehl | linuxmuster-api ab Version 7.4.6 erforderlich (Subnets-Endpunkt) |
+| **Connect** im Schritt *LMN Server* meldet *LMN API rejected the credentials* | Passwort von `global-admin` (Schritt 9) |
+| **Connect** meldet *LMN auth failed* mit einem HTTP-Status | Die Anmeldung scheiterte nicht am Passwort. Direkt: Antwortet unter der IP-Adresse auf Port 8001 die linuxmuster-API? Über edulution: *HTTP 503* – edulution ist mit keinem linuxmuster-Server verbunden; *HTTP 502* oder *504* – edulution erreicht seinen linuxmuster-Server nicht |
+| Mit **Fetch LMN data via edulution** bricht **Connect** nach 30 Sekunden ab | Ist der Satellit in edulution bestätigt und verbunden (Schritt 6)? Ältere edulution-Versionen leiten diese Anfragen nicht weiter – aktualisieren Sie edulution |
 | Kein Zugriff auf das Gerät | Laptop an **`ether3`**, dann **`https://192.168.99.1/`** aufrufen |

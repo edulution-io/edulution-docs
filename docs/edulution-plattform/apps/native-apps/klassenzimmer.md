@@ -67,22 +67,36 @@ Bei einer Massenaktion über die Aktionsleiste schließt sich der Dialog sofort 
 
 ### Bildschirmüberwachung (Veyon)
 
-Ist ein Veyon-Proxy hinterlegt, zeigt jede Schülerkarte automatisch eine kleine Live-Vorschau des Schülerbildschirms — Sie müssen die Überwachung nicht eigens starten. Über das Symbol zum Vergrößern öffnen Sie die Vorschau in einem eigenen Fenster, das häufiger aktualisiert wird.
+Ist ein Veyon-Proxy hinterlegt, zeigt jede Schülerkarte automatisch eine kleine Live-Vorschau des Schülerbildschirms – Sie müssen die Überwachung nicht eigens starten. Über das Symbol zum Vergrößern öffnen Sie die Vorschau in einem eigenen Fenster, das häufiger aktualisiert wird.
 
 Über das Augen-Symbol auf der Schülerkarte erreichen Sie die Veyon-Aktionen:
 
 - **Bildschirm sperren** / **Bildschirm entsperren**
-- **Eingabe sperren** / **Eingabe entsperren** - sperrt Tastatur und Maus; bei gesperrter Eingabe erscheint ein rotes Tastatursymbol auf der Vorschau
+- **Eingabe sperren** / **Eingabe entsperren** – sperrt Tastatur und Maus; bei gesperrter Eingabe erscheint ein rotes Tastatursymbol auf der Vorschau
 - **System neu starten**
 - **System herunterfahren**
+- **Webseite öffnen** – öffnet eine von Ihnen angegebene Adresse im Browser des Schülers
+- **Nachricht senden** – zeigt einen von Ihnen verfassten Text auf dem Schülerbildschirm an
+- **Anwendung starten** – startet ein von Ihnen benanntes Programm auf dem Schülergerät
 
-Die Aktionen stehen erst zur Verfügung, sobald die Verbindung zum Gerät aufgebaut ist.
+Die Aktionen stehen erst zur Verfügung, sobald die Verbindung zum Gerät aufgebaut ist. Für **Webseite öffnen**, **Nachricht senden** und **Anwendung starten** fragt edulution die Adresse, den Text bzw. den Programmnamen zuerst in einem eigenen Dialog ab. Solange das Feld leer ist oder bei **Webseite öffnen** keine vollständige Adresse enthält, lässt sich der Dialog nicht bestätigen:
+
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| *Bitte einen Wert angeben* | Das Feld ist leer oder enthält nur Leerzeichen. | Adresse, Text oder Programmnamen eingeben. |
+| *Bitte eine vollständige http- oder https-Adresse angeben* | Die Adresse hat kein `http://` bzw. `https://`, z. B. `beispiel.de`. | Adresse vollständig eingeben, z. B. `https://beispiel.de`. |
+
+Über das Augen-Symbol in der Aktionsleiste stehen alle Veyon-Aktionen auch für mehrere ausgewählte Schüler gemeinsam zur Verfügung, sobald mindestens einer von ihnen verbunden ist. Die Aktion erreicht dann nur die Schüler, deren Gerät verbunden ist; die übrigen werden übersprungen.
+
+Bricht die Verbindung zum Gerät ab, während der Dialog offen ist – etwa weil das Gerät heruntergefahren wird –, schließt edulution ihn und sendet die Aktion nicht. Dasselbe gilt in der Aktionsleiste, wenn Sie die Auswahl der Schüler ändern.
 
 :::info[Anmeldung mit Ihrem Lehrer-Passwort]
 Für die Verbindung zu einem Schüler-Gerät meldet sich edulution mit **Ihren eigenen Zugangsdaten** an der Veyon-WebAPI an. Sie sehen deshalb nur die Geräte der Schüler, für die Sie zuständig sind.
 :::
 
-Bleibt die Vorschau bei allen Schülern leer, ist in der Regel kein Veyon-Proxy konfiguriert — eine Karte ohne Vorschau sieht genauso aus wie ein ausgeschaltetes Gerät. Wenden Sie sich in diesem Fall an Ihren Administrator.
+Bleibt die Vorschau bei allen Schülern leer, ist in der Regel kein Veyon-Proxy konfiguriert – eine Karte ohne Vorschau sieht genauso aus wie ein ausgeschaltetes Gerät. Wenden Sie sich in diesem Fall an Ihren Administrator.
+
+Bleibt die Vorschau nur bei **einzelnen** Schülern leer, obwohl das Gerät läuft, ist dieser Schüler dort meist gar nicht mehr angemeldet: Linuxmuster merkt sich die letzte Anmeldung an einem Gerät, aber keine Abmeldung, sodass ein früherer Nutzer in der Geräteliste stehen bleibt. Die Vorschau erscheint dann nur bei dem Konto, das tatsächlich am Gerät angemeldet ist. Das ist kein Fehler der Bildschirmüberwachung.
 
 ### Eingesammelte Dateien öffnen
 
@@ -96,7 +110,7 @@ Die Schaltfläche zum Öffnen der eingesammelten Dateien in der Dateiverwaltung 
 
 ## Einrichtung (für Administratoren)
 
-Die Bildschirmüberwachung setzt einen konfigurierten Veyon-WebAPI-Proxy voraus. Die Proxy-Adresse wird in den Einstellungen der Klassenraum-App hinterlegt und muss `https` verwenden: [Einstellungen → Klassenraum (Veyon-Proxy)](../../konfiguration/einstellungen.md#klassenraum-veyon-proxy).
+Die Bildschirmüberwachung setzt einen konfigurierten Veyon-WebAPI-Proxy voraus. Die Proxy-Adresse wird in den Einstellungen der Klassenraum-App hinterlegt und muss `https` verwenden (Ausnahmen für lokale Proxys siehe dort): [Einstellungen → Klassenraum (Veyon-Proxy)](../../konfiguration/einstellungen.md#klassenraum-veyon-proxy).
 
 </Audience>
 

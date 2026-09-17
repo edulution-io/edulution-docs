@@ -410,27 +410,32 @@ Der Klassenraum bindet die Bildschirmüberwachung der Schüler-Geräte über ein
 
 ### Proxy-Tabelle
 
-Die Proxys werden als Tabelle gepflegt. Über den Hinzufügen-Button oben rechts in der Tabelle öffnen Sie den Dialog **Konfiguration erstellen**; ein Klick auf eine bestehende Zeile öffnet **Konfiguration bearbeiten** und bietet dort auch das Löschen an.
+Die Proxys werden als Tabelle gepflegt. Neue Einträge legen Sie im Dialog **Konfiguration erstellen** an; ein Klick auf eine bestehende Zeile öffnet **Konfiguration bearbeiten** und bietet dort auch das Löschen an.
 
 | Feld | Bedeutung |
 |------|-----------|
-| **Subnet** | Subnetz der Schüler-Geräte in CIDR-Notation, z.B. `10.0.0.0/24` |
-| **Proxy Adresse** | URL des Veyon-WebAPI-Proxy, z.B. `https://veyon.ihre-domain.de:11080` |
+| **Subnet** | Subnetz der Schüler-Geräte in CIDR-Notation, z. B. `10.0.0.0/24` |
+| **Proxy Adresse** | URL des Veyon-WebAPI-Proxy, z. B. `https://veyon.ihre-domain.de:11080` |
 
 :::warning[Die Proxy-Adresse braucht `https`]
-Für die Anmeldung an der Veyon-WebAPI sendet edulution das **Passwort der Lehrkraft** an diese Adresse. Über `http` ginge es im Klartext durch das Netz. Adressen ohne `https` lehnt edulution deshalb schon im Dialog ab, und auch das Speichern der App-Konfiguration schlägt mit einer Fehlermeldung fehl.
+Für die Anmeldung an der Veyon-WebAPI sendet edulution das **Passwort der Lehrkraft** an diese Adresse. Über `http` ginge es im Klartext durch das Netz. Adressen ohne `https` lehnt edulution deshalb schon im Dialog ab, und auch das Speichern der App-Konfiguration schlägt fehl.
 
 Erlaubt bleibt `http` nur dort, wo die Anfrage den Host gar nicht verlässt:
 
 | Fall | Beispiel |
 |------|----------|
-| Proxy auf demselben Host | `http://localhost:11080`, `http://127.0.0.1:11080` |
+| Proxy auf demselben Host | `http://localhost:11080`, `http://127.0.0.1:11080`, `http://[::1]:11080` |
 | Proxy im selben Docker-Netzwerk, über seinen Servicenamen | `http://veyon-proxy:11080` |
 
 Eine IP-Adresse aus dem Schulnetz zählt **nicht** dazu: `http://10.0.0.5:11080` wird abgelehnt, denn dorthin geht das Passwort durch das Netz. Läuft der Proxy auf einem anderen Rechner, stellen Sie ihn auf TLS um und tragen Sie die `https`-Adresse ein.
-
-Bestehende Konfigurationen mit einer `http`-Adresse bleiben gespeichert, lassen sich aber erst nach dieser Umstellung wieder speichern.
 :::
+
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| *Die Proxy-Adresse muss https verwenden, außer der Proxy läuft auf localhost oder im selben Container-Netzwerk. Das Lehrer-Passwort wird an diese Adresse gesendet und ginge sonst im Klartext über das Netz.* | Im Dialog steht eine `http`-Adresse, die auf einen anderen Rechner zeigt. | Proxy auf TLS umstellen und die `https`-Adresse eintragen. |
+| *Die Veyon-Proxy-Adresse muss https verwenden, außer sie zeigt auf localhost oder das selbe Container-Netzwerk, da das Lehrer-Passwort an sie gesendet wird* | Beim Speichern der App-Konfiguration ist eine neue oder geänderte `http`-Adresse enthalten. | Wie oben. |
+
+Eine Zeile, die schon vor dieser Prüfung mit einer entfernten `http`-Adresse gespeichert wurde, bleibt erhalten und wird weiter verwendet; die übrigen Zeilen und Einstellungen lassen sich trotzdem speichern. Bearbeiten lässt sich diese Zeile aber erst wieder, wenn Sie ihre Adresse auf `https` umstellen – auch wenn Sie nur das Subnetz ändern möchten.
 
 :::info[Aktuell wird nur der erste Eintrag verwendet]
 Sie können mehrere Zeilen anlegen, edulution verbindet sich derzeit jedoch immer über die **Proxy Adresse der ersten Zeile**. Das Feld **Subnet** wird noch nicht zur Auswahl des passenden Proxys ausgewertet. Für Schulen mit mehreren Subnetzen bedeutet das: alle Schüler-Geräte müssen über denselben Proxy erreichbar sein.
@@ -438,7 +443,7 @@ Sie können mehrere Zeilen anlegen, edulution verbindet sich derzeit jedoch imme
 
 ### Wenn kein Proxy konfiguriert ist
 
-Ohne konfigurierten Proxy zeigen die Schülerkarten im Unterricht keine Bildschirmvorschau und die Veyon-Aktionen bleiben deaktiviert — die Karte sieht dabei genauso aus wie bei einem ausgeschalteten Gerät. Fehlt die Vorschau für alle Schüler, prüfen Sie zuerst diese Einstellung.
+Ohne konfigurierten Proxy zeigen die Schülerkarten im Unterricht keine Bildschirmvorschau und die Veyon-Aktionen bleiben deaktiviert – die Karte sieht dabei genauso aus wie bei einem ausgeschalteten Gerät. Fehlt die Vorschau für alle Schüler, prüfen Sie zuerst diese Einstellung.
 
 ---
 

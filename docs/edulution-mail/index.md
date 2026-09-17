@@ -54,11 +54,11 @@ Nicht in einem neuen Tab geöffnet werden Sprungmarken innerhalb derselben Nachr
 
 ### Darstellung von HTML-Nachrichten
 
-Der Inhalt einer HTML-Nachricht wird vor der Anzeige bereinigt: Skripte, Formulare und die vom Absender mitgelieferten Formatvorlagen werden entfernt, damit fremder Code nicht innerhalb von edulution ausgeführt wird. Formatierungen, die direkt am jeweiligen Element hinterlegt sind, bleiben erhalten.
+Der Inhalt einer HTML-Nachricht wird vor der Anzeige bereinigt: Skripte und Formulare werden entfernt, damit fremder Code nicht innerhalb von edulution ausgeführt wird. Formatierungen bleiben erhalten – sowohl direkt am Element hinterlegte als auch eine vom Absender mitgelieferte Formatvorlage –, lediglich einzelne gefährliche Konstrukte darin (z. B. externe Importe) werden entfernt.
 
 Ein in der Nachricht eingebettetes Formular – etwa ein Umfrage- oder Anmeldefeld eines Newsletters – lässt sich deshalb nicht innerhalb von edulution ausfüllen. Nutzen Sie in diesem Fall den in der Nachricht angebotenen Link zur Website des Absenders.
 
-Aufwendig gestaltete Newsletter können deshalb in edulution schlichter aussehen als in anderen Mailprogrammen. Dasselbe gilt für die Druckansicht.
+Bilder und andere extern nachgeladene Inhalte blendet edulution zum Schutz Ihrer Privatsphäre zunächst aus – unabhängig vom Absender und ohne eine Möglichkeit, einzelne Absender dauerhaft davon auszunehmen. Es erscheint der Hinweis „Um deine Privatsphäre zu schützen, wurde der automatische Download einiger Bilder in dieser Nachricht verhindert.“ mit dem Link **Bilder herunterladen**. Ein Klick lädt die Inhalte für diese Nachricht nach; die Freigabe gilt nur bis zum nächsten Neuladen der Seite. Deshalb können aufwendig gestaltete Newsletter zunächst schlichter aussehen als in anderen Mailprogrammen – auch in der Druckansicht, die denselben Freigabestatus übernimmt.
 
 ## E-Mail verfassen
 

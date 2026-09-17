@@ -38,7 +38,7 @@ Mehrere Mailboxen auf einmal zu löschen ist nicht vorgesehen. Öffnen Sie die M
 
 ## Mailbox anlegen
 
-Die Schaltfläche **Hinzufügen** unter der Tabelle öffnet den Dialog **Mailbox erstellen** mit folgenden Feldern:
+Die Schaltfläche **Hinzufügen** öffnet den Dialog **Mailbox erstellen** mit folgenden Feldern:
 
 | Feld | Bedeutung |
 |---|---|
@@ -140,7 +140,7 @@ Weil die Rechte auf zwei Systemen liegen – in Mailcow und auf den IMAP-Ordnern
 | Hinweis | Bedeutung |
 |---|---|
 | **Berechtigungen ohne Eintrag** | Diese Konten haben auf dem Mailserver Zugriff, stehen aber nicht in der Liste. Speichern entzieht ihnen den Zugriff |
-| **Abgleich unvollständig** | Für die genannten Ordner ließen sich die Rechte auf dem Mailserver nicht lesen. Dort bestehende Zugriffe bleiben unangetastet und werden oben nicht angezeigt |
+| **Abgleich unvollständig** | Für die genannten Ordner ließen sich die Rechte auf dem Mailserver nicht lesen. Dort bestehende Zugriffe bleiben unangetastet und erscheinen nicht unter **Berechtigungen ohne Eintrag** |
 
 Solche Abweichungen entstehen, wenn Rechte außerhalb von edulution vergeben wurden – etwa direkt in Mailcow oder SOGo – oder wenn eine frühere Freigabe nur teilweise zurückgenommen werden konnte. Ein leeres Feld **Berechtigungen ohne Eintrag** bedeutet bei unvollständigem Abgleich also nicht, dass es keine gibt.
 

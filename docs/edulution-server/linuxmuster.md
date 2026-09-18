@@ -191,13 +191,13 @@ Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleib
 | Ansicht | Zeigt |
 |---------|-------|
 | **Plattenkarte** (Vorgabe) | jede Platte der Gruppe als Balken ihrer Partitionen, nach Rolle eingefärbt, dazu die Betriebssysteme mit Autostart-Zeit |
-| **Kacheln** | Systemtyp, Betriebssysteme und die Zahl der zugeordneten Rechner |
-| **Datenblatt** | die gesetzten Schlüssel der Gruppe: Server, Cache, Download-Typ, Systemtyp, Abmeldung nach, Kernel-Optionen und Virtueller Desktop |
+| **Kacheln** | Systemtyp, Betriebssysteme, Cache, Download-Typ und Aktualisierungszeitpunkt, dazu die Zahl der zugeordneten Rechner, die verwendeten Images und die Partitionen als Balken |
+| **Datenblatt** | die gesetzten Schlüssel der Gruppe: Server, Cache, Download-Typ, Systemtyp, Abmeldung nach, Kernel-Optionen und Virtueller Desktop, dazu die verwendeten Images |
 | **Tabelle** | ID, Betriebssysteme, verwendete Images, Partitionen, Zahl der Rechner und Änderungszeitpunkt |
 
 In den drei Kartenansichten steht in derselben Zeile links neben der Ansichtsauswahl ein **Suchfeld** (*„Gruppen durchsuchen…"*), das nach dem Gruppennamen und dem Dateinamen der `start.conf` filtert; in der **Tabelle** filtert deren eigenes Suchfeld dieselbe Liste.
 
-Ein Klick auf eine Gruppe öffnet den Gruppen-Editor – in den Kartenansichten auf die Karte, in der **Tabelle** auf die Zeile. Schaltflächen und Menüs auf der Karte behalten dabei ihre eigene Wirkung: **Vorschau anzeigen** öffnet die Vorschau, nicht den Editor. Mit der Tastatur wählen Sie die Karte an und drücken Eingabe oder Leertaste.
+Ein Klick auf eine Gruppe öffnet ihre Vorschau – in den Kartenansichten auf die Karte, in der **Tabelle** auf die Zeile. Den Gruppen-Editor öffnen Sie über **Bearbeiten**. Das Auswahlkästchen auf der Karte wählt die Gruppe nur aus, ohne die Vorschau zu öffnen. Mit der Tastatur wählen Sie die Karte an und drücken Eingabe oder Leertaste.
 
 #### Aktionen einer Gruppe
 
@@ -305,7 +305,7 @@ Oben rechts wählen Sie wie bei den Gruppen zwischen vier Ansichten; die Wahl bl
 
 Auch hier steht in den drei Kartenansichten ein **Suchfeld** (*„Images durchsuchen…"*), das nach Name und Beschreibung des Images filtert.
 
-Ein Klick auf eine Image-Karte öffnet **Details anzeigen**. Anders als bei den Gruppen sind die Zeilen der **Tabelle** nicht anklickbar; dort führt der Weg über die Spalte **Aktionen**. Schaltflächen auf der Karte – etwa **Herunterladen** – behalten ihre eigene Wirkung.
+Ein Klick auf ein Image öffnet **Details anzeigen** – in den Kartenansichten auf die Karte, in der **Tabelle** auf die Zeile. Das Auswahlkästchen auf der Karte wählt das Image nur aus.
 
 Beide Listen verweisen aufeinander: eine Gruppe nennt die Images, die sie startet, und ein Image nennt unter **Verwendet in** die Gruppen, die es starten. Beide Richtungen stehen in jeder Ansicht – in den Kartenansichten auf der Karte, in der **Tabelle** in der gleichnamigen Spalte. Die Zuordnung liest die Plattform aus den `start.conf`-Dateien.
 

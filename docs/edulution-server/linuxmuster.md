@@ -98,6 +98,14 @@ Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Kla
 
 Vor dem Speichern werden die Einträge validiert. Doppelte Rechnernamen, MAC- oder IP-Adressen werden gemeldet und müssen zuerst bereinigt werden.
 
+Für **Rechnername**, **Raum** und **Hardwaregruppe** gelten zusätzlich Namensregeln; welche Zeichen erlaubt sind, nennt die Meldung, mit der **Speichern** und **Anwenden** einen abweichenden Namen abweisen. Ein Rechnername darf außerdem weder mit einem Bindestrich beginnen noch mit einem Bindestrich enden.
+
+:::note[Ältere Namen dürfen bleiben, bis Sie die Zeile ändern]
+Die Namensregeln gelten nur für neue und geänderte Zeilen. Eine Zeile, die unverändert der gespeicherten Geräteliste entspricht, lässt sich weiterhin speichern und anwenden, auch wenn einer ihrer Namen gegen die Regeln verstößt. Die Tabelle markiert eine solche Zelle gelb statt als Fehler; beim Überfahren erscheint *„Dieser Name entspricht nicht den aktuellen Namensregeln. Die Zeile kann unverändert bleiben, muss aber angepasst werden, sobald sie bearbeitet wird."*
+
+Sobald Sie in dieser Zeile irgendeinen Wert ändern, muss sie den Regeln entsprechen. Das gilt auch nach dem Einlesen einer CSV-Datei: Eine eingelesene Zeile, die mit einer gespeicherten Zeile vollständig übereinstimmt, gilt als unverändert. Doppelte Einträge sowie ungültige MAC- und IP-Adressen werden dagegen immer abgewiesen.
+:::
+
 ## Elternzuweisung
 
 Hier geben Sie die Verknüpfungen frei, die Eltern und Schüler selbst über einen Zuweisungs-Code
@@ -173,6 +181,8 @@ Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalt
 **Status** und **Geplant** bleiben ohne einen edulution-Satellite leer: der Online-/Offline-Zustand ist über die Linuxmuster-API allein nicht verfügbar, und geplante Aktionen werden vom Satellite verwaltet. Beide Spalten sind in dieser Version noch nicht angebunden.
 :::
 
+Ab der Linuxmuster-API **Version 7.4.12** fragt die Plattform einen Host nach einer Aktion aus dem Menü seiner Zeile – **Wake-on-LAN**, **Neu starten** oder **Herunterfahren** – mehrfach nach. Die Spalte **Status** nennt dann neben **Online** oder **Offline**, welches System der Rechner gerade ausführt: *LINBO*, *Linux*, *Windows* oder *Unbekanntes Betriebssystem*. Beim Überfahren listet sie je Image, wann es auf dem Rechner zuletzt synchronisiert wurde oder dass es dort noch nie synchronisiert wurde. Mit einer älteren API-Version zeigt die Spalte nur **Online** oder **Offline**.
+
 ### Gruppen
 
 Eine **Hardwaregruppe** ist eine `start.conf` auf dem Server: sie beschreibt das Plattenlayout und die Betriebssysteme aller Rechner, die ihr zugeordnet sind. Die Seite listet die Hardwaregruppen des Servers – also genau die Gruppen, für die eine `start.conf` vorliegt.
@@ -194,6 +204,12 @@ Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleib
 | **Datenblatt** | die gesetzten Schlüssel der Gruppe: Server, Cache, Download-Typ, Systemtyp, Abmeldung nach, Kernel-Optionen und Virtueller Desktop |
 | **Tabelle** | ID, Dateiname und Änderungszeitpunkt |
 
+Solange keine Gruppe ausgewählt ist, bietet die Leiste am unteren Rand **Neu laden** an. Die Schaltfläche holt die `start.conf`-Dateien, die GRUB-Konfigurationen, die Images und die Hosts für die Hostzahlen erneut vom Server – auch dann, wenn die Seite sie gerade erst geladen hat.
+
+:::note[Die Suche bestimmt mit, welche Gruppen eine Aktion trifft]
+Ausgewählte Gruppen bleiben ausgewählt, wenn die Suche oder der Filter der Tabelle sie ausblendet. Die Zahl in der Leiste und jede Aktion beziehen sich aber nur auf die ausgewählten Gruppen, die gerade **sichtbar** sind. Leeren Sie die Suche wieder, sind die ausgeblendeten Gruppen erneut Teil der Aktion.
+:::
+
 Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API**, wie viele Hosts und Gruppen gefunden wurden und wann zuletzt geladen wurde. Die API-Anzeige unterscheidet vier Zustände:
 
 | Anzeige | Bedeutung |
@@ -212,11 +228,17 @@ Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API*
 | **Bearbeiten** | öffnet den Gruppen-Editor (siehe unten) |
 | **Vorschau anzeigen** | zeigt die ausgewertete `start.conf`, ihre Rohdaten und die GRUB-Konfiguration |
 | **Duplizieren** | legt eine Kopie unter neuem Namen an |
+| **Sicherungen** | listet die Sicherungen der `start.conf` und spielt eine davon zurück |
+| **VDI** | öffnet die VDI-Konfiguration der Gruppe |
 | **Gruppe löschen** | löscht die `start.conf` der Gruppe auf dem Server |
+
+Solange keine Gruppe ausgewählt ist, steht neben **Gruppe anlegen** ab **Version 7.4.13** der Linuxmuster-API auch **linbo.iso herunterladen**: Die Schaltfläche lädt das Startmedium, das der Server unter `/srv/linbo/linbo.iso` vorhält. Die Datei ist einige hundert Megabyte groß.
 
 Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
 
-Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach; gelingt das nicht, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste.
+Ab **Version 7.4.13** der Linuxmuster-API stehen unter den fünf mitgelieferten Vorlagen zusätzlich die Beispielkonfigurationen, die der Server in `/srv/linbo/examples` bereithält. Eine solche Vorlage wird unverändert übernommen; nur Gruppenname, Serveradresse und Schule schreibt die Plattform beim Anlegen neu.
+
+Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach. Gelingt das nicht – etwa weil `/server-info` globalen Administratoren vorbehalten ist –, verwendet sie die Serveradresse, die eine bereits vorhandene Gruppe nennt. Findet sich auch dort keine, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste.
 
 :::note[Vorlagen zielen auf die erste SATA-Platte]
 Alle fünf Vorlagen legen ihr Layout auf `/dev/sda` an. Auf Rechnern mit NVMe- oder VirtIO-Platten passt das nicht: Die Gruppe entsteht zwar, ihre Gerätenamen gehen aber an der Hardware vorbei und müssen anschließend in der `start.conf` korrigiert werden. Das Gerät steht im Hinweis unter der Vorlagenauswahl, bevor Sie schreiben.
@@ -229,11 +251,31 @@ Vor dem Anlegen prüft die Plattform auf dem Server, ob für den Namen bereits e
 Beim **Duplizieren** übernimmt die Kopie Partitionen, Betriebssysteme und Einstellungen der Vorlage; der Gruppenname in der Datei wird dabei auf den neuen Namen umgeschrieben.
 
 :::warning[Wer Gruppen schreiben darf, entscheidet die Linuxmuster-API]
-Anlegen, Speichern, Duplizieren und Löschen einer Gruppe reicht die Plattform für Schul- und globale Administratoren an die Linuxmuster-API weiter; welche Rolle die Aktion ausführen darf, prüft die API. Bis einschließlich **Version 7.4.11** sind diese Schreibrouten globalen Administratoren vorbehalten: Als Schuladministrator erreichen Sie die Aktion in der Oberfläche, der Server weist sie aber ab – mit der Meldung *„start.conf konnte nicht gespeichert werden"* beziehungsweise *„start.conf konnte nicht gelöscht werden"*. Gibt eine neuere API-Version die Routen auch für Schuladministratoren frei, stehen sie ohne Änderung an der Plattform zur Verfügung. Lesen und Vorschau sind von der Einschränkung nicht betroffen.
+Anlegen, Speichern, Duplizieren und Löschen einer Gruppe reicht die Plattform an die Linuxmuster-API weiter; welche Rolle die Aktion ausführen darf, prüft die API. Bis einschließlich **Version 7.4.12** sind diese Schreibrouten globalen Administratoren vorbehalten: Als Schuladministrator erreichen Sie die Aktion in der Oberfläche, der Server weist sie aber ab – mit der Meldung *„start.conf konnte nicht gespeichert werden"* beziehungsweise *„start.conf konnte nicht gelöscht werden"*. Ab **Version 7.4.13** stehen die LINBO-Routen auch Schuladministratoren offen; der Bereich **LINBO** erscheint dann für sie im Menü. Lesen und Vorschau sind von der Einschränkung nicht betroffen.
+:::
+
+:::note[Die Dateien unter `/srv/linbo` kennen keine Schule]
+`start.conf`-Dateien, Images und Beispielkonfigurationen liegen serverweit, nicht je Schule. Ein Schuladministrator ändert hier also, was alle Schulen des Servers verwenden. Einzig `/server-info` bleibt globalen Administratoren vorbehalten: Die Serveradresse für eine neue Gruppe entnimmt die Plattform dann einer vorhandenen Gruppe.
 :::
 
 :::warning[Was beim Löschen verschwindet]
 Gelöscht werden die `start.conf` **und** die GRUB-Konfiguration der Gruppe. Rechner dieser Gruppe starten danach ohne Konfiguration, bis ihnen eine andere Gruppe zugewiesen wird. Der Server legt vor dem Löschen eine Sicherung der `start.conf` an.
+:::
+
+#### Sicherungen der start.conf
+
+Ab **Version 7.4.13** der Linuxmuster-API listet **Sicherungen** je Eintrag Datum, Zeitstempel und Größe, mit **Wiederherstellen** und einer Schaltfläche zum Löschen. Der Server legt jede Sicherung selbst an, sobald eine `start.conf` geschrieben wird.
+
+:::note[Wiederherstellen ist umkehrbar]
+Vor dem Zurückspielen sichert der Server die aktuelle `start.conf`, sodass sich der Schritt zurücknehmen lässt. Der Server behält die zehn letzten Fassungen und verwirft ältere.
+:::
+
+#### VDI-Konfiguration
+
+Ab **Version 7.4.13** der Linuxmuster-API öffnet **VDI** die Datei `start.conf.<Gruppe>.vdi` der Gruppe. Der Dialog zeigt die Felder, die die Schulkonsole schreibt – darunter **VDI aktiviert**, Name, Hostname, Betriebssystemtyp, IP- und MAC-Adresse, Netzwerkbrücke, Kerne, Arbeitsspeicher und die VM-IDs. **Speichern** ersetzt die Datei als Ganzes, **VDI abschalten** löscht sie; die `start.conf` der Gruppe bleibt in beiden Fällen unberührt.
+
+:::note[Felder außerhalb der Liste bleiben erhalten]
+Die Datei gehört edulution-linbo-vdi. Felder, die der Dialog nicht anzeigt, schreibt die Plattform unverändert zurück, statt sie zu verwerfen.
 :::
 
 #### Die Vorschau
@@ -272,6 +314,18 @@ Bearbeitet wird ein Betriebssystem auf der Unterregisterkarte **Betriebssystem**
 
 Solange ungespeicherte Änderungen vorliegen, fragt der Editor beim Schließen nach, ob Sie sie verwerfen wollen.
 
+Nach dem **Speichern** wendet die Plattform die Gruppe sofort an: Sie startet den Geräteimport einer Schule, in der ein Gerät mit gesetztem PXE-Flag dieser Gruppe zugeordnet ist, damit die Startkonfiguration der Gruppe neu erzeugt wird. Gesucht wird zuerst in der gewählten Schule, danach in den übrigen Schulen des Servers; importiert wird nur die erste Schule, die die Gruppe verwendet. Die Meldung nennt das Ergebnis:
+
+| Meldung | Bedeutung |
+|---------|-----------|
+| *„… wurde gespeichert und über den Geräteimport der Schule „…" angewendet."* | Die Gruppe ist angewendet; die Meldung nennt die Schule, deren Import gelaufen ist. |
+| *„… wurde gespeichert. Noch startet kein Computer diese Gruppe, daher musste nichts angewendet werden."* | Keinem Gerät mit PXE-Flag ist die Gruppe zugeordnet. |
+| *„… wurde gespeichert, aber nicht angewendet. Bitte wenden Sie die Geräteliste in der Geräteverwaltung an."* | Der Import ist fehlgeschlagen. Die `start.conf` liegt auf dem Server; wenden Sie die Geräteliste der betroffenen Schule in der [Geräteverwaltung](#geräteverwaltung) mit **Anwenden** an. |
+
+:::warning[Der Import übernimmt die gespeicherte Geräteliste]
+Der Geräteimport ist derselbe, den **Anwenden** in der Geräteverwaltung auslöst. Er übernimmt die auf dem Server gespeicherte Geräteliste der Schule vollständig – auch Änderungen, die dort gespeichert, aber noch nicht angewendet wurden. Beim Löschen einer Gruppe läuft kein Geräteimport.
+:::
+
 :::note[Was beim Speichern geprüft wird]
 Bevor die Plattform eine `start.conf` auf den Server schreibt, prüft sie deren Abschnitt `[LINBO]` und weist die Datei mit einer Meldung ab, wenn
 
@@ -292,6 +346,8 @@ Oben rechts wählen Sie wie bei den Gruppen zwischen vier Ansichten; die Wahl bl
 | **Speicher** | wie voll die Partition mit dem Image ist, dazu Partitionsgerät und Dateizahl |
 | **Datenblatt** | Dateiname, Größe, Partition, Partitionsgröße, ob eine Prüfsumme vorliegt, Dateizahl und Änderungszeitpunkt |
 | **Tabelle** | Name, Größe, Sidecars und Änderungszeitpunkt |
+
+Auch hier bietet die Leiste am unteren Rand **Neu laden** an, solange kein Image ausgewählt ist. Die Schaltfläche lädt die Images erneut vom Server und – sofern die Linuxmuster-API die Gruppenliste unterstützt – auch die `start.conf`-Dateien der Gruppen. Wie bei den Gruppen bleiben ausgewählte Images ausgewählt, wenn die Suche oder der Filter der Tabelle sie ausblendet; Zahl und Aktionen der Leiste gelten nur für die sichtbaren.
 
 :::note[Zwei Namen, ein Image]
 Ein Image heißt nach seinem Verzeichnis auf dem Server (`debian13`); die Bilddatei darin trägt zusätzlich die Endung (`debian13.qcow2`). Angezeigt und in allen Aktionen verwendet wird der Name des Images, nicht der der Datei.
@@ -357,13 +413,17 @@ Einige Aktionen sind in der Oberfläche bereits vorhanden, aber noch nicht angeb
 
 Die Schaltfläche **Versionsstände** im Bereich **Gruppen** ist sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet dafür keine Schnittstelle. Der Grund steht am Knopf.
 
-Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich in dieser Version nicht bearbeiten. Das Datenblatt zeigt, ob er in der `start.conf` aktiviert ist; die zugehörige Konfigurationsdatei ist über die Linuxmuster-API noch nicht erreichbar.
+Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich erst ab **Version 7.4.13** der Linuxmuster-API bearbeiten; ältere Versionen halten die Konfigurationsdatei nicht bereit. Das Datenblatt zeigt unabhängig davon, ob VDI in der `start.conf` aktiviert ist.
 
 ## Einrichtung (für Administratoren)
 
 - Die **Plattform** stellen Sie unter [Einstellungen → Globale Einstellungen → Allgemein](../edulution-plattform/konfiguration/einstellungen.md#allgemein) auf **Linuxmuster**.
 - Welche Bereiche dieser App sichtbar sind und wie sie beschriftet werden, hängt zusätzlich vom [Organisationstyp](../edulution-plattform/konfiguration/einstellungen.md#organisationstyp) ab.
 - Die Verbindung zum Schulserver richten Sie nach der Anleitung [Linuxmuster verbinden](./installation.md) ein.
+
+:::warning[Anmeldelimit der Linuxmuster-API bei vielen gleichzeitigen Anmeldungen]
+Die Plattform meldet jeden Benutzer von ihrer eigenen Adresse aus an der Linuxmuster-API an. Deren Anmelderoute ist auf fünf Anfragen je 60 Sekunden und Adresse begrenzt: Melden sich innerhalb einer Minute mehr Benutzer an – etwa zu Stundenbeginn –, weist die API die weiteren mit *„Die LMN-API hat zu viele Anmeldungen in kurzer Zeit abgewiesen"* ab. Ab **Version 7.4.13** lässt sich das Limit im Abschnitt `rate_limit` der Datei `/etc/linuxmuster/api/config.yml` einstellen; `requests: 0` schaltet es ab, und eine Whitelist nimmt die Adresse der Plattform aus. Die API liest die Datei beim Start, ein Neustart des Dienstes ist also nötig.
+:::
 
 ## Siehe auch
 

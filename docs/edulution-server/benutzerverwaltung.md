@@ -39,7 +39,7 @@ Für Benutzertypen ohne Verwaltungsliste (Schuladmins, Globaladmins) entfällt d
 :::note[Schulauswahl]
 In Umgebungen mit mehreren Schulen enthalten die Ansichten oben rechts eine **Schulauswahl**; ein Wechsel lädt die Listen der gewählten Schule neu. Als **Globaladmin** wählen Sie dort jede Schule des Servers, als **Schuladmin** enthält die Auswahl nur Ihre eigene Schule.
 
-Als **Schuladmin** bleibt die Benutzertabelle beim Benutzertyp **Globaladmins** ohne Einträge – diese Konten gehören keiner einzelnen Schule an.
+Der Benutzertyp **Globaladmins** steht nur **Globaladmins** zur Verfügung; als **Schuladmin** erscheint er weder in der Seitenleiste noch als Kachel auf der Übersicht. Diese Konten gehören keiner einzelnen Schule an, und die Linuxmuster-API gibt ihre Liste nur an Globaladmins heraus.
 :::
 
 ## Registerkarte „Benutzer"

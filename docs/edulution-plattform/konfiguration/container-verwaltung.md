@@ -24,7 +24,7 @@ Es gibt zwei Einstiegspunkte:
 | **Einstellungen → Container** | Alle Container des Servers, mit allen Aktionen |
 | **Einstellungen → *App* → Docker Anwendungen** | Nur die Container der jeweiligen App, zum Installieren des zugehörigen Plugins |
 
-Die Gesamtübersicht erreichen Sie als Global-Admin über das **Zahnrad-Symbol** unten im Menü. Der Bereich **Einstellungen** öffnet sich mit der Registerkarte **Container**.
+Die Gesamtübersicht erreichen Sie als Global-Admin über das **Zahnrad-Symbol** im Menü: Der Bereich **Einstellungen** öffnet sich mit der Registerkarte **Container**.
 
 Eine App-eigene Sektion **Docker Anwendungen** besitzen die Apps, deren Dienste als Container betrieben werden:
 
@@ -58,7 +58,7 @@ Die edulution Plattform hört auf die Ereignisse des Docker-Daemons. Startet, st
 
 ## Aktionen
 
-Wählen Sie eine oder mehrere Zeilen aus. Die Schaltflächen der Aktionsleiste am unteren Rand erscheinen abhängig vom Zustand der Auswahl:
+Wählen Sie eine oder mehrere Zeilen aus. Die Schaltflächen der Aktionsleiste erscheinen abhängig vom Zustand der Auswahl:
 
 | Schaltfläche | Sichtbar, wenn … | Wirkung |
 |--------------|------------------|---------|
@@ -73,7 +73,7 @@ Wählen Sie eine oder mehrere Zeilen aus. Die Schaltflächen der Aktionsleiste a
 | **Neu laden** | immer | Lädt die Tabelle neu |
 | **Terminal** | Desktop-Bereitstellung konfiguriert und Guacamole läuft | Öffnet eine SSH-Sitzung zum Server |
 
-Jede Aktion wird mit einer kurzen Meldung bestätigt, etwa *„Container gestartet."* oder *„Container erzwungen gestoppt."*.
+Jede Aktion wird mit einer kurzen Meldung bestätigt, etwa *„Container gestartet.“* oder *„Container erzwungen gestoppt.“*.
 
 :::note[Mehrfachauswahl]
 Alle Aktionen außer **Erstellen** und **Terminal** wirken auf die gesamte Auswahl. Die Container werden dabei parallel angesprochen; eine feste Reihenfolge gibt es nicht. Bei voneinander abhängigen Containern gehen Sie daher besser einzeln vor.
@@ -97,7 +97,7 @@ Die Container zusätzlicher Dienste werden nicht von Hand angelegt, sondern aus 
 
 1. Klicken Sie in **Einstellungen → Container** auf **Erstellen** (Plus-Symbol), ohne dass eine Zeile ausgewählt ist.
 2. Wählen Sie im Dialog **Plugin zur Installation auswählen** die gewünschte App bzw. den **Edulution-Manager** aus und bestätigen Sie mit **Auswählen**.
-3. Der Installationsdialog *„&lt;App&gt;-Plugins installieren"* öffnet sich. Verlangt die Vorlage Angaben – etwa einen Hostnamen oder ein Token –, füllen Sie die eingeblendeten Felder aus.
+3. Der Installationsdialog *„&lt;App&gt;-Plugins installieren“* öffnet sich. Verlangt die Vorlage Angaben – etwa einen Hostnamen oder ein Token –, füllen Sie die eingeblendeten Felder aus.
 4. **Installieren** startet den Vorgang. Das Textfeld zeigt den Fortschritt live an: *Docker Image wird abgerufen …*, *Docker Container wird erstellt …*, abschließend *Container erfolgreich erstellt.*
 5. Schließen Sie den Dialog mit **Schließen**.
 
@@ -158,7 +158,7 @@ Das Ergebnis steht als Symbol **vor dem Container-Namen**; die Spalte **Zuletzt 
 | Grünes Häkchen | **Aktuell** – der Container führt das Image aus, das derzeit hinter seinem Tag liegt. |
 | Gelber Kreis mit Pfeil nach oben | **Update verfügbar** – in der Registry liegt hinter demselben Tag ein neueres Image. |
 | Graues Fragezeichen | **Nicht prüfbar** – der Zustand ließ sich nicht ermitteln. Der Tooltip zeigt nicht diese Bezeichnung, sondern den Grund. |
-| Blasses graues Fragezeichen | **Noch nicht geprüft** – für den Container liegt noch kein Prüfergebnis vor, etwa weil er außerhalb der Oberfläche angelegt wurde. Die nächste Prüfung erfasst ihn. Über die Oberfläche installierte Container werden gleich nach der Installation geprüft. |
+| Blasses graues Fragezeichen | **Noch nicht geprüft** – für den Container liegt noch kein Prüfergebnis vor, etwa weil er außerhalb der Oberfläche angelegt wurde. Erfasst wird er von der nächsten Prüfung aller Container oder von einer Prüfung, für die er ausgewählt ist. Über die Oberfläche installierte Container werden gleich nach der Installation geprüft, sofern gerade keine andere Prüfung läuft. |
 
 Diese Gründe kann der Tooltip nennen:
 
@@ -172,7 +172,7 @@ Diese Gründe kann der Tooltip nennen:
 Ein Container, dessen Zustand sich nicht ermitteln lässt, wird bewusst **nicht** als *Aktuell* geführt. Ob für ihn ein Update vorliegt, bleibt offen.
 :::
 
-Die Schaltfläche **Auf Updates prüfen** stößt die Prüfung sofort an: Sind Zeilen ausgewählt, werden genau diese geprüft, andernfalls alle Container. Geprüft werden jeweils 4 Container gleichzeitig, und jede Registry-Abfrage darf bis zu 15 Sekunden dauern – bei vielen Containern oder einer langsamen Registry braucht der Vorgang daher etwas Zeit. Währenddessen ist die Schaltfläche gesperrt, und sowohl ihr Symbol als auch ein Ladesymbol neben der Überschrift **Container-Übersicht** drehen sich.
+Die Schaltfläche **Auf Updates prüfen** stößt die Prüfung sofort an: Sind Zeilen ausgewählt, werden genau diese geprüft, andernfalls alle Container. Geprüft werden jeweils 4 Container gleichzeitig – bei vielen Containern oder einer langsamen Registry braucht der Vorgang daher etwas Zeit. Währenddessen ist die Schaltfläche gesperrt, und sowohl ihr Symbol als auch ein Ladesymbol neben der Überschrift **Container-Übersicht** drehen sich.
 
 :::note[Es läuft immer nur eine Prüfung]
 Die gesperrte Schaltfläche verhindert nur eine zweite Prüfung aus Ihrer eigenen Sitzung. Serverseitig läuft zu jedem Zeitpunkt höchstens eine Prüfung; eine weitere wird abgewiesen – siehe [Fehlerbehebung](#fehlerbehebung).
@@ -187,9 +187,9 @@ Das Symbol erscheint für alle Container, also auch für die geschützten der Ba
 Die Schaltfläche **Update** bringt die ausgewählten Container auf das neueste Image:
 
 1. Das im Container hinterlegte Image wird neu geladen (`pull`).
-2. Bringt der Vorgang keine neue Fassung, endet er mit dem Hinweis *„&lt;Container&gt; ist bereits aktuell."* – der Container läuft unverändert weiter.
-3. Andernfalls wird der Container gestoppt, entfernt und mit derselben Konfiguration – Umgebungsvariablen, Volumes, Ports, Netzwerke – aus dem neuen Image neu erstellt und gestartet. Abschließend erscheint *„&lt;Container&gt; erfolgreich aktualisiert."*
-4. Ist keines der Updates fehlgeschlagen, wird der Update-Zustand der betroffenen Container unmittelbar danach neu ermittelt.
+2. Bringt der Vorgang keine neue Fassung, endet er mit dem Hinweis *„&lt;Container&gt; ist bereits aktuell.“* – der Container läuft unverändert weiter.
+3. Andernfalls wird der Container gestoppt, entfernt und mit derselben Konfiguration – Umgebungsvariablen, Volumes, Ports, Netzwerke – aus dem neuen Image neu erstellt und gestartet. Abschließend erscheint *„&lt;Container&gt; erfolgreich aktualisiert.“*
+4. Ist keines der Updates fehlgeschlagen, wird der Update-Zustand der betroffenen Container unmittelbar danach neu ermittelt, sofern gerade keine andere Prüfung läuft; andernfalls bleibt das alte Symbol bis zur nächsten Prüfung stehen.
 
 :::warning[Der Container wird ersetzt, nicht verändert]
 Beim Update wird der Container gelöscht und neu angelegt. Daten in eingebundenen Volumes bleiben erhalten; Dateien, die ausschließlich im Dateisystem des Containers liegen, gehen verloren. Der Dienst ist während des Vorgangs kurz nicht erreichbar.
@@ -225,7 +225,7 @@ Fehlt die Schaltfläche, prüfen Sie, ob unter **Einstellungen → Desktop-Berei
 | *Docker Befehl konnte nicht ausgeführt werden* | Die Aktion wurde abgewiesen. Bei einem [geschützten Container](#geschützte-container) ist das beabsichtigt. |
 | *Docker Container konnte nicht aktualisiert werden* | Das Update wurde abgebrochen. Prüfen Sie über **Neu laden**, ob der Container läuft, und starten Sie ihn andernfalls neu. |
 | *Es läuft bereits eine Update-Prüfung* | Auf dem Server läuft noch eine andere Prüfung – etwa die nächtliche oder die eines anderen Global-Admins. Der angezeigte Zustand bleibt unverändert. Versuchen Sie es kurz darauf erneut. |
-| *Die Update-Prüfung ist fehlgeschlagen* | Die API konnte die Container nicht vom Docker-Daemon abfragen oder die Ergebnisse nicht in der Datenbank speichern. Scheitert nur die Registry-Abfrage einzelner Container, erscheint diese Meldung nicht; die Container werden dann als *Nicht prüfbar* geführt. Die genaue Ursache nennt das Log (`docker logs edulution-api`). |
+| *Die Update-Prüfung ist fehlgeschlagen* | Die API konnte die Container nicht vom Docker-Daemon abfragen oder die Ergebnisse nicht in der Datenbank speichern. Scheitert nur die Registry-Abfrage einzelner Container, erscheint diese Meldung nicht; die Container werden dann als *Nicht prüfbar* geführt. Die genaue Ursache nennt das Log des API-Containers. |
 
 Zusätzliche Hinweise finden Sie im Log des API-Containers:
 

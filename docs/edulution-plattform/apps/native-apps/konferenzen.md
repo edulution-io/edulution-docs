@@ -118,6 +118,23 @@ Nach dem Beitreten stehen alle BigBlueButton-Funktionen zur Verfügung:
 - Umfragen
 :::
 
+## Das Konferenzfenster
+
+Das Konferenzfenster lässt sich verschieben, in der Größe ändern, über **Maximieren** bildschirmfüllend aufziehen und über **Minimieren** als Leiste an den unteren Bildschirmrand legen. Die Konferenz läuft in allen Fällen weiter; über die Leiste am unteren Rand holen Sie das Fenster wieder in seiner vorherigen Größe und Position zurück.
+
+### Wechsel in andere Apps
+
+Wechseln Sie über die Seitenleiste in eine andere App, während eine Konferenz läuft, hängt das weitere Verhalten davon ab, wie groß das Fenster ist:
+
+- Ein **bildschirmfüllendes** Fenster würde die andere App vollständig verdecken. Die Plattform legt es deshalb selbsttätig als Leiste an den unteren Bildschirmrand und holt es zurück, sobald Sie zu **Konferenzen** zurückkehren – wieder bildschirmfüllend.
+- Ein **verkleinertes** Fenster bleibt geöffnet und schwebt über der anderen App. So verfolgen Sie die Konferenz weiter, während Sie nebenbei arbeiten.
+
+:::note[Ein selbst minimiertes Fenster bleibt liegen]
+Haben Sie das Fenster von Hand über **Minimieren** in die Leiste gelegt, bleibt es auch beim Zurückwechseln zu **Konferenzen** dort – die Plattform holt nur die Fenster zurück, die sie beim Verlassen der Seite selbst weggelegt hat.
+:::
+
+Schließen Sie das Konferenzfenster, verwirft die Plattform die gemerkte Größe und Position: Die nächste Konferenz öffnet sich wieder in der Standardgröße.
+
 ## Verwaltung
 
 ### Konferenz bearbeiten

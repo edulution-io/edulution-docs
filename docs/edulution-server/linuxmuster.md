@@ -98,6 +98,18 @@ Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Kla
 
 Vor dem Speichern werden die Einträge validiert. Doppelte Rechnernamen, MAC- oder IP-Adressen werden gemeldet und müssen zuerst bereinigt werden.
 
+:::note[Während des Speicherns]
+Zur Löschung markierte Geräte verschwinden bereits beim Auslösen von **Speichern** oder **Anwenden** aus der Tabelle, nicht erst nach der Antwort des Servers. Schlägt der Vorgang fehl, kehren sie an ihre ursprüngliche Position zurück und bleiben zur Löschung markiert – Ihre Auswahl geht dabei nicht verloren.
+
+Die Tabelle bleibt währenddessen bearbeitbar. Änderungen, die Sie in dieser Zeit vornehmen, bleiben erhalten, gehören aber nicht zum laufenden Vorgang: Sie bleiben als ungespeichert hervorgehoben und benötigen einen weiteren **Speichern**-Vorgang.
+
+Ein CSV-Import hat Vorrang vor einem noch laufenden Vorgang: Die eingelesene Liste ersetzt die Tabelle, alle Löschmarkierungen entfallen, und das Ergebnis des offenen Vorgangs wird verworfen. Dasselbe gilt, wenn Sie währenddessen die Schule wechseln.
+:::
+
+:::warning[Anwenden: Fehler beim Import]
+Bei **Anwenden** wird die Geräteliste zuerst gespeichert und erst danach importiert. Schlägt allein der Importlauf fehl, ist die Liste bereits auf dem Server abgelegt: Die gelöschten Geräte kehren dann **nicht** zurück, und die Tabelle gilt als gespeichert. Wiederholen Sie in diesem Fall **Anwenden**, um den Import erneut anzustoßen.
+:::
+
 ## Elternzuweisung
 
 Hier geben Sie die Verknüpfungen frei, die Eltern und Schüler selbst über einen Zuweisungs-Code

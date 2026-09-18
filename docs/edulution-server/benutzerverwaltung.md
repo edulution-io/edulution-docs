@@ -139,6 +139,14 @@ Der Wert der Spalte **Gewünschter Login** wird unverändert aus der CSV-Datei g
 Die schreibenden Aktionen **Speichern** und **Prüfen** – und damit das anschließende **Übernehmen** – stehen nur **Globaladmins** und **Schuladmins** zur Verfügung; für andere Rollen sind diese Schaltflächen ausgeblendet. Alle berechtigten Benutzer können die Listen weiterhin einsehen, lokal bearbeiten und als CSV exportieren – diese Änderungen werden dabei jedoch nicht auf den Server geschrieben.
 :::
 
+:::note[Während des Speicherns]
+Sobald Sie **Speichern** oder **Prüfen** auslösen, verschwinden die zur Löschung markierten Zeilen unmittelbar aus der Tabelle – noch bevor der Server geantwortet hat. Schlägt der Vorgang fehl, kehren sie an ihre ursprüngliche Position zurück und bleiben zur Löschung markiert – Ihre Auswahl geht dabei nicht verloren.
+
+Die Tabelle bleibt während des Speicherns bearbeitbar. Änderungen, die Sie in dieser Zeit vornehmen, bleiben erhalten, gehören aber nicht zum laufenden Speichervorgang: Sie werden weiterhin als ungespeichert hervorgehoben und benötigen einen weiteren **Speichern**-Vorgang.
+
+Ein über den CSV-Dialog eingelesener Inhalt hat Vorrang vor einem noch laufenden Speichervorgang: Die importierte Liste ersetzt die Tabelle, alle Löschmarkierungen entfallen, und das Ergebnis des offenen Vorgangs wird verworfen. Dasselbe gilt, wenn Sie währenddessen den Benutzertyp oder die Schule wechseln.
+:::
+
 ### Eingaben prüfen
 
 Vor dem Speichern werden die Einträge geprüft. Solange eine Zelle ungültig ist, bleiben **Speichern** und **Prüfen** blockiert und es erscheint der Hinweis *„Bitte korrigieren Sie alle ungültigen Felder vor dem Speichern"*.

@@ -235,7 +235,7 @@ Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, ersc
 
 #### Images
 
-Die Unterseite **Images** verwaltet die LINBO-Abbilder, die auf dem Satelliten selbst liegen, und gleicht sie mit denen des Schulservers ab. Oben rechts wählen Sie zwischen denselben vier Ansichten wie im Bereich **LINBO** der App **Schulserver**: **Kacheln** (Vorgabe), **Speicher**, **Datenblatt** und **Tabelle**. In allen Ansichten schränken Sie die Liste über das Suchfeld auf einen Namen ein.
+Die Unterseite **Images** verwaltet die LINBO-Images, die auf dem Satelliten selbst liegen, und gleicht sie mit denen des Schulservers ab. Oben rechts wählen Sie zwischen denselben vier Ansichten wie in der [Imageliste des Schulservers](../edulution-server/linuxmuster.md#images): **Datenblatt** (Vorgabe), **Kacheln**, **Speicher** und **Tabelle**. In allen Ansichten schränken Sie die Liste über das Suchfeld auf einen Namen ein.
 
 :::note[Die Ansichtswahl gilt für beide Bereiche]
 Die gewählte Ansicht wird zusammen mit der Imageliste des Schulservers gespeichert. Stellen Sie hier auf **Speicher** um, erscheint auch die Imageliste im Bereich **LINBO** der App **Schulserver** in dieser Ansicht – und umgekehrt.
@@ -253,7 +253,9 @@ Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Status**, **Abgleich** und 
 |--------|-----------|
 | **Typ** | **Basisimage** oder **Differenzimage** |
 | **Status** | **Verfügbar** – regulär im Imageverzeichnis abgelegt; **Altformat** – außerhalb der Imageverzeichnisse |
-| **Abgleich** | Vergleich mit dem Schulserver: **Gleich**, **Unterschiedlich**, **Nur am Server**, **Nur am Satelliten** oder **Unbekannt** |
+| **Abgleich** | Vergleich mit dem Schulserver: **Satellit neuer**, **Server neuer**, **Gleich alt**, **Nur am Satelliten**, **Nur am Server** oder **Unbekannt** |
+
+Images, die nur auf dem Schulserver liegen, führt die **Tabelle** zusätzlich auf: mit **Nur am Server** im Abgleich, Größe und Datum vom Server und ohne Status. Für sie steht nur **Vom Server holen** bereit; die übrigen Aktionen lehnt die Plattform mit einem Hinweis ab, weil das Image auf dem Satelliten noch fehlt. In den Kartenansichten erscheinen solche Images nicht, denn die Karten zeigen die Images auf dem Satelliten.
 
 :::note[Images im Altformat]
 Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Die Aktionen dieser Zeile – Prüfsumme, Sicherungen, Beipack-Dateien und Löschen – werden deshalb nicht ausgeführt, sondern mit einem Hinweis abgelehnt.
@@ -309,7 +311,7 @@ Der Dialog zeigt die Beipack-Dateien des Images in denselben Registerkarten wie 
 Anders als am Schulserver speichert **Speichern** nur die Datei der geöffneten Registerkarte. Was Sie in anderen Registerkarten geändert haben, bleibt als Entwurf stehen, bis Sie dort ebenfalls speichern.
 
 :::note[Was sich eine Änderung teilt]
-**reg**, **prestart** und **postsync** gelten gemeinsam für Basis- und Differenzimage – eine Änderung hier wirkt auf beide. Ein leerer Inhalt löscht die Datei nicht, sondern setzt sie auf null Bytes; Beipack-Dateien zu löschen bietet der Satellit nicht an. Inhalte über 200 KB nimmt der Satellit nicht an und werden nicht gespeichert.
+**Registry** (`.reg`), **Pre-Start Script** (`.prestart`) und **Post-Sync Script** (`.postsync`) gelten gemeinsam für Basis- und Differenzimage – eine Änderung hier wirkt auf beide. Ein leerer Inhalt löscht die Datei nicht, sondern setzt sie auf null Bytes; Beipack-Dateien zu löschen bietet der Satellit nicht an. Inhalte über 200 KB nimmt der Satellit nicht an und werden nicht gespeichert.
 :::
 
 ##### Löschen

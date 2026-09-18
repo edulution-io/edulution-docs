@@ -58,7 +58,7 @@ Verweise auf andere Wiki-Seiten lassen sich über die Syntax `[[Seitenname]]` ei
 
 ### Dateien anhängen
 
-Dateien lassen sich per Drag & Drop, über die Zwischenablage oder über **Medien einfügen** in eine Seite hochladen. Sie werden auf der WebDAV-Freigabe des Wikis gespeichert – Bilder erscheinen direkt im Text, andere Dateien als [Dateikarte](./wiki-editor.md#dateikarten-verwenden) mit Vorschau, Download und Entfernen. Über die App [Dateien](../../../edulution-fileproxy/dateien/index.md) erreichen Sie dieselben Dateien und können sie dort [ansehen und bearbeiten](../../../edulution-fileproxy/dateien/vorschau-und-drucken.md#vorschau-öffnen).
+Dateien lassen sich per Drag & Drop, über die Zwischenablage oder über **Medien einfügen** in eine Seite hochladen. Sie werden auf der WebDAV-Freigabe des Wikis gespeichert – Bilder erscheinen direkt im Text, andere Dateien als [Dateikarte](./wiki-editor.md#dateikarten-verwenden), über die Sie die Datei herunterladen und – je nach Dateityp – in der Vorschau öffnen. Über die App [Dateien](../../../edulution-fileproxy/dateien/index.md) erreichen Sie dieselben Dateien und können sie dort [ansehen und bearbeiten](../../../edulution-fileproxy/dateien/vorschau-und-drucken.md#vorschau-öffnen).
 
 ### Speichern
 

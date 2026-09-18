@@ -28,7 +28,7 @@ Die Seite ist in mehrere Abschnitte gegliedert:
 | **Externe Mail-Provider** | Vorlagen für die Sync-Jobs der Benutzer |
 | **Container** | Zustand der zugehörigen Docker-Container |
 
-Änderungen werden erst mit **Speichern** wirksam. Die API übernimmt sie anschließend ohne Neustart – Verbindungen zu IMAP, SMTP und ManageSieve werden mit den neuen Werten aufgebaut.
+Änderungen werden erst mit **Speichern** wirksam. Die API übernimmt sie anschließend ohne Neustart – Verbindungen zu IMAP, SMTP, ManageSieve und der Mailcow-API werden mit den neuen Werten aufgebaut.
 
 ## URL und API-Schlüssel
 
@@ -82,12 +82,12 @@ Der Client wählt die Transportverschlüsselung anhand der eingetragenen Portnum
 Ein eigener Schalter für die Verschlüsselung existiert deshalb nicht.
 :::
 
-Ausgeschaltet akzeptiert die API jedes Zertifikat – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist.
-
 :::warning[Zertifikatsprüfung nur mit passendem Hostnamen]
-Aktivieren Sie **Nicht zertifizierte Verbindungen ablehnen** nur, wenn IMAP-, SMTP- und ManageSieve-Server sowie die Mailcow-API unter einem Hostnamen erreicht werden, den ihr Zertifikat abdeckt. Nur dann schützt die Prüfung vor untergeschobenen Servern.
+Ist **Nicht zertifizierte Verbindungen ablehnen** ausgeschaltet, akzeptiert die API jedes Zertifikat – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist.
 
-Bei edulution-mail bleibt der Schalter aus: Die internen Namen `dovecot`, `postfix` und `mailcowdockerized-nginx-mailcow-1` aus der [Installation](./installation.md#schritt-5-mailserver-hosts-konfigurieren) deckt das Zertifikat nicht ab, eingeschaltet schlagen die Verbindungen fehl.
+Aktivieren Sie den Schalter nur, wenn IMAP-, SMTP- und ManageSieve-Server sowie die Mailcow-API unter einem Hostnamen erreicht werden, den ihr Zertifikat abdeckt. Deckt das Zertifikat den eingetragenen Namen nicht ab, schlagen die Verbindungen fehl.
+
+Bei edulution-mail bleibt der Schalter deshalb aus: Die internen Namen `dovecot`, `postfix` und `mailcowdockerized-nginx-mailcow-1` aus der [Installation](./installation.md#schritt-5-mailserver-hosts-konfigurieren) deckt das Zertifikat nicht ab.
 :::
 
 ### ManageSieve
@@ -99,7 +99,7 @@ Bei edulution-mail bleibt der Schalter aus: Die internen Namen `dovecot`, `postf
 | **ManageSieve-Server** | FQDN des ManageSieve-Servers | identisch mit dem IMAP-Server |
 | **ManageSieve-Port** | Port des ManageSieve-Servers | `4190` |
 
-Bleibt das Feld **ManageSieve-Server** leer, verwendet die API den unter **IMAP-Server** eingetragenen Host. Die Zertifikatsprüfung folgt der Einstellung von IMAP und SMTP.
+Bleibt das Feld **ManageSieve-Server** leer, verwendet die API den unter **IMAP-Server** eingetragenen Host.
 
 ### DAV
 

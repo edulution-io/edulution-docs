@@ -169,8 +169,60 @@ Die Hostliste ist über Registerkarten nach Gerätetyp gefiltert: **Alle**, **Co
 
 Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**.
 
-:::note[Status und geplante Aktionen]
-**Status** und **Geplant** bleiben ohne einen edulution-Satellite leer: der Online-/Offline-Zustand ist über die Linuxmuster-API allein nicht verfügbar, und geplante Aktionen werden vom Satellite verwaltet. Beide Spalten sind in dieser Version noch nicht angebunden.
+**Status** nennt je Host **Online** oder **Offline**; die Spaltenüberschrift sagt beim Überfahren, wann der Zustand zuletzt erhoben wurde. Solange für einen Host noch keine Erhebung vorliegt, bleibt das Feld leer.
+
+Über das Menü hinter der Schaltfläche mit den drei Punkten schicken Sie einer Zeile **Wake-on-LAN**, **Neu starten**, **Herunterfahren** oder **Aktion schicken…** – Letzteres öffnet den Kommando-Dialog für genau diesen Host, unabhängig davon, welche Zeilen sonst angehakt sind. Ein Host, der nicht erreichbar ist, wird übersprungen und in der Rückmeldung benannt.
+
+#### Mehrere Hosts auswählen
+
+Die erste Spalte der Tabelle trägt je Zeile ein Auswahlkästchen, das Kästchen in der Kopfzeile wählt alle Zeilen der aktuellen Ansicht. Sobald mindestens ein Host ausgewählt ist, erscheint oberhalb der Tabelle eine Leiste mit der Anzahl und den Aktionen **Auswahl aufwecken**, **Auswahl neu starten**, **Auswahl herunterfahren** und **Aktion schicken**.
+
+:::note[Die Suche bestimmt mit, wen eine Sammelaktion trifft]
+Eine Sammelaktion erreicht nur die Hosts, die gerade **sichtbar** sind. Schränken Sie die Suche ein, nachdem Sie ausgewählt haben, sinkt die Zahl in der Leiste entsprechend – ausgeblendete Hosts bleiben angehakt, werden aber nicht angesprochen. Leeren Sie die Suche wieder, sind sie erneut Teil der Auswahl.
+:::
+
+Nach einer Sammelaktion verlieren die Hosts ihr Häkchen, für die der Server den Auftrag angenommen hat – auch dann, wenn er einzelne davon als offline übersprungen hat. Angehakt bleiben nur Rechner, die der Auftrag gar nicht erreicht hat, etwa weil bei einem großen Lauf ein Teil nicht zugestellt werden konnte. Die Auswahl schrumpft dann auf genau diese Rechner, sodass ein zweiter Versuch die bereits bedienten nicht noch einmal trifft.
+
+#### Der Kommando-Dialog
+
+**Aktion schicken** öffnet einen Dialog, der die ausgewählten Rechner namentlich nennt und aus einzelnen Schritten eine **Kommandokette** zusammensetzt. Die Kette wird genau in der Reihenfolge ausgeführt, in der die Schritte stehen; über **Nach oben** und **Nach unten** ordnen Sie sie um, über **Entfernen** nehmen Sie einen Schritt wieder heraus. Unten zeigt die **Kommandokette** die Schreibweise, die Sie auch auf der Konsole verwenden würden.
+
+Je nach Schritt verlangt der Dialog ein zusätzliches Argument:
+
+| Schritt | Auswahl |
+|---------|---------|
+| **Sync**, **Neu**, **Start**, **Prestart**, **Postsync** | das Betriebssystem – mit seinem Namen aus der `start.conf`, nicht als Ziffer |
+| **Formatieren** | die Partition, benannt mit Nummer, Gerät und Bezeichnung, oder **Alle Partitionen** |
+| **Cache befüllen** | die Übertragungsart `rsync`, `multicast` oder `torrent` |
+| **Partitionieren**, **Beschriften**, **Neu starten**, **Herunterfahren** | – |
+
+:::note[Woher die Nummern stammen]
+Betriebssysteme und Partitionen werden in der Reihenfolge gezählt, in der ihre Abschnitte in der `start.conf` stehen – nicht nach der Ziffer im Gerätenamen. Der Dialog zählt dabei genauso wie der LINBO-Client: ein auskommentierter Abschnitt steht nicht zur Auswahl, zählt aber mit, sodass die Einträge darunter ihre Nummer behalten. Deshalb kann die Partition `/dev/sda5` die Nummer 3 tragen, und auf einem Rechner mit zwei Festplatten steht jede Partition einzeln zur Wahl, statt mit der gleich nummerierten der anderen Platte zusammengefasst zu werden.
+:::
+
+Darunter legen Sie den Modus und die Optionen fest: **Beim nächsten Start ausführen** stellt die Kette zurück, statt sie sofort zu schicken. **Wake-on-LAN** weckt die Rechner und wartet die eingetragenen Sekunden, bevor die Kette ausgeführt wird. Erst mit Wake-on-LAN lassen sich zwei weitere Werte setzen: der **Abstand zwischen den Weckpaketen**, mit dem die Rechner nacheinander statt gleichzeitig geweckt werden, und **Weckpaket zusätzlich an die Broadcast-Adresse senden**. **Oberfläche des Clients beim nächsten Start abschalten** und **Automatische Funktionen der start.conf beim nächsten Start übergehen** wirken erst beim nächsten Start – Letzteres überspringt das in der `start.conf` eingestellte automatische Partitionieren, Formatieren, **Cache befüllen** und Starten.
+
+:::warning[Bestätigung für zerstörende Schritte]
+**Neu**, **Formatieren** und **Partitionieren** löschen Daten auf den Zielrechnern. Der Dialog verlangt dafür ein zusätzliches Häkchen, das die Anzahl der betroffenen Rechner nennt – und, wenn die Auswahl mehrere Hardwaregruppen umfasst, auch deren Anzahl. Die Bestätigung gilt für **genau diese Kette, genau diese Rechner und genau diese Optionen**: ändern Sie danach einen Schritt, ein Argument, die Auswahl oder eine der Optionen darüber, wird sie zurückgenommen und Sie bestätigen erneut. Das gilt besonders für **Beim nächsten Start ausführen** und **Wake-on-LAN** – das eine verlegt einen begleiteten Lauf auf den nächsten Start der Rechner, das andere weckt auch die, die bewusst ausgeschaltet waren.
+:::
+
+Steht **Ausführen** nicht zur Verfügung, nennt der Dialog den Grund direkt darüber – etwa ein Schritt, dem noch die Auswahl fehlt, eine ausstehende Bestätigung oder ein Lauf, der bereits läuft.
+
+Nicht jede Aktion steht für jede Auswahl bereit. Fehlt eine, erklärt der Dialog oberhalb der Schaltflächen, warum:
+
+| Hinweis | Ursache |
+|---------|---------|
+| Abbild-Aktionen laufen nur auf genau einem Rechner | **Abbild erstellen**, **Abbild hochladen**, **Differenz erstellen** und **Differenz hochladen** verlangen einen einzelnen Host |
+| Aktionen mit Betriebssystem verlangen dieselbe Hardwaregruppe | die Position des Betriebssystems lässt sich nur aus **einer** `start.conf` auflösen |
+| Für diese Hardwaregruppe gibt es keine `start.conf` | die Gruppe der ausgewählten Rechner ist auf dem Server nicht beschrieben – etwa bei Servern und Druckern in `nopxe` |
+| Die `start.conf` dieser Hardwaregruppe konnte nicht geladen werden | der Server war nicht erreichbar oder hat die Anfrage abgelehnt; die Gruppe kann sehr wohl eine `start.conf` besitzen |
+
+Solange die `start.conf` der Gruppe noch geladen wird, bleiben die Aktionen mit Betriebssystem wählbar. Der Dialog sagt an derselben Stelle, dass die Datei noch geladen wird, und die Auswahlliste füllt sich, sobald sie vorliegt.
+
+Nach dem Abschicken meldet die Plattform, ob die Kette alle Rechner erreicht hat. Waren einzelne Hosts offline, werden sie namentlich genannt; die Statusspalte der betroffenen Zeilen wird anschließend mehrfach nachgefragt, weil ein Rechner, der gerade neu startet, nicht sofort antwortet.
+
+:::note[Geplante Aktionen]
+**Geplant** bleibt ohne einen edulution-Satellite leer: geplante Aktionen werden vom Satellite verwaltet und sind in dieser Version nicht angebunden.
 :::
 
 ### Gruppen
@@ -351,9 +403,10 @@ Die Seite **Versionsübersicht** listet die Versionen der beteiligten Linuxmuste
 
 Einige Aktionen sind in der Oberfläche bereits vorhanden, aber noch nicht angebunden. Sie melden beim Aufruf *„Diese Aktion wird in dieser Version noch nicht unterstützt."*:
 
-- die Host-Aktionen **Wake-on-LAN**, **Sync**, **Start**, **Neu starten**, **Herunterfahren** und **Treiber-Profil**
 - die Aktion **Sync** im Bereich **Gruppen**
-- die Spalten **Status** und **Geplant** der Hostliste
+- die Spalte **Geplant** der Hostliste
+
+Eine Kommandokette richtet sich an einen einzelnen Host oder an eine Auswahl von Hosts. Ein ganzer **Raum** lässt sich in dieser Version nicht als Ziel wählen, obwohl die Linuxmuster-API das anbietet.
 
 Die Schaltfläche **Versionsstände** im Bereich **Gruppen** ist sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet dafür keine Schnittstelle. Der Grund steht am Knopf.
 

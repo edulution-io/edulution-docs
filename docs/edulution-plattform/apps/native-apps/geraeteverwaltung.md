@@ -132,7 +132,7 @@ Der CSV-Export eignet sich gut für Sicherungen vor größeren Änderungen sowie
 
 ### Kommentarzeilen
 
-Die `devices.csv` enthält in der Regel schon Kommentarzeilen aus der Linuxmuster-Vorlage, etwa die auskommentierte Beispielzeile `#r100;r100-pc01;…`. Die Trennzeilen der Vorlage, die nur aus `#` bestehen, werden beim ersten Speichern zu Leerzeilen. Wie Kommentarzeilen erhalten bleiben und in welchen Fällen sie sich beim Speichern verändern, beschreibt die Benutzerverwaltung unter [Kommentarzeilen](../../../edulution-server/benutzerverwaltung.md#kommentarzeilen) – die Regeln gelten für die Geräteliste genauso, beim **Speichern** wie beim **Anwenden**.
+Die `devices.csv` enthält in der Regel schon Kommentarzeilen aus der Linuxmuster-Vorlage, etwa die auskommentierte Beispielzeile `#r100;r100-pc01;…`. Die Trennzeilen der Vorlage, die nur aus `#` bestehen, werden beim ersten Speichern oder Anwenden der Geräteliste zu Leerzeilen. Wie Kommentarzeilen erhalten bleiben und in welchen Fällen sie sich beim Speichern verändern, beschreibt die Benutzerverwaltung unter [Kommentarzeilen](../../../edulution-server/benutzerverwaltung.md#kommentarzeilen) – die Regeln gelten für die Geräteliste genauso, beim **Speichern** wie beim **Anwenden**.
 
 ## Siehe auch
 

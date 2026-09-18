@@ -12,7 +12,7 @@ Am unteren Rand der Menüleiste – unterhalb des Eintrags **WebDAV-Zugang** –
 
 - Der Name Ihrer **Schule**
 - Ein **Fortschrittsbalken** für den belegten Anteil
-- Die Angabe **belegt / verfügbar** in GB, zum Beispiel `12,4 / 20,0 GB belegt`
+- Die Angabe **belegt / verfügbar** in GB, zum Beispiel `12.4 / 20.0 GB belegt`
 
 Der Balken wechselt mit der Auslastung die Farbe:
 
@@ -35,8 +35,8 @@ Wird der Speicherplatz knapp, erscheint unter der Überschrift **Dateien** eine 
 
 | Zustand | Bedingung | Anzeige |
 |---|---|---|
-| Unauffällig | weniger als 75 % belegt **oder** mehr als 5 GB frei | keine Warnung |
-| Quota gering | mindestens 75 % belegt **und** weniger als 5 GB frei | gelbes Warndreieck, **Verbleibendes Quota gering – 12 %** |
+| Unauffällig | weniger als 75 % belegt **oder** 5 GB oder mehr frei | keine Warnung |
+| Quota gering | mindestens 75 %, aber weniger als 95 % belegt **und** weniger als 5 GB frei | gelbes Warndreieck, **Verbleibendes Quota gering – 12 %** |
 | Quota sehr gering | mindestens 95 % belegt **und** weniger als 5 GB frei | rotes, pulsierendes Warndreieck, **Verbleibendes Quota sehr gering – 3 %** |
 
 :::note[Beide Bedingungen müssen zutreffen]

@@ -98,6 +98,20 @@ Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Kla
 
 Vor dem Speichern werden die Einträge validiert. Doppelte Rechnernamen, MAC- oder IP-Adressen werden gemeldet und müssen zuerst bereinigt werden.
 
+Rechnername, Raum und Hardwaregruppe sind zugleich die Ziele, auf die ein `linbo-remote`-Lauf gerichtet wird, und müssen zusätzlich den Import nach Linuxmuster überstehen. Alle drei beginnen mit einem Buchstaben oder einer Ziffer:
+
+| Spalte | Erlaubt nach dem ersten Zeichen | Länge |
+|--------|----------------------------------|-------|
+| **Rechnername** | Buchstaben, Ziffern, Bindestrich | höchstens 15 Zeichen |
+| **Raum** | Buchstaben, Ziffern, Bindestrich | höchstens 63 Zeichen |
+| **Hardwaregruppe** | Buchstaben, Ziffern, Bindestrich, Unterstrich | höchstens 63 Zeichen |
+
+Ein Pluszeichen ist in keiner der drei Spalten zulässig – anders als im Namen einer Hardwaregruppe unter **LINBO**, den die `start.conf` mit Pluszeichen annimmt. Abweichende Zellen markiert die Tabelle, und **Speichern** und **Anwenden** bleiben gesperrt, bis sie bereinigt sind; leer bleiben darf keine der drei Spalten. Die Prüfung greift auch beim Einlesen einer CSV-Datei und noch einmal auf dem Server.
+
+:::warning[Ein unzulässiger Name bricht den Import der ganzen Schule ab]
+`sophomorix-device` prüft Raum und Hardwaregruppe beim Import ein weiteres Mal und bricht bei einem unzulässigen Zeichen den Import **der gesamten Schule** ab – nicht nur die betroffene Zeile. Die Linuxmuster-API meldet den Vorgang dabei trotzdem als erfolgreich. Deshalb weist die Geräteverwaltung solche Namen bereits in der Tabelle ab, statt sie an den Import weiterzureichen.
+:::
+
 ## Elternzuweisung
 
 Hier geben Sie die Verknüpfungen frei, die Eltern und Schüler selbst über einen Zuweisungs-Code
@@ -214,7 +228,7 @@ Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API*
 | **Duplizieren** | legt eine Kopie unter neuem Namen an |
 | **Gruppe löschen** | löscht die `start.conf` der Gruppe auf dem Server |
 
-Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
+Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – er beginnt mit einem Buchstaben oder einer Ziffer, darf danach Buchstaben, Ziffern, Bindestrich, Unterstrich und Pluszeichen enthalten, keine Leerzeichen, und höchstens 63 Zeichen lang sein – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
 
 Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach; gelingt das nicht, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste.
 
@@ -224,6 +238,12 @@ Alle fünf Vorlagen legen ihr Layout auf `/dev/sda` an. Auf Rechnern mit NVMe- o
 
 :::warning[Vorhandene Gruppe wird nicht überschrieben]
 Vor dem Anlegen prüft die Plattform auf dem Server, ob für den Namen bereits eine `start.conf` existiert – auch dann, wenn die Liste sie nicht anzeigt. In diesem Fall bricht der Vorgang mit einem Hinweis ab, statt die vorhandene Gruppe zu ersetzen.
+:::
+
+:::warning[Namen, die kein LINBO-Lauf ansprechen kann]
+Die Namensregel entspricht den Zielen, die ein `linbo-remote`-Lauf annimmt. Ein Name, der mit einem Bindestrich oder Unterstrich beginnt, wird auf der Kommandozeile als Option gelesen; die Gruppe ließe sich anlegen, aber von keinem Lauf mehr ansprechen.
+
+Gruppen, die vor Einführung der Regel unter einem solchen Namen entstanden sind, bleiben in der Liste und lassen sich ansehen, in der Vorschau öffnen und löschen. Im Gruppen-Editor bleibt **Speichern** dagegen gesperrt und nennt den Gruppennamen als Grund, statt die Änderung erst nach dem Bearbeiten abzuweisen. Legen Sie die Gruppe in diesem Fall über **Duplizieren** unter einem zulässigen Namen neu an und löschen Sie anschließend die alte.
 :::
 
 Beim **Duplizieren** übernimmt die Kopie Partitionen, Betriebssysteme und Einstellungen der Vorlage; der Gruppenname in der Datei wird dabei auf den neuen Namen umgeschrieben.

@@ -172,6 +172,10 @@ Klicken Sie eine Dateikarte an, erscheint darüber ein kleines Menü:
 - **Herunterladen** – lädt die Datei auf das eigene Gerät
 - **Entfernen** – löscht nur die Karte aus der Seite; die Datei bleibt auf der Freigabe erhalten
 
+:::info[Office-Dokumente in der Vorschau]
+Office-Dokumente (`.docx`, `.xlsx`, `.pptx`, `.odt`, `.ods`, `.odp`) öffnet die **Vorschau** im eingerichteten Dokumenten-Editor – OnlyOffice, Collabora Online oder EuroOffice. Voraussetzung ist, dass Ihr Administrator einen [Dokumenten-Editor eingerichtet hat](../../../edulution-fileproxy/dateien/konfiguration/dokumenten-editor.md). Ist keiner konfiguriert, lässt sich ein Office-Dokument aus einer Dateikarte nicht öffnen; PDF-Dateien und Bilder öffnen sich unabhängig davon.
+:::
+
 ### Bild per URL
 
 Über **Medien einfügen → Bild per URL einfügen** binden Sie ein Bild ein, das bereits im Netz oder auf einem anderen Server liegt. Dabei wird keine Datei hochgeladen, sondern nur die Adresse hinterlegt.

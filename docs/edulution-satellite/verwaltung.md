@@ -225,7 +225,7 @@ Die Hostliste des Satelliten lässt sich nicht bearbeiten. Die Rechner stammen a
 :::
 
 :::note[Hostliste und Abbild-Stand werden getrennt geladen]
-Beide Angaben stammen aus verschiedenen Abfragen. Antwortet der Satellit nur auf eine davon, bleibt die andere nutzbar: Die Rechner werden dann ohne Abbild-Stand aufgeführt (alle Zeilen zeigen *Unbekannt*), oder es erscheint eine Fehlermeldung, während die Liste weiterhin steht.
+Beide Angaben stammen aus verschiedenen Abfragen. Scheitert nur der Abbild-Stand, stehen die Rechner trotzdem in der Tabelle, in der Spalte **Abbild** alle mit *Unbekannt*. Scheitert die Hostliste, bleibt die Tabelle leer. In beiden Fällen meldet die Plattform den Fehler.
 :::
 
 ## Siehe auch

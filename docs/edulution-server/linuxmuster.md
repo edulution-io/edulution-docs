@@ -98,6 +98,18 @@ Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Kla
 
 Vor dem Speichern werden die Einträge validiert. Doppelte Rechnernamen, MAC- oder IP-Adressen werden gemeldet und müssen zuerst bereinigt werden.
 
+### Geräte entfernen
+
+Über das Papierkorb-Symbol am Ende einer Zeile markieren Sie ein Gerät zum Entfernen. Die Zeile verschwindet sofort aus der Tabelle, das Gerät ist damit aber noch nicht gelöscht: Entfernt wird es erst mit dem nächsten **Speichern** oder **Anwenden**.
+
+Eine gesetzte Markierung lässt sich nicht einzeln zurücknehmen. Solange Sie noch nicht gespeichert haben, holt **Zurücksetzen** die Geräteliste erneut vom Server und stellt das Gerät damit wieder her – dabei gehen allerdings auch alle übrigen ungespeicherten Änderungen verloren.
+
+:::note[Markierte Geräte und der CSV-Dialog]
+Markierte Geräte sind im CSV-Dialog bereits nicht mehr enthalten: Die dort angezeigte und die heruntergeladene Datei entsprechen der Liste **ohne** diese Geräte.
+
+Lesen Sie eine CSV-Datei ein, ersetzt deren Inhalt die gesamte Tabelle und sämtliche Löschmarkierungen entfallen. Maßgeblich ist danach ausschließlich, was in der eingelesenen Datei steht.
+:::
+
 ## Elternzuweisung
 
 Hier geben Sie die Verknüpfungen frei, die Eltern und Schüler selbst über einen Zuweisungs-Code

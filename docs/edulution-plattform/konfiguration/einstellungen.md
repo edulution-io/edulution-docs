@@ -286,10 +286,10 @@ Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic 
 **Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung
 - Aktiviert: Das SSL/TLS-Zertifikat des CalDAV-Servers wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Deaktiviert: Jedes Zertifikat wird akzeptiert – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist
 
 :::warning[Sicherheitshinweis]
-In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" aktiviert lassen, um die Sicherheit der CalDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
+In Produktivumgebungen sollten Sie **Nicht zertifizierte Verbindungen ablehnen** aktiviert lassen, um die Sicherheit der CalDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
 :::
 
 ---
@@ -351,10 +351,10 @@ Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic 
 **Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung
 - Aktiviert: Das SSL/TLS-Zertifikat des CardDAV-Servers wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Deaktiviert: Jedes Zertifikat wird akzeptiert – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist
 
 :::warning[Sicherheitshinweis]
-In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" aktiviert lassen, um die Sicherheit der CardDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
+In Produktivumgebungen sollten Sie **Nicht zertifizierte Verbindungen ablehnen** aktiviert lassen, um die Sicherheit der CardDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
 :::
 
 ---

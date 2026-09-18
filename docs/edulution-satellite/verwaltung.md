@@ -164,7 +164,7 @@ In dieser Version enthält der Bereich die Unterseiten **Konfigurationen** und *
 
 #### Hosts
 
-Die Tabelle listet alle Rechner, die der Satellit kennt, mit **Hostname**, **MAC-Adresse**, **IP-Adresse**, **Gruppe**, **Raum**, **Status**, **Abbild** und **Zuletzt gesehen**. Über das Suchfeld schränken Sie die Liste auf einen Hostnamen ein, über das Filtersymbol daneben auf eine oder mehrere **Gruppen**. Beide Filter arbeiten im Browser: die Liste wird vollständig geladen, sodass das Filtern ohne erneute Abfrage des Satelliten geschieht.
+Die Tabelle listet alle Rechner, die der Satellit kennt, mit **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Abbild** und **Zuletzt gesehen**. Über das Suchfeld schränken Sie die Liste auf einen Hostnamen ein, über das Filtersymbol daneben auf eine oder mehrere **Gruppen**. Beide Filter arbeiten im Browser: die Liste wird vollständig geladen, sodass das Filtern ohne erneute Abfrage des Satelliten geschieht.
 
 Die Spalte **Status** nennt den Betriebszustand, den der Satellit zuletzt gemeldet hat:
 

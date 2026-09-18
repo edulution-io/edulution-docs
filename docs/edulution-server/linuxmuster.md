@@ -77,8 +77,6 @@ Eine vollständige Beschreibung der Benutzerverwaltung – Benutzertabelle, Soph
 
 Die Geräteverwaltung pflegt die Geräteliste (`devices.csv`) von Linuxmuster. Sie bearbeiten die Einträge direkt in der Tabelle, fügen über **Gerät hinzufügen** eine Zeile hinzu oder importieren eine vorhandene CSV-Datei per Drag & Drop.
 
-Kommentarzeilen der `devices.csv` – Zeilen, die mit `#` beginnen, etwa die Beispielzeile der Linuxmuster-Vorlage – erscheinen nicht in der Tabelle, sondern nur im CSV-Dialog. Beim **Speichern** und **Anwenden** bleiben sie vollständig und an ihrer Stelle zwischen den Geräten erhalten. Es gelten dieselben Regeln wie für die [Kommentarzeilen der Benutzerverwaltung](./benutzerverwaltung.md#kommentarzeilen).
-
 Jedes Gerät benötigt neben Rechnername, MAC- und IP-Adresse eine **Rolle** und ein **PXE-Flag**:
 
 | PXE-Flag | Bedeutung |

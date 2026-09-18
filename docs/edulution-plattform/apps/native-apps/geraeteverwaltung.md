@@ -80,12 +80,15 @@ Die Spalte **PXE** steuert das Netzwerk-Startverhalten (LINBO):
 
 Alle Felder lassen sich direkt in der Tabelle bearbeiten – Textfelder per Eingabe, Rolle und PXE über Auswahllisten.
 
-Über die untere Aktionsleiste stehen folgende Funktionen bereit:
+In der Werkzeugleiste stehen neben **Speichern**, **Anwenden** und **CSV** diese Aktionen für die ganze Liste bereit:
 
 - **Gerät hinzufügen** (`+`) – fügt eine neue, leere Zeile am Ende der Tabelle hinzu.
-- **Gerät duplizieren** (Kopier-Symbol pro Zeile) – erstellt eine Kopie der Zeile als Vorlage für ein ähnliches Gerät.
-- **Löschen** (Papierkorb-Symbol pro Zeile) – markiert das Gerät zum Entfernen, siehe [Geräte entfernen](#geräte-entfernen).
 - **Zurücksetzen** – lädt die Liste neu vom Server und verwirft alle nicht gespeicherten Änderungen.
+
+Jede Zeile hat zusätzlich zwei eigene Schaltflächen:
+
+- **Duplizieren** (Kopier-Symbol) – fügt eine Kopie des Geräts am Ende der Tabelle an, als Vorlage für ein ähnliches Gerät. Die Kopie übernimmt auch die Felder, die die Tabelle nicht anzeigt.
+- **Löschen** (Papierkorb-Symbol) – markiert das Gerät zum Entfernen, siehe [Geräte entfernen](#geräte-entfernen).
 
 ### Geräte entfernen
 
@@ -96,14 +99,13 @@ Alle Felder lassen sich direkt in der Tabelle bearbeiten – Textfelder per Eing
 
 Eine gesetzte Markierung lässt sich nicht einzeln zurücknehmen, und sie bleibt auch nach einem Neuladen der Seite bestehen. Solange Sie noch nicht gespeichert haben, holt **Zurücksetzen** die Geräteliste erneut vom Server und stellt das Gerät damit wieder her – dabei gehen allerdings auch alle übrigen ungespeicherten Änderungen verloren.
 
+Haben Sie bereits gespeichert, aber noch nicht angewendet, hilft **Zurücksetzen** nicht mehr, denn die `devices.csv` auf dem Server enthält das Gerät dann nicht mehr. Legen Sie das Gerät mit denselben Daten neu an und speichern Sie, bevor Sie **Anwenden**. Werte in Feldern, die die Tabelle nicht anzeigt, ergänzen Sie dabei im CSV-Dialog.
+
 Markierte Geräte sind im CSV-Dialog bereits nicht mehr enthalten: Die dort angezeigte und die heruntergeladene Datei entsprechen der Liste **ohne** diese Geräte.
 
 ### Validierung
 
-Vor dem Speichern werden alle Felder geprüft. Ungültige Werte und doppelte Einträge (bei **Rechnername**, **MAC** und **IP**) werden mit einem roten Rand markiert und verhindern das Speichern. In diesem Fall erscheint ein Hinweis:
-
-- *„Bitte korrigieren Sie alle ungültigen Felder vor dem Speichern"*
-- *„Doppelte Einträge für Rechnername, MAC oder IP gefunden"*
+Vor dem Speichern werden alle Felder geprüft. Ungültige Werte und doppelte Einträge (bei **Rechnername**, **MAC** und **IP**) werden mit einem roten Rand markiert und verhindern das Speichern und Anwenden. Für ungültige wie für doppelte Werte erscheint dieselbe Meldung: *„Bitte korrigieren Sie alle ungültigen Felder vor dem Speichern“*.
 
 <Audience roles="admin">
 
@@ -111,7 +113,7 @@ Vor dem Speichern werden alle Felder geprüft. Ungültige Werte und doppelte Ein
 
 Zwei Aktionen schreiben Ihre Änderungen zurück:
 
-- **Speichern** – schreibt die Geräteliste in die `devices.csv`, ohne sie zu importieren. Bestätigung: *„Geräteliste erfolgreich gespeichert"*.
+- **Speichern** – schreibt die Geräteliste in die `devices.csv`, ohne sie zu importieren. Bestätigung: *„Geräteliste erfolgreich gespeichert“*.
 - **Anwenden** – speichert die Liste **und** startet sofort den Linuxmuster-Geräteimport (Sophomorix). Zuvor erscheint eine Sicherheitsabfrage:
 
 {/* ![Anwenden bestätigen](/img/features/geraeteverwaltung-apply.png) */}
@@ -119,7 +121,7 @@ Zwei Aktionen schreiben Ihre Änderungen zurück:
 > **Geräteliste anwenden**
 > Die Geräteliste wird gespeichert und sofort importiert. Möchten Sie fortfahren?
 
-Nach der Bestätigung laufen die Meldungen *„Geräteliste wird angewendet…"* und anschließend *„Geräteliste erfolgreich angewendet"*.
+Nach der Bestätigung laufen die Meldungen *„Geräteliste wird angewendet…“* und anschließend *„Geräteliste erfolgreich angewendet“*.
 
 :::warning
 Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen. Wenden Sie Änderungen möglichst außerhalb des Unterrichts an.
@@ -137,7 +139,7 @@ Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen.
 - eine `.csv`- oder `.txt`-Datei per Drag & Drop oder über den Dateidialog in das Textfeld laden (*„Ziehe Dateien hierher oder klicke, um Dateien auszuwählen“*),
 - den Inhalt des Textfelds über **Herunterladen** als `devices.csv` exportieren.
 
-Eine geladene Datei füllt nur das Textfeld. Erst **Speichern** im Dialog übernimmt dessen Inhalt: Er ersetzt die gesamte Tabelle, und sämtliche Löschmarkierungen entfallen – maßgeblich ist danach ausschließlich, was im Textfeld stand. Auf den Server geschrieben wird die Liste auch dann erst mit **Speichern** oder **Anwenden** der Geräteliste.
+Eine geladene Datei ersetzt nur den Inhalt des Textfelds. Erst **Speichern** im Dialog übernimmt diesen Inhalt: Er ersetzt die gesamte Tabelle, und sämtliche Löschmarkierungen entfallen – maßgeblich ist danach ausschließlich, was im Textfeld stand. Zum Entfernen markierte Geräte kehren dadurch nicht zurück, denn sie fehlen bereits im Textfeld. Nur wenn Sie sie dort wieder eintragen oder die geladene Datei sie enthält, sind sie wieder Teil der Liste. Auf den Server geschrieben wird die Liste auch dann erst mit **Speichern** oder **Anwenden** der Geräteliste.
 
 :::tip
 Der CSV-Export eignet sich gut für Sicherungen vor größeren Änderungen sowie zum Übertragen von Gerätelisten zwischen Servern.

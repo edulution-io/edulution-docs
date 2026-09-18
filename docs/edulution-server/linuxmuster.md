@@ -101,7 +101,7 @@ Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Kla
 Vor dem Speichern werden die Einträge validiert. Doppelte Rechnernamen, MAC- oder IP-Adressen werden gemeldet und müssen zuerst bereinigt werden.
 
 :::tip[Ausführliche Anleitung]
-Wie Sie Geräte entfernen, was **Speichern** und **Anwenden** dabei jeweils bewirken und wie der CSV-Dialog die Tabelle ersetzt, beschreibt die [Geräteverwaltung](../edulution-plattform/apps/native-apps/geraeteverwaltung.md#geräte-entfernen).
+Wie Sie Geräte entfernen, was **Speichern** und **Anwenden** dabei jeweils bewirken, wie der CSV-Dialog die Tabelle ersetzt und was mit Kommentarzeilen geschieht, beschreibt die [Geräteverwaltung](../edulution-plattform/apps/native-apps/geraeteverwaltung.md).
 :::
 
 ## Elternzuweisung

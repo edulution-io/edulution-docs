@@ -173,7 +173,13 @@ Klicken Sie eine Dateikarte an, erscheint darüber ein kleines Menü:
 - **Entfernen** – löscht nur die Karte aus der Seite; die Datei bleibt auf der Freigabe erhalten
 
 :::info[Office-Dokumente in der Vorschau]
-Office-Dokumente (`.docx`, `.xlsx`, `.pptx`, `.odt`, `.ods`, `.odp`) öffnet die **Vorschau** im eingerichteten Dokumenten-Editor – OnlyOffice, Collabora Online oder EuroOffice. Voraussetzung ist, dass Ihr Administrator einen [Dokumenten-Editor eingerichtet hat](../../../edulution-fileproxy/dateien/konfiguration/dokumenten-editor.md). Ist keiner konfiguriert, lässt sich ein Office-Dokument aus einer Dateikarte nicht öffnen; PDF-Dateien und Bilder öffnen sich unabhängig davon.
+Office-Dokumente öffnet die **Vorschau** schreibgeschützt im [Dokumenten-Editor](../../../edulution-fileproxy/dateien/vorschau-und-drucken.md#office-dokumente). Zum Bearbeiten öffnen Sie das Dokument in der App [Dateien](../../../edulution-fileproxy/dateien/index.md).
+
+| Meldung | Ursache | Abhilfe |
+|---|---|---|
+| „Dateiformat wird nicht unterstützt“ | Für ein Office-Dokument ist kein Dokumenten-Editor eingerichtet. | Ihr Administrator [richtet einen Dokumenten-Editor ein](../../../edulution-fileproxy/dateien/konfiguration/dokumenten-editor.md). Bis dahin laden Sie die Datei über **Herunterladen** herunter. |
+
+Alle anderen Dateitypen öffnen sich auch ohne Dokumenten-Editor.
 :::
 
 ### Bild per URL

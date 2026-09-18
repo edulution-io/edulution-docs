@@ -107,8 +107,8 @@ http:
 
 ### Collabora Online
 
-Leitet die Anfragen an den Collabora-Container weiter. Collabora lauscht auf Port **9980** und
-braucht eigene Zeitüberschreitungen – deshalb weicht diese Konfiguration von den beiden anderen ab.
+Leitet die Anfragen an den Collabora-Container weiter. Collabora lauscht auf Port **9980** – anders
+als die beiden anderen Editoren, die auf dem Standard-Port antworten.
 
 ```yaml
 http:
@@ -133,14 +133,6 @@ http:
       loadBalancer:
         servers:
           - url: http://edulution-collabora:9980
-        serversTransport: collabora-transport
-
-  serversTransports:
-    collabora-transport:
-      forwardingTimeouts:
-        dialTimeout: "30s"
-        responseHeaderTimeout: "0s"
-        idleConnTimeout: "0s"
 ```
 
 ### EuroOffice

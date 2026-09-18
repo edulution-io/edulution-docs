@@ -37,7 +37,7 @@ Jede Zeile entspricht einem Gerät. Folgende Spalten werden angezeigt:
 | **Sophomorix-Rolle** | Rolle des Geräts (Auswahlliste, siehe unten) |
 | **PXE** | PXE-/LINBO-Startverhalten (Auswahlliste, siehe unten) |
 
-Die Spalten sind sortierbar; standardmäßig ist nach **Raum** aufsteigend sortiert. Weitere Felder der `devices.csv` (z. B. Kommentare oder reservierte Sophomorix-Felder) werden nicht angezeigt, bleiben beim Speichern aber erhalten.
+Die Spalten sind sortierbar; standardmäßig ist nach **Raum** aufsteigend sortiert. Weitere Felder der `devices.csv` (z. B. die Kommentarspalte oder reservierte Sophomorix-Felder) werden nicht angezeigt, bleiben beim Speichern aber erhalten.
 
 ### Sophomorix-Rollen
 
@@ -129,6 +129,10 @@ Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen.
 :::tip
 Der CSV-Export eignet sich gut für Sicherungen vor größeren Änderungen sowie zum Übertragen von Gerätelisten zwischen Servern.
 :::
+
+### Kommentarzeilen
+
+Die `devices.csv` enthält in der Regel schon Kommentarzeilen aus der Linuxmuster-Vorlage, etwa die auskommentierte Beispielzeile `#r100;r100-pc01;…`. Die Trennzeilen der Vorlage, die nur aus `#` bestehen, werden beim ersten Speichern zu Leerzeilen. Wie Kommentarzeilen erhalten bleiben und in welchen Fällen sie sich beim Speichern verändern, beschreibt die Benutzerverwaltung unter [Kommentarzeilen](../../../edulution-server/benutzerverwaltung.md#kommentarzeilen) – die Regeln gelten für die Geräteliste genauso, beim **Speichern** wie beim **Anwenden**.
 
 ## Siehe auch
 

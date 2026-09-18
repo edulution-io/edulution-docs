@@ -55,11 +55,18 @@ Dieser Abschnitt beschreibt dem integrierten Client, wie er den Mailserver errei
 | **SMTP-Server** | FQDN des SMTP-Servers, z. B. `smtp.ihre-schule.de` | – |
 | **IMAP Port** | Port des IMAP-Servers | `993` |
 | **SMTP Port** | Port des SMTP-Servers | `587` |
-| **Nicht zertifizierte Verbindungen ablehnen** | Zertifikatsprüfung für IMAP, SMTP und ManageSieve | aus |
+| **Nicht zertifizierte Verbindungen ablehnen** | Zertifikatsprüfung für IMAP, SMTP, ManageSieve und die Mailcow-API | aus |
 
-IMAP- und SMTP-Server werden getrennt eingetragen. Das ist nötig, wenn die beiden Dienste nicht unter demselben Namen erreichbar sind – etwa weil ein vorgelagerter Reverse-Proxy nur einen der beiden Ports weiterreicht und Dovecot beziehungsweise Postfix direkt angesprochen werden müssen.
+IMAP- und SMTP-Server werden getrennt eingetragen. Das ist nötig, wenn die beiden Dienste nicht unter demselben Namen erreichbar sind – etwa weil ein vorgelagerter Reverse-Proxy nur einen der beiden Ports weiterreicht und Dovecot beziehungsweise Postfix direkt angesprochen werden müssen. Laufen beide Dienste unter demselben Namen, tragen Sie ihn in beide Felder ein.
 
 Ein vorangestelltes `http://` oder `https://` wird beim Speichern automatisch entfernt; es genügt der reine Hostname.
+
+Fehlt ein Eintrag, meldet die E-Mail-App:
+
+| Meldung | Ursache | Abhilfe |
+|---|---|---|
+| „Auslesen der 'IMAP-Konfiguration' ist nicht möglich“ | **IMAP-Server** oder **IMAP Port** ist leer | Beide Felder ausfüllen und speichern |
+| „SMTP-Verbindung fehlgeschlagen“ | **SMTP-Server** ist leer; ein leerer **SMTP Port** wird als `587` gewertet | **SMTP-Server** eintragen und speichern |
 
 :::note[Die Verschlüsselung ergibt sich aus dem Port]
 Der Client wählt die Transportverschlüsselung anhand der eingetragenen Portnummer:
@@ -67,14 +74,21 @@ Der Client wählt die Transportverschlüsselung anhand der eingetragenen Portnum
 | Dienst | Port | Verhalten |
 |---|---|---|
 | IMAP | `993` | Implizites TLS |
-| IMAP | jeder andere Port | Klartext-Verbindung mit STARTTLS |
+| IMAP | jeder andere Port | STARTTLS, sofern der Server es anbietet – sonst bleibt die Verbindung unverschlüsselt |
 | SMTP | `465` | Implizites TLS |
-| SMTP | `587` (oder anderer Port) | Klartext-Verbindung mit STARTTLS |
+| SMTP | `587` (oder anderer Port) | STARTTLS ist Pflicht – bietet der Server es nicht an, schlägt der Versand fehl |
+| ManageSieve | jeder Port | STARTTLS, sofern der Server es anbietet – sonst bleibt die Verbindung unverschlüsselt |
 
 Ein eigener Schalter für die Verschlüsselung existiert deshalb nicht.
 :::
 
-**Nicht zertifizierte Verbindungen ablehnen** sollte in Produktivumgebungen mit gültigem Zertifikat aktiviert sein. Ausgeschaltet akzeptiert die API auch selbstsignierte Zertifikate – sinnvoll nur bei Testinstallationen.
+Ausgeschaltet akzeptiert die API jedes Zertifikat – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist.
+
+:::warning[Zertifikatsprüfung nur mit passendem Hostnamen]
+Aktivieren Sie **Nicht zertifizierte Verbindungen ablehnen** nur, wenn IMAP-, SMTP- und ManageSieve-Server sowie die Mailcow-API unter einem Hostnamen erreicht werden, den ihr Zertifikat abdeckt. Nur dann schützt die Prüfung vor untergeschobenen Servern.
+
+Bei edulution-mail bleibt der Schalter aus: Die internen Namen `dovecot`, `postfix` und `mailcowdockerized-nginx-mailcow-1` aus der [Installation](./installation.md#schritt-5-mailserver-hosts-konfigurieren) deckt das Zertifikat nicht ab, eingeschaltet schlagen die Verbindungen fehl.
+:::
 
 ### ManageSieve
 

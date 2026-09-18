@@ -182,29 +182,9 @@ Diese Signatur wird beim Verfassen einer neuen E-Mail automatisch angefügt. Sie
 Ein Logo in der Standard-Signatur wird jeder gesendeten E-Mail beigefügt. Verwenden Sie deshalb ein möglichst kleines Bild (unter 100 KB), um das Mailaufkommen nicht unnötig zu vergrößern.
 :::
 
-### IMAP und SMTP
+### Mailserver
 
-Die Verbindung des integrierten E-Mail-Clients zum Mailserver richten Sie im Abschnitt **Mailserver** ein.
-
-| Feld | Bedeutung | Standard |
-|---|---|---|
-| **IMAP-Server** | FQDN des IMAP-Servers, z. B. `imap.example.com` | – |
-| **SMTP-Server** | FQDN des SMTP-Servers, z. B. `smtp.example.com` | – |
-| **IMAP Port** | Port des IMAP-Servers | `993` |
-| **SMTP Port** | Port des SMTP-Servers | `587` |
-| **Nicht zertifizierte Verbindungen ablehnen** | Zertifikatsprüfung für IMAP, SMTP und ManageSieve | aus |
-| **ManageSieve-Server** | FQDN des ManageSieve-Servers | identisch mit dem IMAP-Server |
-| **ManageSieve-Port** | Port des ManageSieve-Servers | `4190` |
-
-- IMAP- und SMTP-Server werden getrennt eingetragen. Sind beide Dienste unter demselben Namen erreichbar, tragen Sie ihn in beide Felder ein: Ohne IMAP-Server ruft die E-Mail-App keine Nachrichten ab, ohne SMTP-Server versendet sie keine
-- Einen Schalter für die Verschlüsselung gibt es nicht: Sie ergibt sich aus dem Port (IMAP `993` und SMTP `465` mit implizitem TLS, alle anderen Ports mit STARTTLS)
-- Bleibt **ManageSieve-Server** leer, wird der IMAP-Server verwendet
-
-Die einzelnen Felder beschreibt [Mail-App konfigurieren](../../edulution-mail/konfiguration/mail-app-konfiguration.md#imap-und-smtp) ausführlich.
-
-:::warning[Sicherheitshinweis]
-Aktivieren Sie in Produktivumgebungen "Nicht zertifizierte Verbindungen ablehnen", um die Sicherheit der E-Mail-Kommunikation zu gewährleisten.
-:::
+Die Verbindung des integrierten E-Mail-Clients zum Mailserver richten Sie im Abschnitt **Mailserver** ein: IMAP-, SMTP- und ManageSieve-Server mit ihren Ports sowie die Zertifikatsprüfung. Felder, Voreinstellungen und Verschlüsselung beschreibt [Mail-App konfigurieren → Mailserver](../../edulution-mail/konfiguration/mail-app-konfiguration.md#mailserver).
 
 ### DAV-Verbindung
 
@@ -224,7 +204,7 @@ Setzen Sie **edulution-mail** (mailcow) ein, erreichen Sie den Server direkt üb
 https://mailcowdockerized-nginx-mailcow-1/SOGo/dav/
 ```
 
-Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der **Mailcow-API-URL** im Bereich *Mailserver* derselben App, die denselben Container-Namen **ohne** Pfad verwendet.
+Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der Adresse der Mailcow-API im Abschnitt **URL** derselben App, die denselben Container-Namen **ohne** Pfad verwendet.
 
 Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie deshalb **DAV: Nicht zertifizierte Verbindungen ablehnen** aus, sonst schlägt die Verbindung fehl.
 :::
@@ -232,7 +212,7 @@ Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie
 **DAV: Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung
 - Aktiviert: Das SSL/TLS-Zertifikat des DAV-Servers wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Deaktiviert: Jedes Zertifikat wird akzeptiert – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist
 - Betrifft ausschließlich die DAV-Verbindung, nicht IMAP oder SMTP
 
 **Speichern / Löschen**

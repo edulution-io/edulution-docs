@@ -110,11 +110,11 @@ Die Schaltfläche zum Öffnen der eingesammelten Dateien in der Dateiverwaltung 
 
 Eingesammelte Dateien werden in **Ihrem eigenen Benutzerverzeichnis** abgelegt. Ist Ihr Speicherplatz sehr gering – mindestens 95 % belegt und weniger als 5 GB frei –, blendet edulution die Schaltfläche **Einsammeln** in der Aktionsleiste aus. **Austeilen** und die übrigen Aktionen bleiben verfügbar.
 
-Maßgeblich ist dabei immer die Quota **Ihres eigenen Home-Verzeichnisses** – unabhängig davon, welchen Ordner oder welche Freigabe Sie zuletzt in der Dateiverwaltung geöffnet haben. Sobald Sie Speicher freigegeben haben, erscheint die Schaltfläche wieder.
+Maßgeblich ist dabei immer die Quota **Ihres eigenen Home-Verzeichnisses** – unabhängig davon, welchen Ordner oder welche Freigabe Sie zuletzt in der Dateiverwaltung geöffnet haben.
 
-edulution liest die Quota nach jedem abgeschlossenen Datei-Vorgang neu – nach dem Einsammeln ebenso wie nach dem Hochladen, Löschen, Verschieben oder Kopieren. Füllt sich Ihr Benutzerverzeichnis dadurch während einer laufenden Stunde, verschwindet die Schaltfläche **Einsammeln**, ohne dass Sie den Klassenraum verlassen oder die Seite neu laden müssen; nach dem Freigeben von Speicher erscheint sie auf demselben Weg wieder.
+edulution liest die Quota nach jedem in edulution abgeschlossenen Datei-Vorgang neu – nach dem Einsammeln ebenso wie nach dem Hochladen, Löschen, Verschieben oder Kopieren. Füllt sich Ihr Benutzerverzeichnis dadurch während einer laufenden Stunde, verschwindet die Schaltfläche **Einsammeln**, ohne dass Sie den Klassenraum verlassen oder die Seite neu laden müssen; geben Sie in edulution Speicher frei, erscheint sie auf demselben Weg wieder. Speicher, den Sie außerhalb von edulution freigeben – etwa über WebDAV im Datei-Explorer –, zählt erst, wenn Sie den Klassenraum erneut öffnen oder die Seite neu laden.
 
-Oberhalb des Teilnehmerbereichs erscheint zusätzlich dieselbe Warnung wie in der Dateien-App – **Verbleibendes Quota gering** beziehungsweise **sehr gering** mit Warndreieck. Auch sie bezieht sich auf Ihr eigenes Benutzerverzeichnis.
+Im Klassenraum erscheint außerdem dieselbe [Warnung bei knappem Speicherplatz](../../../edulution-fileproxy/dateien/speicherplatz-und-quota.md#warnung-bei-knappem-speicherplatz) wie in der Dateien-App, bezogen auf Ihr eigenes Benutzerverzeichnis. Sie setzt bereits bei geringer Quota ein, während **Einsammeln** noch verfügbar ist.
 
 Wie Sie Ihre Speichernutzung einsehen und Platz schaffen, steht unter [Speicherplatz und Quota](../../../edulution-fileproxy/dateien/speicherplatz-und-quota.md).
 

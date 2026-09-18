@@ -27,7 +27,7 @@ Zwei Fälle sind zu beachten:
 - In der Ansicht **Geteilte Dateien** wird die Anzeige ausgeblendet – dort greifen die Quotas der jeweiligen Besitzer, nicht Ihre eigene.
 - Lässt sich keine Quota ermitteln, steht dort `-- / -- GB belegt` und der Balken bleibt leer. Die Dateiverwaltung funktioniert dann uneingeschränkt weiter.
 
-Dieselben Werte finden Sie zusammen mit der berechneten Cloud- und E-Mail-Quota im [Dashboard](../../edulution-plattform/uebersicht/dashboard.md#quotas).
+Die Menüleiste zeigt die Quota des gerade geöffneten Speicherorts. Das [Dashboard](../../edulution-plattform/uebersicht/dashboard.md#quotas) und die [Benutzerdetails](../../edulution-plattform/uebersicht/benutzereinstellungen/benutzerdetails.md#quotas) zeigen dagegen immer die Quota Ihres eigenen Benutzerverzeichnisses; die Benutzerdetails nennen zusätzlich die berechnete Cloud- und E-Mail-Quota.
 
 ## Warnung bei knappem Speicherplatz
 
@@ -59,9 +59,7 @@ Enthält eine bestehende Freigabe bereits solche Rechte, erscheint derselbe Hinw
 
 ### Einsammeln im Klassenraum
 
-Die Einschränkung wirkt auch außerhalb der Dateien-App: Im [Klassenraum](../../edulution-plattform/apps/native-apps/klassenzimmer.md) wird die Schaltfläche **Einsammeln** ausgeblendet, denn eingesammelte Schülerdateien landen in Ihrem eigenen Benutzerverzeichnis. **Austeilen** bleibt möglich.
-
-Dafür zählt immer die Quota Ihres eigenen Home-Verzeichnisses – nicht die des Ordners, den Sie zuletzt in der Dateiverwaltung geöffnet haben. Nach jedem abgeschlossenen Datei-Vorgang wird sie neu gelesen, sodass die Schaltfläche noch während der laufenden Stunde verschwindet, wenn Ihr Verzeichnis dabei volläuft.
+Die Einschränkung wirkt auch im Klassenraum: Dort wird die Schaltfläche **Einsammeln** ausgeblendet – Einzelheiten unter [Einsammeln bei knappem eigenem Speicherplatz](../../edulution-plattform/apps/native-apps/klassenzimmer.md#einsammeln-bei-knappem-eigenem-speicherplatz).
 
 ## Wenn der Speicherplatz nicht ausreicht
 
@@ -81,4 +79,4 @@ Reicht der Platz während eines Uploads nicht mehr aus, bricht edulution den Pro
 ## Siehe auch
 
 - [Dateien](./index.md) – Übersicht über die Dateiverwaltung
-- [Dashboard](../../edulution-plattform/uebersicht/dashboard.md#quotas) – Speichernutzung inklusive Cloud- und E-Mail-Quota
+- [Benutzerdetails](../../edulution-plattform/uebersicht/benutzereinstellungen/benutzerdetails.md#quotas) – Speichernutzung inklusive Cloud- und E-Mail-Quota

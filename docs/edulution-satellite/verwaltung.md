@@ -162,6 +162,39 @@ Der Eintrag **LINBO** zeigt, was die LINBO-Installation *des Satelliten* über d
 
 In dieser Version enthält der Bereich die Unterseiten **Konfigurationen** und **Hosts**.
 
+#### Konfigurationen
+
+Die Unterseite **Konfigurationen** listet die Hardwaregruppen, die der Satellit vom Linuxmuster-Server übernommen hat – also die `start.conf`-Dateien, die in seinem Zwischenspeicher liegen. Die Daten stammen ausschließlich vom ausgewählten Satelliten.
+
+Oben rechts wählen Sie zwischen denselben vier Ansichten wie in der [Gruppenliste des Schulservers](../edulution-server/linuxmuster.md#gruppen): **Plattenkarte** (Vorgabe), **Kacheln**, **Datenblatt** und **Tabelle**. Karten und Tabellenspalten sind dort beschrieben und hier dieselben. Es entfallen nur die Auswahlkästchen, die Kachel zum Anlegen und die Aktionen, weil sich die Konfigurationen hier nicht ändern lassen.
+
+:::note[Die Ansichtswahl gilt für beide Bereiche]
+Die gewählte Ansicht wird zusammen mit der Gruppenliste des Schulservers gespeichert. Stellen Sie hier auf **Datenblatt** um, erscheint auch die Gruppenliste im Bereich **LINBO** der App **Schulserver** in dieser Ansicht – und umgekehrt.
+:::
+
+Über das Suchfeld schränken Sie die Liste auf einen Gruppennamen oder einen Dateinamen wie `start.conf.raum101` ein. Die Zahl der zugeordneten Rechner stammt aus der Hostliste desselben Satelliten: gezählt werden die Rechner, die der Satellit dieser Gruppe zuordnet, nicht die des Linuxmuster-Servers.
+
+:::note[Jede Gruppe wird einzeln gelesen]
+Der Satellit liefert in seiner Gruppenliste keine `start.conf`. Die Plattform liest deshalb beim Öffnen und beim Neuladen die `start.conf` jeder Gruppe einzeln vom Satelliten und wertet sie aus wie am Schulserver. Die Karten zeigen damit dieselben Angaben, einschließlich Cache, Download-Typ und der verwendeten Images. Bei vielen Gruppen erscheint die Liste erst, wenn alle Dateien gelesen sind; bis dahin läuft die Ladeanzeige.
+:::
+
+Als **Aktualisiert** zeigt die Plattform den Zeitstempel, den der Satellit mit der GRUB-Konfiguration der Gruppe übernommen hat, bei einer Gruppe ohne GRUB-Konfiguration den Zeitpunkt ihrer Synchronisation. Die letzte Änderung der `start.conf` ist das nicht.
+
+Durch Anklicken einer Karte oder Tabellenzeile öffnen Sie die Vorschau. Sie liest die Datei im Moment des Öffnens erneut vom Satelliten und hat diese Registerkarten:
+
+- **Zusammenfassung** – die ausgewertete `start.conf` mit den gesetzten Schlüsseln und dem Plattenlayout, in derselben Darstellung wie im Bereich **LINBO** der App **Schulserver**.
+- **Rohdaten** – der unveränderte Inhalt der Datei.
+
+Liegt dem Satelliten für die Gruppe eine GRUB-Konfiguration vor, zeigt die Registerkarte **GRUB cfg** sie zusätzlich. Für eine Gruppe, der noch kein Rechner zugeordnet ist, hat der Satellit keine; die Registerkarte entfällt dann.
+
+:::note[Nur Anzeige]
+Die Konfigurationen des Satelliten lassen sich nicht anlegen, bearbeiten, duplizieren oder löschen. Sie stammen aus der Synchronisation mit dem Linuxmuster-Server; geändert werden sie deshalb am Server, nicht am Satelliten. Mit der Aktion zum Neuladen holen Sie den aktuellen Stand.
+:::
+
+:::note[Wenn eine Datei nicht gelesen werden kann]
+Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, erscheint über der Liste ein Hinweis, statt eine leere Liste zu zeigen. Lässt sich eine einzelne `start.conf` nicht lesen – etwa weil die Datei auf dem Satelliten fehlt, obwohl die Gruppe noch in der Liste steht –, erscheint die Gruppe als eine ohne `start.conf`, und die Vorschau meldet den Lesefehler ausdrücklich. Eine vorhandene, aber leere Datei behandelt die Vorschau wie eine fehlende: Sie zeigt dann nur die GRUB-Konfiguration oder, wenn es auch die nicht gibt, den Hinweis, dass die Gruppe weder eine `start.conf` noch eine GRUB-Konfiguration hat.
+:::
+
 #### Hosts
 
 Die Tabelle listet alle Rechner, die der Satellit kennt, mit **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Abbild** und **Zuletzt gesehen**. Über das Suchfeld schränken Sie die Liste auf einen Hostnamen ein, über das Filtersymbol daneben auf eine oder mehrere **Gruppen**. Beide Filter arbeiten im Browser: die Liste wird vollständig geladen, sodass das Filtern ohne erneute Abfrage des Satelliten geschieht.
@@ -193,44 +226,6 @@ Die Hostliste des Satelliten lässt sich nicht bearbeiten. Die Rechner stammen a
 
 :::note[Hostliste und Abbild-Stand werden getrennt geladen]
 Beide Angaben stammen aus verschiedenen Abfragen. Antwortet der Satellit nur auf eine davon, bleibt die andere nutzbar: Die Rechner werden dann ohne Abbild-Stand aufgeführt (alle Zeilen zeigen *Unbekannt*), oder es erscheint eine Fehlermeldung, während die Liste weiterhin steht.
-:::
-
-#### Konfigurationen
-
-Die Unterseite **Konfigurationen** listet die Hardwaregruppen, die der Satellit vom Linuxmuster-Server übernommen hat – also die `start.conf`-Dateien, die in seinem Zwischenspeicher liegen. Der Aufbau entspricht der Gruppenliste im Bereich **LINBO** der App **Schulserver**; die Daten stammen jedoch ausschließlich vom ausgewählten Satelliten.
-
-Oben rechts wählen Sie zwischen denselben vier Ansichten wie dort:
-
-| Ansicht | Zeigt |
-|---------|-------|
-| **Plattenkarte** (Vorgabe) | die Partitionen der Gruppe als Balken, dazu die Betriebssysteme mit Symbol und Wurzelpartition |
-| **Kacheln** | Systemtyp, Betriebssysteme und die Zahl der zugeordneten Rechner |
-| **Datenblatt** | die gesetzten Schlüssel der Gruppe |
-| **Tabelle** | ID, Betriebssysteme, verwendete Images, Partitionen, Rechner und Aktualisierungszeitpunkt – dieselben Spalten wie am Schulserver |
-
-:::note[Die Ansichtswahl gilt für beide Bereiche]
-Die gewählte Ansicht wird zusammen mit der Gruppenliste des Schulservers gespeichert. Stellen Sie hier auf **Datenblatt** um, erscheint auch die Gruppenliste im Bereich **LINBO** der App **Schulserver** in dieser Ansicht – und umgekehrt.
-:::
-
-Über das Suchfeld schränken Sie die Liste auf einen Gruppennamen oder einen Dateinamen wie `start.conf.raum101` ein. Die Zahl der zugeordneten Rechner stammt aus der Hostliste desselben Satelliten: gezählt werden die Rechner, die der Satellit dieser Gruppe zuordnet, nicht die des Linuxmuster-Servers.
-
-:::note[Jede Gruppe wird einzeln gelesen]
-Der Satellit liefert in seiner Gruppenliste keine `start.conf`. Die Plattform liest deshalb beim Öffnen und beim Neuladen die `start.conf` jeder Gruppe einzeln vom Satelliten und wertet sie aus wie am Schulserver. Die Karten zeigen damit dieselben Angaben, einschließlich Cache, Download-Typ und der verwendeten Images. Bei vielen Gruppen erscheint die Liste erst, wenn alle Dateien gelesen sind.
-:::
-
-Durch Anklicken einer Karte oder Tabellenzeile öffnen Sie die Vorschau. Sie liest die Datei im Moment des Öffnens erneut vom Satelliten und hat diese Registerkarten:
-
-- **Zusammenfassung** – die ausgewertete `start.conf` mit den gesetzten Schlüsseln und dem Plattenlayout, in derselben Darstellung wie im Bereich **LINBO** der App **Schulserver**.
-- **Rohdaten** – der unveränderte Inhalt der Datei.
-
-Liegt dem Satelliten für die Gruppe eine GRUB-Konfiguration vor, zeigt die Registerkarte **GRUB cfg** sie zusätzlich. Für eine Gruppe, der noch kein Rechner zugeordnet ist, hat der Satellit keine; die Registerkarte entfällt dann.
-
-:::note[Nur Anzeige]
-Die Konfigurationen des Satelliten lassen sich nicht anlegen, bearbeiten, duplizieren oder löschen. Sie stammen aus der Synchronisation mit dem Linuxmuster-Server; geändert werden sie deshalb am Server, nicht am Satelliten. Mit der Aktion zum Neuladen holen Sie den aktuellen Stand.
-:::
-
-:::note[Wenn eine Datei nicht gelesen werden kann]
-Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, erscheint über der Tabelle ein Hinweis, statt eine leere Liste zu zeigen. Lässt sich eine einzelne `start.conf` nicht lesen – etwa weil die Datei auf dem Satelliten fehlt, obwohl die Gruppe noch in der Liste steht –, erscheint die Gruppe als eine ohne `start.conf`, und die Vorschau meldet den Lesefehler ausdrücklich. Ist die Datei vorhanden, aber leer, wird sie als leer ausgewiesen.
 :::
 
 ## Siehe auch

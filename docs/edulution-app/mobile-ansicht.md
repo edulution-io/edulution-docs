@@ -161,12 +161,10 @@ Einige Funktionen stehen auch offline zur Verfügung:
 
 ### iOS und iPadOS
 - iOS bzw. iPadOS 16.4 oder höher – das gilt für die App und für Safari
-- iPhone 8 oder neuer
-- iPad (5. Generation), iPad Air (3. Generation), iPad mini (5. Generation) oder neuer
 
 Auf einer älteren Version startet edulution nicht. Statt der Anmeldung erscheint dann der Hinweis, das Betriebssystem oder den Browser zu aktualisieren.
 
 ### Android
-- Android 8.0 oder höher
+- Android 10 oder höher
 - Mindestens 2 GB RAM
 - Chrome Browser empfohlen

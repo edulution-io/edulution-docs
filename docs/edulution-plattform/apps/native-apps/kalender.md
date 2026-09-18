@@ -277,9 +277,18 @@ In der **Agenda** ist das Verschieben per Drag & Drop nicht möglich, da sie die
 
 Auf Touchgeräten tippen Sie den Termin an und **halten ihn kurz gedrückt**, bis er sich löst; erst danach ziehen Sie ihn an die neue Position. Eine zügige Wischgeste, die auf einem Termin beginnt, blättert dagegen im [Zeitraster](#zeitraster-bedienen), statt den Termin zu verschieben.
 
-Bei einem Termin, der sich über mehrere Tage erstreckt, ist der Tag entscheidend, an dem Sie ihn anfassen: Der Termin wird um so viele Tage verschoben, wie zwischen diesem Tag und dem Zieltag liegen. Fassen Sie einen fünftägigen Termin an seinem dritten Tag an und lassen ihn einen Tag weiter los, verschiebt sich der gesamte Termin um einen Tag nach hinten – er beginnt also nicht am Zieltag. Seine Dauer bleibt dabei unverändert. In der Wochen-, der Tages- und der Stundenplanansicht übernimmt der Termin zusätzlich die Uhrzeit des Zeitabschnitts, auf den Sie ihn ziehen – der angefasste Tag liegt anschließend genau dort. In der Monatsansicht behält der Termin seine bisherige Uhrzeit.
+Bei einem Termin, der sich über mehrere Tage erstreckt, ist der Tag entscheidend, an dem Sie ihn anfassen: Der Termin wird um so viele Tage verschoben, wie zwischen diesem Tag und dem Zieltag liegen. Fassen Sie einen fünftägigen Termin an seinem dritten Tag an und lassen ihn einen Tag weiter los, verschiebt sich der gesamte Termin um einen Tag nach hinten – er beginnt also nicht am Zieltag. Seine Dauer bleibt dabei unverändert.
 
-Ganztägige Termine behalten beim Verschieben ihre Länge und bleiben ganztägig. Sie landen auf dem Tag, auf den Sie sie ziehen – auch dann, wenn zwischen dem bisherigen und dem neuen Datum die Umstellung zwischen Sommer- und Winterzeit liegt. Ziehen Sie einen ganztägigen Termin in der Wochen-, Tages- oder Stundenplanansicht auf einen Zeitabschnitt der Stundenskala, erhält er dadurch keine Uhrzeit: Er wechselt lediglich das Datum und bleibt ganztägig.
+Die Uhrzeit hängt von der Ansicht ab:
+
+| Ansicht | Uhrzeit nach dem Verschieben |
+|---|---|
+| Wochen-, Tages- und Stundenplan-Ansicht | Die des Zeitabschnitts, auf den Sie den Termin ziehen – der angefasste Tag liegt anschließend genau dort. |
+| Monatsansicht | Die bisherige Uhrzeit des Termins. |
+
+Eine Ausnahme gilt in der Wochen-, Tages- und Stundenplan-Ansicht: Würde der Termin durch das Verschieben enden, bevor der Zieltag beginnt – etwa ein Termin über Mitternacht, den Sie an seinem zweiten Tag anfassen –, beginnt er stattdessen zur gewählten Uhrzeit am Zieltag.
+
+Ganztägige Termine behalten beim Verschieben ihre Länge und bleiben ganztägig. Sie werden nach derselben Regel um ganze Tage verschoben; ein eintägiger Termin landet also auf dem Tag, auf den Sie ihn ziehen. In der Wochen-, Tages- und Stundenplan-Ansicht ist die Zeile der ganztägigen Termine (**Ganzt.**) kein Ablageziel: Ziehen Sie einen ganztägigen Termin dort auf einen beliebigen Zeitabschnitt des gewünschten Tages. Er erhält dadurch keine Uhrzeit, sondern wechselt lediglich das Datum.
 
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
 

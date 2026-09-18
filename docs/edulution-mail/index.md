@@ -60,6 +60,8 @@ Ein in der Nachricht eingebettetes Formular – etwa ein Umfrage- oder Anmeldefe
 
 Bilder und andere extern nachgeladene Inhalte blendet edulution zum Schutz Ihrer Privatsphäre zunächst aus – unabhängig vom Absender und ohne eine Möglichkeit, einzelne Absender dauerhaft davon auszunehmen. Es erscheint der Hinweis „Um deine Privatsphäre zu schützen, wurde der automatische Download einiger Bilder in dieser Nachricht verhindert.“ mit dem Link **Bilder herunterladen**. Ein Klick lädt die Inhalte für diese Nachricht nach; die Freigabe gilt nur bis zum nächsten Neuladen der Seite. Deshalb können aufwendig gestaltete Newsletter zunächst schlichter aussehen als in anderen Mailprogrammen – auch in der Druckansicht, die denselben Freigabestatus übernimmt.
 
+Damit eine Nachricht unabhängig von der Fensterbreite lesbar bleibt, bricht edulution ihren Text in der Leseansicht und im Ausdruck immer um – auch dann, wenn der Absender den Umbruch in seiner Formatierung ausdrücklich unterbunden hat. Vorformatierter Text und Code behalten dabei ihre Zeilenumbrüche und Einrückungen, laufen aber nicht mehr über den rechten Rand hinaus. Sehr lange Zeichenketten ohne Leerzeichen – lange Linkadressen, Dateipfade oder Kennungen – werden bei Bedarf innerhalb der Zeichenkette umbrochen. Gewöhnliche Wörter werden nicht getrennt; sie wechseln nur an Wortgrenzen in die nächste Zeile.
+
 ## E-Mail verfassen
 
 Über **Verfassen** öffnen Sie das Schreibfenster:
@@ -160,6 +162,20 @@ Vor dem Wechsel erscheint deshalb ein Bestätigungsdialog, der genau auflistet, 
 :::tip[Hinweis]
 Fügen Sie HTML-Quelltext direkt in die **formatierte** Ansicht ein, wird er als reiner Text übernommen und die Tags erscheinen sichtbar in der Nachricht. Verwenden Sie für diesen Fall die Quelltext-Ansicht.
 :::
+
+### Zeilenumbruch beim Schreiben und Versenden
+
+Der Editor bricht den Nachrichtentext genauso um wie die Leseansicht. Fügen Sie Inhalte aus einem anderen Mailprogramm oder von einer Webseite ein oder öffnen Sie einen älteren Entwurf, stellt edulution eine dort mitgebrachte Formatierung, die den Umbruch unterbindet, auf umbrechenden Text zurück. Sie sehen beim Schreiben also bereits, wie breit die Nachricht tatsächlich läuft.
+
+Dieselben Umbruchregeln schreibt edulution beim **Senden** und beim Speichern **als Entwurf** in das versendete HTML – auch bei einer in der Quelltext-Ansicht verfassten Nachricht. Ohne sie liefe etwa eine lange Linkadresse beim Empfänger über den Rand hinaus, weil nicht jedes Mailprogramm von sich aus an dieser Stelle umbricht.
+
+:::warning[Lange Zeichenketten im klassischen Outlook]
+Zusammenhängende Zeichenketten ab **40 Zeichen** – in der Regel Linkadressen, Dateipfade oder Kennungen – erhalten zusätzlich eine Umbruchregel eigens für das klassische Outlook, das andernfalls an keiner Stelle darin umbrechen kann. Outlook wendet diese Regel auf den gesamten Absatz an: Neben der langen Zeichenkette können dort auch gewöhnliche Wörter mitten im Wort umbrechen. Andere Mailprogramme und webbasierte Clients sind davon nicht betroffen, dort bleiben die Wortgrenzen erhalten.
+
+Stört Sie das, stellen Sie die lange Adresse in einen eigenen Absatz – dann wirkt die Regel nur dort.
+:::
+
+Die angezeigte **Gesamtgröße** der Nachricht und die Prüfung beim Senden berücksichtigen diese zusätzlichen Formatangaben. Eine Nachricht dicht an der Größengrenze kann dadurch etwas größer ausfallen, als der reine Text vermuten lässt.
 
 ## Benachrichtigungen bei neuen E-Mails
 

@@ -182,33 +182,9 @@ Diese Signatur wird beim Verfassen einer neuen E-Mail automatisch angefügt. Sie
 Ein Logo in der Standard-Signatur wird jeder gesendeten E-Mail beigefügt. Verwenden Sie deshalb ein möglichst kleines Bild (unter 100 KB), um das Mailaufkommen nicht unnötig zu vergrößern.
 :::
 
-### IMAP Integration
+### Mailserver
 
-Die IMAP-Integration ermöglicht den Zugriff auf externe oder interne IMAP-Server.
-
-**URL**
-- Geben Sie den FQDN (Fully Qualified Domain Name) des IMAP-Servers an
-- Beispiel: `imap.example.com` oder `ui.73.dev.multi.schule`
-- Wird für die Anbindung an den Mail-Server verwendet
-
-**Port**
-- Port-Nummer des IMAP-Servers
-- Standard: **993** (IMAP über SSL/TLS)
-- Alternative: **143** (IMAP mit STARTTLS)
-
-**Sichere Verbindung**
-- Toggle-Schalter zum Aktivieren/Deaktivieren
-- Aktiviert: Verbindung über TLS oder STARTTLS
-- Sollte für Produktivumgebungen immer aktiviert sein
-
-**Nicht zertifizierte Verbindungen ablehnen**
-- Toggle-Schalter für Zertifikatsprüfung
-- Aktiviert: SSL/TLS-Zertifikat wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
-
-:::warning[Sicherheitshinweis]
-In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Nicht zertifizierte Verbindungen ablehnen" einschalten, um die Sicherheit der E-Mail-Kommunikation zu gewährleisten.
-:::
+Die Verbindung des integrierten E-Mail-Clients zum Mailserver richten Sie im Abschnitt **Mailserver** ein: IMAP-, SMTP- und ManageSieve-Server mit ihren Ports sowie die Zertifikatsprüfung. Felder, Voreinstellungen und Verschlüsselung beschreibt [Mail-App konfigurieren → Mailserver](../../edulution-mail/konfiguration/mail-app-konfiguration.md#mailserver).
 
 ### DAV-Verbindung
 
@@ -228,7 +204,7 @@ Setzen Sie **edulution-mail** (mailcow) ein, erreichen Sie den Server direkt üb
 https://mailcowdockerized-nginx-mailcow-1/SOGo/dav/
 ```
 
-Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der **Mailcow-API-URL** im Bereich *Mailserver* derselben App, die denselben Container-Namen **ohne** Pfad verwendet.
+Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der Adresse der Mailcow-API im Abschnitt **URL** derselben App, die denselben Container-Namen **ohne** Pfad verwendet.
 
 Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie deshalb **DAV: Nicht zertifizierte Verbindungen ablehnen** aus, sonst schlägt die Verbindung fehl.
 :::
@@ -236,7 +212,7 @@ Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie
 **DAV: Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung
 - Aktiviert: Das SSL/TLS-Zertifikat des DAV-Servers wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Deaktiviert: Jedes Zertifikat wird akzeptiert – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist
 - Betrifft ausschließlich die DAV-Verbindung, nicht IMAP oder SMTP
 
 **Speichern / Löschen**
@@ -310,10 +286,10 @@ Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic 
 **Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung
 - Aktiviert: Das SSL/TLS-Zertifikat des CalDAV-Servers wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Deaktiviert: Jedes Zertifikat wird akzeptiert – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist
 
 :::warning[Sicherheitshinweis]
-In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" aktiviert lassen, um die Sicherheit der CalDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
+In Produktivumgebungen sollten Sie **Nicht zertifizierte Verbindungen ablehnen** aktiviert lassen, um die Sicherheit der CalDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
 :::
 
 ---
@@ -375,10 +351,10 @@ Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic 
 **Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung
 - Aktiviert: Das SSL/TLS-Zertifikat des CardDAV-Servers wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Deaktiviert: Jedes Zertifikat wird akzeptiert – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist
 
 :::warning[Sicherheitshinweis]
-In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" aktiviert lassen, um die Sicherheit der CardDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
+In Produktivumgebungen sollten Sie **Nicht zertifizierte Verbindungen ablehnen** aktiviert lassen, um die Sicherheit der CardDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
 :::
 
 ---
@@ -462,9 +438,9 @@ Apps, die Inhalte in einem iframe anzeigen, bringen zwei zusätzliche Bereiche i
 
 ![Container Übersicht](/img/einstellungen/container.webp)
 
-Übersicht aller Docker Container des Systems mit Name, Image, Betriebszustand, Status, Port und Erstellungszeitpunkt. Über die Aktionsleiste am unteren Rand installieren Sie die Container zusätzlicher Dienste, aktualisieren sie und steuern ihren Lebenszyklus.
+Übersicht aller Docker Container des Systems. Ein Symbol vor dem Container-Namen zeigt, ob ein Update bereitliegt. Über die Aktionsleiste installieren Sie die Container zusätzlicher Dienste, aktualisieren sie und steuern ihren Lebenszyklus.
 
-Die vollständige Beschreibung – Aktionen, geschützte Container, Plugin-Installation, Edulution-Manager-Agent und Fehlerbehebung – finden Sie unter [Container-Verwaltung](./container-verwaltung.md).
+Die vollständige Beschreibung – Spalten, Aktionen, geschützte Container, Plugin-Installation, Edulution-Manager-Agent, die tägliche Update-Prüfung und Fehlerbehebung – finden Sie unter [Container-Verwaltung](./container-verwaltung.md).
 
 :::info[Fortgeschrittene Verwaltung]
 Die Container-Übersicht ist für fortgeschrittene Administratoren. Änderungen sollten nur mit entsprechendem Docker-Know-how vorgenommen werden.

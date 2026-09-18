@@ -277,6 +277,19 @@ In der **Agenda** ist das Verschieben per Drag & Drop nicht möglich, da sie die
 
 Auf Touchgeräten tippen Sie den Termin an und **halten ihn kurz gedrückt**, bis er sich löst; erst danach ziehen Sie ihn an die neue Position. Eine zügige Wischgeste, die auf einem Termin beginnt, blättert dagegen im [Zeitraster](#zeitraster-bedienen), statt den Termin zu verschieben.
 
+Bei einem Termin, der sich über mehrere Tage erstreckt, ist der Tag entscheidend, an dem Sie ihn anfassen: Der Termin wird um so viele Tage verschoben, wie zwischen diesem Tag und dem Zieltag liegen. Fassen Sie einen fünftägigen Termin an seinem dritten Tag an und lassen ihn einen Tag weiter los, verschiebt sich der gesamte Termin um einen Tag nach hinten – er beginnt also nicht am Zieltag. Seine Dauer bleibt dabei unverändert.
+
+Die Uhrzeit hängt von der Ansicht ab:
+
+| Ansicht | Uhrzeit nach dem Verschieben |
+|---|---|
+| Wochen-, Tages- und Stundenplan-Ansicht | Die des Zeitabschnitts, auf den Sie den Termin ziehen – der angefasste Tag liegt anschließend genau dort. |
+| Monatsansicht | Die bisherige Uhrzeit des Termins. |
+
+Eine Ausnahme gilt in der Wochen-, Tages- und Stundenplan-Ansicht: Würde der Termin durch das Verschieben enden, bevor der Zieltag beginnt – etwa ein Termin über Mitternacht, den Sie an seinem zweiten Tag anfassen –, beginnt er stattdessen zur gewählten Uhrzeit am Zieltag.
+
+Ganztägige Termine behalten beim Verschieben ihre Länge und bleiben ganztägig. Sie werden nach derselben Regel um ganze Tage verschoben; ein eintägiger Termin landet also auf dem Tag, auf den Sie ihn ziehen. In der Wochen-, Tages- und Stundenplan-Ansicht ist die Zeile der ganztägigen Termine (**Ganzt.**) kein Ablageziel: Ziehen Sie einen ganztägigen Termin dort auf einen beliebigen Zeitabschnitt des gewünschten Tages. Er erhält dadurch keine Uhrzeit, sondern wechselt lediglich das Datum.
+
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
 
 :::info[Termine ohne Bearbeitungsrecht]

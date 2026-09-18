@@ -57,7 +57,7 @@ Sparsam und gezielt: dort, wo ein Element schwer zu finden ist oder eine Entsche
 
 ## Vor dem Commit
 
-- `npm run build` ausführen. `onBrokenLinks` steht auf `throw`, ein erfolgreicher Build belegt also, dass alle internen Verweise auflösen.
+- `npm run build` ausführen. `onBrokenLinks` und `onBrokenAnchors` stehen auf `throw`, ein erfolgreicher Build belegt also, dass alle internen Verweise auflösen – auf die Seite ebenso wie auf den Abschnitt (`#anker`).
 - Beim Verschieben oder Umbenennen von Seiten prüfen, ob eingehende Links und `docusaurus.config.ts` (Redirects) nachgezogen werden müssen.
 
 ## Grundlage

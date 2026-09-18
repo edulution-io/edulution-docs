@@ -84,8 +84,19 @@ Alle Felder lassen sich direkt in der Tabelle bearbeiten – Textfelder per Eing
 
 - **Gerät hinzufügen** (`+`) – fügt eine neue, leere Zeile am Ende der Tabelle hinzu.
 - **Gerät duplizieren** (Kopier-Symbol pro Zeile) – erstellt eine Kopie der Zeile als Vorlage für ein ähnliches Gerät.
-- **Löschen** (Papierkorb-Symbol pro Zeile) – markiert die Zeile zum Löschen; entfernt wird sie erst beim Speichern.
-- **Rückgängig** – lädt die Liste neu vom Server und verwirft alle nicht gespeicherten Änderungen.
+- **Löschen** (Papierkorb-Symbol pro Zeile) – markiert das Gerät zum Entfernen, siehe [Geräte entfernen](#geräte-entfernen).
+- **Zurücksetzen** – lädt die Liste neu vom Server und verwirft alle nicht gespeicherten Änderungen.
+
+### Geräte entfernen
+
+Über **Löschen** (Papierkorb-Symbol) in der Zeile eines Geräts markieren Sie das Gerät zum Entfernen. Die Zeile verschwindet sofort aus der Tabelle, das Gerät ist damit aber noch nicht gelöscht:
+
+- **Speichern** entfernt es nur aus der `devices.csv`. In Linuxmuster bleibt es bis zum nächsten Geräteimport bestehen.
+- Erst **Anwenden** importiert die Liste und entfernt das Gerät damit auch aus Linuxmuster.
+
+Eine gesetzte Markierung lässt sich nicht einzeln zurücknehmen, und sie bleibt auch nach einem Neuladen der Seite bestehen. Solange Sie noch nicht gespeichert haben, holt **Zurücksetzen** die Geräteliste erneut vom Server und stellt das Gerät damit wieder her – dabei gehen allerdings auch alle übrigen ungespeicherten Änderungen verloren.
+
+Markierte Geräte sind im CSV-Dialog bereits nicht mehr enthalten: Die dort angezeigte und die heruntergeladene Datei entsprechen der Liste **ohne** diese Geräte.
 
 ### Validierung
 
@@ -123,8 +134,10 @@ Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen.
 Über die Schaltfläche **CSV** öffnen Sie den Rohinhalt der `devices.csv`. Hier können Sie:
 
 - den Inhalt direkt als Text bearbeiten oder einfügen,
-- eine `.csv`- oder `.txt`-Datei per Drag & Drop importieren (*„Datei hier hin schieben um sie zu importieren"*),
-- die aktuelle Liste über **CSV Herunterladen** als `devices.csv` exportieren.
+- eine `.csv`- oder `.txt`-Datei per Drag & Drop oder über den Dateidialog in das Textfeld laden (*„Ziehe Dateien hierher oder klicke, um Dateien auszuwählen“*),
+- den Inhalt des Textfelds über **Herunterladen** als `devices.csv` exportieren.
+
+Eine geladene Datei füllt nur das Textfeld. Erst **Speichern** im Dialog übernimmt dessen Inhalt: Er ersetzt die gesamte Tabelle, und sämtliche Löschmarkierungen entfallen – maßgeblich ist danach ausschließlich, was im Textfeld stand. Auf den Server geschrieben wird die Liste auch dann erst mit **Speichern** oder **Anwenden** der Geräteliste.
 
 :::tip
 Der CSV-Export eignet sich gut für Sicherungen vor größeren Änderungen sowie zum Übertragen von Gerätelisten zwischen Servern.

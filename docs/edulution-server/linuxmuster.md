@@ -258,6 +258,8 @@ Die Zusammenfassung liest die Datei so, wie LINBO selbst sie liest: Abschnitts- 
 
 Zum Feld **Kernel-Optionen** gehören Schaltflächen für die gebräuchlichen Werte: `quiet`, `splash`, `acpi=noirq`, `acpi=off`, `irqpoll` und `dhcpretry=9`. Ein Klick hängt den Wert an die bestehenden Optionen an; ist er bereits gesetzt, ist die Schaltfläche ausgegraut.
 
+Ein Feld der Registerkarte **Allgemein**, das Sie leeren, verschwindet beim Speichern aus der `start.conf`, statt als leerer Eintrag darin stehen zu bleiben. Für LINBO ist das der Unterschied zwischen *nicht gesetzt* und *auf leer gesetzt*: Der Wert fällt damit auf die Vorgabe zurück. Das betrifft unter anderem **Schule**, **Abmeldung nach**, **Kernel-Optionen** und **Hintergrundfarbe**.
+
 :::warning[Beim Start formatieren]
 **Beim Start partitionieren** legt das Plattenlayout bei jedem Start neu an, **Beim Start formatieren** formatiert dabei alle Partitionen. Lokal auf den Rechnern gespeicherte Daten gehen dann bei jedem Start verloren.
 :::
@@ -268,7 +270,17 @@ Im Feld **Größe** gilt: eine nackte Zahl sind Kibibytes, ein Suffix `M`, `G` o
 
 Unter den Platten listet der Abschnitt **Betriebssysteme** die Einträge der Gruppe mit Partition, Basisimage, Kernel, Initrd und den Schaltern für Autostart, Sync und Start. **Bearbeiten** öffnet die Partition, an der ein Eintrag hängt. Zeigt das Root-Gerät eines Eintrags auf keine Partition des Layouts, wird der Eintrag als verwaist gekennzeichnet und lässt sich hier löschen.
 
-Bearbeitet wird ein Betriebssystem auf der Unterregisterkarte **Betriebssystem** des Partitionsdialogs. Dort stehen **Name**, **Version**, **Standardaktion**, **Symbol**, **Basisimage**, die **Startknöpfe im LINBO-Menü** – *Start*, *Sync & Start*, *Neu & Start* und *Autostart* – sowie das **Autostart-Timeout (Sekunden)**. Hinter **Erweitert** liegen **Kernel**, **Initrd**, **Zusätzliche Kernel-Parameter**, **Opsi-Setup erzwingen**, **Opsi-Status wiederherstellen** und **Im Startmenü ausblenden**.
+Bearbeitet wird ein Betriebssystem auf der Unterregisterkarte **Betriebssystem** des Partitionsdialogs. Dort stehen **Name**, **Version**, **Standardaktion**, **Symbol**, **Beschreibung**, **Basisimage**, die **Startknöpfe im LINBO-Menü** – *Start*, *Sync & Start*, *Neu & Start* und *Autostart* – sowie das **Autostart-Timeout (Sekunden)**. Hinter **Erweitert** liegen **Kernel**, **Zusätzliche Kernel-Parameter**, **Opsi-Setup erzwingen**, **Opsi-Status wiederherstellen** und **Im Startmenü ausblenden**.
+
+Zwei dieser Felder richten sich nach dem Dateisystem der Partition: **Initrd** erscheint nur, wenn die Partition kein NTFS trägt – ein Windows-System startet ohne Initrd –, und **Kernel** ist auf NTFS eine Auswahl aus `auto`, `grub.exe` und `reboot` statt eines freien Textfelds.
+
+Trägt eine Partition noch kein Betriebssystem, weist die Unterregisterkarte darauf hin und bietet **Betriebssystem hinzufügen** an. Die Schaltfläche erscheint nur auf Partitionen, von denen LINBO überhaupt starten kann – also nicht auf *EFI*, *MSR*, *Erweitert* und *Swap* und nicht auf der Cache-Partition. Eine Partition aus dem Preset *Daten* kommt dagegen infrage; sie unterscheidet sich von *Windows* nur im Label. Dasselbe gilt für Partitionen aus einer hochgeladenen `start.conf`, die dort keinen Betriebssystem-Abschnitt hatten.
+
+:::warning[Betriebssystem auf einer nicht startfähigen Partition]
+Ändern Sie an einer Partition, an der ein Betriebssystem hängt, das Dateisystem oder den Partitionstyp auf einen Wert, von dem LINBO nicht startet – oder machen Sie sie zur Cache-Partition –, bleibt der Eintrag erhalten und weiter bearbeitbar. Die Unterregisterkarte **Betriebssystem** weist dann darauf hin, dass LINBO dieses System hier nicht mehr starten kann.
+
+Gelöscht wird der Eintrag nicht – setzen Sie das Dateisystem oder den Partitionstyp zurück, damit das System wieder startet. Im Abschnitt **Betriebssysteme** lässt sich der Eintrag in diesem Zustand nicht entfernen: Die Schaltfläche zum Löschen erscheint dort nur bei verwaisten Einträgen, deren Partition es gar nicht mehr gibt.
+:::
 
 Solange ungespeicherte Änderungen vorliegen, fragt der Editor beim Schließen nach, ob Sie sie verwerfen wollen.
 

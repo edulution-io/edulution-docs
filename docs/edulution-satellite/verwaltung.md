@@ -241,7 +241,7 @@ Die Unterseite **Images** verwaltet die LINBO-Abbilder, die auf dem Satelliten s
 Die gewählte Ansicht wird zusammen mit der Imageliste des Schulservers gespeichert. Stellen Sie hier auf **Speicher** um, erscheint auch die Imageliste im Bereich **LINBO** der App **Schulserver** in dieser Ansicht – und umgekehrt.
 :::
 
-Ein Klick auf eine Karte öffnet die Begleitdateien des Images; für ein Image im Altformat wird das wie bei der Zeilenaktion mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – stehen nur in der **Tabelle** zur Verfügung.
+Ein Klick auf eine Karte öffnet die Beipack-Dateien des Images; für ein Image im Altformat wird das wie bei der Zeilenaktion mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – stehen nur in der **Tabelle** zur Verfügung.
 
 :::note[Die Karten zeigen weniger als am Schulserver]
 Die Imageliste des Satelliten enthält weder die Beschreibung noch Partitionsangaben oder die Prüfsumme. Beschreibung, Partition und Partitionsgröße bleiben in den Karten deshalb leer, und die Füllanzeige der Ansicht **Speicher** entfällt. Das **Datenblatt** weist bei jedem Image *keine Prüfsumme* aus, auch wenn auf dem Satelliten eine hinterlegt ist – ob eine vorliegt, zeigt erst **Prüfsumme prüfen**.
@@ -256,7 +256,7 @@ Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Status**, **Abgleich** und 
 | **Abgleich** | Vergleich mit dem Schulserver: **Gleich**, **Unterschiedlich**, **Nur am Server**, **Nur am Satelliten** oder **Unbekannt** |
 
 :::note[Images im Altformat]
-Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Die Aktionen dieser Zeile – Prüfsumme, Sicherungen, Begleitdateien und Löschen – werden deshalb nicht ausgeführt, sondern mit einem Hinweis abgelehnt.
+Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Die Aktionen dieser Zeile – Prüfsumme, Sicherungen, Beipack-Dateien und Löschen – werden deshalb nicht ausgeführt, sondern mit einem Hinweis abgelehnt.
 :::
 
 In der Tabelle stehen je Zeile folgende Aktionen bereit:
@@ -264,8 +264,8 @@ In der Tabelle stehen je Zeile folgende Aktionen bereit:
 | Aktion | Wirkung |
 |--------|---------|
 | **Prüfsumme prüfen** | vergleicht das Image mit der hinterlegten Prüfsumme |
-| **Wiederherstellen** | öffnet die Sicherungen des Images |
-| **Speichern** | öffnet die Begleitdateien des Images |
+| **Sicherungen** | öffnet die Sicherungen des Images |
+| **Bearbeiten** | öffnet die Beipack-Dateien des Images |
 | **Vom Server holen** | ersetzt das Image auf dem Satelliten durch das des Schulservers |
 | **Zum Server übertragen** | ersetzt das Image auf dem Schulserver durch das des Satelliten |
 | **Löschen** | löscht das Image samt seinem Verzeichnis |
@@ -283,7 +283,7 @@ Welche Richtung angeboten wird, entscheidet die Plattform aus dem Vergleich mit 
 - Würde die Übertragung die neuere Kopie durch die ältere ersetzen, meldet die Plattform, welche Kopie neuer ist, und startet die Übertragung **nicht**.
 
 :::warning[Was eine Übertragung überschreibt]
-**Vom Server holen** löscht das Imageverzeichnis auf dem Satelliten vollständig – einschließlich aller dortigen Sicherungen und Begleitdateien – und ersetzt es durch den Stand des Servers. **Zum Server übertragen** überschreibt das Image auf dem Schulserver, das auch andere Satelliten nutzen. Beide Schritte lassen sich nicht rückgängig machen.
+**Vom Server holen** löscht das Imageverzeichnis auf dem Satelliten vollständig – einschließlich aller dortigen Sicherungen und Beipack-Dateien – und ersetzt es durch den Stand des Servers. **Zum Server übertragen** überschreibt das Image auf dem Schulserver, das auch andere Satelliten nutzen. Beide Schritte lassen sich nicht rückgängig machen.
 :::
 
 Eine gestartete Übertragung meldet der Satellit nicht zurück. Die Plattform bestätigt nur den Start; den Ausgang sehen Sie, wenn Sie die Liste später neu laden.
@@ -294,20 +294,22 @@ Antwortet der Schulserver nicht auf den Vergleich, bleibt die Spalte **Abgleich*
 
 ##### Sicherungen
 
-Der Dialog listet die Sicherungen des Images mit Zeitpunkt und Dateizahl. Einzelne Sicherungen lassen sich wiederherstellen oder löschen.
+Es öffnet sich derselbe Dialog wie im Bereich **LINBO** der App **Schulserver**. Er listet die Sicherungen des Images mit Zeitpunkt, Dateizahl und Größe. Einzelne Sicherungen lassen sich wiederherstellen oder löschen. Vor beiden Schritten fragt die Plattform nach. Den Hinweis, dass sich eine Wiederherstellung zurücknehmen lässt, und die Einstellungen je Sicherung gibt es hier nicht, denn der Satellit bietet beides nicht an.
 
 :::warning[Wiederherstellen mischt zwei Stände]
-Beim Wiederherstellen wird die Sicherung selbst gelöscht. Dateien, die im Image vorhanden sind, in der Sicherung aber fehlen, bleiben erhalten – das Ergebnis ist also eine Mischung aus beiden Ständen und nicht der Stand der Sicherung. Der Schritt lässt sich nicht rückgängig machen.
+Beim Wiederherstellen wird die Sicherung selbst gelöscht. Dateien, die im Image vorhanden sind, in der Sicherung aber fehlen, bleiben erhalten – das Ergebnis ist also eine Mischung aus beiden Ständen und nicht der Stand der Sicherung. Der Schritt lässt sich nicht rückgängig machen. Die Nachfrage vor dem Wiederherstellen nennt diese Warnung noch einmal.
 :::
 
 Meldet der Satellit den Ausgang der Wiederherstellung nicht zurück, weist die Plattform darauf hin, dass der Vorgang noch laufen kann. Laden Sie die Liste in diesem Fall neu, bevor Sie erneut wiederherstellen.
 
-##### Begleitdateien
+##### Beipack-Dateien
 
-Der Dialog zeigt die Begleitdateien des Images: **desc** (Freitext, den LINBO im Auswahlmenü anzeigt), **info** (vom Satelliten erzeugte Angaben, nur lesbar), **reg** (Registry-Einträge nach der Synchronisation), **prestart** (Skript vor dem Start des Betriebssystems) und **postsync** (Skript nach der Synchronisation).
+Der Dialog zeigt die Beipack-Dateien des Images in denselben Registerkarten wie im Bereich **LINBO** der App **Schulserver**: **Beschreibung**, **Info**, **Registry**, **Pre-Start Script** und **Post-Sync Script**. **Info** enthält die vom Satelliten erzeugten Angaben und ist nur lesbar. Eine **VDI-Konfiguration** bietet der Satellit nicht an.
+
+Anders als am Schulserver speichert **Speichern** nur die Datei der geöffneten Registerkarte. Was Sie in anderen Registerkarten geändert haben, bleibt als Entwurf stehen, bis Sie dort ebenfalls speichern.
 
 :::note[Was sich eine Änderung teilt]
-**reg**, **prestart** und **postsync** gelten gemeinsam für Basis- und Differenzimage – eine Änderung hier wirkt auf beide. Ein leerer Inhalt löscht die Datei nicht, sondern setzt sie auf null Bytes; Begleitdateien zu löschen bietet der Satellit nicht an. Inhalte über 200 KB nimmt der Satellit nicht an und werden nicht gespeichert.
+**reg**, **prestart** und **postsync** gelten gemeinsam für Basis- und Differenzimage – eine Änderung hier wirkt auf beide. Ein leerer Inhalt löscht die Datei nicht, sondern setzt sie auf null Bytes; Beipack-Dateien zu löschen bietet der Satellit nicht an. Inhalte über 200 KB nimmt der Satellit nicht an und werden nicht gespeichert.
 :::
 
 ##### Löschen

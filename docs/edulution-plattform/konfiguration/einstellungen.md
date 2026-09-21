@@ -182,33 +182,9 @@ Diese Signatur wird beim Verfassen einer neuen E-Mail automatisch angefügt. Sie
 Ein Logo in der Standard-Signatur wird jeder gesendeten E-Mail beigefügt. Verwenden Sie deshalb ein möglichst kleines Bild (unter 100 KB), um das Mailaufkommen nicht unnötig zu vergrößern.
 :::
 
-### IMAP Integration
+### Mailserver
 
-Die IMAP-Integration ermöglicht den Zugriff auf externe oder interne IMAP-Server.
-
-**URL**
-- Geben Sie den FQDN (Fully Qualified Domain Name) des IMAP-Servers an
-- Beispiel: `imap.example.com` oder `ui.73.dev.multi.schule`
-- Wird für die Anbindung an den Mail-Server verwendet
-
-**Port**
-- Port-Nummer des IMAP-Servers
-- Standard: **993** (IMAP über SSL/TLS)
-- Alternative: **143** (IMAP mit STARTTLS)
-
-**Sichere Verbindung**
-- Toggle-Schalter zum Aktivieren/Deaktivieren
-- Aktiviert: Verbindung über TLS oder STARTTLS
-- Sollte für Produktivumgebungen immer aktiviert sein
-
-**Nicht zertifizierte Verbindungen ablehnen**
-- Toggle-Schalter für Zertifikatsprüfung
-- Aktiviert: SSL/TLS-Zertifikat wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
-
-:::warning[Sicherheitshinweis]
-In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Nicht zertifizierte Verbindungen ablehnen" einschalten, um die Sicherheit der E-Mail-Kommunikation zu gewährleisten.
-:::
+Die Verbindung des integrierten E-Mail-Clients zum Mailserver richten Sie im Abschnitt **Mailserver** ein: IMAP-, SMTP- und ManageSieve-Server mit ihren Ports sowie die Zertifikatsprüfung. Felder, Voreinstellungen und Verschlüsselung beschreibt [Mail-App konfigurieren → Mailserver](../../edulution-mail/konfiguration/mail-app-konfiguration.md#mailserver).
 
 ### DAV-Verbindung
 
@@ -228,7 +204,7 @@ Setzen Sie **edulution-mail** (mailcow) ein, erreichen Sie den Server direkt üb
 https://mailcowdockerized-nginx-mailcow-1/SOGo/dav/
 ```
 
-Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der **Mailcow-API-URL** im Bereich *Mailserver* derselben App, die denselben Container-Namen **ohne** Pfad verwendet.
+Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der Adresse der Mailcow-API im Abschnitt **URL** derselben App, die denselben Container-Namen **ohne** Pfad verwendet.
 
 Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie deshalb **DAV: Nicht zertifizierte Verbindungen ablehnen** aus, sonst schlägt die Verbindung fehl.
 :::
@@ -236,7 +212,7 @@ Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie
 **DAV: Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung
 - Aktiviert: Das SSL/TLS-Zertifikat des DAV-Servers wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Deaktiviert: Jedes Zertifikat wird akzeptiert – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist
 - Betrifft ausschließlich die DAV-Verbindung, nicht IMAP oder SMTP
 
 **Speichern / Löschen**
@@ -310,10 +286,10 @@ Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic 
 **Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung
 - Aktiviert: Das SSL/TLS-Zertifikat des CalDAV-Servers wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Deaktiviert: Jedes Zertifikat wird akzeptiert – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist
 
 :::warning[Sicherheitshinweis]
-In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" aktiviert lassen, um die Sicherheit der CalDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
+In Produktivumgebungen sollten Sie **Nicht zertifizierte Verbindungen ablehnen** aktiviert lassen, um die Sicherheit der CalDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
 :::
 
 ---
@@ -375,10 +351,10 @@ Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic 
 **Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung
 - Aktiviert: Das SSL/TLS-Zertifikat des CardDAV-Servers wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Deaktiviert: Jedes Zertifikat wird akzeptiert – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist
 
 :::warning[Sicherheitshinweis]
-In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" aktiviert lassen, um die Sicherheit der CardDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
+In Produktivumgebungen sollten Sie **Nicht zertifizierte Verbindungen ablehnen** aktiviert lassen, um die Sicherheit der CardDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
 :::
 
 ---
@@ -410,18 +386,32 @@ Der Klassenraum bindet die Bildschirmüberwachung der Schüler-Geräte über ein
 
 ### Proxy-Tabelle
 
-Die Proxys werden als Tabelle gepflegt. Über den Hinzufügen-Button oben rechts in der Tabelle öffnen Sie den Dialog **Konfiguration erstellen**; ein Klick auf eine bestehende Zeile öffnet **Konfiguration bearbeiten** und bietet dort auch das Löschen an.
+Die Proxys werden als Tabelle gepflegt. Neue Einträge legen Sie im Dialog **Konfiguration erstellen** an; ein Klick auf eine bestehende Zeile öffnet **Konfiguration bearbeiten** und bietet dort auch das Löschen an.
 
 | Feld | Bedeutung |
 |------|-----------|
-| **Subnet** | Subnetz der Schüler-Geräte in CIDR-Notation, z.B. `10.0.0.0/24` |
-| **Proxy Adresse** | URL des Veyon-WebAPI-Proxy, z.B. `https://veyon.ihre-domain.de:11080` |
+| **Subnet** | Subnetz der Schüler-Geräte in CIDR-Notation, z. B. `10.0.0.0/24` |
+| **Proxy Adresse** | URL des Veyon-WebAPI-Proxy, z. B. `https://veyon.ihre-domain.de:11080` |
 
-:::warning[Die Proxy-Adresse muss `https` verwenden]
-Für die Anmeldung an der Veyon-WebAPI sendet edulution das **Passwort der Lehrkraft** an diese Adresse. Über `http` ginge es im Klartext durch das Netz. Adressen ohne `https` werden deshalb bereits im Dialog abgelehnt, und auch das Speichern der App-Konfiguration schlägt mit einer Fehlermeldung fehl.
+:::warning[Die Proxy-Adresse braucht `https`]
+Für die Anmeldung an der Veyon-WebAPI sendet edulution das **Passwort der Lehrkraft** an diese Adresse. Über `http` ginge es im Klartext durch das Netz. Adressen ohne `https` lehnt edulution deshalb schon im Dialog ab, und auch das Speichern der App-Konfiguration schlägt fehl.
 
-Bestehende Konfigurationen mit einer `http`-Adresse bleiben zwar gespeichert, lassen sich aber nicht mehr speichern, ohne die Adresse auf `https` umzustellen. Stellen Sie den Veyon-WebAPI-Proxy daher auf TLS um, bevor Sie die Klassenraum-Einstellungen das nächste Mal bearbeiten.
+Erlaubt bleibt `http` nur dort, wo die Anfrage den Host gar nicht verlässt:
+
+| Fall | Beispiel |
+|------|----------|
+| Proxy auf demselben Host | `http://localhost:11080`, `http://127.0.0.1:11080`, `http://[::1]:11080` |
+| Proxy im selben Docker-Netzwerk, über seinen Servicenamen | `http://veyon-proxy:11080` |
+
+Eine IP-Adresse aus dem Schulnetz zählt **nicht** dazu: `http://10.0.0.5:11080` wird abgelehnt, denn dorthin geht das Passwort durch das Netz. Läuft der Proxy auf einem anderen Rechner, stellen Sie ihn auf TLS um und tragen Sie die `https`-Adresse ein.
 :::
+
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| *Die Proxy-Adresse muss https verwenden, außer der Proxy läuft auf localhost oder im selben Container-Netzwerk. Das Lehrer-Passwort wird an diese Adresse gesendet und ginge sonst im Klartext über das Netz.* | Im Dialog steht eine `http`-Adresse, die auf einen anderen Rechner zeigt. | Proxy auf TLS umstellen und die `https`-Adresse eintragen. |
+| *Die Veyon-Proxy-Adresse muss https verwenden, außer sie zeigt auf localhost oder das selbe Container-Netzwerk, da das Lehrer-Passwort an sie gesendet wird* | Beim Speichern der App-Konfiguration ist eine neue oder geänderte `http`-Adresse enthalten. | Wie oben. |
+
+Eine Zeile, die schon vor dieser Prüfung mit einer entfernten `http`-Adresse gespeichert wurde, bleibt erhalten und wird weiter verwendet; die übrigen Zeilen und Einstellungen lassen sich trotzdem speichern. Bearbeiten lässt sich diese Zeile aber erst wieder, wenn Sie ihre Adresse auf `https` umstellen – auch wenn Sie nur das Subnetz ändern möchten.
 
 :::info[Aktuell wird nur der erste Eintrag verwendet]
 Sie können mehrere Zeilen anlegen, edulution verbindet sich derzeit jedoch immer über die **Proxy Adresse der ersten Zeile**. Das Feld **Subnet** wird noch nicht zur Auswahl des passenden Proxys ausgewertet. Für Schulen mit mehreren Subnetzen bedeutet das: alle Schüler-Geräte müssen über denselben Proxy erreichbar sein.
@@ -429,7 +419,7 @@ Sie können mehrere Zeilen anlegen, edulution verbindet sich derzeit jedoch imme
 
 ### Wenn kein Proxy konfiguriert ist
 
-Ohne konfigurierten Proxy zeigen die Schülerkarten im Unterricht keine Bildschirmvorschau und die Veyon-Aktionen bleiben deaktiviert — die Karte sieht dabei genauso aus wie bei einem ausgeschalteten Gerät. Fehlt die Vorschau für alle Schüler, prüfen Sie zuerst diese Einstellung.
+Ohne konfigurierten Proxy zeigen die Schülerkarten im Unterricht keine Bildschirmvorschau und die Veyon-Aktionen bleiben deaktiviert – die Karte sieht dabei genauso aus wie bei einem ausgeschalteten Gerät. Fehlt die Vorschau für alle Schüler, prüfen Sie zuerst diese Einstellung.
 
 ---
 
@@ -448,9 +438,9 @@ Apps, die Inhalte in einem iframe anzeigen, bringen zwei zusätzliche Bereiche i
 
 ![Container Übersicht](/img/einstellungen/container.webp)
 
-Übersicht aller Docker Container des Systems mit Name, Image, Betriebszustand, Status, Port und Erstellungszeitpunkt. Über die Aktionsleiste am unteren Rand installieren Sie die Container zusätzlicher Dienste, aktualisieren sie und steuern ihren Lebenszyklus.
+Übersicht aller Docker Container des Systems. Ein Symbol vor dem Container-Namen zeigt, ob ein Update bereitliegt. Über die Aktionsleiste installieren Sie die Container zusätzlicher Dienste, aktualisieren sie und steuern ihren Lebenszyklus.
 
-Die vollständige Beschreibung – Aktionen, geschützte Container, Plugin-Installation, Edulution-Manager-Agent und Fehlerbehebung – finden Sie unter [Container-Verwaltung](./container-verwaltung.md).
+Die vollständige Beschreibung – Spalten, Aktionen, geschützte Container, Plugin-Installation, Edulution-Manager-Agent, die tägliche Update-Prüfung und Fehlerbehebung – finden Sie unter [Container-Verwaltung](./container-verwaltung.md).
 
 :::info[Fortgeschrittene Verwaltung]
 Die Container-Übersicht ist für fortgeschrittene Administratoren. Änderungen sollten nur mit entsprechendem Docker-Know-how vorgenommen werden.

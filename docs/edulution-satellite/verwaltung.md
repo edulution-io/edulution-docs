@@ -168,9 +168,7 @@ Die Unterseite **Konfigurationen** listet die Hardwaregruppen, die der Satellit 
 
 Oben rechts wählen Sie zwischen denselben vier Ansichten wie in der [Gruppenliste des Schulservers](../edulution-server/linuxmuster.md#gruppen): **Plattenkarte** (Vorgabe), **Kacheln**, **Datenblatt** und **Tabelle**. Karten und Tabellenspalten sind dort beschrieben und hier dieselben. Es entfallen nur die Auswahlkästchen, die Kachel zum Anlegen und die Aktionen, weil sich die Konfigurationen hier nicht ändern lassen.
 
-:::note[Die Ansichtswahl gilt für beide Bereiche]
-Die gewählte Ansicht wird zusammen mit der Gruppenliste des Schulservers gespeichert. Stellen Sie hier auf **Datenblatt** um, erscheint auch die Gruppenliste im Bereich **LINBO** der App **Schulserver** in dieser Ansicht – und umgekehrt.
-:::
+Die gewählte Ansicht merkt sich die Plattform für diese Seite getrennt von der Gruppenliste des Schulservers: Stellen Sie hier auf **Datenblatt** um, bleibt die Gruppenliste im Bereich **LINBO** der App **Schulserver** in ihrer Ansicht – und umgekehrt.
 
 Über das Suchfeld schränken Sie die Liste auf einen Gruppennamen oder einen Dateinamen wie `start.conf.raum101` ein. Die Zahl der zugeordneten Rechner stammt aus der Hostliste desselben Satelliten: gezählt werden die Rechner, die der Satellit dieser Gruppe zuordnet, nicht die des Linuxmuster-Servers.
 

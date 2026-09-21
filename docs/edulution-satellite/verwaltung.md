@@ -232,17 +232,18 @@ Die Unterseite **Images** verwaltet die LINBO-Images, die auf dem Satelliten sel
 
 Die gewählte Ansicht merkt sich die Plattform für diese Seite getrennt von der Imageliste des Schulservers: Stellen Sie hier auf **Speicher** um, bleibt die Imageliste im Bereich **LINBO** der App **Schulserver** in ihrer Ansicht – und umgekehrt.
 
-Ein Klick auf eine Karte öffnet die Beipack-Dateien des Images; für ein Image im Altformat wird das mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – erreichen Sie in jeder Ansicht gleich: Markieren Sie das Image über das Auswahlkästchen seiner Karte oder Zeile, bietet die Leiste am unteren Rand sie an.
+Ein Klick auf eine Karte öffnet die Beipack-Dateien des Images; für ein Image im Altformat wird das mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – erreichen Sie in jeder Ansicht gleich: Markieren Sie das Image über das Auswahlkästchen seiner Karte oder Zeile, bietet die Leiste am unteren Rand sie an. Ein markiertes Image, das die Suche oder ein Tabellenfilter gerade ausblendet, bleibt markiert, zählt aber nicht mit und wird von keiner Aktion erfasst.
 
 :::note[Die Karten zeigen weniger als am Schulserver]
 Die Imageliste des Satelliten enthält weder die Beschreibung noch Partitionsangaben oder die Prüfsumme. Beschreibung, Partition und Partitionsgröße bleiben in den Karten deshalb leer, und die Füllanzeige der Ansicht **Speicher** entfällt. Das **Datenblatt** weist bei jedem Image *keine Prüfsumme* aus, auch wenn auf dem Satelliten eine hinterlegt ist – ob eine vorliegt, zeigt erst **Prüfsumme prüfen**.
 :::
 
-Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Status**, **Abgleich** und **Geändert**.
+Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Verwendet in**, **Status**, **Abgleich** und **Geändert**.
 
 | Spalte | Bedeutung |
 |--------|-----------|
 | **Typ** | **Basisimage** oder **Differenzimage** |
+| **Verwendet in** | die Gruppen des Satelliten, deren `start.conf` das Image startet – dieselbe Angabe tragen auch die Karten |
 | **Status** | **Verfügbar** – regulär im Imageverzeichnis abgelegt; **Altformat** – außerhalb der Imageverzeichnisse |
 | **Abgleich** | Vergleich mit dem Schulserver: **Satellit neuer**, **Server neuer**, **Gleich alt**, **Nur am Satelliten**, **Nur am Server** oder **Unbekannt** |
 

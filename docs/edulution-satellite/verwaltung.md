@@ -168,9 +168,7 @@ Die Unterseite **Konfigurationen** listet die Hardwaregruppen, die der Satellit 
 
 Oben rechts wählen Sie zwischen denselben vier Ansichten wie in der [Gruppenliste des Schulservers](../edulution-server/linuxmuster.md#gruppen): **Plattenkarte** (Vorgabe), **Kacheln**, **Datenblatt** und **Tabelle**. Karten und Tabellenspalten sind dort beschrieben und hier dieselben. Es entfallen nur die Auswahlkästchen, die Kachel zum Anlegen und die Aktionen, weil sich die Konfigurationen hier nicht ändern lassen.
 
-:::note[Die Ansichtswahl gilt für beide Bereiche]
-Die gewählte Ansicht wird zusammen mit der Gruppenliste des Schulservers gespeichert. Stellen Sie hier auf **Datenblatt** um, erscheint auch die Gruppenliste im Bereich **LINBO** der App **Schulserver** in dieser Ansicht – und umgekehrt.
-:::
+Die gewählte Ansicht merkt sich die Plattform für diese Seite getrennt von der Gruppenliste des Schulservers: Stellen Sie hier auf **Datenblatt** um, bleibt die Gruppenliste im Bereich **LINBO** der App **Schulserver** in ihrer Ansicht – und umgekehrt.
 
 Über das Suchfeld schränken Sie die Liste auf einen Gruppennamen oder einen Dateinamen wie `start.conf.raum101` ein. Die Zahl der zugeordneten Rechner stammt aus der Hostliste desselben Satelliten: gezählt werden die Rechner, die der Satellit dieser Gruppe zuordnet, nicht die des Linuxmuster-Servers.
 
@@ -232,11 +230,9 @@ Beide Angaben stammen aus verschiedenen Abfragen. Scheitert nur der Abbild-Stand
 
 Die Unterseite **Images** verwaltet die LINBO-Images, die auf dem Satelliten selbst liegen, und gleicht sie mit denen des Schulservers ab. Oben rechts wählen Sie zwischen denselben vier Ansichten wie in der [Imageliste des Schulservers](../edulution-server/linuxmuster.md#images): **Datenblatt** (Vorgabe), **Kacheln**, **Speicher** und **Tabelle**. In allen Ansichten schränken Sie die Liste über das Suchfeld auf einen Namen ein.
 
-:::note[Die Ansichtswahl gilt für beide Bereiche]
-Die gewählte Ansicht wird zusammen mit der Imageliste des Schulservers gespeichert. Stellen Sie hier auf **Speicher** um, erscheint auch die Imageliste im Bereich **LINBO** der App **Schulserver** in dieser Ansicht – und umgekehrt.
-:::
+Die gewählte Ansicht merkt sich die Plattform für diese Seite getrennt von der Imageliste des Schulservers: Stellen Sie hier auf **Speicher** um, bleibt die Imageliste im Bereich **LINBO** der App **Schulserver** in ihrer Ansicht – und umgekehrt.
 
-Ein Klick auf eine Karte öffnet die Beipack-Dateien des Images; für ein Image im Altformat wird das wie bei der Zeilenaktion mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – stehen nur in der **Tabelle** zur Verfügung.
+Ein Klick auf eine Karte öffnet die Beipack-Dateien des Images; für ein Image im Altformat wird das mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – erreichen Sie in jeder Ansicht gleich: Markieren Sie das Image über das Auswahlkästchen seiner Karte oder Zeile, bietet die Leiste am unteren Rand sie an.
 
 :::note[Die Karten zeigen weniger als am Schulserver]
 Die Imageliste des Satelliten enthält weder die Beschreibung noch Partitionsangaben oder die Prüfsumme. Beschreibung, Partition und Partitionsgröße bleiben in den Karten deshalb leer, und die Füllanzeige der Ansicht **Speicher** entfällt. Das **Datenblatt** weist bei jedem Image *keine Prüfsumme* aus, auch wenn auf dem Satelliten eine hinterlegt ist – ob eine vorliegt, zeigt erst **Prüfsumme prüfen**.
@@ -253,10 +249,10 @@ Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Status**, **Abgleich** und 
 Images, die nur auf dem Schulserver liegen, führt die **Tabelle** zusätzlich auf: mit **Nur am Server** im Abgleich, Größe und Datum vom Server und ohne Status. Für sie steht nur **Vom Server holen** bereit; die übrigen Aktionen lehnt die Plattform mit einem Hinweis ab, weil das Image auf dem Satelliten noch fehlt. In den Kartenansichten erscheinen solche Images nicht, denn die Karten zeigen die Images auf dem Satelliten.
 
 :::note[Images im Altformat]
-Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Die Aktionen dieser Zeile – Prüfsumme, Sicherungen, Beipack-Dateien und Löschen – werden deshalb nicht ausgeführt, sondern mit einem Hinweis abgelehnt.
+Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Seine Aktionen – Prüfsumme, Sicherungen, Beipack-Dateien und Löschen – werden deshalb nicht ausgeführt, sondern mit einem Hinweis abgelehnt.
 :::
 
-In der Tabelle stehen je Zeile folgende Aktionen bereit:
+Ist genau ein Image markiert, stehen in der Leiste am unteren Rand folgende Aktionen bereit:
 
 | Aktion | Wirkung |
 |--------|---------|

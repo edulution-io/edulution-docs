@@ -270,6 +270,8 @@ Ab **Version 7.4.13** der Linuxmuster-API listet **Sicherungen** je Eintrag Datu
 Vor dem Zurückspielen sichert der Server die aktuelle `start.conf`, sodass sich der Schritt zurücknehmen lässt. Der Server behält die zehn letzten Fassungen und verwirft ältere.
 :::
 
+Nach dem **Wiederherstellen** wendet die Plattform die Gruppe an wie nach dem Speichern im [Gruppen-Editor](#der-gruppen-editor): Sie startet den Geräteimport einer Schule, die die Gruppe per PXE startet, damit das Boot-Menü der zurückgespielten Fassung folgt. Die Meldung nennt diese Schule, sagt, dass noch kein Computer die Gruppe startet, oder dass das Anwenden fehlgeschlagen ist – dann wenden Sie die Geräteliste in der Geräteverwaltung an. Zurückgespielt ist die Datei in jedem Fall.
+
 #### VDI-Konfiguration
 
 Ab **Version 7.4.13** der Linuxmuster-API öffnet **VDI** die Datei `start.conf.<Gruppe>.vdi` der Gruppe. Der Dialog zeigt die Felder, die die Schulkonsole schreibt – darunter **VDI aktiviert**, Name, Hostname, Betriebssystemtyp, IP- und MAC-Adresse, Netzwerkbrücke, Kerne, Arbeitsspeicher und die VM-IDs. **Speichern** ersetzt die Datei als Ganzes, **VDI abschalten** löscht sie; die `start.conf` der Gruppe bleibt in beiden Fällen unberührt.
@@ -277,6 +279,8 @@ Ab **Version 7.4.13** der Linuxmuster-API öffnet **VDI** die Datei `start.conf.
 :::note[Felder außerhalb der Liste bleiben erhalten]
 Die Datei gehört edulution-linbo-vdi. Felder, die der Dialog nicht anzeigt, schreibt die Plattform unverändert zurück, statt sie zu verwerfen.
 :::
+
+Lässt sich die Datei nicht lesen, zeigt der Dialog statt der Felder einen Hinweis und bietet **Speichern** nicht an, denn ein leeres Formular würde die gespeicherte Konfiguration ersetzen. Schließen Sie den Dialog und öffnen Sie ihn erneut. Ebenso bleibt **Speichern** gesperrt, solange ein Zahlenfeld oder die VM-IDs etwas anderes als ganze Zahlen enthalten; mehrere VM-IDs trennen Sie durch Kommas.
 
 #### Die Vorschau
 

@@ -103,6 +103,14 @@ Haben Sie bereits gespeichert, aber noch nicht angewendet, hilft **Zurücksetzen
 
 Markierte Geräte sind im CSV-Dialog bereits nicht mehr enthalten: Die dort angezeigte und die heruntergeladene Datei entsprechen der Liste **ohne** diese Geräte.
 
+:::note Während Speichern oder Anwenden läuft
+Mit **Speichern** oder **Anwenden** gehen die Löschmarkierungen in den laufenden Vorgang ein. Schlägt er fehl, stellt die Tabelle den Stand von davor wieder her: Die betroffenen Geräte stehen wieder an ihrer ursprünglichen Position in der Liste und bleiben zum Entfernen markiert – Ihre Auswahl geht dabei nicht verloren.
+
+Die Tabelle bleibt währenddessen bearbeitbar. Änderungen, die Sie in dieser Zeit vornehmen, bleiben erhalten, gehören aber nicht zum laufenden Vorgang: Sie bleiben als ungespeichert hervorgehoben und benötigen einen weiteren **Speichern**-Vorgang.
+
+Übernehmen Sie in dieser Zeit einen Inhalt aus dem CSV-Dialog, hat dieser Vorrang: Er ersetzt die Tabelle, alle Löschmarkierungen entfallen, und das Ergebnis des laufenden Vorgangs wird verworfen. Dasselbe gilt, wenn Sie währenddessen die Schule wechseln.
+:::
+
 ### Validierung
 
 Vor dem Speichern werden alle Felder geprüft. Ungültige Werte und doppelte Einträge (bei **Rechnername**, **MAC** und **IP**) werden mit einem roten Rand markiert und verhindern das Speichern und Anwenden. Für ungültige wie für doppelte Werte erscheint dieselbe Meldung: *„Bitte korrigieren Sie alle ungültigen Felder vor dem Speichern“*.
@@ -125,6 +133,10 @@ Nach der Bestätigung laufen die Meldungen *„Geräteliste wird angewendet…�
 
 :::warning
 Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen. Wenden Sie Änderungen möglichst außerhalb des Unterrichts an.
+:::
+
+:::warning Fehler beim Import
+**Anwenden** legt die Geräteliste zuerst auf dem Server ab und startet den Import erst danach. Schlägt allein der Importlauf fehl, ist die Liste bereits gespeichert: Die zum Entfernen markierten Geräte kehren dann **nicht** in die Tabelle zurück, und die Liste gilt als gespeichert. Wiederholen Sie in diesem Fall **Anwenden**, um den Import erneut anzustoßen.
 :::
 
 </Audience>

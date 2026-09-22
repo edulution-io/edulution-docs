@@ -140,7 +140,7 @@ Die schreibenden Aktionen **Speichern** und **Prüfen** – und damit das anschl
 :::
 
 :::note[Während des Speicherns]
-Sobald Sie **Speichern** oder **Prüfen** auslösen, verschwinden die zur Löschung markierten Zeilen unmittelbar aus der Tabelle – noch bevor der Server geantwortet hat. Schlägt der Vorgang fehl, kehren sie an ihre ursprüngliche Position zurück und bleiben zur Löschung markiert – Ihre Auswahl geht dabei nicht verloren.
+Mit **Speichern** oder **Prüfen** gehen die Löschmarkierungen in den laufenden Vorgang ein. Schlägt er fehl, stellt die Tabelle den Stand von davor wieder her: Die betroffenen Zeilen stehen wieder an ihrer ursprünglichen Position in der Liste und bleiben zur Löschung markiert – Ihre Auswahl geht dabei nicht verloren.
 
 Die Tabelle bleibt während des Speicherns bearbeitbar. Änderungen, die Sie in dieser Zeit vornehmen, bleiben erhalten, gehören aber nicht zum laufenden Speichervorgang: Sie werden weiterhin als ungespeichert hervorgehoben und benötigen einen weiteren **Speichern**-Vorgang.
 

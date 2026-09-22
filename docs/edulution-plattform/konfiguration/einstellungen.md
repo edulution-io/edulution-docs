@@ -473,6 +473,8 @@ Umgekehrt heißt das: Inhalte auf einer fremden Domain erhalten ohne Ihre Freiga
 
 Speichern Sie die App-Einstellungen anschließend über **Speichern**. Enthält die Auswahl einen Eintrag außerhalb der vorgegebenen Liste, lehnt edulution das Speichern mit der Meldung **"Die ausgewählten Berechtigungen enthalten einen unbekannten Eintrag"** ab.
 
+Eine gespeicherte Änderung der Auswahl wirkt sofort: Bei Benutzern, die die App gerade geöffnet haben, wird der eingebettete Inhalt neu geladen – was sie darin gerade bearbeiten, geht dabei verloren.
+
 ---
 
 ## Container

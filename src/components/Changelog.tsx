@@ -187,6 +187,20 @@ const ImageCarousel: React.FC<{ images: { url: string; alt: string }[] }> = ({ i
   );
 };
 
+const GREEN_TAG_CLASS = 'bg-[rgba(136,216,64,0.15)] text-[var(--edu-green-text)] border-[#8FC046]/30';
+const LINK_CLASS =
+  'text-sky-700 dark:text-sky-400 underline decoration-sky-700/40 dark:decoration-sky-400/40 underline-offset-2 transition-colors hover:text-gray-900 dark:hover:text-white hover:decoration-gray-900/40 dark:hover:decoration-white/40';
+const CARD_CLASS =
+  'mt-6 p-6 rounded-xl bg-gradient-to-br from-[#8FC046]/10 to-white border border-[#8FC046]/30 shadow-sm dark:from-gray-900/50 dark:to-gray-800/30 dark:border-gray-800/50 dark:shadow-none';
+const CARD_HEADING_CLASS = 'flex items-center gap-3 text-lg font-semibold leading-6 text-gray-900 dark:text-white mb-6';
+const CARD_ITEM_CLASS =
+  'relative pl-6 text-sm leading-7 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors';
+const LINK_BUTTON_CLASS =
+  'inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[var(--edu-green-text)] bg-[#8FC046]/5 rounded-lg border border-[#8FC046]/20 hover:bg-[#8FC046]/10 hover:border-[#8FC046]/40 transition-all duration-200';
+const FILTER_BUTTON_ACTIVE_CLASS = 'bg-[#8FC046] text-black shadow-lg shadow-[#8FC046]/20';
+const FILTER_BUTTON_IDLE_CLASS =
+  'text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5';
+
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
   return date.toLocaleDateString('de-DE', {
@@ -198,16 +212,16 @@ const formatDate = (dateString: string) => {
 
 const Tag: React.FC<{ tag: string }> = ({ tag }) => {
   const colors: Record<string, string> = {
-    'edulution-plattform': 'bg-[rgba(136,216,64,0.15)] text-[#4e7a13] dark:text-[#8FC046] border-[#8FC046]/30',
-    // Legacy-Tag früherer Releases – gleiche Farbe wie 'edulution-plattform'
-    'edulution-ui': 'bg-[rgba(136,216,64,0.15)] text-[#4e7a13] dark:text-[#8FC046] border-[#8FC046]/30',
+    'edulution-plattform': GREEN_TAG_CLASS,
+    // Legacy-Tag früherer Releases
+    'edulution-ui': GREEN_TAG_CLASS,
     'edulution-mail': 'bg-[rgba(0,129,198,0.15)] text-[#0081c6] border-[#0081c6]/30',
     'edulution-fileproxy': 'bg-[rgba(220,38,38,0.15)] text-[#dc2626] border-[#dc2626]/30',
     'edulution-backend': 'bg-[rgba(255,215,0,0.15)] text-[#806400] dark:text-[#FFD700] border-[#FFD700]/30',
     'edulution-app': 'bg-[rgba(147,51,234,0.15)] text-[#9333ea] border-[#9333ea]/30',
   };
 
-  const colorClass = colors[tag] || 'bg-[rgba(136,216,64,0.15)] text-[#4e7a13] dark:text-[#8FC046] border-[#8FC046]/30';
+  const colorClass = colors[tag] || GREEN_TAG_CLASS;
 
   return (
     <span
@@ -234,7 +248,7 @@ const FeatureTag: React.FC<{ type: string }> = ({ type }) => {
     lmn73: 'LMN73',
   };
 
-  const colorClass = colors[type] || 'bg-[rgba(136,216,64,0.15)] text-[#4e7a13] dark:text-[#8FC046] border-[#8FC046]/30';
+  const colorClass = colors[type] || GREEN_TAG_CLASS;
   const label = labels[type] || type;
 
   return (
@@ -302,7 +316,7 @@ const renderMarkdown = (text: string) => {
           <a
             key={key++}
             href={linkMatch[2]}
-            className="text-sky-700 dark:text-sky-400 underline decoration-sky-700/40 dark:decoration-sky-400/40 underline-offset-2 transition-colors hover:text-gray-900 dark:hover:text-white hover:decoration-gray-900/40 dark:hover:decoration-white/40"
+            className={LINK_CLASS}
           >
             {linkMatch[1]}
           </a>,
@@ -319,7 +333,7 @@ const renderMarkdown = (text: string) => {
           >
             <a
               href={linkMatch[2]}
-              className="text-sky-700 dark:text-sky-400 underline decoration-sky-700/40 dark:decoration-sky-400/40 underline-offset-2 transition-colors hover:text-gray-900 dark:hover:text-white hover:decoration-gray-900/40 dark:hover:decoration-white/40"
+              className={LINK_CLASS}
             >
               {linkMatch[1]}
             </a>
@@ -511,9 +525,9 @@ export const ChangelogItem: React.FC<{
                   return (
                     <div
                       key={idx}
-                      className="mt-6 p-6 rounded-xl bg-gradient-to-br from-[#8FC046]/10 to-white border border-[#8FC046]/30 shadow-sm dark:from-gray-900/50 dark:to-gray-800/30 dark:border-gray-800/50 dark:shadow-none"
+                      className={CARD_CLASS}
                     >
-                      <h3 className="flex items-center gap-3 text-lg font-semibold leading-6 text-gray-900 dark:text-white mb-6">
+                      <h3 className={CARD_HEADING_CLASS}>
                         <div className="p-2 rounded-lg bg-[#8FC046]/10">
                           <SparkleIcon />
                         </div>
@@ -523,7 +537,7 @@ export const ChangelogItem: React.FC<{
                         {block.items.map((item, itemIdx) => (
                           <li
                             key={itemIdx}
-                            className="relative pl-6 text-sm leading-7 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors"
+                            className={CARD_ITEM_CLASS}
                           >
                             <span className="absolute left-0 top-[0.6rem] w-1.5 h-1.5 rounded-full bg-[#8FC046]"></span>
                             {renderTextWithTags(item)}
@@ -542,7 +556,7 @@ export const ChangelogItem: React.FC<{
                     >
                       <a
                         href={block.url}
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#4e7a13] dark:text-[#8FC046] bg-[#8FC046]/5 rounded-lg border border-[#8FC046]/20 hover:bg-[#8FC046]/10 hover:border-[#8FC046]/40 transition-all duration-200"
+                        className={LINK_BUTTON_CLASS}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -582,8 +596,8 @@ export const ChangelogItem: React.FC<{
               )}
 
               {entry.improvements && entry.improvements.length > 0 && (
-                <div className="mt-6 p-6 rounded-xl bg-gradient-to-br from-[#8FC046]/10 to-white border border-[#8FC046]/30 shadow-sm dark:from-gray-900/50 dark:to-gray-800/30 dark:border-gray-800/50 dark:shadow-none">
-                  <h3 className="flex items-center gap-3 text-lg font-semibold leading-6 text-gray-900 dark:text-white mb-6">
+                <div className={CARD_CLASS}>
+                  <h3 className={CARD_HEADING_CLASS}>
                     <div className="p-2 rounded-lg bg-[#8FC046]/10">
                       <SparkleIcon />
                     </div>
@@ -593,7 +607,7 @@ export const ChangelogItem: React.FC<{
                     {entry.improvements.map((improvement, idx) => (
                       <li
                         key={idx}
-                        className="relative pl-6 text-sm leading-7 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors"
+                        className={CARD_ITEM_CLASS}
                       >
                         <span className="absolute left-0 top-[0.6rem] w-1.5 h-1.5 rounded-full bg-[#8FC046]"></span>
                         {renderMarkdown(improvement)}
@@ -609,7 +623,7 @@ export const ChangelogItem: React.FC<{
                     <a
                       key={idx}
                       href={link.url}
-                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#4e7a13] dark:text-[#8FC046] bg-[#8FC046]/5 rounded-lg border border-[#8FC046]/20 hover:bg-[#8FC046]/10 hover:border-[#8FC046]/40 transition-all duration-200"
+                      className={LINK_BUTTON_CLASS}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -712,8 +726,8 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
                 onClick={() => setSelectedTag('all')}
                 className={`px-5 py-3 text-sm font-semibold rounded-xl transition-all duration-200 ${
                   selectedTag === 'all'
-                    ? 'bg-[#8FC046] text-black shadow-lg shadow-[#8FC046]/20'
-                    : 'text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5'
+                    ? FILTER_BUTTON_ACTIVE_CLASS
+                    : FILTER_BUTTON_IDLE_CLASS
                 }`}
                 style={selectedTag !== 'all' ? { background: 'var(--ifm-background-surface-color)' } : undefined}
               >
@@ -725,8 +739,8 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
                   onClick={() => setSelectedTag(tag)}
                   className={`px-5 py-3 text-sm font-semibold rounded-xl transition-all duration-200 ${
                     selectedTag === tag
-                      ? 'bg-[#8FC046] text-black shadow-lg shadow-[#8FC046]/20'
-                      : 'text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5'
+                      ? FILTER_BUTTON_ACTIVE_CLASS
+                      : FILTER_BUTTON_IDLE_CLASS
                   }`}
                   style={selectedTag !== tag ? { background: 'var(--ifm-background-surface-color)' } : undefined}
                 >

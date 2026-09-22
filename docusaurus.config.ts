@@ -356,14 +356,15 @@ const config: Config = {
     },
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: true,
+      disableSwitch: false,
       respectPrefersColorScheme: false,
     },
     navbar: {
       title: '',
       logo: {
         alt: 'edulution Logo',
-        src: '_static/edulution_docs.png',
+        src: '_static/edulution_docs_navbar_light.png',
+        srcDark: '_static/edulution_docs_navbar_dark.png',
       },
       items: [
         {

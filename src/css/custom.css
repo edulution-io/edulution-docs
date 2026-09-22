@@ -360,6 +360,20 @@ table.mail-compat-table tbody td:first-child {
   opacity: 0.9;
 }
 
+/* Docusaurus renders the sidebar collapse button as .button--secondary; keep it out of the blue above. */
+[data-theme="dark"] .theme-doc-sidebar-container .button--secondary {
+  background-color: var(--docusaurus-collapse-button-bg);
+  border: 1px solid var(--ifm-toc-border-color);
+  color: var(--ifm-font-color-base);
+}
+
+.theme-doc-sidebar-container .button--secondary:hover,
+.theme-doc-sidebar-container .button--secondary:focus-visible {
+  background-color: var(--docusaurus-collapse-button-bg-hover);
+  color: var(--ifm-color-primary);
+  opacity: 1;
+}
+
 /* Links - green accent (primary color) */
 [data-theme="dark"] a {
   color: #8fc046;

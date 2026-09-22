@@ -109,6 +109,7 @@ Bilddateien werden in der Dateiliste mit einem kleinen Vorschaubild statt eines 
 - Die Vorschaubilder werden erst geladen, wenn Sie beim Scrollen in Sichtweite kommen
 - Der Server erzeugt sie einmalig und legt sie zwischengespeichert ab, sodass ein erneuter Besuch des Ordners schneller ist
 - Lässt sich für eine Datei kein Vorschaubild erzeugen, erscheint wieder das normale Dateisymbol
+- Für Bilder, die größer als 25 MB sind, wird kein Vorschaubild erzeugt – sie behalten das normale Dateisymbol. In voller Größe öffnen lassen sie sich trotzdem mit einem Klick auf den Dateinamen
 
 ### Wiedergabe
 
@@ -157,7 +158,7 @@ Es erscheint nur bei textbasierten Dateien und nur in der Ansicht. Wechseln Sie 
 Die Adresse eines Vorschau-Tabs gilt nur im eigenen Browser und lässt sich nicht weitergeben. Erstellen Sie zum Teilen einen [Freigabe-Link](./teilen.md). Siehe [Der Link zur Vorschau im eigenen Tab](#der-link-zur-vorschau-im-eigenen-tab).
 
 **Statt eines Vorschaubildes sehe ich das allgemeine Dateisymbol.**
-Vorschaubilder werden nur für Bilddateien erzeugt. Bei sehr großen oder beschädigten Bildern kann die Erzeugung fehlschlagen – die Datei selbst bleibt davon unberührt.
+Vorschaubilder werden nur für Bilddateien erzeugt. Zu große Bilder, beschädigte Bilder und Dateien, die trotz Bild-Endung kein Bild enthalten, zeigen deshalb das allgemeine Dateisymbol – die Datei selbst bleibt davon unberührt.
 
 ## Siehe auch
 

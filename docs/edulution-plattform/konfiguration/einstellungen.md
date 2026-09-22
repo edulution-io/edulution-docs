@@ -135,11 +135,39 @@ Im Abschnitt **Webhooks** registrieren Sie die Dienste, die Ereignisse an edulut
 
 ---
 
+## Proxy-Konfiguration
+
+Manche Apps sind nur erreichbar, wenn edulution die Anfragen an den passenden Dienst weiterleitet. Diese Weiterleitung pflegen Sie im Abschnitt **Proxy-Konfiguration** in den Einstellungen der jeweiligen App. Der Schalter **Expertenmodus** gibt den YAML-Editor frei, **Vorlage** füllt ihn mit der passenden Route – dasselbe Bedienprinzip wie bei der [Wiki-Proxy-Konfiguration](./wiki-einstellungen.md#proxy-konfiguration-erweitert).
+
+:::warning[Eine fehlerhafte Konfiguration macht die App unerreichbar]
+Über diese Route wird die App aufgerufen. Ändern Sie sie nur, wenn Sie wissen, welche Weiterleitung Sie brauchen, und rufen Sie die App danach im Browser auf.
+:::
+
+### Automatischer Abgleich
+
+Für **E-Mails**, **Dateien**, **WireGuard** und **Desktop** liefert edulution die passende Route mit. Bei jedem Start der edulution-API – also nach einem Update, einem Neustart des Containers `edulution-api` oder des Servers – prüft edulution, ob eine neuere Fassung vorliegt, und übernimmt sie. So erhalten auch bestehende Installationen Weiterleitungen, die erst später hinzugekommen sind. Alle übrigen Apps sind vom Abgleich nicht betroffen: Deren Proxy-Konfiguration entsteht aus Ihren eigenen Angaben und bleibt unverändert.
+
+Der Abgleich richtet dabei nichts neu ein: Er greift nur dort, wo bereits eine Proxy-Konfiguration hinterlegt ist. Die erste tragen Sie selbst ein – am einfachsten über **Vorlage**. Haben Sie die Konfiguration einer App bewusst geleert, bleibt sie leer.
+
+Sobald eine neue Fassung mitgeliefert wird, ersetzt der Abgleich jeden Abschnitt der obersten Ebene, den die mitgelieferte Fassung enthält, vollständig – eigene Änderungen innerhalb dieser Abschnitte gehen dabei verloren. Abschnitte, die die mitgelieferte Fassung nicht kennt – etwa ein eigener `tcp:`-Abschnitt –, bleiben erhalten. Eine Route, die Sie von Hand eingetragen statt über **Vorlage** übernommen haben, gleicht bereits der nächste Start ab – das betrifft auch jede bestehende Installation beim ersten Start nach dem Update.
+
+Im Protokoll des Containers `edulution-api` vermerkt edulution eine Warnung, wenn eigene Abschnitte erhalten geblieben sind oder wenn sich die Konfiguration nicht zusammenführen ließ. Letzteres passiert, wenn sich Ihre gespeicherte Konfiguration nicht als YAML mit Abschnitten lesen lässt – dann ersetzt der Abgleich sie vollständig, und auch eigene Abschnitte gehen verloren. Notieren Sie sich deshalb Anpassungen, auf die Ihre Installation angewiesen ist, und rufen Sie nach einem Update die betroffenen Apps einmal auf, um zu prüfen, ob sie noch erreichbar sind.
+
+Bei **Dateien** richtet sich die Route nach dem eingestellten Dokumenten-Editor: Abgeglichen wird immer die Route des Editors, der unter **Aktiver Dokumenten-Editor** ausgewählt ist. Wechseln Sie den Editor, übernimmt der nächste Start dessen Route.
+
+:::info[Ohne Internetverbindung bleibt alles, wie es ist]
+Die mitgelieferten Routen werden beim Start aus dem Internet abgerufen. Ist das nicht möglich, bleibt Ihre vorhandene Konfiguration bestehen und das System startet normal. Im Protokoll des Containers `edulution-api` steht dann ein Fehler, der mit `Could not sync` beginnt und die betroffene Datei samt Ursache nennt. Der Abgleich wird beim nächsten Start erneut versucht.
+:::
+
+---
+
 ## E-Mails
 
 ![E-Mail Einstellungen](/img/einstellungen/email-settings.webp)
 
 Die E-Mail-Einstellungen ermöglichen die Konfiguration der Mail-App und des SOGo Webmailers.
+
+Die Route, über die SOGo und ActiveSync erreichbar sind, pflegen Sie hier ebenfalls – siehe [Proxy-Konfiguration](#proxy-konfiguration). Sie wird automatisch abgeglichen.
 
 ### Sortierung
 

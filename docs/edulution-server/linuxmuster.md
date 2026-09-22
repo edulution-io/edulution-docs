@@ -34,8 +34,8 @@ Die **Elternzuweisung** erscheint nur in Schulumgebungen. Beim [Organisationstyp
 Die Bereiche der App **Schulserver** stehen **Globaladmins** und **Schuladmins** offen. Andere Rollen haben gegenüber Linuxmuster keine Verwaltungsrechte – daran ändert auch der Zugriff auf die App nichts.
 :::
 
-:::note[LINBO nur für Globaladmins]
-Der Eintrag **LINBO** in der Seitenleiste – und die gleichnamige Kachel der Übersicht – ist ausschließlich **Globaladmins** vorbehalten. Für alle anderen Rollen entfällt der Bereich; die übrigen Einträge der App bleiben davon unberührt.
+:::note[Wer LINBO erreicht]
+Der Eintrag **LINBO** in der Seitenleiste – und die gleichnamige Kachel der Übersicht – steht **Globaladmins** immer offen. **Schuladmins** erreichen den Bereich ab **Version 7.4.13** der Linuxmuster-API; mit einer älteren API entfällt er für sie. Für alle anderen Rollen entfällt der Bereich ganz; die übrigen Einträge der App bleiben davon unberührt.
 :::
 
 Die **Übersicht** ist nach denselben Bereichen gegliedert wie die Seitenleiste. Unter **Benutzerverwaltung** führt je eine Kachel direkt zu den Benutzertypen **Schüler**, **Lehrer**, **Extra-Schüler**, **Eltern**, **Mitarbeiter**, **Schuladmins** und **Globaladmins**; in Unternehmensumgebungen bleiben davon nur **Mitarbeiter** und **Globaladmins** sichtbar. Darunter folgen die Bereiche **Geräteverwaltung**, **Elternzuweisung**, **LINBO** und **System** mit je einer Kachel. Die Kachel **LINBO** öffnet dieselbe Übersicht wie der gleichnamige Eintrag in der Seitenleiste.
@@ -176,6 +176,12 @@ Darunter erzeugt der **DHCP-Export** aus den erfassten Geräten und Gruppen eine
 Die Hostliste ist über Registerkarten nach Gerätetyp gefiltert: **Alle**, **Computer**, **Server**, **Drucker**, **iPads** und **Sonstige**. Geräte mit einer Rolle, die keiner dieser Gruppen entspricht, erscheinen unter *Sonstige*. Zusätzlich lässt sich über das Filtersymbol in der Suchleiste nach einer oder mehreren **Gruppen** einschränken.
 
 Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**.
+
+:::note[Hostliste und Schulbindung]
+Die Registerkarte **Hosts** erreicht, wer auch den Bereich **LINBO** erreicht: **Globaladmins** immer, **Schuladmins** ab **Version 7.4.13** der Linuxmuster-API. Zuvor blieb die Registerkarte auch einem Schuladmin verborgen, dem die API LINBO bereits geöffnet hatte.
+
+Anders als die Gruppen sind Hosts schulgebunden. Ein Schuladmin sieht die Rechner seiner eigenen Schule, und jede Aktion – **Wake-on-LAN**, **Neu starten**, **Herunterfahren**, ein Kommando aus dem Aktionsdialog oder ein **Hostscan** – wirkt auf diese Schule. Nennt eine Anfrage eine andere Schule, antwortet die Plattform mit *„Du hast keine Berechtigung, auf diese Ressource zuzugreifen."*, ohne die Anfrage an den Server weiterzugeben. Ein Globaladmin wählt über die **Schulauswahl** jede Schule des Servers.
+:::
 
 :::note[Status und geplante Aktionen]
 **Status** und **Geplant** bleiben ohne einen edulution-Satellite leer: der Online-/Offline-Zustand ist über die Linuxmuster-API allein nicht verfügbar, und geplante Aktionen werden vom Satellite verwaltet. Beide Spalten sind in dieser Version noch nicht angebunden.

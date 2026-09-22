@@ -111,9 +111,14 @@ Der Bereich erscheint nur in Schulumgebungen.
 
 ![Tabelle der Eltern-Schüler-Zuweisungen mit Spalten Elternteil, Schüler, Status und Erstellt am](/img/eltern-schueler-zuordnung/elternzuweisung-tabelle.png)
 
-Die Tabelle zeigt **Elternteil**, **Schüler**, **Status** und **Erstellt am**. Beim Öffnen sind nur
-die **ausstehenden** Anfragen gefiltert; über den Status-Filter blenden Sie auch akzeptierte,
-abgelehnte oder alle ein.
+Die Tabelle zeigt **Elternteil**, **Schüler**, **Status** und **Erstellt am**.
+
+:::info[Akzeptierte und abgelehnte Anfragen sind ausgeblendet]
+Der Status-Filter steht zu Beginn auf **Ausstehend**. Eine Anfrage, die Sie akzeptieren oder
+ablehnen, verschwindet deshalb sofort aus der Tabelle – sie ist nicht gelöscht. Um sie wieder zu
+sehen, etwa um eine Ablehnung zurückzunehmen, wählen Sie im Status-Filter **Akzeptiert**,
+**Abgelehnt** oder **Alle**. Ihre Wahl gilt bis zur Abmeldung.
+:::
 
 Die Tabelle enthält nur Anfragen, die über einen Code entstanden sind. Eltern, die direkt in der
 [Benutzerverwaltung](./benutzerverwaltung.md) zugeordnet wurden, stehen hier nicht – Eltern und
@@ -135,15 +140,18 @@ Wer nicht entscheiden darf, sieht **Akzeptieren** und **Ablehnen** trotzdem. Ein
 
 ### Anfragen entscheiden
 
+Solange eine Anfrage **Ausstehend** ist, ändert sich auf dem Linuxmuster-Server nichts – erst die
+Entscheidung schreibt ins AD.
+
 Wählen Sie in der Zeile **Akzeptieren** oder **Ablehnen**. Für mehrere Anfragen auf einmal wählen
 Sie die Zeilen aus; die beiden Schaltflächen erscheinen dann in der Leiste mit den schwebenden
 Schaltflächen.
 
 | Aktion | Wirkung |
 | --- | --- |
-| **Akzeptieren** | trägt das Elternteil auf dem Linuxmuster-Server beim Kind ein. Schlägt das fehl, erscheint eine Fehlermeldung und die Anfrage bleibt, wie sie war. |
+| **Akzeptieren** | nimmt das Elternteil in die Gruppen `<schüler>-parents` und `<klasse>-parents` auf. Fehlt `<schüler>-parents` noch, legt der Linuxmuster-Server sie dabei an. Schlägt das fehl, erscheint eine Fehlermeldung und die Anfrage bleibt, wie sie war. |
 | **Ablehnen** einer ausstehenden Anfrage | schließt die Anfrage. Eltern und Kind können sie nicht erneut stellen. |
-| **Ablehnen** einer akzeptierten Anfrage | entfernt das Elternteil wieder vom Kind. |
+| **Ablehnen** einer akzeptierten Anfrage | nimmt das Elternteil aus beiden Gruppen wieder heraus. Die Gruppe `<schüler>-parents` selbst bleibt bestehen. |
 | **Akzeptieren** einer abgelehnten Anfrage | holt eine versehentliche Ablehnung zurück – der einzige Weg, denn eine neue Anfrage für dasselbe Paar ist nicht möglich. |
 
 | Meldung | Bedeutung |

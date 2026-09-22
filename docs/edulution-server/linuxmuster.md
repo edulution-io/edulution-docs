@@ -106,49 +106,66 @@ Die Namensregeln gelten nur für neue und geänderte Zeilen. Eine Zeile, die unv
 Sobald Sie in dieser Zeile irgendeinen Wert ändern, muss sie den Regeln entsprechen. Das gilt auch nach dem Einlesen einer CSV-Datei: Eine eingelesene Zeile, die mit einer gespeicherten Zeile vollständig übereinstimmt, gilt als unverändert. Doppelte Einträge sowie ungültige MAC- und IP-Adressen werden dagegen immer abgewiesen.
 :::
 
+:::tip[Ausführliche Anleitung]
+Wie Sie Geräte entfernen, was **Speichern** und **Anwenden** dabei jeweils bewirken, was bei einem fehlgeschlagenen Vorgang mit Ihren Änderungen geschieht, wie der CSV-Dialog die Tabelle ersetzt und was mit Kommentarzeilen geschieht, beschreibt die [Geräteverwaltung](../edulution-plattform/apps/native-apps/geraeteverwaltung.md).
+:::
+
 ## Elternzuweisung
 
 Hier geben Sie die Verknüpfungen frei, die Eltern und Schüler selbst über einen Zuweisungs-Code
-angefragt haben (*„Eltern-Schüler-Zuweisungen verwalten."*). Wie die Anfrage entsteht, beschreibt
+angefragt haben. Wie die Anfrage entsteht, beschreibt
 [Benutzereinstellungen → Meine Kinder/Eltern](../edulution-plattform/uebersicht/benutzereinstellungen/meine-kinder-eltern.md).
-
-![Kachel „Elternzuweisung" auf der Übersichtsseite der Schulserver-App](/img/eltern-schueler-zuordnung/elternzuweisung-kachel.png)
-
-:::note[Zu welcher Schule eine Anfrage gehört]
-Eine Anfrage gehört immer zur **Schule des Schülers**. Gehören Kind und Elternteil verschiedenen
-Schulen an, erscheint sie deshalb nur in der Schule des Kindes und wird auch nur dort freigegeben.
-:::
-
-Die Tabelle zeigt die Zuordnungen mit folgenden Spalten; die Fußzeile nennt die Zahl der
-ausgewählten Einträge.
+Der Bereich erscheint nur in Schulumgebungen.
 
 ![Tabelle der Eltern-Schüler-Zuweisungen mit Spalten Elternteil, Schüler, Status und Erstellt am](/img/eltern-schueler-zuordnung/elternzuweisung-tabelle.png)
 
-| Spalte | Inhalt |
-| --- | --- |
-| **Elternteil** | Das anfragende bzw. zugeordnete Elternteil |
-| **Schüler** | Der zugeordnete Schüler |
-| **Status** | Ausstehend, Akzeptiert oder Abgelehnt |
-| **Erstellt am** | Zeitpunkt der Anfrage |
+Die Tabelle zeigt **Elternteil**, **Schüler**, **Status** und **Erstellt am**.
 
-### Anfragen bearbeiten
-
-Über die Aktionen einer Zeile geben Sie eine Anfrage frei (**Akzeptieren**) oder lehnen sie ab (**Ablehnen**). Sie können mehrere Einträge auswählen und über die Schaltflächen am unteren Rand gemeinsam bearbeiten. Nach der Bearbeitung erscheint die Rückmeldung *„Status erfolgreich aktualisiert."*.
-
-- Mit **Akzeptieren** wird die Verknüpfung in der Linuxmuster-Umgebung eingerichtet – das Elternteil wird dem Schülerkonto zugeordnet.
-- Mit **Ablehnen** einer bereits akzeptierten Zuordnung wird die Verknüpfung wieder entfernt.
-
-### Filtern und suchen
-
-- Über das **Suchfeld** filtern Sie die Tabelle nach Elternteil oder Schüler (*„Nach Elternteil oder Schüler suchen…"*).
-- Ein **Status-Filter** blendet gezielt *Alle*, *Ausstehend*, *Akzeptiert* oder *Abgelehnt* ein. Standardmäßig sind die **ausstehenden** Anfragen vorausgewählt.
-- Über die **Schulauswahl** oben rechts bearbeiten **Globaladmins** die Anfragen einer anderen Schule.
-
-![Geöffneter Status-Filter mit den Optionen Alle, Ausstehend, Akzeptiert und Abgelehnt](/img/eltern-schueler-zuordnung/elternzuweisung-filter.png)
-
-:::info[Nur in Schulumgebungen]
-Der Bereich erscheint ausschließlich in Schulumgebungen.
+:::info[Akzeptierte und abgelehnte Anfragen sind ausgeblendet]
+Der Status-Filter steht zu Beginn auf **Ausstehend**. Eine Anfrage, die Sie akzeptieren oder
+ablehnen, verschwindet deshalb sofort aus der Tabelle – sie ist nicht gelöscht. Um sie wieder zu
+sehen, etwa um eine Ablehnung zurückzunehmen, wählen Sie im Status-Filter **Akzeptiert**,
+**Abgelehnt** oder **Alle**. Ihre Wahl gilt bis zur Abmeldung.
 :::
+
+Die Tabelle enthält nur Anfragen, die über einen Code entstanden sind. Eltern, die direkt in der
+[Benutzerverwaltung](./benutzerverwaltung.md) zugeordnet wurden, stehen hier nicht – Eltern und
+Kind sehen sie trotzdem als **Akzeptiert**.
+
+### Wer entscheidet
+
+Eine Anfrage gehört zur **Schule des Kindes**, auch wenn das Elternteil an einer anderen Schule
+geführt wird.
+
+| Rolle | Darf |
+| --- | --- |
+| **Globaladmins** | Anfragen aller Schulen sehen und entscheiden; die Schule wählen sie über die Schulauswahl |
+| **Schuladmins** | Anfragen der eigenen Schule sehen und entscheiden |
+| andere Rollen mit Zugriff auf den Schulserver | Anfragen der eigenen Schule sehen, aber nicht entscheiden |
+
+Wer nicht entscheiden darf, sieht **Akzeptieren** und **Ablehnen** trotzdem. Ein Klick führt zu
+*„Du hast keine Berechtigung, auf diese Ressource zuzugreifen.“*, der Status bleibt unverändert.
+
+### Anfragen entscheiden
+
+Solange eine Anfrage **Ausstehend** ist, ändert sich auf dem Linuxmuster-Server nichts – erst die
+Entscheidung schreibt ins AD.
+
+Wählen Sie in der Zeile **Akzeptieren** oder **Ablehnen**. Für mehrere Anfragen auf einmal wählen
+Sie die Zeilen aus; die beiden Schaltflächen erscheinen dann in der Leiste mit den schwebenden
+Schaltflächen.
+
+| Aktion | Wirkung |
+| --- | --- |
+| **Akzeptieren** | nimmt das Elternteil in die Gruppen `<schüler>-parents` und `<klasse>-parents` auf. Fehlt `<schüler>-parents` noch, legt der Linuxmuster-Server sie dabei an. Schlägt das fehl, erscheint eine Fehlermeldung und die Anfrage bleibt, wie sie war. |
+| **Ablehnen** einer ausstehenden Anfrage | schließt die Anfrage. Eltern und Kind können sie nicht erneut stellen. |
+| **Ablehnen** einer akzeptierten Anfrage | nimmt das Elternteil aus beiden Gruppen wieder heraus. Die Gruppe `<schüler>-parents` selbst bleibt bestehen. |
+| **Akzeptieren** einer abgelehnten Anfrage | holt eine versehentliche Ablehnung zurück – der einzige Weg, denn eine neue Anfrage für dasselbe Paar ist nicht möglich. |
+
+| Meldung | Bedeutung |
+| --- | --- |
+| *„Status erfolgreich aktualisiert.“* | Alle gewählten Anfragen wurden geändert. |
+| *„Status für 2 von 5 Zuweisungen fehlgeschlagen.“* (Zahlen je nach Fall) | Bei einer Sammelbearbeitung schlugen einzelne Anfragen fehl, meist an der Linuxmuster-API oder an fehlender Berechtigung für die Schule. Die übrigen sind geändert. Die Tabelle wird neu geladen; bearbeiten Sie die verbliebenen Anfragen einzeln, um die Ursache zu sehen. |
 
 ## LINBO
 
@@ -183,11 +200,77 @@ Die Registerkarte **Hosts** erreicht, wer auch den Bereich **LINBO** erreicht: *
 Anders als die Gruppen sind Hosts schulgebunden. Ein Schuladmin sieht die Rechner seiner eigenen Schule, und jede Aktion – **Wake-on-LAN**, **Neu starten**, **Herunterfahren**, ein Kommando aus dem Aktionsdialog oder ein **Hostscan** – wirkt auf diese Schule. Nennt eine Anfrage eine andere Schule, antwortet die Plattform mit *„Du hast keine Berechtigung, auf diese Ressource zuzugreifen."*, ohne die Anfrage an den Server weiterzugeben. Ein Globaladmin wählt über die **Schulauswahl** jede Schule des Servers.
 :::
 
-:::note[Status und geplante Aktionen]
-**Status** und **Geplant** bleiben ohne einen edulution-Satellite leer: der Online-/Offline-Zustand ist über die Linuxmuster-API allein nicht verfügbar, und geplante Aktionen werden vom Satellite verwaltet. Beide Spalten sind in dieser Version noch nicht angebunden.
-:::
+**Status** nennt je Host **Online** oder **Offline**; die Spaltenüberschrift sagt beim Überfahren, wann der Zustand zuletzt erhoben wurde. Solange für einen Host noch keine Erhebung vorliegt, bleibt das Feld leer.
 
 Ab der Linuxmuster-API **Version 7.4.12** fragt die Plattform einen Host nach einer Aktion aus dem Menü seiner Zeile – **Wake-on-LAN**, **Neu starten** oder **Herunterfahren** – mehrfach nach. Die Spalte **Status** nennt dann neben **Online** oder **Offline**, welches System der Rechner gerade ausführt: *LINBO*, *Linux*, *Windows* oder *Unbekanntes Betriebssystem*. Beim Überfahren listet sie je Image, wann es auf dem Rechner zuletzt synchronisiert wurde oder dass es dort noch nie synchronisiert wurde. Mit einer älteren API-Version zeigt die Spalte nur **Online** oder **Offline**.
+
+Über das Menü hinter der Schaltfläche mit den drei Punkten schicken Sie einer Zeile **Wake-on-LAN**, **Neu starten**, **Herunterfahren** oder **Aktion schicken…** – Letzteres öffnet den Kommando-Dialog für genau diesen Host, unabhängig davon, welche Zeilen sonst angehakt sind. Ein Host, der nicht erreichbar ist, wird übersprungen und in der Rückmeldung benannt.
+
+#### Mehrere Hosts auswählen
+
+Die erste Spalte der Tabelle trägt je Zeile ein Auswahlkästchen, das Kästchen in der Kopfzeile wählt alle Zeilen der aktuellen Ansicht. Sobald mindestens ein Host ausgewählt ist, erscheint oberhalb der Tabelle eine Leiste mit der Anzahl und den Aktionen **Auswahl aufwecken**, **Auswahl neu starten**, **Auswahl herunterfahren** und **Aktion schicken**.
+
+:::note[Die Suche bestimmt mit, wen eine Sammelaktion trifft]
+Eine Sammelaktion erreicht nur die Hosts, die gerade **sichtbar** sind. Schränken Sie die Suche ein, nachdem Sie ausgewählt haben, sinkt die Zahl in der Leiste entsprechend – ausgeblendete Hosts bleiben angehakt, werden aber nicht angesprochen. Leeren Sie die Suche wieder, sind sie erneut Teil der Auswahl.
+:::
+
+Nach einer Sammelaktion verlieren die Hosts ihr Häkchen, für die der Server den Auftrag angenommen hat – auch dann, wenn er einzelne davon als offline übersprungen hat. Angehakt bleiben nur Rechner, die der Auftrag gar nicht erreicht hat, etwa weil bei einem großen Lauf ein Teil nicht zugestellt werden konnte. Die Auswahl schrumpft dann auf genau diese Rechner, sodass ein zweiter Versuch die bereits bedienten nicht noch einmal trifft.
+
+#### Der Kommando-Dialog
+
+**Aktion schicken** öffnet einen Dialog, der die ausgewählten Rechner namentlich nennt – oder, aus dem Bereich **Gruppen** heraus, die Hardwaregruppe, an die die Kette geht – und aus einzelnen Schritten eine **Kommandokette** zusammensetzt. Die Kette wird genau in der Reihenfolge ausgeführt, in der die Schritte stehen; über **Nach oben** und **Nach unten** ordnen Sie sie um, über **Entfernen** nehmen Sie einen Schritt wieder heraus. Unten zeigt die **Kommandokette** die Schreibweise, die Sie auch auf der Konsole verwenden würden.
+
+Je nach Schritt verlangt der Dialog ein zusätzliches Argument:
+
+| Schritt | Auswahl |
+|---------|---------|
+| **Sync**, **Neu**, **Start**, **Prestart**, **Postsync** | das Betriebssystem – mit seinem Namen aus der `start.conf`, nicht als Ziffer |
+| **Formatieren** | die Partition, benannt mit Nummer, Gerät und Bezeichnung, oder **Alle Partitionen** |
+| **Cache befüllen** | die Übertragungsart `rsync`, `multicast` oder `torrent` |
+| **Partitionieren**, **Beschriften**, **Neu starten**, **Herunterfahren** | – |
+
+:::note[Woher die Nummern stammen]
+Betriebssysteme und Partitionen werden in der Reihenfolge gezählt, in der ihre Abschnitte in der `start.conf` stehen – nicht nach der Ziffer im Gerätenamen. Der Dialog zählt dabei genauso wie der LINBO-Client: ein auskommentierter Abschnitt steht nicht zur Auswahl, zählt aber mit, sodass die Einträge darunter ihre Nummer behalten. Deshalb kann die Partition `/dev/sda5` die Nummer 3 tragen, und auf einem Rechner mit zwei Festplatten steht jede Partition einzeln zur Wahl, statt mit der gleich nummerierten der anderen Platte zusammengefasst zu werden.
+:::
+
+Darunter legen Sie den Modus und die Optionen fest: **Beim nächsten Start ausführen** stellt die Kette zurück, statt sie sofort zu schicken. **Wake-on-LAN** weckt die Rechner und wartet die eingetragenen Sekunden, bevor die Kette ausgeführt wird. Erst mit Wake-on-LAN lassen sich zwei weitere Werte setzen: der **Abstand zwischen den Weckpaketen**, mit dem die Rechner nacheinander statt gleichzeitig geweckt werden, und **Weckpaket zusätzlich an die Broadcast-Adresse senden**. **Oberfläche des Clients beim nächsten Start abschalten** und **Automatische Funktionen der start.conf beim nächsten Start übergehen** wirken erst beim nächsten Start – Letzteres überspringt das in der `start.conf` eingestellte automatische Partitionieren, Formatieren, **Cache befüllen** und Starten.
+
+:::warning[Bestätigung für zerstörende Schritte]
+**Neu**, **Formatieren** und **Partitionieren** löschen Daten auf den Zielrechnern. Der Dialog verlangt dafür ein zusätzliches Häkchen, das die Anzahl der betroffenen Rechner nennt – und, wenn die Auswahl mehrere Hardwaregruppen umfasst, auch deren Anzahl; geht die Kette an eine ganze Hardwaregruppe, nennt das Häkchen stattdessen die Gruppe. Die Bestätigung gilt für **genau diese Kette, genau diese Rechner und genau diese Optionen**: ändern Sie danach einen Schritt, ein Argument, die Auswahl oder eine der Optionen darüber, wird sie zurückgenommen und Sie bestätigen erneut. Das gilt besonders für **Beim nächsten Start ausführen** und **Wake-on-LAN** – das eine verlegt einen begleiteten Lauf auf den nächsten Start der Rechner, das andere weckt auch die, die bewusst ausgeschaltet waren.
+:::
+
+Steht **Ausführen** nicht zur Verfügung, nennt der Dialog den Grund direkt darüber – etwa ein Schritt, dem noch die Auswahl fehlt, eine ausstehende Bestätigung oder ein Lauf, der bereits läuft.
+
+Nicht jede Aktion steht für jede Auswahl bereit. Fehlt eine, erklärt der Dialog oberhalb der Schaltflächen, warum:
+
+| Hinweis | Ursache |
+|---------|---------|
+| Abbild-Aktionen laufen nur auf genau einem Rechner | **Abbild erstellen**, **Abbild hochladen**, **Differenz erstellen** und **Differenz hochladen** verlangen einen einzelnen Host – für eine ganze Hardwaregruppe stehen sie deshalb nie bereit |
+| Aktionen mit Betriebssystem verlangen dieselbe Hardwaregruppe | die Position des Betriebssystems lässt sich nur aus **einer** `start.conf` auflösen |
+| Für diese Hardwaregruppe gibt es keine `start.conf` | die Gruppe der ausgewählten Rechner ist auf dem Server nicht beschrieben – etwa bei Servern und Druckern in `nopxe` |
+| Die `start.conf` dieser Hardwaregruppe konnte nicht geladen werden | der Server war nicht erreichbar oder hat die Anfrage abgelehnt; die Gruppe kann sehr wohl eine `start.conf` besitzen |
+
+Solange die `start.conf` der Gruppe noch geladen wird, bleiben die Aktionen mit Betriebssystem wählbar. Der Dialog sagt an derselben Stelle, dass die Datei noch geladen wird, und die Auswahlliste füllt sich, sobald sie vorliegt.
+
+Nach dem Abschicken meldet die Plattform, ob die Kette alle Rechner erreicht hat. Waren einzelne Hosts offline, werden sie namentlich genannt; die Statusspalte der betroffenen Zeilen wird anschließend mehrfach nachgefragt, weil ein Rechner, der gerade neu startet, nicht sofort antwortet.
+
+:::note[Geplante Aktionen]
+**Geplant** bleibt ohne einen edulution-Satellite leer: geplante Aktionen werden vom Satellite verwaltet und sind in dieser Version nicht angebunden.
+:::
+
+#### Laufende Sitzungen
+
+Ein Lauf wird auf dem Schulserver je Host in einer eigenen Sitzung ausgeführt und läuft dort weiter, auch wenn Sie den Dialog schließen oder die Seite verlassen. **Laufende Sitzungen** in der Aktionen-Leiste der Hostliste zeigt, was gerade läuft; steht etwas an, nennt die Schaltfläche die Anzahl. Die Schaltfläche steht immer bereit, auch ohne Auswahl.
+
+Der Dialog listet je Sitzung den Hostnamen und seit wann sie läuft. **Protokoll** zeigt die Ausgabe des Laufs für diesen Host; über **Zurück zur Liste** kehren Sie zur Übersicht zurück. Der Schulserver schreibt die Ausgabe mit, solange der Lauf dauert, und behält sie danach – das Protokoll eines gerade beendeten Laufs bleibt also lesbar, auch wenn die Sitzung nicht mehr in der Liste steht.
+
+Solange die Hostliste im Vordergrund liegt, wird die Liste etwa alle fünf Sekunden neu gelesen und ein geöffnetes Protokoll im Sekundentakt nachgeführt; nach dem Ende der Sitzung wird es ein letztes Mal gelesen. Ein Browser-Tab im Hintergrund fragt nichts ab und holt beim Zurückwechseln nach.
+
+:::note[Die Liste folgt nicht der gewählten Schule]
+Welche Sitzungen Sie sehen, entscheidet der Schulserver anhand Ihres Kontos: eine Schulverwaltung sieht die Hosts der eigenen Schule, eine globale Administration jede laufende Sitzung. Der Schulauswahl oberhalb der Liste folgt sie deshalb nicht – ein Wechsel blendet keine Sitzung aus, die weiterläuft.
+:::
+
+Antwortet der Server nicht, bleibt der zuletzt bekannte Stand stehen und der Dialog sagt es; der nächste Versuch läuft von selbst, ohne die Meldung bei jedem Durchgang zu wiederholen.
 
 ### Gruppen
 
@@ -236,7 +319,10 @@ Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API*
 | **Duplizieren** | legt eine Kopie unter neuem Namen an |
 | **Sicherungen** | listet die Sicherungen der `start.conf` und spielt eine davon zurück |
 | **VDI** | öffnet die VDI-Konfiguration der Gruppe |
+| **Aktion schicken** | öffnet den [Kommando-Dialog](#der-kommando-dialog) für alle Rechner der Gruppe |
 | **Gruppe löschen** | löscht die `start.conf` der Gruppe auf dem Server |
+
+**Aktion schicken** richtet eine Kommandokette an die Hardwaregruppe als Ganzes: Der Server ermittelt selbst, welche Rechner der **ausgewählten Schule** dazugehören – Rechner derselben Gruppe in einer anderen Schule erreicht der Lauf nicht; wechseln Sie dafür die Schule oberhalb der Liste. Der Dialog nennt die Gruppe und dazu, wie viele ihrer Rechner die ausgewählte Schule führt; führt sie keinen, steht keine Aktion zur Wahl, und der Dialog sagt warum. Solange die Rechnerliste der Schule noch geladen wird – oder wenn das Laden fehlgeschlagen ist – ist die Anzahl noch nicht bekannt: Auch dann steht keine Aktion zur Wahl, der Dialog nennt dafür aber das Laden als Grund, statt es der Schule zuzuschreiben. Öffnen Sie den Dialog direkt nach dem Aufruf der Seite, kann das kurz der Fall sein; sobald die Liste steht, stehen die Aktionen zur Wahl. Die Betriebssysteme für **Sync**, **Neu** und **Start** stammen aus der `start.conf` der Gruppe. Die Aktion ist ausgegraut, solange ein anderer Auftrag noch läuft, und für eine Gruppe, deren Name die Regeln für `linbo-remote` nicht erfüllt – der Grund steht am Knopf. Nach dem Abschicken meldet die Plattform, ob die Kette die Gruppe erreicht hat; waren Rechner offline, nennt sie den Hinweis des Servers dazu. Ob der Lauf noch läuft und was er ausgibt, sehen Sie anschließend unter [Laufende Sitzungen](#laufende-sitzungen) im Bereich **Hosts**.
 
 Solange keine Gruppe ausgewählt ist, steht neben **Gruppe anlegen** ab **Version 7.4.13** der Linuxmuster-API auch **linbo.iso herunterladen**: Die Schaltfläche lädt das Startmedium, das der Server unter `/srv/linbo/linbo.iso` vorhält. Die Datei ist einige hundert Megabyte groß.
 
@@ -367,6 +453,14 @@ Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.
 
 Über die Schaltfläche zum Hochladen fügen Sie ein Image hinzu. Zulässig sind Image-Dateien (`.qcow2`, `.qdiff`, `.cloop`, `.rsync`) und alle oben genannten Beipack-Dateien; andere Dateitypen weist der Dialog ab. Während eines laufenden Downloads sind weitere Downloads gesperrt.
 
+Im Dialog geben Sie Image-Name und Dateiname an; während der Übertragung sind beide Felder gesperrt und ein Fortschrittsbalken zeigt den Stand in Prozent. **Abbrechen** bricht die laufende Übertragung ab und verwirft zugleich die Daten, die der Server bereits entgegengenommen hat – es bleibt also kein angefangenes Image auf dem Server zurück.
+
+Der Server nimmt ein Image in Teilstücken entgegen. Bricht die Übertragung ab, weil etwa die Verbindung zum Schulserver wegfällt, setzt ein erneuter Upload derselben Datei dort an, wo er stehengeblieben ist; bei einem mehrere Gigabyte großen Image erspart das den bereits übertragenen Teil.
+
+:::note[Fortgesetzt wird nur dieselbe Datei]
+Fortgesetzt wird der Upload ausschließlich dann, wenn Sie unter demselben Image- und Dateinamen erneut eine Datei derselben Größe hochladen. Laden Sie unter einem bereits angefangenen Namen eine andere Datei hoch – etwa ein neu erstelltes Image –, beginnt die Übertragung von vorn und überschreibt den angefangenen Stand. Nach einem Neustart der edulution-Instanz beginnt jeder Upload ebenfalls von vorn.
+:::
+
 #### Aktionen eines Images
 
 **Herunterladen** liegt als eigene Schaltfläche auf der Karte. Die übrigen Aktionen stehen im Menü hinter der Schaltfläche mit den drei Punkten daneben, in der Tabelle in der Spalte **Aktionen**:
@@ -407,11 +501,11 @@ Die Seite **Versionsübersicht** listet die Versionen der beteiligten Linuxmuste
 
 ## Einschränkungen in dieser Version
 
-Einige Aktionen sind in der Oberfläche bereits vorhanden, aber noch nicht angebunden. Sie melden beim Aufruf *„Diese Aktion wird in dieser Version noch nicht unterstützt."*:
+Die Spalte **Geplant** der Hostliste ist in der Oberfläche bereits vorhanden, aber noch nicht angebunden; sie meldet beim Aufruf *„Diese Aktion wird in dieser Version noch nicht unterstützt."*.
 
-- die Host-Aktionen **Wake-on-LAN**, **Sync**, **Start**, **Neu starten**, **Herunterfahren** und **Treiber-Profil**
-- die Aktion **Sync** im Bereich **Gruppen**
-- die Spalten **Status** und **Geplant** der Hostliste
+Eine Kommandokette richtet sich an einen einzelnen Host, an eine Auswahl von Hosts oder an eine Hardwaregruppe. Ein ganzer **Raum** lässt sich in dieser Version nicht als Ziel wählen, obwohl die Linuxmuster-API das anbietet.
+
+Eine laufende Sitzung lässt sich aus der Plattform heraus **nicht abbrechen** und nicht mitverfolgen, wie es `tmux attach` auf der Konsole erlaubt: die Linuxmuster-API bietet dafür keine Schnittstelle. Sie sehen den Lauf und sein Protokoll, beenden können Sie ihn nur auf dem Server.
 
 Die Schaltfläche **Versionsstände** im Bereich **Gruppen** ist sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet dafür keine Schnittstelle. Der Grund steht am Knopf.
 

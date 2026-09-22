@@ -37,6 +37,16 @@ Die übrigen Werte sind in der [Installations-Anleitung, Schritt 5](/docs/edulut
 
 **edulution-Plattform → Einstellungen → E-Mails → Proxy-Konfiguration (Expertenmodus)**
 
+:::tip[Prüfen Sie zuerst, ob die Anpassung schon vorhanden ist]
+Neuere edulution-Installationen gleichen die mitgelieferte Mail-Route beim Start der edulution-API selbst ab und bringen beide folgenden Änderungen dadurch bereits mit. Sehen Sie im Abschnitt **Proxy-Konfiguration** beim Router `edulution-sogo-mail` nach – lesen lässt sich die Konfiguration auch ohne **Expertenmodus**:
+
+```yaml
+rule: Path(`/sogo-mail/sogo-auth.php`)
+```
+
+Steht das dort schon, ist Schritt 2 erledigt und Sie können mit Schritt 3 weitermachen. Andernfalls ziehen Sie die Änderungen wie beschrieben von Hand nach. Hintergrund: [Automatischer Abgleich](../../edulution-plattform/konfiguration/einstellungen.md#automatischer-abgleich).
+:::
+
 Zwei Änderungen an der dynamischen Mail-Konfiguration:
 
 ```diff

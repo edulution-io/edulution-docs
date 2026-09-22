@@ -135,11 +135,39 @@ Im Abschnitt **Webhooks** registrieren Sie die Dienste, die Ereignisse an edulut
 
 ---
 
+## Proxy-Konfiguration
+
+Manche Apps sind nur erreichbar, wenn edulution die Anfragen an den passenden Dienst weiterleitet. Diese Weiterleitung pflegen Sie im Abschnitt **Proxy-Konfiguration** in den Einstellungen der jeweiligen App. Der Schalter **Expertenmodus** gibt den YAML-Editor frei, **Vorlage** füllt ihn mit der passenden Route – dasselbe Bedienprinzip wie bei der [Wiki-Proxy-Konfiguration](./wiki-einstellungen.md#proxy-konfiguration-erweitert).
+
+:::warning[Eine fehlerhafte Konfiguration macht die App unerreichbar]
+Über diese Route wird die App aufgerufen. Ändern Sie sie nur, wenn Sie wissen, welche Weiterleitung Sie brauchen, und rufen Sie die App danach im Browser auf.
+:::
+
+### Automatischer Abgleich
+
+Für **E-Mails**, **Dateien**, **WireGuard** und **Desktop** liefert edulution die passende Route mit. Bei jedem Start der edulution-API – also nach einem Update, einem Neustart des Containers `edulution-api` oder des Servers – prüft edulution, ob eine neuere Fassung vorliegt, und übernimmt sie. So erhalten auch bestehende Installationen Weiterleitungen, die erst später hinzugekommen sind. Alle übrigen Apps sind vom Abgleich nicht betroffen: Deren Proxy-Konfiguration entsteht aus Ihren eigenen Angaben und bleibt unverändert.
+
+Der Abgleich richtet dabei nichts neu ein: Er greift nur dort, wo bereits eine Proxy-Konfiguration hinterlegt ist. Die erste tragen Sie selbst ein – am einfachsten über **Vorlage**. Haben Sie die Konfiguration einer App bewusst geleert, bleibt sie leer.
+
+Sobald eine neue Fassung mitgeliefert wird, ersetzt der Abgleich jeden Abschnitt der obersten Ebene, den die mitgelieferte Fassung enthält, vollständig – eigene Änderungen innerhalb dieser Abschnitte gehen dabei verloren. Abschnitte, die die mitgelieferte Fassung nicht kennt – etwa ein eigener `tcp:`-Abschnitt –, bleiben erhalten. Eine Route, die Sie von Hand eingetragen statt über **Vorlage** übernommen haben, gleicht bereits der nächste Start ab – das betrifft auch jede bestehende Installation beim ersten Start nach dem Update.
+
+Im Protokoll des Containers `edulution-api` vermerkt edulution eine Warnung, wenn eigene Abschnitte erhalten geblieben sind oder wenn sich die Konfiguration nicht zusammenführen ließ. Letzteres passiert, wenn sich Ihre gespeicherte Konfiguration nicht als YAML mit Abschnitten lesen lässt – dann ersetzt der Abgleich sie vollständig, und auch eigene Abschnitte gehen verloren. Notieren Sie sich deshalb Anpassungen, auf die Ihre Installation angewiesen ist, und rufen Sie nach einem Update die betroffenen Apps einmal auf, um zu prüfen, ob sie noch erreichbar sind.
+
+Bei **Dateien** richtet sich die Route nach dem eingestellten Dokumenten-Editor: Abgeglichen wird immer die Route des Editors, der unter **Aktiver Dokumenten-Editor** ausgewählt ist. Wechseln Sie den Editor, übernimmt der nächste Start dessen Route.
+
+:::info[Ohne Internetverbindung bleibt alles, wie es ist]
+Die mitgelieferten Routen werden beim Start aus dem Internet abgerufen. Ist das nicht möglich, bleibt Ihre vorhandene Konfiguration bestehen und das System startet normal. Im Protokoll des Containers `edulution-api` steht dann ein Fehler, der mit `Could not sync` beginnt und die betroffene Datei samt Ursache nennt. Der Abgleich wird beim nächsten Start erneut versucht.
+:::
+
+---
+
 ## E-Mails
 
 ![E-Mail Einstellungen](/img/einstellungen/email-settings.webp)
 
 Die E-Mail-Einstellungen ermöglichen die Konfiguration der Mail-App und des SOGo Webmailers.
+
+Die Route, über die SOGo und ActiveSync erreichbar sind, pflegen Sie hier ebenfalls – siehe [Proxy-Konfiguration](#proxy-konfiguration). Sie wird automatisch abgeglichen.
 
 ### Sortierung
 
@@ -182,33 +210,9 @@ Diese Signatur wird beim Verfassen einer neuen E-Mail automatisch angefügt. Sie
 Ein Logo in der Standard-Signatur wird jeder gesendeten E-Mail beigefügt. Verwenden Sie deshalb ein möglichst kleines Bild (unter 100 KB), um das Mailaufkommen nicht unnötig zu vergrößern.
 :::
 
-### IMAP Integration
+### Mailserver
 
-Die IMAP-Integration ermöglicht den Zugriff auf externe oder interne IMAP-Server.
-
-**URL**
-- Geben Sie den FQDN (Fully Qualified Domain Name) des IMAP-Servers an
-- Beispiel: `imap.example.com` oder `ui.73.dev.multi.schule`
-- Wird für die Anbindung an den Mail-Server verwendet
-
-**Port**
-- Port-Nummer des IMAP-Servers
-- Standard: **993** (IMAP über SSL/TLS)
-- Alternative: **143** (IMAP mit STARTTLS)
-
-**Sichere Verbindung**
-- Toggle-Schalter zum Aktivieren/Deaktivieren
-- Aktiviert: Verbindung über TLS oder STARTTLS
-- Sollte für Produktivumgebungen immer aktiviert sein
-
-**Nicht zertifizierte Verbindungen ablehnen**
-- Toggle-Schalter für Zertifikatsprüfung
-- Aktiviert: SSL/TLS-Zertifikat wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
-
-:::warning[Sicherheitshinweis]
-In Produktivumgebungen sollten Sie immer "Sichere Verbindung" aktivieren und "Nicht zertifizierte Verbindungen ablehnen" einschalten, um die Sicherheit der E-Mail-Kommunikation zu gewährleisten.
-:::
+Die Verbindung des integrierten E-Mail-Clients zum Mailserver richten Sie im Abschnitt **Mailserver** ein: IMAP-, SMTP- und ManageSieve-Server mit ihren Ports sowie die Zertifikatsprüfung. Felder, Voreinstellungen und Verschlüsselung beschreibt [Mail-App konfigurieren → Mailserver](../../edulution-mail/konfiguration/mail-app-konfiguration.md#mailserver).
 
 ### DAV-Verbindung
 
@@ -228,7 +232,7 @@ Setzen Sie **edulution-mail** (mailcow) ein, erreichen Sie den Server direkt üb
 https://mailcowdockerized-nginx-mailcow-1/SOGo/dav/
 ```
 
-Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der **Mailcow-API-URL** im Bereich *Mailserver* derselben App, die denselben Container-Namen **ohne** Pfad verwendet.
+Der Pfad `/SOGo/dav/` gehört zwingend dazu. Er unterscheidet diesen Wert von der Adresse der Mailcow-API im Abschnitt **URL** derselben App, die denselben Container-Namen **ohne** Pfad verwendet.
 
 Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie deshalb **DAV: Nicht zertifizierte Verbindungen ablehnen** aus, sonst schlägt die Verbindung fehl.
 :::
@@ -236,7 +240,7 @@ Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie
 **DAV: Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung
 - Aktiviert: Das SSL/TLS-Zertifikat des DAV-Servers wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Deaktiviert: Jedes Zertifikat wird akzeptiert – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist
 - Betrifft ausschließlich die DAV-Verbindung, nicht IMAP oder SMTP
 
 **Speichern / Löschen**
@@ -304,16 +308,16 @@ Endet die CalDAV-URL nicht auf `/dav`, funktionieren Kalender und Termine trotzd
 - Optionen: **Basic**, **Digest**, **OAuth**
 
 :::info
-Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic eingestellt; weitere Modi sind in Vorbereitung.
+Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic eingestellt; weitere Modi sind in Vorbereitung. Ein auf anderem Weg hinterlegter Modus wird beim Verbindungsaufbau übergangen: edulution verwendet Basic Auth und vermerkt den ignorierten Modus im Protokoll.
 :::
 
 **Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung
 - Aktiviert: Das SSL/TLS-Zertifikat des CalDAV-Servers wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Deaktiviert: Jedes Zertifikat wird akzeptiert – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist
 
 :::warning[Sicherheitshinweis]
-In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" aktiviert lassen, um die Sicherheit der CalDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
+In Produktivumgebungen sollten Sie **Nicht zertifizierte Verbindungen ablehnen** aktiviert lassen, um die Sicherheit der CalDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
 :::
 
 ---
@@ -369,16 +373,16 @@ Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie
 - Optionen: **Basic**, **Digest**, **OAuth**
 
 :::info
-Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic eingestellt; weitere Modi sind in Vorbereitung.
+Aktuell ist nur **Basic Auth** implementiert. Das Feld ist daher fest auf Basic eingestellt; weitere Modi sind in Vorbereitung. Ein auf anderem Weg hinterlegter Modus wird beim Verbindungsaufbau übergangen: edulution verwendet Basic Auth und vermerkt den ignorierten Modus im Protokoll.
 :::
 
 **Nicht zertifizierte Verbindungen ablehnen**
 - Toggle-Schalter für die Zertifikatsprüfung
 - Aktiviert: Das SSL/TLS-Zertifikat des CardDAV-Servers wird validiert
-- Deaktiviert: Selbstsignierte Zertifikate werden akzeptiert
+- Deaktiviert: Jedes Zertifikat wird akzeptiert – auch ein selbstsigniertes oder eines, das auf einen anderen Namen ausgestellt ist
 
 :::warning[Sicherheitshinweis]
-In Produktivumgebungen sollten Sie "Nicht zertifizierte Verbindungen ablehnen" aktiviert lassen, um die Sicherheit der CardDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
+In Produktivumgebungen sollten Sie **Nicht zertifizierte Verbindungen ablehnen** aktiviert lassen, um die Sicherheit der CardDAV-Verbindung zu gewährleisten. Ausgenommen ist die oben beschriebene interne Container-Adresse von edulution-mail: Sie bleibt innerhalb des Docker-Netzwerks und verlässt den Host nicht.
 :::
 
 ---
@@ -410,18 +414,32 @@ Der Klassenraum bindet die Bildschirmüberwachung der Schüler-Geräte über ein
 
 ### Proxy-Tabelle
 
-Die Proxys werden als Tabelle gepflegt. Über den Hinzufügen-Button oben rechts in der Tabelle öffnen Sie den Dialog **Konfiguration erstellen**; ein Klick auf eine bestehende Zeile öffnet **Konfiguration bearbeiten** und bietet dort auch das Löschen an.
+Die Proxys werden als Tabelle gepflegt. Neue Einträge legen Sie im Dialog **Konfiguration erstellen** an; ein Klick auf eine bestehende Zeile öffnet **Konfiguration bearbeiten** und bietet dort auch das Löschen an.
 
 | Feld | Bedeutung |
 |------|-----------|
-| **Subnet** | Subnetz der Schüler-Geräte in CIDR-Notation, z.B. `10.0.0.0/24` |
-| **Proxy Adresse** | URL des Veyon-WebAPI-Proxy, z.B. `https://veyon.ihre-domain.de:11080` |
+| **Subnet** | Subnetz der Schüler-Geräte in CIDR-Notation, z. B. `10.0.0.0/24` |
+| **Proxy Adresse** | URL des Veyon-WebAPI-Proxy, z. B. `https://veyon.ihre-domain.de:11080` |
 
-:::warning[Die Proxy-Adresse muss `https` verwenden]
-Für die Anmeldung an der Veyon-WebAPI sendet edulution das **Passwort der Lehrkraft** an diese Adresse. Über `http` ginge es im Klartext durch das Netz. Adressen ohne `https` werden deshalb bereits im Dialog abgelehnt, und auch das Speichern der App-Konfiguration schlägt mit einer Fehlermeldung fehl.
+:::warning[Die Proxy-Adresse braucht `https`]
+Für die Anmeldung an der Veyon-WebAPI sendet edulution das **Passwort der Lehrkraft** an diese Adresse. Über `http` ginge es im Klartext durch das Netz. Adressen ohne `https` lehnt edulution deshalb schon im Dialog ab, und auch das Speichern der App-Konfiguration schlägt fehl.
 
-Bestehende Konfigurationen mit einer `http`-Adresse bleiben zwar gespeichert, lassen sich aber nicht mehr speichern, ohne die Adresse auf `https` umzustellen. Stellen Sie den Veyon-WebAPI-Proxy daher auf TLS um, bevor Sie die Klassenraum-Einstellungen das nächste Mal bearbeiten.
+Erlaubt bleibt `http` nur dort, wo die Anfrage den Host gar nicht verlässt:
+
+| Fall | Beispiel |
+|------|----------|
+| Proxy auf demselben Host | `http://localhost:11080`, `http://127.0.0.1:11080`, `http://[::1]:11080` |
+| Proxy im selben Docker-Netzwerk, über seinen Servicenamen | `http://veyon-proxy:11080` |
+
+Eine IP-Adresse aus dem Schulnetz zählt **nicht** dazu: `http://10.0.0.5:11080` wird abgelehnt, denn dorthin geht das Passwort durch das Netz. Läuft der Proxy auf einem anderen Rechner, stellen Sie ihn auf TLS um und tragen Sie die `https`-Adresse ein.
 :::
+
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| *Die Proxy-Adresse muss https verwenden, außer der Proxy läuft auf localhost oder im selben Container-Netzwerk. Das Lehrer-Passwort wird an diese Adresse gesendet und ginge sonst im Klartext über das Netz.* | Im Dialog steht eine `http`-Adresse, die auf einen anderen Rechner zeigt. | Proxy auf TLS umstellen und die `https`-Adresse eintragen. |
+| *Die Veyon-Proxy-Adresse muss https verwenden, außer sie zeigt auf localhost oder das selbe Container-Netzwerk, da das Lehrer-Passwort an sie gesendet wird* | Beim Speichern der App-Konfiguration ist eine neue oder geänderte `http`-Adresse enthalten. | Wie oben. |
+
+Eine Zeile, die schon vor dieser Prüfung mit einer entfernten `http`-Adresse gespeichert wurde, bleibt erhalten und wird weiter verwendet; die übrigen Zeilen und Einstellungen lassen sich trotzdem speichern. Bearbeiten lässt sich diese Zeile aber erst wieder, wenn Sie ihre Adresse auf `https` umstellen – auch wenn Sie nur das Subnetz ändern möchten.
 
 :::info[Aktuell wird nur der erste Eintrag verwendet]
 Sie können mehrere Zeilen anlegen, edulution verbindet sich derzeit jedoch immer über die **Proxy Adresse der ersten Zeile**. Das Feld **Subnet** wird noch nicht zur Auswahl des passenden Proxys ausgewertet. Für Schulen mit mehreren Subnetzen bedeutet das: alle Schüler-Geräte müssen über denselben Proxy erreichbar sein.
@@ -429,7 +447,7 @@ Sie können mehrere Zeilen anlegen, edulution verbindet sich derzeit jedoch imme
 
 ### Wenn kein Proxy konfiguriert ist
 
-Ohne konfigurierten Proxy zeigen die Schülerkarten im Unterricht keine Bildschirmvorschau und die Veyon-Aktionen bleiben deaktiviert — die Karte sieht dabei genauso aus wie bei einem ausgeschalteten Gerät. Fehlt die Vorschau für alle Schüler, prüfen Sie zuerst diese Einstellung.
+Ohne konfigurierten Proxy zeigen die Schülerkarten im Unterricht keine Bildschirmvorschau und die Veyon-Aktionen bleiben deaktiviert – die Karte sieht dabei genauso aus wie bei einem ausgeschalteten Gerät. Fehlt die Vorschau für alle Schüler, prüfen Sie zuerst diese Einstellung.
 
 ---
 
@@ -437,10 +455,45 @@ Ohne konfigurierten Proxy zeigen die Schülerkarten im Unterricht keine Bildschi
 
 Apps, die Inhalte in einem iframe anzeigen, bringen zwei zusätzliche Bereiche in ihren Einstellungen mit:
 
-- **Skripte** (nur Frame-Apps) — JavaScript, das beim Laden des iframes und beim Abmelden ausgeführt wird, mit Syntaxprüfung und Formatierung im Editor
-- **URL-Verarbeitung** (Frame-Apps sowie Eingebettete Apps im Modus *Separates Layout*) — Adresszeile des Browsers der Navigation im eingebetteten Inhalt folgen lassen und Deep-Links unterstützen
+- **Skripte** (nur Frame-Apps) – JavaScript, das beim Laden des iframes und beim Abmelden ausgeführt wird, mit Syntaxprüfung und Formatierung im Editor
+- **URL-Verarbeitung** (Frame-Apps sowie Eingebettete Apps im Modus *Separates Layout*) – Adresszeile des Browsers der Navigation im eingebetteten Inhalt folgen lassen und Deep-Links unterstützen
+- **Berechtigungen des eingebetteten Inhalts** (Frame-Apps, Eingebettete Apps und Lernmanagement) – festlegen, welche Browser-Berechtigungen der eingebettete Inhalt nutzen darf, etwa Kamera, Mikrofon oder den Zugriff auf Geräte im lokalen Netzwerk
 
 [→ Details: Eingebettete App – Skripte und URL-Verarbeitung](../apps/eingebettete-app.md#url-verarbeitung-und-deep-links)
+
+### Berechtigungen des eingebetteten Inhalts
+
+Ein eingebetteter Inhalt kann Browser-Funktionen wie Kamera, Mikrofon, Zwischenablage oder angeschlossene USB-Geräte nur nutzen, wenn edulution sie ihm ausdrücklich weitergibt. Im Bereich **Berechtigungen des eingebetteten Inhalts** legen Sie pro App fest, welche das sind.
+
+Das Feld **Weitergegebene Berechtigungen** ist eine Mehrfachauswahl, gruppiert nach **Medien**, **Sensoren**, **Geräte**, **System**, **Netzwerk** sowie **Werbung und Messung**. Die Einträge tragen die technischen Bezeichnungen des Browsers (etwa `camera`, `usb` oder `clipboard-read`), damit Sie sie mit der Dokumentation der eingebetteten Anwendung abgleichen können. **Alle auswählen** wählt auch die drei Einträge für den Zugriff auf das lokale Netzwerk aus.
+
+| Zustand der Auswahl | Wirkung |
+|---|---|
+| Nie bearbeitet | Der eingebettete Inhalt erhält den Standardsatz: alle Einträge außer denen für den Zugriff auf das lokale Netzwerk. Die Auswahl zeigt diesen Satz vorausgewählt an. Wird der Standardsatz in einer späteren Version erweitert, folgt die App ihm automatisch. |
+| Einzelne Einträge gewählt | Genau diese Berechtigungen werden weitergegeben, alle anderen nicht. Die Liste bleibt auch dann fest, wenn der Standardsatz später erweitert wird. |
+| Geleert | Der eingebettete Inhalt erhält **keine** Berechtigung. |
+
+Sobald Sie die Auswahl einer App einmal gespeichert haben, führt kein Weg zurück in den Zustand *Nie bearbeitet*. Wählen Sie die Einträge des Standardsatzes von Hand aus, erhält die App dieselben Berechtigungen, folgt späteren Erweiterungen aber nicht mehr.
+
+Eine gespeicherte Änderung wirkt sofort: Bei Benutzern, die die App gerade geöffnet haben, wird der eingebettete Inhalt neu geladen, sofern sich die weitergegebenen Berechtigungen dadurch ändern. Nicht gespeicherte Eingaben darin gehen dabei verloren.
+
+#### Zugriff auf das lokale Netzwerk
+
+Die Einträge `loopback-network` und `local-network` in der Gruppe **Netzwerk** erlauben dem eingebetteten Inhalt, Geräte auf demselben Rechner beziehungsweise im lokalen Netzwerk anzusprechen – etwa einen Etikettendrucker über einen lokal laufenden Druckdienst oder ein Gerät im Schulnetz. Chrome verweigert solche Zugriffe aus einem iframe ohne diese Freigabe, ohne den Benutzer zu fragen.
+
+Beide Einträge sind **bewusst nicht Teil des Standardsatzes**. Wählen Sie sie nur für Apps, die den Zugriff tatsächlich benötigen: Die Freigabe gilt für alles, was der eingebettete Inhalt lädt, und bei einer öffentlich freigegebenen Eingebetteten App damit auch für nicht angemeldete Besucher. Der dritte Eintrag `local-network-access` ist ein älterer Name derselben Berechtigung, den nur frühere Chrome-Versionen auswerten; neuere Versionen ignorieren ihn, er schadet also nicht, wenn Sie ihn zusätzlich wählen.
+
+Die Freigabe allein genügt nicht: Der Browser fragt den Benutzer beim ersten Zugriff zusätzlich um Erlaubnis. Diese Anfrage wird edulution zugeordnet, nicht der eingebetteten Anwendung, und gilt nach dem Bestätigen für alle Apps, denen Sie den Zugriff weitergegeben haben. Firefox und Safari kennen diese Berechtigung nicht.
+
+:::warning[Wirkungslos bei gleicher Domain]
+Die Auswahl greift nur, wenn der eingebettete Inhalt unter einer **anderen Domain** als edulution ausgeliefert wird. Liegt er auf derselben Domain – etwa weil Sie ihn über die **Proxy-Konfiguration** der App einbinden oder weil es sich um hochgeladene Dateien einer Eingebetteten App handelt –, gewährt der Browser die meisten Berechtigungen ohnehin, unabhängig von dieser Einstellung.
+:::
+
+#### Fehlermeldung beim Speichern
+
+| Meldung | Ursache | Abhilfe |
+|---|---|---|
+| „Die ausgewählten Berechtigungen enthalten einen unbekannten Eintrag. Es sind nur Berechtigungen aus der vorgegebenen Liste erlaubt.“ | Die gespeicherte Auswahl enthält einen Eintrag, den diese edulution-Version nicht kennt, etwa aus einer über die API geschriebenen Konfiguration. Die Auswahl zeigt ihn nicht an. | Ändern Sie die Auswahl, zum Beispiel indem Sie einen Eintrag entfernen und wieder hinzufügen. Dabei entfällt der unbekannte Eintrag. |
 
 ---
 
@@ -448,9 +501,9 @@ Apps, die Inhalte in einem iframe anzeigen, bringen zwei zusätzliche Bereiche i
 
 ![Container Übersicht](/img/einstellungen/container.webp)
 
-Übersicht aller Docker Container des Systems mit Name, Image, Betriebszustand, Status, Port und Erstellungszeitpunkt. Über die Aktionsleiste am unteren Rand installieren Sie die Container zusätzlicher Dienste, aktualisieren sie und steuern ihren Lebenszyklus.
+Übersicht aller Docker Container des Systems. Ein Symbol vor dem Container-Namen zeigt, ob ein Update bereitliegt. Über die Aktionsleiste installieren Sie die Container zusätzlicher Dienste, aktualisieren sie und steuern ihren Lebenszyklus.
 
-Die vollständige Beschreibung – Aktionen, geschützte Container, Plugin-Installation, Edulution-Manager-Agent und Fehlerbehebung – finden Sie unter [Container-Verwaltung](./container-verwaltung.md).
+Die vollständige Beschreibung – Spalten, Aktionen, geschützte Container, Plugin-Installation, Edulution-Manager-Agent, die tägliche Update-Prüfung und Fehlerbehebung – finden Sie unter [Container-Verwaltung](./container-verwaltung.md).
 
 :::info[Fortgeschrittene Verwaltung]
 Die Container-Übersicht ist für fortgeschrittene Administratoren. Änderungen sollten nur mit entsprechendem Docker-Know-how vorgenommen werden.

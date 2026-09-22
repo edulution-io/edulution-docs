@@ -27,6 +27,7 @@ const config: Config = {
   projectName: 'edulution-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
+  onBrokenAnchors: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -355,14 +356,15 @@ const config: Config = {
     },
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: true,
+      disableSwitch: false,
       respectPrefersColorScheme: false,
     },
     navbar: {
       title: '',
       logo: {
         alt: 'edulution Logo',
-        src: '_static/edulution_docs.png',
+        src: '_static/edulution_docs_navbar_light.png',
+        srcDark: '_static/edulution_docs_navbar_dark.png',
       },
       items: [
         {

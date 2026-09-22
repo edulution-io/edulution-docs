@@ -14,9 +14,11 @@ Die Sitzungen werden mit festen Vorgaben aufgebaut, die sich in der Oberfläche 
 | Eigenschaft | Wert |
 | --- | --- |
 | Port | `3389` |
-| Authentisierung | **NLA** |
+| Authentisierung | wird mit der Maschine ausgehandelt |
 | Auflösung | passt sich der Fenstergröße an |
 | Hintergrundbild | aktiviert |
+
+Die Sicherheitsstufe legt nicht die Plattform fest, sondern sie wird beim Verbindungsaufbau mit der virtuellen Maschine ausgehandelt. Windows-Clients bieten NLA an. Die Ubuntu-Clients (xrdp) unterstützen NLA nicht, dort läuft die Verbindung über TLS. Eine fest auf NLA eingestellte Verbindung käme zu Ubuntu-Clients gar nicht zustande.
 
 Das Zertifikat des Ziels wird dabei nicht geprüft – die Verbindung läuft innerhalb des Schulnetzes zwischen Guacamole und der virtuellen Maschine.
 

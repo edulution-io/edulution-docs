@@ -185,7 +185,7 @@ Nach einer Sammelaktion verlieren die Hosts ihr Häkchen, für die der Server de
 
 #### Der Kommando-Dialog
 
-**Aktion schicken** öffnet einen Dialog, der die ausgewählten Rechner namentlich nennt und aus einzelnen Schritten eine **Kommandokette** zusammensetzt. Die Kette wird genau in der Reihenfolge ausgeführt, in der die Schritte stehen; über **Nach oben** und **Nach unten** ordnen Sie sie um, über **Entfernen** nehmen Sie einen Schritt wieder heraus. Unten zeigt die **Kommandokette** die Schreibweise, die Sie auch auf der Konsole verwenden würden.
+**Aktion schicken** öffnet einen Dialog, der die ausgewählten Rechner namentlich nennt – oder, aus dem Bereich **Gruppen** heraus, die Hardwaregruppe, an die die Kette geht – und aus einzelnen Schritten eine **Kommandokette** zusammensetzt. Die Kette wird genau in der Reihenfolge ausgeführt, in der die Schritte stehen; über **Nach oben** und **Nach unten** ordnen Sie sie um, über **Entfernen** nehmen Sie einen Schritt wieder heraus. Unten zeigt die **Kommandokette** die Schreibweise, die Sie auch auf der Konsole verwenden würden.
 
 Je nach Schritt verlangt der Dialog ein zusätzliches Argument:
 
@@ -203,7 +203,7 @@ Betriebssysteme und Partitionen werden in der Reihenfolge gezählt, in der ihre 
 Darunter legen Sie den Modus und die Optionen fest: **Beim nächsten Start ausführen** stellt die Kette zurück, statt sie sofort zu schicken. **Wake-on-LAN** weckt die Rechner und wartet die eingetragenen Sekunden, bevor die Kette ausgeführt wird. Erst mit Wake-on-LAN lassen sich zwei weitere Werte setzen: der **Abstand zwischen den Weckpaketen**, mit dem die Rechner nacheinander statt gleichzeitig geweckt werden, und **Weckpaket zusätzlich an die Broadcast-Adresse senden**. **Oberfläche des Clients beim nächsten Start abschalten** und **Automatische Funktionen der start.conf beim nächsten Start übergehen** wirken erst beim nächsten Start – Letzteres überspringt das in der `start.conf` eingestellte automatische Partitionieren, Formatieren, **Cache befüllen** und Starten.
 
 :::warning[Bestätigung für zerstörende Schritte]
-**Neu**, **Formatieren** und **Partitionieren** löschen Daten auf den Zielrechnern. Der Dialog verlangt dafür ein zusätzliches Häkchen, das die Anzahl der betroffenen Rechner nennt – und, wenn die Auswahl mehrere Hardwaregruppen umfasst, auch deren Anzahl. Die Bestätigung gilt für **genau diese Kette, genau diese Rechner und genau diese Optionen**: ändern Sie danach einen Schritt, ein Argument, die Auswahl oder eine der Optionen darüber, wird sie zurückgenommen und Sie bestätigen erneut. Das gilt besonders für **Beim nächsten Start ausführen** und **Wake-on-LAN** – das eine verlegt einen begleiteten Lauf auf den nächsten Start der Rechner, das andere weckt auch die, die bewusst ausgeschaltet waren.
+**Neu**, **Formatieren** und **Partitionieren** löschen Daten auf den Zielrechnern. Der Dialog verlangt dafür ein zusätzliches Häkchen, das die Anzahl der betroffenen Rechner nennt – und, wenn die Auswahl mehrere Hardwaregruppen umfasst, auch deren Anzahl; geht die Kette an eine ganze Hardwaregruppe, nennt das Häkchen stattdessen die Gruppe. Die Bestätigung gilt für **genau diese Kette, genau diese Rechner und genau diese Optionen**: ändern Sie danach einen Schritt, ein Argument, die Auswahl oder eine der Optionen darüber, wird sie zurückgenommen und Sie bestätigen erneut. Das gilt besonders für **Beim nächsten Start ausführen** und **Wake-on-LAN** – das eine verlegt einen begleiteten Lauf auf den nächsten Start der Rechner, das andere weckt auch die, die bewusst ausgeschaltet waren.
 :::
 
 Steht **Ausführen** nicht zur Verfügung, nennt der Dialog den Grund direkt darüber – etwa ein Schritt, dem noch die Auswahl fehlt, eine ausstehende Bestätigung oder ein Lauf, der bereits läuft.
@@ -212,7 +212,7 @@ Nicht jede Aktion steht für jede Auswahl bereit. Fehlt eine, erklärt der Dialo
 
 | Hinweis | Ursache |
 |---------|---------|
-| Abbild-Aktionen laufen nur auf genau einem Rechner | **Abbild erstellen**, **Abbild hochladen**, **Differenz erstellen** und **Differenz hochladen** verlangen einen einzelnen Host |
+| Abbild-Aktionen laufen nur auf genau einem Rechner | **Abbild erstellen**, **Abbild hochladen**, **Differenz erstellen** und **Differenz hochladen** verlangen einen einzelnen Host – für eine ganze Hardwaregruppe stehen sie deshalb nie bereit |
 | Aktionen mit Betriebssystem verlangen dieselbe Hardwaregruppe | die Position des Betriebssystems lässt sich nur aus **einer** `start.conf` auflösen |
 | Für diese Hardwaregruppe gibt es keine `start.conf` | die Gruppe der ausgewählten Rechner ist auf dem Server nicht beschrieben – etwa bei Servern und Druckern in `nopxe` |
 | Die `start.conf` dieser Hardwaregruppe konnte nicht geladen werden | der Server war nicht erreichbar oder hat die Anfrage abgelehnt; die Gruppe kann sehr wohl eine `start.conf` besitzen |
@@ -264,7 +264,10 @@ Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API*
 | **Bearbeiten** | öffnet den Gruppen-Editor (siehe unten) |
 | **Vorschau anzeigen** | zeigt die ausgewertete `start.conf`, ihre Rohdaten und die GRUB-Konfiguration |
 | **Duplizieren** | legt eine Kopie unter neuem Namen an |
+| **Aktion schicken** | öffnet den [Kommando-Dialog](#der-kommando-dialog) für alle Rechner der Gruppe |
 | **Gruppe löschen** | löscht die `start.conf` der Gruppe auf dem Server |
+
+**Aktion schicken** richtet eine Kommandokette an die Hardwaregruppe als Ganzes: Der Server ermittelt selbst, welche Rechner der **ausgewählten Schule** dazugehören – Rechner derselben Gruppe in einer anderen Schule erreicht der Lauf nicht; wechseln Sie dafür die Schule oberhalb der Liste. Der Dialog nennt die Gruppe und dazu, wie viele ihrer Rechner die ausgewählte Schule führt; führt sie keinen, steht keine Aktion zur Wahl, und der Dialog sagt warum. Die Betriebssysteme für **Sync**, **Neu** und **Start** stammen aus der `start.conf` der Gruppe. Die Aktion ist ausgegraut, solange ein anderer Auftrag noch läuft, und für eine Gruppe, deren Name die Regeln für `linbo-remote` nicht erfüllt – der Grund steht am Knopf. Nach dem Abschicken meldet die Plattform, ob die Kette die Gruppe erreicht hat; waren Rechner offline, nennt sie den Hinweis des Servers dazu.
 
 Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
 
@@ -393,12 +396,9 @@ Die Seite **Versionsübersicht** listet die Versionen der beteiligten Linuxmuste
 
 ## Einschränkungen in dieser Version
 
-Einige Aktionen sind in der Oberfläche bereits vorhanden, aber noch nicht angebunden. Sie melden beim Aufruf *„Diese Aktion wird in dieser Version noch nicht unterstützt."*:
+Die Spalte **Geplant** der Hostliste ist in der Oberfläche bereits vorhanden, aber noch nicht angebunden; sie meldet beim Aufruf *„Diese Aktion wird in dieser Version noch nicht unterstützt."*.
 
-- die Aktion **Sync** im Bereich **Gruppen**
-- die Spalte **Geplant** der Hostliste
-
-Eine Kommandokette richtet sich an einen einzelnen Host oder an eine Auswahl von Hosts. Ein ganzer **Raum** lässt sich in dieser Version nicht als Ziel wählen, obwohl die Linuxmuster-API das anbietet.
+Eine Kommandokette richtet sich an einen einzelnen Host, an eine Auswahl von Hosts oder an eine Hardwaregruppe. Ein ganzer **Raum** lässt sich in dieser Version nicht als Ziel wählen, obwohl die Linuxmuster-API das anbietet.
 
 Die Schaltfläche **Versionsstände** im Bereich **Gruppen** ist sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet dafür keine Schnittstelle. Der Grund steht am Knopf.
 

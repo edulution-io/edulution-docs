@@ -46,6 +46,20 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 - **Anhänge** können Sie herunterladen oder direkt **in Dateien speichern**.
 - Über die Auswahlkästchen markieren Sie mehrere Nachrichten gleichzeitig. Ist mindestens eine Nachricht ausgewählt, erscheint eine Aktionsleiste (**… ausgewählt**) mit **In den Papierkorb verschieben** und einem **Mehr**-Menü für weitere Sammelaktionen (z. B. als gelesen markieren, verschieben, endgültig löschen, als Spam markieren).
 
+### Links in Nachrichten
+
+Links in einer Nachricht öffnen sich in einem neuen Browser-Tab. edulution bleibt dabei im bisherigen Tab geöffnet, sodass Sie weder Ihren Platz in der Nachrichtenliste noch einen begonnenen Entwurf verlieren. In der Leseansicht sind diese Links mit einem kleinen Pfeil (↗) gekennzeichnet, sodass Sie bereits vor dem Klick erkennen, dass ein neuer Tab geöffnet wird.
+
+Nicht in einem neuen Tab geöffnet werden Sprungmarken innerhalb derselben Nachricht – sie führen wie gewohnt an die entsprechende Stelle im Text – sowie E-Mail- und Telefonlinks, die Ihr Mailprogramm bzw. Ihre Telefonanwendung öffnen.
+
+### Darstellung von HTML-Nachrichten
+
+Der Inhalt einer HTML-Nachricht wird vor der Anzeige bereinigt: Skripte und Formulare werden entfernt, damit fremder Code nicht innerhalb von edulution ausgeführt wird. Formatierungen bleiben erhalten – sowohl direkt am Element hinterlegte als auch eine vom Absender mitgelieferte Formatvorlage –, lediglich einzelne gefährliche Konstrukte darin (z. B. externe Importe) werden entfernt.
+
+Ein in der Nachricht eingebettetes Formular – etwa ein Umfrage- oder Anmeldefeld eines Newsletters – lässt sich deshalb nicht innerhalb von edulution ausfüllen. Nutzen Sie in diesem Fall den in der Nachricht angebotenen Link zur Website des Absenders.
+
+Bilder und andere extern nachgeladene Inhalte blendet edulution zum Schutz Ihrer Privatsphäre zunächst aus – unabhängig vom Absender und ohne eine Möglichkeit, einzelne Absender dauerhaft davon auszunehmen. Es erscheint der Hinweis „Um deine Privatsphäre zu schützen, wurde der automatische Download einiger Bilder in dieser Nachricht verhindert.“ mit dem Link **Bilder herunterladen**. Ein Klick lädt die Inhalte für diese Nachricht nach; die Freigabe gilt nur bis zum nächsten Neuladen der Seite. Deshalb können aufwendig gestaltete Newsletter zunächst schlichter aussehen als in anderen Mailprogrammen – auch in der Druckansicht, die denselben Freigabestatus übernimmt.
+
 ## E-Mail verfassen
 
 Über **Verfassen** öffnen Sie das Schreibfenster:
@@ -57,6 +71,21 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 - Über **Signatur einfügen** ergänzen Sie Ihre Signatur (siehe [Mein Profil → Signatur](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#signatur)).
 
 Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht.
+
+Ist in Ihren E-Mail-Einstellungen das **verzögerte Senden** aktiviert (siehe [Mein Profil → Senden rückgängig machen](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#senden-rückgängig-machen)), wird die Nachricht nach dem Klick auf **Senden** nicht sofort verschickt: Für die eingestellte Dauer erscheint die Meldung **Nachricht wird gesendet …** mit der Schaltfläche **Rückgängig**. Ein Klick auf **Rückgängig** innerhalb dieses Zeitfensters bricht den Versand ab und öffnet die Nachricht mit allen Empfängern, dem Text und den Anhängen erneut zur Bearbeitung. Läuft das Zeitfenster ab, wird die Nachricht verschickt. Das Zurückhalten erfolgt serverseitig – der Versand wird also auch dann ausgeführt, wenn Sie das Fenster oder den Browser zwischenzeitlich schließen.
+
+Die erneut geöffnete Nachricht bleibt mit ihrem automatisch gespeicherten Entwurf verknüpft; es entsteht also kein zweiter Entwurf. Beim Schließen werden Sie gefragt, ob der Entwurf behalten oder verworfen werden soll – auch dann, wenn Sie nichts weiter daran geändert haben.
+
+Ob der Abbruch noch greift und ob der Versand gelingt, erfahren Sie nachträglich über eine Meldung:
+
+| Meldung | Bedeutung |
+|---------|-----------|
+| **Zu spät – die Nachricht wurde bereits gesendet** | Beim Klick auf **Rückgängig** war das Zeitfenster bereits abgelaufen; die Nachricht ist unterwegs |
+| **Das Senden konnte nicht abgebrochen werden – die Nachricht wird trotzdem gesendet** | Der Abbruch hat den Server nicht erreicht, etwa bei einer Netzwerkstörung; der Versand läuft weiter |
+| **Verzögerte Nachricht konnte nicht gesendet werden** | Der Versand ist fehlgeschlagen; die Nachricht bleibt als Entwurf erhalten und geht nicht verloren |
+| **Einige Empfänger sind im System nicht bekannt und wurden nicht beliefert: …** | Die Nachricht wurde zugestellt, die genannten Empfänger jedoch nicht erreicht |
+
+Konnte keiner der Empfänger beliefert werden, bleibt die Nachricht ebenfalls als Entwurf erhalten.
 
 ### Empfängervorschläge im Adressfeld
 
@@ -152,7 +181,7 @@ Ein Klick auf den Hinweis bringt Sie direkt zu den **E-Mail-Einstellungen**, wo 
 
 ## Einstellungen
 
-Signatur, automatische Antwort (Abwesenheitsnotiz), Weiterleitung und Filter verwalten Sie in den **E-Mail-Einstellungen**. Eine ausführliche Beschreibung finden Sie unter [Mein Profil](../edulution-plattform/uebersicht/benutzereinstellungen/index.md).
+Signatur, verzögertes Senden (Senden rückgängig machen), automatische Antwort (Abwesenheitsnotiz), Weiterleitung und Filter verwalten Sie in den **E-Mail-Einstellungen**. Eine ausführliche Beschreibung finden Sie unter [Mein Profil](../edulution-plattform/uebersicht/benutzereinstellungen/index.md).
 
 Bei der automatischen Antwort können Sie zusätzlich festlegen, welche Absender überhaupt eine Antwort erhalten: alle Absender, nur Absender innerhalb der Domänen Ihrer Organisation (interne Absender) oder ausschließlich externe Absender. Die internen Domänen werden Ihnen dabei direkt angezeigt. Details dazu finden Sie unter [Mein Profil](../edulution-plattform/uebersicht/benutzereinstellungen/index.md).
 
@@ -171,6 +200,8 @@ Ob die E-Mail-App für Sie sichtbar ist, an welcher Stelle sie in der App-Liste 
 ## Einrichtung (für Administratoren)
 
 Welche Nutzergruppen die E-Mail-App überhaupt sehen, an welcher Stelle sie in der App-Liste erscheint und welches Theme der SOGo-Webmailer verwendet, legen Administratoren unter [Einstellungen → E-Mails](../edulution-plattform/konfiguration/einstellungen.md#e-mails) fest.
+
+Die Postfächer selbst — anlegen, Speicherplatz vergeben, löschen sowie ein Postfach als **freigegebenes Postfach** an weitere Benutzer freigeben — verwalten Administratoren unter [Mailboxen und geteilte Postfächer](./konfiguration/mailbox-verwaltung.md).
 
 Postfach-Freigaben und die Übernahme der Profilsprache in den Webmailer laufen nicht über IMAP, sondern über die [DAV-Verbindung](../edulution-plattform/konfiguration/einstellungen.md#dav-verbindung) der E-Mail-App. Diese Verbindung gilt ausschließlich für die E-Mail-App: Die Kalender- und die Kontakte-App bringen jeweils eine eigene mit, und eine dort abgeschaltete Zertifikatsprüfung lockert die Prüfung der E-Mail-Verbindung nicht. Ist die DAV-URL fehlerhaft eingetragen, betrifft das nur diese Funktionen — Nachrichten lesen, verfassen, Ordner und Filter bleiben davon unberührt.
 

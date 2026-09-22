@@ -13,39 +13,31 @@ Die Eingebettete App ermöglicht das Erstellen und Teilen von Webinhalten sowie 
 
 Die Eingebettete App ist ein vielseitiges Tool zum:
 - Erstellen eigener Webanwendungen
-- Hochladen von HTML/JS/CSS-Dateien
+- Hochladen eigener Dateien (HTML, CSS, JavaScript, Bilder)
 - Einbetten von interaktiven Inhalten
 - Teilen von Lernressourcen
 
 ## Modi
 
+Der Modus legt fest, woher der Inhalt kommt und wie er dargestellt wird. Sie wählen ihn als Global-Admin unter **Einstellungen → \<App\>**.
+
 ### Separates Layout
 
-Der Inhalt wird als eigenständige Seite angezeigt, ähnlich wie ein Fenster innerhalb der Anwendung. Dieser Modus eignet sich für:
-- Einfache Inhalte
-- Minimale Ablenkung
-- Fokussierte Darstellung
+Der Inhalt wird als eigenständige Seite in einem Rahmen innerhalb der Anwendung angezeigt, mit eigenem Design und eigenem JavaScript. Sie laden ihn als Dateien hoch, eine HTML-Datei dient dabei als [Einstiegsseite](#einstiegsdatei). Der Modus eignet sich für fertige Web-Anwendungen und für Seiten, die externe Bibliotheken über CDN-Links laden.
 
-### Eigene Webanwendung
+Der Rahmen ist abgesichert, einige Browser-Funktionen stehen darin nicht zur Verfügung — siehe [Was der Browser im Separaten Layout blockiert](#was-der-browser-im-separaten-layout-blockiert).
 
-Erstellen Sie eigene Webanwendungen im Editor mit vollständiger Kontrolle über HTML, JavaScript und CSS.
+### Integriertes Layout
 
-#### Was Sie tun können:
+Der Inhalt wird direkt in die Oberfläche von edulution eingefügt und sieht deshalb aus wie die Anwendung selbst. Sie pflegen ihn mit HTML, CSS und Bildern im Editor der App-Einstellungen, statt Dateien hochzuladen. Der Modus eignet sich für Textseiten wie Impressum und Datenschutz.
 
-- Webseiten mit HTML erstellen
-- Inhalte formatieren und stylen mit CSS
-- Interaktivität hinzufügen mit JavaScript
-- Designelemente einbetten
-- Interaktive Anwendungen entwickeln
-
-#### Unterstützte Technologien:
-
-- **HTML**: Struktur und Inhalt
-- **CSS**: Styling und Layout
-- **JavaScript**: Interaktivität und Logik
-- Externe Bibliotheken (CDN-Links)
+:::note[Kein JavaScript in diesem Modus]
+Der Editor-Inhalt wird als HTML in die Seite eingefügt; `<script>`-Elemente werden dabei nicht ausgeführt, eingebundene Bibliotheken über CDN-Links ebenso wenig. Für eigene Skripte wählen Sie das **Separate Layout** und laden den Inhalt als Datei hoch.
+:::
 
 ## Dateien hochladen
+
+Der Upload gehört zum Modus **Separates Layout**. Im Integrierten Layout pflegen Sie den Inhalt stattdessen im Editor.
 
 ![Datei-Upload](/img/features/ressourcen-bib.jpeg)
 
@@ -57,15 +49,21 @@ Die integrierte Dateiverwaltung zeigt alle hochgeladenen Dateien in einer übers
 |--------|--------------|
 | **Dateiname** | Name der hochgeladenen Datei |
 | **Größe** | Dateigröße in KB/MB |
-| **Typ** | Dateityp (HTML, JS, CSS, etc.) |
+| **Typ** | Dateityp (HTML, CSS, JavaScript, Bilder) |
 | **Zuletzt geändert** | Upload-/Änderungsdatum |
 
 ### Upload-Prozess
 
 1. Klicken Sie auf das **+** Symbol
-2. Wählen Sie Ihre Dateien aus (HTML, JS, CSS)
+2. Wählen Sie Ihre Dateien aus (HTML, CSS, JavaScript, Bilder)
 3. Dateien werden hochgeladen und in der Tabelle angezeigt
 4. Verwalten Sie Dateien über die Tabellenoptionen
+
+### Einstiegsdatei
+
+Die App zeigt genau eine der hochgeladenen Dateien als Einstiegsseite an: eine Datei mit der Endung `.html`. Alle weiteren Dateien — CSS, JavaScript, Bilder — werden nicht selbst geöffnet, sondern nur geladen, wenn die Einstiegsseite sie referenziert. Eine Datei mit der Endung `.htm` wird nicht als Einstiegsseite erkannt; benennen Sie sie vor dem Hochladen um.
+
+Laden Sie mehrere HTML-Dateien hoch, ist nicht vorhersehbar, welche davon als Einstiegsseite dient. Halten Sie deshalb genau eine HTML-Datei in der App und binden Sie weitere Seiten über Links aus dieser Datei ein. Fehlt eine HTML-Datei ganz, erscheint statt des Inhalts eine technische Fehlermeldung — auch in der Vorschau in den [App-Einstellungen](../konfiguration/einstellungen.md).
 
 ### Funktionen
 
@@ -75,6 +73,8 @@ Die integrierte Dateiverwaltung zeigt alle hochgeladenen Dateien in einer übers
 - **Speichern**: Änderungen sichern
 
 ## Eigene Web-App erstellen
+
+Die folgenden Beispiele gehören zum Modus **Separates Layout**: eine hochgeladene HTML-Datei, die CSS und JavaScript einbindet.
 
 ### Beispiel: Einfache HTML-App
 
@@ -138,6 +138,7 @@ Die Eingebettete App arbeitet eng mit anderen edulution-Features zusammen:
 - Nahtlose Integration in edulution Plattform
 - Eigene JavaScript-Skripte beim Laden und beim Abmelden, siehe [Skripte in Frame-Apps](#skripte-in-frame-apps)
 - Adresszeile und Deep-Links, siehe [URL-Verarbeitung und Deep-Links](#url-verarbeitung-und-deep-links)
+- Weitergabe von Browser-Berechtigungen wie Kamera, Mikrofon oder lokalem Netzwerkzugriff, siehe [Berechtigungen des eingebetteten Inhalts](#berechtigungen-des-eingebetteten-inhalts)
 
 ## URL-Verarbeitung und Deep-Links
 
@@ -148,7 +149,7 @@ Der Bereich **URL-Verarbeitung** ändert das. Sie finden ihn als Global-Admin un
 - **Frame-Apps**, also der Einbettung einer externen Anwendung, und
 - **Eingebetteten Apps** im Modus **Separates Layout**.
 
-Im Modus *Integriertes Layout* bleiben die Schalter deaktiviert: Dort wird der Inhalt direkt in die Oberfläche eingefügt, es gibt also keine eigene Navigation, die mitgeführt werden könnte.
+Im Modus **Integriertes Layout** bleiben die Schalter deaktiviert: Dort gibt es keine eigene Navigation, die mitgeführt werden könnte.
 
 ### Die beiden Schalter
 
@@ -217,6 +218,12 @@ Skripte lassen sich nur in Inhalte einfügen, die unter derselben Domain wie edu
 Die Skripte werden an den Browser jedes Benutzers ausgeliefert, der die App öffnet, und sind dort im Klartext lesbar. Hinterlegen Sie deshalb keine Passwörter, Token oder API-Schlüssel im Skript.
 :::
 
+## Berechtigungen des eingebetteten Inhalts
+
+Ob eine eingebettete Anwendung Kamera, Mikrofon, Zwischenablage, angeschlossene Geräte oder ein Gerät im lokalen Netzwerk nutzen darf, entscheidet nicht die Anwendung selbst, sondern edulution beim Einbetten. Als Global-Admin legen Sie das pro App unter **Einstellungen → \<App\>** im Bereich **Berechtigungen des eingebetteten Inhalts** fest. Die Auswahl wirkt nur auf Inhalte, die unter einer anderen Domain als edulution ausgeliefert werden.
+
+[→ Details: Einstellungen – Berechtigungen des eingebetteten Inhalts](../konfiguration/einstellungen.md#berechtigungen-des-eingebetteten-inhalts)
+
 ## Anwendungsfälle
 
 ### Lernressourcen
@@ -241,7 +248,7 @@ Die Skripte werden an den Browser jedes Benutzers ausgeliefert, der die App öff
 
 ### Dateiorganisation
 - Verwenden Sie aussagekräftige Dateinamen
-- Organisieren Sie Dateien logisch (index.html als Hauptdatei)
+- Halten Sie genau eine HTML-Datei als Einstiegsseite, siehe [Einstiegsdatei](#einstiegsdatei)
 - Halten Sie die Dateistruktur einfach
 
 ### Performance
@@ -256,8 +263,14 @@ Die Skripte werden an den Browser jedes Benutzers ausgeliefert, der die App öff
 
 ## Fehlerbehebung
 
+### Die eingebettete Seite bleibt leer
+
+- Im Modus **Separates Layout** muss eine Datei mit der Endung `.html` hochgeladen sein — `.htm` wird nicht erkannt, siehe [Einstiegsdatei](#einstiegsdatei)
+- Im Modus **Integriertes Layout** wird stattdessen der Inhalt aus dem Editor angezeigt; ist dieser leer, bleibt auch die App leer
+- Prüfen Sie, ob der Moduswechsel über **Speichern** gesichert wurde
+
 ### Dateien werden nicht angezeigt
-- Überprüfen Sie die Dateitypen (nur HTML, JS, CSS)
+- Überprüfen Sie die Dateitypen (HTML, CSS, JavaScript, Bilder)
 - Stellen Sie sicher, dass Dateinamen keine Sonderzeichen enthalten
 - Aktualisieren Sie die Seite
 
@@ -282,6 +295,14 @@ Die Skripte werden an den Browser jedes Benutzers ausgeliefert, der die App öff
 - Führt die eingebettete Anwendung auf ihrer Startseite eine Anmeldung oder eine Initialisierung durch, aktivieren Sie **Basisseite vorladen**
 - Wird die Adresszeile beim Navigieren nicht mitgeführt (siehe oben), entstehen gar keine Deep-Links, die weitergegeben werden könnten
 
+### Kamera, Mikrofon oder ein Gerät funktioniert in der eingebetteten Anwendung nicht
+
+- Prüfen Sie unter **Einstellungen → \<App\>** im Bereich **Berechtigungen des eingebetteten Inhalts**, ob die benötigte Berechtigung ausgewählt und die Konfiguration gespeichert ist
+- Eine geleerte Auswahl gibt **keine** Berechtigung weiter – wählen Sie die benötigten Einträge einzeln aus. **Alle auswählen** gibt zusätzlich den Zugriff auf das lokale Netzwerk frei
+- Für Geräte im lokalen Netzwerk müssen `loopback-network` beziehungsweise `local-network` gewählt sein; sie gehören nicht zum Standardsatz
+- Der Browser fragt beim ersten Zugriff zusätzlich um Erlaubnis – prüfen Sie, ob diese Anfrage abgelehnt wurde
+- Firefox und Safari unterstützen den Zugriff auf das lokale Netzwerk aus einem iframe nicht
+
 ### Ein Skript wird nicht ausgeführt
 
 - Der zugehörige Schalter im Bereich **Skripte** muss aktiv sein und die Konfiguration gespeichert
@@ -292,6 +313,19 @@ Die Skripte werden an den Browser jedes Benutzers ausgeliefert, der die App öff
 ## Grenzen und Beschränkungen
 
 - Maximale Dateigröße: (wird vom Administrator festgelegt)
-- Unterstützte Dateitypen: HTML, CSS, JavaScript
+- Unterstützte Dateitypen: HTML, CSS, JavaScript, Bilder
 - Keine serverseitigen Skripte (PHP, Python, etc.)
 - Ausführung im Browser-Kontext
+
+### Was der Browser im Separaten Layout blockiert
+
+Der Inhalt läuft in einem abgesicherten Rahmen. Diese gewohnten Browser-Funktionen stehen darin nicht zur Verfügung:
+
+| Funktion | Verhalten |
+| --- | --- |
+| `alert()`, `confirm()`, `prompt()` | werden nicht ausgeführt — bauen Sie Dialoge stattdessen im HTML nach |
+| Herunterladen von Dateien | wird blockiert |
+| Links mit `target="_top"` | bleiben wirkungslos, die umgebende edulution-Seite lässt sich nicht ersetzen |
+| Neue Fenster über `window.open` | in der geöffneten App erlaubt, in der Vorschau der App-Einstellungen blockiert |
+
+Bleibt ein erwarteter Dialog aus oder passiert beim Klick auf einen Download-Link nichts, ist diese Absicherung die Ursache. Die Konsole des Browsers weist den blockierten Zugriff aus.

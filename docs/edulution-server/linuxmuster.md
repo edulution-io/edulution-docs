@@ -30,13 +30,17 @@ Die Unterseiten wählen Sie über die Seitenleiste der App:
 Die **Elternzuweisung** erscheint nur in Schulumgebungen. Beim [Organisationstyp](../edulution-plattform/konfiguration/einstellungen.md#organisationstyp) **Unternehmen** entfällt der Eintrag.
 :::
 
+:::note[Wer den Schulserver verwalten darf]
+Die Bereiche der App **Schulserver** stehen **Globaladmins** und **Schuladmins** offen. Andere Rollen haben gegenüber Linuxmuster keine Verwaltungsrechte – daran ändert auch der Zugriff auf die App nichts.
+:::
+
 :::note[LINBO nur für Globaladmins]
 Der Eintrag **LINBO** in der Seitenleiste – und die gleichnamige Kachel der Übersicht – ist ausschließlich **Globaladmins** vorbehalten. Für alle anderen Rollen entfällt der Bereich; die übrigen Einträge der App bleiben davon unberührt.
 :::
 
 Die **Übersicht** ist nach denselben Bereichen gegliedert wie die Seitenleiste. Unter **Benutzerverwaltung** führt je eine Kachel direkt zu den Benutzertypen **Schüler**, **Lehrer**, **Extra-Schüler**, **Eltern**, **Mitarbeiter**, **Schuladmins** und **Globaladmins**; in Unternehmensumgebungen bleiben davon nur **Mitarbeiter** und **Globaladmins** sichtbar. Darunter folgen die Bereiche **Geräteverwaltung**, **Elternzuweisung**, **LINBO** und **System** mit je einer Kachel. Die Kachel **LINBO** öffnet dieselbe Übersicht wie der gleichnamige Eintrag in der Seitenleiste.
 
-In Umgebungen mit mehreren Schulen enthalten die Listenansichten oben rechts eine **Schulauswahl**. Ein Wechsel der Schule verwirft die bereits geladenen Daten und lädt sie für die neue Schule erneut.
+In Umgebungen mit mehreren Schulen enthalten die Listenansichten oben rechts eine **Schulauswahl**. Benutzerverwaltung, Geräteverwaltung, Verwaltungslisten und Elternzuweisung zeigen die Daten der dort gewählten Schule; ein Wechsel lädt die Listen neu. Als **Globaladmin** wählen Sie jede Schule des Servers, als **Schuladmin** enthält die Auswahl nur Ihre eigene Schule.
 
 ## Benutzerverwaltung
 
@@ -49,7 +53,7 @@ Für Benutzertypen ohne Importunterstützung erscheint der Hinweis *„Für dies
 
 ### Import in drei Schritten
 
-Der Import ist bewusst zweistufig, damit Sie die Auswirkungen vor dem Schreiben sehen:
+Der Import ist bewusst mehrstufig, damit Sie die Auswirkungen vor dem Schreiben sehen:
 
 1. **Speichern** – die bearbeitete Liste wird auf dem Server abgelegt. Die Meldung weist ausdrücklich darauf hin, anschließend **Prüfen** zu verwenden; gespeichert allein bewirkt noch keine Änderung an den Konten.
 2. **Prüfen** – Linuxmuster wertet die Liste aus und meldet das Ergebnis in einem Dialog, gegliedert in eine Übersicht sowie die Konten, die **angelegt**, **aktualisiert** oder **entfernt** würden, und die aufgetretenen **Fehler**.
@@ -94,6 +98,10 @@ Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Kla
 
 Vor dem Speichern werden die Einträge validiert. Doppelte Rechnernamen, MAC- oder IP-Adressen werden gemeldet und müssen zuerst bereinigt werden.
 
+:::tip[Ausführliche Anleitung]
+Wie Sie Geräte entfernen, was **Speichern** und **Anwenden** dabei jeweils bewirken, wie der CSV-Dialog die Tabelle ersetzt und was mit Kommentarzeilen geschieht, beschreibt die [Geräteverwaltung](../edulution-plattform/apps/native-apps/geraeteverwaltung.md).
+:::
+
 ## Elternzuweisung
 
 Hier geben Sie die Verknüpfungen frei, die Eltern und Schüler selbst über einen Zuweisungs-Code
@@ -101,6 +109,11 @@ angefragt haben (*„Eltern-Schüler-Zuweisungen verwalten."*). Wie die Anfrage 
 [Benutzereinstellungen → Meine Kinder/Eltern](../edulution-plattform/uebersicht/benutzereinstellungen/meine-kinder-eltern.md).
 
 ![Kachel „Elternzuweisung" auf der Übersichtsseite der Schulserver-App](/img/eltern-schueler-zuordnung/elternzuweisung-kachel.png)
+
+:::note[Zu welcher Schule eine Anfrage gehört]
+Eine Anfrage gehört immer zur **Schule des Schülers**. Gehören Kind und Elternteil verschiedenen
+Schulen an, erscheint sie deshalb nur in der Schule des Kindes und wird auch nur dort freigegeben.
+:::
 
 Die Tabelle zeigt die Zuordnungen mit folgenden Spalten; die Fußzeile nennt die Zahl der
 ausgewählten Einträge.
@@ -125,7 +138,7 @@ ausgewählten Einträge.
 
 - Über das **Suchfeld** filtern Sie die Tabelle nach Elternteil oder Schüler (*„Nach Elternteil oder Schüler suchen…"*).
 - Ein **Status-Filter** blendet gezielt *Alle*, *Ausstehend*, *Akzeptiert* oder *Abgelehnt* ein. Standardmäßig sind die **ausstehenden** Anfragen vorausgewählt.
-- Super-Administratoren steht zusätzlich eine **Schulauswahl** zur Verfügung, um Anfragen schulübergreifend zu bearbeiten.
+- Über die **Schulauswahl** oben rechts bearbeiten **Globaladmins** die Anfragen einer anderen Schule.
 
 ![Geöffneter Status-Filter mit den Optionen Alle, Ausstehend, Akzeptiert und Abgelehnt](/img/eltern-schueler-zuordnung/elternzuweisung-filter.png)
 
@@ -291,6 +304,14 @@ Ein Image heißt nach seinem Verzeichnis auf dem Server (`debian13`); die Bildda
 Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.info`), VDI-Konfiguration (`.vdi`), Torrent (`.torrent`), Maschinenkonto (`.macct`), Prüfsumme (`.md5`), Hashsumme (`.hash`), Registry (`.reg`), Pre-Start-Skript (`.prestart`) und Post-Sync-Skript (`.postsync`). In der Spalte **Sidecars** steht je vorhandener Datei ein Buchstabenkürzel; welcher Dateityp dahintersteht, erscheint, sobald Sie mit dem Mauszeiger darauf zeigen. Der Detaildialog zeigt zusätzlich Dateiname, Image-Ordner, Pfad, Größe, MD5-Summe und – sofern ein `.info`-Sidecar vorliegt – Erstellungszeitpunkt, Image- und Partitionsgröße sowie die Beschreibung.
 
 Über die Schaltfläche zum Hochladen fügen Sie ein Image hinzu. Zulässig sind Image-Dateien (`.qcow2`, `.qdiff`, `.cloop`, `.rsync`) und alle oben genannten Beipack-Dateien; andere Dateitypen weist der Dialog ab. Während eines laufenden Downloads sind weitere Downloads gesperrt.
+
+Im Dialog geben Sie Image-Name und Dateiname an; während der Übertragung sind beide Felder gesperrt und ein Fortschrittsbalken zeigt den Stand in Prozent. **Abbrechen** bricht die laufende Übertragung ab und verwirft zugleich die Daten, die der Server bereits entgegengenommen hat – es bleibt also kein angefangenes Image auf dem Server zurück.
+
+Der Server nimmt ein Image in Teilstücken entgegen. Bricht die Übertragung ab, weil etwa die Verbindung zum Schulserver wegfällt, setzt ein erneuter Upload derselben Datei dort an, wo er stehengeblieben ist; bei einem mehrere Gigabyte großen Image erspart das den bereits übertragenen Teil.
+
+:::note[Fortgesetzt wird nur dieselbe Datei]
+Fortgesetzt wird der Upload ausschließlich dann, wenn Sie unter demselben Image- und Dateinamen erneut eine Datei derselben Größe hochladen. Laden Sie unter einem bereits angefangenen Namen eine andere Datei hoch – etwa ein neu erstelltes Image –, beginnt die Übertragung von vorn und überschreibt den angefangenen Stand. Nach einem Neustart der edulution-Instanz beginnt jeder Upload ebenfalls von vorn.
+:::
 
 #### Aktionen eines Images
 

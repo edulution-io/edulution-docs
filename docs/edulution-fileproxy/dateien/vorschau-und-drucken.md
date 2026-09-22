@@ -126,9 +126,21 @@ PDFs werden im PDF-Betrachter des Browsers geöffnet und nicht mehr an OnlyOffic
 
 Lässt sich der Inhalt einer Datei nicht laden, zeigt die Vorschau eine Fehlermeldung **Vorschau konnte nicht geladen werden** – anstatt dauerhaft eine Ladeanzeige zu drehen. Darunter stehen der Grund und der Name der betroffenen Datei, etwa *Kein Zugriff auf diese Ressource*, wenn Ihnen die Berechtigung fehlt, oder *Datei nicht gefunden*, wenn die Datei inzwischen verschoben oder gelöscht wurde.
 
-Unterhalb der Meldung finden Sie **Erneut versuchen**. Damit laden Sie dieselbe Datei noch einmal, ohne die Vorschau schließen und neu öffnen zu müssen – hilfreich, wenn die Verbindung nur kurzzeitig gestört war.
+Unterhalb der Meldung finden Sie **Erneut versuchen**. Damit laden Sie dieselbe Datei noch einmal, ohne die Vorschau schließen und neu öffnen zu müssen – hilfreich, wenn die Verbindung nur kurzzeitig gestört war. Die Schaltfläche erscheint nur dort, wo ein zweiter Versuch überhaupt etwas ändern kann; bei einem Fehler, den erneutes Laden nicht behebt, entfällt sie und die Meldung nennt stattdessen den Weg zur Datei.
 
 Die Meldung gehört immer zu der Datei, die gerade in der Vorschau geöffnet ist: Schlägt der Download einer anderen Datei fehl, bleibt Ihre geöffnete Vorschau davon unberührt. Dieselbe Meldung erscheint, wenn Sie die Vorschau in einem eigenen Browser-Tab oder über einen Freigabe-Link geöffnet haben, ebenso wenn der Dokumenten-Editor ein Office-Dokument nicht öffnen konnte und wenn ein PDF zwar geladen, aber nicht dargestellt werden kann – das Vorschaufenster bleibt in diesen Fällen nicht mehr leer.
+
+### Der Link zur Vorschau im eigenen Tab
+
+Öffnen Sie eine Datei über **In neuem Tab öffnen**, verweist die Adresse dieses Tabs auf einen Eintrag, den edulution beim Öffnen in Ihrem Browser speichert. Der Link ist damit an diesen Browser gebunden: Er funktioniert für Sie weiterhin, auch nach einem Neuladen des Tabs, aber nicht für andere Personen und nicht auf einem anderen Gerät.
+
+Findet der Tab den zugehörigen Eintrag nicht, erscheint die Meldung *„Diese Vorschau ist nicht mehr verfügbar. Bitte öffne die Datei erneut in der Dateiliste."* – ohne **Erneut versuchen**, da ein neuer Ladeversuch am fehlenden Eintrag nichts ändert. Das passiert vor allem dann, wenn
+
+- Sie den Link an jemanden weitergegeben oder auf einem anderen Gerät geöffnet haben,
+- die Datei seit dem Öffnen geändert wurde und der Link noch auf den früheren Stand zeigt, oder
+- die Browserdaten seitdem gelöscht wurden.
+
+Öffnen Sie die Datei in diesem Fall erneut aus der Dateiliste. Um eine Datei mit anderen zu teilen, verwenden Sie nicht die Adresse des Vorschau-Tabs, sondern einen [Freigabe-Link](./teilen.md).
 
 ## Häufige Fragen
 
@@ -140,6 +152,9 @@ Für `.docx`, `.xlsx` und `.pptx` wird ein Dokumenten-Editor benötigt. Ist kein
 
 **Das Drucker-Symbol fehlt.**
 Es erscheint nur bei textbasierten Dateien und nur in der Ansicht. Wechseln Sie über das Augen-Symbol aus dem Bearbeitungsmodus zurück.
+
+**Ein weitergegebener Link zu einer Vorschau zeigt „Diese Vorschau ist nicht mehr verfügbar".**
+Die Adresse eines Vorschau-Tabs gilt nur im eigenen Browser und lässt sich nicht weitergeben. Erstellen Sie zum Teilen einen [Freigabe-Link](./teilen.md). Siehe [Der Link zur Vorschau im eigenen Tab](#der-link-zur-vorschau-im-eigenen-tab).
 
 **Statt eines Vorschaubildes sehe ich das allgemeine Dateisymbol.**
 Vorschaubilder werden nur für Bilddateien erzeugt. Bei sehr großen oder beschädigten Bildern kann die Erzeugung fehlschlagen – die Datei selbst bleibt davon unberührt.

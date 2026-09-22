@@ -6,7 +6,7 @@ Die Oberfläche von edulution wird über zwei Leisten bedient: die **App-Leiste*
 Die App-Leiste enthält Ihre Favoriten und die gerade laufenden Apps; sie ist in allen Apps gleich. Die Menüleiste gehört zur geöffneten App und ändert sich mit ihr. In den Beschreibungen einzelner Apps wird die Menüleiste teilweise auch **Seitenleiste** genannt.
 :::
 
-![Navigation Uebersicht](/img/navigation_overview.png)
+![Navigation Uebersicht](../../img/navigation_overview.png)
 
 ## App-Leiste
 
@@ -22,7 +22,7 @@ Die App-Leiste steht am rechten Rand und ist von oben nach unten so aufgebaut:
 
 Ein Klick auf einen Eintrag öffnet die App. Die aktive App ist hervorgehoben; fahren Sie mit der Maus über einen Eintrag, klappt zusätzlich der vollständige App-Name auf.
 
-![Navigation App-Launcher](/img/navigation_app-launcher.png)
+![Navigation App-Launcher](../../img/navigation_app-launcher.png)
 
 ### Favoriten
 
@@ -183,7 +183,7 @@ Es ist immer nur eine der beiden Leisten geöffnet: Öffnen Sie die eine, schlie
 
 Die eingeblendete App-Leiste zeigt die Apps mit vollem Namen untereinander – zuerst die Favoriten, nach der Trennlinie die laufenden Apps. Am unteren linken Rand stehen die installierte Version und der Copyright-Hinweis.
 
-![Navigation Mobile Ansicht mit geschlossener Seitenleiste](/img/navigation_mobile_closed.png) ![Navigation Mobile Ansicht mit offener Seitenleiste](/img/navigation_mobile_opened.png)
+![Navigation Mobile Ansicht mit geschlossener Seitenleiste](../../img/navigation_mobile_closed.png) ![Navigation Mobile Ansicht mit offener Seitenleiste](../../img/navigation_mobile_opened.png)
 
 ## Weitere Informationen
 

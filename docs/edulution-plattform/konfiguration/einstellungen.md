@@ -32,7 +32,7 @@ Die Einstellungen der einzelnen Apps – etwa [E-Mails](#e-mails), [Kalender](#k
 
 ## Globale Einstellungen
 
-![Globale Einstellungen](/img/einstellungen/global-settings.webp)
+![Globale Einstellungen](../../img/einstellungen/global-settings.webp)
 
 ### Allgemein
 
@@ -111,7 +111,7 @@ Die Variable setzt nur den Ausgangswert. Danach ändern Sie den Organisationstyp
 
 ### Branding
 
-![Branding](/img/einstellungen/branding.webp)
+![Branding](../../img/einstellungen/branding.webp)
 
 **Logo**
 - Laden Sie Ihr Schul-Logo hoch
@@ -163,7 +163,7 @@ Die mitgelieferten Routen werden beim Start aus dem Internet abgerufen. Ist das 
 
 ## E-Mails
 
-![E-Mail Einstellungen](/img/einstellungen/email-settings.webp)
+![E-Mail Einstellungen](../../img/einstellungen/email-settings.webp)
 
 Die E-Mail-Einstellungen ermöglichen die Konfiguration der Mail-App und des SOGo Webmailers.
 
@@ -251,7 +251,7 @@ Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie
 
 ## Kalender (CalDAV)
 
-![Einstellungen der Kalender-App mit CalDAV-Konfiguration](/img/einstellungen/kalender-caldav.webp)
+![Einstellungen der Kalender-App mit CalDAV-Konfiguration](../../img/einstellungen/kalender-caldav.webp)
 
 Die Kalender-App bindet die Kalender der Schule über einen CalDAV-Server (z.B. SoGo) an. In den Einstellungen der App legen Sie die Verbindung zum CalDAV-Server fest.
 
@@ -324,7 +324,7 @@ In Produktivumgebungen sollten Sie **Nicht zertifizierte Verbindungen ablehnen**
 
 ## Kontakte (CardDAV)
 
-![Einstellungen der Kontakte-App mit CardDAV-Konfiguration](/img/einstellungen/kontakte-carddav.webp)
+![Einstellungen der Kontakte-App mit CardDAV-Konfiguration](../../img/einstellungen/kontakte-carddav.webp)
 
 Die Kontakte-App bindet die Adressbücher der Schule über einen CardDAV-Server (z.B. SOGo) an. In den Einstellungen der App legen Sie die Verbindung zum CardDAV-Server fest.
 
@@ -499,7 +499,7 @@ Die Auswahl greift nur, wenn der eingebettete Inhalt unter einer **anderen Domai
 
 ## Container
 
-![Container Übersicht](/img/einstellungen/container.webp)
+![Container Übersicht](../../img/einstellungen/container.webp)
 
 Übersicht aller Docker Container des Systems. Ein Symbol vor dem Container-Namen zeigt, ob ein Update bereitliegt. Über die Aktionsleiste installieren Sie die Container zusätzlicher Dienste, aktualisieren sie und steuern ihren Lebenszyklus.
 
@@ -513,7 +513,7 @@ Die Container-Übersicht ist für fortgeschrittene Administratoren. Änderungen 
 
 ## Benutzerverwaltung
 
-![Benutzerverwaltung](/img/einstellungen/user-admin.webp)
+![Benutzerverwaltung](../../img/einstellungen/user-admin.webp)
 
 ### Zwei-Faktor-Authentisierung zurücksetzen
 
@@ -575,7 +575,7 @@ Die Mitgliedschaft hebelt die Zugriffsgruppen aller Apps aus: Administratoren se
 
 ## Lizenz
 
-![Info / Lizenz](/img/einstellungen/info-license.webp)
+![Info / Lizenz](../../img/einstellungen/info-license.webp)
 
 ### Lizenz-Übersicht
 

@@ -50,7 +50,7 @@ Der Installer erstellt automatisch das Verzeichnis `/srv/docker/edulution-mail`,
 3. Klicken Sie auf die Kachel **E-Mails**
 4. Unten erscheint ein **+** Button - klicken Sie darauf
 
-![App-Store - E-Mails auswählen](/img/edulution-mail/app-store-emails.png)
+![App-Store - E-Mails auswählen](../../img/edulution-mail/app-store-emails.png)
 
 ### Schritt 2: Docker-Anwendung erstellen
 
@@ -60,7 +60,7 @@ Der Installer erstellt automatisch das Verzeichnis `/srv/docker/edulution-mail`,
 4. Geben Sie den **Hostname** Ihrer edulution-Instanz ein (z.B. `ihre-schule.de`)
 5. Klicken Sie auf **Installieren**
 
-![Hostname eingeben und Installation starten](/img/edulution-mail/installation-hostname.png)
+![Hostname eingeben und Installation starten](../../img/edulution-mail/installation-hostname.png)
 
 :::warning[Wichtig]
 Verwenden Sie den Hostname Ihrer edulution-Instanz, NICHT eine separate Mail-Domain wie `mail.ihre-schule.de`. Die E-Mail-Dienste werden über die edulution-URL bereitgestellt.
@@ -157,7 +157,7 @@ http:
 
 5. Klicken Sie auf **Speichern**
 
-![Proxy-Konfiguration einfügen](/img/edulution-mail/proxy-konfiguration.png)
+![Proxy-Konfiguration einfügen](../../img/edulution-mail/proxy-konfiguration.png)
 
 :::danger[Wichtig]
 Die Proxy-Konfiguration ist zwingend erforderlich! Ohne diese Konfiguration sind die E-Mail-Dienste nicht über die edulution-URL erreichbar.
@@ -184,7 +184,7 @@ Beim Update der **edulution-plattform/edulution-api Container auf v2.0.156 oder 
 :::
 
 :::info[Optionales Aufräumen]
-Sobald edulution-mail das Mailcow-Netzwerk für edulution-api sichtbar macht, sind die alten `imap`/`imaps`-EntryPoints in Traefik und der zugehörige TCP-Block in der dyn. Mail-Konfiguration obsolet und können bereinigt werden. Details siehe [Changelog & Config-Anpassungen](/docs/edulution-mail/konfiguration/changelog-config-anpassungen).
+Sobald edulution-mail das Mailcow-Netzwerk für edulution-api sichtbar macht, sind die alten `imap`/`imaps`-EntryPoints in Traefik und der zugehörige TCP-Block in der dyn. Mail-Konfiguration obsolet und können bereinigt werden. Details siehe [Changelog & Config-Anpassungen](./changelog-config-anpassungen.md).
 :::
 
 ### Schritt 4: Docker-Anwendung starten
@@ -246,10 +246,10 @@ https://localhost:8443
 :::
 
 :::warning[Ältere Versionen aktualisieren]
-Die Bindung an `127.0.0.1` gilt ab **edulution-mail v1.3.2**. Ältere Installationen binden Port 8443 an alle Netzwerkschnittstellen — aktualisieren Sie edulution-mail, siehe [Changelog & Config-Anpassungen](/docs/edulution-mail/konfiguration/changelog-config-anpassungen). Bis dahin gehören Port 8443 in der Firewall gesperrt und das Standardpasswort geändert.
+Die Bindung an `127.0.0.1` gilt ab **edulution-mail v1.3.2**. Ältere Installationen binden Port 8443 an alle Netzwerkschnittstellen — aktualisieren Sie edulution-mail, siehe [Changelog & Config-Anpassungen](./changelog-config-anpassungen.md). Bis dahin gehören Port 8443 in der Firewall gesperrt und das Standardpasswort geändert.
 :::
 
-Weitere Informationen zur Administration finden Sie unter [Administration](/docs/edulution-mail/konfiguration/administration).
+Weitere Informationen zur Administration finden Sie unter [Administration](./administration.md).
 
 ### Webmail (SOGo) Zugriff
 
@@ -288,13 +288,13 @@ Dies ist der wichtigste Sicherheitsschritt und sollte sofort nach der Installati
 
 ### 2. E-Mail-Einstellungen konfigurieren
 
-**Wo:** edulution-Plattform → [Einstellungen → E-Mails](/docs/edulution-plattform/konfiguration/einstellungen#e-mails)
+**Wo:** edulution-Plattform → [Einstellungen → E-Mails](../../edulution-plattform/konfiguration/einstellungen.md#e-mails)
 
 Hier können Sie folgende Einstellungen anpassen:
 
 - **SOGo Theme** - Wählen Sie zwischen hellem und dunklem Design
 - **Benutzer-Mailformate** - Konfigurieren Sie das Schema für E-Mail-Adressen
-- **Quota-Einstellungen** - Anpassen über Override-Konfiguration (siehe [Konfiguration](/docs/edulution-mail/konfiguration/administration#konfiguration))
+- **Quota-Einstellungen** - Anpassen über Override-Konfiguration (siehe [Konfiguration](./administration.md#konfiguration))
 
 ### 3. Sync-Gruppen überprüfen
 
@@ -313,7 +313,7 @@ Falls Sie andere Gruppen synchronisieren möchten, erstellen Sie eine Override-K
 }
 ```
 
-Weitere Details finden Sie unter [Administration → Konfiguration](/docs/edulution-mail/konfiguration/administration#konfiguration).
+Weitere Details finden Sie unter [Administration → Konfiguration](./administration.md#konfiguration).
 
 ### 4. Firewall-Regeln einrichten
 
@@ -385,7 +385,7 @@ sed -i '/^\s*volumes:/a\      - /srv/docker/edulution-mail/mailcow/data/conf/sog
 Nach der Konfiguration des Volume-Mounts:
 
 1. Melden Sie sich in der edulution-Plattform als Administrator an
-2. Navigieren Sie zu [**Einstellungen** → **E-Mails**](/docs/edulution-plattform/konfiguration/einstellungen#e-mails)
+2. Navigieren Sie zu [**Einstellungen** → **E-Mails**](../../edulution-plattform/konfiguration/einstellungen.md#e-mails)
 3. Wählen Sie das gewünschte SOGo-Theme (Hell/Dunkel) aus
 
 Die Theme-Änderung wird sofort für alle Benutzer wirksam.
@@ -429,7 +429,7 @@ Der Neustart von edulution-mail bindet den aktuellen edu-api-Container wieder in
 
 Nach der Installation können Sie:
 
-- [E-Mail-Clients konfigurieren](/docs/edulution-mail/clients/server-settings) - Anleitungen für verschiedene Mail-Clients
-- [Verteilerlisten einrichten](/docs/edulution-mail/konfiguration/verteilerlisten) - Projekt-basierte E-Mail-Verteiler
-- [Mail-Migration durchführen](/docs/edulution-mail/konfiguration/migration-einrichten) - Bestehende E-Mails importieren
-- [Erweiterte Administration](/docs/edulution-mail/konfiguration/administration) - Mailserver konfigurieren und verwalten
+- [E-Mail-Clients konfigurieren](../clients/server-settings.md) - Anleitungen für verschiedene Mail-Clients
+- [Verteilerlisten einrichten](./verteilerlisten.md) - Projekt-basierte E-Mail-Verteiler
+- [Mail-Migration durchführen](./migration-einrichten.md) - Bestehende E-Mails importieren
+- [Erweiterte Administration](./administration.md) - Mailserver konfigurieren und verwalten

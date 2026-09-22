@@ -26,11 +26,11 @@ Die Liste Ihrer Unterhaltungen bietet:
 
 - **Suche** – das Feld „Unterhaltungen durchsuchen…" filtert die Liste
 
-  ![Suchfeld über der Unterhaltungsliste](/img/chat/02-unterhaltungsliste-suche.png)
+  ![Suchfeld über der Unterhaltungsliste](../../../img/chat/02-unterhaltungsliste-suche.png)
 
 - **Filter** – die Reiter **Alle** und **Ungelesen**
 
-  ![Filterreiter Alle und Ungelesen](/img/chat/03-unterhaltungsliste-filter.png)
+  ![Filterreiter Alle und Ungelesen](../../../img/chat/03-unterhaltungsliste-filter.png)
 
 - **Vorschau** – jede Zeile zeigt die letzte Nachricht (eigene Nachrichten mit dem Präfix „Du:"), den Zeitpunkt und – bei bearbeiteten Nachrichten – den Hinweis „(bearbeitet)"
 
@@ -54,7 +54,7 @@ Der Messenger überträgt Text und Emojis. Datei- oder Bildanhänge sind im Chat
 
 Über die Nachrichtenaktionen bearbeiten oder löschen Sie **ausschließlich Ihre eigenen** Nachrichten. Die Schaltfläche für die Nachrichtenaktionen erscheint, sobald Sie eine Nachricht überfahren:
 
-![Schaltfläche für die Nachrichtenaktionen an einer eigenen Nachricht](/img/chat/09-nachrichtenaktionen-button.png)
+![Schaltfläche für die Nachrichtenaktionen an einer eigenen Nachricht](../../../img/chat/09-nachrichtenaktionen-button.png)
 
 Sie öffnet ein Menü mit folgenden Aktionen:
 
@@ -62,7 +62,7 @@ Sie öffnet ein Menü mit folgenden Aktionen:
 - **Bearbeiten** – nur bei eigenen Nachrichten; bearbeitete Nachrichten erhalten den Zusatz „(bearbeitet)"
 - **Löschen** – nur bei eigenen Nachrichten; nach einer Bestätigung wird der Text durch „Diese Nachricht wurde gelöscht" ersetzt
 
-![Menü der Nachrichtenaktionen mit Kopieren, Bearbeiten und Löschen](/img/chat/10-nachrichtenaktionen-menu.png)
+![Menü der Nachrichtenaktionen mit Kopieren, Bearbeiten und Löschen](../../../img/chat/10-nachrichtenaktionen-menu.png)
 
 ## Lesebestätigungen
 
@@ -101,16 +101,16 @@ Zum Schutz vor Überlastung ist die Zahl der Aktionen pro Sekunde begrenzt. Im n
 
 Über den Eintrag **KI-Chat** im Bereich **Assistent** stellen Sie Fragen an einen KI-Assistenten.
 
-![Eintrag „KI-Chat" im Bereich Assistent der Seitenleiste](/img/chat/11-ki-chat-eintrag.png)
+![Eintrag „KI-Chat" im Bereich Assistent der Seitenleiste](../../../img/chat/11-ki-chat-eintrag.png)
 
 Frühere Unterhaltungen bleiben als **KI-Unterhaltungen** erhalten.
 Über **Neuer Chat** beginnen Sie eine neue Unterhaltung.
 
-![Schaltfläche „Neuer Chat" oben rechts im KI-Chat](/img/chat/12-ki-chat-neuer-chat.png)
+![Schaltfläche „Neuer Chat" oben rechts im KI-Chat](../../../img/chat/12-ki-chat-neuer-chat.png)
 
 Steht mehr als ein Modell zur Verfügung, wählen Sie das gewünschte über die Modellauswahl.
 
-![Modellauswahl in der Kopfzeile einer KI-Unterhaltung](/img/chat/14-ki-chat-modellauswahl.png)
+![Modellauswahl in der Kopfzeile einer KI-Unterhaltung](../../../img/chat/14-ki-chat-modellauswahl.png)
 
 ### Zugriff auf den KI-Chat
 

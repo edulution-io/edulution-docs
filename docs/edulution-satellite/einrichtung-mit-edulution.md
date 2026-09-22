@@ -36,11 +36,11 @@ Rote Rechtecke und Pfeile markieren die Stelle, um die es im jeweiligen Schritt 
 
 Für den Satelliten-Betrieb werden zwei Apps benötigt. Beide fügen Sie über den **App Store** hinzu: **Einstellungen (⚙) → App Store**.
 
-![App Store mit WireGuard und Satellites](/img/satellite/appstore-uebersicht.png)
+![App Store mit WireGuard und Satellites](../img/satellite/appstore-uebersicht.png)
 
 Klicken Sie je App auf die Kachel – sie wird hervorgehoben – und anschließend auf **Hinzufügen**.
 
-![WireGuard-Kachel auswählen und hinzufügen](/img/satellite/appstore-app-hinzufuegen.png)
+![WireGuard-Kachel auswählen und hinzufügen](../img/satellite/appstore-app-hinzufuegen.png)
 
 Installieren Sie auf diese Weise nacheinander **beide** Apps:
 
@@ -59,7 +59,7 @@ Dieser Schritt ist einmalig pro edulution-Installation nötig. Sind die Apps ber
 
 Die WireGuard-App benötigt einen laufenden **Docker-Container** als VPN-Server. Öffnen Sie dazu **Einstellungen → WireGuard**. Die Konfigurationsseite zeigt unter anderem die **URL**, den automatisch erzeugten **API-Schlüssel** und den Abschnitt **Docker Anwendungen**.
 
-![WireGuard-App-Konfiguration](/img/satellite/wireguard-app-konfiguration.png)
+![WireGuard-App-Konfiguration](../img/satellite/wireguard-app-konfiguration.png)
 
 Klicken Sie im Abschnitt **Docker Anwendungen** auf das **Plus-Symbol**. Es öffnet sich der Dialog **WireGuard-Plugins installieren** mit drei Feldern:
 
@@ -71,7 +71,7 @@ Klicken Sie im Abschnitt **Docker Anwendungen** auf das **Plus-Symbol**. Es öff
 
 Klicken Sie anschließend auf **Installieren** – der Container wird geladen und gestartet.
 
-![Docker-Anwendung WireGuard installieren](/img/satellite/wireguard-container-installieren.png)
+![Docker-Anwendung WireGuard installieren](../img/satellite/wireguard-container-installieren.png)
 
 :::warning[Feld „Adresse" ist die öffentliche Adresse]
 Tragen Sie unter **Adresse** die von außen erreichbare Adresse bzw. den Hostnamen des edulution-Servers ein – **nicht** die interne VPN-IP. Aus diesem Wert wird der Endpunkt gebildet, den die Satelliten später ansprechen. Details unter [WireGuard-Server über Traefik](./wireguard-traefik.md).
@@ -79,7 +79,7 @@ Tragen Sie unter **Adresse** die von außen erreichbare Adresse bzw. den Hostnam
 
 Nach kurzer Zeit läuft der Container. Prüfen können Sie das unter **Einstellungen → Allgemein → Container-Übersicht**: `edulution-wireguard` steht auf **läuft**.
 
-![WireGuard-Container läuft](/img/satellite/wireguard-container-laeuft.png)
+![WireGuard-Container läuft](../img/satellite/wireguard-container-laeuft.png)
 
 :::warning[UDP-Erreichbarkeit prüfen]
 Der WireGuard-Server muss von außen per **UDP** erreichbar sein, sonst kommt später kein Tunnel zustande. Diese Vorbereitung ist einmalig pro edulution-Server nötig – siehe [WireGuard-Server über Traefik](./wireguard-traefik.md).
@@ -89,11 +89,11 @@ Der WireGuard-Server muss von außen per **UDP** erreichbar sein, sonst kommt sp
 
 Öffnen Sie **Einstellungen → Satellites**. Der Abschnitt **Verbundene Satellites** ist zunächst leer.
 
-![Verbundene Satellites – noch leer](/img/satellite/satellites-liste-leer.png)
+![Verbundene Satellites – noch leer](../img/satellite/satellites-liste-leer.png)
 
 Klicken Sie auf das **Plus-Symbol**, tragen Sie die **Seriennummer** des Geräts ein und bestätigen Sie mit **Hinzufügen**.
 
-![Seriennummer eintragen](/img/satellite/satellit-seriennummer-hinzufuegen.png)
+![Seriennummer eintragen](../img/satellite/satellit-seriennummer-hinzufuegen.png)
 
 Damit ist das Gerät in edulution vorangemeldet. Sobald es später online geht, wird es automatisch dieser Anmeldung zugeordnet – das ist die Grundlage für den **Auto-Deploy** in Schritt 5.
 
@@ -111,25 +111,25 @@ Beim ersten Aufruf der Oberfläche startet der **Setup-Wizard**. Weil die Serien
 
 | Auto-Deploy: automatisch gekoppelt | Passwort setzen → Finish |
 |---|---|
-| ![Auto-Deploy](/img/satellite/wizard-auto-deploy.png) | ![Passwort setzen](/img/satellite/wizard-passwort-setzen.png) |
+| ![Auto-Deploy](../img/satellite/wizard-auto-deploy.png) | ![Passwort setzen](../img/satellite/wizard-passwort-setzen.png) |
 
 Nach **Finish** läuft ein kurzes Setup. Melden Sie sich anschließend mit dem gesetzten Passwort an – Sie landen auf dem **Dashboard**.
 
-![Dashboard des Satelliten](/img/satellite/satellit-dashboard.png)
+![Dashboard des Satelliten](../img/satellite/satellit-dashboard.png)
 
 ## 6. Satellit in edulution bestätigen
 
 Zurück in edulution unter **Einstellungen → Satellites → Verbundene Satellites** erscheint das Gerät jetzt als **Online**, zunächst im Status *Ausstehend*. Bestätigen Sie es mit **Akzeptieren**.
 
-![Satellit akzeptieren](/img/satellite/satellit-akzeptieren.png)
+![Satellit akzeptieren](../img/satellite/satellit-akzeptieren.png)
 
 edulution überträgt dabei die endgültige WireGuard-Konfiguration an den Satelliten. Danach ist er **akzeptiert** und voll verwaltbar; die Schaltflächen **Zentrales Netzwerk** und **Entkoppeln** sowie die Tunnel-Details werden angezeigt.
 
-![Satellit akzeptiert](/img/satellite/satellit-akzeptiert.png)
+![Satellit akzeptiert](../img/satellite/satellit-akzeptiert.png)
 
 **Kontrolle:** Unter **Einstellungen → WireGuard → WireGuard Peers** steht der Peer `sat-<seriennummer>` auf **Connected** mit aktuellem Zeitpunkt unter *Letzter Handshake*.
 
-![WireGuard-Peer verbunden](/img/satellite/wireguard-peer-verbunden.png)
+![WireGuard-Peer verbunden](../img/satellite/wireguard-peer-verbunden.png)
 
 :::warning[Peer bleibt „Disconnected"?]
 Zeigt der Peer dauerhaft *Disconnected* bzw. keinen Handshake, steht der WireGuard-Tunnel nicht. Ursache ist fast immer die Erreichbarkeit des Servers – siehe [WireGuard-Server über Traefik](./wireguard-traefik.md). Der Satellit selbst bleibt davon unberührt online und verwaltbar; ohne Tunnel funktionieren lediglich die **zentralen Netze** aus Schritt 7 nicht.
@@ -145,13 +145,13 @@ Für Netze, die der Satellit selbst bereitstellt (eigenes DHCP und Routing), öf
 
 | Übersicht | Dialog „Create Network" | Angelegtes Netz |
 |---|---|---|
-| ![Netzwerke](/img/satellite/satellit-netzwerke.png) | ![Netzwerk anlegen](/img/satellite/satellit-netzwerk-anlegen.png) | ![Netzwerk angelegt](/img/satellite/satellit-netzwerk-angelegt.png) |
+| ![Netzwerke](../img/satellite/satellit-netzwerke.png) | ![Netzwerk anlegen](../img/satellite/satellit-netzwerk-anlegen.png) | ![Netzwerk angelegt](../img/satellite/satellit-netzwerk-angelegt.png) |
 
 ### Zentrale Netze über WireGuard
 
 Um ein **zentrales Netz** – etwa das linuxmuster-Netz – über den WireGuard-Tunnel an den LAN-Ports des Satelliten bereitzustellen, öffnen Sie in edulution am Satelliten die Schaltfläche **Zentrales Netzwerk**.
 
-![Dialog „Zentrales Netzwerk"](/img/satellite/zentrales-netzwerk-dialog.png)
+![Dialog „Zentrales Netzwerk"](../img/satellite/zentrales-netzwerk-dialog.png)
 
 Legen Sie über **Netz hinzufügen** ein oder mehrere Netze an. **Jedes Netz wird auf einem eigenen VLAN** an den LAN-Ports ausgegeben, zum Beispiel „Lehrer VLAN 10" und „Schüler VLAN 20". Je Netz geben Sie an:
 
@@ -170,7 +170,7 @@ WAN-Port (`ether1`) und LAN-Bridge (`bridge-lan`) werden bei der Installation fe
 
 Mit **Anwenden** richtet edulution automatisch alle drei Seiten ein: den Eintrag am zentralen DHCP-Server (linuxmuster), die Rückrouten am WireGuard-Server sowie VLAN und DHCP-Relay am Satelliten. Der Status wechselt auf **Aktiv**.
 
-![Zentrales Netzwerk aktiv](/img/satellite/zentrales-netzwerk-aktiv.png)
+![Zentrales Netzwerk aktiv](../img/satellite/zentrales-netzwerk-aktiv.png)
 
 Am Satelliten entsteht je Netz ein Interface `cn-vlan-<id>` auf `bridge-lan` mit der Gateway-IP sowie ein DHCP-Relay (`cn-relay-<id>`) zum zentralen Server; der DHCP-Verkehr läuft über den WireGuard-Tunnel. Über **Deaktivieren** wird alles wieder rückgängig gemacht.
 
@@ -184,7 +184,7 @@ Zusätzliche Dienste wie mDNS, RADIUS, KMS, File Server oder Proxy laufen als ei
 
 | Dienst-Konfiguration | Laufende Container |
 |---|---|
-| ![KMS-Konfiguration](/img/satellite/satellit-dienst-kms.png) | ![Container-Übersicht](/img/satellite/satellit-container.png) |
+| ![KMS-Konfiguration](../img/satellite/satellit-dienst-kms.png) | ![Container-Übersicht](../img/satellite/satellit-container.png) |
 
 ## 9. LINBO einrichten (optional)
 
@@ -205,7 +205,7 @@ Das lokale Admin-Passwort ändern Sie am Satelliten unter **Settings → Passwor
 
 | Passwort ändern | Bestätigung |
 |---|---|
-| ![Passwort ändern](/img/satellite/satellit-passwort-aendern.png) | ![Passwort geändert](/img/satellite/satellit-passwort-geaendert.png) |
+| ![Passwort ändern](../img/satellite/satellit-passwort-aendern.png) | ![Passwort geändert](../img/satellite/satellit-passwort-geaendert.png) |
 
 Unter **Settings** lässt sich außerdem über **Unpair & Reset** die Verbindung zu edulution trennen; der Satellit startet danach wieder mit dem Setup-Wizard.
 
@@ -217,11 +217,11 @@ Zum vollständigen Entfernen räumen Sie in edulution in umgekehrter Reihenfolge
 
 2. **WireGuard-Container löschen:** **Einstellungen → Allgemein → Container-Übersicht** → Container `edulution-wireguard` auswählen → **stoppen** → **Löschen** → im Dialog bestätigen.
 
-   ![Container löschen – Bestätigung](/img/satellite/container-loeschen.png)
+   ![Container löschen – Bestätigung](../img/satellite/container-loeschen.png)
 
 3. **App löschen:** auf der App-Konfigurationsseite (zum Beispiel **Satellites**) oben rechts auf **Löschen** → im Dialog bestätigen.
 
-   ![App löschen – Bestätigung](/img/satellite/app-loeschen.png)
+   ![App löschen – Bestätigung](../img/satellite/app-loeschen.png)
 
 :::note[Zurücksetzen am Gerät selbst]
 Das Entfernen der Container, Netze und Firewall-Regeln **auf dem Gerät** erfolgt über das Uninstall-Skript des Satelliten und ist nicht Teil dieser Anleitung.

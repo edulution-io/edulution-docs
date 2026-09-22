@@ -71,7 +71,7 @@ Die Werte des Containers stammen aus dem Dialog **WireGuard-Plugins installieren
 - Das Feld **Adresse** muss die **öffentliche Adresse oder den Hostnamen** des edulution-Servers enthalten – **nicht** die interne VPN-IP. Aus diesem Wert wird der Endpunkt gebildet, den die Peers erhalten.
 - Der Port ist optional und steht standardmäßig auf **443** – dem UDP-Port aus den Schritten 1 und 2. Er muss daher in der Regel nicht gesetzt werden.
 
-![Feld „Adresse" enthält die öffentliche Server-Adresse](/img/satellite/wireguard-adresse-oeffentlich.png)
+![Feld „Adresse" enthält die öffentliche Server-Adresse](../img/satellite/wireguard-adresse-oeffentlich.png)
 
 ## 5. Firewall freigeben
 
@@ -87,4 +87,4 @@ docker exec edulution-wireguard wg show
 
 beim verbundenen Peer einen aktuellen *latest handshake*. In der Oberfläche steht der Peer unter **Einstellungen → WireGuard → WireGuard Peers** auf **Connected**.
 
-![WireGuard-Peer verbunden](/img/satellite/wireguard-peer-verbunden.png)
+![WireGuard-Peer verbunden](../img/satellite/wireguard-peer-verbunden.png)

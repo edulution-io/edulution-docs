@@ -3,6 +3,8 @@
 
 # Production
 /build
+# Pruefbau der Entwicklungsversion, siehe static.yml
+/build-check
 
 # Generated files
 .docusaurus

@@ -1,0 +1,101 @@
+name: Cut docs version
+
+# A published release of edulution-ui is the only moment at which the docs on
+# `main` are known to describe something customers actually have: the tag is
+# cut from `dev` HEAD, so everything written against `dev` has shipped with it.
+# That snapshot becomes the version readers see at /docs/.
+#
+# Triggered by `notify-docs-release.yml` in edulution-io/edulution-ui. The
+# manual input is the fallback for a release that was published before the
+# dispatch existed, or one that failed to reach us.
+
+on:
+  repository_dispatch:
+    types: [ui-release]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Released version, without the leading v (e.g. 2.2.7)'
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-version
+  cancel-in-progress: false
+
+jobs:
+  cut:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      cut: ${{ steps.cut.outputs.cut }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cut the version
+        id: cut
+        env:
+          VERSION: ${{ github.event.client_payload.version || inputs.version }}
+        run: |
+          set -euo pipefail
+
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Not a release version: '$VERSION'"
+            exit 1
+          fi
+
+          # A replay must never re-add an existing version: `docs:version`
+          # unshifts onto versions.json, so re-adding an older one would make
+          # it the published version and roll the whole site backwards.
+          if [ -f versions.json ] && jq -e --arg v "$VERSION" 'index($v) != null' versions.json > /dev/null; then
+            echo "::notice::Version $VERSION already exists, nothing to cut."
+            echo "cut=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          npx docusaurus docs:version "$VERSION"
+          echo "cut=true" >> "$GITHUB_OUTPUT"
+
+      - name: Verify the snapshot builds
+        if: steps.cut.outputs.cut == 'true'
+        env:
+          DOCS_INCLUDE_NEXT: 'true'
+        run: npm run build
+
+      - name: Commit to main
+        if: steps.cut.outputs.cut == 'true'
+        env:
+          VERSION: ${{ github.event.client_payload.version || inputs.version }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add versions.json versioned_docs versioned_sidebars
+          git commit -m "Publish the documentation for edulution $VERSION"
+          git push origin main
+
+  # A push made with GITHUB_TOKEN does not trigger `push` workflows, so the
+  # deploy has to be called rather than waited for.
+  deploy:
+    needs: cut
+    if: needs.cut.outputs.cut == 'true'
+    uses: ./.github/workflows/static.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

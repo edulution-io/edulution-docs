@@ -19,21 +19,21 @@ In diesem Bereich sehen Sie alle Umfragen, an denen Sie teilnehmen können, aber
 
 ### Teilnahme
 
-![Offene Umfragen - Teilnahme-Buttons](/img/umfragen/Screenshot_20260506_120801.png)
+![Offene Umfragen - Teilnahme-Buttons](../../../img/umfragen/Screenshot_20260506_120801.png)
 
-![Teilnahme an Umfrage](/img/umfragen/Screenshot_20260506_121125.png)
+![Teilnahme an Umfrage](../../../img/umfragen/Screenshot_20260506_121125.png)
 
 #### Öffentliche Teilnahme
 
 Klicken Sie in der Aktionen-Leiste auf das Teilen-Symbol, um das Teilen-Fenster zu öffnen.
 
-![Umfrage-Teilen-Fenster](/img/umfragen/Screenshot_20260506_121229.png)
+![Umfrage-Teilen-Fenster](../../../img/umfragen/Screenshot_20260506_121229.png)
 
-![Öffentlicher Login](/img/umfragen/Screenshot_20260506_121454.png)
+![Öffentlicher Login](../../../img/umfragen/Screenshot_20260506_121454.png)
 
 Zur Teilnahme genügt es, den vollständigen Namen einzugeben; ein Benutzerkonto ist nicht erforderlich.
 
-![Öffentlicher Benutzer-Login](/img/umfragen/Screenshot_20260506_122450.png)
+![Öffentlicher Benutzer-Login](../../../img/umfragen/Screenshot_20260506_122450.png)
 
 ##### Teilnahme-Code
 
@@ -53,17 +53,17 @@ Um eine frühere Antwort einzusehen oder zu überarbeiten, öffnen Sie die Umfra
 
 ## Schon beantwortet
 
-![Beantwortete Umfragen](/img/umfragen/Screenshot_20260506_120916.png)
+![Beantwortete Umfragen](../../../img/umfragen/Screenshot_20260506_120916.png)
 
 Hier können Sie das Ergebnis einer Umfrage einsehen.
 
 ### Tabelle
 
-![Ergebniseinsicht - Tabelle](/img/umfragen/Screenshot_20260506_112655.png)
+![Ergebniseinsicht - Tabelle](../../../img/umfragen/Screenshot_20260506_112655.png)
 
 ### Schaubild
 
-![Ergebniseinsicht - Schaubild](/img/umfragen/Screenshot_20260506_120623.png)
+![Ergebniseinsicht - Schaubild](../../../img/umfragen/Screenshot_20260506_120623.png)
 
 <Audience roles="advanced">
 
@@ -73,7 +73,7 @@ Die folgenden Abschnitte beschreiben das Anlegen eigener Umfragen und das Auswer
 
 ## Eigene Umfragen
 
-![Eigene Umfragen - Aktionen-Leiste](/img/umfragen/Screenshot_20260506_121020.png)
+![Eigene Umfragen - Aktionen-Leiste](../../../img/umfragen/Screenshot_20260506_121020.png)
 
 Umfragen, die Sie selbst erstellt haben, können Sie im [Editor](#editor) anpassen oder wieder löschen.
 
@@ -106,7 +106,7 @@ Wir haben einige standardmäßige Vorlagen vordefiniert, an denen Sie sich orien
 
 #### Benutzer-Ansicht
 
-![Vorlagen - Kachel-Ansicht - Benutzer](/img/umfragen/Screenshot_20260506_113106.png)
+![Vorlagen - Kachel-Ansicht - Benutzer](../../../img/umfragen/Screenshot_20260506_113106.png)
 
 Wenn Sie die Kachelansicht öffnen, können Sie eine der Vorlagen nutzen, um ein Grundgerüst zu haben, an dem Sie sich orientieren können.
 
@@ -114,7 +114,7 @@ Wenn Sie die Kachelansicht öffnen, können Sie eine der Vorlagen nutzen, um ein
 
 #### Administrator-Ansicht
 
-![Vorlagen - Kachel-Ansicht - Administrator](/img/umfragen/Screenshot_20260506_113129.png)
+![Vorlagen - Kachel-Ansicht - Administrator](../../../img/umfragen/Screenshot_20260506_113129.png)
 
 Im Gegensatz zum Standard-Benutzer stehen einem Administrator auf jeder Vorlagen-Kachel zusätzliche Schaltflächen zur Verfügung:
 
@@ -133,7 +133,7 @@ Administratoren können Vorlagen auch bearbeiten. Dazu muss die Vorlage ausgewä
 
 ### Umfrage bearbeiten
 
-![Umfragen-Editor](/img/umfragen/Screenshot_20260506_112841.png)
+![Umfragen-Editor](../../../img/umfragen/Screenshot_20260506_112841.png)
 
 ## Fragetypen und ihre Optionen
 
@@ -151,7 +151,7 @@ Fragen, bei denen nur eine sehr kurze/knappe Antwort erwartet wird.
   **Farbe**; **Datum**; **Datum und Uhrzeit**; **E-Mail**; **Monat**; **Zahl**; **Passwort**; **Bereich**; **Telefonnummer**; **Text**; **Zeit**; **Web-URL**; **Woche**
 :::
 
-![Eingabefeld > Textfeld](/img/umfragen/Screenshot_20260507_151914.png)
+![Eingabefeld > Textfeld](../../../img/umfragen/Screenshot_20260507_151914.png)
 
 :::info[Testen Sie die Eingabe der Felder im Vorschau-Tab]
 Wenn Sie denken, dass der Teilnehmer mehr Platz braucht, als das einzelne Feld hergibt, sollten Sie stattdessen den Fragen-Typ **Kommentar** nutzen.
@@ -161,19 +161,19 @@ Wenn Sie denken, dass der Teilnehmer mehr Platz braucht, als das einzelne Feld h
 
 | Typ | Eingabemaske |
 |-------------------|:---------------------------------:|
-| **Farbe** | ![Eingabefeld > Farbe](/img/umfragen/Screenshot_20260507_151707_cropped.png) |
-| **Datum** | ![Eingabefeld > Datum](/img/umfragen/Screenshot_20260507_151714_cropped.png) |
-| **Datum und Uhrzeit** | ![Eingabefeld > Datum und Uhrzeit](/img/umfragen/Screenshot_20260507_151739_cropped.png) |
-| **E-Mail** | ![Eingabefeld > E-Mail](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
-| **Monat** | ![Eingabefeld > Monat](/img/umfragen/Screenshot_20260507_151820_cropped.png) |
-| **Zahl** | ![Eingabefeld > Zahl](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
-| **Passwort** | ![Eingabefeld > Passwort](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
-| **Bereich** | ![Eingabefeld > Bereich](/img/umfragen/Screenshot_20260507_151849_cropped.png) |
-| **Telefonnummer** | ![Eingabefeld > Telefonnummer](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
-| **Text** | ![Eingabefeld > Text](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
-| **Zeit** | ![Eingabefeld > Zeit](/img/umfragen/Screenshot_20260507_151922_cropped.png) |
-| **Web-URL** | ![Eingabefeld > Web-URL](/img/umfragen/Screenshot_20260507_151753_cropped.png) |
-| **Woche** | ![Eingabefeld > Woche](/img/umfragen/Screenshot_20260507_151943_cropped.png) |
+| **Farbe** | ![Eingabefeld > Farbe](../../../img/umfragen/Screenshot_20260507_151707_cropped.png) |
+| **Datum** | ![Eingabefeld > Datum](../../../img/umfragen/Screenshot_20260507_151714_cropped.png) |
+| **Datum und Uhrzeit** | ![Eingabefeld > Datum und Uhrzeit](../../../img/umfragen/Screenshot_20260507_151739_cropped.png) |
+| **E-Mail** | ![Eingabefeld > E-Mail](../../../img/umfragen/Screenshot_20260507_151753_cropped.png) |
+| **Monat** | ![Eingabefeld > Monat](../../../img/umfragen/Screenshot_20260507_151820_cropped.png) |
+| **Zahl** | ![Eingabefeld > Zahl](../../../img/umfragen/Screenshot_20260507_151753_cropped.png) |
+| **Passwort** | ![Eingabefeld > Passwort](../../../img/umfragen/Screenshot_20260507_151753_cropped.png) |
+| **Bereich** | ![Eingabefeld > Bereich](../../../img/umfragen/Screenshot_20260507_151849_cropped.png) |
+| **Telefonnummer** | ![Eingabefeld > Telefonnummer](../../../img/umfragen/Screenshot_20260507_151753_cropped.png) |
+| **Text** | ![Eingabefeld > Text](../../../img/umfragen/Screenshot_20260507_151753_cropped.png) |
+| **Zeit** | ![Eingabefeld > Zeit](../../../img/umfragen/Screenshot_20260507_151922_cropped.png) |
+| **Web-URL** | ![Eingabefeld > Web-URL](../../../img/umfragen/Screenshot_20260507_151753_cropped.png) |
+| **Woche** | ![Eingabefeld > Woche](../../../img/umfragen/Screenshot_20260507_151943_cropped.png) |
 
 :::info[Gleiche Eingabemaske]
 Die Typen **E-Mail**, **Zahl**, **Passwort**, **Telefonnummer**, **Text** und **Web-URL** zeigen im Editor dieselbe Eingabemaske (ein einfaches Textfeld). Die Validierung der Eingabe unterscheidet sich jedoch je nach gewähltem Typ erst bei der Teilnahme.
@@ -181,11 +181,11 @@ Die Typen **E-Mail**, **Zahl**, **Passwort**, **Telefonnummer**, **Text** und **
 
 #### Kommentar
 
-![Kommentar](/img/umfragen/Screenshot_20260507_152435.png)
+![Kommentar](../../../img/umfragen/Screenshot_20260507_152435.png)
 
 #### Text (mehrzeilig)
 
-![Text mehrzeilig](/img/umfragen/Screenshot_20260507_152456.png)
+![Text mehrzeilig](../../../img/umfragen/Screenshot_20260507_152456.png)
 
 ### Auswahlmöglichkeiten
 
@@ -197,7 +197,7 @@ Für diese Fragetypen haben wir die neue Funktionalität der Backend-Limiter ers
 
 **Dropdown** (Aufklappmenü):
 
-![Dropdown](/img/umfragen/Screenshot_20260507_151316.png)
+![Dropdown](../../../img/umfragen/Screenshot_20260507_151316.png)
 
 - **Label**: Durch Klicken auf das Label wird dieses ausgewählt und kann angepasst werden.
 - **Blaues Plus**: Fügt eine Option hinzu.
@@ -209,13 +209,13 @@ Analog dazu funktionieren **Option** und **Auswahl** — bei **Auswahl** können
 
 | Option | Auswahl |
 |:---------------------------------:|:---------------------------------:|
-| ![Option](/img/umfragen/Screenshot_20260507_150908_croped_2.png) | ![Auswahl](/img/umfragen/Screenshot_20260507_150957_croped_2.png) |
+| ![Option](../../../img/umfragen/Screenshot_20260507_150908_croped_2.png) | ![Auswahl](../../../img/umfragen/Screenshot_20260507_150957_croped_2.png) |
 
 #### Backend-Limiter
 
-![Fragen - geöffnetes Kontextmenü](/img/umfragen/Screenshot_20260506_140821.png)
+![Fragen - geöffnetes Kontextmenü](../../../img/umfragen/Screenshot_20260506_140821.png)
 
-![Backend-Limiter bearbeiten](/img/umfragen/Screenshot_20260506_140749.png)
+![Backend-Limiter bearbeiten](../../../img/umfragen/Screenshot_20260506_140749.png)
 
 Backend-Limiter werden serverseitig gespeichert. Den Auswahlmöglichkeiten wird dabei ein Limit mitgegeben, **wie oft diese Option insgesamt auswählbar ist**.
 
@@ -232,10 +232,10 @@ Eine Veranstaltung, bei der die Teilnehmerzahl limitiert ist. Auf diese Weise k�
 :::warning[Was, wenn das Backend nicht erreichbar ist?]
 Wenn sich die Backend-Limiter nicht laden lassen, fällt SurveyJS auf die im Editor definierten Auswahlmöglichkeiten zurück.
 
-![Backend-Limiter - Backend ist nicht erreichbar](/img/umfragen/Screenshot_20260506_140251.png)
+![Backend-Limiter - Backend ist nicht erreichbar](../../../img/umfragen/Screenshot_20260506_140251.png)
 :::
 
-![Backend-Limiter - Sonstiges](/img/umfragen/Screenshot_20260507_122812.png)
+![Backend-Limiter - Sonstiges](../../../img/umfragen/Screenshot_20260507_122812.png)
 
 Wie bei den Auswahlmöglichkeiten ohne Backend-Limiter ist es auch hier möglich, dem Teilnehmer eigene Optionen hinzufügen zu lassen. Aktivieren Sie dazu im Kontextmenü des Editors die Checkbox **"Erlaube Teilnehmern eigene Optionen hinzuzufügen"**. In der Teilnahme-Ansicht rendert SurveyJS diese Option dann als **"Sonstiges (Bitte angeben)"**. Das Limit, wie oft die Option ausgewählt werden kann, ist standardmäßig auf 1 gesetzt.
 
@@ -261,13 +261,13 @@ Es lässt sich nicht ausschließen, dass ein Teilnehmer aus Spaß "Erdäpfelsala
   **Beschriftung**; **Sterne**; **Smileys**
 :::
 
-![Bewertung > Beschriftung](/img/umfragen/Screenshot_20260507_151417.png)
-![Bewertung > Sterne](/img/umfragen/Screenshot_20260507_151439.png)
-![Bewertung > Smileys](/img/umfragen/Screenshot_20260507_151449.png)
+![Bewertung > Beschriftung](../../../img/umfragen/Screenshot_20260507_151417.png)
+![Bewertung > Sterne](../../../img/umfragen/Screenshot_20260507_151439.png)
+![Bewertung > Smileys](../../../img/umfragen/Screenshot_20260507_151449.png)
 
 #### Reihenfolge
 
-![Reihenfolge](/img/umfragen/Screenshot_20260507_151606.png)
+![Reihenfolge](../../../img/umfragen/Screenshot_20260507_151606.png)
 
 Vom Teilnehmer wird erwartet, dass er die Objekte anordnet. Ob nach Zeit, Vorlieben oder einem anderen Kriterium sortiert werden soll, muss aus der Fragestellung hervorgehen.
 
@@ -283,7 +283,7 @@ Um das Backend nicht zu stark zu belasten, werden keine Dateien größer als **5
 
 **Datei**
 
-![Datei](/img/umfragen/Screenshot_20260507_151539.png)
+![Datei](../../../img/umfragen/Screenshot_20260507_151539.png)
 
 Es wird erwartet, dass der Teilnehmer eine Datei anheftet.
 
@@ -296,13 +296,13 @@ Damit das Backend nicht zu sehr belastet wird, werden Bilder der Formate JPEG, P
 
 **Bild**
 
-![Bild](/img/umfragen/Screenshot_20260507_152731.png)
+![Bild](../../../img/umfragen/Screenshot_20260507_152731.png)
 
 Es wird erwartet, dass der Teilnehmer ein Bild anheftet.
 
 **Bildauswahl**
 
-![Bildauswahl](/img/umfragen/Screenshot_20260507_151551.png)
+![Bildauswahl](../../../img/umfragen/Screenshot_20260507_151551.png)
 
 Die Bilder werden vom Ersteller der Umfrage angeheftet.
 
@@ -312,17 +312,17 @@ Die Bilder werden vom Ersteller der Umfrage angeheftet.
 **Matrix (einfache Auswahl)**; **Matrix (mehrfache Auswahl)**
 :::
 
-![Matrix Kontextmenü](/img/umfragen/Screenshot_20260511_114648.png)
+![Matrix Kontextmenü](../../../img/umfragen/Screenshot_20260511_114648.png)
 
 Die Größe der Tabelle kann im Kontextmenü festgelegt werden. Alternativ können Sie im Label der letzten Spalte **Enter** drücken, um eine neue Spalte hinzuzufügen. Analog wird beim Drücken von **Enter** im Label der letzten Reihe eine neue Reihe erzeugt.
 
 #### Matrix (einfache Auswahl)
 
-![Matrix einfache Auswahl](/img/umfragen/Screenshot_20260507_152701.png)
+![Matrix einfache Auswahl](../../../img/umfragen/Screenshot_20260507_152701.png)
 
 #### Matrix (mehrfache Auswahl)
 
-![Matrix mehrfache Auswahl](/img/umfragen/Screenshot_20260507_152713.png)
+![Matrix mehrfache Auswahl](../../../img/umfragen/Screenshot_20260507_152713.png)
 
 ### Strukturierend
 
@@ -332,17 +332,17 @@ Die Größe der Tabelle kann im Kontextmenü festgelegt werden. Alternativ könn
 
 #### Panel
 
-![Panel](/img/umfragen/Screenshot_20260507_152508.png)
+![Panel](../../../img/umfragen/Screenshot_20260507_152508.png)
 
 Das Panel entspricht einer geschachtelten Frage. Der Ersteller muss die Elemente auswählen, die innerhalb des Panels angezeigt werden sollen.
 
 #### Panel (dynamisch)
 
-![Panel dynamisch](/img/umfragen/Screenshot_20260507_152635.png)
+![Panel dynamisch](../../../img/umfragen/Screenshot_20260507_152635.png)
 
 Ein dynamisches Panel entspricht nicht mehr nur einer einfach geschachtelten Frage, sondern einem erweiterbaren/ausklappbaren Feld. Die im Panel enthaltenen Elemente bilden hier eine Vorlage.
 
-![Panel dynamisch Kontextmenü](/img/umfragen/Screenshot_20260511_113205.png)
+![Panel dynamisch Kontextmenü](../../../img/umfragen/Screenshot_20260511_113205.png)
 
 Im Kontextmenü der Frage kann der Ersteller der Umfrage festlegen, wie oft das Panel minimal bzw. maximal aufgeklappt werden darf.
 
@@ -352,8 +352,8 @@ Wird genutzt, um Fragen zu erstellen, bei denen der Teilnehmer mehrere Antworten
 
 ##### Teilnahme
 
-![Panel dynamisch - leer](/img/umfragen/Screenshot_20260507_152817.png)
-![Panel dynamisch - hinzufügen](/img/umfragen/Screenshot_20260507_152839.png)
+![Panel dynamisch - leer](../../../img/umfragen/Screenshot_20260507_152817.png)
+![Panel dynamisch - hinzufügen](../../../img/umfragen/Screenshot_20260507_152839.png)
 
 Das dynamische Panel erlaubt es den Teilnehmern, selbst zu entscheiden, wie oft der Inhalt angezeigt werden soll, indem sie weitere Panel-Vorlagen hinzufügen oder bereits bestehende entfernen.
 
@@ -365,7 +365,7 @@ Der Teilnehmer soll eigene Vorschläge machen. Dann nutzt der Ersteller der Umfr
 
 #### Unterschrift
 
-![Unterschrift](/img/umfragen/Screenshot_20260507_152744.png)
+![Unterschrift](../../../img/umfragen/Screenshot_20260507_152744.png)
 
 Das Unterschrift-Feld kann zur Authentifizierung der Teilnahme genutzt werden.
 
@@ -373,9 +373,9 @@ Das Unterschrift-Feld kann zur Authentifizierung der Teilnahme genutzt werden.
 
 Ein individuelles In-App-Logo kann in den [App-Einstellungen](#logo) festgelegt werden.
 
-![Neues Bild auswählen](/img/umfragen/Screenshot_20260605_145014.png)
+![Neues Bild auswählen](../../../img/umfragen/Screenshot_20260605_145014.png)
 
-![Logo-Einstellungen ändern](/img/umfragen/Screenshot_20260605_144735.png)
+![Logo-Einstellungen ändern](../../../img/umfragen/Screenshot_20260605_144735.png)
 
 ## Umfrage speichern
 
@@ -385,7 +385,7 @@ In der Vorschau können Sie die Umfrage einmal durchklicken und prüfen, ob alle
 
 ### Benutzer-Ansicht
 
-![Umfrage speichern - Benutzer-Ansicht](/img/umfragen/Screenshot_20260506_143511.png)
+![Umfrage speichern - Benutzer-Ansicht](../../../img/umfragen/Screenshot_20260506_143511.png)
 
 - **Teilnehmer**: Hier können bestimmte Benutzer ausgewählt werden, die an der Umfrage teilnehmen sollen.
 - **Gruppen**: Hier können ganze Benutzergruppen ausgewählt werden, deren Mitglieder an der Umfrage teilnehmen sollen. Die Gruppensuche zeigt nur Gruppen an, die Zugriff auf die Umfragen-App haben.
@@ -403,7 +403,7 @@ Bei nicht-öffentlichen Umfragen können ausschließlich Gruppen eingeladen werd
 
 ### Administrator-Ansicht
 
-![Umfrage speichern - Administrator-Ansicht](/img/umfragen/Screenshot_20260506_143406.png)
+![Umfrage speichern - Administrator-Ansicht](../../../img/umfragen/Screenshot_20260506_143406.png)
 
 Als Administrator können Sie die aktuell bearbeitete Umfrage auch als Vorlage speichern.
 
@@ -418,7 +418,7 @@ Auf diesem Weg können Administratoren auch bestehende Vorlagen bearbeiten. Dazu
 
 Eine Umfrage kann beim Speichern als öffentlich deklariert werden.
 
-![Sichtbarkeit der Umfragen](/img/umfragen/Screenshot_20260506_121918.png)
+![Sichtbarkeit der Umfragen](../../../img/umfragen/Screenshot_20260506_121918.png)
 
 ## Als PDF exportieren
 
@@ -436,7 +436,7 @@ Es gibt einige Fragetypen, bei denen das PDF-Rendering nicht oder nur eingeschr�
 
 ## Einstellungen
 
-![App Settings](/img/umfragen/Screenshot_20260605_140542.png)
+![App Settings](../../../img/umfragen/Screenshot_20260605_140542.png)
 
 ### Berechtigungen innerhalb der Applikation
 

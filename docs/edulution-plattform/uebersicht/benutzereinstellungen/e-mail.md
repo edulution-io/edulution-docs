@@ -1,7 +1,7 @@
 # E-Mail
 
 
-![E-Mail](/img/benutzer/profil-email.png)
+![E-Mail](../../../img/benutzer/profil-email.png)
 
 Konfiguration der E-Mail-Synchronisation für mobile Geräte.
 

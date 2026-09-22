@@ -32,7 +32,7 @@ Alle Einstellungen unter **Admin → Sicherheit → Cookie Auth Settings**.
 
 ## Erweiterte Optionen
 
-![Cookie Auth Advanced Options](/img/anbindungen/cookie-auth-advanced.png)
+![Cookie Auth Advanced Options](../../../img/anbindungen/cookie-auth-advanced.png)
 
 ## config.php Alternative
 

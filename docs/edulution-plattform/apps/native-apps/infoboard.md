@@ -6,19 +6,19 @@ Das **Infoboard** – das digitale schwarze Brett – dient als zentrale Kommuni
 
 Die Mitteilungen sind in Kategorien eingeteilt. Für jede Kategorie wird eine eigene Spalte mit den zugehörigen Einträgen angezeigt.
 
-![Infoboard - Standard Ansicht](/img/schwarzes-brett/schwarzes-brett-normal-view.png)
+![Infoboard - Standard Ansicht](../../../img/schwarzes-brett/schwarzes-brett-normal-view.png)
 
 :::tip[Rastergröße]
 Standardmäßig werden die Kategorien in einer Zeile von links nach rechts aufgelistet. Um die Darstellung an Bildschirmgröße und Mitteilungsmenge anzupassen, lässt sich in der Menüleiste oben über die Einstellung **Ansicht** zwischen **Auto**, **1 Zeile**, **2 Zeilen** und **3 Zeilen** wählen.
 
-![Infoboard - Mehrzeilig](/img/schwarzes-brett/schwarzes-brett-change-row-count.png)
+![Infoboard - Mehrzeilig](../../../img/schwarzes-brett/schwarzes-brett-change-row-count.png)
 :::
 
 ### Tabelle
 
 Übersicht aller Mitteilungen, filterbar nach Kategorien.
 
-![Infoboard - Tabellen Ansicht](/img/schwarzes-brett/schwarzes-brett-table-view.png)
+![Infoboard - Tabellen Ansicht](../../../img/schwarzes-brett/schwarzes-brett-table-view.png)
 
 ## Mitteilungen
 
@@ -26,7 +26,7 @@ Standardmäßig werden die Kategorien in einer Zeile von links nach rechts aufge
 
 ### Mitteilung erstellen
 
-![Infoboard - Neue Mitteilung erstellen](/img/schwarzes-brett/schwarzes-brett-create-new-entry.png)
+![Infoboard - Neue Mitteilung erstellen](../../../img/schwarzes-brett/schwarzes-brett-create-new-entry.png)
 
 1. Wählen Sie eine **Kategorie**.
 2. Geben Sie einen **Titel** ein und verfassen Sie den **Inhalt** im Editor. Dieser unterstützt Formatierungen wie **Fett**, *Kursiv*, Listen und Links; bei Bedarf lassen sich auch Bilder direkt einfügen.
@@ -79,7 +79,7 @@ Mitteilungen werden Kategorien zugeordnet, nach denen die Tabelle gefiltert werd
 
 ### Kontextmenü
 
-![Infoboard - Kontextmenü einer Kategorie](/img/schwarzes-brett/schwarzes-brett-category-context-menu.png)
+![Infoboard - Kontextmenü einer Kategorie](../../../img/schwarzes-brett/schwarzes-brett-category-context-menu.png)
 
 - **Mitteilung erstellen** – Siehe [Mitteilung erstellen](#mitteilung-erstellen).
 - **Kategorien verwalten** – (Nur für Administratoren sichtbar) Leitet zu den App-Einstellungen des Infoboards weiter (siehe [Verwalten](#verwalten)).
@@ -90,13 +90,13 @@ Mitteilungen werden Kategorien zugeordnet, nach denen die Tabelle gefiltert werd
 
 Die App-Einstellungen sind ausschließlich für Administratoren verfügbar. Dort lässt sich festlegen, welche Kategorien hinzugefügt, angepasst oder gelöscht werden.
 
-![Infoboard - Einstellungen](/img/schwarzes-brett/schwarzes-brett-app-settings.png)
+![Infoboard - Einstellungen](../../../img/schwarzes-brett/schwarzes-brett-app-settings.png)
 
 #### Einstellungen
 
 Um eine bestimmte Kategorie anzupassen, kann einfach auf die Kategorie geklickt werden.
 
-![Infoboard - Kategorie Einstellungen](/img/schwarzes-brett/schwarzes-brett-category-settings-menu.png)
+![Infoboard - Kategorie Einstellungen](../../../img/schwarzes-brett/schwarzes-brett-category-settings-menu.png)
 
 - **Name** – Der angezeigte Name der Kategorie.
 - **Aktiv** – Die Sichtbarkeit der ganzen Kategorie.

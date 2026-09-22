@@ -72,4 +72,4 @@ Die Cookie Auth App erstellt **keine neuen Benutzer**. Benutzer müssen bereits 
 
 ## Weiter
 
-→ [Installation](/docs/edulution-plattform/konfiguration/anbindungen/installation)
+→ [Installation](./installation.md)

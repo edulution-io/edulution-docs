@@ -14,7 +14,7 @@ Der Klassenraum nutzt die Linuxmuster-Funktionen für Klassenverwaltung und Proj
 
 ## Übersicht
 
-![Klassenraum Start](/img/klassenraum/unterricht-start.png)
+![Klassenraum Start](../../../img/klassenraum/unterricht-start.png)
 
 ### Bereiche
 
@@ -31,7 +31,7 @@ Der Klassenraum nutzt die Linuxmuster-Funktionen für Klassenverwaltung und Proj
 
 ## Unterricht starten
 
-![Unterricht Ansicht](/img/klassenraum/unterricht-ansicht.png)
+![Unterricht Ansicht](../../../img/klassenraum/unterricht-ansicht.png)
 
 ### Sitzung erstellen
 
@@ -128,7 +128,7 @@ Die Bildschirmüberwachung setzt einen konfigurierten Veyon-WebAPI-Proxy voraus.
 
 ## Einschreiben
 
-![Einschreiben](/img/klassenraum/einschreiben.png)
+![Einschreiben](../../../img/klassenraum/einschreiben.png)
 
 Schreiben Sie sich in Klassen und Projekte ein.
 
@@ -157,7 +157,7 @@ Projekte sind ideal für:
 
 ## Meine Projekte
 
-![Meine Projekte](/img/klassenraum/meine-projekte.png)
+![Meine Projekte](../../../img/klassenraum/meine-projekte.png)
 
 Übersicht Ihrer Projekte als Admin.
 
@@ -169,7 +169,7 @@ Jedes Projekt zeigt:
 
 ## Passwörter drucken
 
-![Passwörter drucken](/img/klassenraum/passwoerter-drucken.png)
+![Passwörter drucken](../../../img/klassenraum/passwoerter-drucken.png)
 
 Drucken Sie Zugangsdaten für Klassen aus.
 

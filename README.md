@@ -32,16 +32,90 @@ Dieser Befehl generiert statische Inhalte im `build` Verzeichnis.
 
 ## Struktur
 
-- `/docs` - Dokumentationsinhalte
+- `/docs` - Dokumentationsinhalte, ein Ordner je Produkt
+  (`edulution-plattform`, `edulution-mail`, `edulution-lms`, `edulution-mdm`,
+  `edulution-fileproxy`, `edulution-satellite`, `edulution-server`,
+  `edulution-vdi`, `edulution-app`)
 
-  - `/edulution-plattform` - edulution Plattform Dokumentation
-  - `/edulution-mail` - edulution Mail Dokumentation
-  - `/edulution-fileproxy` - edulution FileProxy Dokumentation
-  - `/edulution-onlyoffice` - edulution OnlyOffice Dokumentation
+  - `/img` - Bildschirmfotos der Dokumentation. Sie liegen bewusst unter
+    `/docs` und nicht unter `/static`, damit jeder Versionsschnitt seine
+    eigenen mitnimmt. Verweise darauf sind **relativ**
+    (`../img/umfragen/uebersicht.png`).
 
-- `/changelogs` - Versionshistorie und Änderungsprotokolle
-- `/static` - Statische Assets (Bilder, Icons, etc.)
+- `/versioned_docs`, `/versioned_sidebars`, `versions.json` - die
+  ausgelieferten Stände, siehe [Versionen](#versionen)
+- `/changelogs` - Versionshistorie, gerendert von `/src/pages/changelog.mdx`
+- `/static` - Statische Assets des Portals selbst (Logos, Changelog-Bilder)
 - `/src` - Custom React Komponenten und Styles
+
+## Versionen
+
+Das Portal zeigt die Dokumentation zu der Version, die beim Kunden läuft, und
+nicht den Stand von `edulution-ui:dev`.
+
+| Ort | Adresse | Inhalt |
+| --- | --- | --- |
+| `docs/` | `/docs/next/…` | Entwicklungsstand, Spiegel von `edulution-ui:dev`. **Nicht im öffentlichen Portal.** |
+| `versioned_docs/version-<release>/` | `/docs/…` | Neueste Auslieferung – ohne Präfix, damit Verweise aus der Anwendung weiter auflösen |
+| ältere `versioned_docs/…` | `/docs/<release>/…` | Eingefrorene frühere Auslieferungen |
+
+Geschnitten wird bei **jedem veröffentlichten Release** von `edulution-ui`.
+Gebaut werden die neuesten acht (`BUILT_VERSIONS` in `docusaurus.config.ts`);
+alle älteren bleiben im Git und lassen sich jederzeit wieder dazunehmen.
+
+Solange noch nichts geschnitten ist, gibt es keine `versions.json`: Der
+Entwicklungsstand ist dann die einzige Version und liegt wie bisher unter
+`/docs/`. Der erste Schnappschuss entsteht mit dem nächsten Release – bewusst
+nicht vorab, weil `docs/` den Stand von `dev` beschreibt und nicht den der
+letzten Auslieferung.
+
+### Was das für die tägliche Arbeit bedeutet
+
+Ein Merge nach `main` ändert nur noch `/docs/next/…`. Er wird mit dem nächsten
+Release ausgeliefert – dann entsteht ein neuer Schnappschuss aus `docs/`.
+
+Eine **bereits veröffentlichte** Seite korrigiert man direkt in
+`versioned_docs/version-<release>/…`. Das ist der einzige Weg, eine Korrektur
+vor dem nächsten Release zu den Lesern zu bringen.
+
+`versioned_docs/` und `versioned_sidebars/` sind eingefrorene Geschichte: bei
+einem Umbau der Seitenstruktur werden sie **nicht** mitgezogen.
+
+### Schnitt auslösen
+
+Im Regelfall von selbst: `notify-docs-release.yml` in `edulution-ui` meldet
+jedes veröffentlichte Release, `docs-version.yml` schneidet und deployt.
+
+Von Hand über Actions → *Cut docs version* mit der Release-Nummer, oder lokal:
+
+```bash
+npm run docs:version 2.2.7
+```
+
+### Lokal arbeiten
+
+```bash
+npm start                          # nur docs/, ohne Altversionen – schneller Start
+DOCS_ALL_VERSIONS=true npm start   # mit Versionsauswahl
+DOCS_INCLUDE_NEXT=true npm run build   # wie die CI prüft: mit Entwicklungsversion
+```
+
+`npm run build` ohne `DOCS_INCLUDE_NEXT` ist der Bau, der deployt wird – ohne
+Entwicklungsversion.
+
+### Zwei Regeln, die der Build nicht immer abfängt
+
+- **Keine absoluten `/docs/…`-Links** in `docs/**`. Sie zeigen aus einer
+  Version in eine andere, und `onBrokenLinks` sieht das nicht, weil das Ziel
+  ja existiert. Die CI bricht darauf ab.
+- **Rollen- und Organisations-IDs in `src/components/audience/taxonomy.ts` nur
+  erweitern.** Die eingefrorenen Seitenleisten und Front-Matter-Angaben werden
+  von der *lebenden* Taxonomie gerendert, die bei unbekannter ID den Build
+  abbricht. Eine Umbenennung muss in einem Zug über `docs`, `sidebars.ts`,
+  `versioned_docs` und `versioned_sidebars` laufen. Dasselbe gilt für die
+  global registrierten MDX-Komponenten (`Audience`, `AudiencePicker`,
+  `AppCards`, `RoleSummary`, `AudienceFaq`, `Cards`, `Card`): eingefrorene
+  Seiten rufen sie weiter mit den heutigen Eigenschaften auf.
 
 ## Zielgruppen (Rollen, Organisationstyp, Modul)
 
@@ -184,7 +258,9 @@ In `sidebars.ts` an der Kategorie:
 
 ## Deployment
 
-Die Dokumentation wird automatisch über GitHub Actions deployed, wenn Änderungen auf den `main` Branch gepusht werden.
+Die Dokumentation wird automatisch über GitHub Actions deployed, wenn Änderungen auf den `main` Branch gepusht werden –
+und zusätzlich, wenn ein Release von `edulution-ui` einen neuen Versionsschnitt auslöst (siehe [Versionen](#versionen)).
+Deployt wird der Stand **ohne** Entwicklungsversion.
 
 ## Lizenz
 

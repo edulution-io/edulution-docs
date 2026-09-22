@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import Link from '@docusaurus/Link';
+import { DocLink } from '@site/src/components/useVersionedDocPath';
 
 /**
  * Ein Raster aus Einstiegskarten für Übersichtsseiten.
@@ -33,7 +33,7 @@ interface CardProps {
  */
 export function Card({ to, title, text, children }: CardProps): React.JSX.Element {
   return (
-    <Link to={to} className="doc-card">
+    <DocLink to={to} className="doc-card">
       <span className="doc-card__title">
         {title}
         <span className="doc-card__chevron" aria-hidden="true">
@@ -41,7 +41,7 @@ export function Card({ to, title, text, children }: CardProps): React.JSX.Elemen
         </span>
       </span>
       {(children ?? text) ? <span className="doc-card__text">{children ?? text}</span> : null}
-    </Link>
+    </DocLink>
   );
 }
 

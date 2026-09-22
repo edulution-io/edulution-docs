@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
+import { DocLink } from '@site/src/components/useVersionedDocPath';
 import { useAudience } from './AudienceContext';
 import { ANY, audienceClassNames, resolveOrgs, resolveRoles } from './taxonomy';
 
@@ -206,7 +206,7 @@ export default function AppCards(): React.JSX.Element {
         const target = card.targets[role] ?? card.targets.default;
         const title = pick(card.title, org);
         return (
-          <Link
+          <DocLink
             key={pick(card.title, ANY)}
             to={target.to}
             className={`app-card${card.wide ? ' app-card--wide' : ''} ${audienceClassNames(
@@ -234,7 +234,7 @@ export default function AppCards(): React.JSX.Element {
                 ›
               </span>
             </span>
-          </Link>
+          </DocLink>
         );
       })}
     </div>

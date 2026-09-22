@@ -49,6 +49,6 @@ Wählen Sie die passende Installationsanleitung für Ihre Situation:
 
 ## Nächste Schritte nach der Installation
 
-1. [Synchronisation konfigurieren](/docs/edulution-lms/konfiguration/synchronisation)
-2. [Plugins verwalten](/docs/edulution-lms/konfiguration/plugins)
-3. [Admin-UI kennenlernen](/docs/edulution-lms/konfiguration/administration/admin-ui)
+1. [Synchronisation konfigurieren](../konfiguration/synchronisation.md)
+2. [Plugins verwalten](../konfiguration/plugins.md)
+3. [Admin-UI kennenlernen](../konfiguration/administration/admin-ui.md)

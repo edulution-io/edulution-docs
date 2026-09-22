@@ -36,7 +36,7 @@ Browser unter `https://localhost:8443`.
 Die Bindung an `127.0.0.1` gilt ab **edulution-mail v1.3.2**. Ältere
 Installationen binden Port 8443 an alle Netzwerkschnittstellen —
 aktualisieren Sie edulution-mail, siehe
-[Changelog & Config-Anpassungen](/docs/edulution-mail/konfiguration/changelog-config-anpassungen).
+[Changelog & Config-Anpassungen](./changelog-config-anpassungen.md).
 Bis dahin gehören Port 8443 in der Firewall gesperrt und das
 Standardpasswort geändert.
 :::
@@ -73,7 +73,7 @@ Das Webmail-Interface basiert auf SOGo und ist über `https://mail.ihre-domain.d
 
 **Theme anpassen:**
 Das Design des SOGo Webmailers (hell/dunkel) kann in den Einstellungen angepasst werden.
-[→ E-Mail-Einstellungen](/docs/edulution-plattform/konfiguration/einstellungen#e-mails)
+[→ E-Mail-Einstellungen](../../edulution-plattform/konfiguration/einstellungen.md#e-mails)
 
 ## Synchronisation
 

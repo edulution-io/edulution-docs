@@ -5,6 +5,10 @@ on:
     branches:
       - main
   workflow_dispatch:
+  # Called by `docs-version.yml`: a push made with GITHUB_TOKEN does not
+  # trigger the `push` trigger above, so a freshly cut version would never
+  # reach the site on its own.
+  workflow_call:
 
 permissions:
   contents: read
@@ -30,6 +34,25 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # An absolute /docs/ link resolves to whichever version is served, not
+      # to the one being read. Frozen into a snapshot it silently moves the
+      # reader to another version, and onBrokenLinks cannot see it because
+      # the target does exist.
+      - name: Reject absolute /docs/ links in docs/
+        run: |
+          if grep -rnE '\]\(/docs/' docs/; then
+            echo "::error::Absolute /docs/-Links sind nicht versionssicher. Relativen .md-Link verwenden."
+            exit 1
+          fi
+
+      # The deployed build leaves the development version out, which would
+      # also stop onBrokenLinks/onBrokenAnchors from checking the files people
+      # actually edit. This build is only there to check them.
+      - name: Check the development version
+        env:
+          DOCS_INCLUDE_NEXT: 'true'
+        run: npm run build -- --out-dir build-check
 
       - name: Build website
         run: npm run build

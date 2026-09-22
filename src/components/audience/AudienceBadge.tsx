@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Link from '@docusaurus/Link';
+import { DocLink } from '@site/src/components/useVersionedDocPath';
 import { useAudience } from './AudienceContext';
 import { ANY, ORGS, labelFor, roleShort, rolesFor } from './taxonomy';
 
@@ -99,9 +99,9 @@ export default function AudienceBadge(): React.JSX.Element {
             />
           </div>
 
-          <Link className="audience-badge__link" to="/docs/" onClick={() => setOpen(false)}>
+          <DocLink className="audience-badge__link" to="/docs/" onClick={() => setOpen(false)}>
             Zur Übersicht mit beiden Fragen
-          </Link>
+          </DocLink>
         </div>
       )}
     </div>

@@ -17,7 +17,7 @@ Technisch läuft der Satellit als drei Container (Datenbank, API, UI) direkt auf
     LAN-Ports / VLANs vor Ort                      App „Satellites"       zentrales DHCP/DNS
 ```
 
-![Dashboard eines Satelliten](/img/satellite/satellit-dashboard.png)
+![Dashboard eines Satelliten](../img/satellite/satellit-dashboard.png)
 
 ## Welche Betriebsart ist die richtige?
 

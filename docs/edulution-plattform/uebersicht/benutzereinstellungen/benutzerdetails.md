@@ -1,7 +1,7 @@
 # Benutzerdetails
 
 
-![Benutzerdetails](/img/benutzer/profil-benutzerdetails.png)
+![Benutzerdetails](../../../img/benutzer/profil-benutzerdetails.png)
 
 Hier können Sie Ihre persönlichen Informationen einsehen und teilweise bearbeiten.
 

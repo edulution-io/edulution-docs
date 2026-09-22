@@ -73,7 +73,7 @@ Schlägt ein Download fehl, nennt dieselbe Meldung den Grund – etwa *Kein Zugr
 
 ### In App öffnen [tags: ios, android]
 
-Rufen Sie die Dateiverwaltung über die [edulution.io App](/docs/edulution-app) auf, kommt die Aktion **In App öffnen** hinzu. Die Datei wird an die App übergeben und dort mit den Mitteln des Betriebssystems angezeigt – unter iOS über die Dateien-App. Im Browser entfällt die Aktion, ebenso in App-Versionen älter als 2.0.
+Rufen Sie die Dateiverwaltung über die [edulution.io App](../../edulution-app/index.md) auf, kommt die Aktion **In App öffnen** hinzu. Die Datei wird an die App übergeben und dort mit den Mitteln des Betriebssystems angezeigt – unter iOS über die Dateien-App. Im Browser entfällt die Aktion, ebenso in App-Versionen älter als 2.0.
 
 Siehe auch [Mobile App & Tablet-Nutzung](../../edulution-app/mobile-ansicht.md).
 
@@ -123,7 +123,7 @@ Ansehen können Sie außerdem PDFs, Bilder, Videos, Audiodateien und Draw.io-Dia
 
 ## WebDAV-Zugang
 
-![WebDAV-Zugang Button](/img/dateien/dateien-webdav-zugang.png)
+![WebDAV-Zugang Button](../../img/dateien/dateien-webdav-zugang.png)
 
 Sie können Ihre Dateien auch direkt über den Dateimanager Ihres Betriebssystems öffnen. In der Dateien-App finden Sie unter **WebDAV-Zugang** die benötigten Verbindungsdaten:
 

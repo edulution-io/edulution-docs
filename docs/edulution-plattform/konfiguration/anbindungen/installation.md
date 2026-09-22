@@ -36,7 +36,7 @@ Der Pfad zum Apps-Verzeichnis variiert je nach Installation, z.B.:
 
 **Einstellungen → Verwaltung → Sicherheit → Cookie Auth Settings**
 
-![Cookie Auth Settings](/img/anbindungen/cookie-auth-settings.png)
+![Cookie Auth Settings](../../../img/anbindungen/cookie-auth-settings.png)
 
 | Feld | Wert |
 |------|------|
@@ -54,7 +54,7 @@ Nextcloud muss als App Frame in edulution angelegt werden:
 2. URL eingeben: `https://cloud.ihre-edulution-domain.de`
 3. Name und Berechtigungen konfigurieren
 
-→ Siehe [App Frame - Externe Webseiten einbinden](/docs/edulution-plattform/konfiguration/administration#261-app-frame---externe-webseiten-einbinden) für Details.
+→ Siehe [App Frame - Externe Webseiten einbinden](../administration.md#261-app-frame---externe-webseiten-einbinden) für Details.
 
 ## Testen
 
@@ -76,4 +76,4 @@ Bei erfolgreichem Login:
 
 ## Weiter
 
-→ [Konfiguration](/docs/edulution-plattform/konfiguration/anbindungen/konfiguration) (erweiterte Optionen)
+→ [Konfiguration](./konfiguration.md) (erweiterte Optionen)

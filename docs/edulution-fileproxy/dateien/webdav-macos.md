@@ -10,7 +10,7 @@ Diese Anleitung zeigt, wie Sie Ihre edulution-Dateien im macOS Finder einbinden.
 
 Öffnen Sie zunächst die **Dateien**-App in edulution und klicken Sie auf **WebDAV-Zugang**.
 
-![WebDAV-Zugang Button](/img/dateien/dateien-webdav-zugang.png)
+![WebDAV-Zugang Button](../../img/dateien/dateien-webdav-zugang.png)
 
 Dort finden Sie:
 

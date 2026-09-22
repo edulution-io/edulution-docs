@@ -3,7 +3,7 @@
 Unter **Sicherheit** verwalten Sie Passwort, Zwei-Faktor-Authentifizierung und Passwort-Tresor
 Ihres Kontos.
 
-![Der Bereich Sicherheit in den Benutzereinstellungen](/img/benutzer/profil-sicherheit.png)
+![Der Bereich Sicherheit in den Benutzereinstellungen](../../../img/benutzer/profil-sicherheit.png)
 
 Der Bereich besteht aus drei Karten, die Sie über den Pfeil rechts oben einzeln ein- und
 ausklappen. In der linken Leiste der Benutzereinstellungen stehen sie zusätzlich als Sprungmarken:
@@ -83,7 +83,7 @@ legen Sie mit **+** einen neuen Eintrag an; mit **–** entfernen Sie die zuvor 
 
 ### Tresor-PIN
 
-![Abfrage der Tresor-PIN beim Entschlüsseln der Zugangsdaten](/img/features/security-tresor-pin.png)
+![Abfrage der Tresor-PIN beim Entschlüsseln der Zugangsdaten](../../../img/features/security-tresor-pin.png)
 
 Der Tresor ist zusätzlich durch eine **fünfstellige PIN** geschützt. Sie wird abgefragt, sobald
 Zugangsdaten entschlüsselt werden sollen – also beim Anzeigen, Kopieren oder beim automatischen

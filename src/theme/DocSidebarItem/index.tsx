@@ -3,6 +3,7 @@ import OriginalDocSidebarItem from '@theme-original/DocSidebarItem';
 import type DocSidebarItemType from '@theme/DocSidebarItem';
 import type { WrapperProps } from '@docusaurus/types';
 import { audienceClassNames, resolveOrgs, resolveRoles } from '@site/src/components/audience/taxonomy';
+import { useVersionedDocPath } from '@site/src/components/useVersionedDocPath';
 
 type Props = WrapperProps<typeof DocSidebarItemType>;
 
@@ -46,13 +47,19 @@ export default function DocSidebarItemWrapper(props: Props): React.JSX.Element {
   const custom = (props.item as { customProps?: AudienceProps }).customProps;
   const roles = resolveRoles(custom?.audience);
   const orgs = resolveOrgs(custom?.audienceOrg);
+  const versioned = useVersionedDocPath();
 
   // Das echte Ziel erst hier einsetzen. `activePath` wird zusaetzlich geleert,
   // damit auch der Eintrag selbst nicht als aktiv gilt – sonst faende er sich
   // ueber das nun echte `href` doch wieder.
+  //
+  // Die eingefrorene `versioned_sidebars/*.json` traegt denselben
+  // `/docs/…`-Pfad wie die lebende `sidebars.ts`. Erst hier bekommt er die
+  // Version, in der gerade gelesen wird – sonst verliesse ein Querverweis
+  // die Version des Lesers.
   const item =
     custom?.crossRef && (props.item as { href?: string }).href === CROSS_REF_PLACEHOLDER
-      ? ({ ...props.item, href: custom.crossRef } as Props['item'])
+      ? ({ ...props.item, href: versioned(custom.crossRef) } as Props['item'])
       : props.item;
   const activePath = item === props.item ? props.activePath : '';
 

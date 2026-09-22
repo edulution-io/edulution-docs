@@ -12,4 +12,4 @@ Plugins für die Integration externer Dienste in edulution.
 
 | Anbindung | Beschreibung |
 |-----------|--------------|
-| **[Nextcloud Cookie Auth](/docs/edulution-plattform/konfiguration/anbindungen/nextcloud)** | Auto-Login für Nextcloud via JWT-Cookie |
+| **[Nextcloud Cookie Auth](./nextcloud.md)** | Auto-Login für Nextcloud via JWT-Cookie |

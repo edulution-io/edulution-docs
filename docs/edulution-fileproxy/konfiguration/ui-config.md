@@ -70,7 +70,7 @@ Klicken Sie für jeden Share auf **+** und tragen Sie folgende Werte ein:
 Die Variable `{homeDirectory}` wird automatisch durch das persönliche Home-Verzeichnis des Benutzers ersetzt.
 :::
 
-![Home-Verzeichnis mit Pfad-Variable](/img/fileproxy/webdav-home-variable.png)
+![Home-Verzeichnis mit Pfad-Variable](../../img/fileproxy/webdav-home-variable.png)
 
 #### Share (Gemeinsame Dateien)
 
@@ -108,7 +108,7 @@ Die Variable `{homeDirectory}` wird automatisch durch das persönliche Home-Verz
 | **Pfad** | `/webdav/default-school/share/teachers/` |
 | **Nutzergruppen** | `all-teachers` |
 
-![WebDAV Einstellungen](/img/fileproxy/webdav-einstellungen.png)
+![WebDAV Einstellungen](../../img/fileproxy/webdav-einstellungen.png)
 
 :::info[Share-Pfade anpassen]
 Die Pfade oben sind Beispielwerte basierend auf einer Standard-Linuxmuster Konfiguration.
@@ -129,7 +129,7 @@ Sobald wieder ein Share diesen Anzeigenamen trägt, verweisen die alten Freigabe
 
 Nach der Einrichtung sehen Ihre Benutzer die konfigurierten Shares in der **Dateien-App**:
 
-![Dateien App mit Shares](/img/fileproxy/dateien-app-shares.png)
+![Dateien App mit Shares](../../img/fileproxy/dateien-app-shares.png)
 
 - **Home** - Persönliches Verzeichnis
 - **Share** - Gemeinsame Dateien

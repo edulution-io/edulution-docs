@@ -16,7 +16,7 @@ Einschreibungen anlegen und löschen dürfen ausschließlich Global- und Schulad
 
 ## Einschreibung erzeugen
 
-![Gerät einschreiben](/img/features/mdm-enroll.png)
+![Gerät einschreiben](../img/features/mdm-enroll.png)
 
 Über die Schaltfläche **Gerät einschreiben** öffnen Sie den Dialog:
 
@@ -41,7 +41,7 @@ Der gewählte Benutzer muss in Relution existieren – also über die [Benutzer-
 
 ## Offene Einschreibungen
 
-![Einschreibungen](/img/features/mdm-enrollments.png)
+![Einschreibungen](../img/features/mdm-enrollments.png)
 
 Der Reiter **Einschreibungen** zeigt alle Einladungen, die noch nicht zu einem Gerät geführt haben:
 

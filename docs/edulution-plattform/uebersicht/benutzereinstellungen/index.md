@@ -7,7 +7,7 @@ description: Die persönlichen Einstellungen und Kontoinformationen im Überblic
 
 Über das Profil-Menü (unten rechts in der App-Leiste) können Sie auf Ihre persönlichen Einstellungen und Kontoinformationen zugreifen.
 
-![Dashboard Profil-Menü](/img/benutzer/dashboard-profil-menu.png)
+![Dashboard Profil-Menü](../../../img/benutzer/dashboard-profil-menu.png)
 
 ## Zugriff auf die Benutzereinstellungen
 

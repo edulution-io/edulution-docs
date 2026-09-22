@@ -6,7 +6,7 @@ Alle angezeigten Organisationsinformationen stammen aus den [Globalen Einstellun
 
 ## Aufbau der Seite
 
-![Die neu gestaltete Anmeldeseite: links das Anmeldeformular, rechts der Organisationsbereich mit Login-Bild, Logo, Organisationsname und Login-Text](/img/anmeldung/anmeldeseite-uebersicht.webp)
+![Die neu gestaltete Anmeldeseite: links das Anmeldeformular, rechts der Organisationsbereich mit Login-Bild, Logo, Organisationsname und Login-Text](../../img/anmeldung/anmeldeseite-uebersicht.webp)
 
 Die Seite ist zweigeteilt:
 
@@ -21,7 +21,7 @@ Die Fußzeile enthält die Versionsnummer der Oberfläche und – sofern eingeri
 Der rechte Organisationsbereich wird erst ab einer Fensterbreite von etwa 1024 Pixeln eingeblendet. Auf Smartphones, Tablets und in schmalen Browserfenstern nimmt das Anmeldeformular die gesamte Breite ein; Logo, Organisationsname und Login-Text werden dort nicht angezeigt.
 :::
 
-![Die Anmeldeseite in einem schmalen Fenster – das Formular nimmt die volle Breite ein, der Organisationsbereich entfällt](/img/anmeldung/anmeldeseite-schmal.webp)
+![Die Anmeldeseite in einem schmalen Fenster – das Formular nimmt die volle Breite ein, der Organisationsbereich entfällt](../../img/anmeldung/anmeldeseite-schmal.webp)
 
 ## Organisationsinformationen
 
@@ -57,7 +57,7 @@ Nach erfolgreicher Anmeldung werden Sie automatisch weitergeleitet – entweder 
 
 ## Anmelden mit QR-Login
 
-![Die Anmeldeseite mit eingeblendetem QR-Code für die Anmeldung über die edulution.io App](/img/anmeldung/anmeldeseite-qr-login.webp)
+![Die Anmeldeseite mit eingeblendetem QR-Code für die Anmeldung über die edulution.io App](../../img/anmeldung/anmeldeseite-qr-login.webp)
 
 Mit der Schaltfläche **Anmelden mit QR-Login** melden Sie sich ohne Eingabe von Zugangsdaten über die edulution.io App an:
 

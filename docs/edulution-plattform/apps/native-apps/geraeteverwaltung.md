@@ -13,7 +13,7 @@ Die Geräteverwaltung arbeitet direkt auf der Sophomorix-Gerätedatei `/etc/linu
 
 ## Übersicht
 
-{/* ![Geräteverwaltung Übersicht](/img/features/geraeteverwaltung-overview.png) */}
+{/* ![Geräteverwaltung Übersicht](../../../img/features/geraeteverwaltung-overview.png) */}
 
 Sie erreichen die Geräteverwaltung über die **Linuxmuster-App** → **Geräteverwaltung** (Symbol: Monitor) in der Seitenleiste.
 
@@ -76,7 +76,7 @@ Die Spalte **PXE** steuert das Netzwerk-Startverhalten (LINBO):
 
 ## Geräte bearbeiten
 
-{/* ![Gerät bearbeiten](/img/features/geraeteverwaltung-edit.png) */}
+{/* ![Gerät bearbeiten](../../../img/features/geraeteverwaltung-edit.png) */}
 
 Alle Felder lassen sich direkt in der Tabelle bearbeiten – Textfelder per Eingabe, Rolle und PXE über Auswahllisten.
 
@@ -124,7 +124,7 @@ Zwei Aktionen schreiben Ihre Änderungen zurück:
 - **Speichern** – schreibt die Geräteliste in die `devices.csv`, ohne sie zu importieren. Bestätigung: *„Geräteliste erfolgreich gespeichert“*.
 - **Anwenden** – speichert die Liste **und** startet sofort den Linuxmuster-Geräteimport (Sophomorix). Zuvor erscheint eine Sicherheitsabfrage:
 
-{/* ![Anwenden bestätigen](/img/features/geraeteverwaltung-apply.png) */}
+{/* ![Anwenden bestätigen](../../../img/features/geraeteverwaltung-apply.png) */}
 
 > **Geräteliste anwenden**
 > Die Geräteliste wird gespeichert und sofort importiert. Möchten Sie fortfahren?
@@ -143,7 +143,7 @@ Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen.
 
 ## CSV-Import und -Export
 
-{/* ![CSV-Dialog](/img/features/geraeteverwaltung-csv.png) */}
+{/* ![CSV-Dialog](../../../img/features/geraeteverwaltung-csv.png) */}
 
 Über die Schaltfläche **CSV** öffnen Sie den Rohinhalt der `devices.csv`. Hier können Sie:
 

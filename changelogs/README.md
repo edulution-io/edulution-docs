@@ -238,16 +238,15 @@ changelogs/
 ├── CHANGELOG.md          # Haupt-Changelog
 └── README.md            # Diese Datei
 
-docs/
-├── changelog.mdx        # Changelog-Seite (mit Markdown)
-└── changelog-example.mdx  # Beispiel-Seite (mit direkten Daten)
+src/pages/
+└── changelog.mdx        # Changelog-Seite (mit Markdown)
 ```
 
 ## Support
 
 Bei Fragen oder Problemen:
 
-1. Siehe Beispiele in `docs/changelog-example.mdx`
+1. Siehe `src/pages/changelog.mdx`
 2. Prüfe das Markdown-Format in `changelogs/CHANGELOG.md`
 3. Schaue dir die Komponentendateien an
 

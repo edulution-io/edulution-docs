@@ -1,7 +1,7 @@
 # App-Zugriff
 
 
-![App-Zugriff](/img/benutzer/profil-app-zugriff.png)
+![App-Zugriff](../../../img/benutzer/profil-app-zugriff.png)
 
 Einrichtung des mobilen Zugriffs auf Ihre Dateien über die edulution.io App.
 

@@ -7,7 +7,7 @@ sidebar_custom_props:
 
 Die Eingebettete App ermöglicht das Erstellen und Teilen von Webinhalten sowie das Hochladen eigener Web-Anwendungen.
 
-![Eingebettete App](/img/features/ressourcen-bib.jpeg)
+![Eingebettete App](../../img/features/ressourcen-bib.jpeg)
 
 ## Übersicht
 
@@ -39,7 +39,7 @@ Der Editor-Inhalt wird als HTML in die Seite eingefügt; `<script>`-Elemente wer
 
 Der Upload gehört zum Modus **Separates Layout**. Im Integrierten Layout pflegen Sie den Inhalt stattdessen im Editor.
 
-![Datei-Upload](/img/features/ressourcen-bib.jpeg)
+![Datei-Upload](../../img/features/ressourcen-bib.jpeg)
 
 ### Datei-Verwaltung
 

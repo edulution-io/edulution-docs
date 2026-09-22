@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
+import { DocLink } from '@site/src/components/useVersionedDocPath';
 import { audienceClassNames, resolveOrgs, resolveRoles } from './taxonomy';
 
 interface Entry {
@@ -247,7 +247,7 @@ export default function AudienceFaq(): React.JSX.Element {
           }
         >
           {entries.map((entry) => (
-            <Link
+            <DocLink
               key={entry.q}
               to={entry.to}
               className={`faq__item ${audienceClassNames([], resolveOrgs(entry.orgs), {
@@ -256,7 +256,7 @@ export default function AudienceFaq(): React.JSX.Element {
             >
               <span className="faq__q">{entry.q}</span>
               <span className="faq__a">{entry.a}</span>
-            </Link>
+            </DocLink>
           ))}
         </div>
       ))}

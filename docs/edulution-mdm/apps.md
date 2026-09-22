@@ -6,7 +6,7 @@ description: Über Relution zur Verteilung freigegebene Anwendungen
 
 # Apps
 
-![MDM Apps](/img/features/mdm-apps.png)
+![MDM Apps](../img/features/mdm-apps.png)
 
 Der Bereich **Apps** listet alle Anwendungen, die in Relution zur Verteilung freigegeben sind:
 

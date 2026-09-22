@@ -1,7 +1,7 @@
 # Benutzeroberfläche
 
 
-![Benutzeroberfläche](/img/benutzer/profil-user-interface.png)
+![Benutzeroberfläche](../../../img/benutzer/profil-user-interface.png)
 
 ## Sprache
 

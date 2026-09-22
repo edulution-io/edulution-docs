@@ -14,7 +14,7 @@ Wurde für Ihr Konto noch kein Zugang eingerichtet, erscheint stattdessen der Hi
 
 Ist ein Peer vorhanden, gliedert sich die Seite in vier Abschnitte:
 
-![Die VPN-Zugang-Seite mit Verbindungsstatus, Verbindungsdetails und QR-Code](/img/features/wireguard-vpn-user-page.png)
+![Die VPN-Zugang-Seite mit Verbindungsstatus, Verbindungsdetails und QR-Code](../../../img/features/wireguard-vpn-user-page.png)
 
 ### Verbindungsstatus
 
@@ -72,7 +72,7 @@ Sobald die Verbindung steht, erscheint für alle Benutzer der Eintrag **VPN-Zuga
 
 In der App-Konfiguration verwalten Sie über die **Peer-Tabelle** sämtliche Verbindungen. Die Tabelle listet je Peer **Name**, **Status**, **Erlaubte IPs**, **Endpunkt** und **Letzter Handshake**. Über **Peer hinzufügen** legen Sie einen neuen Eintrag an; ein Klick auf eine Zeile öffnet die Details und erlaubt das Löschen des Peers.
 
-![Die WireGuard-Peer-Tabelle in den App-Einstellungen mit der Schaltfläche zum Hinzufügen](/img/features/wireguard-admin-peers.png)
+![Die WireGuard-Peer-Tabelle in den App-Einstellungen mit der Schaltfläche zum Hinzufügen](../../../img/features/wireguard-admin-peers.png)
 
 Beim Anlegen wählen Sie zwischen zwei Typen:
 
@@ -87,7 +87,7 @@ Ein Zugang für einzelne **Benutzer** oder ganze **Gruppen** – das ist der üb
 
 Für jede ausgewählte Person wird ein eigener Peer erzeugt. Die Betroffenen rufen ihre Konfiguration anschließend selbst unter **VPN-Zugang** ab.
 
-![Dialog „Peer hinzufügen“ mit dem Typ Client-Peer](/img/features/wireguard-admin-client-peer.png)
+![Dialog „Peer hinzufügen“ mit dem Typ Client-Peer](../../../img/features/wireguard-admin-client-peer.png)
 
 #### Site-to-Site
 
@@ -100,7 +100,7 @@ Eine dauerhafte Verbindung zwischen zwei **Standorten bzw. Netzen**.
 | **Erlaubte IPs** | Kommagetrennte Liste der IP-Bereiche der Gegenstelle (erforderlich, z. B. `192.168.1.0/24, 192.168.2.0/24`) |
 | **Endpunkt** | Adresse und Port der Gegenstelle (z. B. `vpn.example.com:51820`) |
 
-![Dialog „Peer hinzufügen“ mit dem Typ Site-to-Site](/img/features/wireguard-admin-site-to-site.png)
+![Dialog „Peer hinzufügen“ mit dem Typ Site-to-Site](../../../img/features/wireguard-admin-site-to-site.png)
 
 :::note[Satelliten]
 Die WireGuard-App ist unabhängig von den [Satelliten](../../../edulution-satellite/verwaltung.md), die ebenfalls über einen WireGuard-Tunnel angebunden werden. Der hier beschriebene VPN-Zugang dient dem Zugriff einzelner Benutzer und Standorte, nicht der Kopplung von Satelliten-Appliances.

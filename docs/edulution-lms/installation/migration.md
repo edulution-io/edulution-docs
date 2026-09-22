@@ -474,6 +474,6 @@ Falls die Migration fehlschlägt:
 
 Nach erfolgreicher Migration:
 
-- [Synchronisation konfigurieren](/docs/edulution-lms/konfiguration/synchronisation)
-- [Plugins verwalten](/docs/edulution-lms/konfiguration/plugins)
-- [Backup einrichten](/docs/edulution-lms/konfiguration/administration/backup)
+- [Synchronisation konfigurieren](../konfiguration/synchronisation.md)
+- [Plugins verwalten](../konfiguration/plugins.md)
+- [Backup einrichten](../konfiguration/administration/backup.md)

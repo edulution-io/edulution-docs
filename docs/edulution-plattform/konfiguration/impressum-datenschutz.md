@@ -21,7 +21,7 @@ Der Seitenname entspricht dem Pfad in der URL. Wenn Sie also eine App mit dem Na
 
 Navigieren Sie zu **Einstellungen** → **App-Store** und wählen Sie die App-Kategorie **"Eingebettet"** aus.
 
-![App-Store Eingebettet](/img/features/app-store-embedded.png)
+![App-Store Eingebettet](../../img/features/app-store-embedded.png)
 
 ### 2. Neue App hinzufügen
 
@@ -42,7 +42,7 @@ Klicken Sie auf **"Hinzufügen"**, um die App zu erstellen.
 
 Nach dem Hinzufügen öffnet sich der Editor für die neue Seite.
 
-![Impressum Editor](/img/features/impressum-editor.png)
+![Impressum Editor](../../img/features/impressum-editor.png)
 
 **Editor-Funktionen:**
 
@@ -75,7 +75,7 @@ Klicken Sie auf **"Speichern"**, um Ihre Änderungen zu übernehmen.
 
 Nach dem Speichern erscheinen die Links automatisch im Footer Ihrer edulution-Webseite.
 
-![Footer mit Impressum und Datenschutz](/img/features/impressum-footer.png)
+![Footer mit Impressum und Datenschutz](../../img/features/impressum-footer.png)
 
 ## Mehrere Seiten erstellen
 

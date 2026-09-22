@@ -8,7 +8,7 @@ Jedes Wiki ist an eine WebDAV-Freigabe gebunden. Die Sichtbarkeit eines Wikis l�
 
 ## Übersicht
 
-![Wiki Übersicht](/img/wiki/uebersicht.png)
+![Wiki Übersicht](../../../img/wiki/uebersicht.png)
 
 ### Bereiche
 
@@ -80,7 +80,7 @@ Sie können Ihre Version übernehmen, die andere übernehmen oder den Konflikt m
 
 ## Seiten und Ordner anlegen
 
-![Neue Seite anlegen](/img/wiki/neue-seite.png)
+![Neue Seite anlegen](../../../img/wiki/neue-seite.png)
 
 Über die Schaltflächen **Neue Seite** und **Neuer Ordner** in der Werkzeugleiste:
 
@@ -99,7 +99,7 @@ Sie können Ihre Version übernehmen, die andere übernehmen oder den Konflikt m
 
 ## Seiten suchen
 
-![Wiki Suche](/img/wiki/suche.png)
+![Wiki Suche](../../../img/wiki/suche.png)
 
 Die Volltextsuche öffnen Sie über das Filterfeld in der Seitenleiste (mit Enter bestätigen) oder die Tastenkombination `Strg + Umschalt + F`. Es erscheint der Dialog **Wikis durchsuchen**.
 

@@ -2,7 +2,7 @@
 
 Das Whiteboard ist ein kollaboratives Zeichentool für den Unterricht. Lehrer und Schüler können gemeinsam in Echtzeit zeichnen, schreiben und präsentieren.
 
-![Whiteboard Interface](/img/features/whiteboard-interface.png)
+![Whiteboard Interface](../../../img/features/whiteboard-interface.png)
 
 ## Funktionen
 
@@ -15,7 +15,7 @@ Das Whiteboard ist ein kollaboratives Zeichentool für den Unterricht. Lehrer un
 
 ## Session speichern & laden
 
-![Whiteboard Menü](/img/features/whiteboard-menu.png)
+![Whiteboard Menü](../../../img/features/whiteboard-menu.png)
 
 ### Speichern
 
@@ -26,7 +26,7 @@ Das Whiteboard ist ein kollaboratives Zeichentool für den Unterricht. Lehrer un
    - **Shares** - Geteilte Ordner
    - **Students-Home** - Schüler-Verzeichnisse; nur für Lehrende sichtbar
 
-![Whiteboard Speichern](/img/features/whiteboard-save.png)
+![Whiteboard Speichern](../../../img/features/whiteboard-save.png)
 
 3. Geben Sie einen Dateinamen ein und klicken Sie auf **Save**
 

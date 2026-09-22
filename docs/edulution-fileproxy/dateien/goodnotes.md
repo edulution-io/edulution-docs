@@ -14,19 +14,19 @@ Diese Anleitung zeigt, wie Sie GoodNotes auf dem iPad so einrichten, dass Ihre N
 
 Öffnen Sie GoodNotes und tippen Sie oben rechts auf Ihr **Profil-Icon**.
 
-![Profil-Icon antippen](/img/goodnotes/schritt1-profil-icon.png)
+![Profil-Icon antippen](../../img/goodnotes/schritt1-profil-icon.png)
 
 ### Schritt 2: Cloud & Backup öffnen
 
 Wählen Sie im Menü den Punkt **Cloud & Backup**.
 
-![Cloud & Backup auswählen](/img/goodnotes/schritt2-cloud-and-backup.png)
+![Cloud & Backup auswählen](../../img/goodnotes/schritt2-cloud-and-backup.png)
 
 ### Schritt 3: Automatic Backup aktivieren
 
 Tippen Sie auf **Automatic Backup**.
 
-![Automatic Backup auswählen](/img/goodnotes/schritt3-automatic-backup.png)
+![Automatic Backup auswählen](../../img/goodnotes/schritt3-automatic-backup.png)
 
 ### Schritt 4: WebDAV als Cloud-Speicher wählen
 
@@ -35,7 +35,7 @@ Tippen Sie auf **Automatic Backup**.
 3. Tippen Sie auf **Connect to WebDAV server**
 
 
-![WebDAV als Cloud-Speicher](/img/goodnotes/schritt4-webdav-verbinden.png)
+![WebDAV als Cloud-Speicher](../../img/goodnotes/schritt4-webdav-verbinden.png)
 
 ### Schritt 5: WebDAV-Verbindung einrichten
 
@@ -49,7 +49,7 @@ Geben Sie Ihre edulution-Zugangsdaten ein:
 
 Tippen Sie auf **Done**, um die Verbindung herzustellen.
 
-![WebDAV-Authentifizierung](/img/goodnotes/schritt5-webdav-authentifizierung.png)
+![WebDAV-Authentifizierung](../../img/goodnotes/schritt5-webdav-authentifizierung.png)
 
 
 ## Ergebnis

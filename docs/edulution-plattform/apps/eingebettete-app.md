@@ -220,13 +220,9 @@ Die Skripte werden an den Browser jedes Benutzers ausgeliefert, der die App öff
 
 ## Berechtigungen des eingebetteten Inhalts
 
-Ob eine eingebettete Anwendung Kamera, Mikrofon, Zwischenablage, angeschlossene Geräte oder ein Gerät im lokalen Netzwerk nutzen darf, entscheidet nicht die Anwendung selbst, sondern edulution beim Einbetten. Als Global-Admin legen Sie das pro App unter **Einstellungen → \<App\>** im Bereich **Berechtigungen des eingebetteten Inhalts** fest – für Frame-Apps, Eingebettete Apps und das Lernmanagement.
+Ob eine eingebettete Anwendung Kamera, Mikrofon, Zwischenablage, angeschlossene Geräte oder ein Gerät im lokalen Netzwerk nutzen darf, entscheidet nicht die Anwendung selbst, sondern edulution beim Einbetten. Als Global-Admin legen Sie das pro App unter **Einstellungen → \<App\>** im Bereich **Berechtigungen des eingebetteten Inhalts** fest. Die Auswahl wirkt nur auf Inhalte, die unter einer anderen Domain als edulution ausgeliefert werden.
 
-Eine App, deren Auswahl nie bearbeitet wurde, erhält den Standardsatz und verhält sich wie bisher. Der Zugriff auf das lokale Netzwerk – etwa für einen Etikettendrucker über einen lokalen Druckdienst – ist bewusst nicht enthalten und muss ausdrücklich gewählt werden.
-
-Die Auswahl wirkt nur auf Inhalte, die unter einer anderen Domain als edulution ausgeliefert werden. Hochgeladene Dateien einer Eingebetteten App und Inhalte, die über die Proxy-Konfiguration eingebunden sind, liegen auf derselben Domain und erhalten die meisten Berechtigungen unabhängig davon.
-
-Die vollständige Beschreibung der Auswahl, des Standardsatzes und des Netzwerkzugriffs finden Sie unter [Einstellungen – Berechtigungen des eingebetteten Inhalts](../konfiguration/einstellungen.md#berechtigungen-des-eingebetteten-inhalts).
+[→ Details: Einstellungen – Berechtigungen des eingebetteten Inhalts](../konfiguration/einstellungen.md#berechtigungen-des-eingebetteten-inhalts)
 
 ## Anwendungsfälle
 
@@ -296,10 +292,10 @@ Die vollständige Beschreibung der Auswahl, des Standardsatzes und des Netzwerkz
 ### Kamera, Mikrofon oder ein Gerät funktioniert in der eingebetteten Anwendung nicht
 
 - Prüfen Sie unter **Einstellungen → \<App\>** im Bereich **Berechtigungen des eingebetteten Inhalts**, ob die benötigte Berechtigung ausgewählt und die Konfiguration gespeichert ist
-- Eine geleerte Auswahl gibt **keine** Berechtigung weiter – wählen Sie die benötigten Einträge oder stellen Sie den Standardsatz über **Alle auswählen** wieder her
+- Eine geleerte Auswahl gibt **keine** Berechtigung weiter – wählen Sie die benötigten Einträge einzeln aus. **Alle auswählen** gibt zusätzlich den Zugriff auf das lokale Netzwerk frei
 - Für Geräte im lokalen Netzwerk müssen `loopback-network` beziehungsweise `local-network` gewählt sein; sie gehören nicht zum Standardsatz
 - Der Browser fragt beim ersten Zugriff zusätzlich um Erlaubnis – prüfen Sie, ob diese Anfrage abgelehnt wurde
-- Firefox und Safari unterstützen den Zugriff auf das lokale Netzwerk aus einem iframe derzeit nicht
+- Firefox und Safari unterstützen den Zugriff auf das lokale Netzwerk aus einem iframe nicht
 
 ### Ein Skript wird nicht ausgeführt
 

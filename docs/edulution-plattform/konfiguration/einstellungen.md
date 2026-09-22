@@ -427,10 +427,45 @@ Ohne konfigurierten Proxy zeigen die Schülerkarten im Unterricht keine Bildschi
 
 Apps, die Inhalte in einem iframe anzeigen, bringen zwei zusätzliche Bereiche in ihren Einstellungen mit:
 
-- **Skripte** (nur Frame-Apps) — JavaScript, das beim Laden des iframes und beim Abmelden ausgeführt wird, mit Syntaxprüfung und Formatierung im Editor
-- **URL-Verarbeitung** (Frame-Apps sowie Eingebettete Apps im Modus *Separates Layout*) — Adresszeile des Browsers der Navigation im eingebetteten Inhalt folgen lassen und Deep-Links unterstützen
+- **Skripte** (nur Frame-Apps) – JavaScript, das beim Laden des iframes und beim Abmelden ausgeführt wird, mit Syntaxprüfung und Formatierung im Editor
+- **URL-Verarbeitung** (Frame-Apps sowie Eingebettete Apps im Modus *Separates Layout*) – Adresszeile des Browsers der Navigation im eingebetteten Inhalt folgen lassen und Deep-Links unterstützen
+- **Berechtigungen des eingebetteten Inhalts** (Frame-Apps, Eingebettete Apps und Lernmanagement) – festlegen, welche Browser-Berechtigungen der eingebettete Inhalt nutzen darf, etwa Kamera, Mikrofon oder den Zugriff auf Geräte im lokalen Netzwerk
 
 [→ Details: Eingebettete App – Skripte und URL-Verarbeitung](../apps/eingebettete-app.md#url-verarbeitung-und-deep-links)
+
+### Berechtigungen des eingebetteten Inhalts
+
+Ein eingebetteter Inhalt kann Browser-Funktionen wie Kamera, Mikrofon, Zwischenablage oder angeschlossene USB-Geräte nur nutzen, wenn edulution sie ihm ausdrücklich weitergibt. Im Bereich **Berechtigungen des eingebetteten Inhalts** legen Sie pro App fest, welche das sind.
+
+Das Feld **Weitergegebene Berechtigungen** ist eine Mehrfachauswahl, gruppiert nach **Medien**, **Sensoren**, **Geräte**, **System**, **Netzwerk** sowie **Werbung und Messung**. Die Einträge tragen die technischen Bezeichnungen des Browsers (etwa `camera`, `usb` oder `clipboard-read`), damit Sie sie mit der Dokumentation der eingebetteten Anwendung abgleichen können. **Alle auswählen** wählt auch die drei Einträge für den Zugriff auf das lokale Netzwerk aus.
+
+| Zustand der Auswahl | Wirkung |
+|---|---|
+| Nie bearbeitet | Der eingebettete Inhalt erhält den Standardsatz: alle Einträge außer denen für den Zugriff auf das lokale Netzwerk. Die Auswahl zeigt diesen Satz vorausgewählt an. Wird der Standardsatz in einer späteren Version erweitert, folgt die App ihm automatisch. |
+| Einzelne Einträge gewählt | Genau diese Berechtigungen werden weitergegeben, alle anderen nicht. Die Liste bleibt auch dann fest, wenn der Standardsatz später erweitert wird. |
+| Geleert | Der eingebettete Inhalt erhält **keine** Berechtigung. |
+
+Sobald Sie die Auswahl einer App einmal gespeichert haben, führt kein Weg zurück in den Zustand *Nie bearbeitet*. Wählen Sie die Einträge des Standardsatzes von Hand aus, erhält die App dieselben Berechtigungen, folgt späteren Erweiterungen aber nicht mehr.
+
+Eine gespeicherte Änderung wirkt sofort: Bei Benutzern, die die App gerade geöffnet haben, wird der eingebettete Inhalt neu geladen, sofern sich die weitergegebenen Berechtigungen dadurch ändern. Nicht gespeicherte Eingaben darin gehen dabei verloren.
+
+#### Zugriff auf das lokale Netzwerk
+
+Die Einträge `loopback-network` und `local-network` in der Gruppe **Netzwerk** erlauben dem eingebetteten Inhalt, Geräte auf demselben Rechner beziehungsweise im lokalen Netzwerk anzusprechen – etwa einen Etikettendrucker über einen lokal laufenden Druckdienst oder ein Gerät im Schulnetz. Chrome verweigert solche Zugriffe aus einem iframe ohne diese Freigabe, ohne den Benutzer zu fragen.
+
+Beide Einträge sind **bewusst nicht Teil des Standardsatzes**. Wählen Sie sie nur für Apps, die den Zugriff tatsächlich benötigen: Die Freigabe gilt für alles, was der eingebettete Inhalt lädt, und bei einer öffentlich freigegebenen Eingebetteten App damit auch für nicht angemeldete Besucher. Der dritte Eintrag `local-network-access` ist ein älterer Name derselben Berechtigung, den nur frühere Chrome-Versionen auswerten; neuere Versionen ignorieren ihn, er schadet also nicht, wenn Sie ihn zusätzlich wählen.
+
+Die Freigabe allein genügt nicht: Der Browser fragt den Benutzer beim ersten Zugriff zusätzlich um Erlaubnis. Diese Anfrage wird edulution zugeordnet, nicht der eingebetteten Anwendung, und gilt nach dem Bestätigen für alle Apps, denen Sie den Zugriff weitergegeben haben. Firefox und Safari kennen diese Berechtigung nicht.
+
+:::warning[Wirkungslos bei gleicher Domain]
+Die Auswahl greift nur, wenn der eingebettete Inhalt unter einer **anderen Domain** als edulution ausgeliefert wird. Liegt er auf derselben Domain – etwa weil Sie ihn über die **Proxy-Konfiguration** der App einbinden oder weil es sich um hochgeladene Dateien einer Eingebetteten App handelt –, gewährt der Browser die meisten Berechtigungen ohnehin, unabhängig von dieser Einstellung.
+:::
+
+#### Fehlermeldung beim Speichern
+
+| Meldung | Ursache | Abhilfe |
+|---|---|---|
+| „Die ausgewählten Berechtigungen enthalten einen unbekannten Eintrag. Es sind nur Berechtigungen aus der vorgegebenen Liste erlaubt.“ | Die gespeicherte Auswahl enthält einen Eintrag, den diese edulution-Version nicht kennt, etwa aus einer über die API geschriebenen Konfiguration. Die Auswahl zeigt ihn nicht an. | Ändern Sie die Auswahl, zum Beispiel indem Sie einen Eintrag entfernen und wieder hinzufügen. Dabei entfällt der unbekannte Eintrag. |
 
 ---
 

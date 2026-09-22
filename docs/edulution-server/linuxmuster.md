@@ -105,46 +105,51 @@ Wie Sie Geräte entfernen, was **Speichern** und **Anwenden** dabei jeweils bewi
 ## Elternzuweisung
 
 Hier geben Sie die Verknüpfungen frei, die Eltern und Schüler selbst über einen Zuweisungs-Code
-angefragt haben (*„Eltern-Schüler-Zuweisungen verwalten."*). Wie die Anfrage entsteht, beschreibt
+angefragt haben. Wie die Anfrage entsteht, beschreibt
 [Benutzereinstellungen → Meine Kinder/Eltern](../edulution-plattform/uebersicht/benutzereinstellungen/meine-kinder-eltern.md).
-
-![Kachel „Elternzuweisung" auf der Übersichtsseite der Schulserver-App](/img/eltern-schueler-zuordnung/elternzuweisung-kachel.png)
-
-:::note[Zu welcher Schule eine Anfrage gehört]
-Eine Anfrage gehört immer zur **Schule des Schülers**. Gehören Kind und Elternteil verschiedenen
-Schulen an, erscheint sie deshalb nur in der Schule des Kindes und wird auch nur dort freigegeben.
-:::
-
-Die Tabelle zeigt die Zuordnungen mit folgenden Spalten; die Fußzeile nennt die Zahl der
-ausgewählten Einträge.
+Der Bereich erscheint nur in Schulumgebungen.
 
 ![Tabelle der Eltern-Schüler-Zuweisungen mit Spalten Elternteil, Schüler, Status und Erstellt am](/img/eltern-schueler-zuordnung/elternzuweisung-tabelle.png)
 
-| Spalte | Inhalt |
+Die Tabelle zeigt **Elternteil**, **Schüler**, **Status** und **Erstellt am**. Beim Öffnen sind nur
+die **ausstehenden** Anfragen gefiltert; über den Status-Filter blenden Sie auch akzeptierte,
+abgelehnte oder alle ein.
+
+Die Tabelle enthält nur Anfragen, die über einen Code entstanden sind. Eltern, die direkt in der
+[Benutzerverwaltung](./benutzerverwaltung.md) zugeordnet wurden, stehen hier nicht – Eltern und
+Kind sehen sie trotzdem als **Akzeptiert**.
+
+### Wer entscheidet
+
+Eine Anfrage gehört zur **Schule des Kindes**, auch wenn das Elternteil an einer anderen Schule
+geführt wird.
+
+| Rolle | Darf |
 | --- | --- |
-| **Elternteil** | Das anfragende bzw. zugeordnete Elternteil |
-| **Schüler** | Der zugeordnete Schüler |
-| **Status** | Ausstehend, Akzeptiert oder Abgelehnt |
-| **Erstellt am** | Zeitpunkt der Anfrage |
+| **Globaladmins** | Anfragen aller Schulen sehen und entscheiden; die Schule wählen sie über die Schulauswahl |
+| **Schuladmins** | Anfragen der eigenen Schule sehen und entscheiden |
+| andere Rollen mit Zugriff auf den Schulserver | Anfragen der eigenen Schule sehen, aber nicht entscheiden |
 
-### Anfragen bearbeiten
+Wer nicht entscheiden darf, sieht **Akzeptieren** und **Ablehnen** trotzdem. Ein Klick führt zu
+*„Du hast keine Berechtigung, auf diese Ressource zuzugreifen.“*, der Status bleibt unverändert.
 
-Über die Aktionen einer Zeile geben Sie eine Anfrage frei (**Akzeptieren**) oder lehnen sie ab (**Ablehnen**). Sie können mehrere Einträge auswählen und über die Schaltflächen am unteren Rand gemeinsam bearbeiten. Nach der Bearbeitung erscheint die Rückmeldung *„Status erfolgreich aktualisiert."*.
+### Anfragen entscheiden
 
-- Mit **Akzeptieren** wird die Verknüpfung in der Linuxmuster-Umgebung eingerichtet – das Elternteil wird dem Schülerkonto zugeordnet.
-- Mit **Ablehnen** einer bereits akzeptierten Zuordnung wird die Verknüpfung wieder entfernt.
+Wählen Sie in der Zeile **Akzeptieren** oder **Ablehnen**. Für mehrere Anfragen auf einmal wählen
+Sie die Zeilen aus; die beiden Schaltflächen erscheinen dann in der Leiste mit den schwebenden
+Schaltflächen.
 
-### Filtern und suchen
+| Aktion | Wirkung |
+| --- | --- |
+| **Akzeptieren** | trägt das Elternteil auf dem Linuxmuster-Server beim Kind ein. Schlägt das fehl, erscheint eine Fehlermeldung und die Anfrage bleibt, wie sie war. |
+| **Ablehnen** einer ausstehenden Anfrage | schließt die Anfrage. Eltern und Kind können sie nicht erneut stellen. |
+| **Ablehnen** einer akzeptierten Anfrage | entfernt das Elternteil wieder vom Kind. |
+| **Akzeptieren** einer abgelehnten Anfrage | holt eine versehentliche Ablehnung zurück – der einzige Weg, denn eine neue Anfrage für dasselbe Paar ist nicht möglich. |
 
-- Über das **Suchfeld** filtern Sie die Tabelle nach Elternteil oder Schüler (*„Nach Elternteil oder Schüler suchen…"*).
-- Ein **Status-Filter** blendet gezielt *Alle*, *Ausstehend*, *Akzeptiert* oder *Abgelehnt* ein. Standardmäßig sind die **ausstehenden** Anfragen vorausgewählt.
-- Über die **Schulauswahl** oben rechts bearbeiten **Globaladmins** die Anfragen einer anderen Schule.
-
-![Geöffneter Status-Filter mit den Optionen Alle, Ausstehend, Akzeptiert und Abgelehnt](/img/eltern-schueler-zuordnung/elternzuweisung-filter.png)
-
-:::info[Nur in Schulumgebungen]
-Der Bereich erscheint ausschließlich in Schulumgebungen.
-:::
+| Meldung | Bedeutung |
+| --- | --- |
+| *„Status erfolgreich aktualisiert.“* | Alle gewählten Anfragen wurden geändert. |
+| *„Status für 2 von 5 Zuweisungen fehlgeschlagen.“* (Zahlen je nach Fall) | Bei einer Sammelbearbeitung schlugen einzelne Anfragen fehl, meist an der Linuxmuster-API oder an fehlender Berechtigung für die Schule. Die übrigen sind geändert. Die Tabelle wird neu geladen; bearbeiten Sie die verbliebenen Anfragen einzeln, um die Ursache zu sehen. |
 
 ## LINBO
 

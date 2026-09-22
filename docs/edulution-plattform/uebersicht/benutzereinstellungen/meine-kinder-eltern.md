@@ -5,82 +5,102 @@ sidebar_custom_props:
 
 # Meine Kinder/Eltern
 
-Hier verknüpfen Sie Eltern- und Schülerkonten miteinander. Die Verknüpfung stellen Eltern und
-Schüler selbst über einen kurzlebigen **Zuweisungs-Code** her; anschließend prüft und bestätigt eine
-Lehrkraft oder die Administration die Anfrage, bevor sie wirksam wird.
+Hier verknüpfen Sie ein Elternkonto mit dem Konto eines Kindes. Nach der Freigabe durch die
+Schuladministration ist das Elternteil auf dem Schulserver als Elternteil des Kindes eingetragen –
+Lehrkräfte finden es dann zum Beispiel in [edulution Mail](../../../edulution-mail/index.md) auch
+über den Namen des Kindes.
+
+Die Verknüpfung stoßen Eltern und Kind selbst an: Eine Person zeigt einen kurzlebigen
+**Zuweisungs-Code**, die andere gibt ihn ein. Wirksam wird sie erst, wenn die Schuladministration
+zustimmt.
 
 Die Seite heißt je nach Rolle unterschiedlich:
 
-- Schüler sehen **Meine Eltern** mit dem Hinweis *„Hier kannst du eine Verknüpfung mit deinen Eltern herstellen."*
-- Eltern sehen **Meine Kinder** mit dem Hinweis *„Hier kannst du eine Verknüpfung mit deinen Kindern herstellen."*
+| Rolle | Seite |
+| --- | --- |
+| Schüler | **Meine Eltern** |
+| Eltern, Lehrer und Mitarbeiter | **Meine Kinder** |
 
-![Die Seite „Meine Kinder" mit den Bereichen Zuweisungs-Code, Code eingeben und Zuweisungen (Beispiel aus der Elternansicht)](/img/eltern-schueler-zuordnung/meine-kinder-uebersicht.png)
+Lehrer und Mitarbeiter zählen dabei als Elternteil, damit Beschäftigte der Schule ihre eigenen
+Kinder verknüpfen können. Die Funktion gibt es nur in Schulumgebungen.
 
-:::info[Nur in Schulumgebungen]
-Die Eltern-Schüler-Zuordnung steht ausschließlich in Schulumgebungen zur Verfügung. In reinen
-Business-Umgebungen wird die Funktion weder in den Benutzereinstellungen noch in der
-Schulserver-App angezeigt.
+![Die Seite „Meine Kinder“ mit den Bereichen Mein Zuweisungs-Code, Code eingeben und Zuweisungen](/img/eltern-schueler-zuordnung/meine-kinder-uebersicht.png)
+
+## Kind und Elternteil verknüpfen
+
+Wer anfängt, spielt keine Rolle – das Kind kann den Code des Elternteils eingeben oder umgekehrt.
+Weil der Code nur 5 Minuten gilt, erledigen Sie die Schritte am besten zusammen.
+
+1. Person A öffnet in den Benutzereinstellungen **Meine Kinder** bzw. **Meine Eltern**. Unter
+   **Mein Zuweisungs-Code** steht ihr Code.
+2. Person A gibt den Code an Person B weiter – vorlesen, abtippen lassen oder über das Kopiersymbol
+   in eine Nachricht übernehmen.
+3. Person B öffnet ihre eigene Seite **Meine Kinder** bzw. **Meine Eltern**, gibt den Code unter
+   **Code eingeben** ein und wählt **Zuweisen**. Es erscheint *„Zuweisungsanfrage erfolgreich
+   gesendet!“*.
+4. Die Anfrage steht nun bei beiden unter **Zuweisungen** mit dem Status **Ausstehend**. Eltern und
+   Kind müssen nichts weiter tun.
+5. Die Schuladministration gibt die Anfrage frei. Danach steht die Zuweisung auf **Akzeptiert**.
+
+Den aktuellen Stand zeigt die Seite beim Öffnen oder nach **Neu laden** – sie aktualisiert sich nicht
+von selbst.
+
+:::info[Mehrere Kinder oder ein zweites Elternteil]
+Jede Verknüpfung braucht einen eigenen Code, denn ein Code lässt sich nur einmal einlösen. Für das
+nächste Kind oder das zweite Elternteil erzeugen Sie mit **Neu generieren** einen neuen Code.
 :::
 
-Die Seite gliedert sich in drei aufklappbare Bereiche.
+Freigegeben wird die Anfrage von der Administration der **Schule des Kindes** – auch dann, wenn das
+Elternteil an einer anderen Schule der Instanz geführt wird. Bleibt eine Anfrage längere Zeit
+**Ausstehend**, wenden Sie sich dorthin.
 
-## Mein Zuweisungs-Code
+## Der Zuweisungs-Code
 
-Hier finden Sie Ihren persönlichen **Zuweisungs-Code** als Text sowie als **QR-Code**. Über das Kopiersymbol übernehmen Sie den Code in die Zwischenablage.
+| Eigenschaft | Verhalten |
+| --- | --- |
+| Aufbau | 8 Zeichen aus Ziffern und den Buchstaben A–F |
+| Gültigkeit | 5 Minuten ab Erzeugung |
+| Einlösen | nur einmal; danach ist der Code verbraucht |
+| Schreibweise | Groß- und Kleinschreibung sowie Leerzeichen am Anfang und Ende spielen keine Rolle |
+| **Neu generieren** | erzeugt sofort einen neuen Code; der bisherige wird ungültig (*„Neuer Zuweisungs-Code generiert.“*) |
 
-- Schüler teilen den Code mit ihrem Elternteil, Eltern teilen ihn mit ihrem Kind.
-- Der Code ist **5 Minuten** gültig. Nach Ablauf muss ein neuer Code erzeugt werden.
-- Der Code ist **einmalig**: Sobald damit eine Zuweisung angefragt wurde, verliert er seine Gültigkeit. Für eine weitere Zuweisung erzeugen Sie einen neuen Code.
+Ein abgelaufener oder eingelöster Code bleibt auf der Seite stehen, bis Sie sie neu öffnen oder
+**Neu laden** wählen – erst dann erscheint automatisch ein neuer Code. Wird eine Eingabe
+abgewiesen, etwa weil zwei Elternteile ihre Codes getauscht haben, bleibt der Code dagegen gültig.
 
-Über die Schaltfläche **Neu generieren** (oben rechts) erzeugen Sie jederzeit einen neuen Code; der vorherige verliert damit seine Gültigkeit. Eine Rückmeldung bestätigt: *„Neuer Zuweisungs-Code generiert."*
+Der QR-Code enthält denselben Code und ist zum Scannen mit der
+[edulution.io App](../../../edulution-app/index.md) gedacht. In der Weboberfläche geben Sie den Code
+von Hand ein.
 
-:::info[Verknüpfung auch von beiden Seiten möglich]
-Es ist unerheblich, wer beginnt: Entweder gibt das Elternteil den Code des Kindes ein – oder das Kind den Code des Elternteils. Das Ergebnis ist dieselbe Zuordnung.
-:::
-
-## Code eingeben
-
-Im Bereich **Code eingeben** tragen Sie den Code ein, den Sie von der anderen Person erhalten haben, und bestätigen mit **Zuweisen**. Bei Erfolg erscheint der Hinweis *„Zuweisungsanfrage erfolgreich gesendet!"*, und die Anfrage wird zur Freigabe an die Administration übergeben.
-
-Die **Groß- und Kleinschreibung spielt dabei keine Rolle** – Sie können den Code auch vollständig in Kleinbuchstaben eingeben. Leerzeichen am Anfang und Ende werden ebenfalls ignoriert.
-
-Lässt sich der eingegebene Code nicht zuordnen, erscheint der Hinweis *„Der Zuweisungs-Code ist unbekannt oder abgelaufen. Bitte einen neuen Code anfordern."*. Ein Tippfehler und ein tatsächlich abgelaufener Code führen zur selben Meldung – prüfen Sie daher zuerst Ihre Eingabe, bevor Sie sich von der anderen Person einen neuen Code geben lassen.
-
-:::info[QR-Code nur in der App]
-Der QR-Code dient dem Scannen mit der [edulution.io App](../../../edulution-app/index.md). In der
-Weboberfläche wird der Code zwar angezeigt, aber nicht gescannt – dort geben Sie ihn manuell ein.
-:::
-
-## Zuweisungen
-
-Der Bereich **Zuweisungen** listet Ihre bestehenden und angefragten Verknüpfungen auf. Zu jedem Eintrag werden die zugeordnete Person (Vor- und Nachname, ersatzweise der Benutzername) sowie der aktuelle Status angezeigt:
+## Status einer Zuweisung
 
 | Status | Bedeutung |
 | --- | --- |
-| **Ausstehend** | Die Anfrage wurde gesendet und wartet auf die Freigabe durch die Administration. |
-| **Akzeptiert** | Die Verknüpfung wurde freigegeben und ist wirksam. |
-| **Abgelehnt** | Die Anfrage wurde von der Administration abgelehnt. |
+| **Ausstehend** | Die Anfrage wartet auf die Freigabe durch die Schuladministration. |
+| **Akzeptiert** | Das Elternteil ist auf dem Schulserver als Elternteil des Kindes eingetragen. |
+| **Abgelehnt** | Die Schuladministration hat die Anfrage abgelehnt oder eine bestehende Verknüpfung wieder aufgehoben. |
 
-Solange keine Verknüpfung besteht, erscheint der Hinweis *„Noch keine Zuweisungen."*.
+Unter **Akzeptiert** erscheinen auch Verknüpfungen, die die Administration direkt auf dem
+Schulserver eingetragen hat, ohne dass je ein Code im Spiel war. Entfernt sie eine Verknüpfung dort
+wieder, verschwindet der Eintrag aus der Liste.
 
-Kind und Elternteil müssen nicht derselben Schule angehören – auch schulübergreifende Zuweisungen innerhalb einer Instanz werden auf beiden Seiten angezeigt. Freigegeben wird die Anfrage in diesem Fall von der Administration der **Schule des Kindes** – dorthin wenden Sie sich, wenn eine Anfrage längere Zeit **Ausstehend** bleibt.
+:::caution[Abgelehnt ist endgültig]
+Eine abgelehnte Verknüpfung lässt sich nicht erneut anfragen – ein neuer Code führt zu *„Diese
+Zuweisung existiert bereits.“*. Handelt es sich um einen Irrtum, wenden Sie sich an die
+Schuladministration. Sie kann die abgelehnte Anfrage nachträglich freigeben.
+:::
 
-## Ablauf im Überblick
+## Meldungen
 
-1. Elternteil und Schüler öffnen jeweils ihre Seite *Meine Kinder* bzw. *Meine Eltern* und rufen ihren **Zuweisungs-Code** ab.
-2. Eine der beiden Personen gibt den Code der anderen unter **Code eingeben** ein und bestätigt mit **Zuweisen**.
-3. Die Anfrage erscheint mit dem Status **Ausstehend** und liegt der Administration zur Freigabe vor.
-4. Eine Lehrkraft oder Administration öffnet **Elternzuweisung** in der Schulserver-App und wählt **Akzeptieren** oder **Ablehnen**.
-5. Nach dem Akzeptieren wird die Verknüpfung eingerichtet; der Status wechselt auf **Akzeptiert**.
-
-## Wer kann die Funktion nutzen?
-
-- Die Seite **Meine Eltern** sehen **Schüler**, die Seite **Meine Kinder** sehen **Eltern**. Als Elternteil gelten dabei auch Konten mit einer Lehrer- oder Personal-Rolle.
-- Eine gültige Zuordnung besteht immer aus **genau einer Eltern-Seite und einem Schüler**. Der Versuch, zwei Schüler oder zwei Elternteile zu verknüpfen – oder sich selbst zuzuweisen –, wird abgewiesen.
-- Bereits bestehende Zuordnungen lassen sich nicht doppelt anlegen; eine erneute Anfrage für dieselbe Verknüpfung wird abgewiesen (*„Diese Zuweisung existiert bereits."*) – auch dann, wenn die Zuordnung zuvor **abgelehnt** wurde. Eine abgelehnte Zuordnung lässt sich also nicht erneut anfragen; sie kann nur von der Administration nachträglich freigegeben werden.
-- Eine Zuordnung wird erst nach der **Freigabe durch die Administration** wirksam. Bis dahin bleibt sie **Ausstehend**.
+| Meldung | Ursache | Abhilfe |
+| --- | --- | --- |
+| *„Der Zuweisungs-Code ist unbekannt oder abgelaufen. Bitte einen neuen Code anfordern.“* | Tippfehler, der Code ist älter als 5 Minuten, wurde schon eingelöst oder durch **Neu generieren** ersetzt. Die Meldung unterscheidet diese Fälle nicht. | Eingabe prüfen. Stimmt sie, einen neuen Code geben lassen. |
+| *„Du kannst dich nicht dir selbst zuweisen.“* | Sie haben Ihren eigenen Code eingegeben. | Den Code der anderen Person eingeben. |
+| *„Du kannst keinem anderen Schüler zugewiesen werden.“* | Beide Konten stehen auf derselben Seite: zwei Schüler – oder zwei Eltern, auch wenn die Meldung nur Schüler nennt. Lehrer und Mitarbeiter zählen hier als Eltern. | Kind und Elternteil tauschen die Codes. |
+| *„Deine Rolle erlaubt keine Zuweisung.“* | Eines der beiden Konten ist weder Schüler noch Elternteil, Lehrer oder Mitarbeiter. | Schuladministration fragen, ob das richtige Konto verwendet wird. |
+| *„Diese Zuweisung existiert bereits.“* | Für dieses Kind und dieses Elternteil gibt es schon eine Anfrage – ausstehend, akzeptiert oder abgelehnt. | Status unter **Zuweisungen** prüfen; bei **Abgelehnt** an die Schuladministration wenden. |
 
 ## Siehe auch
 
+- [Schulserver → Elternzuweisung](../../../edulution-server/linuxmuster.md#elternzuweisung) – die Freigabe durch die Schuladministration
 - [Klassenzimmer](../../apps/native-apps/klassenzimmer.md) – Gruppen betreuen und Bildschirme beaufsichtigen
-- [Schulserver → Elternzuweisung](../../../edulution-server/linuxmuster.md#elternzuweisung) – die Freigabe durch die Administration

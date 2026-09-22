@@ -163,10 +163,22 @@ Vor dem Speichern werden die Einträge geprüft. Solange eine Zelle ungültig is
 
 ![Benutzerverwaltung-Import-CSV](/img/benutzerverwaltung/benutzerverwaltung07-import-csv.png)
 
-- **Importieren** – Sie fügen den CSV-Inhalt direkt in das Textfeld ein und bearbeiten ihn dort, oder Sie ziehen eine Datei per **Drag & Drop** in den Auswahlbereich bzw. wählen sie über den Dateidialog aus. Zulässig sind Dateien mit der Endung `.csv` und `.txt`. Kommentarzeilen, die mit `#` beginnen, bleiben erhalten.
-- **Exportieren** – über **CSV Herunterladen** laden Sie die aktuelle Liste als Datei `<Liste>.csv` herunter, etwa als Vorlage für die weitere Bearbeitung.
+- **Importieren** – Sie fügen den CSV-Inhalt direkt in das Textfeld ein und bearbeiten ihn dort, oder Sie ziehen eine Datei per **Drag & Drop** in den Auswahlbereich bzw. wählen sie über den Dateidialog aus. Zulässig sind Dateien mit der Endung `.csv` und `.txt`.
+- **Exportieren** – über **Herunterladen** laden Sie den Inhalt des Textfelds als Datei `<Liste>.csv` herunter, etwa als Vorlage für die weitere Bearbeitung.
 
 Ein über den Dialog importierter CSV-Inhalt ersetzt die Einträge der Tabelle. Damit die Änderungen tatsächlich wirksam werden, müssen Sie die Liste anschließend noch **speichern**, **prüfen** und **übernehmen**.
+
+### Kommentarzeilen
+
+Zeilen, die mit `#` beginnen, sind Kommentare. Sie erscheinen nicht in der Tabelle, sondern nur im CSV-Dialog, und Linuxmuster ignoriert sie beim Import. Beim Speichern bleiben sie an ihrer Stelle zwischen den Einträgen erhalten – auch dann, wenn Sie die Liste nur in der Tabelle bearbeitet haben.
+
+Zeichengenau bleiben sie dabei allerdings nicht: Die Linuxmuster-API bereinigt den Inhalt schon beim Einlesen, und beim Speichern wird dieser bereinigte Stand zurückgeschrieben.
+
+- Leerzeichen am Anfang und Ende einer Zeile sowie vor und nach jedem `;` entfallen.
+- Eine Kommentarzeile, die danach höchstens drei Zeichen lang ist – etwa ein einzelnes `#` als Trennzeile –, wird zur Leerzeile. Ihr Inhalt geht verloren.
+- Solche Zeilen und alle Leerzeilen der Datei zeigt der CSV-Dialog als `###EMPTY#LINE` an, und so stehen sie auch in einer heruntergeladenen Datei. Beim Speichern wird daraus wieder eine Leerzeile.
+
+Löschen Sie Einträge, bleibt ein Kommentar vor dem Eintrag stehen, der ihm bisher folgte. Löschen Sie diesen Eintrag selbst, rückt der Kommentar vor den nächsten verbleibenden Eintrag. Neue Einträge fügt die Tabelle am Ende der Liste an – also unterhalb eines Kommentars, der in der letzten Zeile steht. Im CSV-Dialog legen Sie die Stelle eines Kommentars genau fest: Er steht dort, wo Sie ihn in den Text schreiben.
 
 ## Import in drei Schritten
 

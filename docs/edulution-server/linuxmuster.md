@@ -110,6 +110,10 @@ Ein CSV-Import hat Vorrang vor einem noch laufenden Vorgang: Die eingelesene Lis
 Bei **Anwenden** wird die Geräteliste zuerst gespeichert und erst danach importiert. Schlägt allein der Importlauf fehl, ist die Liste bereits auf dem Server abgelegt: Die gelöschten Geräte kehren dann **nicht** zurück, und die Tabelle gilt als gespeichert. Wiederholen Sie in diesem Fall **Anwenden**, um den Import erneut anzustoßen.
 :::
 
+:::tip[Ausführliche Anleitung]
+Wie Sie Geräte entfernen, was **Speichern** und **Anwenden** dabei jeweils bewirken, wie der CSV-Dialog die Tabelle ersetzt und was mit Kommentarzeilen geschieht, beschreibt die [Geräteverwaltung](../edulution-plattform/apps/native-apps/geraeteverwaltung.md).
+:::
+
 ## Elternzuweisung
 
 Hier geben Sie die Verknüpfungen frei, die Eltern und Schüler selbst über einen Zuweisungs-Code
@@ -312,6 +316,14 @@ Ein Image heißt nach seinem Verzeichnis auf dem Server (`debian13`); die Bildda
 Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.info`), VDI-Konfiguration (`.vdi`), Torrent (`.torrent`), Maschinenkonto (`.macct`), Prüfsumme (`.md5`), Hashsumme (`.hash`), Registry (`.reg`), Pre-Start-Skript (`.prestart`) und Post-Sync-Skript (`.postsync`). In der Spalte **Sidecars** steht je vorhandener Datei ein Buchstabenkürzel; welcher Dateityp dahintersteht, erscheint, sobald Sie mit dem Mauszeiger darauf zeigen. Der Detaildialog zeigt zusätzlich Dateiname, Image-Ordner, Pfad, Größe, MD5-Summe und – sofern ein `.info`-Sidecar vorliegt – Erstellungszeitpunkt, Image- und Partitionsgröße sowie die Beschreibung.
 
 Über die Schaltfläche zum Hochladen fügen Sie ein Image hinzu. Zulässig sind Image-Dateien (`.qcow2`, `.qdiff`, `.cloop`, `.rsync`) und alle oben genannten Beipack-Dateien; andere Dateitypen weist der Dialog ab. Während eines laufenden Downloads sind weitere Downloads gesperrt.
+
+Im Dialog geben Sie Image-Name und Dateiname an; während der Übertragung sind beide Felder gesperrt und ein Fortschrittsbalken zeigt den Stand in Prozent. **Abbrechen** bricht die laufende Übertragung ab und verwirft zugleich die Daten, die der Server bereits entgegengenommen hat – es bleibt also kein angefangenes Image auf dem Server zurück.
+
+Der Server nimmt ein Image in Teilstücken entgegen. Bricht die Übertragung ab, weil etwa die Verbindung zum Schulserver wegfällt, setzt ein erneuter Upload derselben Datei dort an, wo er stehengeblieben ist; bei einem mehrere Gigabyte großen Image erspart das den bereits übertragenen Teil.
+
+:::note[Fortgesetzt wird nur dieselbe Datei]
+Fortgesetzt wird der Upload ausschließlich dann, wenn Sie unter demselben Image- und Dateinamen erneut eine Datei derselben Größe hochladen. Laden Sie unter einem bereits angefangenen Namen eine andere Datei hoch – etwa ein neu erstelltes Image –, beginnt die Übertragung von vorn und überschreibt den angefangenen Stand. Nach einem Neustart der edulution-Instanz beginnt jeder Upload ebenfalls von vorn.
+:::
 
 #### Aktionen eines Images
 

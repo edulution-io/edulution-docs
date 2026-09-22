@@ -330,11 +330,29 @@ Bei abonnierten oder schreibgeschützten Kalendern werden **Einstellungen** und 
 
 ## Kalender freigeben
 
-Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie über **Personen oder Gruppen hinzufügen** nach Benutzern oder Gruppen; unter **Freigegeben für** stehen anschließend alle bestehenden Freigaben.
+Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie über **Personen oder Gruppen hinzufügen** nach Personen aus Ihren Adressbüchern und nach Verteilern Ihrer Schule (siehe [Wen die Suche findet](#wen-die-suche-findet)); unter **Freigegeben für** stehen anschließend alle bestehenden Freigaben.
 
 Jede Freigabe ist eine aufklappbare Zeile. Zugeklappt sehen Sie Name, E-Mail-Adresse und rechts eine Zusammenfassung der vergebenen Rechte (**Kein Zugriff**, **Nur Frei/Belegt**, **Ansehen** oder **Bearbeiten**). Über das Pfeilsymbol am rechten Rand klappen Sie die Zeile auf und vergeben die Rechte im Einzelnen. Über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder.
 
 Ist ein Empfänger im Verzeichnis nicht mehr auffindbar — etwa weil sein Konto zwischenzeitlich gelöscht wurde —, erscheint seine Zeile mit der Rolle **Keine** für alle drei Sichtbarkeiten. Die übrigen Freigaben bleiben davon unberührt und bearbeitbar; die verwaiste Zeile entfernen Sie über das Mülleimer-Symbol.
+
+### Wen die Suche findet
+
+Die Suche unter **Personen oder Gruppen hinzufügen** speist sich aus zwei getrennten Quellen:
+
+- **Personen** stammen ausschließlich aus den Adressbüchern, auf die Sie in der [Kontakte](kontakte.md)-App Zugriff haben — nicht aus dem Verzeichnis Ihrer Schule. Wen Sie dort nicht als Kontakt führen, können Sie hier auch nicht vorschlagen lassen; legen Sie die Person in diesem Fall zunächst in der Kontakte-App an.
+- **Verteiler** stammen unverändert aus dem Verzeichnis Ihrer Schule, einschließlich ihrer Kategorien (siehe [Freigabe an einen Verteiler](#freigabe-an-einen-verteiler)).
+
+Für die Personensuche gilt darüber hinaus:
+
+- Durchsucht werden **alle** Ihre Adressbücher gleichzeitig — anders als das Suchfeld der Kontakte-App, das sich immer nur auf das ausgewählte Adressbuch bezieht. Auf Schreibweisen von Umlauten kommt es dabei ebenso wenig an wie dort.
+- Vorgeschlagen wird nur, wer eine **E-Mail-Adresse** hinterlegt hat; ein Kontakt ohne Adresse erscheint nicht. Sind bei einem Kontakt mehrere Adressen hinterlegt, steht jede davon als eigener Eintrag zur Auswahl.
+- Personen erscheinen ab **zwei** eingegebenen Zeichen, Verteiler bereits ab einem. Führen Sie dieselbe Person in mehreren Adressbüchern, wird sie nur einmal angeboten.
+- Trägt einer Ihrer Kontakte die Adresse eines Verteilers, wird dieses Ziel einmal angeboten — und zwar als **Verteiler**. Die Freigabe erreicht dann wie gewohnt alle Mitglieder, nicht nur den einen Kontakt.
+
+:::info[Wenn keine Personen vorgeschlagen werden]
+Ist die Kontakte-App nicht eingerichtet oder der Adressbuch-Server gerade nicht erreichbar, bleibt die Suche nutzbar: Sie bietet weiterhin die Verteiler an, lediglich die Personen fehlen. Eine Fehlermeldung erscheint dabei nicht. Finden Sie also keine einzige Person, obwohl Verteiler erscheinen, wenden Sie sich an Ihre Administration.
+:::
 
 ### Rechte je Sichtbarkeit
 
@@ -509,6 +527,8 @@ Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](
 
 Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
 
+Eine Ausnahme ist die Personensuche im Freigabe-Dialog: Sie liest die Adressbücher des jeweiligen Benutzers und setzt daher zusätzlich die [CardDAV-Verbindung der Kontakte-App](../../konfiguration/einstellungen.md#kontakte-carddav) voraus. Ist sie nicht konfiguriert oder der CardDAV-Server nicht erreichbar, bietet die Suche weiterhin die Verteiler aus dem Verzeichnis an; die Personen fehlen dann stillschweigend, ohne Fehlermeldung. Meldet ein Benutzer, dass er im Freigabe-Dialog niemanden findet, Verteiler aber erscheinen, prüfen Sie deshalb die CardDAV-Einstellungen — nicht die der Kalender-App.
+
 [Web-Kalender](#web-kalender-abonnieren) benötigen dagegen **keine CalDAV- oder SoGo-Konfiguration**: Sie werden vom edulution-Server direkt über HTTPS von der jeweiligen Quelle abgerufen. Voraussetzung ist, dass der Server die betreffenden Adressen aus dem Internet erreichen darf – in Umgebungen mit ausgehendem Proxy oder restriktiver Firewall muss der Zugriff dafür freigegeben sein.
 
 Adressen, die auf das interne Netz zeigen, werden dabei grundsätzlich abgewiesen. Der Server prüft dies nicht nur anhand der eingegebenen Adresse, sondern auch anhand der IP-Adresse, auf die ein Name tatsächlich aufgelöst wird, sowie bei jeder Weiterleitung erneut. Ein Web-Kalender kann also nicht dazu verwendet werden, interne Dienste abzufragen.
@@ -529,3 +549,4 @@ Wird einem Benutzer, der zuvor Kalender sehen konnte, plötzlich keiner mehr ang
 
 - [Dashboard](../../uebersicht/dashboard.md) – Schnellzugriff auf den Kalender
 - [App-Store](../app-store.md) – Kalender-App aktivieren
+- [Kontakte](kontakte.md) – Adressbücher, aus denen die Freigabe die Personen vorschlägt

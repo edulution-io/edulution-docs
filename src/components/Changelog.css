@@ -100,7 +100,7 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition:
     width 0.3s ease,
@@ -108,6 +108,14 @@
 }
 
 .changelog-carousel-dot:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .changelog-carousel-dot {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+[data-theme="dark"] .changelog-carousel-dot:hover {
   background: rgba(255, 255, 255, 0.5);
 }
 

@@ -104,13 +104,13 @@ const ImageCarousel: React.FC<{ images: { url: string; alt: string }[] }> = ({ i
   if (images.length === 1) {
     const img = images[0];
     return (
-      <div className="relative overflow-hidden rounded-2xl bg-gray-900/50 mb-8 group cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-[#8FC046]/50">
+      <div className="relative overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-900/50 mb-8 group cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-[#8FC046]/50">
         <img
           src={img.url}
           alt={img.alt}
           className="w-full h-auto transition-transform duration-300 group-hover:scale-[1.02]"
         />
-        <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+        <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/10 dark:ring-white/10" />
       </div>
     );
   }
@@ -121,7 +121,7 @@ const ImageCarousel: React.FC<{ images: { url: string; alt: string }[] }> = ({ i
       data-carousel
       className="changelog-carousel relative mb-8"
     >
-      <div className="carousel rounded-2xl bg-gray-900/50 ring-1 ring-inset ring-white/10">
+      <div className="carousel rounded-2xl bg-gray-100 dark:bg-gray-900/50 ring-1 ring-inset ring-black/10 dark:ring-white/10">
         <div className="carousel-body opacity-0">
           {images.map((img, idx) => (
             <div
@@ -198,16 +198,16 @@ const formatDate = (dateString: string) => {
 
 const Tag: React.FC<{ tag: string }> = ({ tag }) => {
   const colors: Record<string, string> = {
-    'edulution-plattform': 'bg-[rgba(136,216,64,0.15)] text-[#8FC046] border-[#8FC046]/30',
+    'edulution-plattform': 'bg-[rgba(136,216,64,0.15)] text-[#4e7a13] dark:text-[#8FC046] border-[#8FC046]/30',
     // Legacy-Tag früherer Releases – gleiche Farbe wie 'edulution-plattform'
-    'edulution-ui': 'bg-[rgba(136,216,64,0.15)] text-[#8FC046] border-[#8FC046]/30',
+    'edulution-ui': 'bg-[rgba(136,216,64,0.15)] text-[#4e7a13] dark:text-[#8FC046] border-[#8FC046]/30',
     'edulution-mail': 'bg-[rgba(0,129,198,0.15)] text-[#0081c6] border-[#0081c6]/30',
     'edulution-fileproxy': 'bg-[rgba(220,38,38,0.15)] text-[#dc2626] border-[#dc2626]/30',
-    'edulution-backend': 'bg-[rgba(255,215,0,0.15)] text-[#FFD700] border-[#FFD700]/30',
+    'edulution-backend': 'bg-[rgba(255,215,0,0.15)] text-[#806400] dark:text-[#FFD700] border-[#FFD700]/30',
     'edulution-app': 'bg-[rgba(147,51,234,0.15)] text-[#9333ea] border-[#9333ea]/30',
   };
 
-  const colorClass = colors[tag] || 'bg-[rgba(136,216,64,0.15)] text-[#8FC046] border-[#8FC046]/30';
+  const colorClass = colors[tag] || 'bg-[rgba(136,216,64,0.15)] text-[#4e7a13] dark:text-[#8FC046] border-[#8FC046]/30';
 
   return (
     <span
@@ -220,10 +220,10 @@ const Tag: React.FC<{ tag: string }> = ({ tag }) => {
 
 const FeatureTag: React.FC<{ type: string }> = ({ type }) => {
   const colors: Record<string, string> = {
-    school: 'bg-[rgba(33,150,243,0.15)] text-[#2196f3] border-[#2196f3]/30',
-    business: 'bg-[rgba(255,152,0,0.15)] text-[#ff9800] border-[#ff9800]/30',
+    school: 'bg-[rgba(33,150,243,0.15)] text-[#1565c0] dark:text-[#2196f3] border-[#2196f3]/30',
+    business: 'bg-[rgba(255,152,0,0.15)] text-[#b45309] dark:text-[#ff9800] border-[#ff9800]/30',
     ios: 'bg-[rgba(156,39,176,0.15)] text-[#9c27b0] border-[#9c27b0]/30',
-    android: 'bg-[rgba(76,175,80,0.15)] text-[#4caf50] border-[#4caf50]/30',
+    android: 'bg-[rgba(76,175,80,0.15)] text-[#2e7d32] dark:text-[#4caf50] border-[#4caf50]/30',
   };
 
   const labels: Record<string, string> = {
@@ -234,7 +234,7 @@ const FeatureTag: React.FC<{ type: string }> = ({ type }) => {
     lmn73: 'LMN73',
   };
 
-  const colorClass = colors[type] || 'bg-[rgba(136,216,64,0.15)] text-[#8FC046] border-[#8FC046]/30';
+  const colorClass = colors[type] || 'bg-[rgba(136,216,64,0.15)] text-[#4e7a13] dark:text-[#8FC046] border-[#8FC046]/30';
   const label = labels[type] || type;
 
   return (
@@ -302,7 +302,7 @@ const renderMarkdown = (text: string) => {
           <a
             key={key++}
             href={linkMatch[2]}
-            className="text-sky-400 underline decoration-sky-400/40 underline-offset-2 transition-colors hover:text-white hover:decoration-white/40"
+            className="text-sky-700 dark:text-sky-400 underline decoration-sky-700/40 dark:decoration-sky-400/40 underline-offset-2 transition-colors hover:text-gray-900 dark:hover:text-white hover:decoration-gray-900/40 dark:hover:decoration-white/40"
           >
             {linkMatch[1]}
           </a>,
@@ -315,11 +315,11 @@ const renderMarkdown = (text: string) => {
         parts.push(
           <strong
             key={key++}
-            className="font-semibold text-white"
+            className="font-semibold text-gray-900 dark:text-white"
           >
             <a
               href={linkMatch[2]}
-              className="text-sky-400 underline decoration-sky-400/40 underline-offset-2 transition-colors hover:text-white hover:decoration-white/40"
+              className="text-sky-700 dark:text-sky-400 underline decoration-sky-700/40 dark:decoration-sky-400/40 underline-offset-2 transition-colors hover:text-gray-900 dark:hover:text-white hover:decoration-gray-900/40 dark:hover:decoration-white/40"
             >
               {linkMatch[1]}
             </a>
@@ -329,7 +329,7 @@ const renderMarkdown = (text: string) => {
         parts.push(
           <strong
             key={key++}
-            className="font-semibold text-white"
+            className="font-semibold text-gray-900 dark:text-white"
           >
             {inner}
           </strong>,
@@ -385,7 +385,7 @@ function ArticleHeader({ id, date, tag }: { id: string; date: string; tag?: stri
           href={`#${id}`}
           className="inline-flex pointer-events-auto"
         >
-          <time className="hidden xl:block text-[0.6875rem] leading-4 font-medium text-white/50">
+          <time className="hidden xl:block text-[0.6875rem] leading-4 font-medium text-gray-500 dark:text-white/50">
             {formatDate(date)}
           </time>
         </a>
@@ -458,8 +458,8 @@ export const ChangelogItem: React.FC<{
           tag={entry.tag}
         />
         <ContentWrapper className="relative">
-          <h2 className="text-2xl font-semibold leading-7 text-white mb-4 mt-6">{entry.title}</h2>
-          {entry.description && <p className="text-base leading-7 text-gray-300 mb-6">{entry.description}</p>}
+          <h2 className="text-2xl font-semibold leading-7 text-gray-900 dark:text-white mb-4 mt-6">{entry.title}</h2>
+          {entry.description && <p className="text-base leading-7 text-gray-700 dark:text-gray-300 mb-6">{entry.description}</p>}
 
           {/* Content Blocks */}
           {entry.content && entry.content.length > 0 ? (
@@ -481,7 +481,7 @@ export const ChangelogItem: React.FC<{
                   return (
                     <p
                       key={idx}
-                      className="text-base leading-7 text-gray-300"
+                      className="text-base leading-7 text-gray-700 dark:text-gray-300"
                     >
                       {renderMarkdown(block.content)}
                     </p>
@@ -495,7 +495,7 @@ export const ChangelogItem: React.FC<{
                       className="mb-4"
                     >
                       <div className="flex items-center gap-2 flex-wrap mb-2">
-                        <span className="text-base font-semibold text-white">{renderMarkdown(block.text)}</span>
+                        <span className="text-base font-semibold text-gray-900 dark:text-white">{renderMarkdown(block.text)}</span>
                         {block.tags.map((tag, tagIdx) => (
                           <FeatureTag
                             key={tagIdx}
@@ -511,9 +511,9 @@ export const ChangelogItem: React.FC<{
                   return (
                     <div
                       key={idx}
-                      className="mt-6 p-6 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/30 border border-gray-800/50"
+                      className="mt-6 p-6 rounded-xl bg-gradient-to-br from-[#8FC046]/10 to-white border border-[#8FC046]/30 shadow-sm dark:from-gray-900/50 dark:to-gray-800/30 dark:border-gray-800/50 dark:shadow-none"
                     >
-                      <h3 className="flex items-center gap-3 text-lg font-semibold leading-6 text-white mb-6">
+                      <h3 className="flex items-center gap-3 text-lg font-semibold leading-6 text-gray-900 dark:text-white mb-6">
                         <div className="p-2 rounded-lg bg-[#8FC046]/10">
                           <SparkleIcon />
                         </div>
@@ -523,7 +523,7 @@ export const ChangelogItem: React.FC<{
                         {block.items.map((item, itemIdx) => (
                           <li
                             key={itemIdx}
-                            className="relative pl-6 text-sm leading-7 text-gray-300 hover:text-gray-100 transition-colors"
+                            className="relative pl-6 text-sm leading-7 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors"
                           >
                             <span className="absolute left-0 top-[0.6rem] w-1.5 h-1.5 rounded-full bg-[#8FC046]"></span>
                             {renderTextWithTags(item)}
@@ -542,7 +542,7 @@ export const ChangelogItem: React.FC<{
                     >
                       <a
                         href={block.url}
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#8FC046] bg-[#8FC046]/5 rounded-lg border border-[#8FC046]/20 hover:bg-[#8FC046]/10 hover:border-[#8FC046]/40 transition-all duration-200"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#4e7a13] dark:text-[#8FC046] bg-[#8FC046]/5 rounded-lg border border-[#8FC046]/20 hover:bg-[#8FC046]/10 hover:border-[#8FC046]/40 transition-all duration-200"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -582,8 +582,8 @@ export const ChangelogItem: React.FC<{
               )}
 
               {entry.improvements && entry.improvements.length > 0 && (
-                <div className="mt-6 p-6 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/30 border border-gray-800/50">
-                  <h3 className="flex items-center gap-3 text-lg font-semibold leading-6 text-white mb-6">
+                <div className="mt-6 p-6 rounded-xl bg-gradient-to-br from-[#8FC046]/10 to-white border border-[#8FC046]/30 shadow-sm dark:from-gray-900/50 dark:to-gray-800/30 dark:border-gray-800/50 dark:shadow-none">
+                  <h3 className="flex items-center gap-3 text-lg font-semibold leading-6 text-gray-900 dark:text-white mb-6">
                     <div className="p-2 rounded-lg bg-[#8FC046]/10">
                       <SparkleIcon />
                     </div>
@@ -593,7 +593,7 @@ export const ChangelogItem: React.FC<{
                     {entry.improvements.map((improvement, idx) => (
                       <li
                         key={idx}
-                        className="relative pl-6 text-sm leading-7 text-gray-300 hover:text-gray-100 transition-colors"
+                        className="relative pl-6 text-sm leading-7 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors"
                       >
                         <span className="absolute left-0 top-[0.6rem] w-1.5 h-1.5 rounded-full bg-[#8FC046]"></span>
                         {renderMarkdown(improvement)}
@@ -609,7 +609,7 @@ export const ChangelogItem: React.FC<{
                     <a
                       key={idx}
                       href={link.url}
-                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#8FC046] bg-[#8FC046]/5 rounded-lg border border-[#8FC046]/20 hover:bg-[#8FC046]/10 hover:border-[#8FC046]/40 transition-all duration-200"
+                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#4e7a13] dark:text-[#8FC046] bg-[#8FC046]/5 rounded-lg border border-[#8FC046]/20 hover:bg-[#8FC046]/10 hover:border-[#8FC046]/40 transition-all duration-200"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -676,7 +676,7 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
     >
       {/* Suche und Filter */}
       <div
-        className="sticky top-0 z-50 border-b border-gray-800/50 backdrop-blur-xl py-6"
+        className="sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800/50 backdrop-blur-xl py-6"
         style={{ background: 'var(--ifm-background-color)' }}
       >
         <ContentWrapper>
@@ -701,7 +701,7 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
                 placeholder="Changelog durchsuchen..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 border border-gray-700/50 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#8FC046] focus:ring-2 focus:ring-[#8FC046]/20 transition-all"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-700/50 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:border-[#8FC046] focus:ring-2 focus:ring-[#8FC046]/20 transition-all"
                 style={{ background: 'var(--ifm-background-surface-color)' }}
               />
             </div>
@@ -713,7 +713,7 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
                 className={`px-5 py-3 text-sm font-semibold rounded-xl transition-all duration-200 ${
                   selectedTag === 'all'
                     ? 'bg-[#8FC046] text-black shadow-lg shadow-[#8FC046]/20'
-                    : 'text-gray-300 border border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5'
+                    : 'text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5'
                 }`}
                 style={selectedTag !== 'all' ? { background: 'var(--ifm-background-surface-color)' } : undefined}
               >
@@ -726,7 +726,7 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
                   className={`px-5 py-3 text-sm font-semibold rounded-xl transition-all duration-200 ${
                     selectedTag === tag
                       ? 'bg-[#8FC046] text-black shadow-lg shadow-[#8FC046]/20'
-                      : 'text-gray-300 border border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5'
+                      : 'text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5'
                   }`}
                   style={selectedTag !== tag ? { background: 'var(--ifm-background-surface-color)' } : undefined}
                 >
@@ -738,7 +738,7 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
 
           {/* Ergebnis-Counter */}
           {(searchTerm || selectedTag !== 'all') && (
-            <div className="mt-4 text-sm font-medium text-gray-400">
+            <div className="mt-4 text-sm font-medium text-gray-600 dark:text-gray-400">
               {filteredEntries.length} {filteredEntries.length === 1 ? 'Eintrag' : 'Einträge'} gefunden
             </div>
           )}
@@ -785,7 +785,7 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
         ) : (
           <ContentWrapper>
             <div className="text-center py-20">
-              <p className="text-gray-400 text-lg">Keine Einträge gefunden</p>
+              <p className="text-gray-600 dark:text-gray-400 text-lg">Keine Einträge gefunden</p>
               <button
                 onClick={() => {
                   setSearchTerm('');

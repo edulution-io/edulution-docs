@@ -1,185 +1,156 @@
 # Konferenzen
 
-Das Konferenz-Tool ermöglicht Audio- und Videokonferenzen und unterstützt Präsentationen mit erweiterten Whiteboard-Funktionen.
+Mit der App **Konferenzen** legen Sie Räume für Audio- und Videokonferenzen an, laden einzelne Personen oder ganze Gruppen ein und starten den Raum, wenn es losgeht. Der Raum selbst kommt von BigBlueButton und bringt Bildschirmfreigabe, Whiteboard, Chat, geteilte Notizen und Umfragen mit.
 
 :::info[BigBlueButton erforderlich]
-Konferenzen basieren auf BigBlueButton und müssen erst konfiguriert werden. Die Konfigurationsanleitung folgt noch in einem separaten Dokument.
+Konferenzen laufen auf einem BigBlueButton-Server, der zuvor eingerichtet sein muss. Die Anleitung dazu folgt in einem eigenen Dokument.
 :::
 
 ## Übersicht
 
-### Konferenz-Tabelle
+Die Konferenzen stehen als Karten in zwei Abschnitten:
 
-Zeigt alle verfügbaren Konferenzen:
+- **Meine Konferenzen** – die Konferenzen, die Sie selbst angelegt haben. Nur dort stehen Bearbeiten, Beenden und Löschen zur Verfügung.
+- **Eingeladen** – die Konferenzen anderer, zu denen Sie eingeladen sind. Gibt es keine, steht dort „Noch keine Konferenzen“.
 
-| Spalte | Beschreibung |
-|--------|--------------|
-| **Konferenz** | Name der Konferenz |
-| **Ersteller** | Wer hat die Konferenz erstellt |
-| **Zutrittsbeschränkung** | 🔒 Privat oder Öffentlich |
-| **Passwort** | Passwortschutz aktiv |
-| **Eingeladen** | Anzahl Teilnehmer (z.B. "2 Teilnehmer") |
-| **Beigetreten** | Anzahl der aktuell beigetretenen Teilnehmer im Verhältnis zu den Eingeladenen |
-| **Aktion** | Starten-Button |
+Jede Karte nennt Namen und Icon der Konferenz, den Ersteller und unter **Beigetreten**, wie viele der eingeladenen Teilnehmer gerade im Raum sind. Die übrigen Angaben erscheinen nur, wenn sie zutreffen:
+
+| Anzeige | Bedeutung |
+|---------|-----------|
+| **Live** mit grünem Punkt | Die Konferenz läuft gerade. |
+| Schlüsselsymbol | Die Konferenz ist durch ein Passwort geschützt. |
+| Weltkugelsymbol | Die Konferenz ist öffentlich. Ein Klick darauf öffnet **Konferenz teilen** mit Zugangslink und QR-Code. |
+
+Das Suchfeld (*Suche nach Konferenzname*) filtert beide Abschnitte nach dem Namen, während Sie tippen.
 
 :::info[Live-Teilnehmerzahl]
-Die Spalte **Beigetreten** zeigt die Anzahl der aktuell beigetretenen Teilnehmer und aktualisiert sich automatisch in Echtzeit, solange die Konferenz läuft – ein manuelles Neuladen ist dafür nicht erforderlich. Aus Datenschutzgründen wird ausschließlich die Anzahl angezeigt; die Namen der beigetretenen Teilnehmer werden nicht offengelegt.
+**Beigetreten** aktualisiert sich automatisch, solange die Konferenz läuft – ein manuelles Neuladen ist dafür nicht erforderlich. Aus Datenschutzgründen wird ausschließlich die Anzahl angezeigt, nicht, wer beigetreten ist.
 :::
 
-### Funktionen unten
+## Konferenz anlegen
 
-- **+ Erstellen** - Neue Konferenz anlegen
-- **🔄 Neu laden** - Liste aktualisieren
+1. Wählen Sie in **Meine Konferenzen** die Karte **Konferenz erstellen**.
+2. Geben Sie einen Namen ein und laden Sie Teilnehmer oder Gruppen ein.
+3. Legen Sie die [Raumeinstellungen](#raumeinstellungen) fest.
+4. Speichern Sie die Konferenz.
 
-## Konferenz erstellen
+| Feld | Bedeutung |
+|------|-----------|
+| **Name der Konferenz** | Pflichtfeld, 3 bis 60 Zeichen. Der Name steht auf der Karte und im Titel des Konferenzfensters. |
+| **Icon** | Bild, das die Karte anstelle des Standardsymbols zeigt. |
+| **Teilnehmer** | Personen, die eingeladen werden (*Tippen um zu suchen*). Sie selbst sind immer Teilnehmer und lassen sich nicht auswählen. |
+| **Gruppen** | Ganze Klassen, Projekte oder Gruppen einladen – bequemer, als deren Mitglieder einzeln zu suchen. |
+| **Passwort** | Optional. Wer beitritt, muss es eingeben. |
+| **Zutrittsbeschränkung** | **Privat**: nur eingeladene Teilnehmer. **Öffentlich**: zusätzlich jeder, der den Zugangslink hat – auch ohne Anmeldung an der Plattform. |
 
-### Dialog-Felder
-
-**Name der Konferenz**
-- Geben Sie einen aussagekräftigen Namen ein
-
-**Teilnehmer**
-- Suchen Sie nach Benutzern zum Einladen
-- "Tippen um zu suchen"
-
-**Gruppen**
-- Fügen Sie ganze Klassen oder Gruppen hinzu
-- "Tippen um zu suchen"
-
-**Passwort**
-- Optional: Passwortschutz aktivieren
-- Passwort ein-/ausblenden möglich
-
-**Zutrittsbeschränkung**
-- **Privat** - Nur eingeladene Teilnehmer
-- **Öffentlich** - Jeder mit Link kann beitreten
+Ist der Name kürzer als drei oder länger als 60 Zeichen, meldet das Formular „Mindestens 3 Zeichen“ beziehungsweise „Maximal 60 Zeichen“ und speichert nicht.
 
 ### Raumeinstellungen
 
-Über zusätzliche Schalter legen Sie das Verhalten des Konferenzraums fest. Alle Einstellungen sind standardmäßig deaktiviert und lassen sich jederzeit über **Bearbeiten** anpassen.
+Vier Schalter legen fest, wie sich der Raum beim Beitritt verhält. Alle sind zunächst deaktiviert und lassen sich später über **Bearbeiten** ändern.
 
-**Jeder Teilnehmer kann die Konferenz starten**
-- Ist dieser Schalter aktiviert, können nicht nur der Ersteller, sondern alle eingeladenen Teilnehmer die Konferenz starten. Bei einer öffentlichen Konferenz können sie auch von externen, nicht angemeldeten Personen über den Freigabelink gestartet werden.
-- Wer die Konferenz startet, tritt automatisch als Moderator bei, sodass stets ein Moderator anwesend ist.
-- Das Beenden der Konferenz bleibt weiterhin dem Ersteller vorbehalten.
-
-**Teilnehmer beim Betreten stummschalten**
-- Alle Teilnehmer betreten die Konferenz mit deaktiviertem Mikrofon und können sich bei Bedarf selbst wieder freischalten.
-
-**Freigabe durch Moderator bevor der Raum betreten werden kann**
-- Teilnehmer gelangen zunächst in einen Warteraum und werden erst nach Freigabe durch einen Moderator in die Konferenz gelassen.
-
-**Alle Teilnehmer nehmen als Moderator teil**
-- Alle Teilnehmer erhalten beim Beitritt Moderatorrechte.
+| Schalter | Wirkung, wenn aktiviert |
+|----------|-------------------------|
+| **Teilnehmer beim Betreten stummschalten** | Alle betreten die Konferenz mit deaktiviertem Mikrofon und können sich selbst wieder freischalten. |
+| **Freigabe durch Moderator bevor der Raum betreten werden kann** | Teilnehmer warten, bis ein Moderator sie in die Konferenz lässt. |
+| **Jeder Teilnehmer kann die Konferenz starten** | Nicht nur der Ersteller, sondern alle Eingeladenen können die Konferenz starten; bei einer öffentlichen Konferenz auch externe Personen über den Zugangslink. Wer startet, tritt als Moderator bei, sodass stets ein Moderator anwesend ist. Beenden darf die Konferenz weiterhin nur der Ersteller. |
+| **Alle Teilnehmer nehmen als Moderator teil** | Alle erhalten beim Beitritt Moderatorrechte. |
 
 :::info[Sich ausschließende Einstellungen]
-**Freigabe durch Moderator** und **Alle Teilnehmer nehmen als Moderator teil** können nicht gleichzeitig aktiv sein: Wenn alle Teilnehmer Moderatoren sind, entfällt der Warteraum. Beim Aktivieren der einen Einstellung wird die andere daher automatisch deaktiviert.
+**Freigabe durch Moderator bevor der Raum betreten werden kann** und **Alle Teilnehmer nehmen als Moderator teil** können nicht gleichzeitig aktiv sein: Wenn alle Moderatoren sind, gibt es niemanden mehr, der freigegeben werden müsste. Aktivieren Sie den einen Schalter, deaktiviert die Plattform den anderen.
 :::
 
-:::caution[Wirksamkeit während einer laufenden Konferenz]
-Die Raumeinstellungen werden beim **Start** der Konferenz angewendet. Ändern Sie eine Einstellung, während die Konferenz bereits läuft, greift sie erst, nachdem die Konferenz beendet und erneut gestartet wurde.
+:::caution[Änderungen während einer laufenden Konferenz]
+Die Raumeinstellungen werden beim **Start** der Konferenz angewendet. Ändern Sie eine Einstellung, während die Konferenz läuft, greift sie erst, nachdem die Konferenz beendet und erneut gestartet wurde.
 :::
 
-### Speichern
+## Konferenz starten und beitreten
 
-Klicken Sie auf den blauen **Speichern** Button
+Auf der Karte führt eine Schaltfläche in den Raum:
 
-## Konferenz starten
-
-### Konferenz auswählen
-
-1. Wählen Sie eine Konferenz mit der Checkbox
-2. Unten erscheinen neue Buttons:
-   - **Bearbeiten** - Konferenz bearbeiten
-   - **▶ Starten** - Konferenz beitreten
-   - **Löschen** - Konferenz entfernen
-   - **+ Erstellen** - Neue Konferenz
-   - **Neu laden** - Aktualisieren
-
-### Konferenz beitreten
-
-Klicken Sie auf **▶ Starten** oder den **▶ Starten** Button in der Zeile
+- **Starten** startet die Konferenz und öffnet sie zugleich für Sie.
+- **Beitreten** ersetzt **Starten**, sobald die Konferenz läuft.
+- Das Stopp-Symbol daneben beendet die Konferenz für alle. Es erscheint nur beim Ersteller und nur, solange die Konferenz läuft.
 
 :::info[Wer darf eine Konferenz starten?]
-Standardmäßig kann nur der Ersteller eine Konferenz starten; eingeladene Teilnehmer können erst beitreten, sobald sie läuft. Ist die Raumeinstellung **Jeder Teilnehmer kann die Konferenz starten** aktiviert, erscheint der **▶ Starten**-Button auch bei eingeladenen Teilnehmern, und externe Personen können eine öffentliche Konferenz über den Freigabelink selbst starten.
+Standardmäßig kann nur der Ersteller eine Konferenz starten; eingeladene Teilnehmer sehen **Beitreten** erst, sobald sie läuft. Ist **Jeder Teilnehmer kann die Konferenz starten** aktiviert, erscheint **Starten** auch bei den Eingeladenen, und externe Personen können eine öffentliche Konferenz über den Zugangslink selbst starten.
 :::
 
-Die Konferenz öffnet sich in einem neuen Fenster. Der Fenstertitel enthält den Namen der Konferenz (z.B. "Konferenz: Mathe 8a"), sodass bei mehreren geöffneten Fenstern jederzeit ersichtlich ist, um welche Konferenz es sich handelt.
+Sie können jeweils nur an einer Konferenz teilnehmen. Ist noch ein Konferenzfenster oder ein Konferenz-Tab offen, lehnt die Plattform den Beitritt zu einer zweiten Konferenz mit „Du befindest dich bereits in einer Konferenz. Bitte schließe die laufende Konferenz, bevor du einer neuen beitrittst.“ ab.
 
-Über das Symbol **In neuem Tab öffnen** in der Fensterleiste verschieben Sie die laufende Konferenz jederzeit aus dem Plattformfenster in einen eigenen Browser-Tab.
+## Das Konferenzfenster
 
-Es ist immer nur eine Konferenz gleichzeitig geöffnet. Treten Sie derselben Konferenz erneut bei, wechselt die Plattform zum bereits geöffneten Tab, statt einen weiteren zu öffnen. Möchten Sie einer anderen Konferenz beitreten, während noch eine läuft, weist die Plattform Sie darauf hin, die laufende Konferenz zuerst zu schließen.
+Die Konferenz öffnet sich in einem Fenster innerhalb der Plattform. Sein Titel nennt die Konferenz beim Namen („Konferenz: Mathe 8a“), sodass bei mehreren offenen Fenstern erkennbar bleibt, welches welche Konferenz zeigt.
 
-:::info[Wenn sich die Konferenz direkt in einem Browser-Tab öffnet]
-Blockiert Ihr Browser Cookies von Drittanbietern, lässt sich BigBlueButton nicht innerhalb der Plattform anzeigen. Die Konferenz öffnet sich dann automatisch in einem neuen Browser-Tab statt im Plattformfenster.
+Das Fenster lässt sich verschieben, in der Größe ändern, über **Maximieren** bildschirmfüllend aufziehen und über **Minimieren** zu einer schmalen Leiste am unteren Rand zusammenlegen. Die Konferenz läuft dabei weiter; über **Maximieren** in dieser Leiste holen Sie das Fenster in seiner vorherigen Größe und Position zurück.
 
-Unterbindet Ihr Browser zusätzlich das selbsttätige Öffnen von Tabs, erscheint stattdessen der Dialog **An dieser Konferenz teilnehmen** mit der Schaltfläche **In neuem Tab öffnen**.
+### Wechsel in andere Apps
+
+Wechseln Sie über die Seitenleiste in eine andere App, während eine Konferenz läuft, hängt das weitere Verhalten von der Größe des Fensters ab:
+
+- Ein **bildschirmfüllendes** Fenster würde die andere App vollständig verdecken. Die Plattform legt es deshalb selbsttätig als Leiste ab und holt es zurück – wieder bildschirmfüllend –, sobald Sie zu **Konferenzen** zurückkehren.
+- Ein **verkleinertes** Fenster bleibt geöffnet und schwebt über der anderen App. So verfolgen Sie die Konferenz weiter, während Sie nebenbei arbeiten.
+
+:::note[Ein selbst minimiertes Fenster bleibt liegen]
+Haben Sie das Fenster von Hand über **Minimieren** abgelegt, bleibt es auch beim Zurückwechseln zu **Konferenzen** dort – die Plattform holt nur die Fenster zurück, die sie beim Verlassen der Seite selbst abgelegt hat.
 :::
 
-## Konferenz-Funktionen
+Schließen Sie das Konferenzfenster, verwirft die Plattform die gemerkte Größe und Position: Die nächste Konferenz öffnet sich wieder in der Standardgröße.
 
-:::info[BigBlueButton Features]
-Nach dem Beitreten stehen alle BigBlueButton-Funktionen zur Verfügung:
-- Audio und Video
-- Bildschirmfreigabe
-- Whiteboard
-- Chat
-- Geteilte Notizen
-- Umfragen
+### Konferenz in einem eigenen Tab
+
+Über **In neuem Tab öffnen** verschieben Sie die laufende Konferenz in einen Browser-Tab; das Fenster in der Plattform schließt sich dabei. Im Tab entfallen Minimieren, Maximieren und der beschriebene Wechsel zwischen den Apps.
+
+Diesen Weg schlägt die Plattform von sich aus vor, wenn sie die Konferenz nicht einbetten kann – etwa weil der Browser Cookies von Drittanbietern blockiert oder weil Sie die edulution-App verwenden. Es erscheint dann der Dialog **An dieser Konferenz teilnehmen** mit der Schaltfläche **In neuem Tab öffnen**.
+
+:::note[Blockierte Pop-ups]
+Verhindert der Browser das Öffnen des Tabs, bleibt der Dialog **An dieser Konferenz teilnehmen** stehen. Erlauben Sie Pop-ups für die Plattform und wählen Sie **In neuem Tab öffnen** erneut. Ist die Konferenz bereits in einem Tab offen, meldet die Plattform „Diese Konferenz ist bereits in einem anderen Tab geöffnet.“
 :::
 
-## Verwaltung
+## Öffentliche Konferenzen teilen
 
-### Konferenz bearbeiten
+Eine öffentliche Konferenz erreicht jeder über ihren Zugangslink, auch ohne Konto auf der Plattform. Den Link erhalten Sie über das Weltkugelsymbol auf der Karte oder im Bearbeiten-Dialog unter **Zugangslink** – dort jeweils zum Kopieren und als QR-Code.
 
-1. Wählen Sie die Konferenz aus
-2. Klicken Sie auf **Bearbeiten**
-3. Ändern Sie Name, Teilnehmer oder Einstellungen
-4. Speichern Sie die Änderungen
+Wer dem Link folgt, gibt seinen vollständigen Namen ein, bei geschützten Konferenzen zusätzlich das Passwort. Läuft die Konferenz noch nicht, landet er im Warteraum: „Die Konferenz wurde noch nicht gestartet. Du befindest dich derzeit im Warteraum und wirst automatisch weitergeleitet, sobald die Konferenz beginnt.“
 
-### Konferenz löschen
+:::caution[Der Link gilt weiter]
+Der Zugangslink bleibt gültig, solange die Konferenz öffentlich ist – unabhängig davon, ob sie gerade läuft. Um den Zutritt zu beenden, stellen Sie die Zutrittsbeschränkung auf **Privat** um oder vergeben ein Passwort. Über den Link erscheint dann „Die Konferenz konnte nicht gefunden werden.“ beziehungsweise die Abfrage des neuen Passworts.
+:::
 
-1. Wählen Sie die Konferenz aus
-2. Klicken Sie auf **Löschen**
-3. Bestätigen Sie die Löschung
+## Konferenz bearbeiten
 
-## Suche
+Wählen Sie auf der Karte **Bearbeiten**. Der Dialog entspricht dem beim Anlegen; Name, Icon, Teilnehmer, Gruppen, Passwort, Zutrittsbeschränkung und Raumeinstellungen lassen sich ändern. Bearbeiten können Sie nur eigene Konferenzen und immer nur eine: Sobald mehrere Karten ausgewählt sind, entfällt **Bearbeiten**.
 
-Nutzen Sie das Suchfeld oben:
-- "Suche nach Konferenzname"
-- Filtert die Liste in Echtzeit
+## Konferenz löschen
 
-## Spalten anpassen
+Löschen können Sie eigene Konferenzen – einzeln über **Löschen** auf der Karte oder mehrere zugleich, indem Sie die Karten auswählen und **Löschen** in der Werkzeugleiste wählen. Die Konferenz verschwindet damit auch bei allen Eingeladenen; wer gerade über den Zugangslink wartet, sieht „Die Konferenz wurde abgesagt.“
 
-Klicken Sie auf **Spalten** (Dropdown rechts):
-- Blenden Sie Spalten ein oder aus
-- Passen Sie die Ansicht an Ihre Bedürfnisse an
+## Meldungen
 
-## Tipps
-
-### Für Lehrer
-
-- Erstellen Sie wiederkehrende Konferenzen für Ihren Unterricht
-- Nutzen Sie sprechende Namen (z.B. "Mathe 8a")
-- Laden Sie ganze Klassen über Gruppen ein
-
-### Für Schüler
-
-- Beitreten nur mit Einladung oder Link
-- Teilnahme an öffentlichen Konferenzen möglich
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| „Du befindest dich bereits in einer Konferenz. Bitte schließe die laufende Konferenz, bevor du einer neuen beitrittst.“ | Ein anderes Konferenzfenster oder ein Konferenz-Tab ist noch offen. | Die laufende Konferenz verlassen und das Fenster beziehungsweise den Tab schließen, dann erneut beitreten. |
+| „Diese Konferenz ist bereits in einem anderen Tab geöffnet.“ | Sie sind derselben Konferenz bereits in einem Browser-Tab beigetreten. | Zu diesem Tab wechseln. |
+| „Die Konferenz wurde nicht gestartet“ | Beitritt zu einer Konferenz, die noch nicht läuft. | Warten, bis der Ersteller startet. Über den Zugangslink werden Sie aus dem Warteraum automatisch weitergeleitet. |
+| „Das eingegebene Passwort ist falsch“ | Das Passwort der Konferenz wurde geändert oder falsch eingegeben. | Passwort beim Ersteller erfragen und erneut eingeben. |
+| „Du bist nicht der Ersteller der Konferenz“ | Starten, Beenden oder Ändern einer fremden Konferenz. | Den Ersteller bitten – er steht auf der Karte. |
+| „Ein Meeting mit dieser ID wurde nicht gefunden“ | Die Konferenz wurde zwischenzeitlich gelöscht. | Übersicht neu laden. |
+| „Die Konferenz-App ist nicht richtig konfiguriert, wende dich an den Systemadministrator“ | Der BigBlueButton-Server ist in der Plattform nicht oder unvollständig hinterlegt. | An die Administration wenden. |
+| „Der externe BBB-Server ist nicht erreichbar“ | Der BigBlueButton-Server antwortet nicht. | Später erneut versuchen; hält es an, an die Administration wenden. |
+| „Du bist nicht autorisiert auf den externen BBB-Server zuzugreifen“ | Die hinterlegten Zugangsdaten des BigBlueButton-Servers werden abgelehnt. | An die Administration wenden. |
 
 <Audience roles="admin">
 
-## BigBlueButton Konfiguration
+## BigBlueButton konfigurieren
 
 :::caution[Konfiguration erforderlich]
-Die Konferenz-Funktion erfordert einen konfigurierten BigBlueButton-Server. Die detaillierte Anleitung zur Einrichtung folgt in einem separaten Administrations-Dokument.
+Die App setzt einen konfigurierten BigBlueButton-Server voraus. Die ausführliche Anleitung zur Einrichtung folgt in einem eigenen Administrations-Dokument.
 :::
 
 </Audience>
 
 ## Siehe auch
 
-- [Whiteboard](./whiteboard.md) - Integriertes Whiteboard in Konferenzen
-- [Klassenraum](./klassenzimmer.md) - Konferenzen im Unterricht nutzen
-- [Dashboard](../../uebersicht/dashboard.md) - Laufende Konferenzen anzeigen
+- [Whiteboard](./whiteboard.md) – Integriertes Whiteboard in Konferenzen
+- [Klassenraum](./klassenzimmer.md) – Konferenzen im Unterricht nutzen
+- [Dashboard](../../uebersicht/dashboard.md) – Laufende Konferenzen anzeigen

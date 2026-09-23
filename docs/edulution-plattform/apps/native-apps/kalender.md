@@ -529,6 +529,8 @@ Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und d
 
 Eine Ausnahme ist die Personensuche im Freigabe-Dialog: Sie liest die Adressbücher des jeweiligen Benutzers und setzt daher zusätzlich die [CardDAV-Verbindung der Kontakte-App](../../konfiguration/einstellungen.md#kontakte-carddav) voraus. Ist sie nicht konfiguriert oder der CardDAV-Server nicht erreichbar, bietet die Suche weiterhin die Verteiler aus dem Verzeichnis an; die Personen fehlen dann stillschweigend, ohne Fehlermeldung. Meldet ein Benutzer, dass er im Freigabe-Dialog niemanden findet, Verteiler aber erscheinen, prüfen Sie deshalb die CardDAV-Einstellungen — nicht die der Kalender-App.
 
+Die Personensuche durchsucht dieselben Adressbücher wie das Verfassen von E-Mails, einschließlich der systemweiten Adressbücher von SOGo. Solange diese aktiv sind, findet sie darüber auch Personen anderer Schulen; wie Sie das abstellen, steht unter [E-Mail – Einrichtung](../../../edulution-mail/index.md#einrichtung-für-administratoren).
+
 [Web-Kalender](#web-kalender-abonnieren) benötigen dagegen **keine CalDAV- oder SoGo-Konfiguration**: Sie werden vom edulution-Server direkt über HTTPS von der jeweiligen Quelle abgerufen. Voraussetzung ist, dass der Server die betreffenden Adressen aus dem Internet erreichen darf – in Umgebungen mit ausgehendem Proxy oder restriktiver Firewall muss der Zugriff dafür freigegeben sein.
 
 Adressen, die auf das interne Netz zeigen, werden dabei grundsätzlich abgewiesen. Der Server prüft dies nicht nur anhand der eingegebenen Adresse, sondern auch anhand der IP-Adresse, auf die ein Name tatsächlich aufgelöst wird, sowie bei jeder Weiterleitung erneut. Ein Web-Kalender kann also nicht dazu verwendet werden, interne Dienste abzufragen.

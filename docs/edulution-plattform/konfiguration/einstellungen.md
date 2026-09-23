@@ -17,13 +17,14 @@ Diese Seite ist nur als Global-Administrator sichtbar. Sie erscheint im Menü re
 
 ## Registerkarten
 
-Links stehen die Apps, deren Einstellungen Sie bearbeiten können, darüber der Eintrag **Allgemein**. Erst wenn Sie **Allgemein** anklicken, erscheinen oben die vier Registerkarten der systemweiten Einstellungen:
+Links stehen die Apps, deren Einstellungen Sie bearbeiten können, darüber der Eintrag **Allgemein**. Erst wenn Sie **Allgemein** anklicken, erscheinen oben die fünf Registerkarten der systemweiten Einstellungen:
 
 | Registerkarte | Inhalt |
 |---------------|--------|
 | **[Container](#container)** | die Docker-Container der Installation verwalten |
 | **[Allgemein](#globale-einstellungen)** | Plattform, Organisationstyp, Standardanwendung nach dem Login, Zwei-Faktor-Authentisierung, LDAP, Branding, Design-Anpassung, Organisationsinformationen und [Webhooks](./webhooks.md) |
 | **[Benutzer](#benutzerverwaltung)** | Zwei-Faktor-Authentisierung einzelner Benutzer zurücksetzen und die Administratorengruppe festlegen |
+| **[Unterricht](#unterrichtsverwaltung)** | die Schulfächer je Schule pflegen |
 | **[Lizenz](#lizenz)** | die **Lizenzübersicht**: Lizenz registrieren und den Lizenzstatus einsehen |
 
 Die Einstellungen der einzelnen Apps – etwa [E-Mails](#e-mails), [Kalender](#kalender-caldav) oder [Klassenraum](#klassenraum-veyon-proxy) – liegen nicht auf diesen Registerkarten. Sie erreichen sie über die jeweilige App in der Liste links.
@@ -570,6 +571,28 @@ Die Administratorengruppe ist eine Einstellung von edulution. Der Linuxmuster-Se
 :::warning[Wen Sie aufnehmen]
 Die Mitgliedschaft hebelt die Zugriffsgruppen aller Apps aus: Administratoren sehen jede App und deren Inhalte, auch die Beiträge und Umfragen anderer Benutzer. Nehmen Sie deshalb nur Gruppen auf, deren Mitglieder edulution tatsächlich verwalten sollen.
 :::
+
+---
+
+## Unterrichtsverwaltung
+
+Auf der Registerkarte **Unterricht** pflegen Sie in der Karte **Schulfächer** die Fächer, die an einer Schule unterrichtet werden. edulution bringt keine Fächer mit und übernimmt auch keine aus linuxmuster.net oder WebUntis: Es gibt nur die Fächer, die ein Administrator hier angelegt hat.
+
+### Schule wählen
+
+Steht die [**Plattform**](#allgemein) auf **Linuxmuster**, gehört jedes Fach zu genau einer Schule. In der Kopfzeile der Karte wählen Sie die Schule, deren Fächer Sie sehen und bearbeiten; beim Öffnen ist bereits eine Schule ausgewählt. Administratoren, die selbst einer Schule angehören, sehen nur ihre eigene Schule.
+
+Bei **Generisch** gibt es keine Schulauswahl; alle Fächer bilden eine gemeinsame Liste.
+
+### Fächer anlegen, bearbeiten und löschen
+
+- **Anlegen:** Über **Fach hinzufügen** in der Aktionsleiste der Tabelle.
+- **Bearbeiten:** Klicken Sie auf die Zeile des Fachs.
+- **Löschen:** Markieren Sie ein oder mehrere Fächer und wählen Sie **Fächer löschen**. Im Bearbeitungsdialog löscht **Löschen** nur das gerade geöffnete Fach, unabhängig davon, was in der Tabelle markiert ist.
+
+Pflichtangaben sind **Kürzel** (zum Beispiel „MA“) und **Anzeigename**, alles Weitere ist optional. Das Kürzel muss innerhalb einer Schule eindeutig sein; Groß- und Kleinschreibung zählen dabei nicht, „MA“ und „ma“ sind also dasselbe Kürzel.
+
+Ein Fach, das nicht mehr unterrichtet wird, müssen Sie nicht löschen: Deaktivieren Sie **Aktiv**. Das Fach bleibt erhalten, wird aber nicht mehr zur Auswahl angeboten.
 
 ---
 

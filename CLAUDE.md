@@ -30,12 +30,13 @@ Beides auf einer Seite zu mischen hilft niemandem. Konzepte („was ist ein gete
 
 - Was der Bildschirm ohnehin zeigt: Sortieren per Klick auf die Spaltenüberschrift, Einträge pro Seite, Auswahlkästchen, welche Spalten auf schmalen Bildschirmen wegfallen, eine Sicherheitsabfrage ohne Besonderheit.
 - Beschriftungen, die sich selbst erklären: „**POP3 Zugriff** | Zugang per POP3“.
+- Verhalten, das ohnehin jeder erwartet – auch wenn man es nicht sieht. Prüffrage: Würde jemand ohne Kenntnis des Tickets etwas anderes annehmen? Nach einem Bugfix gehört nicht in die Doku, dass der Fehler nicht mehr auftritt, sondern nur, was sich für Nutzer spürbar geändert hat.
 - Dieselbe Aussage zweimal. Jede Information steht an einer Stelle – dort, wo sie gebraucht wird.
 - Platzhalter für später („TODO Screenshot“). Entweder ein Bild liegt vor oder der Abschnitt kommt ohne aus.
 
 ## Was hineingehört
 
-- Verhalten, das man **nicht** sieht: was ein Speichern tatsächlich auslöst, was nach einem Teilfehler bestehen bleibt, was ein Schalter gerade **nicht** bewirkt.
+- Verhalten, das man **nicht** sieht und nicht erwartet: was ein Speichern tatsächlich auslöst, was nach einem Teilfehler bestehen bleibt, was ein Schalter gerade **nicht** bewirkt.
 - Grenzwerte und Voreinstellungen mit konkreter Zahl.
 - Wer etwas sehen und tun darf, und was passiert, wenn eine Voraussetzung fehlt (leere Liste, Ladefehler, fehlende Berechtigung).
 - Sonderfälle, die Nacharbeit erfordern, und der Weg zurück.

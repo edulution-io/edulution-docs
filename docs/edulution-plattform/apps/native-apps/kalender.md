@@ -396,10 +396,12 @@ Solange der Kalender veröffentlicht ist, zeigt der Dialog beide Adressen bei je
 
 Zwei Einstellungen bestimmen, wie viel der veröffentlichte Kalender verrät. Beide sind zunächst **zurückhaltend eingestellt**; erst wenn Sie sie ändern, enthält der Link mehr:
 
-- **Private und vertrauliche Termine** – Standardmäßig erscheinen Termine mit der [Sichtbarkeit](#rechte-je-sichtbarkeit) **Privat** oder **Vertraulich** gar nicht im veröffentlichten Kalender. Schalten Sie **Nur als „Belegt“ anzeigen** ein, werden sie stattdessen als belegte Zeit ohne Titel, Ort, Beschreibung und Teilnehmer übertragen — Ihre Verfügbarkeit ist dann sichtbar, der Anlass nicht.
+- **Private und vertrauliche Termine** – Standardmäßig erscheinen Termine mit der [Sichtbarkeit](#rechte-je-sichtbarkeit) **Privat** oder **Vertraulich** gar nicht im veröffentlichten Kalender. Schalten Sie **Nur als „Belegt“ anzeigen** ein, werden sie stattdessen als belegte Zeit ohne Titel, Ort, Beschreibung, Teilnehmer und Farbe übertragen — Ihre Verfügbarkeit ist dann sichtbar, der Anlass nicht. Auch ein Termin, den Sie als **Frei** markiert haben, erscheint dabei als belegte Zeit, und seine Sichtbarkeit wird nicht mit übertragen.
 - **E-Mail-Adressen der Teilnehmer** – Standardmäßig überträgt der Kalender keine Teilnehmer- und Organisator-Adressen. Schalten Sie die Option ein, sieht jede Person mit dem Link sämtliche in diesem Kalender eingetragenen Adressen.
 
 Eine geänderte Einstellung gilt sofort für den nächsten Abruf; Sie müssen den Link dafür nicht neu erzeugen.
+
+Termine, die ein anderes Kalender-Programm mit einer edulution unbekannten Sichtbarkeit anlegt, behandelt der veröffentlichte Kalender wie private Termine. Sie werden also nach der oben gewählten Einstellung ausgelassen oder nur als belegte Zeit übertragen, nicht versehentlich vollständig.
 
 ### Link zurückziehen oder erneuern
 

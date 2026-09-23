@@ -33,8 +33,10 @@ Oben rechts finden Sie in der Aktionen-Leiste die wichtigsten Aktionen:
 
 In der Ordnerliste sehen Sie Ihr Postfach mit den Standardordnern **Posteingang**, **Entwürfe**, **Gesendet**, **Papierkorb**, **Spam** und **Archiv**. Eigene Unterordner werden eingerückt darunter dargestellt, und neben jedem Ordner wird die Zahl ungelesener Nachrichten angezeigt.
 
+Die Gesamtzahl ungelesener Nachrichten – am Postfach in der Ordnerliste, am E-Mail-Symbol in der Seitenleiste und im Dashboard – lässt **Spam**, **Papierkorb** und **Entwürfe** außen vor. Neben diesen Ordnern selbst steht ihre Zahl weiterhin.
+
 - Haben Sie Zugriff auf **freigegebene Postfächer** (z. B. ein Funktionspostfach wie `verwaltung@…`), erscheinen diese als zusätzliche Postfächer mit eigenen Ordnern in der Liste.
-- Über das **Aktionen**-Menü an einem Ordner legen Sie **neue Ordner** an, **benennen** sie um oder **löschen** sie. Ordnernamen dürfen bestimmte Sonderzeichen nicht enthalten; das Löschen wird mit einer Sicherheitsabfrage bestätigt.
+- Über das **Aktionen**-Menü an einem Ordner legen Sie **neue Ordner** an, **benennen** sie um oder **löschen** sie – ausgenommen die Standardordner. Ordnernamen dürfen bestimmte Sonderzeichen nicht enthalten; das Löschen wird mit einer Sicherheitsabfrage bestätigt.
 
 ## Nachrichten lesen und verwalten
 
@@ -44,7 +46,15 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 
 - Ein Klick auf eine Nachricht öffnet sie in der Leseansicht. In der Kopfzeile stehen **Antworten**, **Allen antworten**, **Weiterleiten** und **Drucken** zur Verfügung; weitere Aktionen wie als gelesen/ungelesen markieren, verschieben oder löschen erreichen Sie über das Aktionsmenü.
 - **Anhänge** können Sie herunterladen oder direkt **in Dateien speichern**.
-- Über die Auswahlkästchen markieren Sie mehrere Nachrichten gleichzeitig. Ist mindestens eine Nachricht ausgewählt, erscheint eine Aktionsleiste (**… ausgewählt**) mit **In den Papierkorb verschieben** und einem **Mehr**-Menü für weitere Sammelaktionen (z. B. als gelesen markieren, verschieben, endgültig löschen, als Spam markieren).
+- Über die Auswahlkästchen markieren Sie mehrere Nachrichten gleichzeitig. Ist mindestens eine Nachricht ausgewählt, erscheint eine Aktionsleiste (**… ausgewählt**) mit **In den Papierkorb verschieben** und einem **Mehr**-Menü für weitere Sammelaktionen.
+
+### Nachrichten löschen
+
+**In den Papierkorb verschieben** legt Nachrichten im **Papierkorb** des Postfachs ab, in dem sie liegen – bei einem freigegebenen Postfach also in dessen eigenem Papierkorb, nicht in Ihrem.
+
+:::caution[Postfach ohne Papierkorb]
+Besitzt ein Postfach keinen Papierkorb, löscht **In den Papierkorb verschieben** die Nachrichten endgültig. Die Schaltfläche behält ihre Beschriftung; erst die Sicherheitsabfrage weist darauf hin: „Es gibt keinen Papierkorb-Ordner. Diese E-Mail wird endgültig gelöscht und kann nicht wiederhergestellt werden.“
+:::
 
 ### Links in Nachrichten
 
@@ -152,7 +162,7 @@ Fügen Sie HTML-Quelltext direkt in die **formatierte** Ansicht ein, wird er als
 
 ## Benachrichtigungen bei neuen E-Mails
 
-Trifft eine neue E-Mail ein, werden Sie in edulution benachrichtigt – über die **Benachrichtigungen** der Plattform und, sofern auf Ihrem Gerät eingerichtet, zusätzlich als **Push-Benachrichtigung**.
+Trifft eine neue E-Mail ein, werden Sie in edulution benachrichtigt – über die **Benachrichtigungen** der Plattform und, sofern auf Ihrem Gerät eingerichtet, zusätzlich als **Push-Benachrichtigung**. Nachrichten, die im **Spam**-Ordner oder im **Papierkorb** landen, lösen keine Benachrichtigung aus.
 
 Ein Klick bzw. Tipp auf eine solche Benachrichtigung bringt Sie direkt an die passende Stelle in der E-Mail-App:
 

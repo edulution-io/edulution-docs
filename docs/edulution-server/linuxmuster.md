@@ -293,6 +293,10 @@ Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleib
 | **Datenblatt** | die gesetzten Schlüssel der Gruppe: Server, Cache, Download-Typ, Systemtyp, Abmeldung nach, Kernel-Optionen und Virtueller Desktop |
 | **Tabelle** | ID, Dateiname und Änderungszeitpunkt |
 
+Über der Liste steht in allen vier Ansichten dieselbe Leiste: die Zahl der Gruppen, die die Suche übrig lässt, das Suchfeld, **Sortieren**, die Ansichtswahl und die Schulauswahl. Die Suche findet eine Gruppe über ihren Namen und den Dateinamen ihrer `start.conf`. Suchbegriff und Auswahl bleiben erhalten, wenn Sie die Ansicht wechseln.
+
+In den drei Kartenansichten wählen Sie eine Gruppe über das Kästchen oben links auf ihrer Karte aus; **Alle auswählen** über den Karten wählt alle Gruppen, die die Suche zeigt. Ein Klick auf die Karte außerhalb des Kästchens öffnet die Vorschau.
+
 Solange keine Gruppe ausgewählt ist, bietet die Leiste am unteren Rand **Neu laden** an. Die Schaltfläche holt die `start.conf`-Dateien, die GRUB-Konfigurationen, die Images und die Hosts für die Hostzahlen erneut vom Server – auch dann, wenn die Seite sie gerade erst geladen hat.
 
 :::note[Die Suche bestimmt mit, welche Gruppen eine Aktion trifft]
@@ -310,17 +314,17 @@ Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API*
 
 #### Aktionen einer Gruppe
 
-**Vorschau anzeigen** liegt als eigene Schaltfläche auf der Karte. Alle Aktionen zusammen finden Sie im Menü hinter der Schaltfläche mit den drei Punkten, auf der Karte oben rechts neben dem Namen. In der **Tabelle** steht in der Spalte **Aktionen** das Löschen; die Vorschau öffnen Sie dort per Klick auf die Zeile – beim Überfahren weist die Spalte **Aktualisiert** darauf hin.
+Die Aktionen bietet die Leiste am unteren Rand an, sobald Gruppen ausgewählt sind – in jeder Ansicht gleich. Aktionen, die sich auf eine einzelne Gruppe beziehen, stehen nur bei genau einer ausgewählten Gruppe zur Wahl. Die Vorschau öffnen Sie zudem per Klick auf eine Karte oder eine Zeile der **Tabelle**.
 
 | Aktion | Wirkung |
 |--------|---------|
 | **Bearbeiten** | öffnet den Gruppen-Editor (siehe unten) |
-| **Vorschau anzeigen** | zeigt die ausgewertete `start.conf`, ihre Rohdaten und die GRUB-Konfiguration |
+| **Vorschau** | zeigt die ausgewertete `start.conf`, ihre Rohdaten und die GRUB-Konfiguration |
 | **Duplizieren** | legt eine Kopie unter neuem Namen an |
 | **Sicherungen** | listet die Sicherungen der `start.conf` und spielt eine davon zurück |
 | **VDI** | öffnet die VDI-Konfiguration der Gruppe |
 | **Aktion schicken** | öffnet den [Kommando-Dialog](#der-kommando-dialog) für alle Rechner der Gruppe |
-| **Gruppe löschen** | löscht die `start.conf` der Gruppe auf dem Server |
+| **Löschen** | löscht die `start.conf` der Gruppe auf dem Server |
 
 **Aktion schicken** richtet eine Kommandokette an die Hardwaregruppe als Ganzes: Der Server ermittelt selbst, welche Rechner der **ausgewählten Schule** dazugehören – Rechner derselben Gruppe in einer anderen Schule erreicht der Lauf nicht; wechseln Sie dafür die Schule oberhalb der Liste. Der Dialog nennt die Gruppe und dazu, wie viele ihrer Rechner die ausgewählte Schule führt; führt sie keinen, steht keine Aktion zur Wahl, und der Dialog sagt warum. Solange die Rechnerliste der Schule noch geladen wird – oder wenn das Laden fehlgeschlagen ist – ist die Anzahl noch nicht bekannt: Auch dann steht keine Aktion zur Wahl, der Dialog nennt dafür aber das Laden als Grund, statt es der Schule zuzuschreiben. Öffnen Sie den Dialog direkt nach dem Aufruf der Seite, kann das kurz der Fall sein; sobald die Liste steht, stehen die Aktionen zur Wahl. Die Betriebssysteme für **Sync**, **Neu** und **Start** stammen aus der `start.conf` der Gruppe. Die Aktion ist ausgegraut, solange ein anderer Auftrag noch läuft, und für eine Gruppe, deren Name die Regeln für `linbo-remote` nicht erfüllt – der Grund steht am Knopf. Nach dem Abschicken meldet die Plattform, ob die Kette die Gruppe erreicht hat; waren Rechner offline, nennt sie den Hinweis des Servers dazu. Ob der Lauf noch läuft und was er ausgibt, sehen Sie anschließend unter [Laufende Sitzungen](#laufende-sitzungen) im Bereich **Hosts**.
 
@@ -443,6 +447,8 @@ Oben rechts wählen Sie wie bei den Gruppen zwischen vier Ansichten; die Wahl bl
 | **Datenblatt** | Dateiname, Größe, Partition, Partitionsgröße, ob eine Prüfsumme vorliegt, Dateizahl und Änderungszeitpunkt |
 | **Tabelle** | Name, Größe, Sidecars und Änderungszeitpunkt |
 
+Die Leiste über der Liste ist dieselbe wie bei den Gruppen, ohne Schulauswahl. Die Suche findet ein Image über seinen Namen, seine Beschreibung und die Fehlermeldung, die die Plattform zu einem fehlerhaften Image anzeigt. In den Kartenansichten wählen Sie ein Image über das Kästchen oben links auf seiner Karte aus; ein Klick auf die Karte oder auf eine Zeile der **Tabelle** öffnet die Details des Images.
+
 Auch hier bietet die Leiste am unteren Rand **Neu laden** an, solange kein Image ausgewählt ist. Die Schaltfläche lädt die Images erneut vom Server und – sofern die Linuxmuster-API die Gruppenliste unterstützt – auch die `start.conf`-Dateien der Gruppen. Wie bei den Gruppen bleiben ausgewählte Images ausgewählt, wenn die Suche oder der Filter der Tabelle sie ausblendet; Zahl und Aktionen der Leiste gelten nur für die sichtbaren.
 
 :::note[Zwei Namen, ein Image]
@@ -463,19 +469,19 @@ Fortgesetzt wird der Upload ausschließlich dann, wenn Sie unter demselben Image
 
 #### Aktionen eines Images
 
-**Herunterladen** liegt als eigene Schaltfläche auf der Karte. Die übrigen Aktionen stehen im Menü hinter der Schaltfläche mit den drei Punkten daneben, in der Tabelle in der Spalte **Aktionen**:
+Die Aktionen bietet die Leiste am unteren Rand an, sobald Images ausgewählt sind; Aktionen für ein einzelnes Image stehen nur bei genau einer Auswahl zur Wahl:
 
 | Aktion | Wirkung |
 |--------|---------|
-| **Details anzeigen** | Dateiname, Pfad, Prüfsumme und der Inhalt des `.info`-Sidecars |
-| **Beschreibung und Skripte bearbeiten** | öffnet den Sidecar-Editor (siehe unten) |
-| **Sicherungen verwalten** | listet die Sicherungen des Images zum Wiederherstellen oder Löschen |
-| **Umbenennen** | benennt Image, Sicherungen und alle Beipack-Dateien um |
+| **Herunterladen** | lädt die Image-Datei herunter; gesperrt, solange ein anderer Download läuft |
+| **Bearbeiten** | öffnet den Sidecar-Editor (siehe unten) |
+| **Sicherungen** | listet die Sicherungen des Images zum Wiederherstellen oder Löschen |
 | **Duplizieren** | kopiert das Image samt Beschreibung, Registry-Patch und Skripten, aber ohne Sicherungen |
-| **Differenzimage löschen** | erscheint nur, wenn zum Image ein Differenzimage existiert |
-| **Löschen** | löscht das Image mit Sicherungen, Differenzimage und Beipack-Dateien |
+| **Beschreibung und Skripte des Differenzimages** | erscheint nur, wenn zum Image ein Differenzimage existiert |
+| **Differenzimage löschen** | löscht die Differenzimages aller ausgewählten Images, die eines haben |
+| **Löschen** | löscht die ausgewählten Images mit Sicherungen, Differenzimage und Beipack-Dateien |
 
-Beim Umbenennen und Duplizieren erlaubt der Name Buchstaben, Ziffern sowie `.`, `_`, `+` und `-`; er muss mit einem Buchstaben oder einer Ziffer beginnen. Ein Name, den ein anderes Image bereits trägt, wird ebenso abgewiesen wie der unveränderte Name.
+Beim Duplizieren erlaubt der Name Buchstaben, Ziffern sowie `.`, `_`, `+` und `-`; er muss mit einem Buchstaben oder einer Ziffer beginnen. Ein Name, den ein anderes Image bereits trägt, wird ebenso abgewiesen wie der unveränderte Name.
 
 #### Beschreibung und Skripte bearbeiten
 

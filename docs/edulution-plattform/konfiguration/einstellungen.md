@@ -594,14 +594,6 @@ Pflichtangaben sind **Kürzel** (zum Beispiel „MA“) und **Anzeigename**, all
 
 Ein Fach, das nicht mehr unterrichtet wird, müssen Sie nicht löschen: Deaktivieren Sie **Aktiv**. Das Fach bleibt erhalten, wird aber nicht mehr zur Auswahl angeboten.
 
-### Fehlermeldungen
-
-| Meldung | Ursache | Abhilfe |
-|---------|---------|---------|
-| „An dieser Schule gibt es bereits ein Fach mit diesem Kürzel.“ | Ein anderes Fach der Schule hat dasselbe Kürzel, eventuell in anderer Groß- und Kleinschreibung. | Anderes Kürzel wählen oder das vorhandene Fach bearbeiten. |
-| „An dieser Schule gibt es bereits ein Fach mit diesem externen Schlüssel.“ | Auch der **Externe Schlüssel** muss innerhalb einer Schule eindeutig sein. | Schlüssel des anderen Fachs prüfen oder das Feld leer lassen. |
-| „Das Fach wurde nicht gefunden.“ | Das Fach wurde inzwischen gelöscht, etwa von einem anderen Administrator. | Seite neu laden. |
-
 ---
 
 ## Lizenz

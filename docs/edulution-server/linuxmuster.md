@@ -385,6 +385,10 @@ Ein Image heißt nach seinem Verzeichnis auf dem Server (`debian13`); die Bildda
 
 Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.info`), VDI-Konfiguration (`.vdi`), Torrent (`.torrent`), Maschinenkonto (`.macct`), Prüfsumme (`.md5`), Hashsumme (`.hash`), Registry (`.reg`), Pre-Start-Skript (`.prestart`) und Post-Sync-Skript (`.postsync`). In der Spalte **Sidecars** steht je vorhandener Datei ein Buchstabenkürzel; welcher Dateityp dahintersteht, erscheint, sobald Sie mit dem Mauszeiger darauf zeigen. Der Detaildialog zeigt zusätzlich Dateiname, Image-Ordner, Pfad, Größe, MD5-Summe und – sofern ein `.info`-Sidecar vorliegt – Erstellungszeitpunkt, Image- und Partitionsgröße sowie die Beschreibung.
 
+:::note[Erstellungszeitpunkt und Änderungszeitpunkt können auseinanderliegen]
+Der **Erstellungszeitpunkt** stammt aus dem `.info`-Sidecar und ist die Uhrzeit, die der Schulserver beim Erstellen des Images auf seiner eigenen Uhr gelesen hat – ohne Zeitzone. Die Plattform zeigt ihn unverändert an. Der **Änderungszeitpunkt** der Datei dagegen ist ein absoluter Zeitpunkt und wird in die Zeitzone Ihres Browsers umgerechnet. Stehen Schulserver und Arbeitsplatz in derselben Zeitzone – der Normalfall –, passen beide Angaben zusammen; andernfalls unterscheiden sie sich um den Abstand der beiden Zonen.
+:::
+
 Über die Schaltfläche zum Hochladen fügen Sie ein Image hinzu. Zulässig sind Image-Dateien (`.qcow2`, `.qdiff`, `.cloop`, `.rsync`) und alle oben genannten Beipack-Dateien; andere Dateitypen weist der Dialog ab. Während eines laufenden Downloads sind weitere Downloads gesperrt.
 
 Im Dialog geben Sie Image-Name und Dateiname an; während der Übertragung sind beide Felder gesperrt und ein Fortschrittsbalken zeigt den Stand in Prozent. **Abbrechen** bricht die laufende Übertragung ab und verwirft zugleich die Daten, die der Server bereits entgegengenommen hat – es bleibt also kein angefangenes Image auf dem Server zurück.

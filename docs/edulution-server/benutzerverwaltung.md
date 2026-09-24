@@ -39,7 +39,7 @@ Für Benutzertypen ohne Verwaltungsliste (Schuladmins, Globaladmins) entfällt d
 :::note[Schulauswahl]
 In Umgebungen mit mehreren Schulen enthalten die Ansichten oben rechts eine **Schulauswahl**; ein Wechsel lädt die Listen der gewählten Schule neu. Als **Globaladmin** wählen Sie dort jede Schule des Servers, als **Schuladmin** enthält die Auswahl nur Ihre eigene Schule.
 
-Als **Schuladmin** bleibt die Benutzertabelle beim Benutzertyp **Globaladmins** ohne Einträge – diese Konten gehören keiner einzelnen Schule an.
+Der Benutzertyp **Globaladmins** steht nur **Globaladmins** zur Verfügung; als **Schuladmin** erscheint er weder in der Seitenleiste noch als Kachel auf der Übersicht. Diese Konten gehören keiner einzelnen Schule an, und die Linuxmuster-API gibt ihre Liste nur an Globaladmins heraus.
 :::
 
 ## Registerkarte „Benutzer"
@@ -139,6 +139,14 @@ Der Wert der Spalte **Gewünschter Login** wird unverändert aus der CSV-Datei g
 Die schreibenden Aktionen **Speichern** und **Prüfen** – und damit das anschließende **Übernehmen** – stehen nur **Globaladmins** und **Schuladmins** zur Verfügung; für andere Rollen sind diese Schaltflächen ausgeblendet. Alle berechtigten Benutzer können die Listen weiterhin einsehen, lokal bearbeiten und als CSV exportieren – diese Änderungen werden dabei jedoch nicht auf den Server geschrieben.
 :::
 
+:::note[Während des Speicherns]
+Mit **Speichern** oder **Prüfen** gehen die Löschmarkierungen in den laufenden Vorgang ein. Schlägt er fehl, stellt die Tabelle den Stand von davor wieder her: Die betroffenen Zeilen stehen wieder an ihrer ursprünglichen Position in der Liste und bleiben zur Löschung markiert – Ihre Auswahl geht dabei nicht verloren.
+
+Die Tabelle bleibt während des Speicherns bearbeitbar. Änderungen, die Sie in dieser Zeit vornehmen, bleiben erhalten, gehören aber nicht zum laufenden Speichervorgang: Sie werden weiterhin als ungespeichert hervorgehoben und benötigen einen weiteren **Speichern**-Vorgang.
+
+Ein über den CSV-Dialog eingelesener Inhalt hat Vorrang vor einem noch laufenden Speichervorgang: Die importierte Liste ersetzt die Tabelle, alle Löschmarkierungen entfallen, und das Ergebnis des offenen Vorgangs wird verworfen. Dasselbe gilt, wenn Sie währenddessen den Benutzertyp oder die Schule wechseln.
+:::
+
 ### Eingaben prüfen
 
 Vor dem Speichern werden die Einträge geprüft. Solange eine Zelle ungültig ist, bleiben **Speichern** und **Prüfen** blockiert und es erscheint der Hinweis *„Bitte korrigieren Sie alle ungültigen Felder vor dem Speichern"*.
@@ -155,10 +163,22 @@ Vor dem Speichern werden die Einträge geprüft. Solange eine Zelle ungültig is
 
 ![Benutzerverwaltung-Import-CSV](/img/benutzerverwaltung/benutzerverwaltung07-import-csv.png)
 
-- **Importieren** – Sie fügen den CSV-Inhalt direkt in das Textfeld ein und bearbeiten ihn dort, oder Sie ziehen eine Datei per **Drag & Drop** in den Auswahlbereich bzw. wählen sie über den Dateidialog aus. Zulässig sind Dateien mit der Endung `.csv` und `.txt`. Kommentarzeilen, die mit `#` beginnen, bleiben erhalten.
-- **Exportieren** – über **CSV Herunterladen** laden Sie die aktuelle Liste als Datei `<Liste>.csv` herunter, etwa als Vorlage für die weitere Bearbeitung.
+- **Importieren** – Sie fügen den CSV-Inhalt direkt in das Textfeld ein und bearbeiten ihn dort, oder Sie ziehen eine Datei per **Drag & Drop** in den Auswahlbereich bzw. wählen sie über den Dateidialog aus. Zulässig sind Dateien mit der Endung `.csv` und `.txt`.
+- **Exportieren** – über **Herunterladen** laden Sie den Inhalt des Textfelds als Datei `<Liste>.csv` herunter, etwa als Vorlage für die weitere Bearbeitung.
 
 Ein über den Dialog importierter CSV-Inhalt ersetzt die Einträge der Tabelle. Damit die Änderungen tatsächlich wirksam werden, müssen Sie die Liste anschließend noch **speichern**, **prüfen** und **übernehmen**.
+
+### Kommentarzeilen
+
+Zeilen, die mit `#` beginnen, sind Kommentare. Sie erscheinen nicht in der Tabelle, sondern nur im CSV-Dialog, und Linuxmuster ignoriert sie beim Import. Beim Speichern bleiben sie an ihrer Stelle zwischen den Einträgen erhalten – auch dann, wenn Sie die Liste nur in der Tabelle bearbeitet haben.
+
+Zeichengenau bleiben sie dabei allerdings nicht: Die Linuxmuster-API bereinigt den Inhalt schon beim Einlesen, und beim Speichern wird dieser bereinigte Stand zurückgeschrieben.
+
+- Leerzeichen am Anfang und Ende einer Zeile sowie vor und nach jedem `;` entfallen.
+- Eine Kommentarzeile, die danach höchstens drei Zeichen lang ist – etwa ein einzelnes `#` als Trennzeile –, wird zur Leerzeile. Ihr Inhalt geht verloren.
+- Solche Zeilen und alle Leerzeilen der Datei zeigt der CSV-Dialog als `###EMPTY#LINE` an, und so stehen sie auch in einer heruntergeladenen Datei. Beim Speichern wird daraus wieder eine Leerzeile.
+
+Löschen Sie Einträge, bleibt ein Kommentar vor dem Eintrag stehen, der ihm bisher folgte. Löschen Sie diesen Eintrag selbst, rückt der Kommentar vor den nächsten verbleibenden Eintrag. Neue Einträge fügt die Tabelle am Ende der Liste an – also unterhalb eines Kommentars, der in der letzten Zeile steht. Im CSV-Dialog legen Sie die Stelle eines Kommentars genau fest: Er steht dort, wo Sie ihn in den Text schreiben.
 
 ## Import in drei Schritten
 

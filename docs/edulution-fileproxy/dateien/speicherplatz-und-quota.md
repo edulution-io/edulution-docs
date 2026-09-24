@@ -12,7 +12,7 @@ Am unteren Rand der Menüleiste – unterhalb des Eintrags **WebDAV-Zugang** –
 
 - Der Name Ihrer **Schule**
 - Ein **Fortschrittsbalken** für den belegten Anteil
-- Die Angabe **belegt / verfügbar** in GB, zum Beispiel `12,4 / 20,0 GB belegt`
+- Die Angabe **belegt / verfügbar** in GB, zum Beispiel `12.4 / 20.0 GB belegt`
 
 Der Balken wechselt mit der Auslastung die Farbe:
 
@@ -27,7 +27,7 @@ Zwei Fälle sind zu beachten:
 - In der Ansicht **Geteilte Dateien** wird die Anzeige ausgeblendet – dort greifen die Quotas der jeweiligen Besitzer, nicht Ihre eigene.
 - Lässt sich keine Quota ermitteln, steht dort `-- / -- GB belegt` und der Balken bleibt leer. Die Dateiverwaltung funktioniert dann uneingeschränkt weiter.
 
-Dieselben Werte finden Sie zusammen mit der berechneten Cloud- und E-Mail-Quota im [Dashboard](../../edulution-plattform/uebersicht/dashboard.md#quotas).
+Die Menüleiste zeigt die Quota des gerade geöffneten Speicherorts. Das [Dashboard](../../edulution-plattform/uebersicht/dashboard.md#quotas) und die [Benutzerdetails](../../edulution-plattform/uebersicht/benutzereinstellungen/benutzerdetails.md#quotas) zeigen dagegen immer die Quota Ihres eigenen Benutzerverzeichnisses; die Benutzerdetails nennen zusätzlich die berechnete Cloud- und E-Mail-Quota.
 
 ## Warnung bei knappem Speicherplatz
 
@@ -35,8 +35,8 @@ Wird der Speicherplatz knapp, erscheint unter der Überschrift **Dateien** eine 
 
 | Zustand | Bedingung | Anzeige |
 |---|---|---|
-| Unauffällig | weniger als 75 % belegt **oder** mehr als 5 GB frei | keine Warnung |
-| Quota gering | mindestens 75 % belegt **und** weniger als 5 GB frei | gelbes Warndreieck, **Verbleibendes Quota gering – 12 %** |
+| Unauffällig | weniger als 75 % belegt **oder** 5 GB oder mehr frei | keine Warnung |
+| Quota gering | mindestens 75 %, aber weniger als 95 % belegt **und** weniger als 5 GB frei | gelbes Warndreieck, **Verbleibendes Quota gering – 12 %** |
 | Quota sehr gering | mindestens 95 % belegt **und** weniger als 5 GB frei | rotes, pulsierendes Warndreieck, **Verbleibendes Quota sehr gering – 3 %** |
 
 :::note[Beide Bedingungen müssen zutreffen]
@@ -57,6 +57,10 @@ Beim Erstellen oder Bearbeiten einer Freigabe für einen **Ordner** lassen sich 
 
 Enthält eine bestehende Freigabe bereits solche Rechte, erscheint derselbe Hinweis unter den Bereichen und die Schaltfläche **Speichern** bleibt deaktiviert.
 
+### Einsammeln im Klassenraum
+
+Die Einschränkung wirkt auch im Klassenraum: Dort wird die Schaltfläche **Einsammeln** ausgeblendet – Einzelheiten unter [Einsammeln bei knappem eigenem Speicherplatz](../../edulution-plattform/apps/native-apps/klassenzimmer.md#einsammeln-bei-knappem-eigenem-speicherplatz).
+
 ## Wenn der Speicherplatz nicht ausreicht
 
 Reicht der Platz während eines Uploads nicht mehr aus, bricht edulution den Prozess ab und gibt eine Fehlermeldung.
@@ -75,4 +79,4 @@ Reicht der Platz während eines Uploads nicht mehr aus, bricht edulution den Pro
 ## Siehe auch
 
 - [Dateien](./index.md) – Übersicht über die Dateiverwaltung
-- [Dashboard](../../edulution-plattform/uebersicht/dashboard.md#quotas) – Speichernutzung inklusive Cloud- und E-Mail-Quota
+- [Benutzerdetails](../../edulution-plattform/uebersicht/benutzereinstellungen/benutzerdetails.md#quotas) – Speichernutzung inklusive Cloud- und E-Mail-Quota

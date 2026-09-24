@@ -166,11 +166,21 @@ Anhänge werden relativ zur Wiki-Seite verlinkt. Dateien, die außerhalb des Ord
 
 ### Dateikarten verwenden
 
-Klicken Sie eine Dateikarte an, erscheint darüber ein kleines Menü:
+Klicken Sie eine Dateikarte an – beim Lesen wie beim Bearbeiten –, erscheint darüber ein kleines Menü:
 
-- **Vorschau** – öffnet die Datei in einem Fenster innerhalb von edulution (dieselbe [Dateivorschau](../../../edulution-fileproxy/dateien/vorschau-und-drucken.md#vorschau-öffnen) wie in der App **Dateien**)
+- **Vorschau** – öffnet die Datei in einem Fenster innerhalb von edulution (dieselbe [Dateivorschau](../../../edulution-fileproxy/dateien/vorschau-und-drucken.md#vorschau-öffnen) wie in der App **Dateien**). Erscheint nur bei Dateitypen, die die Vorschau darstellen kann: PDF, Bilder, Audio und Video, Text- und Codedateien, Draw.io-Diagramme und Office-Dokumente ([Formate im Einzelnen](../../../edulution-fileproxy/dateien/vorschau-und-drucken.md#unterstützte-dateitypen)). Bei allen anderen, etwa ZIP-Archiven, bleibt nur **Herunterladen**.
 - **Herunterladen** – lädt die Datei auf das eigene Gerät
-- **Entfernen** – löscht nur die Karte aus der Seite; die Datei bleibt auf der Freigabe erhalten
+- **Entfernen** – nur im Bearbeitungsmodus; löscht nur die Karte aus der Seite, die Datei bleibt auf der Freigabe erhalten
+
+:::info[Office-Dokumente in der Vorschau]
+Office-Dokumente öffnet die **Vorschau** schreibgeschützt im [Dokumenten-Editor](../../../edulution-fileproxy/dateien/vorschau-und-drucken.md#office-dokumente). Zum Bearbeiten öffnen Sie das Dokument in der App [Dateien](../../../edulution-fileproxy/dateien/index.md).
+
+| Meldung | Ursache | Abhilfe |
+|---|---|---|
+| „Dateiformat wird nicht unterstützt“ | Es ist kein Dokumenten-Editor eingerichtet oder dessen Server-Adresse fehlt. | Ihr Administrator [richtet einen Dokumenten-Editor ein](../../../edulution-fileproxy/dateien/konfiguration/dokumenten-editor.md). Bis dahin nutzen Sie **Herunterladen** in der Dateikarte. |
+
+PDF, Bilder, Audio und Video, Text- und Codedateien sowie Draw.io-Diagramme öffnen sich auch ohne Dokumenten-Editor.
+:::
 
 ### Bild per URL
 

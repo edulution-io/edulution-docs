@@ -34,9 +34,9 @@ Die Benutzereinstellungen sind unterteilt in:
   [manuell](./app-zugriff.md#manuelles-einrichten) einrichten.
 - **[VPN-Zugang](./vpn-zugang.md)** – die eigene WireGuard-Konfiguration abrufen.
 - **[Meine Kinder/Eltern](./meine-kinder-eltern.md)** –
-  [Zuweisungs-Code](./meine-kinder-eltern.md#mein-zuweisungs-code),
-  [Code eingeben](./meine-kinder-eltern.md#code-eingeben) und
-  [Zuweisungen](./meine-kinder-eltern.md#zuweisungen).
+  [Kind und Elternteil verknüpfen](./meine-kinder-eltern.md#kind-und-elternteil-verknüpfen),
+  [Status einer Zuweisung](./meine-kinder-eltern.md#status-einer-zuweisung) und
+  [Meldungen](./meine-kinder-eltern.md#meldungen).
 
 ## Siehe auch
 

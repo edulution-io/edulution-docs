@@ -109,7 +109,7 @@ Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richt
 ### Speicherplatz
 Ihre Speichernutzung steht am unteren Rand der Menüleiste: Schulname, Fortschrittsbalken und die belegten GB. Wird der Platz knapp, erscheint eine Warnung unter der Überschrift **Dateien**; bei sehr geringer Quota werden Hochladen und Erstellen ausgeblendet und Freigaben lassen sich nicht mehr mit Schreibrechten versehen.
 
-Alle Details finden Sie unter [Speicherplatz und Quota](./speicherplatz-und-quota.md), die berechneten Cloud- und E-Mail-Quotas im [Dashboard](../../edulution-plattform/uebersicht/dashboard.md#quotas).
+Alle Details finden Sie unter [Speicherplatz und Quota](./speicherplatz-und-quota.md), die berechneten Cloud- und E-Mail-Quotas unter [Benutzerdetails](../../edulution-plattform/uebersicht/benutzereinstellungen/benutzerdetails.md#quotas).
 
 ### Unterstützte Formate
 Alle Dateiformate sind möglich. Direkt bearbeiten können Sie:

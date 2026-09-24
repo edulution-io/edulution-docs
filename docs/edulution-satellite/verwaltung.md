@@ -162,9 +162,40 @@ Der Eintrag **LINBO** zeigt, was die LINBO-Installation *des Satelliten* über d
 
 Der Bereich gliedert sich in die Unterseiten **Konfigurationen**, **Hosts**, **Images**, **Synchronisation** und **Einstellungen**.
 
+#### Konfigurationen
+
+Die Unterseite **Konfigurationen** listet die Hardwaregruppen, die der Satellit vom Linuxmuster-Server übernommen hat – also die `start.conf`-Dateien, die in seinem Zwischenspeicher liegen. Die Daten stammen ausschließlich vom ausgewählten Satelliten.
+
+Oben rechts wählen Sie zwischen denselben vier Ansichten wie in der [Gruppenliste des Schulservers](../edulution-server/linuxmuster.md#gruppen): **Plattenkarte** (Vorgabe), **Kacheln**, **Datenblatt** und **Tabelle**. Karten und Tabellenspalten sind dort beschrieben und hier dieselben. Es entfallen nur die Auswahlkästchen, die Kachel zum Anlegen und die Aktionen, weil sich die Konfigurationen hier nicht ändern lassen.
+
+Die gewählte Ansicht merkt sich die Plattform für diese Seite getrennt von der Gruppenliste des Schulservers: Stellen Sie hier auf **Datenblatt** um, bleibt die Gruppenliste im Bereich **LINBO** der App **Schulserver** in ihrer Ansicht – und umgekehrt.
+
+Über das Suchfeld schränken Sie die Liste auf einen Gruppennamen oder einen Dateinamen wie `start.conf.raum101` ein. Die Zahl der zugeordneten Rechner stammt aus der Hostliste desselben Satelliten: gezählt werden die Rechner, die der Satellit dieser Gruppe zuordnet, nicht die des Linuxmuster-Servers.
+
+:::note[Jede Gruppe wird einzeln gelesen]
+Der Satellit liefert in seiner Gruppenliste keine `start.conf`. Die Plattform liest deshalb beim Öffnen und beim Neuladen die `start.conf` jeder Gruppe einzeln vom Satelliten und wertet sie aus wie am Schulserver. Die Karten zeigen damit dieselben Angaben, einschließlich Cache, Download-Typ und der verwendeten Images. Bei vielen Gruppen erscheint die Liste erst, wenn alle Dateien gelesen sind; bis dahin läuft die Ladeanzeige.
+:::
+
+Als **Aktualisiert** zeigt die Plattform den Zeitstempel, den der Satellit mit der GRUB-Konfiguration der Gruppe übernommen hat, bei einer Gruppe ohne GRUB-Konfiguration den Zeitpunkt ihrer Synchronisation. Die letzte Änderung der `start.conf` ist das nicht.
+
+Durch Anklicken einer Karte oder Tabellenzeile öffnen Sie die Vorschau. Sie liest die Datei im Moment des Öffnens erneut vom Satelliten und hat diese Registerkarten:
+
+- **Zusammenfassung** – die ausgewertete `start.conf` mit den gesetzten Schlüsseln und dem Plattenlayout, in derselben Darstellung wie im Bereich **LINBO** der App **Schulserver**.
+- **Rohdaten** – der unveränderte Inhalt der Datei.
+
+Liegt dem Satelliten für die Gruppe eine GRUB-Konfiguration vor, zeigt die Registerkarte **GRUB cfg** sie zusätzlich. Für eine Gruppe, der noch kein Rechner zugeordnet ist, hat der Satellit keine; die Registerkarte entfällt dann.
+
+:::note[Nur Anzeige]
+Die Konfigurationen des Satelliten lassen sich nicht anlegen, bearbeiten, duplizieren oder löschen. Sie stammen aus der Synchronisation mit dem Linuxmuster-Server; geändert werden sie deshalb am Server, nicht am Satelliten. Mit der Aktion zum Neuladen holen Sie den aktuellen Stand.
+:::
+
+:::note[Wenn eine Datei nicht gelesen werden kann]
+Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, erscheint über der Liste ein Hinweis, statt eine leere Liste zu zeigen. Lässt sich eine einzelne `start.conf` nicht lesen – etwa weil die Datei auf dem Satelliten fehlt, obwohl die Gruppe noch in der Liste steht –, erscheint die Gruppe als eine ohne `start.conf`, und die Vorschau meldet den Lesefehler ausdrücklich. Eine vorhandene, aber leere Datei behandelt die Vorschau wie eine fehlende: Sie zeigt dann nur die GRUB-Konfiguration oder, wenn es auch die nicht gibt, den Hinweis, dass die Gruppe weder eine `start.conf` noch eine GRUB-Konfiguration hat.
+:::
+
 #### Hosts
 
-Die Tabelle listet alle Rechner, die der Satellit kennt, mit **Hostname**, **MAC-Adresse**, **IP-Adresse**, **Gruppe**, **Raum**, **Status**, **Abbild** und **Zuletzt gesehen**. Über das Suchfeld schränken Sie die Liste auf einen Hostnamen ein, über das Filtersymbol daneben auf eine oder mehrere **Gruppen**. Beide Filter arbeiten im Browser: die Liste wird vollständig geladen, sodass das Filtern ohne erneute Abfrage des Satelliten geschieht.
+Die Tabelle listet alle Rechner, die der Satellit kennt, mit **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Abbild** und **Zuletzt gesehen**. Über das Suchfeld schränken Sie die Liste auf einen Hostnamen ein, über das Filtersymbol daneben auf eine oder mehrere **Gruppen**. Beide Filter arbeiten im Browser: die Liste wird vollständig geladen, sodass das Filtern ohne erneute Abfrage des Satelliten geschieht.
 
 Die Spalte **Status** nennt den Betriebszustand, den der Satellit zuletzt gemeldet hat:
 
@@ -192,7 +223,7 @@ Die Hostliste des Satelliten lässt sich nicht bearbeiten. Die Rechner stammen a
 :::
 
 :::note[Hostliste und Abbild-Stand werden getrennt geladen]
-Beide Angaben stammen aus verschiedenen Abfragen. Antwortet der Satellit nur auf eine davon, bleibt die andere nutzbar: Die Rechner werden dann ohne Abbild-Stand aufgeführt (alle Zeilen zeigen *Unbekannt*), oder es erscheint eine Fehlermeldung, während die Liste weiterhin steht.
+Beide Angaben stammen aus verschiedenen Abfragen. Scheitert nur der Abbild-Stand, stehen die Rechner trotzdem in der Tabelle, in der Spalte **Abbild** alle mit *Unbekannt*. Scheitert die Hostliste, bleibt die Tabelle leer. In beiden Fällen meldet die Plattform den Fehler.
 :::
 
 ##### Rechner aufwecken und Aktionen schicken
@@ -286,38 +317,39 @@ Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, ersc
 
 #### Images
 
-Die Unterseite **Images** verwaltet die LINBO-Abbilder, die auf dem Satelliten selbst liegen, und gleicht sie mit denen des Schulservers ab. Oben rechts wählen Sie zwischen denselben vier Ansichten wie im Bereich **LINBO** der App **Schulserver**: **Kacheln** (Vorgabe), **Speicher**, **Datenblatt** und **Tabelle**. In allen Ansichten schränken Sie die Liste über das Suchfeld auf einen Namen ein.
+Die Unterseite **Images** verwaltet die LINBO-Images, die auf dem Satelliten selbst liegen, und gleicht sie mit denen des Schulservers ab. Oben rechts wählen Sie zwischen denselben vier Ansichten wie in der [Imageliste des Schulservers](../edulution-server/linuxmuster.md#images): **Datenblatt** (Vorgabe), **Kacheln**, **Speicher** und **Tabelle**. In allen Ansichten schränken Sie die Liste über das Suchfeld auf einen Namen ein.
 
-:::note[Die Ansichtswahl gilt für beide Bereiche]
-Die gewählte Ansicht wird zusammen mit der Imageliste des Schulservers gespeichert. Stellen Sie hier auf **Speicher** um, erscheint auch die Imageliste im Bereich **LINBO** der App **Schulserver** in dieser Ansicht – und umgekehrt.
-:::
+Die gewählte Ansicht merkt sich die Plattform für diese Seite getrennt von der Imageliste des Schulservers: Stellen Sie hier auf **Speicher** um, bleibt die Imageliste im Bereich **LINBO** der App **Schulserver** in ihrer Ansicht – und umgekehrt.
 
-Ein Klick auf eine Karte öffnet die Begleitdateien des Images; für ein Image im Altformat wird das wie bei der Zeilenaktion mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – stehen nur in der **Tabelle** zur Verfügung. Verteilt der Satellit ein Image per Torrent, trägt dessen Karte in allen drei Kartenansichten eine Marke mit dem Zustand der Verteilung (siehe [Torrent-Verteilung](#torrent-verteilung)); ein Image ohne Torrent bleibt ohne Marke.
+Ein Klick auf eine Karte öffnet die Beipack-Dateien des Images; für ein Image im Altformat wird das mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – erreichen Sie in jeder Ansicht gleich: Markieren Sie das Image über das Auswahlkästchen seiner Karte oder Zeile, bietet die Leiste am unteren Rand sie an. Ein markiertes Image, das die Suche oder ein Tabellenfilter gerade ausblendet, bleibt markiert, zählt aber nicht mit und wird von keiner Aktion erfasst. Verteilt der Satellit ein Image per Torrent, trägt dessen Karte in allen drei Kartenansichten eine Marke mit dem Zustand der Verteilung (siehe [Torrent-Verteilung](#torrent-verteilung)); ein Image ohne Torrent bleibt ohne Marke.
 
 :::note[Die Karten zeigen weniger als am Schulserver]
 Die Imageliste des Satelliten enthält weder die Beschreibung noch Partitionsangaben oder die Prüfsumme. Beschreibung, Partition und Partitionsgröße bleiben in den Karten deshalb leer, und die Füllanzeige der Ansicht **Speicher** entfällt. Das **Datenblatt** weist bei jedem Image *keine Prüfsumme* aus, auch wenn auf dem Satelliten eine hinterlegt ist – ob eine vorliegt, zeigt erst **Prüfsumme prüfen**.
 :::
 
-Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Status**, **Abgleich** und **Geändert** – und, sobald der Satellit den Zustand seiner Torrent-Verteilung meldet, zusätzlich **Torrent**.
+Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Verwendet in**, **Status**, **Abgleich** und **Geändert** – und, sobald der Satellit den Zustand seiner Torrent-Verteilung meldet, zusätzlich **Torrent**.
 
 | Spalte | Bedeutung |
 |--------|-----------|
 | **Typ** | **Basisimage** oder **Differenzimage** |
+| **Verwendet in** | die Gruppen des Satelliten, deren `start.conf` das Image startet – dieselbe Angabe tragen auch die Karten |
 | **Status** | **Verfügbar** – regulär im Imageverzeichnis abgelegt; **Altformat** – außerhalb der Imageverzeichnisse |
-| **Abgleich** | Vergleich mit dem Schulserver: **Gleich**, **Unterschiedlich**, **Nur am Server**, **Nur am Satelliten** oder **Unbekannt** |
+| **Abgleich** | Vergleich mit dem Schulserver: **Satellit neuer**, **Server neuer**, **Gleich alt**, **Nur am Satelliten**, **Nur am Server** oder **Unbekannt** |
 | **Torrent** | Zustand der Torrent-Verteilung des Images, siehe [Torrent-Verteilung](#torrent-verteilung) |
 
+Images, die nur auf dem Schulserver liegen, führt die **Tabelle** zusätzlich auf: mit **Nur am Server** im Abgleich, Größe und Datum vom Server und ohne Status. Für sie steht nur **Vom Server holen** bereit; die übrigen Aktionen lehnt die Plattform mit einem Hinweis ab, weil das Image auf dem Satelliten noch fehlt. In den Kartenansichten erscheinen solche Images nicht, denn die Karten zeigen die Images auf dem Satelliten.
+
 :::note[Images im Altformat]
-Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Die Aktionen dieser Zeile – Prüfsumme, Sicherungen, Begleitdateien und Löschen – werden deshalb nicht ausgeführt, sondern mit einem Hinweis abgelehnt.
+Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Seine Aktionen – Prüfsumme, Sicherungen, Beipack-Dateien und Löschen – werden deshalb nicht ausgeführt, sondern mit einem Hinweis abgelehnt.
 :::
 
-In der Tabelle stehen je Zeile folgende Aktionen bereit:
+Ist genau ein Image markiert, stehen in der Leiste am unteren Rand folgende Aktionen bereit:
 
 | Aktion | Wirkung |
 |--------|---------|
 | **Prüfsumme prüfen** | vergleicht das Image mit der hinterlegten Prüfsumme |
-| **Wiederherstellen** | öffnet die Sicherungen des Images |
-| **Speichern** | öffnet die Begleitdateien des Images |
+| **Sicherungen** | öffnet die Sicherungen des Images |
+| **Bearbeiten** | öffnet die Beipack-Dateien des Images |
 | **Vom Server holen** | ersetzt das Image auf dem Satelliten durch das des Schulservers |
 | **Zum Server übertragen** | ersetzt das Image auf dem Schulserver durch das des Satelliten |
 | **Löschen** | löscht das Image samt seinem Verzeichnis |
@@ -335,7 +367,7 @@ Welche Richtung angeboten wird, entscheidet die Plattform aus dem Vergleich mit 
 - Würde die Übertragung die neuere Kopie durch die ältere ersetzen, meldet die Plattform, welche Kopie neuer ist, und startet die Übertragung **nicht**.
 
 :::warning[Was eine Übertragung überschreibt]
-**Vom Server holen** löscht das Imageverzeichnis auf dem Satelliten vollständig – einschließlich aller dortigen Sicherungen und Begleitdateien – und ersetzt es durch den Stand des Servers. **Zum Server übertragen** überschreibt das Image auf dem Schulserver, das auch andere Satelliten nutzen. Beide Schritte lassen sich nicht rückgängig machen.
+**Vom Server holen** löscht das Imageverzeichnis auf dem Satelliten vollständig – einschließlich aller dortigen Sicherungen und Beipack-Dateien – und ersetzt es durch den Stand des Servers. **Zum Server übertragen** überschreibt das Image auf dem Schulserver, das auch andere Satelliten nutzen. Beide Schritte lassen sich nicht rückgängig machen.
 :::
 
 Eine gestartete Übertragung meldet der Satellit nicht zurück. Die Plattform bestätigt nur den Start; den Ausgang sehen Sie, wenn Sie die Liste später neu laden.
@@ -346,20 +378,22 @@ Antwortet der Schulserver nicht auf den Vergleich, bleibt die Spalte **Abgleich*
 
 ##### Sicherungen
 
-Der Dialog listet die Sicherungen des Images mit Zeitpunkt und Dateizahl. Einzelne Sicherungen lassen sich wiederherstellen oder löschen.
+Es öffnet sich derselbe Dialog wie im Bereich **LINBO** der App **Schulserver**. Er listet die Sicherungen des Images mit Zeitpunkt, Dateizahl und Größe. Einzelne Sicherungen lassen sich wiederherstellen oder löschen. Vor beiden Schritten fragt die Plattform nach. Den Hinweis, dass sich eine Wiederherstellung zurücknehmen lässt, und die Einstellungen je Sicherung gibt es hier nicht, denn der Satellit bietet beides nicht an.
 
 :::warning[Wiederherstellen mischt zwei Stände]
-Beim Wiederherstellen wird die Sicherung selbst gelöscht. Dateien, die im Image vorhanden sind, in der Sicherung aber fehlen, bleiben erhalten – das Ergebnis ist also eine Mischung aus beiden Ständen und nicht der Stand der Sicherung. Der Schritt lässt sich nicht rückgängig machen.
+Beim Wiederherstellen wird die Sicherung selbst gelöscht. Dateien, die im Image vorhanden sind, in der Sicherung aber fehlen, bleiben erhalten – das Ergebnis ist also eine Mischung aus beiden Ständen und nicht der Stand der Sicherung. Der Schritt lässt sich nicht rückgängig machen. Die Nachfrage vor dem Wiederherstellen nennt diese Warnung noch einmal.
 :::
 
 Meldet der Satellit den Ausgang der Wiederherstellung nicht zurück, weist die Plattform darauf hin, dass der Vorgang noch laufen kann. Laden Sie die Liste in diesem Fall neu, bevor Sie erneut wiederherstellen.
 
-##### Begleitdateien
+##### Beipack-Dateien
 
-Der Dialog zeigt die Begleitdateien des Images: **desc** (Freitext, den LINBO im Auswahlmenü anzeigt), **info** (vom Satelliten erzeugte Angaben, nur lesbar), **reg** (Registry-Einträge nach der Synchronisation), **prestart** (Skript vor dem Start des Betriebssystems) und **postsync** (Skript nach der Synchronisation).
+Der Dialog zeigt die Beipack-Dateien des Images in denselben Registerkarten wie im Bereich **LINBO** der App **Schulserver**: **Beschreibung**, **Info**, **Registry**, **Pre-Start Script** und **Post-Sync Script**. **Info** enthält die vom Satelliten erzeugten Angaben und ist nur lesbar. Eine **VDI-Konfiguration** bietet der Satellit nicht an.
+
+Anders als am Schulserver speichert **Speichern** nur die Datei der geöffneten Registerkarte. Was Sie in anderen Registerkarten geändert haben, bleibt als Entwurf stehen, bis Sie dort ebenfalls speichern.
 
 :::note[Was sich eine Änderung teilt]
-**reg**, **prestart** und **postsync** gelten gemeinsam für Basis- und Differenzimage – eine Änderung hier wirkt auf beide. Ein leerer Inhalt löscht die Datei nicht, sondern setzt sie auf null Bytes; Begleitdateien zu löschen bietet der Satellit nicht an. Inhalte über 200 KB nimmt der Satellit nicht an und werden nicht gespeichert.
+**Registry** (`.reg`), **Pre-Start Script** (`.prestart`) und **Post-Sync Script** (`.postsync`) gelten gemeinsam für Basis- und Differenzimage – eine Änderung hier wirkt auf beide. Ein leerer Inhalt löscht die Datei nicht, sondern setzt sie auf null Bytes; Beipack-Dateien zu löschen bietet der Satellit nicht an. Inhalte über 200 KB nimmt der Satellit nicht an und werden nicht gespeichert.
 :::
 
 ##### Löschen

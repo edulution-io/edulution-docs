@@ -618,6 +618,7 @@ Nach dem Speichern richtet edulution den Verteiler im Hintergrund als Adresse au
 |---------|-----------|
 | **Wird eingerichtet** | edulution überträgt den Verteiler gerade auf den Mailserver. Ist der Mailserver nicht erreichbar oder sind die Mitglieder oder Mitgliedsgruppen noch nicht bekannt, versucht edulution es selbstständig erneut, spätestens nach fünf Minuten. Bis dahin bleibt die Adresse auf dem Mailserver unverändert. |
 | **Aktiv** | E-Mails an die Adresse des Verteilers gehen an alle Mitglieder. Der Zusatz **N ohne Postfach** nennt Mitglieder, die kein Postfach auf dem Mailserver haben; sie erhalten keine Nachrichten des Verteilers – auch nicht an eine andere, etwa private Adresse aus dem Verzeichnis. |
+| **Über das Verzeichnis** | Ein aus dem Schulserver übernommener Verteiler (siehe unten). edulution richtet seine Adresse nicht selbst ein; zugestellt wird über die Synchronisation des Schulservers mit dem Mailserver. |
 | **Fehlgeschlagen: …** | Der Mailserver hat den Verteiler abgelehnt, etwa weil die Adresse dort inzwischen vergeben ist, oder eine Mitgliedsgruppe gibt es im Verzeichnis nicht mehr. Die Anzeige nennt den Grund; edulution versucht es nicht von selbst erneut. |
 
 Bei einem fehlgeschlagenen Verteiler nennt auch der Bearbeitungsdialog den Grund. Haben Sie die Ursache behoben – etwa auf dem Mailserver –, richtet **Erneut einrichten** im Dialog den Verteiler noch einmal ein.
@@ -629,6 +630,18 @@ Die Adresse eines Verteilers steht seinen Mitgliedern nicht als Absenderadresse 
 Tritt jemand einer Mitgliedsgruppe bei oder verlässt sie, passt edulution den Verteiler selbstständig an, sobald edulution die Änderung aus dem Verzeichnis übernommen hat – in der Regel innerhalb weniger Minuten. Wird eine Mitgliedsgruppe im Verzeichnis gelöscht oder umbenannt, schlägt der Verteiler mit diesem Grund fehl und stellt weiter an die bisherigen Empfänger zu, bis Sie die Gruppe aus dem Verteiler entfernen.
 
 Änderungen, die direkt auf dem Mailserver an der Adresse eines Verteilers vorgenommen werden – etwa zusätzliche Empfänger oder die Sichtbarkeit im Webmailer –, setzt edulution jede Nacht auf den Stand des Verteilers zurück. Adressen, die edulution nicht selbst angelegt hat, bleiben unangetastet.
+
+### Verteiler aus dem Verzeichnis übernehmen
+
+Auf linuxmuster übernimmt **Aus dem Verzeichnis übernehmen** – das Symbol rechts neben dem Plus-Symbol unter der Tabelle – die Verteiler der gewählten Schule aus dem Schulserver: alle Klassen und Projekte, die dort als Mailingliste markiert sind und eine E-Mail-Adresse haben. Jede übernommene Gruppe erscheint als Verteiler mit der Herkunft **linuxmuster**. Ihre Mitgliedsgruppe ist die Gruppe selbst, sodass der Verteiler den Mitgliedern auf dem Schulserver folgt.
+
+Nach jedem Lauf nennt eine Meldung, wie viele Verteiler übernommen, aktualisiert und unverändert sind und wie viele auf dem Schulserver fehlen.
+
+- Ein weiterer Lauf übernimmt einen geänderten Namen oder eine geänderte Adresse; ohne Änderungen auf dem Schulserver ändert er nichts.
+- Gibt es eine übernommene Gruppe auf dem Schulserver nicht mehr, bleibt der Verteiler bestehen und zählt als fehlend. Taucht die Gruppe wieder auf, gilt er beim nächsten Lauf wieder als vorhanden.
+- Nicht übernommen wird eine Gruppe, deren Adresse schon ein anderer Verteiler verwendet – als Adresse oder als externes Mitglied –, oder eine Gruppe, die bereits verknüpft ist. Die Meldung nennt diese Gruppen mit dem Grund.
+
+Übernommene Verteiler lassen sich hier nicht bearbeiten, löschen oder erneut einrichten; Änderungen nehmen Sie auf dem Schulserver vor. edulution richtet ihre Adressen nicht auf dem Mailserver ein, das übernimmt weiterhin die Synchronisation des Schulservers mit dem Mailserver.
 
 ### Verteiler löschen
 

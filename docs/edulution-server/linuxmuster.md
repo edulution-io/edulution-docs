@@ -98,12 +98,24 @@ Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Kla
 
 Vor dem Speichern werden die Einträge validiert. Doppelte Rechnernamen, MAC- oder IP-Adressen werden gemeldet und müssen zuerst bereinigt werden.
 
-Für **Rechnername**, **Raum** und **Hardwaregruppe** gelten zusätzlich Namensregeln; welche Zeichen erlaubt sind, nennt die Meldung, mit der **Speichern** und **Anwenden** einen abweichenden Namen abweisen. Ein Rechnername darf außerdem weder mit einem Bindestrich beginnen noch mit einem Bindestrich enden.
+Rechnername, Raum und Hardwaregruppe sind zugleich die Ziele, auf die ein `linbo-remote`-Lauf gerichtet wird, und müssen zusätzlich den Import nach Linuxmuster überstehen. Alle drei beginnen mit einem Buchstaben oder einer Ziffer:
+
+| Spalte | Erlaubt nach dem ersten Zeichen | Länge |
+|--------|----------------------------------|-------|
+| **Rechnername** | Buchstaben, Ziffern, Bindestrich | höchstens 15 Zeichen |
+| **Raum** | Buchstaben, Ziffern, Bindestrich | höchstens 63 Zeichen |
+| **Hardwaregruppe** | Buchstaben, Ziffern, Bindestrich, Unterstrich | höchstens 63 Zeichen |
+
+Ein Pluszeichen ist in keiner der drei Spalten zulässig – anders als im Namen einer Hardwaregruppe unter **LINBO**, den die `start.conf` mit Pluszeichen annimmt. Abweichende Zellen markiert die Tabelle, und **Speichern** und **Anwenden** bleiben gesperrt, bis sie bereinigt sind; leer bleiben darf keine der drei Spalten. Die Prüfung greift auch beim Einlesen einer CSV-Datei und noch einmal auf dem Server.
 
 :::note[Ältere Namen dürfen bleiben, bis Sie die Zeile ändern]
 Die Namensregeln gelten nur für neue und geänderte Zeilen. Eine Zeile, die unverändert der gespeicherten Geräteliste entspricht, lässt sich weiterhin speichern und anwenden, auch wenn einer ihrer Namen gegen die Regeln verstößt. Die Tabelle markiert eine solche Zelle gelb statt als Fehler; beim Überfahren erscheint *„Dieser Name entspricht nicht den aktuellen Namensregeln. Die Zeile kann unverändert bleiben, muss aber angepasst werden, sobald sie bearbeitet wird."*
 
 Sobald Sie in dieser Zeile irgendeinen Wert ändern, muss sie den Regeln entsprechen. Das gilt auch nach dem Einlesen einer CSV-Datei: Eine eingelesene Zeile, die mit einer gespeicherten Zeile vollständig übereinstimmt, gilt als unverändert. Doppelte Einträge sowie ungültige MAC- und IP-Adressen werden dagegen immer abgewiesen.
+:::
+
+:::warning[Ein unzulässiger Name bricht den Import der ganzen Schule ab]
+`sophomorix-device` prüft Raum und Hardwaregruppe beim Import ein weiteres Mal und bricht bei einem unzulässigen Zeichen den Import **der gesamten Schule** ab – nicht nur die betroffene Zeile. Die Linuxmuster-API meldet den Vorgang dabei trotzdem als erfolgreich. Deshalb weist die Geräteverwaltung solche Namen bereits in der Tabelle ab, statt sie an den Import weiterzureichen.
 :::
 
 :::tip[Ausführliche Anleitung]
@@ -326,7 +338,7 @@ Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API*
 
 Solange keine Gruppe ausgewählt ist, steht neben **Gruppe anlegen** ab **Version 7.4.13** der Linuxmuster-API auch **linbo.iso herunterladen**: Die Schaltfläche lädt das Startmedium, das der Server unter `/srv/linbo/linbo.iso` vorhält. Die Datei ist einige hundert Megabyte groß.
 
-Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
+Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – er beginnt mit einem Buchstaben oder einer Ziffer, darf danach Buchstaben, Ziffern, Bindestrich, Unterstrich und Pluszeichen enthalten, keine Leerzeichen, und höchstens 63 Zeichen lang sein – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
 
 Ab **Version 7.4.13** der Linuxmuster-API stehen unter den fünf mitgelieferten Vorlagen zusätzlich die Beispielkonfigurationen, die der Server in `/srv/linbo/examples` bereithält. Eine solche Vorlage wird unverändert übernommen; nur Gruppenname, Serveradresse und Schule schreibt die Plattform beim Anlegen neu.
 
@@ -338,6 +350,12 @@ Alle fünf Vorlagen legen ihr Layout auf `/dev/sda` an. Auf Rechnern mit NVMe- o
 
 :::warning[Vorhandene Gruppe wird nicht überschrieben]
 Vor dem Anlegen prüft die Plattform auf dem Server, ob für den Namen bereits eine `start.conf` existiert – auch dann, wenn die Liste sie nicht anzeigt. In diesem Fall bricht der Vorgang mit einem Hinweis ab, statt die vorhandene Gruppe zu ersetzen.
+:::
+
+:::warning[Namen, die kein LINBO-Lauf ansprechen kann]
+Die Namensregel entspricht den Zielen, die ein `linbo-remote`-Lauf annimmt. Ein Name, der mit einem Bindestrich oder Unterstrich beginnt, wird auf der Kommandozeile als Option gelesen; die Gruppe ließe sich anlegen, aber von keinem Lauf mehr ansprechen.
+
+Gruppen, die vor Einführung der Regel unter einem solchen Namen entstanden sind, bleiben in der Liste und lassen sich ansehen, in der Vorschau öffnen und löschen. Im Gruppen-Editor bleibt **Speichern** dagegen gesperrt und nennt den Gruppennamen als Grund, statt die Änderung erst nach dem Bearbeiten abzuweisen. Legen Sie die Gruppe in diesem Fall über **Duplizieren** unter einem zulässigen Namen neu an und löschen Sie anschließend die alte.
 :::
 
 Beim **Duplizieren** übernimmt die Kopie Partitionen, Betriebssysteme und Einstellungen der Vorlage; der Gruppenname in der Datei wird dabei auf den neuen Namen umgeschrieben.

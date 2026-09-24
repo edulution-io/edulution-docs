@@ -34,8 +34,8 @@ Die **Elternzuweisung** erscheint nur in Schulumgebungen. Beim [Organisationstyp
 Die Bereiche der App **Schulserver** stehen **Globaladmins** und **Schuladmins** offen. Andere Rollen haben gegenüber Linuxmuster keine Verwaltungsrechte – daran ändert auch der Zugriff auf die App nichts.
 :::
 
-:::note[LINBO nur für Globaladmins]
-Der Eintrag **LINBO** in der Seitenleiste – und die gleichnamige Kachel der Übersicht – ist ausschließlich **Globaladmins** vorbehalten. Für alle anderen Rollen entfällt der Bereich; die übrigen Einträge der App bleiben davon unberührt.
+:::note[Wer LINBO erreicht]
+Der Eintrag **LINBO** in der Seitenleiste – und die gleichnamige Kachel der Übersicht – steht **Globaladmins** immer offen. **Schuladmins** erreichen den Bereich ab **Version 7.4.13** der Linuxmuster-API; mit einer älteren API entfällt er für sie. Für alle anderen Rollen entfällt der Bereich ganz; die übrigen Einträge der App bleiben davon unberührt.
 :::
 
 Die **Übersicht** ist nach denselben Bereichen gegliedert wie die Seitenleiste. Unter **Benutzerverwaltung** führt je eine Kachel direkt zu den Benutzertypen **Schüler**, **Lehrer**, **Extra-Schüler**, **Eltern**, **Mitarbeiter**, **Schuladmins** und **Globaladmins**; in Unternehmensumgebungen bleiben davon nur **Mitarbeiter** und **Globaladmins** sichtbar. Darunter folgen die Bereiche **Geräteverwaltung**, **Elternzuweisung**, **LINBO** und **System** mit je einer Kachel. Die Kachel **LINBO** öffnet dieselbe Übersicht wie der gleichnamige Eintrag in der Seitenleiste.
@@ -83,7 +83,7 @@ Jedes Gerät benötigt neben Rechnername, MAC- und IP-Adresse eine **Rolle** und
 |----------|-----------|
 | **Kein PXE** | Das Gerät bootet nicht über das Netzwerk. |
 | **Linbo-PXE** | Das Gerät bootet LINBO. |
-| **Linbo-PXE + OPSI-PXE** | LINBO und OPSI stehen beide bereit. |
+| **Linbo-PXE + OPSI-Management** | Das Gerät bootet LINBO und wird zusätzlich über OPSI verwaltet. |
 | **OPSI-PXE** | Das Gerät bootet ausschließlich OPSI. |
 
 Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Klassenzimmer*, *Fachbereich-Lehrer-PC*, *Lehrer-PC*, *Server*, *Domaincontroller*, *Drucker*, *Router*, *Switch*, *Thinclient*, *BYOD*, *Mobiles Gerät*, *VOIP*, *WLan* und *IP-Only* zur Verfügung.
@@ -97,6 +97,26 @@ Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Kla
 :::
 
 Vor dem Speichern werden die Einträge validiert. Doppelte Rechnernamen, MAC- oder IP-Adressen werden gemeldet und müssen zuerst bereinigt werden.
+
+Rechnername, Raum und Hardwaregruppe sind zugleich die Ziele, auf die ein `linbo-remote`-Lauf gerichtet wird, und müssen zusätzlich den Import nach Linuxmuster überstehen. Alle drei beginnen mit einem Buchstaben oder einer Ziffer:
+
+| Spalte | Erlaubt nach dem ersten Zeichen | Länge |
+|--------|----------------------------------|-------|
+| **Rechnername** | Buchstaben, Ziffern, Bindestrich | höchstens 15 Zeichen |
+| **Raum** | Buchstaben, Ziffern, Bindestrich | höchstens 63 Zeichen |
+| **Hardwaregruppe** | Buchstaben, Ziffern, Bindestrich, Unterstrich | höchstens 63 Zeichen |
+
+Ein Pluszeichen ist in keiner der drei Spalten zulässig – anders als im Namen einer Hardwaregruppe unter **LINBO**, den die `start.conf` mit Pluszeichen annimmt. Abweichende Zellen markiert die Tabelle, und **Speichern** und **Anwenden** bleiben gesperrt, bis sie bereinigt sind; leer bleiben darf keine der drei Spalten. Die Prüfung greift auch beim Einlesen einer CSV-Datei und noch einmal auf dem Server.
+
+:::note[Ältere Namen dürfen bleiben, bis Sie die Zeile ändern]
+Die Namensregeln gelten nur für neue und geänderte Zeilen. Eine Zeile, die unverändert der gespeicherten Geräteliste entspricht, lässt sich weiterhin speichern und anwenden, auch wenn einer ihrer Namen gegen die Regeln verstößt. Die Tabelle markiert eine solche Zelle gelb statt als Fehler; beim Überfahren erscheint *„Dieser Name entspricht nicht den aktuellen Namensregeln. Die Zeile kann unverändert bleiben, muss aber angepasst werden, sobald sie bearbeitet wird."*
+
+Sobald Sie in dieser Zeile irgendeinen Wert ändern, muss sie den Regeln entsprechen. Das gilt auch nach dem Einlesen einer CSV-Datei: Eine eingelesene Zeile, die mit einer gespeicherten Zeile vollständig übereinstimmt, gilt als unverändert. Doppelte Einträge sowie ungültige MAC- und IP-Adressen werden dagegen immer abgewiesen.
+:::
+
+:::warning[Ein unzulässiger Name bricht den Import der ganzen Schule ab]
+`sophomorix-device` prüft Raum und Hardwaregruppe beim Import ein weiteres Mal und bricht bei einem unzulässigen Zeichen den Import **der gesamten Schule** ab – nicht nur die betroffene Zeile. Die Linuxmuster-API meldet den Vorgang dabei trotzdem als erfolgreich. Deshalb weist die Geräteverwaltung solche Namen bereits in der Tabelle ab, statt sie an den Import weiterzureichen.
+:::
 
 :::tip[Ausführliche Anleitung]
 Wie Sie Geräte entfernen, was **Speichern** und **Anwenden** dabei jeweils bewirken, was bei einem fehlgeschlagenen Vorgang mit Ihren Änderungen geschieht, wie der CSV-Dialog die Tabelle ersetzt und was mit Kommentarzeilen geschieht, beschreibt die [Geräteverwaltung](../edulution-plattform/apps/native-apps/geraeteverwaltung.md).
@@ -186,7 +206,17 @@ Die Hostliste ist über Registerkarten nach Gerätetyp gefiltert: **Alle**, **Co
 
 Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**.
 
+Sechs weitere Spalten sind ausgeblendet und lassen sich über die Spaltenauswahl einschalten: **PXE** mit der Bezeichnung des PXE-Kennzeichens, **PXE aktiv**, **Kommentar**, **DHCP-Optionen**, **Office-Schlüssel** und **Windows-Schlüssel**. Sie geben wieder, was die Geräteliste zu einem Rechner führt; geändert werden diese Angaben in der [Geräteverwaltung](#geräteverwaltung), nicht hier. Die Suche findet einen Rechner auch über seinen **Kommentar** – die beiden Schlüssel bleiben aus der Suche heraus.
+
+:::note[Hostliste und Schulbindung]
+Die Registerkarte **Hosts** erreicht, wer auch den Bereich **LINBO** erreicht: **Globaladmins** immer, **Schuladmins** ab **Version 7.4.13** der Linuxmuster-API. Zuvor blieb die Registerkarte auch einem Schuladmin verborgen, dem die API LINBO bereits geöffnet hatte.
+
+Anders als die Gruppen sind Hosts schulgebunden. Ein Schuladmin sieht die Rechner seiner eigenen Schule, und jede Aktion – **Wake-on-LAN**, **Neu starten**, **Herunterfahren**, ein Kommando aus dem Aktionsdialog oder ein **Hostscan** – wirkt auf diese Schule. Nennt eine Anfrage eine andere Schule, antwortet die Plattform mit *„Du hast keine Berechtigung, auf diese Ressource zuzugreifen."*, ohne die Anfrage an den Server weiterzugeben. Ein Globaladmin wählt über die **Schulauswahl** jede Schule des Servers.
+:::
+
 **Status** nennt je Host **Online** oder **Offline**; die Spaltenüberschrift sagt beim Überfahren, wann der Zustand zuletzt erhoben wurde. Solange für einen Host noch keine Erhebung vorliegt, bleibt das Feld leer.
+
+Ab der Linuxmuster-API **Version 7.4.12** fragt die Plattform einen Host nach einer Aktion aus dem Menü seiner Zeile – **Wake-on-LAN**, **Neu starten** oder **Herunterfahren** – mehrfach nach. Die Spalte **Status** nennt dann neben **Online** oder **Offline**, welches System der Rechner gerade ausführt: *LINBO*, *Linux*, *Windows* oder *Unbekanntes Betriebssystem*. Beim Überfahren listet sie je Image, wann es auf dem Rechner zuletzt synchronisiert wurde oder dass es dort noch nie synchronisiert wurde. Mit einer älteren API-Version zeigt die Spalte nur **Online** oder **Offline**.
 
 Über das Menü hinter der Schaltfläche mit den drei Punkten schicken Sie einer Zeile **Wake-on-LAN**, **Neu starten**, **Herunterfahren** oder **Aktion schicken…** – Letzteres öffnet den Kommando-Dialog für genau diesen Host, unabhängig davon, welche Zeilen sonst angehakt sind. Ein Host, der nicht erreichbar ist, wird übersprungen und in der Rückmeldung benannt.
 
@@ -200,9 +230,15 @@ Eine Sammelaktion erreicht nur die Hosts, die gerade **sichtbar** sind. Schränk
 
 Nach einer Sammelaktion verlieren die Hosts ihr Häkchen, für die der Server den Auftrag angenommen hat – auch dann, wenn er einzelne davon als offline übersprungen hat. Angehakt bleiben nur Rechner, die der Auftrag gar nicht erreicht hat, etwa weil bei einem großen Lauf ein Teil nicht zugestellt werden konnte. Die Auswahl schrumpft dann auf genau diese Rechner, sodass ein zweiter Versuch die bereits bedienten nicht noch einmal trifft.
 
+#### Eine Aktion an einen Raum schicken
+
+**Aktion an Raum schicken** richtet eine Kommandokette an einen Raum, auch ohne dass ein Rechner ausgewählt ist. Sie wählen den Raum aus einer Liste; die Räume stammen aus der Geräteliste (`devices.csv`), nicht aus den Sitzplänen. Der Dialog nennt, wie viele Rechner die Geräteliste in diesem Raum führt, und der Server löst den Raum beim Ausführen selbst auf. Aktionen mit Betriebssystem stehen nur für Räume bereit, deren Rechner alle derselben Hardwaregruppe angehören – bei einem gemischten Raum nennt der Dialog die beteiligten Gruppen. Auch die Bestätigung für einen zerstörenden Schritt nennt dann den Raum statt einer Anzahl von Rechnern.
+
 #### Der Kommando-Dialog
 
 **Aktion schicken** öffnet einen Dialog, der die ausgewählten Rechner namentlich nennt – oder, aus dem Bereich **Gruppen** heraus, die Hardwaregruppe, an die die Kette geht – und aus einzelnen Schritten eine **Kommandokette** zusammensetzt. Die Kette wird genau in der Reihenfolge ausgeführt, in der die Schritte stehen; über **Nach oben** und **Nach unten** ordnen Sie sie um, über **Entfernen** nehmen Sie einen Schritt wieder heraus. Unten zeigt die **Kommandokette** die Schreibweise, die Sie auch auf der Konsole verwenden würden.
+
+Oberhalb der Schritte wählen Sie den **Modus**. **Einfach** führt je Betriebssystem der `start.conf` eine Zeile mit **Formatieren**, **Sync** und **Start** und darunter die Schalter **Partitionieren** und **Cache befüllen** (`rsync`); daraus entsteht die Kette in der Reihenfolge Partitionieren, Formatieren, Cache befüllen, Sync, Start. Führt die `start.conf` kein Betriebssystem, bleiben nur die beiden Schalter. **Erweitert** ist der Baukasten mit dem vollen Kommando-Katalog, den die folgenden Abschnitte beschreiben.
 
 Je nach Schritt verlangt der Dialog ein zusätzliches Argument:
 
@@ -277,6 +313,16 @@ Oben rechts wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleib
 | **Datenblatt** | die gesetzten Schlüssel der Gruppe: Server, Cache, Download-Typ, Systemtyp, Abmeldung nach, Kernel-Optionen und Virtueller Desktop |
 | **Tabelle** | ID, Dateiname und Änderungszeitpunkt |
 
+Über der Liste steht in allen vier Ansichten dieselbe Leiste: die Zahl der Gruppen, die die Suche übrig lässt, das Suchfeld, **Sortieren**, die Ansichtswahl und die Schulauswahl. Die Suche findet eine Gruppe über ihren Namen und den Dateinamen ihrer `start.conf`. Suchbegriff und Auswahl bleiben erhalten, wenn Sie die Ansicht wechseln.
+
+In den drei Kartenansichten wählen Sie eine Gruppe über das Kästchen oben links auf ihrer Karte aus; **Alle auswählen** über den Karten wählt alle Gruppen, die die Suche zeigt. Ein Klick auf die Karte außerhalb des Kästchens öffnet die Vorschau.
+
+Solange keine Gruppe ausgewählt ist, bietet die Leiste am unteren Rand **Neu laden** an. Die Schaltfläche holt die `start.conf`-Dateien, die GRUB-Konfigurationen, die Images und die Hosts für die Hostzahlen erneut vom Server – auch dann, wenn die Seite sie gerade erst geladen hat.
+
+:::note[Die Suche bestimmt mit, welche Gruppen eine Aktion trifft]
+Ausgewählte Gruppen bleiben ausgewählt, wenn die Suche oder der Filter der Tabelle sie ausblendet. Die Zahl in der Leiste und jede Aktion beziehen sich aber nur auf die ausgewählten Gruppen, die gerade **sichtbar** sind. Leeren Sie die Suche wieder, sind die ausgeblendeten Gruppen erneut Teil der Aktion.
+:::
+
 Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API**, wie viele Hosts und Gruppen gefunden wurden und wann zuletzt geladen wurde. Die API-Anzeige unterscheidet vier Zustände:
 
 | Anzeige | Bedeutung |
@@ -288,21 +334,27 @@ Ein Banner über der Liste nennt den **Sync-Status**: den Zustand der **LMN-API*
 
 #### Aktionen einer Gruppe
 
-**Vorschau anzeigen** liegt als eigene Schaltfläche auf der Karte. Alle Aktionen zusammen finden Sie im Menü hinter der Schaltfläche mit den drei Punkten, auf der Karte oben rechts neben dem Namen. In der **Tabelle** steht in der Spalte **Aktionen** das Löschen; die Vorschau öffnen Sie dort per Klick auf die Zeile – beim Überfahren weist die Spalte **Aktualisiert** darauf hin.
+Die Aktionen bietet die Leiste am unteren Rand an, sobald Gruppen ausgewählt sind – in jeder Ansicht gleich. Aktionen, die sich auf eine einzelne Gruppe beziehen, stehen nur bei genau einer ausgewählten Gruppe zur Wahl. Die Vorschau öffnen Sie zudem per Klick auf eine Karte oder eine Zeile der **Tabelle**.
 
 | Aktion | Wirkung |
 |--------|---------|
 | **Bearbeiten** | öffnet den Gruppen-Editor (siehe unten) |
-| **Vorschau anzeigen** | zeigt die ausgewertete `start.conf`, ihre Rohdaten und die GRUB-Konfiguration |
+| **Vorschau** | zeigt die ausgewertete `start.conf`, ihre Rohdaten und die GRUB-Konfiguration |
 | **Duplizieren** | legt eine Kopie unter neuem Namen an |
+| **Sicherungen** | listet die Sicherungen der `start.conf` und spielt eine davon zurück |
+| **VDI** | öffnet die VDI-Konfiguration der Gruppe |
 | **Aktion schicken** | öffnet den [Kommando-Dialog](#der-kommando-dialog) für alle Rechner der Gruppe |
-| **Gruppe löschen** | löscht die `start.conf` der Gruppe auf dem Server |
+| **Löschen** | löscht die `start.conf` der Gruppe auf dem Server |
 
 **Aktion schicken** richtet eine Kommandokette an die Hardwaregruppe als Ganzes: Der Server ermittelt selbst, welche Rechner der **ausgewählten Schule** dazugehören – Rechner derselben Gruppe in einer anderen Schule erreicht der Lauf nicht; wechseln Sie dafür die Schule oberhalb der Liste. Der Dialog nennt die Gruppe und dazu, wie viele ihrer Rechner die ausgewählte Schule führt; führt sie keinen, steht keine Aktion zur Wahl, und der Dialog sagt warum. Solange die Rechnerliste der Schule noch geladen wird – oder wenn das Laden fehlgeschlagen ist – ist die Anzahl noch nicht bekannt: Auch dann steht keine Aktion zur Wahl, der Dialog nennt dafür aber das Laden als Grund, statt es der Schule zuzuschreiben. Öffnen Sie den Dialog direkt nach dem Aufruf der Seite, kann das kurz der Fall sein; sobald die Liste steht, stehen die Aktionen zur Wahl. Die Betriebssysteme für **Sync**, **Neu** und **Start** stammen aus der `start.conf` der Gruppe. Die Aktion ist ausgegraut, solange ein anderer Auftrag noch läuft, und für eine Gruppe, deren Name die Regeln für `linbo-remote` nicht erfüllt – der Grund steht am Knopf. Nach dem Abschicken meldet die Plattform, ob die Kette die Gruppe erreicht hat; waren Rechner offline, nennt sie den Hinweis des Servers dazu. Ob der Lauf noch läuft und was er ausgibt, sehen Sie anschließend unter [Laufende Sitzungen](#laufende-sitzungen) im Bereich **Hosts**.
 
-Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – erlaubt sind Buchstaben, Ziffern, Bindestrich und Unterstrich, keine Leerzeichen – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
+Solange keine Gruppe ausgewählt ist, steht neben **Gruppe anlegen** ab **Version 7.4.13** der Linuxmuster-API auch **linbo.iso herunterladen**: Die Schaltfläche lädt das Startmedium, das der Server unter `/srv/linbo/linbo.iso` vorhält. Die Datei ist einige hundert Megabyte groß.
 
-Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach; gelingt das nicht, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste.
+Über **Gruppe anlegen** oben rechts erstellen Sie eine neue Gruppe. Sie vergeben einen Namen – er beginnt mit einem Buchstaben oder einer Ziffer, darf danach Buchstaben, Ziffern, Bindestrich, Unterstrich und Pluszeichen enthalten, keine Leerzeichen, und höchstens 63 Zeichen lang sein – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)*, *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
+
+Ab **Version 7.4.13** der Linuxmuster-API stehen unter den fünf mitgelieferten Vorlagen zusätzlich die Beispielkonfigurationen, die der Server in `/srv/linbo/examples` bereithält. Eine solche Vorlage wird unverändert übernommen; nur Gruppenname, Serveradresse und Schule schreibt die Plattform beim Anlegen neu.
+
+Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach. Gelingt das nicht – etwa weil `/server-info` globalen Administratoren vorbehalten ist –, verwendet sie die Serveradresse, die eine bereits vorhandene Gruppe nennt. Findet sich auch dort keine, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste.
 
 :::note[Vorlagen zielen auf die erste SATA-Platte]
 Alle fünf Vorlagen legen ihr Layout auf `/dev/sda` an. Auf Rechnern mit NVMe- oder VirtIO-Platten passt das nicht: Die Gruppe entsteht zwar, ihre Gerätenamen gehen aber an der Hardware vorbei und müssen anschließend in der `start.conf` korrigiert werden. Das Gerät steht im Hinweis unter der Vorlagenauswahl, bevor Sie schreiben.
@@ -312,15 +364,45 @@ Alle fünf Vorlagen legen ihr Layout auf `/dev/sda` an. Auf Rechnern mit NVMe- o
 Vor dem Anlegen prüft die Plattform auf dem Server, ob für den Namen bereits eine `start.conf` existiert – auch dann, wenn die Liste sie nicht anzeigt. In diesem Fall bricht der Vorgang mit einem Hinweis ab, statt die vorhandene Gruppe zu ersetzen.
 :::
 
+:::warning[Namen, die kein LINBO-Lauf ansprechen kann]
+Die Namensregel entspricht den Zielen, die ein `linbo-remote`-Lauf annimmt. Ein Name, der mit einem Bindestrich oder Unterstrich beginnt, wird auf der Kommandozeile als Option gelesen; die Gruppe ließe sich anlegen, aber von keinem Lauf mehr ansprechen.
+
+Gruppen, die vor Einführung der Regel unter einem solchen Namen entstanden sind, bleiben in der Liste und lassen sich ansehen, in der Vorschau öffnen und löschen. Im Gruppen-Editor bleibt **Speichern** dagegen gesperrt und nennt den Gruppennamen als Grund, statt die Änderung erst nach dem Bearbeiten abzuweisen. Legen Sie die Gruppe in diesem Fall über **Duplizieren** unter einem zulässigen Namen neu an und löschen Sie anschließend die alte.
+:::
+
 Beim **Duplizieren** übernimmt die Kopie Partitionen, Betriebssysteme und Einstellungen der Vorlage; der Gruppenname in der Datei wird dabei auf den neuen Namen umgeschrieben.
 
 :::warning[Wer Gruppen schreiben darf, entscheidet die Linuxmuster-API]
-Anlegen, Speichern, Duplizieren und Löschen einer Gruppe reicht die Plattform für Schul- und globale Administratoren an die Linuxmuster-API weiter; welche Rolle die Aktion ausführen darf, prüft die API. Bis einschließlich **Version 7.4.11** sind diese Schreibrouten globalen Administratoren vorbehalten: Als Schuladministrator erreichen Sie die Aktion in der Oberfläche, der Server weist sie aber ab – mit der Meldung *„start.conf konnte nicht gespeichert werden"* beziehungsweise *„start.conf konnte nicht gelöscht werden"*. Gibt eine neuere API-Version die Routen auch für Schuladministratoren frei, stehen sie ohne Änderung an der Plattform zur Verfügung. Lesen und Vorschau sind von der Einschränkung nicht betroffen.
+Anlegen, Speichern, Duplizieren und Löschen einer Gruppe reicht die Plattform an die Linuxmuster-API weiter; welche Rolle die Aktion ausführen darf, prüft die API. Bis einschließlich **Version 7.4.12** sind diese Schreibrouten globalen Administratoren vorbehalten: Als Schuladministrator erreichen Sie die Aktion in der Oberfläche, der Server weist sie aber ab – mit der Meldung *„start.conf konnte nicht gespeichert werden"* beziehungsweise *„start.conf konnte nicht gelöscht werden"*. Ab **Version 7.4.13** stehen die LINBO-Routen auch Schuladministratoren offen; der Bereich **LINBO** erscheint dann für sie im Menü. Lesen und Vorschau sind von der Einschränkung nicht betroffen.
+:::
+
+:::note[Die Dateien unter `/srv/linbo` kennen keine Schule]
+`start.conf`-Dateien, Images und Beispielkonfigurationen liegen serverweit, nicht je Schule. Ein Schuladministrator ändert hier also, was alle Schulen des Servers verwenden. Einzig `/server-info` bleibt globalen Administratoren vorbehalten: Die Serveradresse für eine neue Gruppe entnimmt die Plattform dann einer vorhandenen Gruppe.
 :::
 
 :::warning[Was beim Löschen verschwindet]
 Gelöscht werden die `start.conf` **und** die GRUB-Konfiguration der Gruppe. Rechner dieser Gruppe starten danach ohne Konfiguration, bis ihnen eine andere Gruppe zugewiesen wird. Der Server legt vor dem Löschen eine Sicherung der `start.conf` an.
 :::
+
+#### Sicherungen der start.conf
+
+Ab **Version 7.4.13** der Linuxmuster-API listet **Sicherungen** je Eintrag Datum, Zeitstempel und Größe, mit **Wiederherstellen** und einer Schaltfläche zum Löschen. Der Server legt jede Sicherung selbst an, sobald eine `start.conf` geschrieben wird.
+
+:::note[Wiederherstellen ist umkehrbar]
+Vor dem Zurückspielen sichert der Server die aktuelle `start.conf`, sodass sich der Schritt zurücknehmen lässt. Der Server behält die zehn letzten Fassungen und verwirft ältere.
+:::
+
+Nach dem **Wiederherstellen** wendet die Plattform die Gruppe an wie nach dem Speichern im [Gruppen-Editor](#der-gruppen-editor): Sie startet den Geräteimport einer Schule, die die Gruppe per PXE startet, damit das Boot-Menü der zurückgespielten Fassung folgt. Die Meldung nennt diese Schule, sagt, dass noch kein Computer die Gruppe startet, oder dass das Anwenden fehlgeschlagen ist – dann wenden Sie die Geräteliste in der Geräteverwaltung an. Zurückgespielt ist die Datei in jedem Fall.
+
+#### VDI-Konfiguration
+
+Ab **Version 7.4.13** der Linuxmuster-API öffnet **VDI** die Datei `start.conf.<Gruppe>.vdi` der Gruppe. Der Dialog zeigt die Felder, die die Schulkonsole schreibt – darunter **VDI aktiviert**, Name, Hostname, Betriebssystemtyp, IP- und MAC-Adresse, Netzwerkbrücke, Kerne, Arbeitsspeicher und die VM-IDs. **Speichern** ersetzt die Datei als Ganzes, **VDI abschalten** löscht sie; die `start.conf` der Gruppe bleibt in beiden Fällen unberührt.
+
+:::note[Felder außerhalb der Liste bleiben erhalten]
+Die Datei gehört edulution-linbo-vdi. Felder, die der Dialog nicht anzeigt, schreibt die Plattform unverändert zurück, statt sie zu verwerfen.
+:::
+
+Lässt sich die Datei nicht lesen, zeigt der Dialog statt der Felder einen Hinweis und bietet **Speichern** nicht an, denn ein leeres Formular würde die gespeicherte Konfiguration ersetzen. Schließen Sie den Dialog und öffnen Sie ihn erneut. Ebenso bleibt **Speichern** gesperrt, solange ein Zahlenfeld oder die VM-IDs etwas anderes als ganze Zahlen enthalten; mehrere VM-IDs trennen Sie durch Kommas.
 
 #### Die Vorschau
 
@@ -331,6 +413,10 @@ Die Vorschau **Gruppe \<ID\>** hat drei Registerkarten:
 - **GRUB cfg** – der Inhalt der GRUB-Konfiguration.
 
 Existiert zu einer Gruppe keine `start.conf`, entfallen die ersten beiden Registerkarten.
+
+:::note[Die GRUB-Vorschau zeigt den Stand auf dem Server]
+Die Registerkarte **GRUB cfg** liest die Konfiguration bei jedem Öffnen erneut vom Server und zeigt damit nicht die Fassung, die beim Laden der Liste mitkam. Verweigert die Linuxmuster-API das Lesen der einzelnen Konfiguration, bleibt die Vorschau ohne Fehlermeldung bei der Fassung aus der Liste.
+:::
 
 :::note[Auswertung der start.conf]
 Die Zusammenfassung liest die Datei so, wie LINBO selbst sie liest: Abschnitts- und Schlüsselnamen werden unabhängig von der Groß- und Kleinschreibung erkannt, und als Ja-Wert gelten ausschließlich `yes`, `true` und `enable`. Ein Schlüssel mit einem anderen Wert – etwa `Autostart = 1` – zählt daher als *aus*. Ein leerer oder fehlender Schlüssel erhält den Standardwert, den auch der LINBO-Client annimmt.
@@ -344,6 +430,8 @@ Die Zusammenfassung liest die Datei so, wie LINBO selbst sie liest: Abschnitts- 
 
 Zum Feld **Kernel-Optionen** gehören Schaltflächen für die gebräuchlichen Werte: `quiet`, `splash`, `acpi=noirq`, `acpi=off`, `irqpoll` und `dhcpretry=9`. Ein Klick hängt den Wert an die bestehenden Optionen an; ist er bereits gesetzt, ist die Schaltfläche ausgegraut.
 
+Ein Feld der Registerkarte **Allgemein**, das Sie leeren, verschwindet beim Speichern aus der `start.conf`, statt als leerer Eintrag darin stehen zu bleiben. Für LINBO ist das der Unterschied zwischen *nicht gesetzt* und *auf leer gesetzt*: Der Wert fällt damit auf die Vorgabe zurück. Das betrifft unter anderem **Schule**, **Abmeldung nach**, **Kernel-Optionen** und **Hintergrundfarbe**.
+
 :::warning[Beim Start formatieren]
 **Beim Start partitionieren** legt das Plattenlayout bei jedem Start neu an, **Beim Start formatieren** formatiert dabei alle Partitionen. Lokal auf den Rechnern gespeicherte Daten gehen dann bei jedem Start verloren.
 :::
@@ -354,9 +442,31 @@ Im Feld **Größe** gilt: eine nackte Zahl sind Kibibytes, ein Suffix `M`, `G` o
 
 Unter den Platten listet der Abschnitt **Betriebssysteme** die Einträge der Gruppe mit Partition, Basisimage, Kernel, Initrd und den Schaltern für Autostart, Sync und Start. **Bearbeiten** öffnet die Partition, an der ein Eintrag hängt. Zeigt das Root-Gerät eines Eintrags auf keine Partition des Layouts, wird der Eintrag als verwaist gekennzeichnet und lässt sich hier löschen.
 
-Bearbeitet wird ein Betriebssystem auf der Unterregisterkarte **Betriebssystem** des Partitionsdialogs. Dort stehen **Name**, **Version**, **Standardaktion**, **Symbol**, **Basisimage**, die **Startknöpfe im LINBO-Menü** – *Start*, *Sync & Start*, *Neu & Start* und *Autostart* – sowie das **Autostart-Timeout (Sekunden)**. Hinter **Erweitert** liegen **Kernel**, **Initrd**, **Zusätzliche Kernel-Parameter**, **Opsi-Setup erzwingen**, **Opsi-Status wiederherstellen** und **Im Startmenü ausblenden**.
+Bearbeitet wird ein Betriebssystem auf der Unterregisterkarte **Betriebssystem** des Partitionsdialogs. Dort stehen **Name**, **Version**, **Standardaktion**, **Symbol**, **Beschreibung**, **Basisimage**, die **Startknöpfe im LINBO-Menü** – *Start*, *Sync & Start*, *Neu & Start* und *Autostart* – sowie das **Autostart-Timeout (Sekunden)**. Hinter **Erweitert** liegen **Kernel**, **Zusätzliche Kernel-Parameter**, **Opsi-Setup erzwingen**, **Opsi-Status wiederherstellen** und **Im Startmenü ausblenden**.
+
+Zwei dieser Felder richten sich nach dem Dateisystem der Partition: **Initrd** erscheint nur, wenn die Partition kein NTFS trägt – ein Windows-System startet ohne Initrd –, und **Kernel** ist auf NTFS eine Auswahl aus `auto`, `grub.exe` und `reboot` statt eines freien Textfelds.
+
+Trägt eine Partition noch kein Betriebssystem, weist die Unterregisterkarte darauf hin und bietet **Betriebssystem hinzufügen** an. Die Schaltfläche erscheint nur auf Partitionen, von denen LINBO überhaupt starten kann – also nicht auf *EFI*, *MSR*, *Erweitert* und *Swap* und nicht auf der Cache-Partition. Eine Partition aus dem Preset *Daten* kommt dagegen infrage; sie unterscheidet sich von *Windows* nur im Label. Dasselbe gilt für Partitionen aus einer hochgeladenen `start.conf`, die dort keinen Betriebssystem-Abschnitt hatten.
+
+:::warning[Betriebssystem auf einer nicht startfähigen Partition]
+Ändern Sie an einer Partition, an der ein Betriebssystem hängt, das Dateisystem oder den Partitionstyp auf einen Wert, von dem LINBO nicht startet – oder machen Sie sie zur Cache-Partition –, bleibt der Eintrag erhalten und weiter bearbeitbar. Die Unterregisterkarte **Betriebssystem** weist dann darauf hin, dass LINBO dieses System hier nicht mehr starten kann.
+
+Gelöscht wird der Eintrag nicht – setzen Sie das Dateisystem oder den Partitionstyp zurück, damit das System wieder startet. Im Abschnitt **Betriebssysteme** lässt sich der Eintrag in diesem Zustand nicht entfernen: Die Schaltfläche zum Löschen erscheint dort nur bei verwaisten Einträgen, deren Partition es gar nicht mehr gibt.
+:::
 
 Solange ungespeicherte Änderungen vorliegen, fragt der Editor beim Schließen nach, ob Sie sie verwerfen wollen.
+
+Nach dem **Speichern** wendet die Plattform die Gruppe sofort an: Sie startet den Geräteimport einer Schule, in der ein Gerät mit gesetztem PXE-Flag dieser Gruppe zugeordnet ist, damit die Startkonfiguration der Gruppe neu erzeugt wird. Gesucht wird zuerst in der gewählten Schule, danach in den übrigen Schulen des Servers; importiert wird nur die erste Schule, die die Gruppe verwendet. Die Meldung nennt das Ergebnis:
+
+| Meldung | Bedeutung |
+|---------|-----------|
+| *„… wurde gespeichert und über den Geräteimport der Schule „…" angewendet."* | Die Gruppe ist angewendet; die Meldung nennt die Schule, deren Import gelaufen ist. |
+| *„… wurde gespeichert. Noch startet kein Computer diese Gruppe, daher musste nichts angewendet werden."* | Keinem Gerät mit PXE-Flag ist die Gruppe zugeordnet. |
+| *„… wurde gespeichert, aber nicht angewendet. Bitte wenden Sie die Geräteliste in der Geräteverwaltung an."* | Der Import ist fehlgeschlagen. Die `start.conf` liegt auf dem Server; wenden Sie die Geräteliste der betroffenen Schule in der [Geräteverwaltung](#geräteverwaltung) mit **Anwenden** an. |
+
+:::warning[Der Import übernimmt die gespeicherte Geräteliste]
+Der Geräteimport ist derselbe, den **Anwenden** in der Geräteverwaltung auslöst. Er übernimmt die auf dem Server gespeicherte Geräteliste der Schule vollständig – auch Änderungen, die dort gespeichert, aber noch nicht angewendet wurden. Beim Löschen einer Gruppe läuft kein Geräteimport.
+:::
 
 :::note[Was beim Speichern geprüft wird]
 Bevor die Plattform eine `start.conf` auf den Server schreibt, prüft sie deren Abschnitt `[LINBO]` und weist die Datei mit einer Meldung ab, wenn
@@ -379,6 +489,10 @@ Oben rechts wählen Sie wie bei den Gruppen zwischen vier Ansichten; die Wahl bl
 | **Datenblatt** | Dateiname, Größe, Partition, Partitionsgröße, ob eine Prüfsumme vorliegt, Dateizahl und Änderungszeitpunkt |
 | **Tabelle** | Name, Größe, Sidecars und Änderungszeitpunkt |
 
+Die Leiste über der Liste ist dieselbe wie bei den Gruppen, ohne Schulauswahl. Die Suche findet ein Image über seinen Namen, seine Beschreibung und die Fehlermeldung, die die Plattform zu einem fehlerhaften Image anzeigt. In den Kartenansichten wählen Sie ein Image über das Kästchen oben links auf seiner Karte aus; ein Klick auf die Karte oder auf eine Zeile der **Tabelle** öffnet die Details des Images.
+
+Auch hier bietet die Leiste am unteren Rand **Neu laden** an, solange kein Image ausgewählt ist. Die Schaltfläche lädt die Images erneut vom Server und – sofern die Linuxmuster-API die Gruppenliste unterstützt – auch die `start.conf`-Dateien der Gruppen. Wie bei den Gruppen bleiben ausgewählte Images ausgewählt, wenn die Suche oder der Filter der Tabelle sie ausblendet; Zahl und Aktionen der Leiste gelten nur für die sichtbaren.
+
 :::note[Zwei Namen, ein Image]
 Ein Image heißt nach seinem Verzeichnis auf dem Server (`debian13`); die Bilddatei darin trägt zusätzlich die Endung (`debian13.qcow2`). Angezeigt und in allen Aktionen verwendet wird der Name des Images, nicht der der Datei.
 :::
@@ -391,29 +505,33 @@ Der **Erstellungszeitpunkt** stammt aus dem `.info`-Sidecar und ist die Uhrzeit,
 
 Über die Schaltfläche zum Hochladen fügen Sie ein Image hinzu. Zulässig sind Image-Dateien (`.qcow2`, `.qdiff`, `.cloop`, `.rsync`) und alle oben genannten Beipack-Dateien; andere Dateitypen weist der Dialog ab. Während eines laufenden Downloads sind weitere Downloads gesperrt.
 
-Im Dialog geben Sie Image-Name und Dateiname an; während der Übertragung sind beide Felder gesperrt und ein Fortschrittsbalken zeigt den Stand in Prozent. **Abbrechen** bricht die laufende Übertragung ab und verwirft zugleich die Daten, die der Server bereits entgegengenommen hat – es bleibt also kein angefangenes Image auf dem Server zurück.
+Im Dialog geben Sie Image-Name und Dateiname an; während der Übertragung sind beide Felder gesperrt und ein Fortschrittsbalken zeigt den Stand in Prozent. **Abbrechen** bricht die laufende Übertragung ab und verwirft zugleich die Daten, die der Server bereits entgegengenommen hat – es bleibt also kein angefangenes Image auf dem Server zurück. Fällt **Abbrechen** in den Augenblick, in dem der Server das vollständig übertragene Image bereits fertigstellt, wartet die Plattform diesen Schritt ab; das Image liegt danach vollständig vor.
 
-Der Server nimmt ein Image in Teilstücken entgegen. Bricht die Übertragung ab, weil etwa die Verbindung zum Schulserver wegfällt, setzt ein erneuter Upload derselben Datei dort an, wo er stehengeblieben ist; bei einem mehrere Gigabyte großen Image erspart das den bereits übertragenen Teil.
+Der Browser überträgt die Datei in Teilstücken unmittelbar an den Schulserver. Die Größenbeschränkung, die bisher der Zwischenspeicher des edulution-Servers setzte, entfällt damit; abgewiesen wird eine Datei erst, wenn sie die Obergrenze von LINBO überschreitet – die Meldung nennt diese Grenze. Bricht die Übertragung ab, weil etwa die Verbindung wegfällt, setzt ein erneuter Upload derselben Datei dort an, wo er stehengeblieben ist, und der Dialog weist mit *„Setzt einen abgebrochenen Upload bei N % fort"* darauf hin; bei einem mehrere Gigabyte großen Image erspart das den bereits übertragenen Teil.
 
-:::note[Fortgesetzt wird nur dieselbe Datei]
-Fortgesetzt wird der Upload ausschließlich dann, wenn Sie unter demselben Image- und Dateinamen erneut eine Datei derselben Größe hochladen. Laden Sie unter einem bereits angefangenen Namen eine andere Datei hoch – etwa ein neu erstelltes Image –, beginnt die Übertragung von vorn und überschreibt den angefangenen Stand. Nach einem Neustart der edulution-Instanz beginnt jeder Upload ebenfalls von vorn.
+Scheitert ein Teilstück unterwegs – die Verbindung reißt ab oder der Server antwortet mit einem Fehler –, wartet der Browser 2 Sekunden, beim zweiten Mal 5, prüft dann, ob das Teilstück doch angekommen ist, und sendet es andernfalls erneut; erst wenn auch der dritte Versuch scheitert, bricht der Upload ab. Weist der Server ein Teilstück dagegen ab, etwa wegen eines unzulässigen Image- oder Dateinamens, endet der Upload sofort mit der Meldung.
+
+:::note[Fortgesetzt wird nur dieselbe Datei, und nur im selben Browser]
+Den Vermerk über einen angefangenen Upload hält der Browser selbst, unter dem Schlüssel `linbo-upload-resume:<Image>/<Dateiname>`. Er greift nur, wenn Dateiname, Größe **und** Änderungszeitpunkt der erneut gewählten Datei übereinstimmen, das zuletzt übertragene Teilstück höchstens 24 Stunden zurückliegt und der Schulserver genau so viele Bytes bereithält, wie dieser Browser übertragen hat – hat inzwischen ein anderer Upload unter demselben Namen Daten abgelegt, beginnt die Übertragung von vorn. Angelegt wird der Vermerk, sobald das erste Teilstück angekommen ist, und nach jedem weiteren fortgeschrieben; gelöscht wird er, sobald der Upload abgeschlossen oder abgebrochen ist, das Image gelöscht wird oder Sie sich abmelden. In einem anderen Browser, an einem anderen Rechner oder nach dem Leeren der Websitedaten beginnt die Übertragung deshalb von vorn – der Stand auf dem Schulserver überdauert dagegen einen Neustart der edulution-Instanz.
+
+Laden Sie unter einem bereits angefangenen Namen eine andere Datei hoch – etwa ein neu erstelltes Image –, beginnt die Übertragung von vorn und überschreibt den angefangenen Stand. Weicht am Ende die Größe der auf dem Server abgelegten Datei von der gewählten ab, schließt die Plattform den Upload nicht ab, sondern meldet dies und behält den Vermerk, sodass ein erneuter Versuch fortsetzen kann.
 :::
 
 #### Aktionen eines Images
 
-**Herunterladen** liegt als eigene Schaltfläche auf der Karte. Die übrigen Aktionen stehen im Menü hinter der Schaltfläche mit den drei Punkten daneben, in der Tabelle in der Spalte **Aktionen**:
+Die Aktionen bietet die Leiste am unteren Rand an, sobald Images ausgewählt sind; Aktionen für ein einzelnes Image stehen nur bei genau einer Auswahl zur Wahl:
 
 | Aktion | Wirkung |
 |--------|---------|
-| **Details anzeigen** | Dateiname, Pfad, Prüfsumme und der Inhalt des `.info`-Sidecars |
-| **Beschreibung und Skripte bearbeiten** | öffnet den Sidecar-Editor (siehe unten) |
-| **Sicherungen verwalten** | listet die Sicherungen des Images zum Wiederherstellen oder Löschen |
-| **Umbenennen** | benennt Image, Sicherungen und alle Beipack-Dateien um |
+| **Herunterladen** | lädt die Image-Datei herunter; gesperrt, solange ein anderer Download läuft |
+| **Bearbeiten** | öffnet den Sidecar-Editor (siehe unten) |
+| **Sicherungen** | listet die Sicherungen des Images zum Wiederherstellen oder Löschen |
 | **Duplizieren** | kopiert das Image samt Beschreibung, Registry-Patch und Skripten, aber ohne Sicherungen |
-| **Differenzimage löschen** | erscheint nur, wenn zum Image ein Differenzimage existiert |
-| **Löschen** | löscht das Image mit Sicherungen, Differenzimage und Beipack-Dateien |
+| **Beschreibung und Skripte des Differenzimages** | erscheint nur, wenn zum Image ein Differenzimage existiert |
+| **Differenzimage löschen** | löscht die Differenzimages aller ausgewählten Images, die eines haben |
+| **Löschen** | löscht die ausgewählten Images mit Sicherungen, Differenzimage und Beipack-Dateien |
 
-Beim Umbenennen und Duplizieren erlaubt der Name Buchstaben, Ziffern sowie `.`, `_`, `+` und `-`; er muss mit einem Buchstaben oder einer Ziffer beginnen. Ein Name, den ein anderes Image bereits trägt, wird ebenso abgewiesen wie der unveränderte Name.
+Beim Duplizieren erlaubt der Name Buchstaben, Ziffern sowie `.`, `_`, `+` und `-`; er muss mit einem Buchstaben oder einer Ziffer beginnen. Ein Name, den ein anderes Image bereits trägt, wird ebenso abgewiesen wie der unveränderte Name.
 
 #### Beschreibung und Skripte bearbeiten
 
@@ -447,13 +565,17 @@ Eine laufende Sitzung lässt sich aus der Plattform heraus **nicht abbrechen** u
 
 Die Schaltfläche **Versionsstände** im Bereich **Gruppen** ist sichtbar, aber dauerhaft deaktiviert: die Linuxmuster-API bietet dafür keine Schnittstelle. Der Grund steht am Knopf.
 
-Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich in dieser Version nicht bearbeiten. Das Datenblatt zeigt, ob er in der `start.conf` aktiviert ist; die zugehörige Konfigurationsdatei ist über die Linuxmuster-API noch nicht erreichbar.
+Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich erst ab **Version 7.4.13** der Linuxmuster-API bearbeiten; ältere Versionen halten die Konfigurationsdatei nicht bereit. Das Datenblatt zeigt unabhängig davon, ob VDI in der `start.conf` aktiviert ist.
 
 ## Einrichtung (für Administratoren)
 
 - Die **Plattform** stellen Sie unter [Einstellungen → Globale Einstellungen → Allgemein](../edulution-plattform/konfiguration/einstellungen.md#allgemein) auf **Linuxmuster**.
 - Welche Bereiche dieser App sichtbar sind und wie sie beschriftet werden, hängt zusätzlich vom [Organisationstyp](../edulution-plattform/konfiguration/einstellungen.md#organisationstyp) ab.
 - Die Verbindung zum Schulserver richten Sie nach der Anleitung [Linuxmuster verbinden](./installation.md) ein.
+
+:::warning[Anmeldelimit der Linuxmuster-API bei vielen gleichzeitigen Anmeldungen]
+Die Plattform meldet jeden Benutzer von ihrer eigenen Adresse aus an der Linuxmuster-API an. Deren Anmelderoute ist auf fünf Anfragen je 60 Sekunden und Adresse begrenzt: Melden sich innerhalb einer Minute mehr Benutzer an – etwa zu Stundenbeginn –, weist die API die weiteren mit *„Die LMN-API hat zu viele Anmeldungen in kurzer Zeit abgewiesen"* ab. Ab **Version 7.4.13** lässt sich das Limit im Abschnitt `rate_limit` der Datei `/etc/linuxmuster/api/config.yml` einstellen; `requests: 0` schaltet es ab, und eine Whitelist nimmt die Adresse der Plattform aus. Die API liest die Datei beim Start, ein Neustart des Dienstes ist also nötig.
+:::
 
 ## Siehe auch
 

@@ -616,9 +616,9 @@ Nach dem Speichern richtet edulution den Verteiler im Hintergrund als Adresse au
 
 | Anzeige | Bedeutung |
 |---------|-----------|
-| **Wird eingerichtet** | edulution überträgt den Verteiler gerade auf den Mailserver. Ist der Mailserver nicht erreichbar oder sind die Mitglieder einer Mitgliedsgruppe noch nicht bekannt, versucht edulution es selbstständig erneut, spätestens nach fünf Minuten. |
+| **Wird eingerichtet** | edulution überträgt den Verteiler gerade auf den Mailserver. Ist der Mailserver nicht erreichbar oder sind die Mitglieder oder Mitgliedsgruppen noch nicht bekannt, versucht edulution es selbstständig erneut, spätestens nach fünf Minuten. Bis dahin bleibt die Adresse auf dem Mailserver unverändert. |
 | **Aktiv** | E-Mails an die Adresse des Verteilers gehen an alle Mitglieder. Der Zusatz **N ohne Postfach** nennt Mitglieder, die kein Postfach auf dem Mailserver haben; sie erhalten keine Nachrichten des Verteilers – auch nicht an eine andere, etwa private Adresse aus dem Verzeichnis. |
-| **Fehlgeschlagen: …** | Der Mailserver hat den Verteiler abgelehnt, etwa weil die Adresse dort inzwischen vergeben ist. Die Anzeige nennt den Grund; edulution versucht es nicht von selbst erneut. |
+| **Fehlgeschlagen: …** | Der Mailserver hat den Verteiler abgelehnt, etwa weil die Adresse dort inzwischen vergeben ist, oder eine Mitgliedsgruppe gibt es im Verzeichnis nicht mehr. Die Anzeige nennt den Grund; edulution versucht es nicht von selbst erneut. |
 
 Bei einem fehlgeschlagenen Verteiler nennt auch der Bearbeitungsdialog den Grund. Haben Sie die Ursache behoben – etwa auf dem Mailserver –, richtet **Erneut einrichten** im Dialog den Verteiler noch einmal ein.
 
@@ -626,7 +626,9 @@ Der Zusatz **offen für alle Absender** bedeutet: Jeder kann an die Adresse des 
 
 Die Adresse eines Verteilers steht seinen Mitgliedern nicht als Absenderadresse zur Verfügung, auch nicht im Webmailer.
 
-Mitgliedsgruppen löst edulution beim Speichern in ihre Mitglieder auf. Tritt jemand später einer Mitgliedsgruppe bei oder verlässt sie, ändert sich der Verteiler erst, wenn Sie ihn das nächste Mal speichern. Dasselbe gilt für Änderungen, die direkt auf dem Mailserver an der Adresse vorgenommen werden: Beim nächsten Speichern setzt edulution die Adresse wieder auf den Stand des Verteilers.
+Tritt jemand einer Mitgliedsgruppe bei oder verlässt sie, passt edulution den Verteiler selbstständig an, sobald edulution die Änderung aus dem Verzeichnis übernommen hat – in der Regel innerhalb weniger Minuten. Wird eine Mitgliedsgruppe im Verzeichnis gelöscht oder umbenannt, schlägt der Verteiler mit diesem Grund fehl und stellt weiter an die bisherigen Empfänger zu, bis Sie die Gruppe aus dem Verteiler entfernen.
+
+Änderungen, die direkt auf dem Mailserver an der Adresse eines Verteilers vorgenommen werden – etwa zusätzliche Empfänger oder die Sichtbarkeit im Webmailer –, setzt edulution jede Nacht auf den Stand des Verteilers zurück. Adressen, die edulution nicht selbst angelegt hat, bleiben unangetastet.
 
 ### Verteiler löschen
 

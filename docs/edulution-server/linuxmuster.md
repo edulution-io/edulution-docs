@@ -83,7 +83,7 @@ Jedes Gerät benötigt neben Rechnername, MAC- und IP-Adresse eine **Rolle** und
 |----------|-----------|
 | **Kein PXE** | Das Gerät bootet nicht über das Netzwerk. |
 | **Linbo-PXE** | Das Gerät bootet LINBO. |
-| **Linbo-PXE + OPSI-PXE** | LINBO und OPSI stehen beide bereit. |
+| **Linbo-PXE + OPSI-Management** | Das Gerät bootet LINBO und wird zusätzlich über OPSI verwaltet. |
 | **OPSI-PXE** | Das Gerät bootet ausschließlich OPSI. |
 
 Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Klassenzimmer*, *Fachbereich-Lehrer-PC*, *Lehrer-PC*, *Server*, *Domaincontroller*, *Drucker*, *Router*, *Switch*, *Thinclient*, *BYOD*, *Mobiles Gerät*, *VOIP*, *WLan* und *IP-Only* zur Verfügung.
@@ -206,6 +206,8 @@ Die Hostliste ist über Registerkarten nach Gerätetyp gefiltert: **Alle**, **Co
 
 Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**.
 
+Sechs weitere Spalten sind ausgeblendet und lassen sich über die Spaltenauswahl einschalten: **PXE** mit der Bezeichnung des PXE-Kennzeichens, **PXE aktiv**, **Kommentar**, **DHCP-Optionen**, **Office-Schlüssel** und **Windows-Schlüssel**. Sie geben wieder, was die Geräteliste zu einem Rechner führt; geändert werden diese Angaben in der [Geräteverwaltung](#geräteverwaltung), nicht hier. Die Suche findet einen Rechner auch über seinen **Kommentar** – die beiden Schlüssel bleiben aus der Suche heraus.
+
 :::note[Hostliste und Schulbindung]
 Die Registerkarte **Hosts** erreicht, wer auch den Bereich **LINBO** erreicht: **Globaladmins** immer, **Schuladmins** ab **Version 7.4.13** der Linuxmuster-API. Zuvor blieb die Registerkarte auch einem Schuladmin verborgen, dem die API LINBO bereits geöffnet hatte.
 
@@ -228,9 +230,15 @@ Eine Sammelaktion erreicht nur die Hosts, die gerade **sichtbar** sind. Schränk
 
 Nach einer Sammelaktion verlieren die Hosts ihr Häkchen, für die der Server den Auftrag angenommen hat – auch dann, wenn er einzelne davon als offline übersprungen hat. Angehakt bleiben nur Rechner, die der Auftrag gar nicht erreicht hat, etwa weil bei einem großen Lauf ein Teil nicht zugestellt werden konnte. Die Auswahl schrumpft dann auf genau diese Rechner, sodass ein zweiter Versuch die bereits bedienten nicht noch einmal trifft.
 
+#### Eine Aktion an einen Raum schicken
+
+**Aktion an Raum schicken** richtet eine Kommandokette an einen Raum, auch ohne dass ein Rechner ausgewählt ist. Sie wählen den Raum aus einer Liste; die Räume stammen aus der Geräteliste (`devices.csv`), nicht aus den Sitzplänen. Der Dialog nennt, wie viele Rechner die Geräteliste in diesem Raum führt, und der Server löst den Raum beim Ausführen selbst auf. Aktionen mit Betriebssystem stehen nur für Räume bereit, deren Rechner alle derselben Hardwaregruppe angehören – bei einem gemischten Raum nennt der Dialog die beteiligten Gruppen. Auch die Bestätigung für einen zerstörenden Schritt nennt dann den Raum statt einer Anzahl von Rechnern.
+
 #### Der Kommando-Dialog
 
 **Aktion schicken** öffnet einen Dialog, der die ausgewählten Rechner namentlich nennt – oder, aus dem Bereich **Gruppen** heraus, die Hardwaregruppe, an die die Kette geht – und aus einzelnen Schritten eine **Kommandokette** zusammensetzt. Die Kette wird genau in der Reihenfolge ausgeführt, in der die Schritte stehen; über **Nach oben** und **Nach unten** ordnen Sie sie um, über **Entfernen** nehmen Sie einen Schritt wieder heraus. Unten zeigt die **Kommandokette** die Schreibweise, die Sie auch auf der Konsole verwenden würden.
+
+Oberhalb der Schritte wählen Sie den **Modus**. **Einfach** führt je Betriebssystem der `start.conf` eine Zeile mit **Formatieren**, **Sync** und **Start** und darunter die Schalter **Partitionieren** und **Cache befüllen** (`rsync`); daraus entsteht die Kette in der Reihenfolge Partitionieren, Formatieren, Cache befüllen, Sync, Start. Führt die `start.conf` kein Betriebssystem, bleiben nur die beiden Schalter. **Erweitert** ist der Baukasten mit dem vollen Kommando-Katalog, den die folgenden Abschnitte beschreiben.
 
 Je nach Schritt verlangt der Dialog ein zusätzliches Argument:
 
@@ -406,6 +414,10 @@ Die Vorschau **Gruppe \<ID\>** hat drei Registerkarten:
 
 Existiert zu einer Gruppe keine `start.conf`, entfallen die ersten beiden Registerkarten.
 
+:::note[Die GRUB-Vorschau zeigt den Stand auf dem Server]
+Die Registerkarte **GRUB cfg** liest die Konfiguration bei jedem Öffnen erneut vom Server und zeigt damit nicht die Fassung, die beim Laden der Liste mitkam. Erlaubt die Linuxmuster-API einem Schuladmin das Lesen einzelner Konfigurationen nicht, bleibt die Vorschau ohne Fehlermeldung bei der Fassung aus der Liste.
+:::
+
 :::note[Auswertung der start.conf]
 Die Zusammenfassung liest die Datei so, wie LINBO selbst sie liest: Abschnitts- und Schlüsselnamen werden unabhängig von der Groß- und Kleinschreibung erkannt, und als Ja-Wert gelten ausschließlich `yes`, `true` und `enable`. Ein Schlüssel mit einem anderen Wert – etwa `Autostart = 1` – zählt daher als *aus*. Ein leerer oder fehlender Schlüssel erhält den Standardwert, den auch der LINBO-Client annimmt.
 :::
@@ -491,10 +503,12 @@ Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.
 
 Im Dialog geben Sie Image-Name und Dateiname an; während der Übertragung sind beide Felder gesperrt und ein Fortschrittsbalken zeigt den Stand in Prozent. **Abbrechen** bricht die laufende Übertragung ab und verwirft zugleich die Daten, die der Server bereits entgegengenommen hat – es bleibt also kein angefangenes Image auf dem Server zurück.
 
-Der Server nimmt ein Image in Teilstücken entgegen. Bricht die Übertragung ab, weil etwa die Verbindung zum Schulserver wegfällt, setzt ein erneuter Upload derselben Datei dort an, wo er stehengeblieben ist; bei einem mehrere Gigabyte großen Image erspart das den bereits übertragenen Teil.
+Der Browser überträgt die Datei in Teilstücken unmittelbar an den Schulserver. Die Größenbeschränkung, die bisher der Zwischenspeicher des edulution-Servers setzte, entfällt damit; abgewiesen wird eine Datei erst, wenn sie die Obergrenze von LINBO überschreitet – die Meldung nennt diese Grenze. Bricht die Übertragung ab, weil etwa die Verbindung wegfällt, setzt ein erneuter Upload derselben Datei dort an, wo er stehengeblieben ist, und der Dialog weist mit *„Setzt einen abgebrochenen Upload bei N % fort"* darauf hin; bei einem mehrere Gigabyte großen Image erspart das den bereits übertragenen Teil.
 
-:::note[Fortgesetzt wird nur dieselbe Datei]
-Fortgesetzt wird der Upload ausschließlich dann, wenn Sie unter demselben Image- und Dateinamen erneut eine Datei derselben Größe hochladen. Laden Sie unter einem bereits angefangenen Namen eine andere Datei hoch – etwa ein neu erstelltes Image –, beginnt die Übertragung von vorn und überschreibt den angefangenen Stand. Nach einem Neustart der edulution-Instanz beginnt jeder Upload ebenfalls von vorn.
+:::note[Fortgesetzt wird nur dieselbe Datei, und nur im selben Browser]
+Den Vermerk über einen angefangenen Upload hält der Browser selbst, unter dem Schlüssel `linbo-upload-resume:<Image>/<Dateiname>`. Er greift nur, wenn Dateiname, Größe **und** Änderungszeitpunkt der erneut gewählten Datei übereinstimmen; angelegt wird er, sobald das erste Teilstück angekommen ist, und gelöscht, sobald der Upload abgeschlossen oder abgebrochen ist. In einem anderen Browser, an einem anderen Rechner oder nach dem Leeren der Websitedaten beginnt die Übertragung deshalb von vorn – der Stand auf dem Schulserver überdauert dagegen einen Neustart der edulution-Instanz.
+
+Laden Sie unter einem bereits angefangenen Namen eine andere Datei hoch – etwa ein neu erstelltes Image –, beginnt die Übertragung von vorn und überschreibt den angefangenen Stand. Weicht am Ende die Größe der auf dem Server abgelegten Datei von der gewählten ab, schließt die Plattform den Upload nicht ab, sondern meldet dies und behält den Vermerk, sodass ein erneuter Versuch fortsetzen kann.
 :::
 
 #### Aktionen eines Images

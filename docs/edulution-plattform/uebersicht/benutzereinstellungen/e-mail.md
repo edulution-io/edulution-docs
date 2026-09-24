@@ -119,6 +119,8 @@ Leiten Sie eingehende E-Mails automatisch an andere Adressen weiter.
 - Unter **Aktivierungsbedingungen** lässt sich die Weiterleitung optional zeitlich einschränken (siehe [Aktivierungsbedingungen](#aktivierungsbedingungen)).
 - **Speichern** übernimmt die Konfiguration, **Löschen** entfernt sie nach einer Sicherheitsabfrage.
 
+Die Vorschläge im Feld **Weiterleiten an** stammen aus denselben Quellen wie beim [Verfassen einer E-Mail](../../../edulution-mail/index.md#empfängervorschläge-im-adressfeld): zuletzt verwendete Empfänger, Personen aus Ihren [Adressbüchern](../../apps/native-apps/kontakte.md) sowie Verteiler, Alias-Adressen und freigegebene Postfächer aus dem Verzeichnis Ihrer Schule. Vorschläge aus den Adressbüchern erscheinen ab zwei eingegebenen Zeichen und nur, wenn die Kontakte-App eingerichtet ist – andernfalls entfallen sie kommentarlos, die übrigen Quellen bleiben verfügbar. Unabhängig von den Vorschlägen können Sie eine Adresse auch direkt eintippen.
+
 ### Aktivierungsbedingungen
 
 Automatische Antwort und Weiterleitung lassen sich optional nach Zeitraum, Tageszeit und Wochentagen einschränken. Ohne Angabe gelten sie durchgehend.

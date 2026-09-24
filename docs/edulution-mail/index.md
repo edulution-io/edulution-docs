@@ -102,15 +102,21 @@ Konnte keiner der Empfänger beliefert werden, bleibt die Nachricht ebenfalls al
 Sobald Sie in **An**, **CC** oder **BCC** zu tippen beginnen, schlägt edulution passende Empfänger vor. Die Vorschläge stammen aus drei Quellen und erscheinen in dieser Reihenfolge:
 
 1. **Zuletzt verwendete Empfänger** aus Ihren vorherigen Nachrichten.
-2. **Kontakte** aus der Kontakte-App – nur, wenn die Kontakte-App eingerichtet ist und Ihre Eingabe mindestens zwei Zeichen umfasst.
-3. **Empfänger aus dem Verzeichnis** Ihrer Schule: Personen, Gruppen und Verteiler.
+2. **Kontakte** aus den Adressbüchern der [Kontakte-App](../edulution-plattform/apps/native-apps/kontakte.md) – nur, wenn die Kontakte-App eingerichtet ist und Ihre Eingabe mindestens zwei Zeichen umfasst. Durchsucht werden alle Adressbücher, auf die Sie Zugriff haben – Ihre eigenen, die für Sie freigegebenen und das globale Adressbuch –, und zwar alle gleichzeitig, anders als im Suchfeld der Kontakte-App. Am Vorschlag wird zusätzlich das Adressbuch genannt, aus dem er stammt; steht dieselbe Adresse in mehreren Adressbüchern, erscheint sie einmal und nennt alle.
+3. **Empfänger aus dem Verzeichnis** Ihrer Schule: Verteiler, Alias-Adressen und freigegebene Postfächer.
 
 Eine Adresse, die in mehreren Quellen vorkommt, erscheint nur einmal. Die Liste ist auf 50 Vorschläge begrenzt; die am besten passenden stehen oben – eine vollständige Übereinstimmung vor einem Treffer am Namensanfang und dieser vor einem Treffer irgendwo im Namen.
 
 Auf die **Schreibweise von Umlauten und Sonderzeichen** kommt es dabei nicht an: `Müller`, `Mueller` und `Muller` führen zum selben Vorschlag, gleich welche Schreibweise im Verzeichnis oder im Kontakt hinterlegt ist. Dasselbe gilt für `ß` und `ss` sowie für Akzentzeichen. Wie in der [Kontaktsuche](../edulution-plattform/apps/native-apps/kontakte.md#suche) wird die Schreibweise bei sehr kurzen Eingaben nicht zusätzlich vereinfacht.
 
+:::info[Einzelne Personen stammen aus Ihren Adressbüchern]
+Personen schlägt edulution ausschließlich aus Ihren Adressbüchern vor; das Verzeichnis Ihrer Schule steuert nur Verteiler, Alias-Adressen und freigegebene Postfächer bei. Ist die Kontakte-App für Sie nicht eingerichtet, bleiben daher nur die zuletzt verwendeten Empfänger und diese Einträge übrig – ein Hinweis darauf erscheint nicht.
+
+Eine Adresse, zu der Sie keinen Kontakt haben, tippen Sie wie gewohnt vollständig ein; sie wird als Empfänger übernommen. Personen, die Sie häufig anschreiben, legen Sie am besten als Kontakt in einem Ihrer Adressbücher an – siehe [Kontakte](../edulution-plattform/apps/native-apps/kontakte.md).
+:::
+
 :::info[Eltern über den Namen des Kindes finden]
-Eltern erreichen Sie auch, indem Sie den Namen ihres Kindes eingeben. Der Vorschlag weist dann zusätzlich aus, über welches Kind er gefunden wurde – hilfreich, wenn mehrere Elternteile denselben Nachnamen tragen. Auch hier spielt die Schreibweise keine Rolle: `Öztürk`, `Oeztuerk` und `Ozturk` führen gleichermaßen zu den Eltern des Kindes.
+Die Eltern eines Kindes erreichen Sie über den zugehörigen **Eltern-Verteiler**, den Sie auch durch Eingabe des Namens des Kindes finden. Der Vorschlag weist dann zusätzlich aus, über welches Kind er gefunden wurde – hilfreich, wenn mehrere Familien denselben Nachnamen tragen. Auch hier spielt die Schreibweise keine Rolle: `Öztürk`, `Oeztuerk` und `Ozturk` führen gleichermaßen zum Eltern-Verteiler des Kindes. Einzelne Elternteile werden nur vorgeschlagen, wenn sie in einem Ihrer Adressbücher stehen.
 :::
 
 ### Verteiler als Empfänger
@@ -132,6 +138,8 @@ Auch beim **Antworten**, **Allen antworten** und **Weiterleiten** sowie beim ern
 
 :::info[Nicht jeder Eintrag lässt sich auflösen]
 Auflösen lassen sich nur Verteiler, die das Mailsystem als solche kennt. Lassen sich zu einem Verteiler keine Mitglieder ermitteln, bleibt er ohne Zahl und ohne Pluszeichen stehen – als einzelne Adresse ist er weiterhin verwendbar, und die Nachricht wird normal an ihn versendet.
+
+Ohne Mitglieder bleiben auch Verteiler **einer anderen Schule** der Instanz sowie schulübergreifende Verteiler, die zu keiner einzelnen Schule gehören. Sie lassen sich wie jeder andere Verteiler auswählen und anschreiben, und die Nachricht wird zugestellt; ihre Mitglieder zeigt edulution jedoch nicht an. Ein Warnsymbol erscheint dafür nicht, da es sich nicht um einen Fehler handelt.
 :::
 
 ### Schreibfenster schließen
@@ -212,6 +220,10 @@ Ob die E-Mail-App für Sie sichtbar ist, an welcher Stelle sie in der App-Liste 
 Welche Nutzergruppen die E-Mail-App überhaupt sehen, an welcher Stelle sie in der App-Liste erscheint und welches Theme der SOGo-Webmailer verwendet, legen Administratoren unter [Einstellungen → E-Mails](../edulution-plattform/konfiguration/einstellungen.md#e-mails) fest.
 
 Die Postfächer selbst — anlegen, Speicherplatz vergeben, löschen sowie ein Postfach als **freigegebenes Postfach** an weitere Benutzer freigeben — verwalten Administratoren unter [Mailboxen und geteilte Postfächer](./konfiguration/mailbox-verwaltung.md).
+
+Einzelne Personen schlagen die Empfängerfelder ausschließlich aus den Adressbüchern der Kontakte-App vor. Ist die [Kontakte-App](../edulution-plattform/konfiguration/einstellungen.md#kontakte-carddav) nicht konfiguriert oder für eine Nutzergruppe nicht freigegeben, erhalten deren Mitglieder beim Verfassen keine Personenvorschläge — Verteiler, Alias-Adressen und freigegebene Postfächer stehen weiterhin zur Verfügung, und eine Fehlermeldung erscheint nicht. Welche Personen ein Benutzer findet, richtet sich damit nach seinen eigenen und den für ihn freigegebenen Adressbüchern sowie dem globalen Adressbuch des Mailservers.
+
+Auf einer Mailcow-Installation stellt SOGo jedem Benutzer zusätzlich systemweite Adressbücher bereit: das globale Adressbuch der Mail-Domain und, je nach Konfiguration, das Adressbuch **Benutzer**. Beide enthalten die Postfächer **aller** Schulen der Instanz — über sie finden Benutzer beim Verfassen daher auch Personen anderer Schulen. Soll das nicht möglich sein, schalten Sie in der SOGo-Konfiguration für beide Benutzerquellen die Verwendung als Adressbuch ab (`isAddressBook`). Personenvorschläge stammen danach nur noch aus den eigenen und den freigegebenen Adressbüchern.
 
 Postfach-Freigaben und die Übernahme der Profilsprache in den Webmailer laufen nicht über IMAP, sondern über die [DAV-Verbindung](../edulution-plattform/konfiguration/einstellungen.md#dav-verbindung) der E-Mail-App. Diese Verbindung gilt ausschließlich für die E-Mail-App: Die Kalender- und die Kontakte-App bringen jeweils eine eigene mit, und eine dort abgeschaltete Zertifikatsprüfung lockert die Prüfung der E-Mail-Verbindung nicht. Ist die DAV-URL fehlerhaft eingetragen, betrifft das nur diese Funktionen — Nachrichten lesen, verfassen, Ordner und Filter bleiben davon unberührt.
 

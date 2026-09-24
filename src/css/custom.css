@@ -243,15 +243,8 @@ table.mail-compat-table tbody td:first-child {
   }
 }
 
-/* Light mode colors (fallback) */
+/* Brand colors */
 :root {
-  --ifm-color-primary: #8fc046;
-  --ifm-color-primary-dark: #7ac639;
-  --ifm-color-primary-darker: #72bd35;
-  --ifm-color-primary-darkest: #5e9b2c;
-  --ifm-color-primary-light: #96dc55;
-  --ifm-color-primary-lighter: #a0e06a;
-  --ifm-color-primary-lightest: #b4e88a;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(136, 216, 64, 0.1);
 
@@ -264,6 +257,31 @@ table.mail-compat-table tbody td:first-child {
   --edulution-yellow: #ffd700;
   --edulution-gradient: linear-gradient(45deg, #8fc046, #0081c6);
 }
+
+/* Light mode, following the light theme of edulution-ui: #8fc046 stays the fill colour, but it is
+   too pale for text on white, so text accents use the darker --edu-green-text scale. */
+[data-theme="light"] {
+  --ifm-color-primary: var(--edu-green-text);
+  --ifm-color-primary-dark: #466e11;
+  --ifm-color-primary-darker: #426810;
+  --ifm-color-primary-darkest: #37550d;
+  --ifm-color-primary-light: #60872b;
+  --ifm-color-primary-lighter: #698e36;
+  --ifm-color-primary-lightest: #83a25a;
+
+  --ifm-background-color: #ffffff;
+  --ifm-font-color-base: #1a1a1a;
+  --ifm-heading-color: #000000;
+  --ifm-color-content-secondary: #505050;
+  --ifm-hover-overlay: color-mix(in srgb, var(--edu-green) 8%, transparent);
+
+  --edu-hero-background: linear-gradient(135deg, #ffffff 0%, #f2f5ee 100%);
+}
+
+[data-theme="light"] .menu__link--active:not(.menu__link--sublist) {
+  background-color: color-mix(in srgb, var(--edu-green) 15%, transparent);
+}
+
 
 /* Dark mode - main theme (default) */
 [data-theme="dark"] {
@@ -315,13 +333,15 @@ table.mail-compat-table tbody td:first-child {
   --ifm-color-emphasis-300: #2a2a2a;
   --ifm-hr-border-color: #2a2a2a;
   --ifm-toc-border-color: #2a2a2a;
+
+  --edu-hero-background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
-/* Hero section styling - dark with edulution gradient */
-[data-theme="dark"] .hero--primary {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-  border-bottom: 2px solid #8fc046;
-  color: #ffffff;
+/* Hero section styling - edulution gradient per theme */
+.hero--primary {
+  background: var(--edu-hero-background);
+  border-bottom: 2px solid var(--edu-green);
+  color: var(--ifm-heading-color);
 }
 
 [data-theme="dark"] .hero__title {
@@ -333,14 +353,14 @@ table.mail-compat-table tbody td:first-child {
 }
 
 /* Buttons - edulution color scheme with gradient */
-[data-theme="dark"] .button--primary {
-  background: linear-gradient(45deg, #8fc046, #0081c6);
+.button--primary {
+  background: var(--edulution-gradient);
   color: #ffffff;
   border: none;
   font-weight: 600;
 }
 
-[data-theme="dark"] .button--primary:hover {
+.button--primary:hover {
   background: linear-gradient(45deg, #96dc55, #0295e5);
   color: #ffffff;
   opacity: 0.95;
@@ -348,24 +368,38 @@ table.mail-compat-table tbody td:first-child {
   box-shadow: 0 4px 12px rgba(136, 216, 64, 0.3);
 }
 
-[data-theme="dark"] .button--secondary {
-  background-color: #0281c7;
+.button--secondary {
+  background-color: var(--edulution-blue);
   color: #ffffff;
   border: none;
 }
 
-[data-theme="dark"] .button--secondary:hover {
+.button--secondary:hover {
   background-color: #0295e5;
   color: #ffffff;
   opacity: 0.9;
 }
 
+/* Docusaurus renders the sidebar collapse button as .button--secondary; keep it out of the blue above. */
+.theme-doc-sidebar-container .button--secondary {
+  background-color: var(--docusaurus-collapse-button-bg);
+  border: 1px solid var(--ifm-toc-border-color);
+  color: var(--ifm-font-color-base);
+}
+
+.theme-doc-sidebar-container .button--secondary:hover,
+.theme-doc-sidebar-container .button--secondary:focus-visible {
+  background-color: var(--docusaurus-collapse-button-bg-hover);
+  color: var(--ifm-color-primary);
+  opacity: 1;
+}
+
 /* Links - green accent (primary color) */
-[data-theme="dark"] a {
+[data-theme="dark"] a:where(:not(.button)) {
   color: #8fc046;
 }
 
-[data-theme="dark"] a:hover {
+[data-theme="dark"] a:where(:not(.button)):hover {
   color: #96dc55;
 }
 
@@ -1040,7 +1074,7 @@ html[data-role='admin-operate'] .role-summary--any {
 
 .audience-badge__item--on {
   font-weight: 600;
-  color: #8fc046;
+  color: var(--edu-green-text);
 }
 
 .audience-badge__link {

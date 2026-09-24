@@ -74,7 +74,7 @@ Bilder und andere extern nachgeladene Inhalte blendet edulution zum Schutz Ihrer
 
 Über **Verfassen** öffnen Sie das Schreibfenster:
 
-- **Von**: Absenderadresse. Neben Ihrer eigenen Adresse können hier auch freigegebene Postfächer zur Auswahl stehen, für die Sie eine Sendeberechtigung besitzen.
+- **Von**: Absenderadresse. Neben Ihrer eigenen Adresse können hier auch freigegebene Postfächer zur Auswahl stehen, für die Sie eine Sendeberechtigung besitzen. Die Adresse eines Verteilers, dem Sie angehören, steht hier nicht zur Auswahl.
 - **An** sowie optional **CC/BCC** (über **CC/BCC hinzufügen** einblendbar).
 - **Betreff** und der Nachrichtentext im Editor mit Formatierungsfunktionen (fett, kursiv, Listen, Links u. a.).
 - **Anhänge** fügen Sie **vom Gerät** oder **aus Dateien** (Ihrem edulution-Dateibereich) hinzu. Für Text und Anhänge zusammen gilt eine maximale Gesamtgröße.
@@ -103,7 +103,7 @@ Sobald Sie in **An**, **CC** oder **BCC** zu tippen beginnen, schlägt edulution
 
 1. **Zuletzt verwendete Empfänger** aus Ihren vorherigen Nachrichten.
 2. **Kontakte** aus der Kontakte-App – nur, wenn die Kontakte-App eingerichtet ist und Ihre Eingabe mindestens zwei Zeichen umfasst.
-3. **Empfänger aus dem Verzeichnis** Ihrer Schule: Personen, Gruppen und Verteiler.
+3. **Empfänger aus dem Verzeichnis** Ihrer Schule: Personen, Gruppen und Verteiler. Verteiler, die ein Administrator in edulution unter [Einstellungen → Gruppen](../edulution-plattform/konfiguration/einstellungen.md#gruppen) angelegt hat, schlägt das Adressfeld nicht vor; ihre Adresse geben Sie vollständig ein.
 
 Eine Adresse, die in mehreren Quellen vorkommt, erscheint nur einmal. Die Liste ist auf 50 Vorschläge begrenzt; die am besten passenden stehen oben – eine vollständige Übereinstimmung vor einem Treffer am Namensanfang und dieser vor einem Treffer irgendwo im Namen.
 
@@ -192,6 +192,8 @@ Ein Klick auf den Hinweis bringt Sie direkt zu den **E-Mail-Einstellungen**, wo 
 ## Einstellungen
 
 Signatur, verzögertes Senden (Senden rückgängig machen), automatische Antwort (Abwesenheitsnotiz), Weiterleitung und Filter verwalten Sie in den **E-Mail-Einstellungen**. Eine ausführliche Beschreibung finden Sie unter [Mein Profil](../edulution-plattform/uebersicht/benutzereinstellungen/index.md).
+
+Die automatische Antwort gilt für Nachrichten an Ihre eigenen Adressen. Nachrichten, die Sie nur über einen in edulution angelegten Verteiler erreichen, beantwortet sie nicht.
 
 Bei der automatischen Antwort können Sie zusätzlich festlegen, welche Absender überhaupt eine Antwort erhalten: alle Absender, nur Absender innerhalb der Domänen Ihrer Organisation (interne Absender) oder ausschließlich externe Absender. Die internen Domänen werden Ihnen dabei direkt angezeigt. Details dazu finden Sie unter [Mein Profil](../edulution-plattform/uebersicht/benutzereinstellungen/index.md).
 

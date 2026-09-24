@@ -74,7 +74,7 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 
 Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender**, **Abonnierte Kalender** und **Web-Kalender** führen zur normalen Kalenderansicht, **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf einen der drei anderen Gruppeneinträge wieder in die gewohnte Kalenderansicht zurück. Ansicht und Zeitraum bleiben dabei erhalten: Sie landen in der Ansicht und auf dem Zeitraum, den Sie zuletzt angezeigt haben, nicht auf dem heutigen Datum (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)).
 
-Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet den Kalender in allen Ansichten und dient zugleich als Legende. Abonnierte (freigegebene) Kalender werden zusätzlich mit einem gestrichelten Rahmen gekennzeichnet.
+Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet den Kalender in allen Ansichten und dient zugleich als Legende: Termine ohne eigene Farbe werden in der Farbe ihres Kalenders dargestellt. Hat ein Termin eine eigene Farbe, nimmt diese die Fläche des Termins ein; das Quadrat des Kalenders erscheint dann verkleinert im Termin selbst (siehe [Terminfarben in den Ansichten](#terminfarben-in-den-ansichten)). Abonnierte (freigegebene) Kalender werden zusätzlich mit einem gestrichelten Rahmen gekennzeichnet.
 
 ### Kalender ein- und ausblenden
 
@@ -154,7 +154,7 @@ Beachten Sie dabei die folgenden Besonderheiten:
 
 Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansicht: Sie zeigt nur die Tage **Montag bis Freitag** und einen festen Zeitausschnitt am Tag in feiner Rasterung. Sie öffnen sie über einen als Stundenplan markierten Kalender in der Seitenleiste; über **Zurück** kehren Sie zur normalen Kalenderansicht zurück – und zwar in die Woche, die Sie im Stundenplan zuletzt angezeigt haben, und in die Ansicht, aus der Sie den Stundenplan geöffnet haben.
 
-Auch im Stundenplan steht die angezeigte Woche in der Adresse (URL). Sie können die Seite also neu laden, ohne die Woche zu verlieren, und einen bestimmten Stundenplan mitsamt Woche als Lesezeichen speichern oder als Link weitergeben. Die Schaltflächen **Zurück** und **Vorwärts** des Browsers blättern durch die zuvor angezeigten Wochen (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). Ein Link auf einen Stundenplan führt auch die Ansicht mit, aus der er erstellt wurde: Wer ihn öffnet, gelangt über **Zurück** in eben diese Ansicht. Das gilt selbst für eine Ansicht, die Sie über den Link einer Kollegin erreicht haben – sie übersteht den Weg über den Stundenplan, ohne deshalb zu Ihrer künftigen Startansicht zu werden. In dieser Ansicht werden die Termine in ihrer jeweiligen **Farbe** dargestellt.
+Auch im Stundenplan steht die angezeigte Woche in der Adresse (URL). Sie können die Seite also neu laden, ohne die Woche zu verlieren, und einen bestimmten Stundenplan mitsamt Woche als Lesezeichen speichern oder als Link weitergeben. Die Schaltflächen **Zurück** und **Vorwärts** des Browsers blättern durch die zuvor angezeigten Wochen (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). Ein Link auf einen Stundenplan führt auch die Ansicht mit, aus der er erstellt wurde: Wer ihn öffnet, gelangt über **Zurück** in eben diese Ansicht. Das gilt selbst für eine Ansicht, die Sie über den Link einer Kollegin erreicht haben – sie übersteht den Weg über den Stundenplan, ohne deshalb zu Ihrer künftigen Startansicht zu werden.
 
 Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)). Wie in den übrigen Rasteransichten verschieben Sie einen Termin auch hier [per Drag & Drop](#termine-per-drag--drop-verschieben) auf einen anderen Zeitabschnitt. Über der Stundenskala liegt wie in der Wochenansicht eine eigene Zeile für **ganztägige** Termine.
 
@@ -170,11 +170,21 @@ Der Stundenplan zeigt Montag bis Freitag und einen festen Zeitausschnitt am Tag.
 Die Termine eines als Stundenplan markierten Kalenders werden ausschließlich in der Stundenplan-Ansicht angezeigt – in **Monat**, **Woche**, **Tag** und **Agenda** erscheinen sie nicht. Vermissen Sie dort einen Termin, prüfen Sie, ob sein Kalender als Stundenplan markiert ist, und entfernen Sie die Markierung bei Bedarf über das [Kalenderkontextmenü](#kalenderkontextmenü).
 :::
 
-:::info[Wo die Terminfarbe sichtbar ist]
-Die einem Termin zugewiesene Farbe wird ausschließlich in der Stundenplan-Ansicht angezeigt. In allen übrigen Ansichten – Monat, Woche, Tag und Agenda – richtet sich die Farbe der Termine nach dem zugehörigen Kalender.
+### Terminfarben in den Ansichten
+
+Hat ein Termin eine [eigene Farbe](#termine-erstellen), wird er in **Monat**, **Woche**, **Tag**, **Agenda** und **Stundenplan** in dieser Farbe dargestellt. Termine ohne eigene Farbe erhalten die Farbe ihres Kalenders.
+
+Damit erkennbar bleibt, zu welchem Kalender ein farbiger Termin gehört, trägt er zusätzlich ein kleines Quadrat in der Farbe seines Kalenders – derselben Farbe wie in der [Kalenderliste](#seitenleiste-und-kalenderliste) – vor der Uhrzeit und dem Titel. Ein feiner Rand hebt es auch dann ab, wenn Terminfarbe und Kalenderfarbe dicht beieinanderliegen.
+
+Das Quadrat erscheint nur dort, wo die Zuordnung sonst mehrdeutig wäre:
+
+- Es erscheint **nur an Terminen mit eigener Farbe**. Bei allen übrigen Terminen ist die Fläche bereits die Kalenderfarbe.
+- Es entfällt, solange **nur ein einziger Kalender eingeblendet** ist – dann können die Termine nur aus diesem einen Kalender stammen. Blenden Sie einen weiteren Kalender ein, erscheint es wieder (siehe [Kalender ein- und ausblenden](#kalender-ein--und-ausblenden)).
+- Als Stundenplan markierte Kalender zählen dabei **nicht mit**, da ihre Termine in Monat, Woche, Tag und Agenda ohnehin nicht erscheinen. Haben Sie neben einem Stundenplan nur einen gewöhnlichen Kalender, bleibt das Quadrat also aus.
+- In der **Stundenplan-Ansicht** erscheint es nicht, da diese stets die Termine eines einzelnen Stundenplans zeigt.
+- Bei einem [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) oder einem [Web-Kalender](#web-kalender-abonnieren) ist das Quadrat einfarbig gefüllt. Der gestrichelte bzw. gepunktete Rahmen, der diese Herkunft kennzeichnet, liegt weiterhin um den Termin selbst und geht durch das Quadrat nicht verloren.
 
 Termine, die aus einem externen CalDAV-Programm stammen, übernehmen die dort gesetzte Farbe.
-:::
 
 ## Termine erstellen
 
@@ -200,7 +210,7 @@ Füllen Sie im Dialog die folgenden Felder aus:
 7. **Wiederholung** – Legt fest, ob der Termin als [Serientermin](#serientermine-und-wiederholungen) wiederkehrt.
 8. **Sichtbarkeit** – **Öffentlich**, **Privat** oder **Vertraulich**.
 9. **Zeit-Status** – Ob die Zeit als **Abwesend (gebucht)** oder **Verfügbar (frei)** gilt.
-10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Auswahl beginnt links mit **Keine Farbe**, darauf folgen die vorgegebenen Farben; ganz rechts öffnet die Schaltfläche **Eigene Farbe** den Farbwähler für eine beliebige Farbe. Die Farbe wirkt sich nur in der Stundenplan-Ansicht aus. Die Beschriftung des Termins wird automatisch dunkel oder hell dargestellt, damit sie vor der gewählten Farbe lesbar bleibt (siehe [Farbwahl und Lesbarkeit](#farbwahl-und-lesbarkeit)).
+10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Auswahl beginnt links mit **Keine Farbe**, darauf folgen die vorgegebenen Farben; ganz rechts öffnet die Schaltfläche **Eigene Farbe** den Farbwähler für eine beliebige Farbe. Die Farbe wirkt sich in allen Ansichten aus; ohne eigene Farbe gilt die Farbe des Kalenders (siehe [Terminfarben in den Ansichten](#terminfarben-in-den-ansichten)). Die Beschriftung des Termins wird automatisch dunkel oder hell dargestellt, damit sie vor der gewählten Farbe lesbar bleibt (siehe [Farbwahl und Lesbarkeit](#farbwahl-und-lesbarkeit)).
 11. **Teilnehmer** – Weitere Benutzer, die zum Termin eingeladen werden.
 
 Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.

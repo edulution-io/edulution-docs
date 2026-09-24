@@ -292,19 +292,20 @@ Die Unterseite **Images** verwaltet die LINBO-Abbilder, die auf dem Satelliten s
 Die gewählte Ansicht wird zusammen mit der Imageliste des Schulservers gespeichert. Stellen Sie hier auf **Speicher** um, erscheint auch die Imageliste im Bereich **LINBO** der App **Schulserver** in dieser Ansicht – und umgekehrt.
 :::
 
-Ein Klick auf eine Karte öffnet die Begleitdateien des Images; für ein Image im Altformat wird das wie bei der Zeilenaktion mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – stehen nur in der **Tabelle** zur Verfügung.
+Ein Klick auf eine Karte öffnet die Begleitdateien des Images; für ein Image im Altformat wird das wie bei der Zeilenaktion mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – stehen nur in der **Tabelle** zur Verfügung. Verteilt der Satellit ein Image per Torrent, trägt dessen Karte in allen drei Kartenansichten eine Marke mit dem Zustand der Verteilung (siehe [Torrent-Verteilung](#torrent-verteilung)); ein Image ohne Torrent bleibt ohne Marke.
 
 :::note[Die Karten zeigen weniger als am Schulserver]
 Die Imageliste des Satelliten enthält weder die Beschreibung noch Partitionsangaben oder die Prüfsumme. Beschreibung, Partition und Partitionsgröße bleiben in den Karten deshalb leer, und die Füllanzeige der Ansicht **Speicher** entfällt. Das **Datenblatt** weist bei jedem Image *keine Prüfsumme* aus, auch wenn auf dem Satelliten eine hinterlegt ist – ob eine vorliegt, zeigt erst **Prüfsumme prüfen**.
 :::
 
-Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Status**, **Abgleich** und **Geändert**.
+Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Status**, **Abgleich** und **Geändert** – und, sobald der Satellit den Zustand seiner Torrent-Verteilung meldet, zusätzlich **Torrent**.
 
 | Spalte | Bedeutung |
 |--------|-----------|
 | **Typ** | **Basisimage** oder **Differenzimage** |
 | **Status** | **Verfügbar** – regulär im Imageverzeichnis abgelegt; **Altformat** – außerhalb der Imageverzeichnisse |
 | **Abgleich** | Vergleich mit dem Schulserver: **Gleich**, **Unterschiedlich**, **Nur am Server**, **Nur am Satelliten** oder **Unbekannt** |
+| **Torrent** | Zustand der Torrent-Verteilung des Images, siehe [Torrent-Verteilung](#torrent-verteilung) |
 
 :::note[Images im Altformat]
 Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Die Aktionen dieser Zeile – Prüfsumme, Sicherungen, Begleitdateien und Löschen – werden deshalb nicht ausgeführt, sondern mit einem Hinweis abgelehnt.
@@ -364,6 +365,31 @@ Der Dialog zeigt die Begleitdateien des Images: **desc** (Freitext, den LINBO im
 ##### Löschen
 
 Vor dem Löschen ermittelt die Plattform den Umfang und nennt ihn im Bestätigungsdialog: gelöscht wird das gesamte Imageverzeichnis mit allen Dateien und Sicherungen, und der Schritt lässt sich nicht rückgängig machen. Lässt sich der Umfang nicht ermitteln, wird das Image **nicht** gelöscht.
+
+##### Torrent-Verteilung
+
+Ein Satellit kann seine Images per Torrent an die Clients verteilen. Ist das eingerichtet, meldet er zu jedem Image, ob die Verteilung funktioniert, und die Plattform zeigt das als Marke auf der Karte und in der Spalte **Torrent**:
+
+| Zustand | Bedeutung |
+|---------|-----------|
+| **Wird geseedet** | Der Seeder läuft und die Torrent-Datei passt zum Image. |
+| **Eingeschränkt** | Die Verteilung läuft, aber etwas stimmt nicht – etwa ein gestoppter Seeder oder eine Hash-Datei, die nicht zur Torrent-Datei passt. Die Gründe zeigt die Marke beim Überfahren mit der Maus. |
+| **Defekt** | Das Image kann so nicht verteilt werden, etwa weil die Torrent-Datei unlesbar ist oder das Image nicht zu ihr passt. |
+| **Unbekannt** | Der Satellit kann den Zustand gerade nicht sagen. |
+| **Kein Torrent** | Zu diesem Image liegt keine Torrent-Datei; das Image wird nicht per Torrent verteilt. In den Karten erscheint dafür keine Marke. |
+
+Bei **Wird geseedet** und **Eingeschränkt** nennt die Marke beim Überfahren außerdem, wie viele Seeder und Leecher der Tracker für das Image kennt.
+
+Zwei Hinweise am Kopf der Seite betreffen alle Images zugleich:
+
+- **Die Torrent-Verteilung ist auf diesem Satelliten nicht aktiv.** Auf dem Satelliten ist der Torrent-Dienst nicht eingerichtet. Das ist ein normaler Zustand, kein Fehler; die Images werden dann klassisch verteilt.
+- **Der Seeding-Zustand ist veraltet.** Der Torrent-Dienst hat seit dem genannten Zeitpunkt nichts mehr gemeldet. Die Angaben je Image beschreiben dann einen früheren Stand und werden als **Unbekannt** geführt.
+
+Die Begleitdateien eines Images (Klick auf die Karte oder **Speichern** in der Tabelle) zeigen oberhalb der Dateien den Abschnitt **Torrent** mit dem vollständigen Zustand: ob der Seeder läuft und eine Sitzung hat, wie viele Seeder und Leecher der Tracker kennt und wie oft das Image heruntergeladen wurde, den Tracker, den Zeitpunkt der Meldung und die festgestellten Probleme. Ist der Zustand veraltet, zeigt der Abschnitt statt der alten Angaben den Hinweis mit dem Zeitpunkt der letzten Meldung.
+
+:::note[Ältere Satelliten]
+Den Zustand der Torrent-Verteilung melden Satelliten ab Version 2.7.17. Bei einem älteren Satelliten fehlen Marke und Spalte einfach; die Imageliste ist ansonsten unverändert.
+:::
 
 #### Synchronisation
 

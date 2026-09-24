@@ -609,8 +609,6 @@ Zum Bearbeiten öffnen Sie einen Verteiler mit einem Klick auf seine Zeile. Das 
 
 Lehnt edulution beim Speichern einzelne Einträge ab, nennt der Dialog sie unter dem zugehörigen Feld.
 
-Mitgliedsgruppen löst edulution beim Speichern in ihre Mitglieder auf. Tritt jemand später einer Mitgliedsgruppe bei oder verlässt sie, ändert sich der Verteiler erst, wenn Sie ihn das nächste Mal speichern. Dasselbe gilt für Änderungen, die direkt auf dem Mailserver an der Adresse vorgenommen werden: Beim nächsten Speichern setzt edulution die Adresse wieder auf den Stand des Verteilers.
-
 Ein Verteiler erreicht höchstens 1000 Empfänger; gezählt werden die Benutzer, die Mitglieder aller Mitgliedsgruppen und die externen Adressen. Ein Verteiler, der mehr erreichen würde, wird nicht gespeichert, und der Dialog nennt die Zahl.
 
 Beim Anlegen und bei jedem Speichern prüft edulution die Adresse auf dem Mailserver; ist er nicht erreichbar, wird der Verteiler nicht gespeichert. Meldet edulution **Der Mailserver hat den API-Schlüssel abgelehnt. Bitte die Mailkonfiguration prüfen.**, tragen Sie in der [Mail-App](../../edulution-mail/konfiguration/mail-app-konfiguration.md) einen gültigen Schlüssel ein. Hat inzwischen jemand anderes die Adresse auf dem Mailserver belegt, lässt sich der Verteiler erst wieder speichern, wenn Sie die Adresse ändern oder dort freigeben.
@@ -621,17 +619,21 @@ Nach dem Speichern richtet edulution den Verteiler im Hintergrund als Adresse au
 
 | Anzeige | Bedeutung |
 |---------|-----------|
-| **Wird eingerichtet** | edulution überträgt den Verteiler gerade auf den Mailserver. Ist der Mailserver nicht erreichbar oder sind die Mitglieder einer Mitgliedsgruppe noch nicht bekannt, versucht edulution es selbstständig erneut, spätestens nach fünf Minuten. |
+| **Wird eingerichtet** | edulution überträgt den Verteiler gerade auf den Mailserver. Ist der Mailserver nicht erreichbar oder sind Mitglieder oder Mitgliedsgruppen noch nicht bekannt, versucht edulution es selbstständig erneut, spätestens nach fünf Minuten. Bis dahin bleibt die Adresse auf dem Mailserver unverändert. |
 | **Aktiv** | E-Mails an die Adresse des Verteilers gehen an alle Mitglieder. |
 | Zusatz **N ohne Postfach** | So viele Mitglieder haben kein Postfach auf dem Mailserver. Sie erhalten keine Nachrichten des Verteilers, auch nicht an eine andere, etwa private Adresse aus dem Verzeichnis. |
 | Zusatz **offen für alle Absender** | Jeder kann an die Adresse schreiben, auch von außerhalb der Schule. Der Zusatz erscheint, wenn der Mailserver die Absender eines Verteilers nicht auf die eigene Domain einschränken kann, etwa eine Mailcow-Version ohne diese Funktion. |
-| **Fehlgeschlagen: …** | Der Mailserver hat den Verteiler abgelehnt, etwa weil die Adresse dort inzwischen vergeben ist. Den Grund nennen die Anzeige und der Bearbeitungsdialog. Haben Sie die Ursache behoben, richtet **Erneut einrichten** im Dialog den Verteiler noch einmal ein; auch jedes Speichern löst einen neuen Versuch aus. Von selbst versucht edulution es nur bei *Für E-Mails ist kein Mailserver eingerichtet* erneut, spätestens fünf Minuten nachdem ein Mailserver eingetragen ist. |
+| **Fehlgeschlagen: …** | Der Mailserver hat den Verteiler abgelehnt, etwa weil die Adresse dort inzwischen vergeben ist, oder eine Mitgliedsgruppe gibt es im Verzeichnis nicht mehr. Den Grund nennen die Anzeige und der Bearbeitungsdialog. Haben Sie die Ursache behoben, richtet **Erneut einrichten** im Dialog den Verteiler noch einmal ein; auch jedes Speichern und jede Änderung in einer seiner Mitgliedsgruppen lösen einen neuen Versuch aus. Von selbst versucht edulution es nur bei *Für E-Mails ist kein Mailserver eingerichtet* erneut, spätestens fünf Minuten nachdem ein Mailserver eingetragen ist. |
 
 Nach einem abgelehnten API-Schlüssel bleiben die betroffenen Verteiler fehlgeschlagen, auch wenn Sie den Schlüssel inzwischen korrigiert haben. Richten Sie sie einzeln neu ein.
 
 Hat kein Mitglied ein Postfach und gibt es keine externen Mitglieder, zeigt die Tabelle **Aktiv**, die Adresse bleibt auf dem Mailserver aber abgeschaltet. E-Mails an sie werden dann nicht zugestellt.
 
 Die Adresse eines Verteilers steht seinen Mitgliedern nicht als Absenderadresse zur Verfügung, auch nicht im Webmailer.
+
+Tritt jemand einer Mitgliedsgruppe bei oder verlässt sie, passt edulution den Verteiler selbstständig an, sobald es die Änderung aus dem Verzeichnis übernommen hat, in der Regel innerhalb weniger Minuten. Wird eine Mitgliedsgruppe im Verzeichnis gelöscht oder umbenannt, schlägt der Verteiler spätestens bei der nächtlichen Prüfung mit diesem Grund fehl. Er stellt dann weiter an die bisherigen Empfänger zu, bis Sie die Gruppe aus dem Verteiler entfernen.
+
+Jede Nacht gleicht edulution die Adressen aktiver Verteiler mit dem Mailserver ab. Dort direkt vorgenommene Änderungen, etwa zusätzliche Empfänger oder die Sichtbarkeit im Webmailer, setzt es auf den Stand des Verteilers zurück, und eine gelöschte Adresse legt es neu an. Adressen, die edulution nicht selbst angelegt hat, bleiben unangetastet.
 
 ### Verteiler löschen
 

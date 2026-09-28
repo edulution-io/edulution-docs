@@ -139,6 +139,12 @@ Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen.
 **Anwenden** legt die Geräteliste zuerst auf dem Server ab und startet den Import erst danach. Schlägt allein der Importlauf fehl, ist die Liste bereits gespeichert: Die zum Entfernen markierten Geräte kehren dann **nicht** in die Tabelle zurück, und die Liste gilt als gespeichert. Wiederholen Sie in diesem Fall **Anwenden**, um den Import erneut anzustoßen.
 :::
 
+:::warning[Geräteliste inzwischen geändert]
+Hat sich die Geräteliste auf dem Server geändert, seit Sie sie geöffnet haben – etwa durch einen anderen Admin, einen anderen Tab oder das [Umbenennen einer LINBO-Gruppe](../../../edulution-server/linuxmuster.md#eine-gruppe-umbenennen), das Geräte auf den neuen Gruppennamen umstellt –, lehnen **Speichern** und **Anwenden** ab und schreiben nichts; ein Import läuft dann nicht. Die Meldung lautet *„Die Geräteliste von … wurde inzwischen geändert. Ihre Änderungen wurden nicht gespeichert; laden Sie die Liste neu und übernehmen Sie sie erneut.“*
+
+Ihre ungespeicherten Einträge bleiben in der Tabelle, bis Sie in der Meldung **Neu laden** wählen. Das lädt den aktuellen Stand und verwirft die Einträge. Notieren Sie Ihre Änderungen deshalb vorher und tragen Sie sie nach dem Neuladen erneut ein.
+:::
+
 </Audience>
 
 ## CSV-Import und -Export

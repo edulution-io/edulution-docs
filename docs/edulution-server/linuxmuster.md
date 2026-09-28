@@ -121,7 +121,7 @@ Eine Hardwaregruppe mit älterem Namen ändern Sie nicht hier, sondern als Globa
 :::
 
 :::tip[Ausführliche Anleitung]
-Wie Sie Geräte entfernen, was **Speichern** und **Anwenden** dabei jeweils bewirken, was bei einem fehlgeschlagenen Vorgang mit Ihren Änderungen geschieht, wie der CSV-Dialog die Tabelle ersetzt und was mit Kommentarzeilen geschieht, beschreibt die [Geräteverwaltung](../edulution-plattform/apps/native-apps/geraeteverwaltung.md).
+Wie Sie Geräte entfernen, was **Speichern** und **Anwenden** dabei jeweils bewirken, was bei einem fehlgeschlagenen Vorgang mit Ihren Änderungen geschieht, was passiert, wenn die Geräteliste inzwischen geändert wurde, wie der CSV-Dialog die Tabelle ersetzt und was mit Kommentarzeilen geschieht, beschreibt die [Geräteverwaltung](../edulution-plattform/apps/native-apps/geraeteverwaltung.md).
 :::
 
 ## Elternzuweisung

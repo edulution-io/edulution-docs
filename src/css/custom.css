@@ -741,7 +741,7 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Logo-Lockup: gruene Marke, Schriftzug, Kuerzel der Komponente. */
+/* Logo-Lockup: Bildmarke, Schriftzug, Kuerzel der Komponente. */
 .app-card__brand {
   display: flex;
   align-items: center;
@@ -749,18 +749,12 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   margin-bottom: 0.625rem;
 }
 
+/* Die Bildmarke bringt ihren Farbverlauf selbst mit und steht deshalb in
+   beiden Themes unveraendert. Die Breite folgt der Hoehe, damit sie nicht
+   verzerrt – das Original ist hoeher als breit. */
 .app-card__mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: 0.5rem;
-  background: var(--edu-green);
-  color: #10240a;
-  font-size: 1.125rem;
-  font-weight: 800;
-  line-height: 1;
+  width: auto;
+  height: 1.875rem;
 }
 
 .app-card__lockup {

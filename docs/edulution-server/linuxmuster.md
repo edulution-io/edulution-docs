@@ -38,7 +38,7 @@ Die Bereiche der App **Schulserver** stehen **Globaladmins** und **Schuladmins**
 Der Eintrag **LINBO** in der Seitenleiste – und die gleichnamige Kachel der Übersicht – steht **Globaladmins** immer offen. **Schuladmins** erreichen den Bereich ab **Version 7.4.13** der Linuxmuster-API; mit einer älteren API entfällt er für sie. Für alle anderen Rollen entfällt der Bereich ganz; die übrigen Einträge der App bleiben davon unberührt.
 :::
 
-Die **Übersicht** ist nach denselben Bereichen gegliedert wie die Seitenleiste. Unter **Benutzerverwaltung** führt je eine Kachel direkt zu den Benutzertypen **Schüler**, **Lehrer**, **Extra-Schüler**, **Eltern**, **Mitarbeiter**, **Schuladmins** und **Globaladmins**; in Unternehmensumgebungen bleiben davon nur **Mitarbeiter** und **Globaladmins** sichtbar. Darunter folgen die Bereiche **Geräteverwaltung**, **Elternzuweisung**, **LINBO** und **System** mit je einer Kachel. Die Kachel **LINBO** führt wie der gleichnamige Eintrag in der Seitenleiste in den Bereich **LINBO**.
+Die **Übersicht** ist nach denselben Bereichen gegliedert wie die Seitenleiste. Unter **Benutzerverwaltung** führt je eine Kachel direkt zu den Benutzertypen **Schüler**, **Lehrer**, **Extra-Schüler**, **Eltern**, **Mitarbeiter**, **Schuladmins** und **Globaladmins**; in Unternehmensumgebungen bleiben davon nur **Mitarbeiter** und **Globaladmins** sichtbar, und einem Schuladmin fehlt die Kachel **Globaladmins**. Darunter folgen die Bereiche **Geräteverwaltung**, **Elternzuweisung**, **LINBO** und **System** mit je einer Kachel. Die Kachel **LINBO** führt wie der gleichnamige Eintrag in der Seitenleiste in den Bereich **LINBO**.
 
 In Umgebungen mit mehreren Schulen enthalten die Listenansichten eine **Schulauswahl**. Benutzerverwaltung, Geräteverwaltung, Verwaltungslisten und Elternzuweisung zeigen die Daten der dort gewählten Schule; ein Wechsel lädt die Listen neu. Als **Globaladmin** wählen Sie jede Schule des Servers, als **Schuladmin** enthält die Auswahl nur Ihre eigene Schule.
 
@@ -102,18 +102,18 @@ Rechnername, Raum und Hardwaregruppe sind zugleich die Ziele, auf die ein `linbo
 
 | Spalte | Erlaubt nach dem ersten Zeichen | Länge |
 |--------|----------------------------------|-------|
-| **Rechnername** | Buchstaben, Ziffern, Bindestrich | höchstens 15 Zeichen |
+| **Rechnername** | Buchstaben, Ziffern, Bindestrich; nicht am Ende | höchstens 15 Zeichen |
 | **Raum** | Buchstaben, Ziffern, Bindestrich | höchstens 63 Zeichen |
 | **Hardwaregruppe** | Buchstaben, Ziffern, Bindestrich, Unterstrich | höchstens 63 Zeichen |
 
-Ein Pluszeichen ist in keiner der drei Spalten zulässig. Für den Namen einer Hardwaregruppe unter **LINBO** gilt dieselbe Regel wie für die Spalte **Hardwaregruppe**. Abweichende Zellen markiert die Tabelle, und **Speichern** und **Anwenden** bleiben gesperrt, bis sie bereinigt sind; leer bleiben darf keine der drei Spalten. Die Prüfung greift auch beim Einlesen einer CSV-Datei und noch einmal auf dem Server.
+Ein Pluszeichen ist in keiner der drei Spalten zulässig. Abweichende Zellen markiert die Tabelle, und **Speichern** und **Anwenden** bleiben gesperrt, bis sie bereinigt sind; leer bleiben darf keine der drei Spalten. Die Prüfung greift auch beim Einlesen einer CSV-Datei und noch einmal auf dem Server.
 
 :::note[Ältere Namen dürfen bleiben, bis Sie die Zeile ändern]
 Die Namensregeln gelten nur für neue und geänderte Zeilen. Eine Zeile, die unverändert der gespeicherten Geräteliste entspricht, lässt sich weiterhin speichern und anwenden, auch wenn einer ihrer Namen gegen die Regeln verstößt. Die Tabelle markiert eine solche Zelle gelb statt als Fehler; beim Überfahren erscheint *„Dieser Name entspricht nicht den aktuellen Namensregeln. Die Zeile kann unverändert bleiben, muss aber angepasst werden, sobald sie bearbeitet wird.“*
 
 Sobald Sie in dieser Zeile irgendeinen Wert ändern, muss sie den Regeln entsprechen. Das gilt auch nach dem Einlesen einer CSV-Datei: Eine eingelesene Zeile, die mit einer gespeicherten Zeile vollständig übereinstimmt, gilt als unverändert. Welche Zeilen sich geändert haben, ermittelt die Plattform anhand der gespeicherten Geräteliste; kann sie diese nicht lesen – etwa weil der Linuxmuster-Server nicht antwortet –, weist sie das Speichern mit *„Die gespeicherte Geräteliste konnte nicht gelesen werden, um die Änderung zu prüfen. Bitte erneut versuchen.“* ab, statt jede Zeile den Regeln zu unterwerfen. Doppelte Einträge sowie ungültige MAC- und IP-Adressen werden dagegen immer abgewiesen.
 
-Eine Hardwaregruppe mit älterem Namen ändern Sie nicht hier, sondern als Globaladmin unter **LINBO** mit [**Gruppe umbenennen**](#aktionen-einer-gruppe): Die Aktion stellt alle Geräte der Gruppe mit um und wendet die Änderung an, statt die Geräte von ihrer `start.conf` zu trennen.
+Eine Hardwaregruppe mit älterem Namen ändern Sie nicht hier, sondern als Globaladmin unter **LINBO** mit [**Gruppe umbenennen**](#eine-gruppe-umbenennen): Die Aktion stellt alle Geräte der Gruppe mit um und wendet die Änderung an, statt die Geräte von ihrer `start.conf` zu trennen.
 :::
 
 :::warning[Ein unzulässiger Name bricht den Import der ganzen Schule ab]
@@ -204,13 +204,11 @@ Der Bereich **LINBO** ist in zwei Unterseiten gegliedert: **Gruppen** und **Imag
 
 Zusätzlich lässt sich über das Filtersymbol in der Suchleiste nach einer oder mehreren **Gruppen** einschränken.
 
-Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**. Die Spalte **Rolle** zeigt dieselbe Bezeichnung wie der Import; eine Rolle, die Ihre Installation selbst definiert hat, erscheint unter ihrem technischen Namen, ein Gerät ohne Rolle mit „—“. Bricht das Laden mittendrin ab, zeigt sie die bis dahin geladenen Hosts, und darüber bleibt bis zum nächsten Laden der Hinweis *„Die Hosts konnten nicht vollständig geladen werden.“* stehen.
+Die Tabelle zeigt Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**. **Geplant** zeigt „–“; beim Überfahren erscheint *„Geplante Aktionen werden vom Edulution-Satellite verwaltet und sind in dieser Version noch nicht angebunden.“* Die Spalte **Rolle** zeigt dieselbe Bezeichnung wie der Import; eine Rolle, die Ihre Installation selbst definiert hat, erscheint unter ihrem technischen Namen, ein Gerät ohne Rolle mit „—“. Bricht das Laden mittendrin ab, zeigt sie die bis dahin geladenen Hosts, und darüber bleibt bis zum nächsten Laden der Hinweis *„Die Hosts konnten nicht vollständig geladen werden.“* stehen.
 
 Sechs weitere Spalten sind ausgeblendet und lassen sich über die Spaltenauswahl einschalten: **PXE** mit der Bezeichnung des PXE-Kennzeichens, **PXE aktiv**, **Kommentar**, **DHCP-Optionen**, **Office-Schlüssel** und **Windows-Schlüssel**. Sie geben wieder, was die Geräteliste zu einem Rechner führt; geändert werden diese Angaben in der [Geräteverwaltung](#geräteverwaltung), nicht hier. Die Suche findet einen Rechner auch über seinen **Kommentar** – die beiden Schlüssel bleiben aus der Suche heraus.
 
 :::note[Hostliste und Schulbindung]
-Die Registerkarte **Geräte** der Geräteverwaltung erreicht, wer auch den Bereich **LINBO** erreicht: **Globaladmins** immer, **Schuladmins** ab **Version 7.4.13** der Linuxmuster-API. Zuvor blieb die Registerkarte auch einem Schuladmin verborgen, dem die API LINBO bereits geöffnet hatte.
-
 Anders als die Gruppen sind Hosts schulgebunden. Ein Schuladmin sieht die Rechner seiner eigenen Schule, und jede Aktion – **Neu starten**, **Herunterfahren**, ein Kommando aus dem Aktionsdialog oder ein **Hostscan** – wirkt auf diese Schule. Nennt eine Anfrage eine andere Schule, antwortet die Plattform mit *„Du hast keine Berechtigung, auf diese Ressource zuzugreifen.“*, ohne die Anfrage an den Server weiterzugeben. Ein Globaladmin wählt über die **Schulauswahl** jede Schule des Servers.
 
 **Aufwecken** steht **Globaladmins** und **Schuladmins** zur Verfügung. Für einen Schuladmin weckt die Linuxmuster-API nur die Rechner seiner eigenen Schule und übergeht alle übrigen. Besteht die Auswahl ausschließlich aus Rechnern anderer Schulen, wird sie mit *„Keiner der gewählten Rechner gehört zu Ihrer Schule“* abgewiesen.
@@ -222,25 +220,25 @@ Nach einer Aktion – etwa **Aufwecken**, **Neu starten** oder **Herunterfahren*
 
 #### Hosts auswählen
 
-Aktionen für einzelne Hosts laufen immer über die Auswahl – auch für einen einzigen Rechner haken Sie ihn an. Die erste Spalte der Tabelle trägt je Zeile ein Auswahlkästchen, das Kästchen in der Kopfzeile wählt alle Zeilen der aktuellen Ansicht.
+Aktionen für einzelne Hosts laufen immer über die Auswahl – auch einen einzigen Rechner wählen Sie dafür aus.
 
-Die Aktionsleiste im Seitenkopf bietet unabhängig von der Auswahl **Neu laden** an, dazu **Sitzungen** und **Raum-Aktion**, sofern die Linuxmuster-API sie unterstützt – **Raum-Aktion** nur, wenn die Geräteliste Räume führt. Sobald mindestens ein Host ausgewählt ist, nennt sie die Anzahl und ergänzt **Aufwecken**, **Neu starten**, **Herunterfahren** und **Aktion schicken**. Ein Host, der nicht erreichbar ist, wird übersprungen und in der Rückmeldung benannt. **Neu starten**, **Herunterfahren** und **Aktion schicken** überspringen außerdem Rechner, deren Name kein gültiges Ziel eines `linbo-remote`-Laufs ist, etwa einen älteren Namen mit Unterstrich; eine Warnung nennt sie, und sie bleiben angehakt. **Aufwecken** erreicht auch diese Rechner, weil es sie über ihre MAC-Adresse anspricht.
+Die Aktionsleiste im Seitenkopf bietet unabhängig von der Auswahl **Neu laden** an, dazu **Sitzungen** und **Raum-Aktion**, sofern die Linuxmuster-API Sitzungen beziehungsweise Kommandoketten unterstützt – **Raum-Aktion** nur, wenn die Geräteliste Räume führt. Sobald mindestens ein Host ausgewählt ist, nennt sie die Anzahl und ergänzt **Aufwecken**, **Neu starten**, **Herunterfahren** und **Aktion schicken**. Ein Host, der nicht erreichbar ist, wird übersprungen und in der Rückmeldung benannt. **Neu starten**, **Herunterfahren** und **Aktion schicken** überspringen außerdem Rechner, deren Name kein gültiges Ziel eines `linbo-remote`-Laufs ist, etwa einen älteren Namen mit Unterstrich. Der [Kommando-Dialog](#der-kommando-dialog) nennt sie schon vor dem Abschicken (*„Der Rechner … wird übersprungen, weil sein Name kein gültiges Ziel eines linbo-remote-Laufs ist.“*) und führt nichts aus, wenn keiner der ausgewählten Rechner ein gültiges Ziel ist; bei **Neu starten** und **Herunterfahren** nennt eine Warnung sie danach. Übersprungene Rechner werden nach dem Lauf zusammen mit den erreichten abgewählt. **Aufwecken** erreicht auch diese Rechner, weil es sie über ihre MAC-Adresse anspricht.
 
 :::note[Die Suche bestimmt mit, wen eine Sammelaktion trifft]
-Eine Sammelaktion erreicht nur die Hosts, die gerade **sichtbar** sind. Schränken Sie die Suche ein, nachdem Sie ausgewählt haben, sinkt die Zahl in der Leiste entsprechend – ausgeblendete Hosts bleiben angehakt, werden aber nicht angesprochen. Leeren Sie die Suche wieder, sind sie erneut Teil der Auswahl.
+Eine Sammelaktion erreicht nur die Hosts, die gerade **sichtbar** sind. Schränken Sie die Suche ein, nachdem Sie ausgewählt haben, sinkt die Zahl in der Leiste entsprechend – ausgeblendete Hosts bleiben ausgewählt, werden aber nicht angesprochen. Leeren Sie die Suche wieder, sind sie erneut Teil der Auswahl.
 :::
 
-Nach einer Sammelaktion verlieren die Hosts ihr Häkchen, für die der Server den Auftrag angenommen hat – auch dann, wenn er einzelne davon als offline übersprungen hat. Angehakt bleiben nur Rechner, die der Auftrag gar nicht erreicht hat, etwa weil bei einem großen Lauf ein Teil nicht zugestellt werden konnte. Die Auswahl schrumpft dann auf genau diese Rechner, sodass ein zweiter Versuch die bereits bedienten nicht noch einmal trifft.
+Nach einer Sammelaktion werden die Hosts abgewählt, für die der Server den Auftrag angenommen hat – auch dann, wenn er einzelne davon als offline übersprungen hat. Ausgewählt bleiben nur Rechner, die der Auftrag gar nicht erreicht hat, etwa weil bei einem großen Lauf ein Teil nicht zugestellt werden konnte. Die Auswahl schrumpft dann auf genau diese Rechner, sodass ein zweiter Versuch die bereits bedienten nicht noch einmal trifft.
 
 #### Eine Aktion an einen Raum schicken
 
-**Raum-Aktion** richtet eine Kommandokette an einen Raum, auch ohne dass ein Rechner ausgewählt ist. Sie wählen den Raum aus einer Liste; die Räume stammen aus der Geräteliste (`devices.csv`), nicht aus den Sitzplänen. Ein Raum, dessen Name kein gültiges Ziel eines `linbo-remote`-Laufs ist, steht in der Liste, lässt sich aber nicht wählen; der Grund steht darunter. Der Dialog nennt, wie viele Rechner die Geräteliste in diesem Raum führt, und der Server löst den Raum beim Ausführen selbst auf. Aktionen mit Betriebssystem stehen nur für Räume bereit, deren Rechner alle derselben Hardwaregruppe angehören – bei einem gemischten Raum nennt der Dialog die beteiligten Gruppen. Auch die Bestätigung für einen zerstörenden Schritt nennt dann den Raum statt einer Anzahl von Rechnern. Sind Hosts ausgewählt, steht im Feld **Ziel** zunächst *Raum wählen*; die aktuelle Auswahl bleibt dort als Ziel wählbar.
+**Raum-Aktion** richtet eine Kommandokette an einen Raum, auch ohne dass ein Rechner ausgewählt ist. Sie wählen den Raum aus einer Liste; die Räume stammen aus der Geräteliste (`devices.csv`), nicht aus den Sitzplänen. Ein Raum, dessen Name kein gültiges Ziel eines `linbo-remote`-Laufs ist, steht in der Liste, lässt sich aber nicht wählen; der Grund steht am Eintrag. Der Dialog nennt, wie viele Rechner die Geräteliste in diesem Raum führt, und der Server löst den Raum beim Ausführen selbst auf. Aktionen mit Betriebssystem stehen nur für Räume bereit, deren Rechner alle derselben Hardwaregruppe angehören – bei einem gemischten Raum nennt der Dialog die beteiligten Gruppen. Auch die Bestätigung für einen zerstörenden Schritt nennt dann den Raum statt einer Anzahl von Rechnern. Sind Hosts ausgewählt, steht im Feld **Ziel** zunächst *Raum wählen*; die aktuelle Auswahl bleibt dort als Ziel wählbar.
 
 #### Der Kommando-Dialog
 
 **Aktion schicken** öffnet einen Dialog, der die ausgewählten Rechner namentlich nennt – oder, aus dem Bereich **Gruppen** heraus, die Hardwaregruppe, an die die Kette geht – und aus einzelnen Schritten eine **Kommandokette** zusammensetzt. Die Kette wird genau in der Reihenfolge ausgeführt, in der die Schritte stehen; über **Nach oben** und **Nach unten** ordnen Sie sie um, über **Entfernen** nehmen Sie einen Schritt wieder heraus. Unten zeigt die **Kommandokette** die Schreibweise, die Sie auch auf der Konsole verwenden würden.
 
-Oberhalb der Schritte wählen Sie den **Modus**. **Einfach** führt je Betriebssystem der `start.conf` eine Zeile mit **Formatieren**, **Sync** und **Start** und darunter die Schalter **Partitionieren** und **Cache befüllen** (`rsync`); daraus entsteht die Kette in der Reihenfolge Partitionieren, Formatieren, Cache befüllen, Sync, Start. Führt die `start.conf` kein Betriebssystem, bleiben nur die beiden Schalter. **Erweitert** ist der Baukasten mit dem vollen Kommando-Katalog, den die folgenden Abschnitte beschreiben.
+Im Feld **Modus** wählen Sie, wie Sie die Kette zusammenstellen. **Einfach** führt je Betriebssystem der `start.conf` eine Zeile mit **Formatieren**, **Sync** und **Start** und dazu die Schalter **Partitionieren** und **Cache befüllen** (`rsync`); daraus entsteht die Kette in der Reihenfolge Partitionieren, Formatieren, Cache befüllen, Sync, Start. Führt die `start.conf` kein Betriebssystem, bleiben nur die beiden Schalter. **Erweitert** ist der Baukasten mit dem vollen Kommando-Katalog, den die folgenden Abschnitte beschreiben.
 
 Je nach Schritt verlangt der Dialog ein zusätzliches Argument:
 
@@ -255,10 +253,10 @@ Je nach Schritt verlangt der Dialog ein zusätzliches Argument:
 Betriebssysteme und Partitionen werden in der Reihenfolge gezählt, in der ihre Abschnitte in der `start.conf` stehen – nicht nach der Ziffer im Gerätenamen. Der Dialog zählt dabei genauso wie der LINBO-Client: ein auskommentierter Abschnitt steht nicht zur Auswahl, zählt aber mit, sodass die Einträge darunter ihre Nummer behalten. Deshalb kann die Partition `/dev/sda5` die Nummer 3 tragen, und auf einem Rechner mit zwei Festplatten steht jede Partition einzeln zur Wahl, statt mit der gleich nummerierten der anderen Platte zusammengefasst zu werden.
 :::
 
-Darunter legen Sie den Modus und die Optionen fest: **Beim nächsten Start ausführen** stellt die Kette zurück, statt sie sofort zu schicken. **Wake-on-LAN** weckt die Rechner und wartet die eingetragenen Sekunden, bevor die Kette ausgeführt wird. Erst mit Wake-on-LAN lassen sich zwei weitere Werte setzen: der **Abstand zwischen den Weckpaketen**, mit dem die Rechner nacheinander statt gleichzeitig geweckt werden, und **Weckpaket zusätzlich an die Broadcast-Adresse senden**. **Oberfläche des Clients beim nächsten Start abschalten** und **Automatische Funktionen der start.conf beim nächsten Start übergehen** wirken erst beim nächsten Start – Letzteres überspringt das in der `start.conf` eingestellte automatische Partitionieren, Formatieren, **Cache befüllen** und Starten.
+Außerdem legen Sie die Optionen fest: **Beim nächsten Start ausführen** stellt die Kette zurück, statt sie sofort zu schicken. **Wake-on-LAN** weckt die Rechner und wartet die eingetragenen Sekunden, bevor die Kette ausgeführt wird. Erst mit Wake-on-LAN lassen sich zwei weitere Werte setzen: der **Abstand zwischen den Weckpaketen**, mit dem die Rechner nacheinander statt gleichzeitig geweckt werden, und **Weckpaket zusätzlich an die Broadcast-Adresse senden**. **Oberfläche des Clients beim nächsten Start abschalten** und **Automatische Funktionen der start.conf beim nächsten Start übergehen** wirken erst beim nächsten Start – Letzteres überspringt das in der `start.conf` eingestellte automatische Partitionieren, Formatieren, **Cache befüllen** und Starten.
 
 :::warning[Bestätigung für zerstörende Schritte]
-**Neu**, **Formatieren** und **Partitionieren** löschen Daten auf den Zielrechnern. Der Dialog verlangt dafür ein zusätzliches Häkchen, das die Anzahl der betroffenen Rechner nennt – und, wenn die Auswahl mehrere Hardwaregruppen umfasst, auch deren Anzahl; geht die Kette an eine ganze Hardwaregruppe, nennt das Häkchen stattdessen die Gruppe. Die Bestätigung gilt für **genau diese Kette, genau diese Rechner und genau diese Optionen**: ändern Sie danach einen Schritt, ein Argument, die Auswahl oder eine der Optionen darüber, wird sie zurückgenommen und Sie bestätigen erneut. Das gilt besonders für **Beim nächsten Start ausführen** und **Wake-on-LAN** – das eine verlegt einen begleiteten Lauf auf den nächsten Start der Rechner, das andere weckt auch die, die bewusst ausgeschaltet waren.
+**Neu**, **Formatieren** und **Partitionieren** löschen Daten auf den Zielrechnern. Der Dialog verlangt dafür eine zusätzliche Bestätigung, die die Anzahl der betroffenen Rechner nennt – und, wenn die Auswahl mehrere Hardwaregruppen umfasst, auch deren Anzahl; geht die Kette an eine ganze Hardwaregruppe, nennt die Bestätigung stattdessen die Gruppe. Die Bestätigung gilt für **genau diese Kette, genau diese Rechner und genau diese Optionen**: ändern Sie danach einen Schritt, ein Argument, die Auswahl oder eine der Optionen darüber, wird sie zurückgenommen und Sie bestätigen erneut. Das gilt besonders für **Beim nächsten Start ausführen** und **Wake-on-LAN** – das eine verlegt einen begleiteten Lauf auf den nächsten Start der Rechner, das andere weckt auch die, die bewusst ausgeschaltet waren.
 :::
 
 Steht **Ausführen** nicht zur Verfügung, nennt der Dialog den Grund direkt darüber – etwa ein Schritt, dem noch die Auswahl fehlt, eine ausstehende Bestätigung oder ein Lauf, der bereits läuft.
@@ -276,10 +274,6 @@ Solange die `start.conf` der Gruppe noch geladen wird, bleiben die Aktionen mit 
 
 Nach dem Abschicken meldet die Plattform, ob die Kette alle Rechner erreicht hat. Waren einzelne Hosts offline, werden sie namentlich genannt; die Statusspalte der betroffenen Zeilen wird anschließend mehrfach nachgefragt, weil ein Rechner, der gerade neu startet, nicht sofort antwortet.
 
-:::note[Geplante Aktionen]
-**Geplant** zeigt „–“; beim Überfahren erscheint *„Geplante Aktionen werden vom Edulution-Satellite verwaltet und sind in dieser Version noch nicht angebunden.“*
-:::
-
 #### Laufende Sitzungen
 
 Ein Lauf wird auf dem Schulserver je Host in einer eigenen Sitzung ausgeführt und läuft dort weiter, auch wenn Sie den Dialog schließen oder die Seite verlassen. **Sitzungen** in der Aktionsleiste der Hostliste zeigt, was gerade läuft; steht etwas an, nennt die Schaltfläche die Anzahl.
@@ -289,7 +283,7 @@ Der Dialog listet je Sitzung den Hostnamen und seit wann sie läuft. **Protokoll
 Solange die Hostliste im Vordergrund liegt, wird die Liste etwa alle fünf Sekunden neu gelesen und ein geöffnetes Protokoll im Sekundentakt nachgeführt; nach dem Ende der Sitzung wird es ein letztes Mal gelesen. Ein Browser-Tab im Hintergrund fragt nichts ab und holt beim Zurückwechseln nach.
 
 :::note[Die Liste folgt nicht der gewählten Schule]
-Welche Sitzungen Sie sehen, entscheidet der Schulserver anhand Ihres Kontos: eine Schulverwaltung sieht die Hosts der eigenen Schule, eine globale Administration jede laufende Sitzung. Der Schulauswahl oberhalb der Liste folgt sie deshalb nicht – ein Wechsel blendet keine Sitzung aus, die weiterläuft.
+Welche Sitzungen Sie sehen, entscheidet der Schulserver anhand Ihres Kontos: ein Schuladmin sieht die Hosts der eigenen Schule, ein Globaladmin jede laufende Sitzung. Der **Schulauswahl** folgt sie deshalb nicht – ein Wechsel blendet keine Sitzung aus, die weiterläuft.
 :::
 
 Antwortet der Server nicht, bleibt der zuletzt bekannte Stand stehen und der Dialog sagt es; der nächste Versuch läuft von selbst, ohne die Meldung bei jedem Durchgang zu wiederholen.
@@ -299,7 +293,7 @@ Antwortet der Server nicht, bleibt der zuletzt bekannte Stand stehen und der Dia
 Eine **Hardwaregruppe** ist eine `start.conf` auf dem Server: sie beschreibt das Plattenlayout und die Betriebssysteme aller Rechner, die ihr zugeordnet sind. Die Seite listet die Hardwaregruppen des Servers – also genau die Gruppen, für die eine `start.conf` vorliegt.
 
 :::note[Gruppen sind nicht schulgebunden]
-Die `start.conf`-Dateien liegen serverweit und nicht je Schule. Ein Wechsel der Schule über die Auswahl oberhalb der Liste ändert die Gruppen deshalb nicht, nur die Zahl der zugeordneten Rechner – darauf weist auch die Beschreibung im Seitenkopf hin.
+Die `start.conf`-Dateien liegen serverweit und nicht je Schule. Ein Wechsel der Schule über die **Schulauswahl** ändert die Gruppen deshalb nicht, nur die Zahl der zugeordneten Rechner – darauf weist auch die Beschreibung im Seitenkopf hin.
 :::
 
 Über die Ansichtswahl wählen Sie zwischen vier Ansichten derselben Liste. Ihre Wahl bleibt erhalten und gilt auch nach einem Neuladen:
@@ -311,9 +305,9 @@ Die `start.conf`-Dateien liegen serverweit und nicht je Schule. Ein Wechsel der 
 | **Datenblatt** | die gesetzten Schlüssel der Gruppe: Server, Cache, Download-Typ, Systemtyp, Abmeldung nach, Kernel-Optionen und Virtueller Desktop, dazu die verwendeten Images |
 | **Tabelle** | ID, Betriebssysteme, verwendete Images, Partitionen, Zahl der Rechner und Aktualisierungszeitpunkt |
 
-Über der Liste steht in allen vier Ansichten dieselbe Leiste: die Zahl der Gruppen, die die Suche übrig lässt, das Suchfeld, **Sortieren**, die Ansichtswahl und die Schulauswahl. Die Suche findet eine Gruppe über ihren Namen und den Dateinamen ihrer `start.conf`. Suchbegriff und Auswahl bleiben erhalten, wenn Sie die Ansicht wechseln.
+Die Werkzeugleiste der Liste enthält in allen vier Ansichten die Zahl der Gruppen, die die Suche übrig lässt, das Suchfeld, die Ansichtswahl und die Schulauswahl, in den drei Kartenansichten außerdem **Sortieren**. Die Suche findet eine Gruppe über ihren Namen und den Dateinamen ihrer `start.conf`. Suchbegriff und Auswahl bleiben erhalten, wenn Sie die Ansicht wechseln.
 
-In den drei Kartenansichten wählen Sie eine Gruppe über das Auswahlkästchen ihrer Karte aus; **Alle auswählen** über den Karten wählt alle Gruppen, die die Suche zeigt. Ein Klick auf die Karte außerhalb des Kästchens öffnet die Vorschau.
+In den drei Kartenansichten wählen Sie eine Gruppe über das Auswahlkästchen ihrer Karte aus; **Alle auswählen** wählt alle Gruppen, die die Suche zeigt.
 
 Solange keine Gruppe ausgewählt ist, bietet die Aktionsleiste **Neu laden** an. Die Schaltfläche holt die `start.conf`-Dateien, die GRUB-Konfigurationen, die Images und die Hosts für die Hostzahlen erneut vom Server – auch dann, wenn die Seite sie gerade erst geladen hat.
 
@@ -327,24 +321,24 @@ Die Aktionen bietet die Aktionsleiste an, sobald Gruppen ausgewählt sind – in
 
 | Aktion | Wirkung |
 |--------|---------|
-| **Bearbeiten** | öffnet den Gruppen-Editor (siehe unten) |
+| **Bearbeiten** | öffnet den [Gruppen-Editor](#der-gruppen-editor) |
 | **Vorschau** | zeigt die ausgewertete `start.conf`, ihre Rohdaten und die GRUB-Konfiguration |
 | **Duplizieren** | legt eine Kopie unter neuem Namen an |
-| **Gruppe umbenennen** | gibt der Gruppe einen neuen Namen und stellt ihre Geräte in allen Schulen mit um; nur für globale Administratoren |
+| **Gruppe umbenennen** | gibt der Gruppe einen neuen Namen und stellt ihre Geräte in allen Schulen mit um; nur für Globaladmins, siehe [Eine Gruppe umbenennen](#eine-gruppe-umbenennen) |
 | **Sicherungen** | listet die Sicherungen der `start.conf` und spielt eine davon zurück |
 | **VDI** | öffnet die VDI-Konfiguration der Gruppe |
 | **Aktion schicken** | öffnet den [Kommando-Dialog](#der-kommando-dialog) für alle Rechner der Gruppe |
 | **Löschen** | löscht die `start.conf` der Gruppe auf dem Server |
 
-**Aktion schicken** richtet eine Kommandokette an die Hardwaregruppe als Ganzes: Der Server ermittelt selbst, welche Rechner der **ausgewählten Schule** dazugehören – Rechner derselben Gruppe in einer anderen Schule erreicht der Lauf nicht; wechseln Sie dafür die Schule oberhalb der Liste. Der Dialog nennt die Gruppe und dazu, wie viele ihrer Rechner die ausgewählte Schule führt; führt sie keinen, steht keine Aktion zur Wahl, und der Dialog sagt warum. Solange die Rechnerliste der Schule noch geladen wird – oder wenn das Laden fehlgeschlagen ist – ist die Anzahl noch nicht bekannt: Auch dann steht keine Aktion zur Wahl, der Dialog nennt dafür aber das Laden als Grund, statt es der Schule zuzuschreiben. Öffnen Sie den Dialog direkt nach dem Aufruf der Seite, kann das kurz der Fall sein; sobald die Liste steht, stehen die Aktionen zur Wahl. Die Betriebssysteme für **Sync**, **Neu** und **Start** stammen aus der `start.conf` der Gruppe. Die Aktion ist ausgegraut, solange ein anderer Auftrag noch läuft, und für eine Gruppe, deren Name die Regeln für `linbo-remote` nicht erfüllt – der Grund steht am Knopf. Nach dem Abschicken meldet die Plattform, ob die Kette die Gruppe erreicht hat; waren Rechner offline, nennt sie den Hinweis des Servers dazu. Ob der Lauf noch läuft und was er ausgibt, sehen Sie anschließend unter [Laufende Sitzungen](#laufende-sitzungen) in der Hostliste.
+**Aktion schicken** richtet eine Kommandokette an die Hardwaregruppe als Ganzes: Der Server ermittelt selbst, welche Rechner der **ausgewählten Schule** dazugehören – Rechner derselben Gruppe in einer anderen Schule erreicht der Lauf nicht; wechseln Sie dafür die Schule in der **Schulauswahl**. Der Dialog nennt die Gruppe und dazu, wie viele ihrer Rechner die ausgewählte Schule führt; führt sie keinen, steht keine Aktion zur Wahl, und der Dialog sagt warum. Solange die Rechnerliste der Schule noch geladen wird – oder wenn das Laden fehlgeschlagen ist – ist die Anzahl noch nicht bekannt: Auch dann steht keine Aktion zur Wahl, der Dialog nennt dafür aber das Laden als Grund, statt es der Schule zuzuschreiben. Öffnen Sie den Dialog direkt nach dem Aufruf der Seite, kann das kurz der Fall sein; sobald die Liste steht, stehen die Aktionen zur Wahl. Die Betriebssysteme für **Sync**, **Neu** und **Start** stammen aus der `start.conf` der Gruppe. Die Aktion ist ausgegraut, solange ein anderer Auftrag noch läuft, und für eine Gruppe, deren Name die Regeln für `linbo-remote` nicht erfüllt – der Grund steht am Knopf. Nach dem Abschicken meldet die Plattform, ob die Kette die Gruppe erreicht hat; waren Rechner offline, nennt sie den Hinweis des Servers dazu. Ob der Lauf noch läuft und was er ausgibt, sehen Sie anschließend unter [Laufende Sitzungen](#laufende-sitzungen) in der Hostliste.
 
 Solange keine Gruppe ausgewählt ist, bietet die Aktionsleiste ab **Version 7.4.13** der Linuxmuster-API auch **linbo.iso** an: Die Schaltfläche lädt das Startmedium, das der Server unter `/srv/linbo/linbo.iso` vorhält. Die Datei ist einige hundert Megabyte groß.
 
-Eine neue Gruppe legen Sie in den drei Kartenansichten über die Karte **Gruppe anlegen** vor der ersten Gruppe an; in der **Tabelle** steht **Gruppe anlegen** stattdessen in der Aktionsleiste. Sie vergeben einen Namen – er beginnt mit einem Buchstaben oder einer Ziffer, darf danach Buchstaben, Ziffern, Bindestrich und Unterstrich enthalten, keine Leerzeichen, und höchstens 63 Zeichen lang sein – und wählen eine **Vorlage**: *Minimal – nur Cache-Partition*, *Windows (UEFI)* (Vorgabe), *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
+Eine neue Gruppe legen Sie in den drei Kartenansichten über die Karte **Gruppe anlegen** vor der ersten Gruppe an; in der **Tabelle** steht **Gruppe anlegen** stattdessen in der Aktionsleiste. Sie vergeben einen Namen nach denselben Regeln wie in der Spalte **Hardwaregruppe** der [Geräteverwaltung](#geräteverwaltung) und wählen eine **Vorlage**: *Minimal — nur Cache-Partition*, *Windows (UEFI)* (Vorgabe), *Linux (UEFI)*, *Windows und Linux (UEFI)* oder *Windows und Linux (BIOS)*. Der Hinweis unter der Auswahl nennt, wie viele Partitionen die Vorlage anlegt und auf welchem Gerät sie entstehen. Einen Namen, den eine gelistete Gruppe bereits trägt, weist der Dialog schon bei der Eingabe ab; Groß- und Kleinschreibung spielt dabei keine Rolle.
 
 Ab **Version 7.4.13** der Linuxmuster-API stehen unter den fünf mitgelieferten Vorlagen zusätzlich die Beispielkonfigurationen, die der Server in `/srv/linbo/examples` bereithält. Eine solche Vorlage wird unverändert übernommen; nur Gruppenname, Serveradresse und Schule schreibt die Plattform beim Anlegen neu.
 
-Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach. Gelingt das nicht – etwa weil `/server-info` globalen Administratoren vorbehalten ist –, verwendet sie die Serveradresse, die eine bereits vorhandene Gruppe nennt. Findet sich auch dort keine, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste. Sie übernimmt die gewählte Schule in ihr Feld **Schule** (Gruppen-Editor, Registerkarte **Allgemein**); ist keine Schule gewählt, bleibt das Feld leer.
+Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach. Gelingt das nicht – etwa weil `/server-info` Globaladmins vorbehalten ist –, verwendet sie die Serveradresse, die eine bereits vorhandene Gruppe nennt. Findet sich auch dort keine, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste. Sie übernimmt die gewählte Schule in ihr Feld **Schule** (Gruppen-Editor, Registerkarte **Allgemein**); ist keine Schule gewählt, bleibt das Feld leer.
 
 :::note[Vorlagen zielen auf die erste SATA-Platte]
 Alle fünf Vorlagen legen ihr Layout auf `/dev/sda` an. Auf Rechnern mit NVMe- oder VirtIO-Platten passt das nicht: Die Gruppe entsteht zwar, ihre Gerätenamen gehen aber an der Hardware vorbei und müssen anschließend in der `start.conf` korrigiert werden. Das Gerät steht im Hinweis unter der Vorlagenauswahl, bevor Sie schreiben.
@@ -357,33 +351,45 @@ Vor dem Anlegen prüft die Plattform auf dem Server, ob für den Namen bereits e
 :::warning[Namen, die kein LINBO-Lauf ansprechen kann]
 Die Namensregel entspricht den Zielen, die ein `linbo-remote`-Lauf annimmt. Ein Name, der mit einem Bindestrich oder Unterstrich beginnt, wird auf der Kommandozeile als Option gelesen; die Gruppe ließe sich anlegen, aber von keinem Lauf mehr ansprechen.
 
-Gruppen, die vor Einführung der Regel unter einem solchen Namen entstanden sind, bleiben in der Liste und lassen sich ansehen, in der Vorschau öffnen und löschen. Im Gruppen-Editor bleibt **Speichern** dagegen gesperrt und nennt den Gruppennamen als Grund, statt die Änderung erst nach dem Bearbeiten abzuweisen. Geben Sie der Gruppe in diesem Fall mit **Gruppe umbenennen** einen zulässigen Namen (siehe unten). Einem globalen Administrator bietet der Editor die Aktion neben dem Hinweis an; anderen Rollen nennt der Hinweis nur, dass ein globaler Administrator die Gruppe umbenennen kann.
+Gruppen, die vor Einführung der Regel unter einem solchen Namen entstanden sind, bleiben in der Liste und lassen sich ansehen, in der Vorschau öffnen und löschen. Im Gruppen-Editor bleibt **Speichern** dagegen gesperrt und nennt den Gruppennamen als Grund, statt die Änderung erst nach dem Bearbeiten abzuweisen. Geben Sie der Gruppe in diesem Fall mit [**Gruppe umbenennen**](#eine-gruppe-umbenennen) einen zulässigen Namen. Einem Globaladmin bietet der Editor die Aktion neben dem Hinweis an; anderen Rollen nennt der Hinweis nur, dass ein Globaladmin die Gruppe umbenennen kann.
 :::
 
 Beim **Duplizieren** übernimmt die Kopie Partitionen, Betriebssysteme und Einstellungen der Vorlage; der Gruppenname in der Datei wird dabei auf den neuen Namen umgeschrieben.
 
-Eine angelegte oder duplizierte Gruppe wendet die Plattform an wie nach dem Speichern im [Gruppen-Editor](#der-gruppen-editor); ist die `start.conf` geschrieben, das Anwenden aber fehlgeschlagen, meldet die Plattform *„Gruppe „…“ wurde angelegt, aber nicht angewendet. Bitte wenden Sie die Geräteliste in der Geräteverwaltung an.“* – beim Duplizieren sinngemäß mit beiden Namen. Die Geräteliste wenden Sie in der [Geräteverwaltung](#geräteverwaltung) an.
-
-**Gruppe umbenennen** ist globalen Administratoren vorbehalten, weil die Geräte einer Gruppe in jeder Schule liegen können; für andere Rollen ist die Aktion ausgegraut, und der Grund steht am Knopf. Für den neuen Namen gelten dieselben Regeln wie beim Anlegen. Der Dialog nennt, wie viele Geräte welcher Schulen auf den neuen Namen umgestellt werden. Die Plattform speichert die `start.conf` und, sofern vorhanden, ihre VDI-Konfiguration unter dem neuen Namen, trägt den neuen Namen in der Geräteliste jeder betroffenen Schule ein, löscht die alten Dateien und wendet die Änderung über den Geräteimport dieser Schulen an. Die Sicherungen der `start.conf` bleiben unter dem alten Namen. Die Geräteliste jeder Schule liest die Plattform unmittelbar vor dem Schreiben erneut: Hat ein anderer Administrator sie inzwischen gespeichert, bleibt seine Änderung erhalten, und umgestellt werden nur die Geräte, die dann noch in der alten Gruppe stehen. Lässt sich die Geräteliste einer Schule nicht ändern, nimmt die Plattform die Umbenennung zurück – und zwar nur für die Geräte, die sie selbst umgestellt hat –, und die Fehlermeldung nennt die Schule. Haben Sie die Geräteliste einer betroffenen Schule in der [Geräteverwaltung](#geräteverwaltung) geöffnet, lädt die Plattform sie nach dem Umbenennen neu; ungespeicherte Änderungen darin gehen dabei verloren. Bleibt nach dem Umbenennen etwas offen – etwa eine alte Datei, die sich nicht löschen ließ, oder ein fehlgeschlagener Geräteimport –, nennt das Ergebnis im Dialog, was noch zu tun ist.
-
-Scheitert auch das Zurücknehmen, sagt die Meldung, was stehen geblieben ist:
-
-| Meldung | Ursache und Abhilfe |
-|---------|---------------------|
-| *„Die Geräte der Schule „…“ konnten nicht umgestellt werden, und die Umstellung ließ sich für … nicht zurücknehmen. Diese Geräte zeigen weiterhin auf „…“; beide Gruppen bleiben erhalten. Bitte prüfen Sie die Geräteliste.“* | In den genannten Schulen stehen die Geräte bereits in der neuen Gruppe. Stellen Sie sie in der [Geräteverwaltung](#geräteverwaltung) zurück oder benennen Sie die Gruppe erneut um. |
-| *„Die Geräte der Schule „…“ konnten nicht umgestellt werden; alle Geräte bleiben in der bisherigen Gruppe. Die neu angelegte start.conf „…“ ließ sich nicht wieder entfernen — löschen Sie sie bitte von Hand.“* | Die Geräte sind zurückgestellt, die neue `start.conf` liegt aber noch auf dem Server. Löschen Sie die Gruppe mit dem neuen Namen. |
+Eine angelegte oder duplizierte Gruppe wendet die Plattform an wie nach dem Speichern im [Gruppen-Editor](#der-gruppen-editor); ist die `start.conf` geschrieben, das Anwenden aber fehlgeschlagen, meldet die Plattform *„Gruppe „…“ wurde angelegt, aber nicht angewendet. Bitte wenden Sie die Geräteliste in der Geräteverwaltung an.“* beziehungsweise *„„…“ wurde als „…“ dupliziert, aber nicht angewendet. Bitte wenden Sie die Geräteliste in der Geräteverwaltung an.“*
 
 :::warning[Wer Gruppen schreiben darf, entscheidet die Linuxmuster-API]
-Anlegen, Speichern, Duplizieren und Löschen einer Gruppe reicht die Plattform an die Linuxmuster-API weiter; welche Rolle die Aktion ausführen darf, prüft die API. Bis einschließlich **Version 7.4.12** sind diese Schreibrouten globalen Administratoren vorbehalten: Als Schuladministrator erreichen Sie die Aktion in der Oberfläche, der Server weist sie aber ab – mit der Meldung *„start.conf konnte nicht gespeichert werden“* beziehungsweise *„start.conf konnte nicht gelöscht werden“*. Ab **Version 7.4.13** stehen die LINBO-Routen auch Schuladministratoren offen; der Bereich **LINBO** erscheint dann für sie im Menü. Lesen und Vorschau sind von der Einschränkung nicht betroffen.
+Anlegen, Speichern, Duplizieren und Löschen einer Gruppe reicht die Plattform an die Linuxmuster-API weiter; welche Rolle die Aktion ausführen darf, prüft die API. Bis einschließlich **Version 7.4.12** sind diese Schreibrouten Globaladmins vorbehalten; Schuladmins erreichen den Bereich erst ab **Version 7.4.13** (siehe [Wer LINBO erreicht](#aufbau-der-app)). Lesen und Vorschau sind von der Einschränkung nicht betroffen.
 :::
 
 :::note[Die Dateien unter `/srv/linbo` kennen keine Schule]
-`start.conf`-Dateien, Images und Beispielkonfigurationen liegen serverweit, nicht je Schule. Ein Schuladministrator ändert hier also, was alle Schulen des Servers verwenden. Einzig `/server-info` bleibt globalen Administratoren vorbehalten: Die Serveradresse für eine neue Gruppe entnimmt die Plattform dann einer vorhandenen Gruppe.
+`start.conf`-Dateien, Images und Beispielkonfigurationen liegen serverweit, nicht je Schule. Ein Schuladmin ändert hier also, was alle Schulen des Servers verwenden. Einzig `/server-info` behält die Linuxmuster-API Globaladmins vor.
 :::
 
 :::warning[Was beim Löschen verschwindet]
 Gelöscht werden die `start.conf` **und** die GRUB-Konfiguration der Gruppe. Rechner dieser Gruppe starten danach ohne Konfiguration, bis ihnen eine andere Gruppe zugewiesen wird. Der Server legt vor dem Löschen eine Sicherung der `start.conf` an.
 :::
+
+#### Eine Gruppe umbenennen
+
+**Gruppe umbenennen** ist Globaladmins vorbehalten, weil die Geräte einer Gruppe in jeder Schule liegen können; für andere Rollen ist die Aktion ausgegraut, und der Grund steht am Knopf. Für den neuen Namen gelten dieselben Regeln wie beim Anlegen. Außerdem darf keine Geräteliste einer Schule bereits Geräte mit diesem Gruppennamen führen, auch nicht in anderer Groß- und Kleinschreibung. Der Dialog nennt, wie viele Geräte welcher Schulen umgestellt werden.
+
+Die Plattform benennt in dieser Reihenfolge um:
+
+1. Sie speichert die `start.conf` und, sofern vorhanden, ihre VDI-Konfiguration unter dem neuen Namen und trägt den neuen Namen in der Geräteliste jeder betroffenen Schule ein. Jede Geräteliste liest sie dafür unmittelbar vorher erneut: Hat ein anderer Admin sie inzwischen gespeichert, bleibt seine Änderung erhalten, und umgestellt werden nur die Geräte, die dann noch in der alten Gruppe stehen.
+2. Sie wendet die Änderung über den Geräteimport jeder dieser Schulen an.
+3. Erst wenn alle Importe gelungen sind, löscht sie die alte `start.conf` und die alte VDI-Konfiguration. Schlägt ein Import fehl, bleiben beide erhalten, denn die Geräte dieser Schule starten noch von ihnen.
+
+Die Sicherungen der `start.conf` bleiben unter dem alten Namen. Lässt sich die Geräteliste einer Schule nicht ändern, nimmt die Plattform die Umstellung zurück – nur für die Geräte, die sie selbst umgestellt hat. Nach dem Umbenennen, auch nach einem fehlgeschlagenen, lädt die Seite Gruppen, Hosts und die Gerätelisten der betroffenen Schulen neu; eine in der [Geräteverwaltung](#geräteverwaltung) geöffnete Geräteliste verliert dabei ihre ungespeicherten Änderungen. Bleibt etwas offen – etwa eine alte Datei, die sich nicht löschen ließ –, nennt das Ergebnis im Dialog, was noch zu tun ist.
+
+| Meldung | Ursache und Abhilfe |
+|---------|---------------------|
+| *„In der Geräteliste von … gibt es bereits Geräte mit der Gruppe „…“. Wählen Sie einen anderen Namen.“* | Der neue Name ist in der Geräteliste einer der genannten Schulen schon vergeben. Geändert wurde nichts; wählen Sie einen anderen Namen. |
+| *„Die Gruppe „…“ wird gerade umbenannt. Warten Sie, bis die Umbenennung abgeschlossen ist, und versuchen Sie es erneut.“* | Eine andere Umbenennung mit dem alten oder dem neuen Namen läuft noch. Geändert wurde nichts. |
+| *„Die alte Gruppe „…“ bleibt erhalten, weil der Geräteimport nicht für alle Schulen gelang und deren Geräte noch von ihr starten. Wenden Sie die Geräteliste dort an und löschen Sie danach die alte Gruppe.“* | Mindestens ein Geräteimport ist fehlgeschlagen. Wenden Sie die Geräteliste dieser Schule in der [Geräteverwaltung](#geräteverwaltung) an und löschen Sie anschließend die alte Gruppe. |
+| *„Nach dem Umbenennen wurde die Geräteverwaltung von … neu geladen. Ungespeicherte Änderungen dort wurden verworfen.“* | In der Geräteverwaltung der genannten Schulen standen ungespeicherte Änderungen. Tragen Sie sie erneut ein. |
+| *„Die Geräte der Schule „…“ konnten nicht umgestellt werden, und die Umstellung ließ sich für … nicht zurücknehmen. Diese Geräte zeigen weiterhin auf „…“; beide Gruppen bleiben erhalten. Bitte prüfen Sie die Geräteliste.“* | Auch das Zurücknehmen ist gescheitert. In den genannten Schulen stehen die Geräte bereits in der neuen Gruppe. Stellen Sie sie in der [Geräteverwaltung](#geräteverwaltung) zurück oder benennen Sie die Gruppe erneut um. |
+| *„Die Geräte der Schule „…“ konnten nicht umgestellt werden; alle Geräte bleiben in der bisherigen Gruppe. Die neu angelegte start.conf „…“ ließ sich nicht wieder entfernen — löschen Sie sie bitte von Hand.“* | Die Geräte sind zurückgestellt, die neue `start.conf` liegt aber noch auf dem Server. Löschen Sie die Gruppe mit dem neuen Namen. |
 
 #### Sicherungen der start.conf
 
@@ -403,7 +409,7 @@ Ab **Version 7.4.13** der Linuxmuster-API öffnet **VDI** die Datei `start.conf.
 Die Datei gehört edulution-linbo-vdi. Felder, die der Dialog nicht anzeigt, schreibt die Plattform unverändert zurück, statt sie zu verwerfen.
 :::
 
-Lässt sich die Datei nicht lesen, zeigt der Dialog statt der Felder einen Hinweis und bietet **Speichern** nicht an, denn ein leeres Formular würde die gespeicherte Konfiguration ersetzen. Schließen Sie den Dialog und öffnen Sie ihn erneut. Ebenso bleibt **Speichern** gesperrt, solange ein Zahlenfeld oder die VM-IDs etwas anderes als ganze Zahlen enthalten; mehrere VM-IDs trennen Sie durch Kommas.
+Lässt sich die Datei nicht lesen, zeigt der Dialog statt der Felder einen Hinweis und sperrt **Speichern**, denn ein leeres Formular würde die gespeicherte Konfiguration ersetzen. Schließen Sie den Dialog und öffnen Sie ihn erneut. Ebenso bleibt **Speichern** gesperrt, solange ein Zahlenfeld oder die VM-IDs etwas anderes als ganze Zahlen enthalten; mehrere VM-IDs trennen Sie durch Kommas.
 
 #### Die Vorschau
 
@@ -465,9 +471,9 @@ Trägt eine Partition noch kein Betriebssystem, weist die Unterregisterkarte dar
 Gelöscht wird der Eintrag nicht – setzen Sie das Dateisystem oder den Partitionstyp zurück, damit das System wieder startet. Im Abschnitt **Betriebssysteme** lässt sich der Eintrag in diesem Zustand nicht entfernen: Die Schaltfläche zum Löschen erscheint dort nur bei verwaisten Einträgen, deren Partition es gar nicht mehr gibt.
 :::
 
-Solange ungespeicherte Änderungen vorliegen, fragt der Editor nach, bevor sie verloren gehen – auch wenn Sie über die Seitenleiste oder den Zurück-Knopf des Browsers weggehen; Sie wählen dann **Weiter bearbeiten** oder **Verwerfen**. Beim Neuladen oder Schließen des Tabs fragt stattdessen der Browser selbst. Nach dem Speichern schließt sich der Editor ohne Nachfrage. **Gruppe umbenennen** ist dann gesperrt: Verwerfen Sie die Änderungen zuerst, denn unter dem neuen Namen ließen sie sich nicht mehr speichern.
+Solange ungespeicherte Änderungen vorliegen, fragt der Editor nach, bevor sie verloren gehen – auch wenn Sie über die Seitenleiste oder den Zurück-Knopf des Browsers weggehen; Sie wählen dann **Weiter bearbeiten** oder **Verwerfen**. Beim Neuladen oder Schließen des Tabs fragt stattdessen der Browser selbst. Solange ungespeicherte Änderungen vorliegen, ist außerdem **Gruppe umbenennen** gesperrt: Verwerfen Sie die Änderungen zuerst, denn unter dem neuen Namen ließen sie sich nicht mehr speichern. Nach dem Speichern schließt sich der Editor ohne Nachfrage.
 
-Nach dem **Speichern** wendet die Plattform die Gruppe sofort an: Sie startet den Geräteimport einer Schule, in der ein Gerät mit gesetztem PXE-Flag dieser Gruppe zugeordnet ist, damit die Startkonfiguration der Gruppe neu erzeugt wird. Gesucht wird zuerst in der gewählten Schule, danach in den übrigen Schulen des Servers; importiert wird nur die erste Schule, die die Gruppe verwendet. Die Meldung nennt das Ergebnis:
+Nach dem **Speichern** wendet die Plattform die Gruppe sofort an: Sie startet den Geräteimport einer Schule, in der ein Gerät mit gesetztem PXE-Flag dieser Gruppe zugeordnet ist, damit die Startkonfiguration der Gruppe neu erzeugt wird. Gesucht wird zuerst in der gewählten Schule, als Globaladmin danach in den übrigen Schulen des Servers – ein Schuladmin wendet nur in seiner eigenen Schule an; importiert wird nur die erste Schule, die die Gruppe verwendet. Die Meldung nennt das Ergebnis:
 
 | Meldung | Bedeutung |
 |---------|-----------|
@@ -500,11 +506,11 @@ Gewertet wird dabei ausschließlich der Abschnitt `[LINBO]`: ein `Cache`-Eintrag
 | **Datenblatt** (Vorgabe) | Dateiname, Größe, Partition, Partitionsgröße, ob eine Prüfsumme vorliegt, Dateizahl und Änderungszeitpunkt |
 | **Tabelle** | Name, Größe, **Verwendet in**, Sidecars und Aktualisierungszeitpunkt |
 
-Die Leiste über der Liste ist dieselbe wie bei den Gruppen, ohne Schulauswahl. Die Suche findet ein Image über seinen Namen, seine Beschreibung und die Fehlermeldung, die die Plattform zu einem fehlerhaften Image anzeigt. In den Kartenansichten wählen Sie ein Image über das Auswahlkästchen seiner Karte aus; ein Klick auf die Karte oder auf eine Zeile der **Tabelle** öffnet die Details des Images.
+Die Werkzeugleiste ist dieselbe wie bei den Gruppen, ohne Schulauswahl. Die Suche findet ein Image über seinen Namen, seine Beschreibung und die Fehlermeldung, die die Plattform zu einem fehlerhaften Image anzeigt. In den Kartenansichten wählen Sie ein Image über das Auswahlkästchen seiner Karte aus; ein Klick auf die Karte oder auf eine Zeile der **Tabelle** öffnet die Details des Images.
 
-Gruppen und Images verweisen aufeinander: Jede Ansicht der Gruppen nennt die Images, die eine Gruppe startet, und jede Ansicht der Images nennt unter **Verwendet in** die Gruppen, die ein Image starten. Die Zuordnung liest die Plattform aus den `start.conf`-Dateien und steht daher nur zur Verfügung, wenn die Linuxmuster-API die Gruppenliste unterstützt.
+Gruppen und Images verweisen aufeinander: Jede Ansicht der Gruppen nennt die Images, die eine Gruppe startet, und jede Ansicht der Images nennt unter **Verwendet in** die Gruppen, die ein Image starten. Die Zuordnung liest die Plattform aus den `start.conf`-Dateien und steht daher erst ab **Version 7.4.11** der Linuxmuster-API zur Verfügung.
 
-Auch hier bietet die Aktionsleiste **Neu laden** an, solange kein Image ausgewählt ist. Die Schaltfläche lädt die Images erneut vom Server und – sofern die Linuxmuster-API die Gruppenliste unterstützt – auch die `start.conf`-Dateien der Gruppen. Wie bei den Gruppen bleiben ausgewählte Images ausgewählt, wenn die Suche oder der Filter der Tabelle sie ausblendet; Zahl und Aktionen der Leiste gelten nur für die sichtbaren.
+Auch hier bietet die Aktionsleiste **Neu laden** an, solange kein Image ausgewählt ist. Die Schaltfläche lädt die Images erneut vom Server und ab **Version 7.4.11** der Linuxmuster-API auch die `start.conf`-Dateien der Gruppen. Wie bei den Gruppen bleiben ausgewählte Images ausgewählt, wenn die Suche oder der Filter der Tabelle sie ausblendet; Zahl und Aktionen der Leiste gelten nur für die sichtbaren.
 
 :::note[Zwei Namen, ein Image]
 Ein Image heißt nach seinem Verzeichnis auf dem Server (`debian13`); die Bilddatei darin trägt zusätzlich die Endung (`debian13.qcow2`). Angezeigt und in allen Aktionen verwendet wird der Name des Images, nicht der der Datei.
@@ -516,7 +522,7 @@ Fehlt einem Image eine lesbare `.info`-Datei, führt der Server es nicht in sein
 
 Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.info`), VDI-Konfiguration (`.vdi`), Torrent (`.torrent`), Maschinenkonto (`.macct`), Prüfsumme (`.md5`), Hashsumme (`.hash`), Registry (`.reg`), Pre-Start-Skript (`.prestart`) und Post-Sync-Skript (`.postsync`). In der Spalte **Sidecars** steht je vorhandener Datei ein Buchstabenkürzel; welcher Dateityp dahintersteht, erscheint, sobald Sie mit dem Mauszeiger darauf zeigen. Der Detaildialog zeigt zusätzlich Dateiname, Image-Ordner, Pfad, Größe, MD5-Summe und – sofern ein `.info`-Sidecar vorliegt – Erstellungszeitpunkt, Image- und Partitionsgröße sowie die Beschreibung.
 
-Ein Image fügen Sie in den drei Kartenansichten über die Karte **Image hochladen** vor dem ersten Image hinzu, in der **Tabelle** über **Image hochladen** in der Aktionsleiste. Zulässig sind Image-Dateien (`.qcow2`, `.qdiff`, `.cloop`, `.rsync`) und alle oben genannten Beipack-Dateien; andere Dateitypen weist der Dialog ab. Während eines laufenden Downloads sind weitere Downloads gesperrt.
+Ein Image fügen Sie in den drei Kartenansichten über die Karte **Image hochladen** vor dem ersten Image hinzu, in der **Tabelle** über **Image hochladen** in der Aktionsleiste. Zulässig sind Image-Dateien (`.qcow2`, `.qdiff`, `.cloop`, `.rsync`) und alle oben genannten Beipack-Dateien; andere Dateitypen weist der Dialog ab.
 
 Im Dialog geben Sie Image-Name und Dateiname an; während der Übertragung sind beide Felder gesperrt und ein Fortschrittsbalken zeigt den Stand in Prozent. **Abbrechen** bricht die laufende Übertragung ab und verwirft zugleich die Daten, die der Server bereits entgegengenommen hat – es bleibt also kein angefangenes Image auf dem Server zurück. Fällt **Abbrechen** in den Augenblick, in dem der Server das vollständig übertragene Image bereits fertigstellt, wartet die Plattform diesen Schritt ab; das Image liegt danach vollständig vor.
 
@@ -537,14 +543,14 @@ Die Aktionen bietet die Aktionsleiste an, sobald Images ausgewählt sind; Aktion
 | Aktion | Wirkung |
 |--------|---------|
 | **Herunterladen** | lädt die Image-Datei herunter; gesperrt, solange ein anderer Download läuft |
-| **Bearbeiten** | öffnet den Sidecar-Editor (siehe unten) |
+| **Bearbeiten** | öffnet den [Sidecar-Editor](#beschreibung-und-skripte-bearbeiten) |
 | **Sicherungen** | listet die Sicherungen des Images zum Wiederherstellen oder Löschen |
 | **Duplizieren** | kopiert das Image samt Beschreibung, Registry-Patch und Skripten, aber ohne Sicherungen |
 | **Beschreibung und Skripte des Differenzimages** | erscheint nur, wenn zum Image ein Differenzimage existiert |
 | **Differenzimage löschen** | löscht die Differenzimages aller ausgewählten Images, die eines haben |
 | **Löschen** | löscht die ausgewählten Images mit Sicherungen, Differenzimage und Beipack-Dateien |
 
-Beim Duplizieren erlaubt der Name Buchstaben, Ziffern sowie `.`, `_`, `+` und `-`; er muss mit einem Buchstaben oder einer Ziffer beginnen. Ein Name, den ein anderes Image bereits trägt, wird ebenso abgewiesen wie der unveränderte Name.
+Beim Duplizieren und beim Umbenennen erlaubt der Name Buchstaben, Ziffern, Leerzeichen sowie `.`, `_`, `+` und `-` und ist höchstens 200 Zeichen lang; er darf nicht mit einem Punkt beginnen und keine zwei Punkte hintereinander enthalten. Einen Namen, den ein Image bereits trägt, weist der Dialog ab – auch in anderer Groß- und Kleinschreibung und beim Duplizieren auch den Namen der Vorlage.
 
 Meldet die Linuxmuster-API beim **Löschen** einen Serverfehler oder antwortet sie nicht, prüft die Plattform anhand der Imageliste nach: Führt der Server das Image dort nicht mehr, gilt es als gelöscht.
 
@@ -566,7 +572,7 @@ Die `.info`-Datei ist Pflicht: ohne sie lässt sich das Image nicht mehr einlese
 
 #### Sicherungen
 
-**Sicherungen verwalten** listet je Sicherung Datum, Zeitstempel und Größe, mit **Wiederherstellen** und **Sicherung löschen**. Über das Zahnrad einer Zeile (*„Einstellungen der Sicherung vom …“*) öffnen Sie den Editor für die Beipack-Dateien dieser Sicherung. Der mit **Basisimage** gekennzeichnete Eintrag über der Liste ist das Image selbst, keine Sicherung.
+**Sicherungen** listet je Sicherung Datum, Zeitstempel und Größe, mit **Wiederherstellen** und **Sicherung löschen**. Über das Zahnrad einer Zeile (*„Einstellungen der Sicherung vom …“*) öffnen Sie den Editor für die Beipack-Dateien dieser Sicherung. Der mit **Basisimage** gekennzeichnete Eintrag ist das Image selbst, keine Sicherung.
 
 :::note[Wiederherstellen ist umkehrbar]
 Der Server legt vor dem Wiederherstellen eine neue Sicherung des aktuellen Images an, sodass sich der Schritt zurücknehmen lässt. Zwei Wiederherstellungen desselben Images innerhalb derselben Minute schlagen fehl; ein erneuter Versuch nach einer Minute gelingt.
@@ -579,8 +585,6 @@ Die Seite **Versionsübersicht** listet die Versionen der beteiligten Linuxmuste
 ## Einschränkungen in dieser Version
 
 Eine laufende Sitzung lässt sich aus der Plattform heraus **nicht abbrechen** und nicht mitverfolgen, wie es `tmux attach` auf der Konsole erlaubt: die Linuxmuster-API bietet dafür keine Schnittstelle. Sie sehen den Lauf und sein Protokoll, beenden können Sie ihn nur auf dem Server.
-
-Ein **Virtueller Desktop** (VDI) je Gruppe lässt sich erst ab **Version 7.4.13** der Linuxmuster-API bearbeiten; ältere Versionen halten die Konfigurationsdatei nicht bereit. Das Datenblatt zeigt unabhängig davon, ob VDI in der `start.conf` aktiviert ist.
 
 ## Einrichtung (für Administratoren)
 

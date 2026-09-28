@@ -84,7 +84,7 @@ Bei akzeptierten, online erreichbaren Satelliten können Sie über **Updates pr�
 
 ## Der Satelliten-Bereich
 
-Den laufenden Betrieb eines Satelliten verwalten Sie in der App **Satellites** (sofern für Sie freigeschaltet). Am oberen Rand befindet sich die Satelliten-Auswahl, darunter wechseln Sie über die Seitenleiste zwischen **Übersicht**, **Netzwerke**, **Authentifizierung**, **Diensten** und **LINBO**.
+Den laufenden Betrieb eines Satelliten verwalten Sie in der App **Satellites** (sofern für Sie freigeschaltet). Den Satelliten wählen Sie in der Satelliten-Auswahl; über die Seitenleiste wechseln Sie zwischen **Übersicht**, **Netzwerke**, **Authentifizierung**, **Diensten** und **LINBO**.
 
 ### Satellit auswählen
 
@@ -163,7 +163,7 @@ Der Eintrag **LINBO** zeigt, was die LINBO-Installation *des Satelliten* über d
 Der Bereich gliedert sich in die Unterseiten **Konfigurationen**, **Hosts**, **Images**, **Synchronisation** und **Einstellungen**.
 
 :::note[Satelliten ohne LINBO]
-Meldet ein erreichbarer Satellit in seinem Heartbeat keinen LINBO-Dienst – oder sagt der Heartbeat dazu nichts und antwortet der Satellit auf eine Anfrage, dass LINBO auf ihm nicht eingerichtet ist –, zeigen alle LINBO-Unterseiten statt ihres Inhalts den Hinweis *„LINBO ist auf diesem Satelliten nicht verfügbar.“*. **Erneut versuchen** fragt den Zustand des Satelliten neu ab. Ist der Satellit dagegen nicht erreichbar, bleibt die Unterseite stehen und meldet einen Fehler.
+Meldet ein erreichbarer Satellit in seinem Heartbeat keinen LINBO-Dienst, zeigen alle LINBO-Unterseiten statt ihres Inhalts den Hinweis *„LINBO ist auf diesem Satelliten nicht verfügbar.“* Dasselbe gilt, wenn der Heartbeat dazu nichts sagt und der Satellit auf eine Anfrage antwortet, dass LINBO auf ihm nicht eingerichtet ist. **Erneut versuchen** fragt den Zustand des Satelliten neu ab. Ist der Satellit dagegen nicht erreichbar, bleibt die Unterseite stehen und meldet einen Fehler.
 :::
 
 #### Konfigurationen
@@ -232,17 +232,17 @@ Beide Angaben stammen aus verschiedenen Abfragen. Scheitert nur der Abbild-Stand
 
 ##### Rechner aufwecken und Aktionen schicken
 
-Die erste Spalte der Tabelle trägt je Zeile ein Auswahlkästchen. Sobald Rechner ausgewählt sind, stehen in der Aktionsleiste **Aufwecken**, **Neu starten**, **Herunterfahren** und **Aktion schicken** bereit. Alle vier Aktionen erreichen nur die ausgewählten Rechner, die Suche und Gruppenfilter gerade **sichtbar** lassen – ausgeblendete Rechner bleiben angehakt, werden aber nicht angesprochen.
+Sobald Rechner ausgewählt sind, stehen in der Aktionsleiste **Aufwecken**, **Neu starten**, **Herunterfahren** und **Aktion schicken** bereit. Alle vier Aktionen erreichen nur die ausgewählten Rechner, die Suche und Gruppenfilter gerade **sichtbar** lassen – ausgeblendete Rechner bleiben ausgewählt, werden aber nicht angesprochen.
 
 Rechner ohne MAC-Adresse und Rechner, die nicht über LINBO vom Netzwerk starten, lässt die Plattform vorab aus und nennt sie. Der Satellit würde sie sonst ohne jede Rückmeldung übergehen.
 
-**Aufwecken** sendet Wake-on-LAN-Pakete. Die Meldung zählt die **gesendeten Pakete**, nicht die gestarteten Rechner – ob ein Rechner tatsächlich hochfährt, zeigt erst seine Spalte **Status**. Nur Rechner, deren Paket hinausging, verlieren ihr Häkchen; Rechner, die der Satellit gar nicht kennt, werden namentlich gemeldet.
+**Aufwecken** sendet Wake-on-LAN-Pakete. Die Meldung zählt die **gesendeten Pakete**, nicht die gestarteten Rechner – ob ein Rechner tatsächlich hochfährt, zeigt erst seine Spalte **Status**. Nur Rechner, deren Paket hinausging, werden abgewählt; Rechner, die der Satellit gar nicht kennt, werden namentlich gemeldet.
 
 **Neu starten** und **Herunterfahren** schicken den Befehl ohne Rückfrage sofort ab. Sie laufen wie eine sofort ausgeführte Kette aus **Aktion schicken**: Der Auftrag erscheint unter **Aufträge**, und lehnt der Satellit ab, gelten dieselben Meldungen wie dort.
 
-**Aktion schicken** öffnet denselben Dialog wie im Bereich **Schulserver**: eine Kommandokette aus einzelnen Schritten, die Auswahl des Betriebssystems mit seinem Namen aus der `start.conf` der Gruppe und die Bestätigung vor **Neu**, **Formatieren** und **Partitionieren**. Aktionen mit Betriebssystem setzen voraus, dass alle ausgewählten Rechner derselben Hardwaregruppe angehören. Beim Satelliten unterscheiden sich die Optionen:
+**Aktion schicken** öffnet denselben [Dialog wie im Bereich **Schulserver**](../edulution-server/linuxmuster.md#der-kommando-dialog): eine Kommandokette aus einzelnen Schritten, die Auswahl des Betriebssystems mit seinem Namen aus der `start.conf` der Gruppe und die Bestätigung vor **Neu**, **Formatieren** und **Partitionieren**. Aktionen mit Betriebssystem setzen voraus, dass alle ausgewählten Rechner derselben Hardwaregruppe angehören. Beim Satelliten unterscheiden sich die Optionen:
 
-- **Wartezeit** und **Broadcast** fehlen – der Satellit kennt sie nicht.
+- **Abstand zwischen den Weckpaketen (Sekunden)** und **Weckpaket zusätzlich an die Broadcast-Adresse senden** fehlen – der Satellit kennt sie nicht.
 - Wake-on-LAN ist ein Schalter: **Rechner nach dem Planen aufwecken**.
 - Wake-on-LAN, **Oberfläche des Clients beim nächsten Start abschalten** und **Automatische Funktionen der start.conf beim nächsten Start übergehen** lassen sich nur zusammen mit **Beim nächsten Start ausführen** wählen.
 
@@ -260,8 +260,8 @@ Lehnt der Satellit ab, sagt die Meldung, warum:
 
 | Meldung | Ursache |
 |---------|---------|
-| *Ein Rechner ist bereits mit einem Auftrag beschäftigt, oder zwei ausgewählte Rechner teilen sich eine Adresse.* | Auf einem Rechner läuft schon ein Auftrag, oder zwei ausgewählte Rechner haben dieselbe IP-Adresse. Die Plattform kann beides nicht unterscheiden. Nennt der Satellit den Auftrag, der den Rechner belegt, öffnet **Auftrag anzeigen** in der Meldung diesen Auftrag. |
-| *Der Satellit nimmt gerade keine weiteren Aufträge an. Bitte in einer Minute erneut versuchen.* | Der Satellit nimmt höchstens **30 schreibende Anfragen je Minute** an. Kommen alle Anfragen über dieselbe Verbindung, teilen sich die Administratoren diese Grenze. Versuchen Sie es nach einer Minute erneut. |
+| *„Ein Rechner ist bereits mit einem Auftrag beschäftigt, oder zwei ausgewählte Rechner teilen sich eine Adresse.“* | Auf einem Rechner läuft schon ein Auftrag, oder zwei ausgewählte Rechner haben dieselbe IP-Adresse. Die Plattform kann beides nicht unterscheiden. Nennt der Satellit den Auftrag, der den Rechner belegt, öffnet **Auftrag anzeigen** in der Meldung diesen Auftrag. |
+| *„Der Satellit nimmt gerade keine weiteren Aufträge an. Bitte in einer Minute erneut versuchen.“* | Der Satellit nimmt höchstens **30 schreibende Anfragen je Minute** an. Kommen alle Anfragen über dieselbe Verbindung, teilen sich die Administratoren diese Grenze. Versuchen Sie es nach einer Minute erneut. |
 
 In beiden Fällen bleibt der Dialog geöffnet. Ist der Satellit nicht erreichbar, erscheint die allgemeine Fehlermeldung der Plattform. Antwortet er, dass LINBO auf ihm nicht eingerichtet ist, erscheint statt der Seite der [Hinweis für Satelliten ohne LINBO](#linbo).
 
@@ -305,12 +305,12 @@ Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Verwendet in**, **Status**,
 | **Abgleich** | Vergleich mit dem Schulserver: **Satellit neuer**, **Server neuer**, **Gleich alt**, **Nur am Satelliten**, **Nur am Server** oder **Unbekannt** |
 | **Torrent** | Zustand der Torrent-Verteilung des Images, siehe [Torrent-Verteilung](#torrent-verteilung) |
 
-Images, die nur auf dem Schulserver liegen, führt die **Tabelle** zusätzlich auf: mit **Nur am Server** im Abgleich, Größe und Datum vom Server und ohne Status. Für sie steht nur **Vom Server holen** bereit; die übrigen Aktionen lehnt die Plattform mit einem Hinweis ab, weil das Image auf dem Satelliten noch fehlt. In den Kartenansichten erscheinen solche Images nicht, denn die Karten zeigen die Images auf dem Satelliten.
+Images, die nur auf dem Schulserver liegen, führt die **Tabelle** zusätzlich auf: mit **Nur am Server** im Abgleich, Größe und Datum vom Server und ohne Status. Für sie steht nur **Vom Server holen** bereit; die übrigen Aktionen sind gesperrt, weil das Image auf dem Satelliten noch fehlt, und der Grund steht am Knopf. In den Kartenansichten erscheinen solche Images nicht, denn die Karten zeigen die Images auf dem Satelliten.
 
 Nach jeder Synchronisation des Satelliten liest die Plattform die `start.conf`-Dateien beim nächsten Öffnen erneut; **Verwendet in** zeigt dann die neue Zuordnung. Die Aktion zum Neuladen liest sie jederzeit erneut.
 
 :::note[Images im Altformat]
-Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Seine Aktionen – Prüfsumme, Sicherungen, Beipack-Dateien und Löschen – werden deshalb nicht ausgeführt, sondern mit einem Hinweis abgelehnt.
+Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Seine Aktionen – Prüfsumme, Sicherungen, Beipack-Dateien, beide Übertragungsrichtungen und Löschen – sind deshalb gesperrt; der Grund steht am Knopf.
 :::
 
 Ist genau ein Image markiert, stehen in der Aktionsleiste folgende Aktionen bereit:
@@ -334,7 +334,7 @@ Welche Richtung angeboten wird, entscheidet die Plattform aus dem Vergleich mit 
 
 - Liegt das Image nur auf einer Seite, ist genau die Richtung möglich, die es auf die andere bringt.
 - Lässt sich nicht feststellen, welche Kopie neuer ist, bleiben **beide** Richtungen gesperrt.
-- Würde die Übertragung die neuere Kopie durch die ältere ersetzen, meldet die Plattform, welche Kopie neuer ist, und startet die Übertragung **nicht**.
+- Würde die Übertragung die neuere Kopie durch die ältere ersetzen, warnt der Bestätigungsdialog unter *Die neuere Kopie wird überschrieben* mit beiden Zeitpunkten; übertragen wird erst mit **Übertragung starten**.
 
 :::warning[Was eine Übertragung überschreibt]
 **Vom Server holen** löscht das Imageverzeichnis auf dem Satelliten vollständig – einschließlich aller dortigen Sicherungen und Beipack-Dateien – und ersetzt es durch den Stand des Servers. **Zum Server übertragen** überschreibt das Image auf dem Schulserver, das auch andere Satelliten nutzen. Beide Schritte lassen sich nicht rückgängig machen.
@@ -363,7 +363,7 @@ Der Dialog zeigt die Beipack-Dateien des Images in denselben Registerkarten wie 
 Anders als am Schulserver speichert **Speichern** nur die Datei der geöffneten Registerkarte. Was Sie in anderen Registerkarten geändert haben, bleibt als Entwurf stehen, bis Sie dort ebenfalls speichern. Schließen Sie den Dialog, während in irgendeiner Registerkarte noch ein Entwurf steht, fragt die Plattform nach, ob Sie weiterbearbeiten oder die Änderungen verwerfen wollen. Hat jemand anderes die Datei inzwischen auf dem Satelliten geändert, speichert die Plattform nicht, sondern meldet *„Die Beipack-Dateien dieses Images wurden inzwischen geändert. Ihre Änderungen wurden nicht gespeichert.“*; **Neu laden** in der Meldung holt den aktuellen Stand und verwirft dabei Ihren Entwurf.
 
 :::note[Was sich eine Änderung teilt]
-**Registry** (`.reg`), **Pre-Start Script** (`.prestart`) und **Post-Sync Script** (`.postsync`) gelten gemeinsam für Basis- und Differenzimage – eine Änderung hier wirkt auf beide. Ein leerer Inhalt löscht die Datei nicht, sondern setzt sie auf null Bytes; Beipack-Dateien zu löschen bietet der Satellit nicht an. Inhalte über 200 KB nimmt der Satellit nicht an und werden nicht gespeichert.
+**Registry** (`.reg`), **Pre-Start Script** (`.prestart`) und **Post-Sync Script** (`.postsync`) gelten gemeinsam für Basis- und Differenzimage – eine Änderung hier wirkt auf beide. Ein leerer Inhalt löscht die Datei nicht, sondern setzt sie auf null Bytes; Beipack-Dateien zu löschen bietet der Satellit nicht an. Inhalte über 200 KB nimmt der Satellit nicht an.
 :::
 
 ##### Löschen
@@ -386,10 +386,10 @@ Bei **Wird geseedet** und **Eingeschränkt** nennt die Marke beim Überfahren au
 
 Zwei Hinweise am Kopf der Seite betreffen alle Images zugleich:
 
-- **Die Torrent-Verteilung ist auf diesem Satelliten nicht aktiv.** Auf dem Satelliten ist der Torrent-Dienst nicht eingerichtet. Das ist ein normaler Zustand, kein Fehler; die Images werden dann klassisch verteilt.
-- **Der Seeding-Zustand ist veraltet.** Der Torrent-Dienst hat seit dem genannten Zeitpunkt nichts mehr gemeldet. Die Angaben je Image beschreiben dann einen früheren Stand und werden als **Unbekannt** geführt.
+- *„Die Torrent-Verteilung ist auf diesem Satelliten nicht aktiv.“* Auf dem Satelliten ist der Torrent-Dienst nicht eingerichtet. Das ist ein normaler Zustand, kein Fehler; die Images werden dann klassisch verteilt.
+- *„Der Seeding-Zustand ist veraltet; der Torrent-Dienst hat seit … nichts mehr gemeldet.“* Die Angaben je Image beschreiben dann einen früheren Stand und werden als **Unbekannt** geführt.
 
-Die Begleitdateien eines Images (Klick auf die Karte oder **Bearbeiten** in der Leiste) zeigen oberhalb der Dateien den Abschnitt **Torrent** mit dem vollständigen Zustand: ob der Seeder läuft und eine Sitzung hat, wie viele Seeder und Leecher der Tracker kennt und wie oft das Image heruntergeladen wurde, den Tracker, den Zeitpunkt der Meldung und die festgestellten Probleme. Ist der Zustand veraltet, zeigt der Abschnitt statt der alten Angaben den Hinweis mit dem Zeitpunkt der letzten Meldung.
+Die Beipack-Dateien eines Images (Klick auf die Karte oder **Bearbeiten** in der Leiste) zeigen oberhalb der Dateien den Abschnitt **Torrent** mit dem vollständigen Zustand: ob der Seeder läuft und eine Sitzung hat, wie viele Seeder und Leecher der Tracker kennt und wie oft das Image heruntergeladen wurde, den Tracker, den Zeitpunkt der Meldung und die festgestellten Probleme. Ist der Zustand veraltet, zeigt der Abschnitt statt der alten Angaben den Hinweis mit dem Zeitpunkt der letzten Meldung.
 
 :::note[Ältere Satelliten]
 Den Zustand der Torrent-Verteilung melden Satelliten ab Version 2.7.17. Bei einem älteren Satelliten fehlen Marke und Spalte einfach; die Imageliste ist ansonsten unverändert.
@@ -403,7 +403,7 @@ Der Abschnitt **Synchronisationszustand** nennt den **Modus** (**Synchronisation
 
 Der **Cursor** ist die Stelle, bis zu der der Satellit die Änderungen des Schulservers zuletzt übernommen hat; der nächste gewöhnliche Lauf liest ab dort weiter. Steht beim Cursor **Keiner – der nächste Lauf liest den gesamten Bestand**, übernimmt der nächste Lauf wieder alles – so erkennen Sie auch, dass **Cursor leeren** gegriffen hat. Hat der Satellit die verwalteten Dateien aus einem Sicherungspunkt wiederhergestellt – von Hand oder nach einem fehlgeschlagenen Lauf –, vermerkt der letzte Lauf das eigens.
 
-Die Zahl der Hosts online ermittelt die Seite beim Öffnen, beim Neuladen und nach jeder Aktion, nicht bei den Abfragen während eines Laufs.
+Die Zahl der Hosts online ermittelt die Seite beim Öffnen, beim Neuladen und sobald ein Lauf endet – nicht während eines Laufs und nicht nach **Cursor leeren**.
 
 :::note[Offline heißt nicht zwingend abgeschaltet]
 **Offline** meldet der Satellit auch dann, wenn er seine eigenen Einstellungen nicht lesen konnte. Die Anzeige belegt also nicht, dass die Synchronisation abgeschaltet wurde – prüfen Sie im Zweifel die Unterseite **Einstellungen**.
@@ -471,9 +471,9 @@ Der Satellit gibt das gespeicherte Passwort nicht heraus; über dem Feld steht n
 
 Über **Verbindung testen** prüft der Satellit, ob er den Schulserver erreicht. Dabei verwendet er die in **API-Adresse**, **Benutzer** und **Passwort** eingetragenen, noch nicht gespeicherten Werte und für leer gelassene Felder die gespeicherten – so lässt sich etwa ein neues Passwort prüfen, bevor es gespeichert wird. Der Test speichert selbst nichts. Das Ergebnis lautet:
 
-- **Der Schulserver ist erreichbar.** – zusammen mit der Version der API und der Antwortzeit,
-- **Der Schulserver antwortet, meldet aber keinen betriebsbereiten Zustand.** – meist sind Benutzer oder Passwort falsch,
-- **Der Schulserver ist nicht erreichbar.**
+- *„Der Schulserver ist erreichbar.“* – zusammen mit der Version der API und der Antwortzeit,
+- *„Der Schulserver antwortet, meldet aber keinen betriebsbereiten Zustand. Bitte Benutzer und Passwort prüfen.“*
+- *„Der Schulserver ist nicht erreichbar.“*
 
 :::note[Satellitenwechsel verwirft Eingaben]
 Wechseln Sie den Satelliten, während ein Feld noch ungespeichert ist, wird die Eingabe verworfen. So gelangt kein Wert – und vor allem kein Passwort – versehentlich auf das falsche Gerät.

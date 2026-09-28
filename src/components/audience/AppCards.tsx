@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useAudience } from './AudienceContext';
 import { ANY, audienceClassNames, resolveOrgs, resolveRoles } from './taxonomy';
 
@@ -199,6 +200,7 @@ const CARDS: AppCard[] = [
  */
 export default function AppCards(): React.JSX.Element {
   const { role, org } = useAudience();
+  const markUrl = useBaseUrl('/img/edulution-mark.svg');
 
   return (
     <div className="app-cards">
@@ -216,7 +218,7 @@ export default function AppCards(): React.JSX.Element {
             )}`}
           >
             <span className="app-card__brand" aria-hidden="true">
-              <span className="app-card__mark">e</span>
+              <img className="app-card__mark" src={markUrl} alt="" />
               <span className="app-card__lockup">
                 <span className="app-card__word">
                   edulution<span className="app-card__tld">.io</span>

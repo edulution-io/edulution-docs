@@ -23,7 +23,7 @@ Die Benutzerverwaltung erreichen Sie über den Eintrag **Benutzerverwaltung** in
 | **Eltern** | ja |
 | **Mitarbeiter** | ja |
 | **Schuladmins** | – (nur Anzeige) |
-| **Globaladmins** | – (nur Anzeige; nur für Globaladmins sichtbar) |
+| **Globaladmins** | – (nur Anzeige) |
 
 :::note[Schul- und Unternehmensumgebungen]
 In Unternehmensumgebungen entfallen die schulspezifischen Benutzertypen; sichtbar bleiben dort im Wesentlichen **Mitarbeiter** und **Globaladmins**. Die Spalte **Klasse** heißt in diesen Umgebungen **Primärgruppe**.
@@ -37,7 +37,7 @@ Für Benutzertypen mit Verwaltungsliste ist die Ansicht in zwei Registerkarten g
 Für Benutzertypen ohne Verwaltungsliste (Schuladmins, Globaladmins) entfällt die Registerkarte **Import**; dort erscheint der Hinweis *„Für diesen Benutzertyp ist kein Import verfügbar."*
 
 :::note[Schulauswahl]
-In Umgebungen mit mehreren Schulen enthalten die Ansichten eine **Schulauswahl**; ein Wechsel lädt die Listen der gewählten Schule neu. Als **Globaladmin** wählen Sie dort jede Schule des Servers, als **Schuladmin** enthält die Auswahl nur Ihre eigene Schule.
+In Umgebungen mit mehreren Schulen enthalten die Ansichten für **Globaladmins** eine **Schulauswahl** mit jeder Schule des Servers; ein Wechsel lädt die Listen der gewählten Schule neu. Beim Benutzertyp **Globaladmins** entfällt sie, weil diese Konten keiner Schule angehören. Ein Schuladmin sieht keine Schulauswahl und arbeitet immer in seiner eigenen Schule.
 :::
 
 :::note[Wer die Globaladmins sieht]

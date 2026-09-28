@@ -37,7 +37,7 @@ Für Benutzertypen mit Verwaltungsliste ist die Ansicht in zwei Registerkarten g
 Für Benutzertypen ohne Verwaltungsliste (Schuladmins, Globaladmins) entfällt die Registerkarte **Import**; dort erscheint der Hinweis *„Für diesen Benutzertyp ist kein Import verfügbar."*
 
 :::note[Schulauswahl]
-In Umgebungen mit mehreren Schulen enthalten die Ansichten für **Globaladmins** eine **Schulauswahl** mit jeder Schule des Servers; ein Wechsel lädt die Listen der gewählten Schule neu. Beim Benutzertyp **Globaladmins** entfällt sie, weil diese Konten keiner Schule angehören. Ein Schuladmin sieht keine Schulauswahl und arbeitet immer in seiner eigenen Schule.
+In Umgebungen mit mehreren Schulen enthalten die Ansichten für **Globaladmins** eine **Schulauswahl** mit jeder Schule des Servers; ein Wechsel lädt die Listen der gewählten Schule neu. Beim Benutzertyp **Globaladmins** entfällt sie. Ein Schuladmin sieht keine Schulauswahl und arbeitet immer in seiner eigenen Schule.
 :::
 
 :::note[Wer die Globaladmins sieht]

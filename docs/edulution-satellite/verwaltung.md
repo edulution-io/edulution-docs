@@ -235,7 +235,7 @@ Beide Angaben stammen aus verschiedenen Abfragen. Scheitert nur der Abbild-Stand
 
 Sobald Rechner ausgewählt sind, stehen in der Aktionsleiste **Aufwecken**, **Neu starten**, **Herunterfahren** und **Aktion schicken** bereit. Alle vier Aktionen erreichen nur die ausgewählten Rechner, die Suche und Gruppenfilter gerade **sichtbar** lassen – ausgeblendete Rechner bleiben ausgewählt, werden aber nicht angesprochen.
 
-Rechner ohne MAC-Adresse und Rechner, die nicht über LINBO vom Netzwerk starten – für die also in der Geräteliste kein LINBO-Netzwerkstart eingetragen ist (einblendbare Spalte **PXE** weder `1` noch `2`) –, lässt die Plattform vorab aus und nennt sie. Der Satellit würde sie sonst ohne jede Rückmeldung übergehen.
+Rechner ohne MAC-Adresse lässt die Plattform bei allen vier Aktionen vorab aus und nennt sie. Rechner, die nicht über LINBO vom Netzwerk starten – für die also in der Geräteliste kein LINBO-Netzwerkstart eingetragen ist (einblendbare Spalte **PXE** weder `1` noch `2`) –, lässt sie bei **Neu starten**, **Herunterfahren** und **Aktion schicken** ebenso vorab aus, da der Satellit sie dort ohne jede Rückmeldung übergehen würde. **Aufwecken** erreicht dagegen auch diese Rechner, denn Wake-on-LAN setzt keinen LINBO-Netzwerkstart voraus.
 
 **Aufwecken** sendet Wake-on-LAN-Pakete. Die Meldung zählt die **gesendeten Pakete**, nicht die gestarteten Rechner – ob ein Rechner tatsächlich hochfährt, zeigt erst seine Spalte **Status**. Nur Rechner, deren Paket hinausging, werden abgewählt; Rechner, die der Satellit gar nicht kennt, werden namentlich gemeldet.
 

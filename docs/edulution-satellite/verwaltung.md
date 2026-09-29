@@ -348,7 +348,7 @@ Eine gestartete Übertragung meldet der Satellit nicht zurück. Die Plattform be
 :::note[Wenn der Abgleich nicht verfügbar ist]
 Antwortet der Schulserver nicht auf den Vergleich, meldet die Seite *„Der Abgleich mit dem Schulserver ist nicht verfügbar. Die Spalte "Abgleich" und die Übertragung bleiben deshalb ohne Aussage.“* Es wird dann keine Übertragungsrichtung angeboten; die Imageliste selbst bleibt nutzbar.
 
-Erreicht der Satellit die LMN-API des Schulservers gar nicht, nennt die Seite das als Ursache: *„Der Satellit erreicht die LMN-API des Schulservers nicht, deshalb ist kein Abgleich möglich.“* Prüfen Sie dann, ob das Netz, in dem LINBO auf dem Satelliten läuft, die in den [LINBO-Einstellungen](#einstellungen) eingetragene **API-Adresse** erreicht – etwa über eine Freigabe zwischen den VLANs und eine Rückroute oder NAT.
+Kann der Satellit die Images nicht bei der LMN-API des Schulservers abfragen, nennt die Seite das als Ursache: *„Der Satellit kann die Images nicht bei der LMN-API des Schulservers abfragen: Sie ist nicht erreichbar oder lehnt die Anmeldung ab.“* Prüfen Sie dann zweierlei: ob das Netz, in dem LINBO auf dem Satelliten läuft, die in den [LINBO-Einstellungen](#einstellungen) eingetragene **API-Adresse** erreicht – etwa über eine Freigabe zwischen den VLANs und eine Rückroute oder NAT –, und ob **Benutzer** und **Passwort** dort stimmen. **Verbindung testen** im selben Dialog prüft beides.
 :::
 
 ##### Sicherungen

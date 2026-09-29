@@ -258,8 +258,8 @@ Nach einer Sammelaktion werden die Hosts abgewählt, für die der Server den Auf
 
 **Aktion schicken** öffnet einen Dialog in zwei Schritten. Die Kopfzeile nennt den aktuellen Schritt.
 
-- **Schritt 1 · Ziel und Aktion** nennt die ausgewählten Rechner namentlich – oder, aus dem Bereich **Gruppen** heraus, die Hardwaregruppe, an die die Kette geht – und setzt aus einzelnen Schritten eine **Kommandokette** zusammen. **Weiter** führt zum zweiten Schritt.
-- **Schritt 2 · Ausführung** legt fest, wann und wie die Kette läuft, und fasst Ziel, Schritte und die **Kommandokette** in der Schreibweise zusammen, die Sie auch auf der Konsole verwenden würden. **Zurück** kehrt zum ersten Schritt zurück, ohne die Kette oder die gewählten Optionen zu verwerfen.
+- **Schritt 1 von 2 · Ziel und Aktion** nennt die ausgewählten Rechner namentlich – oder, aus dem Bereich **Gruppen** heraus, die Hardwaregruppe, an die die Kette geht – und setzt aus einzelnen Schritten eine **Kommandokette** zusammen. **Weiter** führt zum zweiten Schritt.
+- **Schritt 2 von 2 · Ausführung** legt fest, wann und wie die Kette läuft, und fasst Ziel, Schritte und die **Kommandokette** in der Schreibweise zusammen, die Sie auch auf der Konsole verwenden würden. **Zurück** kehrt zum ersten Schritt zurück, ohne die Kette oder die gewählten Optionen zu verwerfen.
 
 Die Kette wird genau in der Reihenfolge ausgeführt, in der die Schritte stehen; über **Nach oben** und **Nach unten** ordnen Sie sie um, über **Entfernen** nehmen Sie einen Schritt wieder heraus.
 

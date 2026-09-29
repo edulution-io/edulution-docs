@@ -177,7 +177,7 @@ Die gewählte Ansicht merkt sich die Plattform für diese Seite getrennt von der
 Über das Suchfeld schränken Sie die Liste auf einen Gruppennamen oder einen Dateinamen wie `start.conf.raum101` ein. Die Zahl der zugeordneten Rechner stammt aus der Hostliste desselben Satelliten: gezählt werden die Rechner, die der Satellit dieser Gruppe zuordnet, nicht die des Linuxmuster-Servers.
 
 :::note[Jede Gruppe wird einzeln gelesen]
-Der Satellit liefert in seiner Gruppenliste keine `start.conf`. Die Plattform liest deshalb die `start.conf` jeder Gruppe einzeln vom Satelliten und wertet sie aus wie am Schulserver. Beim erneuten Öffnen verwendet sie bereits gelesene Dateien weiter, bis der Satellit wieder synchronisiert, einen Sicherungspunkt wiederhergestellt oder seinen Cursor geleert hat; danach liest sie alle erneut. Die Aktion zum Neuladen liest ebenfalls alle erneut. Die Karten zeigen damit dieselben Angaben, einschließlich Cache, Download-Typ und der verwendeten Images. Bei vielen Gruppen erscheint die Liste erst, wenn alle Dateien gelesen sind; bis dahin läuft die Ladeanzeige.
+Der Satellit liefert in seiner Gruppenliste keine `start.conf`. Die Plattform liest deshalb die `start.conf` jeder Gruppe einzeln vom Satelliten und wertet sie aus wie am Schulserver. Beim erneuten Öffnen verwendet sie bereits gelesene Dateien weiter, bis der Satellit wieder synchronisiert, einen Sicherungspunkt wiederhergestellt oder seinen Cursor geleert hat; danach liest sie alle erneut. Solange die Seite geöffnet ist, fragt sie Gruppen und Hosts jede Minute und beim Zurückwechseln in den Browser-Tab erneut ab und hält sich dabei an dieselbe Regel; ist der Tab nicht sichtbar, pausiert die Abfrage. Eine Aktion zum Neuladen gibt es nicht. Die Karten zeigen damit dieselben Angaben, einschließlich Cache, Download-Typ und der verwendeten Images. Bei vielen Gruppen erscheint die Liste erst, wenn alle Dateien gelesen sind; bis dahin läuft die Ladeanzeige.
 :::
 
 Als **Aktualisiert** zeigt die Plattform den Zeitstempel, den der Satellit mit der GRUB-Konfiguration der Gruppe übernommen hat, bei einer Gruppe ohne GRUB-Konfiguration den Zeitpunkt ihrer Synchronisation. Die letzte Änderung der `start.conf` ist das nicht.
@@ -190,7 +190,7 @@ Durch Anklicken einer Karte oder Tabellenzeile öffnen Sie die Vorschau. Sie lie
 Liegt dem Satelliten für die Gruppe eine GRUB-Konfiguration vor, zeigt die Registerkarte **GRUB cfg** sie zusätzlich. Für eine Gruppe, der noch kein Rechner zugeordnet ist, hat der Satellit keine; die Registerkarte entfällt dann.
 
 :::note[Nur Anzeige]
-Die Konfigurationen des Satelliten lassen sich nicht anlegen, bearbeiten, duplizieren oder löschen. Sie stammen aus der Synchronisation mit dem Linuxmuster-Server; geändert werden sie deshalb am Server, nicht am Satelliten. Mit der Aktion zum Neuladen holen Sie den aktuellen Stand.
+Die Konfigurationen des Satelliten lassen sich nicht anlegen, bearbeiten, duplizieren oder löschen. Sie stammen aus der Synchronisation mit dem Linuxmuster-Server; geändert werden sie deshalb am Server, nicht am Satelliten.
 :::
 
 :::note[Wenn eine Datei nicht gelesen werden kann]
@@ -199,7 +199,18 @@ Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, meld
 
 #### Hosts
 
-Die Tabelle listet alle Rechner, die der Satellit kennt, mit **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Abbild** und **Zuletzt gesehen**. Wie in der [Hostliste des Schulservers](../edulution-server/linuxmuster.md#hosts) lassen sich über die Spaltenauswahl sechs ausgeblendete Spalten einschalten: **PXE**, **PXE aktiv**, **Kommentar**, **DHCP-Optionen**, **Office-Schlüssel** und **Windows-Schlüssel**. Das Suchfeld findet einen Rechner über Hostname, MAC-Adresse, IP, Gruppe, Raum und Kommentar; über das Filtersymbol daneben schränken Sie die Liste auf eine oder mehrere **Gruppen** ein. Beide Filter arbeiten im Browser: die Liste wird vollständig geladen, sodass das Filtern ohne erneute Abfrage des Satelliten geschieht.
+Die Liste zeigt alle Rechner, die der Satellit kennt. Über die Ansichtswahl wählen Sie zwischen denselben drei Ansichten wie in der [Hostliste des Schulservers](../edulution-server/linuxmuster.md#hosts): **Kacheln** (Vorgabe), **Datenblatt** und **Tabelle**. Karten, Auswahl und Detaildialog sind dort beschrieben; auf dem Satelliten unterscheiden sie sich so:
+
+- Neben dem Hostnamen steht der **Status**, den der Satellit meldet (siehe unten), nicht die Erreichbarkeit aus einem Hostscan.
+- Die **Kachel** nennt unter dem Inhalt den Stand des **Abbilds** und, sofern sich der Rechner schon gemeldet hat, wann er **zuletzt gesehen** wurde.
+- Das **Datenblatt** enthält keine Rolle. Dafür führt es die Zeilen **Abbild** (Anzeige und Name des Abbilds), **Zuletzt gesehen** und **Geplanter Befehl** – die Kette, die der Satellit für den nächsten Start des Rechners vorgemerkt hat (siehe [Aufträge und geplante Aktionen](#aufträge-und-geplante-aktionen)).
+- Der **Detaildialog** zeigt dieselben drei Zeilen zusätzlich zu den Angaben der Geräteliste; einen Abschnitt **Images** hat er nicht.
+
+Die gewählte Ansicht merkt sich die Plattform getrennt von der Hostliste des Schulservers.
+
+Eine Aktion zum Neuladen gibt es nicht: Die Seite fragt die Hosts und ihren Abgleichsstand alle 30 Sekunden und beim Zurückwechseln in den Browser-Tab erneut ab, solange der Tab sichtbar ist. Ein geöffneter Detaildialog übernimmt den neuen Stand und schließt sich, wenn der Rechner nicht mehr in der Liste steht.
+
+In der Ansicht **Tabelle** stehen **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Abbild** und **Zuletzt gesehen**. Wie in der [Hostliste des Schulservers](../edulution-server/linuxmuster.md#hosts) lassen sich über die Spaltenauswahl sechs ausgeblendete Spalten einschalten: **PXE**, **PXE aktiv**, **Kommentar**, **DHCP-Optionen**, **Office-Schlüssel** und **Windows-Schlüssel**. Das Suchfeld findet einen Rechner über Hostname, MAC-Adresse, IP, Gruppe, Raum und Kommentar; über das Filtersymbol daneben schränken Sie die Liste auf eine oder mehrere **Gruppen** ein. Beide Filter arbeiten im Browser: die Liste wird vollständig geladen, sodass das Filtern ohne erneute Abfrage des Satelliten geschieht.
 
 Die Spalte **Status** nennt den Betriebszustand, den der Satellit zuletzt gemeldet hat:
 
@@ -224,7 +235,7 @@ Die Spalte **Abbild** vergleicht das Abbild auf dem Rechner mit dem des Satellit
 | **Unbekannt** | Der Satellit meldet für diesen Rechner keinen Abgleichsstand. |
 
 :::note[Rechner werden am Server gepflegt]
-Die Hostliste des Satelliten lässt sich nicht bearbeiten. Die Rechner stammen aus der Synchronisation mit dem Linuxmuster-Server und werden auf dem Satelliten zwischengespeichert; angelegt, geändert und gelöscht werden sie deshalb am Server, nicht am Satelliten. Mit der Aktion zum Neuladen holen Sie den aktuellen Stand.
+Die Hostliste des Satelliten lässt sich nicht bearbeiten. Die Rechner stammen aus der Synchronisation mit dem Linuxmuster-Server und werden auf dem Satelliten zwischengespeichert; angelegt, geändert und gelöscht werden sie deshalb am Server, nicht am Satelliten.
 :::
 
 :::note[Hostliste und Abbild-Stand werden getrennt geladen]
@@ -307,7 +318,7 @@ Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Verwendet in**, **Status**,
 
 Images, die nur auf dem Schulserver liegen, führt die **Tabelle** zusätzlich auf: mit **Nur am Server** im Abgleich, Größe und Datum vom Server und ohne Status. Für sie steht nur **Vom Server holen** bereit; die übrigen Aktionen sind gesperrt, weil das Image auf dem Satelliten noch fehlt, und der Grund steht am Knopf. In den Kartenansichten erscheinen solche Images nicht, denn die Karten zeigen die Images auf dem Satelliten.
 
-Nach jeder Synchronisation des Satelliten liest die Plattform die `start.conf`-Dateien beim nächsten Öffnen erneut; **Verwendet in** zeigt dann die neue Zuordnung. Die Aktion zum Neuladen liest sie jederzeit erneut.
+Nach jeder Synchronisation des Satelliten liest die Plattform die `start.conf`-Dateien beim nächsten Öffnen erneut; **Verwendet in** zeigt dann die neue Zuordnung. Solange die Seite geöffnet ist, fragt sie die Images, die `start.conf`-Dateien und den Abgleich mit dem Schulserver jede Minute und beim Zurückwechseln in den Browser-Tab erneut ab; ist der Tab nicht sichtbar, pausiert die Abfrage. Die `start.conf`-Dateien liest sie dabei nur nach einer Synchronisation neu. Den Abgleich lässt sie aus, solange eine Aktion an einem Image läuft oder ein Dialog dazu offen ist. Eine Aktion zum Neuladen gibt es nicht.
 
 :::note[Images im Altformat]
 Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Seine Aktionen – Prüfsumme, Sicherungen, Beipack-Dateien, beide Übertragungsrichtungen und Löschen – sind deshalb gesperrt; der Grund steht am Knopf.
@@ -332,7 +343,7 @@ Welche Richtung angeboten wird, entscheidet die Plattform aus dem Vergleich mit 
 **Vom Server holen** löscht das Imageverzeichnis auf dem Satelliten vollständig – einschließlich aller dortigen Sicherungen und Beipack-Dateien – und ersetzt es durch den Stand des Servers. **Zum Server übertragen** überschreibt das Image auf dem Schulserver, das auch andere Satelliten nutzen. Beide Schritte lassen sich nicht rückgängig machen.
 :::
 
-Eine gestartete Übertragung meldet der Satellit nicht zurück. Die Plattform bestätigt nur den Start; den Ausgang sehen Sie, wenn Sie die Liste später neu laden.
+Eine gestartete Übertragung meldet der Satellit nicht zurück. Die Plattform bestätigt nur den Start; den Ausgang zeigt die Liste, sobald die Übertragung abgeschlossen ist und die Seite das nächste Mal abfragt.
 
 :::note[Wenn der Abgleich nicht verfügbar ist]
 Antwortet der Schulserver nicht auf den Vergleich, meldet die Seite *„Der Abgleich mit dem Schulserver ist nicht verfügbar. Die Spalte "Abgleich" und die Übertragung bleiben deshalb ohne Aussage.“* Es wird dann keine Übertragungsrichtung angeboten; die Imageliste selbst bleibt nutzbar.

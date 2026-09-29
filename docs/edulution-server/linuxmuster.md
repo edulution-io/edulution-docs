@@ -224,6 +224,12 @@ Aktionen für einzelne Hosts laufen immer über die Auswahl – auch einen einzi
 
 Die Aktionsleiste im Seitenkopf bietet unabhängig von der Auswahl **Neu laden** an, dazu **Sitzungen** und **Raum-Aktion**, sofern die Linuxmuster-API Sitzungen beziehungsweise Kommandoketten unterstützt – **Raum-Aktion** nur, wenn die Geräteliste Räume führt. Sobald mindestens ein Host ausgewählt ist, nennt sie die Anzahl und ergänzt **Aufwecken**, **Neu starten**, **Herunterfahren** und **Aktion schicken**. Ein Host, der nicht erreichbar ist, wird übersprungen und in der Rückmeldung benannt. **Neu starten**, **Herunterfahren** und **Aktion schicken** überspringen außerdem Rechner, deren Name kein gültiges Ziel eines `linbo-remote`-Laufs ist, etwa einen älteren Namen mit Unterstrich. Der [Kommando-Dialog](#der-kommando-dialog) nennt sie schon vor dem Abschicken (*„Der Rechner … wird übersprungen, weil sein Name kein gültiges Ziel eines linbo-remote-Laufs ist.“*) und sperrt das Abschicken mit *„Keiner der ausgewählten Rechner hat einen Namen, der Ziel eines linbo-remote-Laufs sein kann.“*, wenn keiner ein gültiges Ziel ist. Bei **Neu starten** und **Herunterfahren** nennt eine Warnung sie beim Auslösen (*„Der Rechner … wurde übersprungen, weil sein Name kein gültiges Ziel eines linbo-remote-Laufs ist.“*); ist keiner der ausgewählten Rechner ein gültiges Ziel, läuft nichts. Übersprungene Rechner werden in jedem Fall abgewählt, die erreichten nach dem Lauf. **Aufwecken** erreicht auch diese Rechner, weil es sie über ihre MAC-Adresse anspricht.
 
+:::warning[LINBO-Kommandos erreichen nur Rechner mit LINBO-Netzwerkstart]
+`linbo-remote` spricht nur Rechner an, deren PXE-Flag in der [Geräteliste](#geräteverwaltung) **Linbo-PXE** oder **Linbo-PXE + OPSI-Management** lautet. Rechner mit **Kein PXE** oder **OPSI-PXE** überspringt deshalb jedes LINBO-Kommando – **Neu starten**, **Herunterfahren**, **Aktion schicken** sowie die Aktionen für eine Gruppe oder einen Raum. Der Kommando-Dialog nennt diese Rechner vor dem Abschicken (*„… weil für ihn in der Geräteliste kein LINBO-Netzwerkstart eingetragen ist.“*), bei **Neu starten** und **Herunterfahren** nennt sie eine Warnung beim Auslösen (*„Ohne LINBO-Netzwerkstart übersprungen: …“*). Bleibt in der Auswahl, der Gruppe oder dem Raum kein solcher Rechner übrig, lässt sich das Ziel nicht wählen beziehungsweise das Abschicken ist gesperrt.
+
+**Aufwecken** ist davon nicht betroffen: Es weckt jeden ausgewählten Rechner, unabhängig von seinem PXE-Flag.
+:::
+
 :::note[Die Suche bestimmt mit, wen eine Sammelaktion trifft]
 Eine Sammelaktion erreicht nur die Hosts, die gerade **sichtbar** sind. Schränken Sie die Suche ein, nachdem Sie ausgewählt haben, sinkt die Zahl in der Leiste entsprechend – ausgeblendete Hosts bleiben ausgewählt, werden aber nicht angesprochen. Leeren Sie die Suche wieder, sind sie erneut Teil der Auswahl.
 :::
@@ -232,7 +238,7 @@ Nach einer Sammelaktion werden die Hosts abgewählt, für die der Server den Auf
 
 #### Eine Aktion an einen Raum schicken
 
-**Raum-Aktion** richtet eine Kommandokette an einen Raum, auch ohne dass ein Rechner ausgewählt ist. Sie wählen den Raum aus einer Liste; die Räume stammen aus der Geräteliste (`devices.csv`), nicht aus den Sitzplänen. Ein Raum, dessen Name kein gültiges Ziel eines `linbo-remote`-Laufs ist, steht in der Liste, lässt sich aber nicht wählen; der Grund steht am Eintrag. Der Dialog nennt, wie viele Rechner die Geräteliste in diesem Raum führt, und der Server löst den Raum beim Ausführen selbst auf. Aktionen mit Betriebssystem stehen nur für Räume bereit, deren Rechner alle derselben Hardwaregruppe angehören – bei einem gemischten Raum nennt der Dialog die beteiligten Gruppen. Auch die Bestätigung für einen zerstörenden Schritt nennt dann den Raum statt einer Anzahl von Rechnern. Sind Hosts ausgewählt, steht im Feld **Ziel** zunächst *Raum wählen*; die aktuelle Auswahl bleibt dort als Ziel wählbar.
+**Raum-Aktion** richtet eine Kommandokette an einen Raum, auch ohne dass ein Rechner ausgewählt ist. Sie wählen den Raum aus einer Liste; die Räume stammen aus der Geräteliste (`devices.csv`), nicht aus den Sitzplänen. Ein Raum, dessen Name kein gültiges Ziel eines `linbo-remote`-Laufs ist, steht in der Liste, lässt sich aber nicht wählen; der Grund steht am Eintrag. Der Dialog nennt, wie viele Rechner mit LINBO-Netzwerkstart die Geräteliste in diesem Raum führt und wie viele übrigen Rechner des Raums übersprungen werden; ein Raum ohne einen solchen Rechner lässt sich nicht wählen. Der Server löst den Raum beim Ausführen selbst auf. Aktionen mit Betriebssystem stehen nur für Räume bereit, deren Rechner alle derselben Hardwaregruppe angehören – bei einem gemischten Raum nennt der Dialog die beteiligten Gruppen. Auch die Bestätigung für einen zerstörenden Schritt nennt dann den Raum statt einer Anzahl von Rechnern. Sind Hosts ausgewählt, steht im Feld **Ziel** zunächst *Raum wählen*; die aktuelle Auswahl bleibt dort als Ziel wählbar.
 
 #### Der Kommando-Dialog
 
@@ -300,8 +306,8 @@ Die `start.conf`-Dateien liegen serverweit und nicht je Schule. Ein Wechsel der 
 
 | Ansicht | Zeigt |
 |---------|-------|
-| **Plattenkarte** (Vorgabe) | jede Platte der Gruppe als Balken ihrer Partitionen, nach Rolle eingefärbt, dazu die Betriebssysteme mit Autostart-Zeit |
-| **Kacheln** | Systemtyp, Betriebssysteme, Zahl der zugeordneten Rechner, verwendete Images und die Partitionen als Balken, dazu Cache, Download-Typ und Aktualisierungszeitpunkt |
+| **Plattenkarte** (Vorgabe) | jede Platte der Gruppe als eigener Balken ihrer Partitionen, nach Rolle eingefärbt, dazu die Betriebssysteme mit Autostart-Zeit |
+| **Kacheln** | Systemtyp, Betriebssysteme, Zahl der zugeordneten Rechner, verwendete Images und die Partitionen als Balken je Platte, dazu Cache, Download-Typ und Aktualisierungszeitpunkt |
 | **Datenblatt** | die gesetzten Schlüssel der Gruppe: Server, Cache, Download-Typ, Systemtyp, Abmeldung nach, Kernel-Optionen und Virtueller Desktop, dazu die verwendeten Images |
 | **Tabelle** | ID, Betriebssysteme, verwendete Images, Partitionen, Zahl der Rechner und Aktualisierungszeitpunkt |
 
@@ -330,7 +336,7 @@ Die Aktionen bietet die Aktionsleiste an, sobald Gruppen ausgewählt sind – in
 | **Aktion schicken** | öffnet den [Kommando-Dialog](#der-kommando-dialog) für alle Rechner der Gruppe |
 | **Löschen** | löscht die `start.conf` der Gruppe auf dem Server |
 
-**Aktion schicken** richtet eine Kommandokette an die Hardwaregruppe als Ganzes: Der Server ermittelt selbst, welche Rechner der **ausgewählten Schule** dazugehören – Rechner derselben Gruppe in einer anderen Schule erreicht der Lauf nicht; wechseln Sie dafür die Schule in der **Schulauswahl**. Der Dialog nennt die Gruppe und dazu, wie viele ihrer Rechner die ausgewählte Schule führt; führt sie keinen, steht keine Aktion zur Wahl, und der Dialog sagt warum. Solange die Rechnerliste der Schule noch geladen wird – oder wenn das Laden fehlgeschlagen ist – ist die Anzahl noch nicht bekannt: Auch dann steht keine Aktion zur Wahl, der Dialog nennt dafür aber das Laden als Grund, statt es der Schule zuzuschreiben. Öffnen Sie den Dialog direkt nach dem Aufruf der Seite, kann das kurz der Fall sein; sobald die Liste steht, stehen die Aktionen zur Wahl. Die Betriebssysteme für **Sync**, **Neu** und **Start** stammen aus der `start.conf` der Gruppe. Die Aktion ist ausgegraut, solange ein anderer Auftrag noch läuft, und für eine Gruppe, deren Name die Regeln für `linbo-remote` nicht erfüllt – der Grund steht am Knopf. Nach dem Abschicken meldet die Plattform, ob die Kette die Gruppe erreicht hat; waren Rechner offline, nennt sie den Hinweis des Servers dazu. Ob der Lauf noch läuft und was er ausgibt, sehen Sie anschließend unter [Laufende Sitzungen](#laufende-sitzungen) in der Hostliste.
+**Aktion schicken** richtet eine Kommandokette an die Hardwaregruppe als Ganzes: Der Server ermittelt selbst, welche Rechner der **ausgewählten Schule** dazugehören – Rechner derselben Gruppe in einer anderen Schule erreicht der Lauf nicht; wechseln Sie dafür die Schule in der **Schulauswahl**. Der Dialog nennt die Gruppe und dazu, wie viele ihrer Rechner mit LINBO-Netzwerkstart die ausgewählte Schule führt und wie viele übrigen übersprungen werden (siehe [Hosts auswählen](#hosts-auswählen)); führt sie keinen solchen Rechner, steht keine Aktion zur Wahl, und der Dialog sagt warum. Solange die Rechnerliste der Schule noch geladen wird – oder wenn das Laden fehlgeschlagen ist – ist die Anzahl noch nicht bekannt: Auch dann steht keine Aktion zur Wahl, der Dialog nennt dafür aber das Laden als Grund, statt es der Schule zuzuschreiben. Öffnen Sie den Dialog direkt nach dem Aufruf der Seite, kann das kurz der Fall sein; sobald die Liste steht, stehen die Aktionen zur Wahl. Die Betriebssysteme für **Sync**, **Neu** und **Start** stammen aus der `start.conf` der Gruppe. Die Aktion ist ausgegraut, solange ein anderer Auftrag noch läuft, und für eine Gruppe, deren Name die Regeln für `linbo-remote` nicht erfüllt – der Grund steht am Knopf. Nach dem Abschicken meldet die Plattform, ob die Kette die Gruppe erreicht hat; waren Rechner offline, nennt sie den Hinweis des Servers dazu. Ob der Lauf noch läuft und was er ausgibt, sehen Sie anschließend unter [Laufende Sitzungen](#laufende-sitzungen) in der Hostliste.
 
 Solange keine Gruppe ausgewählt ist, bietet die Aktionsleiste ab **Version 7.4.13** der Linuxmuster-API auch **linbo.iso** an: Die Schaltfläche lädt das Startmedium, das der Server unter `/srv/linbo/linbo.iso` vorhält. Die Datei ist einige hundert Megabyte groß.
 
@@ -367,7 +373,7 @@ Anlegen, Speichern, Duplizieren und Löschen einer Gruppe reicht die Plattform a
 :::
 
 :::warning[Was beim Löschen verschwindet]
-Gelöscht werden die `start.conf` **und** die GRUB-Konfiguration der Gruppe. Rechner dieser Gruppe starten danach ohne Konfiguration, bis ihnen eine andere Gruppe zugewiesen wird. Der Server legt vor dem Löschen eine Sicherung der `start.conf` an.
+Gelöscht werden die `start.conf`, die GRUB-Konfiguration **und**, falls vorhanden, die [VDI-Konfiguration](#vdi-konfiguration) der Gruppe. Rechner dieser Gruppe starten danach ohne Konfiguration, bis ihnen eine andere Gruppe zugewiesen wird. Der Server legt vor dem Löschen Sicherungen der `start.conf` und der VDI-Konfiguration an. Die VDI-Konfiguration löscht die Plattform zuerst; lässt sie sich nicht löschen, bleibt die Gruppe unverändert bestehen. So findet eine spätere Gruppe gleichen Namens keine verwaiste VDI-Konfiguration vor.
 :::
 
 #### Eine Gruppe umbenennen
@@ -406,13 +412,25 @@ Nach dem **Wiederherstellen** wendet die Plattform die Gruppe an wie nach dem Sp
 
 #### VDI-Konfiguration
 
-Ab **Version 7.4.13** der Linuxmuster-API öffnet **VDI** die Datei `start.conf.<Gruppe>.vdi` der Gruppe. Der Dialog zeigt die Felder, die die Schulkonsole schreibt – darunter **VDI aktiviert**, Name, Hostname, Betriebssystemtyp, IP- und MAC-Adresse, Netzwerkbrücke, Kerne, Arbeitsspeicher und die VM-IDs. **Speichern** ersetzt die Datei als Ganzes, **VDI abschalten** löscht sie; die `start.conf` der Gruppe bleibt in beiden Fällen unberührt.
+Ab **Version 7.4.13** der Linuxmuster-API öffnet **VDI** die Datei `start.conf.<Gruppe>.vdi` der Gruppe. Der Dialog zeigt die Felder, die die Schulkonsole schreibt – darunter **VDI aktiviert**, Name, Hostname, Betriebssystemtyp, IP- und MAC-Adresse, Netzwerkbrücke, Kerne, Arbeitsspeicher und die VM-IDs. **Speichern** ersetzt die Datei als Ganzes, **VDI abschalten** löscht sie; die `start.conf` der Gruppe bleibt in beiden Fällen unberührt. In der Liste der Gruppen erscheint die VDI-Konfiguration nicht als eigene Gruppe; beim Löschen der Gruppe wird sie mitgelöscht.
 
 :::note[Felder außerhalb der Liste bleiben erhalten]
 Die Datei gehört edulution-linbo-vdi. Felder, die der Dialog nicht anzeigt, schreibt die Plattform unverändert zurück, statt sie zu verwerfen.
 :::
 
-Lässt sich die Datei nicht lesen, zeigt der Dialog statt der Felder einen Hinweis und sperrt **Speichern**, denn ein leeres Formular würde die gespeicherte Konfiguration ersetzen. Schließen Sie den Dialog und öffnen Sie ihn erneut. Ebenso bleibt **Speichern** gesperrt, solange ein Zahlenfeld oder die VM-IDs etwas anderes als ganze Zahlen enthalten; mehrere VM-IDs trennen Sie durch Kommas.
+Lässt sich die Datei nicht lesen, zeigt der Dialog statt der Felder einen Hinweis und sperrt **Speichern**, denn ein leeres Formular würde die gespeicherte Konfiguration ersetzen. Schließen Sie den Dialog und öffnen Sie ihn erneut.
+
+Ebenso bleibt **Speichern** gesperrt, solange ein Feld einen unzulässigen Wert enthält; der Dialog nennt den Fehler direkt am Feld:
+
+| Feld | Zulässig |
+|------|----------|
+| **Kerne**, **Arbeitsspeicher (MiB)** | ganze Zahlen ab 1 |
+| **VM-IDs** | ganze Zahlen ab 1, mehrere durch Kommas getrennt |
+| **VLAN-Tag** | ganze Zahlen von 0 bis 4094; 0 bedeutet *kein VLAN* |
+| **MAC-Adresse** | im Format `aa:bb:cc:dd:ee:ff` |
+| **IP-Adresse** | eine IPv4-Adresse wie `10.0.0.50` |
+
+Geprüft werden nur Felder, die Sie ändern: Ein Wert, der unverändert aus einer älteren Datei stammt, sperrt das Speichern nicht.
 
 #### Die Vorschau
 
@@ -458,7 +476,9 @@ Ein Feld der Registerkarte **Allgemein**, das Sie leeren, verschwindet beim Spei
 
 **Partitionen** zeigt je Platte eine Karte. Über die Preset-Schaltflächen fügen Sie eine Partition mit sinnvoller Vorgabegröße hinzu: *EFI*, *MSR*, *Windows*, *Linux*, *Swap*, *Daten*, *Erweitert* und *Cache*. Die Reihenfolge ändern Sie durch Ziehen: Eine Partition lässt sich innerhalb ihrer Platte verschieben, und ein Preset lässt sich direkt an die Stelle ziehen, an der die neue Partition entstehen soll. Klicken Sie ein Preset nur an, bestimmt es die Position selbst: *EFI* an den Anfang, *MSR* dahinter, alle übrigen ans Ende. Gerätenamen und alle Verweise darauf werden danach neu durchnummeriert. Der **Plattentyp** – SATA, VirtIO, Xen, IDE, MMC, NVMe oder allgemein – bestimmt die Gerätenamen; ein Wechsel nummeriert die Partitionen der Platte samt aller Verweise darauf um. Ein Klick auf eine Partition öffnet einen Dialog mit den Unterregisterkarten **Partition** und **Betriebssystem**. Er öffnet in der einfachen Ansicht; **Erweitert** blendet auf **Partition** zusätzlich **Partitionstyp** und **Dateisystem** ein und gilt nur für die geöffnete Partition.
 
-Im Feld **Größe** gilt: eine nackte Zahl sind Kibibytes, ein Suffix `M`, `G` oder `T` legt die Einheit fest, und ein leeres Feld bedeutet *Rest der Platte* (in der Plattenkarte als `∞` dargestellt). Unter dem Feld steht laufend, welche Größe daraus wird.
+Im Feld **Größe** gilt: eine nackte Zahl sind Kibibytes, ein Suffix `K`, `M`, `G` oder `T` legt die Einheit fest – wahlweise gefolgt von `B` oder `iB`, etwa `40GB` –, und ein leeres Feld bedeutet *Rest der Platte* (in der Plattenkarte als `∞` dargestellt). Unter dem Feld steht laufend, welche Größe daraus wird. Dezimalzahlen, Leerzeichen in der Angabe und andere Einheiten liest LINBO nicht, und eine Partition muss mindestens 2 MiB groß sein; eine solche Größe markiert der Dialog als ungültig. Enthält die Gruppe noch eine ungültige Größe, lässt sich der Editor nicht speichern und nennt die betroffenen Partitionen.
+
+Über **Neue Festplatte** fügen Sie eine weitere Platte hinzu. Solange sie keine Partition trägt, bleibt sie beim Wechsel der Registerkarten erhalten, wird aber nicht in die `start.conf` geschrieben – legen Sie vor dem Speichern mindestens eine Partition darauf an.
 
 Unter den Platten listet der Abschnitt **Betriebssysteme** die Einträge der Gruppe mit Partition, Basisimage, Kernel, Initrd und den Schaltern für Autostart, Sync und Start. **Bearbeiten** öffnet die Partition, an der ein Eintrag hängt. Zeigt das Root-Gerät eines Eintrags auf keine Partition des Layouts, wird der Eintrag als verwaist gekennzeichnet (**Ohne Partition**) und lässt sich hier löschen. Dieselbe Kennzeichnung trägt das Betriebssystem auf der Karte der Gruppe in der **Plattenkarte**.
 
@@ -523,9 +543,13 @@ Ein Image heißt nach seinem Verzeichnis auf dem Server (`debian13`); die Bildda
 Fehlt einem Image eine lesbare `.info`-Datei, führt der Server es nicht in seiner Bestandsliste. Die Plattform zeigt es trotzdem an; in der **Tabelle** trägt es den Vermerk *Nicht lesbar*, beim Überfahren erscheint die Meldung des Servers. **Herunterladen** ist gesperrt (*„Der Server kann die Datei dieses Images nicht lesen.“*), und im Editor sind die Beipack-Dateien nur zu lesen – speichern lässt sich dort nur der Name. Löschen bleibt möglich.
 :::
 
-Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.info`), VDI-Konfiguration (`.vdi`), Torrent (`.torrent`), Maschinenkonto (`.macct`), Prüfsumme (`.md5`), Hashsumme (`.hash`), Registry (`.reg`), Pre-Start-Skript (`.prestart`) und Post-Sync-Skript (`.postsync`). In der Spalte **Sidecars** steht je vorhandener Datei ein Buchstabenkürzel; welcher Dateityp dahintersteht, erscheint, sobald Sie mit dem Mauszeiger darauf zeigen. Der Detaildialog zeigt zusätzlich Dateiname, Image-Ordner, Pfad, Größe, MD5-Summe und – sofern ein `.info`-Sidecar vorliegt – Erstellungszeitpunkt, Image- und Partitionsgröße sowie die Beschreibung.
+Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.info`), VDI-Konfiguration (`.vdi`), Torrent (`.torrent`), Maschinenkonto (`.macct`), Prüfsumme (`.md5`), Hashsumme (`.hash`), Registry (`.reg`), Pre-Start-Skript (`.prestart`) und Post-Sync-Skript (`.postsync`). In der Spalte **Sidecars** steht je vorhandener Datei ein Buchstabenkürzel; welcher Dateityp dahintersteht, erscheint, sobald Sie mit dem Mauszeiger darauf zeigen. Der Detaildialog zeigt zusätzlich Dateiname, Image-Ordner, Pfad, Größe, MD5-Summe, die Dateien des Images – jeweils als **Image** oder **Beipack-Datei** gekennzeichnet – und – sofern ein `.info`-Sidecar vorliegt – Erstellungszeitpunkt, Image- und Partitionsgröße sowie die Beschreibung.
 
-Ein Image fügen Sie in den drei Kartenansichten über die Karte **Image hochladen** vor dem ersten Image hinzu, in der **Tabelle** über **Image hochladen** in der Aktionsleiste. Zulässig sind Image-Dateien (`.qcow2`, `.qdiff`, `.cloop`, `.rsync`) und alle oben genannten Beipack-Dateien; andere Dateitypen weist der Dialog ab.
+Ein Image fügen Sie in den drei Kartenansichten über die Karte **Image hochladen** vor dem ersten Image hinzu, in der **Tabelle** über **Image hochladen** in der Aktionsleiste. Zulässig sind Image-Dateien (`.qcow2`, `.qdiff`, `.cloop`, `.rsync`) und alle oben genannten Beipack-Dateien; andere Dateitypen weist der Dialog ab und nennt dabei die abgelehnte Datei. Für den Namen eines neuen Images gelten dieselben Regeln wie beim [Duplizieren](#aktionen-eines-images); ein Name, der sich von einem vorhandenen Image nur in Groß- und Kleinschreibung unterscheidet, wird abgewiesen.
+
+:::warning[Ein Upload unter vorhandenem Namen ersetzt das Image]
+Laden Sie eine `.qcow2`-Datei unter dem Namen eines vorhandenen Images hoch, ersetzt der Upload dieses Image. Der Dialog weist darauf hin und gibt den Upload erst frei, wenn Sie das Ersetzen für diesen Namen bestätigen. Die bisherige Version legt der Server in einem Sicherungsordner ab, der unter **Sicherungen** nicht erscheint und sich nur direkt auf dem Server löschen lässt – bei großen Images belegt er entsprechend viel Speicherplatz. Das gilt auch, wenn Sie zu einem vorhandenen Image nur eine Beipack-Datei hochladen: Auch dann kopiert der Server das vollständige Image in diesen Ordner.
+:::
 
 Im Dialog geben Sie Image-Name und Dateiname an; während der Übertragung sind beide Felder gesperrt und ein Fortschrittsbalken zeigt den Stand in Prozent. **Abbrechen** bricht die laufende Übertragung ab und verwirft zugleich die Daten, die der Server bereits entgegengenommen hat – es bleibt also kein angefangenes Image auf dem Server zurück. Fällt **Abbrechen** in den Augenblick, in dem der Server das vollständig übertragene Image bereits fertigstellt, wartet die Plattform diesen Schritt ab; das Image liegt danach vollständig vor.
 
@@ -588,6 +612,8 @@ Die Seite **Versionsübersicht** listet die Versionen der beteiligten Linuxmuste
 ## Einschränkungen in dieser Version
 
 Eine laufende Sitzung lässt sich aus der Plattform heraus **nicht abbrechen** und nicht mitverfolgen, wie es `tmux attach` auf der Konsole erlaubt: die Linuxmuster-API bietet dafür keine Schnittstelle. Sie sehen den Lauf und sein Protokoll, beenden können Sie ihn nur auf dem Server.
+
+Eine Kommandokette mit dem Schritt **Cache befüllen** weist die Linuxmuster-API derzeit ab; das Abschicken endet dann mit einer Fehlermeldung.
 
 ## Einrichtung (für Administratoren)
 

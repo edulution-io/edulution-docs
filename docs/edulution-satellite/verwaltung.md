@@ -235,11 +235,11 @@ Beide Angaben stammen aus verschiedenen Abfragen. Scheitert nur der Abbild-Stand
 
 Sobald Rechner ausgewählt sind, stehen in der Aktionsleiste **Aufwecken**, **Neu starten**, **Herunterfahren** und **Aktion schicken** bereit. Alle vier Aktionen erreichen nur die ausgewählten Rechner, die Suche und Gruppenfilter gerade **sichtbar** lassen – ausgeblendete Rechner bleiben ausgewählt, werden aber nicht angesprochen.
 
-Rechner ohne MAC-Adresse und Rechner, die nicht über LINBO vom Netzwerk starten, lässt die Plattform vorab aus und nennt sie. Der Satellit würde sie sonst ohne jede Rückmeldung übergehen.
+Rechner ohne MAC-Adresse und Rechner, die nicht über LINBO vom Netzwerk starten – für die also in der Geräteliste kein LINBO-Netzwerkstart eingetragen ist (einblendbare Spalte **PXE** weder `1` noch `2`) –, lässt die Plattform vorab aus und nennt sie. Der Satellit würde sie sonst ohne jede Rückmeldung übergehen.
 
 **Aufwecken** sendet Wake-on-LAN-Pakete. Die Meldung zählt die **gesendeten Pakete**, nicht die gestarteten Rechner – ob ein Rechner tatsächlich hochfährt, zeigt erst seine Spalte **Status**. Nur Rechner, deren Paket hinausging, werden abgewählt; Rechner, die der Satellit gar nicht kennt, werden namentlich gemeldet.
 
-**Neu starten** und **Herunterfahren** schicken den Befehl ohne Rückfrage sofort ab. Sie laufen wie eine sofort ausgeführte Kette aus **Aktion schicken**: Der Auftrag erscheint unter **Aufträge**, und lehnt der Satellit ab, gelten dieselben Meldungen wie dort.
+**Neu starten** und **Herunterfahren** fragen vorher nach und nennen die ausgewählten Rechner. Welche davon ohne MAC-Adresse oder LINBO-Netzwerkstart ausgelassen werden, meldet die Plattform erst nach der Bestätigung. Wählen Sie einen anderen Satelliten, während die Rückfrage offen ist, wird sie verworfen und nichts geschickt. Nach der Bestätigung laufen beide Aktionen wie eine sofort ausgeführte Kette aus **Aktion schicken**: Der Auftrag erscheint unter **Aufträge**, und lehnt der Satellit ab, gelten dieselben Meldungen wie dort.
 
 **Aktion schicken** öffnet denselben [Dialog wie im Bereich **Schulserver**](../edulution-server/linuxmuster.md#der-kommando-dialog): eine Kommandokette aus einzelnen Schritten, die Auswahl des Betriebssystems mit seinem Namen aus der `start.conf` der Gruppe und die Bestätigung vor **Neu**, **Formatieren** und **Partitionieren**. Aktionen mit Betriebssystem setzen voraus, dass alle ausgewählten Rechner derselben Hardwaregruppe angehören. Beim Satelliten unterscheiden sich die Optionen:
 
@@ -293,7 +293,7 @@ Die gewählte Ansicht merkt sich die Plattform für diese Seite getrennt von der
 Ein Klick auf eine Karte öffnet die Beipack-Dateien des Images; für ein Image im Altformat wird das mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – erreichen Sie in jeder Ansicht gleich: Markieren Sie das Image über das Auswahlkästchen seiner Karte oder Zeile, bietet die Aktionsleiste sie an. Ein markiertes Image, das die Suche oder ein Tabellenfilter gerade ausblendet, bleibt markiert, zählt aber nicht mit und wird von keiner Aktion erfasst. Verteilt der Satellit ein Image per Torrent, trägt dessen Karte in allen drei Kartenansichten eine Marke mit dem Zustand der Verteilung (siehe [Torrent-Verteilung](#torrent-verteilung)); ein Image ohne Torrent bleibt ohne Marke.
 
 :::note[Die Karten zeigen weniger als am Schulserver]
-Die Imageliste des Satelliten enthält weder die Beschreibung noch Partitionsangaben oder die Prüfsumme. Beschreibung, Partition und Partitionsgröße bleiben in den Karten deshalb leer, und die Füllanzeige der Ansicht **Speicher** entfällt. Das **Datenblatt** weist bei jedem Image *keine Prüfsumme* aus, auch wenn auf dem Satelliten eine hinterlegt ist – ob eine vorliegt, zeigt erst **Prüfsumme prüfen**.
+Die Imageliste des Satelliten enthält weder die Beschreibung noch Partitionsangaben oder die Prüfsumme. Beschreibung, Partition und Partitionsgröße bleiben in den Karten deshalb leer, und die Füllanzeige der Ansicht **Speicher** entfällt. Ob eine Prüfsumme vorliegt, fragt die Plattform beim Satelliten erst nach, sobald genau ein Image markiert ist; auch das Ergebnis von **Prüfsumme prüfen** merkt sie sich. Die Zeile **Prüfsumme vorhanden** im **Datenblatt** erscheint deshalb nur bei Images, für die das bereits bekannt ist.
 :::
 
 Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Verwendet in**, **Status**, **Abgleich** und **Geändert** – und, sobald der Satellit den Zustand seiner Torrent-Verteilung meldet, zusätzlich **Torrent**.
@@ -317,14 +317,15 @@ Ist genau ein Image markiert, bietet die Aktionsleiste **Prüfsumme prüfen**, *
 
 ##### Prüfsumme prüfen
 
-Der Satellit berechnet die Prüfsumme und meldet, ob sie mit der hinterlegten übereinstimmt. Einen Fortschritt meldet er dabei nicht. Bei großen Images dauert die Berechnung länger, als die Verbindung zum Satelliten zulässt; die Prüfung läuft dann auf dem Satelliten weiter, ihr Ergebnis ist in der Plattform aber nicht mehr abrufbar. Ist für das Image keine Prüfsumme hinterlegt, wird auch das gemeldet. Haben Sie inzwischen einen anderen Satelliten gewählt, erscheint das Ergebnis trotzdem, mit dem Zusatz *„Auf dem Satelliten …“*.
+Der Satellit berechnet die Prüfsumme und meldet, ob sie mit der hinterlegten übereinstimmt. Einen Fortschritt meldet er dabei nicht. Bei großen Images dauert die Berechnung länger, als die Verbindung zum Satelliten zulässt; die Prüfung läuft dann auf dem Satelliten weiter, ihr Ergebnis ist in der Plattform aber nicht mehr abrufbar. Meldet der Satellit, dass für das markierte Image keine Prüfsumme hinterlegt ist, sperrt die Plattform **Prüfsumme prüfen** für dieses Image; der Grund steht am Knopf. Haben Sie inzwischen einen anderen Satelliten gewählt, erscheint das Ergebnis trotzdem, mit dem Zusatz *„Auf dem Satelliten …“*.
 
 ##### Übertragen
 
-Welche Richtung angeboten wird, entscheidet die Plattform aus dem Vergleich mit dem Schulserver:
+Welche Richtung angeboten wird, entscheidet die Plattform aus dem Vergleich mit dem Schulserver. Eine nicht mögliche Richtung ist bereits in der Aktionsleiste gesperrt, und der Grund steht am Knopf:
 
 - Liegt das Image nur auf einer Seite, ist genau die Richtung möglich, die es auf die andere bringt.
-- Lässt sich nicht feststellen, welche Kopie neuer ist, bleiben **beide** Richtungen gesperrt.
+- Sind beide Kopien gleich alt, bleiben **beide** Richtungen gesperrt; eine Übertragung ist nicht nötig.
+- Lässt sich nicht feststellen, welche Kopie neuer ist, bleiben ebenfalls **beide** Richtungen gesperrt.
 - Würde die Übertragung die neuere Kopie durch die ältere ersetzen, warnt der Bestätigungsdialog unter *Die neuere Kopie wird überschrieben* mit beiden Zeitpunkten; übertragen wird erst mit **Übertragung starten**.
 
 :::warning[Was eine Übertragung überschreibt]

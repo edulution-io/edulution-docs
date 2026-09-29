@@ -397,7 +397,7 @@ Der Abschnitt **Synchronisationszustand** nennt den **Modus** (**Synchronisation
 
 Der **Cursor** ist die Stelle, bis zu der der Satellit die Änderungen des Schulservers zuletzt übernommen hat; der nächste gewöhnliche Lauf liest ab dort weiter. Steht beim Cursor **Keiner – der nächste Lauf liest den gesamten Bestand**, übernimmt der nächste Lauf wieder alles – so erkennen Sie auch, dass **Cursor leeren** gegriffen hat. Hat der Satellit die verwalteten Dateien aus einem Sicherungspunkt wiederhergestellt – von Hand oder nach einem fehlgeschlagenen Lauf –, vermerkt der letzte Lauf das eigens.
 
-Die Zahl der Hosts online ermittelt die Seite beim Öffnen, beim Neuladen und sobald ein Lauf endet – nicht während eines Laufs und nicht nach **Cursor leeren**.
+Die Zahl der Hosts online ermittelt die Seite beim Öffnen und sobald ein Lauf endet – nicht bei den regelmäßigen Abfragen im Hintergrund, nicht während eines Laufs und nicht nach **Cursor leeren**.
 
 :::note[Offline heißt nicht zwingend abgeschaltet]
 **Offline** meldet der Satellit auch dann, wenn er seine eigenen Einstellungen nicht lesen konnte. Die Anzeige belegt also nicht, dass die Synchronisation abgeschaltet wurde – prüfen Sie im Zweifel die **Einstellungen** in der Aktionsleiste.
@@ -413,10 +413,10 @@ Die übrigen Bestandteile liegen im LINBO-Dateisystem des Satelliten: Schreiben 
 
 ##### Einen Lauf anstoßen
 
-In der Aktionsleiste stehen **Synchronisieren**, **Komplett-Sync**, **Cursor leeren** und die Aktion zum Neuladen. **Synchronisieren** übernimmt nur, was sich seit dem Cursor geändert hat; **Komplett-Sync** übernimmt den gesamten Bestand und schreibt alle verwalteten Dateien neu. **Cursor leeren** verwirft den Cursor, sodass der nächste gewöhnliche Lauf wieder alles betrachtet; einen Lauf startet es selbst nicht. Jede der drei Aktionen fragt vor dem Start nach.
+In der Aktionsleiste stehen **Synchronisieren**, **Komplett-Sync**, **Cursor leeren** und **Einstellungen**. Eine Aktion zum Neuladen gibt es hier nicht: Die Seite fragt den Zustand von selbst ab, solange kein Lauf läuft alle 30 Sekunden. Ist der Browser-Tab nicht sichtbar, pausieren die Abfragen. **Synchronisieren** übernimmt nur, was sich seit dem Cursor geändert hat; **Komplett-Sync** übernimmt den gesamten Bestand und schreibt alle verwalteten Dateien neu. **Cursor leeren** verwirft den Cursor, sodass der nächste gewöhnliche Lauf wieder alles betrachtet; einen Lauf startet es selbst nicht. Jede der drei Aktionen fragt vor dem Start nach.
 
 :::note[Während ein Lauf läuft]
-Solange ein Lauf läuft, verschwinden die drei Aktionen, und Sicherungspunkte lassen sich nicht wiederherstellen – auch bei einem Lauf, den der Satellit selbst nach seinem Zeitplan gestartet hat. Nur in dieser Zeit lädt die Seite den Zustand alle fünf Sekunden nach. Häufiger fragt sie nicht, weil jede Abfrage den Satelliten eine Prüfung der Verbindung zum Schulserver kostet. Ein Lauf überdauert regelmäßig die Verbindung zum Satelliten; bricht sie ab, gilt der Lauf weiterhin als laufend und wird nicht als fehlgeschlagen gemeldet. Die Seite folgt einem Lauf, solange der Satellit ihn als laufend meldet; lässt sich sein Zustand nicht lesen, gibt sie nach fünf Minuten auf – laden Sie sie dann neu. Läuft auf dem Satelliten bereits ein Lauf, wird auch das gemeldet, statt einen zweiten zu starten.
+Solange ein Lauf läuft, verschwinden die drei Aktionen, und Sicherungspunkte lassen sich nicht wiederherstellen – auch bei einem Lauf, den der Satellit selbst nach seinem Zeitplan gestartet hat. In dieser Zeit lädt die Seite den Zustand alle fünf Sekunden nach, sonst alle 30 Sekunden. Häufiger fragt sie nicht, weil jede Abfrage den Satelliten eine Prüfung der Verbindung zum Schulserver kostet. Ein Lauf überdauert regelmäßig die Verbindung zum Satelliten; bricht sie ab, gilt der Lauf weiterhin als laufend und wird nicht als fehlgeschlagen gemeldet. Die Seite folgt einem Lauf, solange der Satellit ihn als laufend meldet; lässt sich sein Zustand nicht lesen, gibt sie nach fünf Minuten auf und fragt danach wieder im Abstand von 30 Sekunden nach. Läuft auf dem Satelliten bereits ein Lauf, wird auch das gemeldet, statt einen zweiten zu starten.
 :::
 
 ##### Sicherungspunkte

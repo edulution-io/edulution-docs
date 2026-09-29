@@ -252,17 +252,17 @@ Rechner ohne MAC-Adresse lässt die Plattform bei allen vier Aktionen vorab aus 
 
 **Neu starten** und **Herunterfahren** fragen vorher nach und nennen die ausgewählten Rechner. Welche davon ohne MAC-Adresse oder LINBO-Netzwerkstart ausgelassen werden, meldet die Plattform erst nach der Bestätigung. Wählen Sie einen anderen Satelliten, während die Rückfrage offen ist, wird sie verworfen und nichts geschickt. Nach der Bestätigung laufen beide Aktionen wie eine sofort ausgeführte Kette aus **Aktion schicken**: Der Auftrag erscheint unter **Aufträge**, und lehnt der Satellit ab, gelten dieselben Meldungen wie dort.
 
-**Aktion schicken** öffnet denselben [Dialog wie im Bereich **Schulserver**](../edulution-server/linuxmuster.md#der-kommando-dialog): eine Kommandokette aus einzelnen Schritten, die Auswahl des Betriebssystems mit seinem Namen aus der `start.conf` der Gruppe und die Bestätigung vor **Neu**, **Formatieren** und **Partitionieren**. Aktionen mit Betriebssystem setzen voraus, dass alle ausgewählten Rechner derselben Hardwaregruppe angehören. Beim Satelliten unterscheiden sich die Optionen:
+**Aktion schicken** öffnet denselben [Dialog wie im Bereich **Schulserver**](../edulution-server/linuxmuster.md#der-kommando-dialog): zwei Schritte für Ziel und Kette sowie Zeitpunkt und Optionen, die Auswahl des Betriebssystems mit seinem Namen aus der `start.conf` der Gruppe und die Rückfrage vor **Neu**, **Formatieren** und **Partitionieren**. Aktionen mit Betriebssystem setzen voraus, dass alle ausgewählten Rechner derselben Hardwaregruppe angehören. Beim Satelliten unterscheiden sich die Optionen:
 
 - **Abstand zwischen den Weckpaketen (Sekunden)** und **Weckpaket zusätzlich an die Broadcast-Adresse senden** fehlen – der Satellit kennt sie nicht.
 - Wake-on-LAN ist ein Schalter: **Rechner nach dem Planen aufwecken**.
-- Wake-on-LAN, **Oberfläche des Clients beim nächsten Start abschalten** und **Automatische Funktionen der start.conf beim nächsten Start übergehen** lassen sich nur zusammen mit **Beim nächsten Start ausführen** wählen.
+- Wake-on-LAN, **Oberfläche des Clients beim nächsten Start abschalten** und **Automatische Funktionen der start.conf beim nächsten Start übergehen** erscheinen erst, wenn unter **Zeitpunkt** **Beim nächsten Start** gewählt ist.
 
 :::note[Warum Wake-on-LAN nur mit „Beim nächsten Start“ geht]
 Eine sofort ausgeführte Kette mit vorherigem Wecken würde der Satellit erst beantworten, wenn alle Rechner fertig sind – länger, als die Verbindung zum Satelliten offen bleibt. Ein Wiederholen würde die Kette dann ein zweites Mal ausführen. Planen Sie die Kette deshalb für den nächsten Start und lassen Sie die Rechner anschließend wecken.
 :::
 
-Ohne **Beim nächsten Start ausführen** läuft die Kette sofort; der Auftrag erscheint unter **Aufträge**. Mit der Option schreibt der Satellit sie für den nächsten Start der Rechner vor; sie erscheint unter **Beim nächsten Start**. Ist zusätzlich das Wecken gewählt, werden danach nur die Rechner geweckt, für die das Planen gelungen ist. Rechner, die sich nicht planen ließen, nennt die Meldung.
+Mit **Jetzt** läuft die Kette sofort; der Auftrag erscheint unter **Aufträge**. Mit **Beim nächsten Start** schreibt der Satellit sie für den nächsten Start der Rechner vor; sie erscheint unter **Beim nächsten Start**. Ist zusätzlich das Wecken gewählt, werden danach nur die Rechner geweckt, für die das Planen gelungen ist. Rechner, die sich nicht planen ließen, nennt die Meldung.
 
 :::warning[Planen ersetzt eine vorhandene Aktion]
 Ist für einen Rechner bereits eine Aktion für den nächsten Start geplant, wird sie ohne Rückfrage durch die neue ersetzt.
@@ -286,7 +286,7 @@ Zur Hostliste gehören die Abschnitte **Aufträge** und **Beim nächsten Start**
 Der Zustand eines Auftrags richtet sich nach seinen Rechnern, nicht allein nach der Meldung des Satelliten: **Teilweise fehlgeschlagen** heißt, dass mindestens ein Rechner fehlschlug, während andere erfolgreich waren. Ein **abgebrochener** Auftrag nennt weiterhin, wie viele Rechner vor dem Abbruch erfolgreich waren. Hat der Satellit weniger Rechner übernommen als geschickt wurden, weist der Auftrag darauf hin.
 
 :::warning[Abbrechen hält nur wartende Rechner an]
-**Auftrag abbrechen** stoppt nur Rechner, die noch nicht begonnen haben. Rechner, auf denen die Kette bereits läuft, arbeiten weiter und werden danach als abgebrochen geführt – auch wenn ihr Schritt gelungen ist. Bis der letzte Rechner fertig ist, zeigt der Auftrag **Wird abgebrochen**; das kann bis zu zwei Stunden dauern.
+**Auftrag abbrechen** fragt vorher nach und stoppt nur Rechner, die noch nicht begonnen haben. Rechner, auf denen die Kette bereits läuft, arbeiten weiter und werden danach als abgebrochen geführt – auch wenn ihr Schritt gelungen ist. Bis der letzte Rechner fertig ist, zeigt der Auftrag **Wird abgebrochen**; das kann bis zu zwei Stunden dauern.
 :::
 
 **Beim nächsten Start** listet je Rechner die Kette, die der Satellit für dessen nächsten Start vorgemerkt hat. Über **Entfernen** nehmen Sie sie zurück; die Rückfrage davor nennt den Rechner und die Befehle, die er dann nicht mehr ausführt. Hat der Rechner die Aktion inzwischen beim Start ausgeführt, verschwindet der Eintrag ohne Fehlermeldung.
@@ -363,10 +363,10 @@ Meldet der Satellit den Ausgang der Wiederherstellung nicht zurück, weist die P
 
 Der Dialog zeigt die Beipack-Dateien des Images in denselben Registerkarten wie im Bereich **LINBO** der App **Schulserver**: **Beschreibung**, **Info**, **Registry**, **Pre-Start Script** und **Post-Sync Script**. **Info** enthält die vom Satelliten erzeugten Angaben und ist nur lesbar. Eine **VDI-Konfiguration** bietet der Satellit nicht an.
 
-Anders als am Schulserver speichert **Speichern** nur die Datei der geöffneten Registerkarte. Was Sie in anderen Registerkarten geändert haben, bleibt als Entwurf stehen, bis Sie dort ebenfalls speichern. Schließen Sie den Dialog, während in irgendeiner Registerkarte noch ein Entwurf steht, fragt die Plattform nach, ob Sie weiterbearbeiten oder die Änderungen verwerfen wollen. Hat jemand anderes die Datei inzwischen auf dem Satelliten geändert, speichert die Plattform nicht, sondern meldet *„Die Beipack-Dateien dieses Images wurden inzwischen geändert. Ihre Änderungen wurden nicht gespeichert.“*; **Neu laden** in der Meldung holt den aktuellen Stand dieser Datei und verwirft den Entwurf dieser Registerkarte.
+Anders als am Schulserver speichert **Speichern** nur die Datei der geöffneten Registerkarte. Was Sie in anderen Registerkarten geändert haben, bleibt als Entwurf stehen, bis Sie dort ebenfalls speichern. Schließen Sie den Dialog, während in irgendeiner Registerkarte noch ein Entwurf steht, fragt die Plattform nach, ob Sie weiterbearbeiten oder die Änderungen verwerfen wollen. Hat jemand anderes die Datei inzwischen auf dem Satelliten geändert, speichert die Plattform nicht, sondern meldet *„Die Beipack-Dateien dieses Images wurden inzwischen geändert. Deine Änderungen wurden nicht gespeichert.“*; **Neu laden** in der Meldung holt den aktuellen Stand dieser Datei und verwirft den Entwurf dieser Registerkarte.
 
 :::note[Was sich eine Änderung teilt]
-**Registry** (`.reg`), **Pre-Start Script** (`.prestart`) und **Post-Sync Script** (`.postsync`) gelten gemeinsam für Basis- und Differenzimage – eine Änderung hier wirkt auf beide. Ein leerer Inhalt löscht die Datei nicht, sondern setzt sie auf null Bytes; Beipack-Dateien zu löschen bietet der Satellit nicht an. Inhalte über 200 KB nimmt der Satellit nicht an.
+**Registry** (`.reg`), **Pre-Start Script** (`.prestart`) und **Post-Sync Script** (`.postsync`) gelten gemeinsam für Basis- und Differenzimage – eine Änderung hier wirkt auf beide. Ein leerer Inhalt löscht die Datei nicht, sondern setzt sie auf null Bytes; Beipack-Dateien zu löschen bietet der Satellit nicht an. Inhalte über 200 KB nimmt der Satellit nicht an; überschreitet der Entwurf diese Grenze, meldet die Registerkarte *Inhalt zu groß* und sperrt **Speichern**.
 
 Dateien über 1 MB liefert der Satellit nicht aus. Eine solche oder eine nicht lesbare Datei zeigt die Registerkarte als *Beipack-Datei nicht lesbar*; Speichern ist dort gesperrt, damit der vorhandene Inhalt nicht überschrieben wird.
 :::

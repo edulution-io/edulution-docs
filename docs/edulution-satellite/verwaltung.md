@@ -160,7 +160,7 @@ Die Unterseite **Dienste** bündelt die laufenden Dienste in drei ausklappbaren 
 
 Der Eintrag **LINBO** zeigt, was die LINBO-Installation *des Satelliten* über die Rechner an seinem Standort weiß. Er ist unabhängig vom Bereich **LINBO** der App **Schulserver**: dort sehen Sie die LINBO-Installation Ihres zentralen Linuxmuster-Servers, hier die des ausgewählten Satelliten.
 
-Der Bereich gliedert sich in die Unterseiten **Konfigurationen**, **Hosts**, **Images**, **Synchronisation** und **Einstellungen**.
+Der Bereich gliedert sich in die Unterseiten **Konfigurationen**, **Hosts**, **Images** und **Synchronisation**. Auf jeder dieser Unterseiten öffnet **Einstellungen** in der Aktionsleiste die Einstellungen des Satelliten, ohne die Unterseite zu verlassen.
 
 :::note[Satelliten ohne LINBO]
 Meldet ein erreichbarer Satellit in seinem Heartbeat keinen LINBO-Dienst, zeigen alle LINBO-Unterseiten statt ihres Inhalts den Hinweis *„LINBO ist auf diesem Satelliten nicht verfügbar.“* Dasselbe gilt, wenn der Heartbeat dazu nichts sagt und der Satellit auf eine Anfrage antwortet, dass LINBO auf ihm nicht eingerichtet ist. **Erneut versuchen** fragt den Zustand des Satelliten neu ab. Ist der Satellit dagegen nicht erreichbar, bleibt die Unterseite stehen und meldet einen Fehler.
@@ -400,7 +400,7 @@ Der **Cursor** ist die Stelle, bis zu der der Satellit die Änderungen des Schul
 Die Zahl der Hosts online ermittelt die Seite beim Öffnen, beim Neuladen und sobald ein Lauf endet – nicht während eines Laufs und nicht nach **Cursor leeren**.
 
 :::note[Offline heißt nicht zwingend abgeschaltet]
-**Offline** meldet der Satellit auch dann, wenn er seine eigenen Einstellungen nicht lesen konnte. Die Anzeige belegt also nicht, dass die Synchronisation abgeschaltet wurde – prüfen Sie im Zweifel die Unterseite **Einstellungen**.
+**Offline** meldet der Satellit auch dann, wenn er seine eigenen Einstellungen nicht lesen konnte. Die Anzeige belegt also nicht, dass die Synchronisation abgeschaltet wurde – prüfen Sie im Zweifel die **Einstellungen** in der Aktionsleiste.
 :::
 
 Je Bestandteil zeigt die Seite eine Karte: **Hosts und Konfigurationen**, **start.conf**, **devices.csv**, **GRUB und hostcfg** sowie **DHCP-Konfiguration**. Jede Karte nennt ihren Zustand als **Aktuell**, **Ausstehend**, **Fehler** oder **Keine Angabe** und zeigt eine gemeldete Fehlermeldung im Wortlaut. **Ausstehend** heißt, dass der Satellit noch auf eine Rückmeldung wartet – etwa darauf, dass der DHCP-Dienst die neue Konfiguration übernommen hat.
@@ -431,7 +431,7 @@ Solange kein Sicherungspunkt vorliegt, weist der Abschnitt dies aus. Lässt sich
 
 #### Einstellungen
 
-Die Unterseite **Einstellungen** pflegt die **Verbindung zum Schulserver**, die der Satellit für die Synchronisation nutzt. Sie wirkt ausschließlich auf den ausgewählten Satelliten; die zentralen Plattformeinstellungen bleiben davon unberührt.
+**Einstellungen** in der Aktionsleiste der LINBO-Unterseiten öffnet den Dialog **LINBO-Einstellungen**. Er wirkt ausschließlich auf den ausgewählten Satelliten; die zentralen Plattformeinstellungen bleiben davon unberührt. Links steht die **Verbindung zum Schulserver** mit **API-Adresse**, **Benutzer**, **Passwort**, **Schule** und **LINBO-Server-IP** sowie **Verbindung testen**, rechts die **Synchronisation** mit **Synchronisation aktiv** und dem **Intervall**. Ein Lesezeichen auf die frühere Unterseite **Einstellungen** führt zu **Hosts** und öffnet dort den Dialog.
 
 **Synchronisation aktiv** nimmt `true` oder `false` an und schaltet die selbsttätige Synchronisation ein oder aus. **Intervall (Sekunden, 0 deaktiviert)** ist der Abstand zwischen zwei selbsttätigen Läufen; `0` schaltet den Zeitgeber ab. **API-Adresse** ist die Adresse der Linuxmuster-API des Schulservers, **LINBO-Server-IP** die IP-Adresse, die der Satellit den Rechnern als LINBO-Server nennt.
 
@@ -443,12 +443,12 @@ Neben jedem Feld steht, woher der Satellit den Wert bezieht:
 | **Aus der Umgebung** | bei der Einrichtung des Geräts gesetzt |
 | **Überschrieben** | hier in der Plattform gesetzt |
 
-Jedes Feld wird einzeln gespeichert. Die Plattform prüft eine Eingabe nach denselben Regeln wie der Satellit und nennt unter dem Feld den Grund, wenn ein Wert nicht passt; gespeichert werden kann er dann nicht. Leerzeichen am Anfang und Ende entfernt die Plattform vor dem Speichern. Ein geleertes Feld wird nicht gespeichert; einen hier überschriebenen Wert entfernt **Auf Standard zurücksetzen**.
+**Speichern** übernimmt alle geänderten Felder auf einmal; Felder ohne Änderung sendet die Plattform nicht mit. Die Plattform prüft eine Eingabe nach denselben Regeln wie der Satellit und nennt unter dem Feld den Grund, wenn ein Wert nicht passt; solange ein Feld nicht passt, lässt sich nichts speichern. Leerzeichen am Anfang und Ende entfernt die Plattform vor dem Speichern. Ein geleertes Feld wird nicht gespeichert; einen hier überschriebenen Wert entfernt das Zurücksetzen. Lehnt der Satellit einzelne Felder ab, bleibt der Dialog offen und nennt sie; die übrigen Änderungen sind dann bereits gespeichert, die abgelehnten stehen weiter im Formular. Schließen Sie den Dialog mit ungespeicherten Änderungen, fragt die Plattform, ob Sie sie verwerfen möchten.
 
-**Auf Standard zurücksetzen** verwirft die hier gesetzte Überschreibung, sodass wieder der Wert aus der Umgebung beziehungsweise der Vorgabewert gilt. Die Schaltfläche steht deshalb nur bei Feldern mit der Kennzeichnung **Überschrieben** zur Verfügung – ein Wert aus der Umgebung lässt sich hier nicht zurücksetzen. Vor dem Zurücksetzen fragt die Plattform nach und nennt die Einstellung. Bei **API-Adresse**, **Benutzer**, **Passwort**, **Schule** und **LINBO-Server-IP** warnt sie dabei, dass die Synchronisation mit dem Schulserver von der Einstellung abhängt und fehlschlägt, wenn der danach geltende Wert nicht passt.
+Zurücksetzen verwirft eine hier gesetzte Überschreibung, sodass wieder der Wert aus der Umgebung beziehungsweise der Vorgabewert gilt. **Auf Standard zurücksetzen** unten im Dialog setzt alle Felder mit der Kennzeichnung **Überschrieben** zurück; ein einzelnes Feld setzt das Pfeil-Symbol neben seiner Kennzeichnung zurück, das nur bei überschriebenen Feldern erscheint. Ein Wert aus der Umgebung lässt sich hier nicht zurücksetzen. Vor dem Zurücksetzen fragt die Plattform nach und nennt die betroffenen Einstellungen. Bei **API-Adresse**, **Benutzer**, **Passwort**, **Schule** und **LINBO-Server-IP** warnt sie dabei, dass die Synchronisation mit dem Schulserver von der Einstellung abhängt und fehlschlägt, wenn der danach geltende Wert nicht passt.
 
 :::note[Zeitplan und Intervall starten womöglich sofort einen Lauf]
-Änderungen an **Synchronisation aktiv** und **Intervall** – auch das Zurücksetzen auf den Standard – richten den Zeitplan des Satelliten neu ein. Ist ein Lauf dabei bereits überfällig, startet der Satellit ihn sofort nach dem Speichern. Die Rückfragen vor dem Speichern und vor dem Zurücksetzen weisen darauf hin.
+Änderungen an **Synchronisation aktiv** und **Intervall** – auch das Zurücksetzen auf den Standard – richten den Zeitplan des Satelliten neu ein. Ist ein Lauf dabei bereits überfällig, startet der Satellit ihn sofort nach dem Speichern. Die Rückfragen vor dem Speichern und vor dem Zurücksetzen weisen darauf hin – setzen Sie alle Felder auf einmal zurück und ist darunter eine Einstellung der Verbindung zum Schulserver, warnt die Rückfrage stattdessen vor den Folgen für die Synchronisation.
 :::
 
 :::note[Das Passwort wird nie zurückgegeben]
@@ -462,7 +462,7 @@ Der Satellit gibt das gespeicherte Passwort nicht heraus; über dem Feld steht n
 - *„Der Schulserver ist nicht erreichbar.“*
 
 :::note[Satellitenwechsel verwirft Eingaben]
-Wechseln Sie den Satelliten, während ein Feld noch ungespeichert ist, wird die Eingabe verworfen. So gelangt kein Wert – und vor allem kein Passwort – versehentlich auf das falsche Gerät.
+Wechseln Sie den Satelliten, während ein Feld noch ungespeichert ist, werden die Eingaben verworfen. So gelangt kein Wert – und vor allem kein Passwort – versehentlich auf das falsche Gerät.
 :::
 
 ## Siehe auch

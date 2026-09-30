@@ -566,6 +566,10 @@ Fehlt einem Image eine lesbare `.info`-Datei, führt der Server es nicht in sein
 
 Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.info`), VDI-Konfiguration (`.vdi`), Torrent (`.torrent`), Maschinenkonto (`.macct`), Prüfsumme (`.md5`), Hashsumme (`.hash`), Registry (`.reg`), Pre-Start-Skript (`.prestart`) und Post-Sync-Skript (`.postsync`). In der Spalte **Sidecars** steht je vorhandener Datei ein Buchstabenkürzel; welcher Dateityp dahintersteht, erscheint, sobald Sie mit dem Mauszeiger darauf zeigen. Der Detaildialog zeigt zusätzlich Dateiname, Image-Ordner, Pfad, Größe, MD5-Summe, die Dateien des Images – jeweils als **Image** oder **Beipack-Datei** gekennzeichnet – und – sofern ein `.info`-Sidecar vorliegt – Erstellungszeitpunkt, Image- und Partitionsgröße sowie die Beschreibung.
 
+:::note[Erstellungszeitpunkt und Änderungszeitpunkt können auseinanderliegen]
+Der **Erstellungszeitpunkt** stammt aus dem `.info`-Sidecar und ist die Uhrzeit, die der Schulserver beim Erstellen des Images auf seiner eigenen Uhr gelesen hat – ohne Zeitzone. Die Plattform zeigt ihn unverändert an. Der **Änderungszeitpunkt** der Datei dagegen ist ein absoluter Zeitpunkt und wird in die Zeitzone Ihres Browsers umgerechnet. Stehen Schulserver und Arbeitsplatz in derselben Zeitzone – der Normalfall –, passen beide Angaben zusammen; andernfalls unterscheiden sie sich um den Abstand der beiden Zonen.
+:::
+
 Ein Image fügen Sie in den drei Kartenansichten über die Karte **Image hochladen** vor dem ersten Image hinzu, in der **Tabelle** über **Image hochladen** in der Aktionsleiste. Zulässig sind Image-Dateien (`.qcow2`, `.qdiff`, `.cloop`, `.rsync`) und alle oben genannten Beipack-Dateien; andere Dateitypen weist der Dialog ab und nennt dabei die abgelehnte Datei. Für den Namen eines neuen Images gelten dieselben Regeln wie beim [Duplizieren](#aktionen-eines-images); ein Name, der sich von einem vorhandenen Image nur in Groß- und Kleinschreibung unterscheidet, wird abgewiesen.
 
 :::warning[Ein Upload unter vorhandenem Namen ersetzt das Image]

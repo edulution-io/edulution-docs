@@ -365,8 +365,8 @@ Ab **Version 7.4.13** der Linuxmuster-API stehen unter den fünf mitgelieferten 
 
 Ist die Serveradresse noch nicht bekannt, holt die Plattform sie beim Öffnen des Dialogs nach. Gelingt das nicht – etwa weil die Linuxmuster-API die Serverinformationen nur Globaladmins herausgibt –, verwendet sie die Serveradresse, die eine bereits vorhandene Gruppe nennt. Findet sich auch dort keine, bricht das Anlegen mit einer Meldung ab. Eine neu angelegte Gruppe steht ohne Neuladen in der Liste. Sie übernimmt die gewählte Schule in ihr Feld **Schule** (Gruppen-Editor, Registerkarte **Allgemein**); ist keine Schule gewählt, bleibt das Feld leer.
 
-:::note[Vorlagen zielen auf die erste SATA-Platte]
-Alle fünf Vorlagen legen ihr Layout auf `/dev/sda` an. Auf Rechnern mit NVMe- oder VirtIO-Platten passt das nicht: Die Gruppe entsteht zwar, ihre Gerätenamen gehen aber an der Hardware vorbei und müssen anschließend in der `start.conf` korrigiert werden. Das Gerät steht im Hinweis unter der Vorlagenauswahl, bevor Sie schreiben.
+:::note[Vorlagen arbeiten mit dem Plattentyp Automatisch]
+Alle fünf Vorlagen legen ihr Layout mit dem Plattentyp **Automatisch** (`/dev/disk0pX`) an, unabhängig von der Hardware. Das Gerät steht im Hinweis unter der Vorlagenauswahl, bevor Sie schreiben. Möchten Sie feste Gerätenamen, wählen Sie im Gruppen-Editor unter **Partitionen** einen anderen **Plattentyp**.
 :::
 
 :::warning[Vorhandene Gruppe wird nicht überschrieben]
@@ -475,7 +475,7 @@ Die Zusammenfassung liest die Datei so, wie LINBO selbst sie liest: Abschnitts- 
 
 **Bearbeiten** öffnet die Gruppe unter einer eigenen Adresse (`…/linbo/groups/<Name>`). Diese Adresse lässt sich verlinken und übersteht ein Neuladen; ein unbekannter Name führt mit der Meldung *„Die Gruppe „…“ gibt es nicht.“* zurück auf die Liste. Der Editor hat zwei Registerkarten.
 
-**Allgemein** zeigt alle Felder der Gruppe in fünf Abschnitten:
+**Allgemein** zeigt die Felder der Gruppe in Abschnitten. Die Fußleiste des Editors schaltet auf dieser Registerkarte zwischen **Erweitert** und **Einfach** um; der Editor öffnet stets im einfachen Modus:
 
 | Abschnitt | Felder |
 |-----------|--------|
@@ -483,11 +483,13 @@ Die Zusammenfassung liest die Datei so, wie LINBO selbst sie liest: Abschnitts- 
 | **Hardware** | Systemtyp, Download-Typ |
 | **Startoptionen** | Beim Start partitionieren, Beim Start formatieren, Beim Start Cache aktualisieren, Schule |
 | **Darstellung** | Sprache, Minimales Layout verwenden, Clientdetails standardmäßig anzeigen |
-| **System** | Abmeldung nach, Kernel-Optionen |
+| **Erweiterte Einstellungen** | Abmeldung nach, Kernel-Optionen – nur im erweiterten Modus |
 
 Gruppenname, Server und Cache-Partition sind bewusst nicht änderbar: Der Name ist die Identität der Gruppe, und die Cache-Partition ergibt sich aus dem Partitionslayout. *Vorgabe des Servers* bei **Sprache** bedeutet, dass die Gruppe keine eigene Sprache setzt. **Abmeldung nach** erwartet Sekunden; die Vorgabe ist 600.
 
-Zum Feld **Kernel-Optionen** gehören Schaltflächen für die gebräuchlichen Werte: `quiet`, `splash`, `acpi=noirq`, `acpi=off`, `irqpoll` und `dhcpretry=9`. Ein Klick hängt den Wert an die bestehenden Optionen an; ist er bereits gesetzt, ist die Schaltfläche ausgegraut.
+Bei einer Gruppe mit unzulässigem Namen ersetzt **Gruppe umbenennen** für Globaladmins die Umschaltung.
+
+Im erweiterten Modus gehören zum Feld **Kernel-Optionen** unter **Erweiterte Einstellungen** Schaltflächen für die gebräuchlichen Werte: `quiet`, `splash`, `acpi=noirq`, `acpi=off`, `irqpoll` und `dhcpretry=9`. Ein Klick hängt den Wert an die bestehenden Optionen an; ist er bereits gesetzt, ist die Schaltfläche ausgegraut.
 
 Ein Feld der Registerkarte **Allgemein**, das Sie leeren, verschwindet beim Speichern aus der `start.conf`, statt als leerer Eintrag darin stehen zu bleiben. Für LINBO ist das der Unterschied zwischen *nicht gesetzt* und *auf leer gesetzt*: Der Wert fällt damit auf die Vorgabe zurück. Das betrifft unter anderem **Schule**, **Abmeldung nach** und **Kernel-Optionen**.
 
@@ -495,7 +497,7 @@ Ein Feld der Registerkarte **Allgemein**, das Sie leeren, verschwindet beim Spei
 **Beim Start partitionieren** legt das Plattenlayout bei jedem Start neu an, **Beim Start formatieren** formatiert dabei alle Partitionen. Lokal auf den Rechnern gespeicherte Daten gehen dann bei jedem Start verloren.
 :::
 
-**Partitionen** zeigt je Platte eine Karte. Über die Preset-Schaltflächen fügen Sie eine Partition mit sinnvoller Vorgabegröße hinzu: *EFI*, *MSR*, *Windows*, *Linux*, *Swap*, *Daten*, *Erweitert* und *Cache*. Die Reihenfolge ändern Sie durch Ziehen: Eine Partition lässt sich innerhalb ihrer Platte verschieben, und ein Preset lässt sich direkt an die Stelle ziehen, an der die neue Partition entstehen soll. Klicken Sie ein Preset nur an, bestimmt es die Position selbst: *EFI* an den Anfang, *MSR* dahinter, alle übrigen ans Ende. Gerätenamen und alle Verweise darauf werden danach neu durchnummeriert. Der **Plattentyp** – SATA, VirtIO, Xen, IDE, MMC, NVMe oder allgemein – bestimmt die Gerätenamen; ein Wechsel nummeriert die Partitionen der Platte samt aller Verweise darauf um. Ein Klick auf eine Partition öffnet einen Dialog mit den Unterregisterkarten **Partition** und **Betriebssystem**. Er öffnet in der einfachen Ansicht; **Erweitert** blendet auf **Partition** zusätzlich **Partitionstyp** und **Dateisystem** ein und gilt nur für die geöffnete Partition.
+**Partitionen** zeigt je Platte eine Karte. Über die Preset-Schaltflächen fügen Sie eine Partition mit sinnvoller Vorgabegröße hinzu: *EFI*, *MSR*, *Windows*, *Linux*, *Swap*, *Daten*, *Erweitert* und *Cache*. Die Reihenfolge ändern Sie durch Ziehen: Eine Partition lässt sich innerhalb ihrer Platte verschieben, und ein Preset lässt sich direkt an die Stelle ziehen, an der die neue Partition entstehen soll. Klicken Sie ein Preset nur an, bestimmt es die Position selbst: *EFI* an den Anfang, *MSR* dahinter, alle übrigen ans Ende. Gerätenamen und alle Verweise darauf werden danach neu durchnummeriert. Der **Plattentyp** – Automatisch, SATA, VirtIO, Xen, IDE, MMC, NVMe – bestimmt die Gerätenamen; **Automatisch** (`/dev/disk0pX`) ist die Vorgabe der fünf Vorlagen und jeder im Editor neu hinzugefügten Platte; bereits vorhandene Platten und die Beispielkonfigurationen des Servers behalten ihren Typ, und **Duplizieren** übernimmt das Layout unverändert; ein Wechsel nummeriert die Partitionen der Platte samt aller Verweise darauf um. Ein Klick auf eine Partition öffnet einen Dialog mit den Unterregisterkarten **Partition** und **Betriebssystem**. Er öffnet in der einfachen Ansicht; **Erweitert** blendet auf **Partition** zusätzlich **Partitionstyp** und **Dateisystem** ein und gilt nur für die geöffnete Partition.
 
 Im Feld **Größe** gilt: eine nackte Zahl sind Kibibytes, ein Suffix `K`, `M`, `G` oder `T` legt die Einheit fest – wahlweise gefolgt von `B` oder `iB`, etwa `40GB` –, und ein leeres Feld bedeutet *Rest der Platte* (in der Plattenkarte als `∞` dargestellt). Unter dem Feld steht laufend, welche Größe daraus wird. Dezimalzahlen, Leerzeichen in der Angabe und andere Einheiten liest LINBO nicht, und eine Partition muss mindestens 2 MiB groß sein; eine solche Größe markiert der Dialog als ungültig. Enthält die Gruppe noch eine ungültige Größe, lässt sich der Editor nicht speichern und nennt die betroffenen Partitionen.
 

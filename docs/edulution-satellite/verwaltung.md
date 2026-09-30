@@ -160,17 +160,17 @@ Die Unterseite **Dienste** bündelt die laufenden Dienste in drei ausklappbaren 
 
 Der Eintrag **LINBO** zeigt, was die LINBO-Installation *des Satelliten* über die Rechner an seinem Standort weiß. Er ist unabhängig vom Bereich **LINBO** der App **Schulserver**: dort sehen Sie die LINBO-Installation Ihres zentralen Linuxmuster-Servers, hier die des ausgewählten Satelliten.
 
-Der Bereich gliedert sich in die Unterseiten **Konfigurationen**, **Hosts**, **Images** und **Synchronisation**. Auf jeder dieser Unterseiten öffnet **Einstellungen** in der Aktionsleiste die Einstellungen des Satelliten, ohne die Unterseite zu verlassen.
+Der Bereich gliedert sich in die Unterseiten **Gruppen**, **Hosts**, **Images** und **Synchronisation**. Auf jeder dieser Unterseiten öffnet **Einstellungen** in der Aktionsleiste die Einstellungen des Satelliten, ohne die Unterseite zu verlassen.
 
 :::note[Satelliten ohne LINBO]
 Meldet ein erreichbarer Satellit in seinem Heartbeat keinen LINBO-Dienst, zeigen alle LINBO-Unterseiten statt ihres Inhalts den Hinweis *„LINBO ist auf diesem Satelliten nicht verfügbar.“* Dasselbe gilt, wenn der Heartbeat dazu nichts sagt und der Satellit auf eine Anfrage antwortet, dass LINBO auf ihm nicht eingerichtet ist. **Erneut versuchen** fragt den Zustand des Satelliten neu ab. Ist der Satellit dagegen nicht erreichbar, bleibt die Unterseite stehen und meldet einen Fehler.
 :::
 
-#### Konfigurationen
+#### Gruppen
 
-Die Unterseite **Konfigurationen** listet die Hardwaregruppen, die der Satellit vom Linuxmuster-Server übernommen hat – also die `start.conf`-Dateien, die in seinem Zwischenspeicher liegen. Die Daten stammen ausschließlich vom ausgewählten Satelliten.
+Die Unterseite **Gruppen** listet die Hardwaregruppen, die der Satellit vom Linuxmuster-Server übernommen hat – also die `start.conf`-Dateien, die in seinem Zwischenspeicher liegen. Die Daten stammen ausschließlich vom ausgewählten Satelliten.
 
-Über die Ansichtswahl wählen Sie zwischen denselben vier Ansichten wie in der [Gruppenliste des Schulservers](../edulution-server/linuxmuster.md#gruppen): **Plattenkarte** (Vorgabe), **Kacheln**, **Datenblatt** und **Tabelle**. Karten und Tabellenspalten sind dort beschrieben und hier dieselben. Es entfallen nur die Auswahlkästchen, die Kachel zum Anlegen und die Aktionen, weil sich die Konfigurationen hier nicht ändern lassen.
+Über die Ansichtswahl wählen Sie zwischen denselben vier Ansichten wie in der [Gruppenliste des Schulservers](../edulution-server/linuxmuster.md#gruppen): **Plattenkarte** (Vorgabe), **Kacheln**, **Datenblatt** und **Tabelle**. Karten und Tabellenspalten sind dort beschrieben und hier dieselben. Es entfallen nur die Kachel zum Anlegen und die Aktionen, die eine Gruppe ändern, weil sich die Gruppen hier nicht ändern lassen.
 
 Die gewählte Ansicht merkt sich die Plattform für diese Seite getrennt von der Gruppenliste des Schulservers: Stellen Sie hier auf **Datenblatt** um, bleibt die Gruppenliste im Bereich **LINBO** der App **Schulserver** in ihrer Ansicht – und umgekehrt.
 
@@ -189,12 +189,14 @@ Durch Anklicken einer Karte oder Tabellenzeile öffnen Sie die Vorschau. Sie lie
 
 Liegt dem Satelliten für die Gruppe eine GRUB-Konfiguration vor, zeigt die Registerkarte **GRUB cfg** sie zusätzlich. Für eine Gruppe, der noch kein Rechner zugeordnet ist, hat der Satellit keine; die Registerkarte entfällt dann.
 
-:::note[Nur Anzeige]
-Die Konfigurationen des Satelliten lassen sich nicht anlegen, bearbeiten, duplizieren oder löschen. Sie stammen aus der Synchronisation mit dem Linuxmuster-Server; geändert werden sie deshalb am Server, nicht am Satelliten.
+Wie am Schulserver markieren Sie eine Gruppe über das Auswahlkästchen ihrer Karte oder Zeile. Ist genau eine Gruppe markiert, bietet die Aktionsleiste **Vorschau** und **Aktion schicken** an; bei mehreren markierten Gruppen entfallen beide. **Aktion schicken** öffnet den Dialog, den die [Hostliste](#rechner-aufwecken-und-aktionen-schicken) verwendet, mit allen Rechnern der Gruppe als Ziel. Der Satellit spricht Rechner nur über ihre MAC-Adresse an; die Plattform setzt das Ziel deshalb aus den Rechnern seiner Hostliste zusammen, deren Gruppe genau so heißt, und lässt dabei wie dort die Rechner ohne LINBO-Netzwerkstart vorab aus und nennt ihre Zahl. Der Auftrag erscheint anschließend unter [Aufträge](#aufträge-und-geplante-aktionen) der Unterseite **Hosts**.
+
+:::note[Gruppen werden am Server gepflegt]
+Die Gruppen des Satelliten lassen sich nicht anlegen, bearbeiten, duplizieren oder löschen. Sie stammen aus der Synchronisation mit dem Linuxmuster-Server; geändert werden sie deshalb am Server, nicht am Satelliten.
 :::
 
 :::note[Wenn eine Datei nicht gelesen werden kann]
-Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, meldet die Seite *„Die Konfigurationen konnten nicht gelesen werden.“* Lässt sich eine einzelne `start.conf` nicht lesen – etwa weil die Datei auf dem Satelliten fehlt, obwohl die Gruppe noch in der Liste steht –, erscheint die Gruppe als eine ohne `start.conf`, und die Vorschau meldet den Lesefehler ausdrücklich. Eine vorhandene, aber leere Datei behandelt die Vorschau wie eine fehlende: Sie zeigt dann nur die GRUB-Konfiguration oder, wenn es auch die nicht gibt, den Hinweis, dass die Gruppe weder eine `start.conf` noch eine GRUB-Konfiguration hat.
+Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, meldet die Seite *„Die Gruppen des Satelliten konnten nicht geladen werden.“* Lässt sich eine einzelne `start.conf` nicht lesen – etwa weil die Datei auf dem Satelliten fehlt, obwohl die Gruppe noch in der Liste steht –, erscheint die Gruppe als eine ohne `start.conf`, und die Vorschau meldet den Lesefehler ausdrücklich. Eine vorhandene, aber leere Datei behandelt die Vorschau wie eine fehlende: Sie zeigt dann nur die GRUB-Konfiguration oder, wenn es auch die nicht gibt, den Hinweis, dass die Gruppe weder eine `start.conf` noch eine GRUB-Konfiguration hat.
 :::
 
 #### Hosts
@@ -202,15 +204,15 @@ Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, meld
 Die Liste zeigt alle Rechner, die der Satellit kennt. Über die Ansichtswahl wählen Sie zwischen denselben drei Ansichten wie in der [Hostliste des Schulservers](../edulution-server/linuxmuster.md#hosts): **Kacheln** (Vorgabe), **Datenblatt** und **Tabelle**. Karten, Auswahl und Detaildialog sind dort beschrieben; auf dem Satelliten unterscheiden sie sich so:
 
 - Neben dem Hostnamen steht der **Status**, den der Satellit meldet (siehe unten), nicht die Erreichbarkeit aus einem Hostscan.
-- Die **Kachel** nennt unter dem Inhalt den Stand des **Abbilds** und, sofern sich der Rechner schon gemeldet hat, wann er **zuletzt gesehen** wurde.
-- Das **Datenblatt** enthält keine Rolle. Dafür führt es die Zeilen **Abbild** (Anzeige und Name des Abbilds), **Zuletzt gesehen** und **Geplanter Befehl** – die Kette, die der Satellit für den nächsten Start des Rechners vorgemerkt hat (siehe [Aufträge und geplante Aktionen](#aufträge-und-geplante-aktionen)).
+- Die **Kachel** nennt unter dem Inhalt den Stand des **Images** und, sofern sich der Rechner schon gemeldet hat, wann er **zuletzt gesehen** wurde.
+- Das **Datenblatt** enthält keine Rolle. Dafür führt es die Zeilen **Image** (Anzeige und Name des Images), **Zuletzt gesehen** und **Geplant** – die Kette, die der Satellit für den nächsten Start des Rechners vorgemerkt hat (siehe [Aufträge und geplante Aktionen](#aufträge-und-geplante-aktionen)).
 - Der **Detaildialog** zeigt dieselben drei Zeilen zusätzlich zu den Angaben der Geräteliste; einen Abschnitt **Images** hat er nicht.
 
 Die gewählte Ansicht merkt sich die Plattform getrennt von der Hostliste des Schulservers.
 
 Eine Aktion zum Neuladen gibt es nicht: Die Seite fragt die Hosts und ihren Abgleichsstand alle 30 Sekunden und beim Zurückwechseln in den Browser-Tab erneut ab, solange der Tab sichtbar ist. Ein geöffneter Detaildialog übernimmt den neuen Stand und schließt sich, wenn der Rechner nicht mehr in der Liste steht.
 
-In der Ansicht **Tabelle** stehen **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Abbild** und **Zuletzt gesehen**. Wie in der [Hostliste des Schulservers](../edulution-server/linuxmuster.md#hosts) lassen sich über die Spaltenauswahl sechs ausgeblendete Spalten einschalten: **PXE**, **PXE aktiv**, **Kommentar**, **DHCP-Optionen**, **Office-Schlüssel** und **Windows-Schlüssel**. Das Suchfeld findet einen Rechner über Hostname, MAC-Adresse, IP, Gruppe, Raum und Kommentar; über das Filtersymbol daneben schränken Sie die Liste auf eine oder mehrere **Gruppen** ein. Beide Filter arbeiten im Browser: die Liste wird vollständig geladen, sodass das Filtern ohne erneute Abfrage des Satelliten geschieht.
+In der Ansicht **Tabelle** stehen **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Image** und **Zuletzt gesehen**. Wie in der [Hostliste des Schulservers](../edulution-server/linuxmuster.md#hosts) lassen sich über die Spaltenauswahl sechs ausgeblendete Spalten einschalten: **PXE**, **PXE aktiv**, **Kommentar**, **DHCP-Optionen**, **Office-Schlüssel** und **Windows-Schlüssel**. Das Suchfeld findet einen Rechner über Hostname, MAC-Adresse, IP, Gruppe, Raum und Kommentar; über das Filtersymbol daneben schränken Sie die Liste auf eine oder mehrere **Gruppen** ein. Beide Filter arbeiten im Browser: die Liste wird vollständig geladen, sodass das Filtern ohne erneute Abfrage des Satelliten geschieht.
 
 Die Spalte **Status** nennt den Betriebszustand, den der Satellit zuletzt gemeldet hat:
 
@@ -218,28 +220,28 @@ Die Spalte **Status** nennt den Betriebszustand, den der Satellit zuletzt gemeld
 |--------|-----------|
 | **Online** | Der Rechner hat sich innerhalb des Meldeintervalls gemeldet. |
 | **Offline** | Innerhalb des Meldeintervalls kam keine Meldung. |
-| **Überträgt** | Der Rechner überträgt gerade ein Abbild. |
+| **Überträgt** | Der Rechner überträgt gerade ein Image. |
 | **Unbekannt** | Der Satellit meldet keinen Zustand. |
 
 :::note[Wann ein Rechner als offline gilt]
 Maßgeblich ist das Meldeintervall des Satelliten – standardmäßig **300 Sekunden**. Ein Rechner, der sich länger nicht gemeldet hat, erscheint als *Offline*, auch wenn er tatsächlich noch läuft. Meldet der Satellit einen Zustand, den die Plattform nicht kennt, wird dieser unverändert angezeigt, statt ihn als *Unbekannt* zu verwerfen.
 :::
 
-Die Spalte **Abbild** vergleicht das Abbild auf dem Rechner mit dem des Satelliten und nennt darunter den Namen des Abbilds:
+Die Spalte **Image** vergleicht das Image auf dem Rechner mit dem des Satelliten und nennt darunter den Namen des Images:
 
 | Anzeige | Bedeutung |
 |---------|-----------|
 | **Aktuell** | Der Rechner hat den Stand des Satelliten. |
 | **Veraltet** | Auf dem Satelliten liegt eine neuere Fassung. |
-| **Nie synchronisiert** | Der Rechner hat noch kein Abbild bezogen. |
+| **Nie synchronisiert** | Der Rechner hat noch kein Image bezogen. |
 | **Unbekannt** | Der Satellit meldet für diesen Rechner keinen Abgleichsstand. |
 
 :::note[Rechner werden am Server gepflegt]
 Die Hostliste des Satelliten lässt sich nicht bearbeiten. Die Rechner stammen aus der Synchronisation mit dem Linuxmuster-Server und werden auf dem Satelliten zwischengespeichert; angelegt, geändert und gelöscht werden sie deshalb am Server, nicht am Satelliten.
 :::
 
-:::note[Hostliste und Abbild-Stand werden getrennt geladen]
-Beide Angaben stammen aus verschiedenen Abfragen. Scheitert nur der Abbild-Stand, stehen die Rechner trotzdem in der Tabelle, und die Seite meldet *„Der Abbild-Status der Rechner konnte nicht gelesen werden. Die Spalte „Abbild“ zeigt deshalb „Unbekannt“.“* Scheitert die Hostliste, bleibt die Tabelle leer, und die Seite meldet *„Die Rechner des Satelliten konnten nicht geladen werden.“* In beiden Fällen meldet die Plattform den Fehler außerdem.
+:::note[Hostliste und Image-Stand werden getrennt geladen]
+Beide Angaben stammen aus verschiedenen Abfragen. Scheitert nur der Image-Stand, stehen die Rechner trotzdem in der Tabelle, und die Seite meldet *„Der Image-Status der Hosts konnte nicht gelesen werden. Die Spalte „Image“ zeigt deshalb „Unbekannt“.“* Scheitert die Hostliste, bleibt die Tabelle leer, und die Seite meldet *„Die Hosts des Satelliten konnten nicht geladen werden.“* In beiden Fällen meldet die Plattform den Fehler außerdem.
 :::
 
 ##### Rechner aufwecken und Aktionen schicken
@@ -307,7 +309,7 @@ Ein Klick auf eine Karte öffnet die Beipack-Dateien des Images; für ein Image 
 Die Imageliste des Satelliten enthält weder die Beschreibung noch Partitionsangaben oder die Prüfsumme. Beschreibung, Partition und Partitionsgröße bleiben in den Karten deshalb leer, und die Füllanzeige der Ansicht **Speicher** entfällt. Ob eine Prüfsumme vorliegt, fragt die Plattform beim Satelliten erst nach, sobald genau ein Image markiert ist; auch das Ergebnis von **Prüfsumme prüfen** merkt sie sich. Die Zeile **Prüfsumme vorhanden** im **Datenblatt** erscheint deshalb nur bei Images, für die das bereits bekannt ist.
 :::
 
-Die Tabelle zeigt **Image**, **Typ**, **Größe**, **Verwendet in**, **Status**, **Abgleich** und **Geändert** – und, sobald der Satellit den Zustand seiner Torrent-Verteilung meldet, zusätzlich **Torrent**.
+Die Tabelle zeigt **Name**, **Typ**, **Größe**, **Verwendet in**, **Status**, **Abgleich** und **Aktualisiert** – und, sobald der Satellit den Zustand seiner Torrent-Verteilung meldet, zusätzlich **Torrent**.
 
 | Spalte | Bedeutung |
 |--------|-----------|
@@ -406,7 +408,7 @@ Den Zustand der Torrent-Verteilung melden Satelliten ab Version 2.7.17. Bei eine
 
 Die Unterseite **Synchronisation** zeigt, was der Satellit vom Linuxmuster-Server übernommen und auf seinem eigenen System angewendet hat – und lässt einen Lauf von Hand anstoßen.
 
-Der Abschnitt **Synchronisationszustand** nennt den **Modus** (**Synchronisation aktiv** oder **Offline**), den Zeitpunkt der letzten Synchronisation, die Zahl der übernommenen Hosts und Konfigurationen, wie viele Hosts davon online sind und ob der Satellit die Schulserver-API erreicht. Dazu kommen der **Gesamtzustand** über alle Bestandteile, der **letzte Lauf** – inkrementell, vollständig oder eine Wiederherstellung – mit Ergebnis, Beginn und Ende, der **Cursor** sowie die Zeitpunkte des letzten Sicherungspunkts und der letzten Wiederherstellung. Läuft gerade ein Lauf, wird das hier vermerkt; ein zuletzt gemeldeter Fehler erscheint darunter.
+Der Abschnitt **Synchronisationszustand** nennt den **Modus** (**Synchronisation aktiv** oder **Offline**), den Zeitpunkt der letzten Synchronisation, die Zahl der übernommenen Hosts und Gruppen, wie viele Hosts davon online sind und ob der Satellit die Schulserver-API erreicht. Dazu kommen der **Gesamtzustand** über alle Bestandteile, der **letzte Lauf** – inkrementell, vollständig oder eine Wiederherstellung – mit Ergebnis, Beginn und Ende, der **Cursor** sowie die Zeitpunkte des letzten Sicherungspunkts und der letzten Wiederherstellung. Läuft gerade ein Lauf, wird das hier vermerkt; ein zuletzt gemeldeter Fehler erscheint darunter.
 
 Der **Cursor** ist die Stelle, bis zu der der Satellit die Änderungen des Schulservers zuletzt übernommen hat; der nächste gewöhnliche Lauf liest ab dort weiter. Steht beim Cursor **Keiner – der nächste Lauf liest den gesamten Bestand**, übernimmt der nächste Lauf wieder alles – so erkennen Sie auch, dass **Cursor leeren** gegriffen hat. Hat der Satellit die verwalteten Dateien aus einem Sicherungspunkt wiederhergestellt – von Hand oder nach einem fehlgeschlagenen Lauf –, vermerkt der letzte Lauf das eigens.
 
@@ -416,7 +418,7 @@ Die Zahl der Hosts online ermittelt die Seite beim Öffnen und sobald ein Lauf e
 **Offline** meldet der Satellit auch dann, wenn er seine eigenen Einstellungen nicht lesen konnte. Die Anzeige belegt also nicht, dass die Synchronisation abgeschaltet wurde – prüfen Sie im Zweifel die **Einstellungen** in der Aktionsleiste.
 :::
 
-Je Bestandteil zeigt die Seite eine Karte: **Hosts und Konfigurationen**, **start.conf**, **devices.csv**, **GRUB und hostcfg** sowie **DHCP-Konfiguration**. Jede Karte nennt ihren Zustand als **Aktuell**, **Ausstehend**, **Fehler** oder **Keine Angabe** und zeigt eine gemeldete Fehlermeldung im Wortlaut. **Ausstehend** heißt, dass der Satellit noch auf eine Rückmeldung wartet – etwa darauf, dass der DHCP-Dienst die neue Konfiguration übernommen hat.
+Je Bestandteil zeigt die Seite eine Karte: **Hosts und Gruppen**, **start.conf**, **devices.csv**, **GRUB und hostcfg** sowie **DHCP-Konfiguration**. Jede Karte nennt ihren Zustand als **Aktuell**, **Ausstehend**, **Fehler** oder **Keine Angabe** und zeigt eine gemeldete Fehlermeldung im Wortlaut. **Ausstehend** heißt, dass der Satellit noch auf eine Rückmeldung wartet – etwa darauf, dass der DHCP-Dienst die neue Konfiguration übernommen hat.
 
 :::note[Nur DHCP hat einen mehrstufigen Ablauf]
 Die übrigen Bestandteile liegen im LINBO-Dateisystem des Satelliten: Schreiben und Anwenden fallen dort zusammen. Die DHCP-Konfiguration wird dagegen von einem eigenen Dienst übernommen, der den Vollzug zurückmeldet. Nur ihre Karte zeigt deshalb die vier Stufen **Gewünscht**, **Geschrieben**, **Geprüft** und **Angewendet** mit je eigenem Zustand (**Aktuell**, **Ausstehend**, **Unverändert**, **Fehlgeschlagen**, **Nicht zutreffend**, **Nicht gemeldet** oder **Keine Angabe**). Meldet der Satellit den Vollzug nicht zurück, bleiben die Stufen sichtbar – **Geprüft** und **Angewendet** dann als **Nicht gemeldet** – und die Karte weist zusätzlich darauf hin.
@@ -437,7 +439,7 @@ Solange ein Lauf läuft, verschwinden die drei Aktionen, und Sicherungspunkte la
 Vor einem Lauf legt der Satellit einen Sicherungspunkt an. Der Abschnitt **Sicherungspunkte** listet sie mit Zeitpunkt und Kennung; je Eintrag können Sie über **Wiederherstellen** auf diesen Stand zurückgehen. Der Satellit hält nur die jüngsten Sicherungspunkte vor – ältere verschwinden von selbst aus der Liste.
 
 :::warning[Was eine Wiederherstellung ersetzt]
-Beim Wiederherstellen werden alle verwalteten `start.conf`-Dateien, alle DHCP- und GRUB-Konfigurationen sowie der zwischengespeicherte Host- und Konfigurationsbestand gelöscht und durch den Stand des Sicherungspunkts ersetzt. Images und Treiber bleiben unberührt. Die Plattform fragt vor dem Schritt nach und nennt dabei den Sicherungspunkt mit Zeitpunkt und Kennung.
+Beim Wiederherstellen werden alle verwalteten `start.conf`-Dateien, alle DHCP- und GRUB-Konfigurationen sowie der zwischengespeicherte Host- und Gruppenbestand gelöscht und durch den Stand des Sicherungspunkts ersetzt. Images und Treiber bleiben unberührt. Die Plattform fragt vor dem Schritt nach und nennt dabei den Sicherungspunkt mit Zeitpunkt und Kennung.
 :::
 
 Solange kein Sicherungspunkt vorliegt, weist der Abschnitt dies aus. Lässt sich der Zustand insgesamt nicht lesen, meldet die Seite *„Der Synchronisationszustand konnte nicht geladen werden.“*

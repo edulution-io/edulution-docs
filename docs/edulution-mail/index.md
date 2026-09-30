@@ -75,12 +75,12 @@ Bilder und andere extern nachgeladene Inhalte blendet edulution zum Schutz Ihrer
 Über **Verfassen** öffnen Sie das Schreibfenster:
 
 - **Von**: Absenderadresse. Neben Ihrer eigenen Adresse können hier auch freigegebene Postfächer zur Auswahl stehen, für die Sie eine Sendeberechtigung besitzen.
-- **An** sowie optional **CC/BCC** (über **CC/BCC hinzufügen** einblendbar). Über den Pfeil vor der Feldbezeichnung klappen Sie ein Empfängerfeld zusammen; es zeigt dann nur die Anzahl der Empfänger an, die Adressen bleiben erhalten. So behalten Sie auch bei sehr langen Empfängerlisten den Nachrichtentext im Blick.
+- **An** sowie optional **CC/BCC** (über **CC/BCC hinzufügen** einblendbar). Über den Pfeil vor der Feldbezeichnung klappen Sie ein Adressfeld zusammen; es zeigt dann nur die Anzahl der Empfänger an, die Adressen bleiben erhalten.
 - **Betreff** und der Nachrichtentext im Editor mit Formatierungsfunktionen (fett, kursiv, Listen, Links u. a.).
 - **Anhänge** fügen Sie **vom Gerät** oder **aus Dateien** (Ihrem edulution-Dateibereich) hinzu. Für Text und Anhänge zusammen gilt eine maximale Gesamtgröße.
 - Über **Signatur einfügen** ergänzen Sie Ihre Signatur (siehe [Mein Profil → Signatur](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#signatur)).
 
-Auf Mobilgeräten füllt das Schreibfenster den gesamten Bildschirm und verdeckt die übrige E-Mail-Ansicht, bis Sie es über **Senden** oder **Abbrechen** schließen.
+Auf Mobilgeräten füllt das Schreibfenster den gesamten Bildschirm und verdeckt die übrige E-Mail-Ansicht, bis Sie es schließen (siehe [Schreibfenster schließen](#schreibfenster-schließen)).
 
 Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht.
 

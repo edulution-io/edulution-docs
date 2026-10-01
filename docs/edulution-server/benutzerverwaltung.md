@@ -105,7 +105,7 @@ Die Spalte **Status** zeigt den Sophomorix-Status des Kontos:
 
 #### Passwortrichtlinie
 
-Die Passwort-Aktionen prüfen ein Passwort gegen die Passwortrichtlinie der Linuxmuster-Installation. Sie legt die Mindestlänge fest, wie viele der Zeichenarten *Kleinbuchstaben*, *Großbuchstaben*, *Ziffern* und *Sonderzeichen* ein Passwort enthalten muss, und gilt je nach Rolle des Benutzers und Schule unterschiedlich. Ein Passwort darf außerdem den Benutzernamen nicht enthalten.
+Die Passwort-Aktionen prüfen ein Passwort gegen die Passwortrichtlinie der Linuxmuster-Installation. Sie legt die Mindestlänge fest, wie viele der Zeichenarten *Kleinbuchstaben*, *Großbuchstaben*, *Ziffern* und *Sonderzeichen* ein Passwort enthalten muss, und gilt je nach Rolle des Benutzers und Schule unterschiedlich. Ein Passwort darf außerdem den Benutzernamen nicht enthalten und nur aus ASCII-Zeichen bestehen: Umlaute und ß werden beim Login nicht akzeptiert.
 
 Schul- und globale Administratoren sehen die Richtlinie des Kontos oberhalb der Passwortfelder als Liste, sobald die Linuxmuster-API in **Version 7.4.6** oder neuer vorliegt, und die Felder melden einen Verstoß sofort. Das Erstpasswort zufällig festlegen erzeugt immer ein Passwort, das die Richtlinie erfüllt. Ein gespeichertes Erstpasswort, das die Richtlinie verletzt, lässt sich nicht als aktuelles Passwort wiederherstellen; die Meldung nennt die verletzten Regeln.
 

@@ -160,7 +160,7 @@ Die Unterseite **Dienste** bündelt die laufenden Dienste in drei ausklappbaren 
 
 Der Eintrag **LINBO** zeigt, was die LINBO-Installation *des Satelliten* über die Rechner an seinem Standort weiß. Er ist unabhängig vom Bereich **LINBO** der App **Schulserver**: dort sehen Sie die LINBO-Installation Ihres zentralen Linuxmuster-Servers, hier die des ausgewählten Satelliten.
 
-Der Bereich gliedert sich in die Unterseiten **Gruppen**, **Hosts**, **Images**, **Synchronisation**, **DHCP** und **Protokolle**. Ein Klick auf **LINBO** öffnet zuerst **Gruppen**. Auf jeder dieser Unterseiten öffnet **Einstellungen** in der Aktionsleiste die Einstellungen des Satelliten, ohne die Unterseite zu verlassen.
+Der Bereich gliedert sich in die Unterseiten **Gruppen**, **Hosts**, **Images**, **Synchronisation**, **DHCP**, **Protokolle**, **Hardware**, **Treiber** und **System**. Ein Klick auf **LINBO** öffnet zuerst **Gruppen**. Auf jeder dieser Unterseiten öffnet **Einstellungen** in der Aktionsleiste die Einstellungen des Satelliten, ohne die Unterseite zu verlassen.
 
 :::note[Schnell geöffnet, im Hintergrund aktualisiert]
 Beim Öffnen einer Unterseite zeigt die Seite eine Ladeanzeige, bis der Satellit geantwortet hat; nur **Synchronisation** zeigt sofort den zuletzt bekannten Stand des ausgewählten Satelliten und aktualisiert ihn, sobald er antwortet. Schnell erscheint eine Unterseite auch sonst, wenn der Zwischenspeicher der Plattform die Antwort hält: Die Listen **Hosts**, **Gruppen** (samt Vorschau), **Images**, **Beim nächsten Start**, **Synchronisation** und **DHCP** gibt die Plattform bis zu 10 Sekunden unverändert weiter und bis zu 10 weitere Sekunden als „zuletzt bekannt“, während sie im Hintergrund neu fragt; Älteres fragt sie frisch ab. **Aufträge**, **Protokolle** sowie Prüfsummen und Beipack-Dateien eines Images liest sie immer frisch, ebenso die regelmäßigen Abfragen einer geöffneten Seite; schreibende Aktionen laufen nie über den Zwischenspeicher. Die Unterseite **Synchronisation** baut sich bei Satelliten ab Version 2.7.22 aus einer einzigen Abfrage auf; ältere Satelliten liefern denselben Inhalt in mehreren Abfragen, sodass die Seite langsamer erscheint.
@@ -315,6 +315,10 @@ Ein Klick auf eine Karte öffnet die Beipack-Dateien des Images; für ein Image 
 Die Imageliste des Satelliten enthält weder die Beschreibung noch Partitionsangaben oder die Prüfsumme. Die Beschreibung bleibt in den Karten deshalb leer. **Partition** und **Partitionsgröße** entnimmt die Plattform der `start.conf` der Gruppen, die das Image verwenden – bei mehreren Gruppen der in der Reihenfolge der Namen ersten; die Größe des Images selbst meldet der Satellit. Die Füllanzeige **Partition gefüllt** erscheint in **Speicher** und im **Datenblatt** (dort statt der Zeilen **Größe** und **Partitionsgröße**), sobald eine Gruppe das Image verwendet und die Partitionsgröße bekannt ist; ohne verwendende Gruppe bleiben **Partition** und **Partitionsgröße** leer und die Anzeige fehlt. Ob eine Prüfsumme vorliegt, fragt die Plattform beim Satelliten erst nach, sobald genau ein Image markiert ist; auch das Ergebnis von **Prüfsumme prüfen** merkt sie sich. Die Zeile **Prüfsumme vorhanden** im **Datenblatt** erscheint deshalb nur bei Images, für die das bereits bekannt ist.
 :::
 
+:::note[Neuere Satelliten liefern mehr]
+Neuere Satelliten melden in ihrer Imageliste zusätzlich die Beschreibung, die Prüfsumme, die Angaben der Info-Datei und die vorhandenen Zusatzdateien. Die Karten zeigen diese Angaben dann direkt aus der Liste, ohne dass die Plattform sie erst nachfragt; die Einschränkungen der Hinweise oben gelten nur noch für Satelliten, die diese Angaben nicht liefern.
+:::
+
 Die Tabelle zeigt **Name**, **Typ**, **Größe**, **Verwendet in**, **Status**, **Abgleich** und **Aktualisiert** – und, sobald der Satellit den Zustand seiner Torrent-Verteilung meldet, zusätzlich **Torrent**.
 
 | Spalte | Bedeutung |
@@ -338,6 +342,10 @@ Ist genau ein Image markiert, bietet die Aktionsleiste **Prüfsumme prüfen**, *
 
 Die Spalte **Abgleich** der Tabelle und die Karten der Ansichten nennen zusätzlich zum Vergleich des Images, ob dessen Zusatzdateien – Beipack-Dateien wie `.info`, `.desc` oder `.reg` – mit denen des Schulservers übereinstimmen: **Zusatzdateien aktuell** oder **Zusatzdateien veraltet**. Bei veralteten Zusatzdateien holt **Zusatzdateien holen** sie vom Schulserver, ohne das Image selbst zu übertragen. Die Rückfrage nennt, welche Dateien fehlen, sich geändert haben oder entfallen; Dateien, die es auf dem Schulserver nicht mehr gibt, löscht der Satellit dabei. „Aktuell“ heißt hier: gleiche Dateigröße wie auf dem Schulserver, nicht zwingend gleicher Inhalt. Die Aktion ist gesperrt, wenn die Zusatzdateien schon aktuell sind, der Abgleich noch unbekannt ist, das Image nur auf dem Schulserver liegt oder im Altformat vorliegt; der Grund steht am Knopf. Anschließend meldet die Plattform, wie viele Dateien geholt und wie viele gelöscht wurden, und liest den Abgleich neu.
 
+##### Zusatzdateien für alle Images holen
+
+**Zusatzdateien für alle Images holen** in der Aktionsleiste steht unabhängig von einer Auswahl bereit und gleicht die Zusatzdateien aller Images auf einmal mit dem Schulserver ab, bei denen sie veraltet sind. Die Images selbst bleiben unverändert. Die Rückfrage nennt, für wie viele Images das geschieht, und warnt, dass Zusatzdateien, die es auf dem Schulserver nicht mehr gibt, auf dem Satelliten gelöscht werden; der Vorgang kann einige Zeit dauern. Die Aktion ist gesperrt, solange der Abgleich noch unbekannt ist oder die Zusatzdateien aller Images bereits aktuell sind; der Grund steht am Knopf. Schlägt der Abgleich bei einzelnen Images fehl, nennt die Meldung danach, wie viele Images abgeglichen wurden und bei welchen es fehlschlug; die übrigen sind abgeglichen.
+
 ##### Prüfsumme prüfen
 
 Der Satellit berechnet die Prüfsumme und meldet, ob sie mit der hinterlegten übereinstimmt. Einen Fortschritt meldet er dabei nicht. Bei großen Images dauert die Berechnung länger, als die Verbindung zum Satelliten zulässt; die Prüfung läuft dann auf dem Satelliten weiter, ihr Ergebnis ist in der Plattform aber nicht mehr abrufbar. Meldet der Satellit, dass für das markierte Image keine Prüfsumme hinterlegt ist, sperrt die Plattform **Prüfsumme prüfen** für dieses Image; der Grund steht am Knopf. Haben Sie inzwischen einen anderen Satelliten gewählt, erscheint das Ergebnis trotzdem, mit dem Zusatz *„Auf dem Satelliten …“*.
@@ -355,13 +363,19 @@ Welche Richtung angeboten wird, entscheidet die Plattform aus dem Vergleich mit 
 **Vom Server holen** löscht das Imageverzeichnis auf dem Satelliten vollständig – einschließlich aller dortigen Sicherungen und Beipack-Dateien – und ersetzt es durch den Stand des Servers. **Zum Server übertragen** überschreibt das Image auf dem Schulserver, das auch andere Satelliten nutzen. Beide Schritte lassen sich nicht rückgängig machen.
 :::
 
-Eine gestartete Übertragung meldet der Satellit nicht zurück. Die Plattform bestätigt nur den Start; den Ausgang zeigt die Liste, sobald die Übertragung abgeschlossen ist und die Seite das nächste Mal abfragt.
+Die Plattform bestätigt den Start einer Übertragung; den Fortschritt zeigt die [Übertragungswarteschlange](#übertragungswarteschlange) über der Imageliste.
 
 :::note[Wenn der Abgleich nicht verfügbar ist]
 Antwortet der Schulserver nicht auf den Vergleich, meldet die Seite *„Der Abgleich mit dem Schulserver ist nicht verfügbar. Die Spalte "Abgleich" und die Übertragung bleiben deshalb ohne Aussage.“* Es wird dann keine Übertragungsrichtung angeboten; die Imageliste selbst bleibt nutzbar.
 
 Scheitert der Abgleich an der LMN-API des Schulservers, nennt die Seite die Ursache. *„Der Satellit kann die Images nicht bei der LMN-API des Schulservers abfragen“* bedeutet, dass die API nicht antwortet: Prüfen Sie, ob das Netz, in dem LINBO auf dem Satelliten läuft, die in den [LINBO-Einstellungen](#einstellungen) eingetragene **API-Adresse** erreicht – etwa über eine Freigabe zwischen den VLANs und eine Rückroute oder NAT. *„Die LMN-API des Schulservers lehnt die Anmeldung des Satelliten ab oder antwortet mit einem Fehler“* bedeutet, dass die API erreichbar ist, aber die Anfrage abweist: Prüfen Sie dort **Benutzer** und **Passwort**. **Verbindung testen** im selben Dialog prüft beides. Ältere Satelliten unterscheiden die beiden Fälle nicht und melden auch eine abgelehnte Anmeldung als nicht erreichbar.
 :::
+
+##### Übertragungswarteschlange
+
+Solange eine Übertragung läuft oder wartet, erscheint über der Imageliste der Abschnitt **Übertragungswarteschlange**; ohne Übertragung fehlt er. Jede Übertragung hat eine eigene Zeile mit Image, Richtung (**Download vom Server** oder **Upload zum Server**), Fortschrittsbalken und der übertragenen Menge. Je Richtung läuft ein Auftrag, weitere warten dahinter mit **Wartet**. Bei einem laufenden Auftrag zeigt die Zeile den Schritt – **Lädt herunter**, **Lädt hoch**, **MD5-Prüfung läuft**, **Wird abgeschlossen** –, die Geschwindigkeit und die geschätzte Restzeit; während der Prüfung entfallen die beiden letzten Angaben. Die Seite fragt die Warteschlange alle drei Sekunden ab und liest die Imageliste neu, sobald die letzte Übertragung beendet ist.
+
+**Abbrechen** in einer Zeile beendet die Übertragung nach einer Rückfrage; Sie können sie später erneut starten. Die Schaltfläche gilt auch für wartende Aufträge.
 
 ##### Sicherungen
 
@@ -473,11 +487,68 @@ Liefert der Satellit nicht alle Adressen oder Protokollzeilen, steht über der T
 
 #### Protokolle
 
-Die Unterseite **Protokolle** ist die letzte der Seitenleiste und zeigt das Protokoll des LINBO-Dienstes auf dem Satelliten: die letzten 500 Einträge mit **Stufe**, **Zeit** und **Meldung**. Sie ist nur lesbar und fragt den Satelliten alle 15 Sekunden ab, solange der Browser-Tab sichtbar ist. Das Suchfeld durchsucht die Meldungen; die Auswahl **Stufe** schränkt die Liste auf **Fehler**, **Warnung**, **Info** und **Debug** ein und nennt bei jeder Stufe, wie viele der geladenen Einträge sie trägt. Die neuesten Einträge stehen oben. Ein Klick auf einen Eintrag öffnet den Dialog **Protokolleintrag** mit Typ, Zeit, Stufe und vollständiger Meldung; **Kopieren** übernimmt den ganzen Eintrag als JSON. Auch ohne Maus öffnen Sie den Dialog: Die Spalte **Aktionen** am Ende jeder Zeile trägt eine Schaltfläche **Details anzeigen** (Augen-Symbol), die sich mit der Tastatur erreichen lässt. Auf schmalen Bildschirmen entfällt die Spalte **Zeit**; die Zeit steht dann nur im Dialog. Scheitert eine Aktualisierung, bleibt der zuletzt geladene Stand stehen und die Seite meldet den Fehler; solange noch nichts geladen war, meldet sie, dass sich das Protokoll nicht lesen lässt, und hat der Satellit noch nichts protokolliert, sagt sie das.
+Die Unterseite **Protokolle** steht in der Seitenleiste hinter **DHCP** und zeigt das Protokoll des LINBO-Dienstes auf dem Satelliten: die letzten 500 Einträge mit **Stufe**, **Zeit** und **Meldung**. Sie ist nur lesbar und fragt den Satelliten alle 15 Sekunden ab, solange der Browser-Tab sichtbar ist. Das Suchfeld durchsucht die Meldungen; die Auswahl **Stufe** schränkt die Liste auf **Fehler**, **Warnung**, **Info** und **Debug** ein und nennt bei jeder Stufe, wie viele der geladenen Einträge sie trägt. Die neuesten Einträge stehen oben. Ein Klick auf einen Eintrag öffnet den Dialog **Protokolleintrag** mit Typ, Zeit, Stufe und vollständiger Meldung; **Kopieren** übernimmt den ganzen Eintrag als JSON. Auch ohne Maus öffnen Sie den Dialog: Die Spalte **Aktionen** am Ende jeder Zeile trägt eine Schaltfläche **Details anzeigen** (Augen-Symbol), die sich mit der Tastatur erreichen lässt. Auf schmalen Bildschirmen entfällt die Spalte **Zeit**; die Zeit steht dann nur im Dialog. Scheitert eine Aktualisierung, bleibt der zuletzt geladene Stand stehen und die Seite meldet den Fehler; solange noch nichts geladen war, meldet sie, dass sich das Protokoll nicht lesen lässt, und hat der Satellit noch nichts protokolliert, sagt sie das.
+
+#### Hardware
+
+Die Unterseite **Hardware** zeigt das Hardware-Inventar der Rechner am Standort des Satelliten. Sie listet alle Hosts des Satelliten mit **Host**, **IP-Adresse**, **Modell**, **Prozessor**, **Arbeitsspeicher**, **Platten** und dem Zeitpunkt der Erfassung (**Erfasst**); Rechner ohne Inventardaten stehen mit leeren Feldern in der Liste, ebenso Geräte mit Inventardaten, die der Satellit keinem Host zuordnen kann. Das Suchfeld durchsucht Hostname, IP- und MAC-Adresse, Gruppe, Raum, Modell, Seriennummer und Prozessor. Auf schmalen Bildschirmen bleiben nur **Host** und **IP-Adresse**. Solange die Seite sichtbar ist, liest sie das Inventar jede Minute neu.
+
+Ein Klick auf eine Zeile öffnet die Einzelheiten des Rechners: MAC-Adresse, Hersteller, Produkt, Seriennummer, BIOS, Prozessor und Kerne, Arbeitsspeicher sowie Netzwerkgeräte, Platten und PCI-Geräte. **Neu lesen** im Dialog liest die Hardwaredaten dieses Rechners erneut ein. Liegt für ihn noch keine Hardwaredatei vor, meldet die Seite, dass der Client vermutlich noch nicht partitioniert ist.
+
+**Alle scannen** in der Aktionsleiste liest die Hardwaredaten aller Rechner ein; die Meldung danach nennt, wie viele gelesen wurden, wie viele bereits erfasst waren, wie viele ohne Datei blieben und wie viele fehlschlugen. Dauert der Scan länger, als die Verbindung zum Satelliten zulässt, läuft er auf dem Satelliten weiter: Die Seite meldet, dass der Scan noch läuft, und aktualisiert die Tabelle alle fünf Sekunden, bis sich nichts mehr ändert, höchstens drei Minuten lang. Eine Ergebnismeldung gibt es in diesem Fall nicht. Solange noch keine Hardwaredaten vorliegen, empfiehlt die Seite, **Alle scannen** zu starten, sobald sich Clients mit LINBO gemeldet haben.
+
+#### Treiber
+
+Die Unterseite **Treiber** verwaltet die Treiber-Profile des Satelliten. Ein Profil bündelt die Treiberdateien für ein Gerätemodell und lässt sich einem Image zuordnen. Die Liste zeigt **Ordner**, **Hersteller**, **Produkt**, **Image**, **Dateien** und **Größe**; auf schmalen Bildschirmen entfallen **Hersteller**, **Dateien** und **Größe**. Die Seite liest die Profile jede Minute neu, solange sie sichtbar ist.
+
+:::warning[Zugeordnete Treiber wirken erst ab LINBO 7.4.8]
+Zugewiesene Treiber erreichen die Clients erst mit LINBO 7.4.8 oder neuer, weil die Installation im ausgelieferten linbofs liegt. Ist sie auf dem Satelliten nicht vorhanden, weist die Seite oben darauf hin, und Zuordnungen bleiben ohne Wirkung. Aktualisieren Sie in diesem Fall LINBO auf der Unterseite [System](#system) und laden Sie die Seite danach neu. Ließ sich die Installation nicht prüfen, steht an der Stelle ein entsprechender Hinweis.
+:::
+
+**Profil anlegen** in der Aktionsleiste erzeugt ein Profil aus einem laufenden Client: Der Satellit liest dessen Hardwaredaten per SSH, der Client muss deshalb gestartet und erreichbar sein. Sie geben seine IPv4-Adresse ein oder wählen einen Host aus der Liste darunter. Gibt es das Profil bereits, meldet die Seite das, statt ein zweites anzulegen.
+
+Ein Klick auf ein Profil öffnet seinen Dialog:
+
+- **Image-Zuordnung** – wählen Sie ein Image des Satelliten und ordnen Sie es zu; **Zuordnung entfernen** löst es wieder.
+- **match.conf** – die Zuordnungsdatei des Profils, direkt bearbeitbar. Sie darf nicht leer sein und höchstens 10 KB umfassen; **Änderungen verwerfen** stellt den gespeicherten Stand wieder her.
+- **Dateien** – die Treiberdateien des Profils, nur lesbar. Treiberdateien lassen sich hier noch nicht hochladen; das Hochladen und Entpacken großer Archive folgt später.
+- **Profil löschen** löscht das Profil mit allen Treiberdateien endgültig, nach einer Rückfrage. Solange dem Profil ein Image zugeordnet ist, ist die Aktion gesperrt; entfernen Sie zuerst die Zuordnung.
+
+#### System
+
+Die Unterseite **System** verwaltet die Boot-Dateien, die der Satellit den LINBO-Clients ausliefert. Oben steht die Karte **linbofs64**, darunter die Registerkarten **Kernel**, **Firmware** und **WLAN**. **Neu laden** in der Aktionsleiste liest alle vier Bereiche neu; sonst aktualisiert sich die Seite im Hintergrund alle 30 Sekunden, während eines Neubaus oder einer Aktualisierung alle drei Sekunden.
+
+Die Karte **linbofs64** nennt den **Zustand** (**Bereit**, **Fehlt**, **Beschädigt**, **Nicht eingerichtet**, **Unvollständig** oder **Unbekannt**), Größe, MD5, Änderungszeitpunkt, den Zeitpunkt des letzten Baus und die Zahl der ausgeführten Hooks, davon die mit Warnung. **linbofs64 neu bauen** – in der Karte und in der Aktionsleiste – baut die Datei mit den aktuellen Passwörtern, Schlüsseln sowie den Firmware- und WLAN-Einstellungen neu. Der Neubau dauert einige Minuten; die neue Datei gilt für Clients ab ihrem nächsten Start. Ist der Zustand nicht **Bereit**, weist die Karte darauf hin, dass ein Neubau das behebt.
+
+:::note[Änderungen wirken erst nach dem Neubau]
+Firmware- und WLAN-Änderungen erreichen die Clients erst, wenn linbofs64 neu gebaut ist; die Karte weist auf wartende Änderungen hin. Während auf dem Satelliten ein Neubau oder eine Aktualisierung läuft, sind alle ändernden Aktionen dieser Unterseite gesperrt – warten Sie, bis der Vorgang abgeschlossen ist.
+:::
+
+##### Kernel
+
+Die Karte **LINBO-Paket und Boot-Dateien** zeigt die installierte und die verfügbare LINBO-Version sowie die Paketgröße und sagt, ob die Boot-Dateien aktuell sind. **Auf Aktualisierung prüfen** fragt die Paketquelle neu ab. Gibt es eine neuere Version, läuft der Satellit mit alten Boot-Dateien, und **LINBO aktualisieren** erscheint. Die Aktualisierung lädt das Paket, prüft die Prüfsumme, entpackt es, richtet die Boot-Dateien ein und baut zum Schluss linbofs64 neu; sie dauert einige Minuten und zeigt ihren Schritt und Fortschritt in Prozent. Mit **Aktualisierung abbrechen** brechen Sie sie ab. Clients übernehmen die neuen Boot-Dateien bei ihrem nächsten Start.
+
+Erreicht der Satellit die Paketquelle von LINBO nicht, lässt sich nicht prüfen, ob die Boot-Dateien aktuell sind. Ein Satellit mit alten Boot-Dateien aktualisiert sie erst, wenn er die Paketquelle erreicht – prüfen Sie dann Internetzugang und DNS des Satelliten.
+
+Die Karte **Kernel** nennt die aktive Variante (**Stable**, **Longterm** oder **Legacy**), ihre Version und Größe sowie MD5 von linbo64 und den letzten Wechsel. **Aktivieren** neben einer anderen Variante wechselt den Kernel und baut dabei linbofs64 neu; Clients starten ab ihrem nächsten Start mit dem neuen Kernel. Eine nicht installierte Variante lässt sich nicht aktivieren. Liefert die installierte LINBO-Version nur einen Kernel, gibt es keine Auswahl. Ist die Kernel-Konfiguration ungültig, warnt die Karte und sperrt den Wechsel; **Konfiguration reparieren** setzt sie auf **Stable** zurück, **Reparieren und neu bauen** baut danach zusätzlich linbofs64 neu. Ein Fehler des letzten Wechsels steht im Wortlaut des Satelliten auf der Karte.
+
+##### Firmware
+
+Die Registerkarte **Firmware** steuert, welche Firmware-Dateien linbofs64 enthält. Alle Änderungen wirken erst nach dem Neubau von linbofs64.
+
+- **Firmware der Clients** wertet die Boot-Protokolle der Clients aus und nennt je Client, ob alles **In Ordnung** ist, **Firmware fehlt** oder **Kein Protokoll** vorliegt, dazu eine Zusammenfassung. Bei fehlender Firmware öffnet **Firmware suchen** die Suche mit dem Namen der fehlenden Datei.
+- **Eingetragene Firmware** listet die Einträge, die linbofs64 aufnimmt; **Firmware hinzufügen** öffnet die Suche. Einträge, die es auf dem Satelliten nicht gibt, sind mit **Auf dem Satelliten nicht vorhanden** gekennzeichnet. Das Löschen eines Eintrags fragt vorher nach.
+- **Katalog** bietet Firmware nach Hersteller gruppiert an und nennt, wie viele Einträge davon schon eingetragen sind. **Hinzufügen** trägt einen Eintrag ein; was auf dem Satelliten nicht vorhanden ist, ist als **Nicht auf dem Satelliten** gekennzeichnet.
+
+Die Suche im Dialog **Firmware hinzufügen** sucht Firmware-Dateien und -Verzeichnisse auf dem Satelliten und beginnt ab zwei Zeichen; mehrere Treffer tragen Sie mit **Auswahl hinzufügen** gemeinsam ein.
+
+##### WLAN
+
+Die Registerkarte **WLAN** hinterlegt die WLAN-Zugangsdaten, die LINBO-Clients beim Start nutzen. Sie geben den **Netzwerknamen (SSID)** an (höchstens 32 Zeichen), ob das Netz **Verschlüsselt (WPA-PSK)** ist, den **Schlüssel** und ob es ein **Verstecktes Netzwerk** ist. Der Schlüssel braucht 8 bis 128 Zeichen oder 64 Hexadezimalzeichen. Er wird nie angezeigt; die Seite sagt nur, ob einer gespeichert ist, und ein leeres Feld lässt ihn unverändert. **WLAN ausschalten** löscht die WLAN-Konfiguration auf dem Satelliten nach einer Rückfrage; Clients verbinden sich nach dem Neubau von linbofs64 beim Start nicht mehr mit dem WLAN. Auch WLAN-Änderungen wirken erst nach dem Neubau.
 
 #### Einstellungen
 
-**Einstellungen** in der Aktionsleiste der LINBO-Unterseiten öffnet den Dialog **LINBO-Einstellungen**. Er wirkt ausschließlich auf den ausgewählten Satelliten; die zentralen Plattformeinstellungen bleiben davon unberührt. Links steht die **Verbindung zum Schulserver** mit **API-Adresse**, **Benutzer**, **Passwort**, **Schule** und **LINBO-Server-IP** sowie **Verbindung testen**, rechts die **Synchronisation** mit **Synchronisation aktiv** und dem **Intervall**. Ein Lesezeichen auf die frühere Unterseite **Einstellungen** führt zu **Hosts** und öffnet dort den Dialog.
+**Einstellungen** in der Aktionsleiste der LINBO-Unterseiten öffnet den Dialog **LINBO-Einstellungen**. Er wirkt ausschließlich auf den ausgewählten Satelliten; die zentralen Plattformeinstellungen bleiben davon unberührt. Links steht die **Verbindung zum Schulserver** mit **API-Adresse**, **Benutzer**, **Passwort**, **Schule** und **LINBO-Server-IP** sowie **Verbindung testen**, rechts die **Synchronisation** mit **Synchronisation aktiv** und dem **Intervall**; darunter steht der Abschnitt **LINBO-Client-Passwort**. Ein Lesezeichen auf die frühere Unterseite **Einstellungen** führt zu **Hosts** und öffnet dort den Dialog.
 
 **Synchronisation aktiv** nimmt `true` oder `false` an und schaltet die selbsttätige Synchronisation ein oder aus. **Intervall (Sekunden, 0 deaktiviert)** ist der Abstand zwischen zwei selbsttätigen Läufen; `0` schaltet den Zeitgeber ab. **API-Adresse** ist die Adresse der Linuxmuster-API des Schulservers, **LINBO-Server-IP** die IP-Adresse, die der Satellit den Rechnern als LINBO-Server nennt.
 
@@ -499,6 +570,12 @@ Zurücksetzen verwirft eine hier gesetzte Überschreibung, sodass wieder der Wer
 
 :::note[Das Passwort wird nie zurückgegeben]
 Der Satellit gibt das gespeicherte Passwort nicht heraus; über dem Feld steht nur die maskierte Form, die er meldet – vier Sterne und die letzten vier Zeichen – oder **Nicht gesetzt**, wenn kein Passwort hinterlegt ist. Das Eingabefeld beginnt bei jedem Aufruf leer – das ist keine Aufforderung, das Passwort zu löschen: Ein leer gelassenes Feld wird nicht gesendet. Nur wenn Sie etwas eintragen und speichern, wird das Passwort ersetzt.
+:::
+
+**LINBO-Client-Passwort** ist das Passwort, mit dem sich die LINBO-Clients per rsync am Satelliten anmelden. Es hat mit dem Passwort der Schulserver-Verbindung nichts zu tun und wird nie angezeigt: Sie können nur ein neues setzen, indem Sie es in **Neues Passwort** und **Neues Passwort wiederholen** eingeben und **Passwort ändern** wählen. Der Abschnitt wirkt unabhängig von **Speichern** und dem übrigen Formular. Das Passwort braucht mindestens vier Zeichen, darf keinen Doppelpunkt und keinen Zeilenumbruch enthalten und nicht mit einem Leerzeichen beginnen oder enden; die Plattform nennt unter dem Feld den Grund, wenn es nicht passt, oder dass die beiden Eingaben nicht übereinstimmen.
+
+:::warning[Das Ändern baut linbofs64 neu]
+Vor dem Ändern fragt die Plattform nach: Der Satellit baut linbofs64 mit dem neuen Passwort neu auf, was einen Moment dauert. Clients, die noch mit dem alten Passwort gestartet wurden, melden sich erst nach einem Neustart wieder an.
 :::
 
 Über **Verbindung testen** prüft der Satellit, ob er den Schulserver erreicht. Dabei verwendet er die in **API-Adresse**, **Benutzer** und **Passwort** eingetragenen, noch nicht gespeicherten Werte und für leer gelassene Felder die gespeicherten – so lässt sich etwa ein neues Passwort prüfen, bevor es gespeichert wird. Der Test speichert selbst nichts. Das Ergebnis lautet:

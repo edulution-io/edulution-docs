@@ -14,7 +14,7 @@ Diese Seite beschreibt den **laufenden Betrieb** in der edulution Plattform. Die
 Die Verwaltung gliedert sich in zwei Bereiche:
 
 - **Einstellungen → Satellites** – Satelliten koppeln, genehmigen, einer Schule zuweisen und aktualisieren (nur Global-Admin).
-- **App „Satellites"** – den laufenden Betrieb eines ausgewählten Satelliten einsehen und konfigurieren (Übersicht, Netzwerke, Authentifizierung, Dienste).
+- **App „Satellites"** – den laufenden Betrieb eines ausgewählten Satelliten einsehen und konfigurieren (Übersicht, Netzwerke, Authentifizierung, Dienste, LINBO).
 
 :::warning[Nur Global-Admin]
 Das Koppeln und Verwalten von Satelliten in den **Einstellungen** ist ausschließlich für Global-Admins zugänglich. Der Schulfilter im Satelliten-Bereich erscheint ebenfalls nur für Global-Admins mit mehr als einer Schule.
@@ -84,7 +84,7 @@ Bei akzeptierten, online erreichbaren Satelliten können Sie über **Updates pr�
 
 ## Der Satelliten-Bereich
 
-Den laufenden Betrieb eines Satelliten verwalten Sie in der App **Satellites** (sofern für Sie freigeschaltet). Am oberen Rand befindet sich die Satelliten-Auswahl, darunter wechseln Sie über die Seitenleiste zwischen **Übersicht**, **Netzwerke**, **Authentifizierung** und **Diensten**.
+Den laufenden Betrieb eines Satelliten verwalten Sie in der App **Satellites** (sofern für Sie freigeschaltet). Den Satelliten wählen Sie in der Satelliten-Auswahl; über die Seitenleiste wechseln Sie zwischen den Einträgen **Übersicht**, **Netzwerke**, **Authentifizierung**, **Dienste** und **LINBO**.
 
 ### Satellit auswählen
 
@@ -115,7 +115,7 @@ Bei MikroTik-basierten Geräten werden die detaillierten Hardware-Metriken bevor
 
 ### Netzwerke
 
-Die Unterseite **Netzwerke** verwaltet die VLAN-Netzwerke des Satelliten. Die Tabelle zeigt **VLAN**, **Name**, **Eltern-Interface**, **Adresse**, **Maske** und **Satelliten-IP**. Über die Schaltflächen am unteren Rand sowie die Aktionen je Zeile können Sie Netzwerke anlegen, bearbeiten, löschen und die Liste neu laden.
+Die Unterseite **Netzwerke** verwaltet die VLAN-Netzwerke des Satelliten. Die Tabelle zeigt **VLAN**, **Name**, **Eltern-Interface**, **Adresse**, **Maske** und **Satelliten-IP**. Über die Aktionsleiste in der Kopfzeile der Seite sowie die Aktionen je Zeile können Sie Netzwerke anlegen, bearbeiten, löschen und die Liste neu laden.
 
 Beim Anlegen oder Bearbeiten füllen Sie folgende Felder aus:
 
@@ -155,6 +155,361 @@ Die Unterseite **Dienste** bündelt die laufenden Dienste in drei ausklappbaren 
 - **Container** – listet die auf dem Satelliten laufenden Container mit **Name**, **Status** und zugeordneten **Netzwerken** (rein informativ).
 
 Über die Aktion zum Neuladen aktualisieren Sie alle drei Listen.
+
+### LINBO
+
+Der Eintrag **LINBO** zeigt, was die LINBO-Installation *des Satelliten* über die Rechner an seinem Standort weiß. Er ist unabhängig vom Bereich **LINBO** der App **Schulserver**: dort sehen Sie die LINBO-Installation Ihres zentralen Linuxmuster-Servers, hier die des ausgewählten Satelliten.
+
+Der Bereich gliedert sich in die Unterseiten **Gruppen**, **Hosts**, **Images**, **Synchronisation**, **DHCP** und **Protokolle**. Ein Klick auf **LINBO** öffnet zuerst **Gruppen**. Auf jeder dieser Unterseiten öffnet **Einstellungen** in der Aktionsleiste die Einstellungen des Satelliten, ohne die Unterseite zu verlassen.
+
+:::note[Schnell geöffnet, im Hintergrund aktualisiert]
+Beim Öffnen einer Unterseite zeigt die Seite eine Ladeanzeige, bis der Satellit geantwortet hat; nur **Synchronisation** zeigt sofort den zuletzt bekannten Stand des ausgewählten Satelliten und aktualisiert ihn, sobald er antwortet. Schnell erscheint eine Unterseite auch sonst, wenn der Zwischenspeicher der Plattform die Antwort hält: Die Listen **Hosts**, **Gruppen** (samt Vorschau), **Images**, **Beim nächsten Start**, **Synchronisation** und **DHCP** gibt die Plattform bis zu 10 Sekunden unverändert weiter und bis zu 10 weitere Sekunden als „zuletzt bekannt“, während sie im Hintergrund neu fragt; Älteres fragt sie frisch ab. **Aufträge**, **Protokolle** sowie Prüfsummen und Beipack-Dateien eines Images liest sie immer frisch, ebenso die regelmäßigen Abfragen einer geöffneten Seite; schreibende Aktionen laufen nie über den Zwischenspeicher. Die Unterseite **Synchronisation** baut sich bei Satelliten ab Version 2.7.22 aus einer einzigen Abfrage auf; ältere Satelliten liefern denselben Inhalt in mehreren Abfragen, sodass die Seite langsamer erscheint.
+:::
+
+:::note[Satelliten ohne LINBO]
+Meldet ein erreichbarer Satellit in seinem Heartbeat keinen LINBO-Dienst, zeigen alle LINBO-Unterseiten statt ihres Inhalts den Hinweis *„LINBO ist auf diesem Satelliten nicht verfügbar.“* Dasselbe gilt, wenn der Heartbeat dazu nichts sagt und der Satellit auf eine Anfrage antwortet, dass LINBO auf ihm nicht eingerichtet ist. **Erneut versuchen** fragt den Zustand des Satelliten neu ab. Ist der Satellit dagegen nicht erreichbar, bleibt die Unterseite stehen und meldet einen Fehler.
+:::
+
+#### Gruppen
+
+Die Unterseite **Gruppen** listet die Hardwaregruppen, die der Satellit vom Linuxmuster-Server übernommen hat – also die `start.conf`-Dateien, die in seinem Zwischenspeicher liegen. Die Daten stammen ausschließlich vom ausgewählten Satelliten.
+
+Über die Ansichtswahl wählen Sie zwischen denselben vier Ansichten wie in der [Gruppenliste des Schulservers](../edulution-server/linuxmuster.md#gruppen): **Plattenkarte** (Vorgabe), **Kacheln**, **Datenblatt** und **Tabelle**. Karten und Tabellenspalten sind dort beschrieben und hier dieselben. Es entfallen nur die Kachel zum Anlegen und die Aktionen, die eine Gruppe ändern, weil sich die Gruppen hier nicht ändern lassen.
+
+Die gewählte Ansicht merkt sich die Plattform für diese Seite getrennt von der Gruppenliste des Schulservers: Stellen Sie hier auf **Datenblatt** um, bleibt die Gruppenliste im Bereich **LINBO** der App **Schulserver** in ihrer Ansicht – und umgekehrt.
+
+Über das Suchfeld schränken Sie die Liste auf einen Gruppennamen oder einen Dateinamen wie `start.conf.raum101` ein. Die Zahl der zugeordneten Rechner stammt aus der Hostliste desselben Satelliten: gezählt werden die Rechner, die der Satellit dieser Gruppe zuordnet, nicht die des Linuxmuster-Servers.
+
+:::note[Jede Gruppe wird einzeln gelesen]
+Der Satellit liefert in seiner Gruppenliste keine `start.conf`. Die Plattform liest deshalb die `start.conf` jeder Gruppe einzeln vom Satelliten und wertet sie aus wie am Schulserver. Beim erneuten Öffnen verwendet sie bereits gelesene Dateien weiter, bis der Satellit wieder synchronisiert, einen Sicherungspunkt wiederhergestellt oder seinen Cursor geleert hat; danach liest sie alle erneut. Solange die Seite geöffnet ist, fragt sie Gruppen und Hosts jede Minute und beim Zurückwechseln in den Browser-Tab erneut ab und hält sich dabei an dieselbe Regel; ist der Tab nicht sichtbar, pausiert die Abfrage. Eine Aktion zum Neuladen gibt es nicht. Die Karten zeigen damit dieselben Angaben, einschließlich Cache, Download-Typ und der verwendeten Images. Bei vielen Gruppen erscheint die Liste erst, wenn alle Dateien gelesen sind; bis dahin läuft die Ladeanzeige.
+:::
+
+Als **Aktualisiert** zeigt die Plattform den Zeitstempel, den der Satellit mit der GRUB-Konfiguration der Gruppe übernommen hat, bei einer Gruppe ohne GRUB-Konfiguration den Zeitpunkt ihrer Synchronisation. Die letzte Änderung der `start.conf` ist das nicht.
+
+Durch Anklicken einer Karte oder Tabellenzeile öffnen Sie die Vorschau. Sie zeigt die Datei so, wie der Satellit sie beim Öffnen meldet – die Plattform kann dabei eine Antwort von bis zu 20 Sekunden zuvor liefern – und hat diese Registerkarten:
+
+- **Zusammenfassung** – die ausgewertete `start.conf` mit den gesetzten Schlüsseln und dem Plattenlayout, in derselben Darstellung wie im Bereich **LINBO** der App **Schulserver**.
+- **Rohdaten** – der unveränderte Inhalt der Datei.
+
+Liegt dem Satelliten für die Gruppe eine GRUB-Konfiguration vor, zeigt die Registerkarte **GRUB cfg** sie zusätzlich. Für eine Gruppe, der noch kein Rechner zugeordnet ist, hat der Satellit keine; die Registerkarte entfällt dann.
+
+Wie am Schulserver markieren Sie eine Gruppe über das Auswahlkästchen ihrer Karte oder Zeile. Ist genau eine Gruppe markiert, bietet die Aktionsleiste **Vorschau** und **Aktion schicken** an; bei mehreren markierten Gruppen entfallen beide. **Aktion schicken** öffnet den Dialog, den die [Hostliste](#rechner-aufwecken-und-aktionen-schicken) verwendet, mit allen Rechnern der Gruppe als Ziel. Der Satellit spricht Rechner nur über ihre MAC-Adresse an; die Plattform setzt das Ziel deshalb aus den Rechnern seiner Hostliste zusammen, deren Gruppe genau so heißt, und lässt dabei wie dort die Rechner ohne LINBO-Netzwerkstart vorab aus und nennt ihre Zahl. Der Auftrag erscheint anschließend unter [Aufträge](#aufträge-und-geplante-aktionen) der Unterseite **Hosts**.
+
+:::note[Gruppen werden am Server gepflegt]
+Die Gruppen des Satelliten lassen sich nicht anlegen, bearbeiten, duplizieren oder löschen. Sie stammen aus der Synchronisation mit dem Linuxmuster-Server; geändert werden sie deshalb am Server, nicht am Satelliten.
+:::
+
+:::note[Wenn eine Datei nicht gelesen werden kann]
+Die Plattform unterscheidet drei Fälle. Lässt sich die Liste nicht laden, meldet die Seite *„Die Gruppen des Satelliten konnten nicht geladen werden.“* Lässt sich eine einzelne `start.conf` nicht lesen – etwa weil die Datei auf dem Satelliten fehlt, obwohl die Gruppe noch in der Liste steht –, erscheint die Gruppe als eine ohne `start.conf`, und die Vorschau meldet den Lesefehler ausdrücklich. Eine vorhandene, aber leere Datei behandelt die Vorschau wie eine fehlende: Sie zeigt dann nur die GRUB-Konfiguration oder, wenn es auch die nicht gibt, den Hinweis, dass die Gruppe weder eine `start.conf` noch eine GRUB-Konfiguration hat.
+:::
+
+#### Hosts
+
+Die Unterseite hat drei Registerkarten: **Hosts**, **Aufträge** und **Beim nächsten Start**.
+
+Die Registerkarte **Hosts** zeigt alle Rechner, die der Satellit kennt. Über die Ansichtswahl wählen Sie zwischen denselben drei Ansichten wie in der [Hostliste des Schulservers](../edulution-server/linuxmuster.md#hosts): **Kacheln** (Vorgabe), **Datenblatt** und **Tabelle**. Karten, Auswahl und Detaildialog sind dort beschrieben; auf dem Satelliten unterscheiden sie sich so:
+
+- Neben dem Hostnamen steht der **Status**, den der Satellit meldet (siehe unten), nicht die Erreichbarkeit aus einem Hostscan.
+- Die **Kachel** nennt unter dem Inhalt den Stand des **Images** und, sofern sich der Rechner schon gemeldet hat, wann er **zuletzt gesehen** wurde.
+- Die **Rolle** ist hier keine Tabellenspalte, sondern ein Filter und eine Zeile des **Datenblatts**, das sie oben zeigt. Dazu führt es die Zeilen **Image** (Anzeige und Name des Images), **Zuletzt gesehen** und **Geplant** – die Kette, die der Satellit für den nächsten Start des Rechners vorgemerkt hat (siehe [Aufträge und geplante Aktionen](#aufträge-und-geplante-aktionen)).
+- Der **Detaildialog** zeigt die Zeilen **Image**, **Zuletzt gesehen** und **Geplant** zusätzlich zu den Angaben der Geräteliste; einen Abschnitt **Images** hat er nicht.
+
+Die gewählte Ansicht merkt sich die Plattform getrennt von der Hostliste des Schulservers.
+
+Eine Aktion zum Neuladen gibt es nicht: Die Seite fragt die Hosts und ihren Abgleichsstand alle 30 Sekunden und beim Zurückwechseln in den Browser-Tab erneut ab, solange der Tab sichtbar ist. Ein geöffneter Detaildialog übernimmt den neuen Stand und schließt sich, wenn der Rechner nicht mehr in der Liste steht.
+
+In der Ansicht **Tabelle** stehen **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Image** und **Zuletzt gesehen**. Wie in der [Hostliste des Schulservers](../edulution-server/linuxmuster.md#hosts) lassen sich über die Spaltenauswahl sechs ausgeblendete Spalten einschalten: **PXE**, **PXE aktiv**, **Kommentar**, **DHCP-Optionen**, **Office-Schlüssel** und **Windows-Schlüssel**. Das Suchfeld findet einen Rechner über Hostname, MAC-Adresse, IP, Gruppe, Raum und Kommentar. Daneben schränken die Auswahlen **Rolle**, **Gruppe** und **Raum** die Liste auf einen oder mehrere Werte ein; sie gelten in allen drei Ansichten und wirken zusammen. **Rolle** bietet dieselben Gerätetypen wie die [Hostliste des Schulservers](../edulution-server/linuxmuster.md#hosts) – ein Rechner ohne Rolle zählt zu **Sonstige**. **Gruppe** und **Raum** führen nur Werte auf, die mindestens ein Rechner des Satelliten trägt, und erscheinen erst, wenn es welche gibt. Beim Wechsel des Satelliten setzt die Seite alle drei zurück. Alle Filter arbeiten im Browser: die Liste wird vollständig geladen, sodass das Filtern ohne erneute Abfrage des Satelliten geschieht.
+
+Die Spalte **Status** nennt den Betriebszustand, den der Satellit zuletzt gemeldet hat:
+
+| Status | Bedeutung |
+|--------|-----------|
+| **Online** | Der Rechner hat sich innerhalb des Meldeintervalls gemeldet. |
+| **Offline** | Innerhalb des Meldeintervalls kam keine Meldung. |
+| **Überträgt** | Der Rechner überträgt gerade ein Image. |
+| **Unbekannt** | Der Satellit meldet keinen Zustand. |
+
+:::note[Wann ein Rechner als offline gilt]
+Maßgeblich ist das Meldeintervall des Satelliten – standardmäßig **300 Sekunden**. Ein Rechner, der sich länger nicht gemeldet hat, erscheint als *Offline*, auch wenn er tatsächlich noch läuft. Meldet der Satellit einen Zustand, den die Plattform nicht kennt, wird dieser unverändert angezeigt, statt ihn als *Unbekannt* zu verwerfen.
+:::
+
+Die Spalte **Image** vergleicht das Image auf dem Rechner mit dem des Satelliten und nennt darunter den Namen des Images:
+
+| Anzeige | Bedeutung |
+|---------|-----------|
+| **Aktuell** | Der Rechner hat den Stand des Satelliten. |
+| **Veraltet** | Auf dem Satelliten liegt eine neuere Fassung. |
+| **Nie synchronisiert** | Der Rechner hat noch kein Image bezogen. |
+| **Unbekannt** | Der Satellit meldet für diesen Rechner keinen Abgleichsstand. |
+
+:::note[Rechner werden am Server gepflegt]
+Die Hostliste des Satelliten lässt sich nicht bearbeiten. Die Rechner stammen aus der Synchronisation mit dem Linuxmuster-Server und werden auf dem Satelliten zwischengespeichert; angelegt, geändert und gelöscht werden sie deshalb am Server, nicht am Satelliten.
+:::
+
+:::note[Hostliste und Image-Stand werden getrennt geladen]
+Beide Angaben stammen aus verschiedenen Abfragen. Scheitert nur der Image-Stand, stehen die Rechner trotzdem in der Tabelle, und die Seite meldet *„Der Image-Status der Hosts konnte nicht gelesen werden. Die Spalte „Image“ zeigt deshalb „Unbekannt“.“* Scheitert die Hostliste, bleibt die Tabelle leer, und die Seite meldet *„Die Hosts des Satelliten konnten nicht geladen werden.“* In beiden Fällen meldet die Plattform den Fehler außerdem.
+:::
+
+##### Rechner aufwecken und Aktionen schicken
+
+Sobald Rechner ausgewählt sind, stehen in der Aktionsleiste **Aufwecken**, **Neu starten**, **Herunterfahren** und **Aktion schicken** bereit. Alle vier Aktionen erreichen nur die ausgewählten Rechner, die Suche und Gruppenfilter gerade **sichtbar** lassen – ausgeblendete Rechner bleiben ausgewählt, werden aber nicht angesprochen.
+
+Rechner ohne MAC-Adresse lässt die Plattform bei allen vier Aktionen vorab aus und nennt sie. Rechner, die nicht über LINBO vom Netzwerk starten – für die also in der Geräteliste kein LINBO-Netzwerkstart eingetragen ist (einblendbare Spalte **PXE** weder `1` noch `2`) –, lässt sie bei **Neu starten**, **Herunterfahren** und **Aktion schicken** ebenso vorab aus, da der Satellit sie dort ohne jede Rückmeldung übergehen würde. **Aufwecken** erreicht dagegen auch diese Rechner, denn Wake-on-LAN setzt keinen LINBO-Netzwerkstart voraus.
+
+**Aufwecken** sendet Wake-on-LAN-Pakete. Die Meldung zählt die **gesendeten Pakete**, nicht die gestarteten Rechner – ob ein Rechner tatsächlich hochfährt, zeigt erst seine Spalte **Status**. Nur Rechner, deren Paket hinausging, werden abgewählt; Rechner, die der Satellit gar nicht kennt, werden namentlich gemeldet.
+
+**Neu starten** und **Herunterfahren** fragen vorher nach und nennen die ausgewählten Rechner. Welche davon ohne MAC-Adresse oder LINBO-Netzwerkstart ausgelassen werden, meldet die Plattform erst nach der Bestätigung. Wählen Sie einen anderen Satelliten, während die Rückfrage offen ist, wird sie verworfen und nichts geschickt. Nach der Bestätigung laufen beide Aktionen wie eine sofort ausgeführte Kette aus **Aktion schicken**: Der Auftrag erscheint unter **Aufträge**, und lehnt der Satellit ab, gelten dieselben Meldungen wie dort.
+
+**Aktion schicken** öffnet denselben [Dialog wie im Bereich **Schulserver**](../edulution-server/linuxmuster.md#der-kommando-dialog): zwei Schritte für Ziel und Kette sowie Zeitpunkt und Optionen, die Auswahl des Betriebssystems mit seinem Namen aus der `start.conf` der Gruppe und die Rückfrage vor **Neu**, **Formatieren** und **Partitionieren**. Aktionen mit Betriebssystem setzen voraus, dass alle ausgewählten Rechner derselben Hardwaregruppe angehören. Beim Satelliten unterscheiden sich die Optionen:
+
+- **Abstand zwischen den Weckpaketen (Sekunden)** und **Weckpaket zusätzlich an die Broadcast-Adresse senden** fehlen – der Satellit kennt sie nicht.
+- Wake-on-LAN ist ein Schalter: **Rechner nach dem Planen aufwecken**.
+- Wake-on-LAN, **Oberfläche des Clients beim nächsten Start abschalten** und **Automatische Funktionen der start.conf beim nächsten Start übergehen** erscheinen erst, wenn unter **Zeitpunkt** **Beim nächsten Start** gewählt ist.
+
+:::note[Warum Wake-on-LAN nur mit „Beim nächsten Start“ geht]
+Eine sofort ausgeführte Kette mit vorherigem Wecken würde der Satellit erst beantworten, wenn alle Rechner fertig sind – länger, als die Verbindung zum Satelliten offen bleibt. Ein Wiederholen würde die Kette dann ein zweites Mal ausführen. Planen Sie die Kette deshalb für den nächsten Start und lassen Sie die Rechner anschließend wecken.
+:::
+
+Mit **Jetzt** läuft die Kette sofort; der Auftrag erscheint unter **Aufträge**. Mit **Beim nächsten Start** schreibt der Satellit sie für den nächsten Start der Rechner vor; sie erscheint unter **Beim nächsten Start**. Ist zusätzlich das Wecken gewählt, werden danach nur die Rechner geweckt, für die das Planen gelungen ist. Rechner, die sich nicht planen ließen, nennt die Meldung.
+
+:::warning[Planen ersetzt eine vorhandene Aktion]
+Ist für einen Rechner bereits eine Aktion für den nächsten Start geplant, wird sie ohne Rückfrage durch die neue ersetzt.
+:::
+
+Lehnt der Satellit ab, sagt die Meldung, warum:
+
+| Meldung | Ursache |
+|---------|---------|
+| *„Ein Rechner ist bereits mit einem Auftrag beschäftigt, oder zwei ausgewählte Rechner teilen sich eine Adresse.“* | Auf einem Rechner läuft schon ein Auftrag, oder zwei ausgewählte Rechner haben dieselbe IP-Adresse. Die Plattform kann beides nicht unterscheiden. Nennt der Satellit den Auftrag, der den Rechner belegt, öffnet **Auftrag anzeigen** in der Meldung diesen Auftrag. |
+| *„Der Satellit nimmt gerade keine weiteren Aufträge an. Bitte in einer Minute erneut versuchen.“* | Der Satellit nimmt höchstens **30 schreibende Anfragen je Minute** an. Kommen alle Anfragen über dieselbe Verbindung, teilen sich die Administratoren diese Grenze. Versuchen Sie es nach einer Minute erneut. |
+
+In beiden Fällen bleibt der Dialog geöffnet. Ist der Satellit nicht erreichbar, erscheint die allgemeine Fehlermeldung der Plattform.
+
+##### Aufträge und geplante Aktionen
+
+Unter der Hostliste zeigt die Registerkarte **Hosts** von beiden Listen eine Vorschau: die drei jüngsten Aufträge und die ersten drei geplanten Starts. Die vollständigen Listen stehen auf den Registerkarten **Aufträge** und **Beim nächsten Start**. Kann der Satellit eine davon nicht liefern, sagt die Liste das, statt leer zu erscheinen. Eine Auftragszeile nennt zuerst die Rechner, darunter die Befehle und den Zeitpunkt.
+
+**Aufträge** listet die sofort ausgeführten Aufträge der letzten 24 Stunden, jüngste zuerst, zehn je Seite. Ältere Aufträge verwirft der Satellit selbst. Über die Auswahl **Status** auf der Registerkarte **Aufträge** schränken Sie die Liste auf einen Zustand ein: **Wartet**, **Läuft**, **Wird abgebrochen**, **Erfolgreich**, **Teilweise fehlgeschlagen**, **Fehlgeschlagen** oder **Abgebrochen**. Die Seitenzahl bezieht sich dann auf die gefilterte Liste; beim Zurückwechseln zur Registerkarte **Hosts** entfällt der Filter. Ein Klick auf einen Auftrag öffnet ihn mit jedem beteiligten Rechner: Zustand, aktueller Arbeitsschritt, eine Meldung des Satelliten und das Protokoll. Die Meldungen des Satelliten erscheinen in seinem eigenen Wortlaut. Solange ein Auftrag läuft, lädt die Seite ihn alle fünf Sekunden nach – ebenso die Liste der Aufträge und die geplanten Starts. Dasselbe gilt, solange ein Statusfilter gesetzt ist, damit ein Auftrag in der gefilterten Liste erscheint, sobald er den gewählten Zustand erreicht. Starten Sie eine Aktion, springt die Liste auf die erste Seite, der Statusfilter entfällt und die Liste lädt sichtbar neu, sodass der neue Auftrag oben erscheint.
+
+Der Zustand eines Auftrags richtet sich nach seinen Rechnern, nicht allein nach der Meldung des Satelliten: **Teilweise fehlgeschlagen** heißt, dass mindestens ein Rechner fehlschlug, während andere erfolgreich waren. Ein **abgebrochener** Auftrag nennt weiterhin, wie viele Rechner vor dem Abbruch erfolgreich waren. Hat der Satellit weniger Rechner übernommen als geschickt wurden, weist der Auftrag darauf hin.
+
+:::warning[Abbrechen hält nur wartende Rechner an]
+**Auftrag abbrechen** fragt vorher nach und stoppt nur Rechner, die noch nicht begonnen haben. Rechner, auf denen die Kette bereits läuft, arbeiten weiter und werden danach als abgebrochen geführt – auch wenn ihr Schritt gelungen ist. Bis der letzte Rechner fertig ist, zeigt der Auftrag **Wird abgebrochen**; das kann bis zu zwei Stunden dauern.
+:::
+
+**Beim nächsten Start** listet je Rechner die Kette, die der Satellit für dessen nächsten Start vorgemerkt hat. Über **Entfernen** nehmen Sie sie zurück; die Rückfrage davor nennt den Rechner und die Befehle, die er dann nicht mehr ausführt. Hat der Rechner die Aktion inzwischen beim Start ausgeführt, verschwindet der Eintrag ohne Fehlermeldung.
+
+:::note[Geplante Abbild-Uploads zeigen ihre Befehle nicht]
+Satelliten vor Version 2.7.17 legen bei einem geplanten Abbild-Upload die Zugangsdaten zu ihrem Abbild-Speicher mit in die Befehle. Solche Einträge zeigen deshalb statt der Kette nur einen Hinweis.
+:::
+
+#### Images
+
+Die Unterseite **Images** verwaltet die LINBO-Images, die auf dem Satelliten selbst liegen, und gleicht sie mit denen des Schulservers ab. Über die Ansichtswahl wählen Sie zwischen denselben vier Ansichten wie in der [Imageliste des Schulservers](../edulution-server/linuxmuster.md#images): **Speicher**, **Kacheln**, **Datenblatt** (Vorgabe) und **Tabelle**. In allen Ansichten schränken Sie die Liste über das Suchfeld auf einen Namen ein.
+
+Die gewählte Ansicht merkt sich die Plattform für diese Seite getrennt von der Imageliste des Schulservers: Stellen Sie hier auf **Speicher** um, bleibt die Imageliste im Bereich **LINBO** der App **Schulserver** in ihrer Ansicht – und umgekehrt.
+
+Ein Klick auf eine Karte öffnet die Beipack-Dateien des Images; für ein Image im Altformat wird das mit einem Hinweis abgelehnt. Die übrigen Aktionen – Prüfsumme, Sicherungen, Übertragen und Löschen – erreichen Sie in jeder Ansicht gleich: Markieren Sie das Image über das Auswahlkästchen seiner Karte oder Zeile, bietet die Aktionsleiste sie an. Ein markiertes Image, das die Suche oder ein Tabellenfilter gerade ausblendet, bleibt markiert, zählt aber nicht mit und wird von keiner Aktion erfasst. **Kacheln** und **Datenblatt** nennen außerdem, welche Zusatzdateien das Image trägt, als Buchstabenkürzel, hinter denen der Dateityp als Tooltip steht; **Speicher** zeigt sie nicht. Ob ein Torrent vorliegt, ist sofort bekannt, sobald der Satellit einen anderen Torrent-Zustand als „Kein Torrent“ meldet. Die übrigen Zusatzdateien ermittelt die Plattform erst, wenn genau ein Image markiert ist (nicht im Altformat und nicht nur auf dem Server vorhanden) oder Sie dessen Beipack-Dateien öffnen. Verteilt der Satellit ein Image per Torrent, trägt dessen Karte in allen drei Kartenansichten eine Marke mit dem Zustand der Verteilung (siehe [Torrent-Verteilung](#torrent-verteilung)); ein Image ohne Torrent bleibt ohne Marke.
+
+:::note[Die Karten zeigen weniger als am Schulserver]
+Die Imageliste des Satelliten enthält weder die Beschreibung noch Partitionsangaben oder die Prüfsumme. Die Beschreibung bleibt in den Karten deshalb leer. **Partition** und **Partitionsgröße** entnimmt die Plattform der `start.conf` der Gruppen, die das Image verwenden – bei mehreren Gruppen der in der Reihenfolge der Namen ersten; die Größe des Images selbst meldet der Satellit. Die Füllanzeige **Partition gefüllt** erscheint in **Speicher** und im **Datenblatt** (dort statt der Zeilen **Größe** und **Partitionsgröße**), sobald eine Gruppe das Image verwendet und die Partitionsgröße bekannt ist; ohne verwendende Gruppe bleiben **Partition** und **Partitionsgröße** leer und die Anzeige fehlt. Ob eine Prüfsumme vorliegt, fragt die Plattform beim Satelliten erst nach, sobald genau ein Image markiert ist; auch das Ergebnis von **Prüfsumme prüfen** merkt sie sich. Die Zeile **Prüfsumme vorhanden** im **Datenblatt** erscheint deshalb nur bei Images, für die das bereits bekannt ist.
+:::
+
+Die Tabelle zeigt **Name**, **Typ**, **Größe**, **Verwendet in**, **Status**, **Abgleich** und **Aktualisiert** – und, sobald der Satellit den Zustand seiner Torrent-Verteilung meldet, zusätzlich **Torrent**.
+
+| Spalte | Bedeutung |
+|--------|-----------|
+| **Verwendet in** | die Gruppen des Satelliten, deren `start.conf` das Image startet – dieselbe Angabe tragen auch die Karten |
+| **Status** | **Verfügbar** – regulär im Imageverzeichnis abgelegt; **Altformat** – außerhalb der Imageverzeichnisse |
+| **Abgleich** | Vergleich mit dem Schulserver: **Satellit neuer**, **Server neuer**, **Gleich alt**, **Nur am Satelliten**, **Nur am Server** oder **Unbekannt** |
+| **Torrent** | Zustand der Torrent-Verteilung des Images, siehe [Torrent-Verteilung](#torrent-verteilung) |
+
+Images, die nur auf dem Schulserver liegen, führt die **Tabelle** zusätzlich auf: mit **Nur am Server** im Abgleich, Größe und Datum vom Server und ohne Status. Für sie steht nur **Vom Server holen** bereit; die übrigen Aktionen sind gesperrt, weil das Image auf dem Satelliten noch fehlt, und der Grund steht am Knopf. In den Kartenansichten erscheinen solche Images nicht, denn die Karten zeigen die Images auf dem Satelliten.
+
+Nach jeder Synchronisation des Satelliten liest die Plattform die `start.conf`-Dateien beim nächsten Öffnen erneut; **Verwendet in** zeigt dann die neue Zuordnung. Solange die Seite geöffnet ist, fragt sie die Images, die `start.conf`-Dateien und den Abgleich mit dem Schulserver jede Minute und beim Zurückwechseln in den Browser-Tab erneut ab; ist der Tab nicht sichtbar, pausiert die Abfrage. Die `start.conf`-Dateien liest sie dabei nur nach einer Synchronisation neu. Den Abgleich lässt sie aus, solange eine Aktion an einem Image läuft oder ein Dialog dazu offen ist. Eine Aktion zum Neuladen gibt es nicht.
+
+:::note[Images im Altformat]
+Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Seine Aktionen – Prüfsumme, Sicherungen, Beipack-Dateien, beide Übertragungsrichtungen und Löschen – sind deshalb gesperrt; der Grund steht am Knopf.
+:::
+
+Ist genau ein Image markiert, bietet die Aktionsleiste **Prüfsumme prüfen**, **Sicherungen**, **Bearbeiten** (Beipack-Dateien), **Vom Server holen**, **Zusatzdateien holen**, **Zum Server übertragen** und **Löschen**.
+
+##### Zusatzdateien holen
+
+Die Spalte **Abgleich** der Tabelle und die Karten der Ansichten nennen zusätzlich zum Vergleich des Images, ob dessen Zusatzdateien – Beipack-Dateien wie `.info`, `.desc` oder `.reg` – mit denen des Schulservers übereinstimmen: **Zusatzdateien aktuell** oder **Zusatzdateien veraltet**. Bei veralteten Zusatzdateien holt **Zusatzdateien holen** sie vom Schulserver, ohne das Image selbst zu übertragen. Die Rückfrage nennt, welche Dateien fehlen, sich geändert haben oder entfallen; Dateien, die es auf dem Schulserver nicht mehr gibt, löscht der Satellit dabei. „Aktuell“ heißt hier: gleiche Dateigröße wie auf dem Schulserver, nicht zwingend gleicher Inhalt. Die Aktion ist gesperrt, wenn die Zusatzdateien schon aktuell sind, der Abgleich noch unbekannt ist, das Image nur auf dem Schulserver liegt oder im Altformat vorliegt; der Grund steht am Knopf. Anschließend meldet die Plattform, wie viele Dateien geholt und wie viele gelöscht wurden, und liest den Abgleich neu.
+
+##### Prüfsumme prüfen
+
+Der Satellit berechnet die Prüfsumme und meldet, ob sie mit der hinterlegten übereinstimmt. Einen Fortschritt meldet er dabei nicht. Bei großen Images dauert die Berechnung länger, als die Verbindung zum Satelliten zulässt; die Prüfung läuft dann auf dem Satelliten weiter, ihr Ergebnis ist in der Plattform aber nicht mehr abrufbar. Meldet der Satellit, dass für das markierte Image keine Prüfsumme hinterlegt ist, sperrt die Plattform **Prüfsumme prüfen** für dieses Image; der Grund steht am Knopf. Haben Sie inzwischen einen anderen Satelliten gewählt, erscheint das Ergebnis trotzdem, mit dem Zusatz *„Auf dem Satelliten …“*.
+
+##### Übertragen
+
+Welche Richtung angeboten wird, entscheidet die Plattform aus dem Vergleich mit dem Schulserver. Eine nicht mögliche Richtung ist bereits in der Aktionsleiste gesperrt, und der Grund steht am Knopf:
+
+- Liegt das Image nur auf einer Seite, ist genau die Richtung möglich, die es auf die andere bringt.
+- Sind beide Kopien gleich alt, bleiben **beide** Richtungen gesperrt; eine Übertragung ist nicht nötig.
+- Lässt sich nicht feststellen, welche Kopie neuer ist, bleiben ebenfalls **beide** Richtungen gesperrt.
+- Würde die Übertragung die neuere Kopie durch die ältere ersetzen, warnt der Bestätigungsdialog unter *Die neuere Kopie wird überschrieben* mit beiden Zeitpunkten; übertragen wird erst mit **Übertragung starten**.
+
+:::warning[Was eine Übertragung überschreibt]
+**Vom Server holen** löscht das Imageverzeichnis auf dem Satelliten vollständig – einschließlich aller dortigen Sicherungen und Beipack-Dateien – und ersetzt es durch den Stand des Servers. **Zum Server übertragen** überschreibt das Image auf dem Schulserver, das auch andere Satelliten nutzen. Beide Schritte lassen sich nicht rückgängig machen.
+:::
+
+Eine gestartete Übertragung meldet der Satellit nicht zurück. Die Plattform bestätigt nur den Start; den Ausgang zeigt die Liste, sobald die Übertragung abgeschlossen ist und die Seite das nächste Mal abfragt.
+
+:::note[Wenn der Abgleich nicht verfügbar ist]
+Antwortet der Schulserver nicht auf den Vergleich, meldet die Seite *„Der Abgleich mit dem Schulserver ist nicht verfügbar. Die Spalte "Abgleich" und die Übertragung bleiben deshalb ohne Aussage.“* Es wird dann keine Übertragungsrichtung angeboten; die Imageliste selbst bleibt nutzbar.
+
+Scheitert der Abgleich an der LMN-API des Schulservers, nennt die Seite die Ursache. *„Der Satellit kann die Images nicht bei der LMN-API des Schulservers abfragen“* bedeutet, dass die API nicht antwortet: Prüfen Sie, ob das Netz, in dem LINBO auf dem Satelliten läuft, die in den [LINBO-Einstellungen](#einstellungen) eingetragene **API-Adresse** erreicht – etwa über eine Freigabe zwischen den VLANs und eine Rückroute oder NAT. *„Die LMN-API des Schulservers lehnt die Anmeldung des Satelliten ab oder antwortet mit einem Fehler“* bedeutet, dass die API erreichbar ist, aber die Anfrage abweist: Prüfen Sie dort **Benutzer** und **Passwort**. **Verbindung testen** im selben Dialog prüft beides. Ältere Satelliten unterscheiden die beiden Fälle nicht und melden auch eine abgelehnte Anmeldung als nicht erreichbar.
+:::
+
+##### Sicherungen
+
+Es öffnet sich derselbe Dialog wie im Bereich **LINBO** der App **Schulserver**. Er listet die Sicherungen des Images mit Zeitpunkt, Dateizahl und Größe. Einzelne Sicherungen lassen sich wiederherstellen oder löschen. Vor beiden Schritten fragt die Plattform nach. Den Hinweis, dass sich eine Wiederherstellung zurücknehmen lässt, und die Einstellungen je Sicherung gibt es hier nicht, denn der Satellit bietet beides nicht an.
+
+:::warning[Wiederherstellen mischt zwei Stände]
+Beim Wiederherstellen wird die Sicherung selbst gelöscht. Dateien, die im Image vorhanden sind, in der Sicherung aber fehlen, bleiben erhalten – das Ergebnis ist also eine Mischung aus beiden Ständen und nicht der Stand der Sicherung. Der Schritt lässt sich nicht rückgängig machen. Die Nachfrage vor dem Wiederherstellen nennt diese Warnung noch einmal.
+:::
+
+Meldet der Satellit den Ausgang der Wiederherstellung nicht zurück, weist die Plattform darauf hin, dass der Vorgang noch laufen kann. Laden Sie die Liste in diesem Fall neu, bevor Sie erneut wiederherstellen.
+
+##### Beipack-Dateien
+
+Der Dialog zeigt die Beipack-Dateien des Images in denselben Registerkarten wie im Bereich **LINBO** der App **Schulserver**: **Beschreibung**, **Info**, **Registry**, **Pre-Start Script** und **Post-Sync Script**. **Info** enthält die vom Satelliten erzeugten Angaben und ist nur lesbar. Eine **VDI-Konfiguration** bietet der Satellit nicht an.
+
+Anders als am Schulserver speichert **Speichern** nur die Datei der geöffneten Registerkarte. Was Sie in anderen Registerkarten geändert haben, bleibt als Entwurf stehen, bis Sie dort ebenfalls speichern. Schließen Sie den Dialog, während in irgendeiner Registerkarte noch ein Entwurf steht, fragt die Plattform nach, ob Sie weiterbearbeiten oder die Änderungen verwerfen wollen. Hat jemand anderes die Datei inzwischen auf dem Satelliten geändert, speichert die Plattform nicht, sondern meldet *„Die Beipack-Dateien dieses Images wurden inzwischen geändert. Deine Änderungen wurden nicht gespeichert.“*; **Neu laden** in der Meldung holt den aktuellen Stand dieser Datei und verwirft den Entwurf dieser Registerkarte.
+
+:::note[Was sich eine Änderung teilt]
+**Registry** (`.reg`), **Pre-Start Script** (`.prestart`) und **Post-Sync Script** (`.postsync`) gelten gemeinsam für Basis- und Differenzimage – eine Änderung hier wirkt auf beide. Ein leerer Inhalt löscht die Datei nicht, sondern setzt sie auf null Bytes; Beipack-Dateien zu löschen bietet der Satellit nicht an. Inhalte über 200 KB nimmt der Satellit nicht an; überschreitet der Entwurf diese Grenze, meldet die Registerkarte *Inhalt zu groß* und sperrt **Speichern**.
+
+Dateien über 1 MB liefert der Satellit nicht aus. Eine solche oder eine nicht lesbare Datei zeigt die Registerkarte als *Beipack-Datei nicht lesbar*; Speichern ist dort gesperrt, damit der vorhandene Inhalt nicht überschrieben wird.
+:::
+
+##### Löschen
+
+Vor dem Löschen ermittelt die Plattform den Umfang und nennt ihn im Bestätigungsdialog: gelöscht wird das gesamte Imageverzeichnis mit allen Dateien und Sicherungen, und der Schritt lässt sich nicht rückgängig machen. Lässt sich der Umfang nicht ermitteln, wird das Image **nicht** gelöscht.
+
+##### Torrent-Verteilung
+
+Ein Satellit kann seine Images per Torrent an die Clients verteilen. Ist das eingerichtet, meldet er zu jedem Image, ob die Verteilung funktioniert, und die Plattform zeigt das als Marke auf der Karte und in der Spalte **Torrent**:
+
+| Zustand | Bedeutung |
+|---------|-----------|
+| **Wird geseedet** | Der Seeder läuft und die Torrent-Datei passt zum Image. |
+| **Eingeschränkt** | Die Verteilung läuft, aber etwas stimmt nicht – etwa ein gestoppter Seeder oder eine Hash-Datei, die nicht zur Torrent-Datei passt. Die Gründe zeigt die Marke beim Überfahren mit der Maus. |
+| **Defekt** | Das Image kann so nicht verteilt werden, etwa weil die Torrent-Datei unlesbar ist oder das Image nicht zu ihr passt. |
+| **Unbekannt** | Der Satellit kann den Zustand gerade nicht sagen. |
+| **Kein Torrent** | Zu diesem Image liegt keine Torrent-Datei; das Image wird nicht per Torrent verteilt. In den Karten erscheint dafür keine Marke. |
+
+Bei **Wird geseedet** und **Eingeschränkt** nennt die Marke beim Überfahren außerdem, wie viele Seeder und Leecher der Tracker für das Image kennt.
+
+Zwei Hinweise der Seite betreffen alle Images zugleich:
+
+- *„Die Torrent-Verteilung ist auf diesem Satelliten nicht aktiv.“* Auf dem Satelliten ist der Torrent-Dienst nicht eingerichtet. Das ist ein normaler Zustand, kein Fehler; die Images werden dann klassisch verteilt.
+- *„Der Seeding-Zustand ist veraltet; der Torrent-Dienst hat seit … nichts mehr gemeldet.“* Die Angaben je Image beschreiben dann einen früheren Stand und werden als **Unbekannt** geführt.
+
+Die Beipack-Dateien eines Images (Klick auf die Karte oder **Bearbeiten** in der Leiste) zeigen außerdem den Abschnitt **Torrent** mit dem vollständigen Zustand: ob der Seeder läuft und eine Sitzung hat, wie viele Seeder und Leecher der Tracker kennt und wie oft das Image heruntergeladen wurde, den Tracker, den Zeitpunkt der Meldung und die festgestellten Probleme. Ist der Zustand veraltet, zeigt der Abschnitt statt der alten Angaben den Hinweis mit dem Zeitpunkt der letzten Meldung.
+
+:::note[Ältere Satelliten]
+Den Zustand der Torrent-Verteilung melden Satelliten ab Version 2.7.17. Bei einem älteren Satelliten fehlen Marke und Spalte einfach; die Imageliste ist ansonsten unverändert.
+:::
+
+#### Synchronisation
+
+Die Unterseite **Synchronisation** zeigt, was der Satellit vom Linuxmuster-Server übernommen und auf seinem eigenen System angewendet hat – und lässt einen Lauf von Hand anstoßen.
+
+Der Abschnitt **Synchronisationszustand** nennt den **Modus** (**Synchronisation aktiv** oder **Offline**), den Zeitpunkt der letzten Synchronisation, die Zahl der übernommenen Hosts und Gruppen, wie viele Hosts davon online sind und ob der Satellit die Schulserver-API erreicht. Dazu kommen der **Gesamtzustand** über alle Bestandteile, der **letzte Lauf** – inkrementell, vollständig oder eine Wiederherstellung – mit Ergebnis, Beginn und Ende, der **Cursor** sowie die Zeitpunkte des letzten Sicherungspunkts und der letzten Wiederherstellung. Läuft gerade ein Lauf, wird das hier vermerkt; ein zuletzt gemeldeter Fehler erscheint darunter.
+
+Der **Cursor** ist die Stelle, bis zu der der Satellit die Änderungen des Schulservers zuletzt übernommen hat; der nächste gewöhnliche Lauf liest ab dort weiter. Steht beim Cursor **Keiner – der nächste Lauf liest den gesamten Bestand**, übernimmt der nächste Lauf wieder alles – so erkennen Sie auch, dass **Cursor leeren** gegriffen hat. Hat der Satellit die verwalteten Dateien aus einem Sicherungspunkt wiederhergestellt – von Hand oder nach einem fehlgeschlagenen Lauf –, vermerkt der letzte Lauf das eigens.
+
+Die Zahl der Hosts online ermittelt die Seite beim Öffnen und sobald ein Lauf endet – nicht bei den regelmäßigen Abfragen im Hintergrund, nicht während eines Laufs und nicht nach **Cursor leeren**.
+
+:::note[Offline heißt nicht zwingend abgeschaltet]
+**Offline** meldet der Satellit auch dann, wenn er seine eigenen Einstellungen nicht lesen konnte. Die Anzeige belegt also nicht, dass die Synchronisation abgeschaltet wurde – prüfen Sie im Zweifel die **Einstellungen** in der Aktionsleiste.
+:::
+
+Die Karten und der Zustand erscheinen, sobald ihre Daten vom Satelliten da sind; bis dahin steht an der Stelle eine Ladeanzeige.
+
+Je Bestandteil zeigt die Seite eine Karte: **Hosts und Gruppen**, **start.conf**, **devices.csv**, **GRUB und hostcfg** sowie **DHCP-Konfiguration**. Jede Karte nennt ihren Zustand als **Aktuell**, **Ausstehend**, **Fehler** oder **Keine Angabe** und zeigt eine gemeldete Fehlermeldung im Wortlaut. **Ausstehend** heißt, dass der Satellit noch auf eine Rückmeldung wartet – etwa darauf, dass der DHCP-Dienst die neue Konfiguration übernommen hat.
+
+:::note[Nur DHCP hat einen mehrstufigen Ablauf]
+Die übrigen Bestandteile liegen im LINBO-Dateisystem des Satelliten: Schreiben und Anwenden fallen dort zusammen. Die DHCP-Konfiguration wird dagegen von einem eigenen Dienst übernommen, der den Vollzug zurückmeldet. Nur ihre Karte zeigt deshalb die vier Stufen **Gewünscht**, **Geschrieben**, **Geprüft** und **Angewendet** mit je eigenem Zustand (**Aktuell**, **Ausstehend**, **Unverändert**, **Fehlgeschlagen**, **Nicht zutreffend**, **Nicht gemeldet** oder **Keine Angabe**). Meldet der Satellit den Vollzug nicht zurück, bleiben die Stufen sichtbar – **Geprüft** und **Angewendet** dann als **Nicht gemeldet** – und die Karte weist zusätzlich darauf hin.
+:::
+
+**Keine Angabe** und **Nicht gemeldet** bedeuten fehlende Information, nicht einen Fehler: Ein Satellit, der noch nie synchronisiert hat, ruht genauso in diesem Zustand wie einer, dessen DHCP-Dienst nicht zurückmeldet. Beide werden deshalb neutral und nicht als Störung dargestellt.
+
+##### Einen Lauf anstoßen
+
+In der Aktionsleiste stehen **Synchronisieren**, **Komplett-Sync**, **Cursor leeren** und **Einstellungen**. Eine Aktion zum Neuladen gibt es hier nicht: Die Seite fragt den Zustand von selbst ab, solange kein Lauf läuft alle 30 Sekunden. Ist der Browser-Tab nicht sichtbar, pausieren die Abfragen. **Synchronisieren** übernimmt nur, was sich seit dem Cursor geändert hat; **Komplett-Sync** übernimmt den gesamten Bestand und schreibt alle verwalteten Dateien neu. **Cursor leeren** verwirft den Cursor, sodass der nächste gewöhnliche Lauf wieder alles betrachtet; einen Lauf startet es selbst nicht. Jede der drei Aktionen fragt vor dem Start nach.
+
+:::note[Während ein Lauf läuft]
+Solange ein Lauf läuft, verschwinden die drei Aktionen, und Sicherungspunkte lassen sich nicht wiederherstellen – auch bei einem Lauf, den der Satellit selbst nach seinem Zeitplan gestartet hat. In dieser Zeit lädt die Seite den Zustand alle fünf Sekunden nach, sonst alle 30 Sekunden. Häufiger fragt sie nicht, weil jede Abfrage den Satelliten eine Prüfung der Verbindung zum Schulserver kostet. Ein Lauf überdauert regelmäßig die Verbindung zum Satelliten; bricht sie ab, gilt der Lauf weiterhin als laufend und wird nicht als fehlgeschlagen gemeldet. Die Seite folgt einem Lauf, solange der Satellit ihn als laufend meldet; lässt sich sein Zustand nicht lesen, gibt sie nach fünf Minuten auf und fragt danach wieder im Abstand von 30 Sekunden nach. Läuft auf dem Satelliten bereits ein Lauf, wird auch das gemeldet, statt einen zweiten zu starten.
+:::
+
+##### Sicherungspunkte
+
+Vor einem Lauf legt der Satellit einen Sicherungspunkt an. Der Abschnitt **Sicherungspunkte** listet sie mit Zeitpunkt und Kennung; je Eintrag können Sie über **Wiederherstellen** auf diesen Stand zurückgehen. Der Satellit hält nur die jüngsten Sicherungspunkte vor – ältere verschwinden von selbst aus der Liste.
+
+:::warning[Was eine Wiederherstellung ersetzt]
+Beim Wiederherstellen werden alle verwalteten `start.conf`-Dateien, alle DHCP- und GRUB-Konfigurationen sowie der zwischengespeicherte Host- und Gruppenbestand gelöscht und durch den Stand des Sicherungspunkts ersetzt. Images und Treiber bleiben unberührt. Die Plattform fragt vor dem Schritt nach und nennt dabei den Sicherungspunkt mit Zeitpunkt und Kennung.
+:::
+
+Solange kein Sicherungspunkt vorliegt, weist der Abschnitt dies aus. Lässt sich der Zustand insgesamt nicht lesen, meldet die Seite *„Der Synchronisationszustand konnte nicht geladen werden.“*
+
+#### DHCP
+
+Die Unterseite **DHCP** steht in der Seitenleiste des Bereichs **LINBO** hinter **Synchronisation** und zeigt, was der DHCP-Dienst des Satelliten tut. Sie ist nur lesbar: Adressen lassen sich hier weder vergeben noch freigeben, und die DHCP-Konfiguration stammt aus der [Synchronisation](#synchronisation) mit dem Linuxmuster-Server. Die Seite fragt den Satelliten alle 30 Sekunden ab, solange der Browser-Tab sichtbar ist. Zwei Registerkarten gliedern sie:
+
+- **Vergebene Adressen** – die Adressen, die der DHCP-Dienst kennt, mit **Adresse**, **MAC**, **Hostname**, **Status**, **Gültig bis** und **Hersteller**. Der Status ist **Aktiv**, **Frei**, **Reserve** oder **Verworfen**; eine Adresse ohne Ablauf zeigt **Unbegrenzt**. Das Suchfeld findet Adresse, MAC, Hostname und Hersteller, der Schalter **Nur aktive** blendet alle übrigen Adressen aus. Über der Tabelle stehen die Zeile **Adressen** mit „N aktiv von M“ und der **Stand der Daten**. Auf schmalen Bildschirmen entfallen die Spalten **MAC**, **Gültig bis** und **Hersteller**.
+- **Verlauf** – die letzten 500 Zeilen des DHCP-Protokolls mit **Zeit**, **Typ** und **Meldung**. Das Suchfeld findet die MAC- oder IP-Adresse eines Clients, die Auswahl **Meldungstyp** schränkt die Zeilen auf Typen wie `DHCPDISCOVER`, `DHCPOFFER`, `DHCPREQUEST` oder `DHCPACK` ein. Über der Tabelle stehen die Zeile **Zeilen** („x von y“) und der **Stand der Daten**. Auf schmalen Bildschirmen entfallen die Spalten **Zeit** und **Typ**.
+
+:::note[Keine DHCP-Daten]
+Läuft der DHCP-Container des Satelliten nicht oder hat er noch nichts geschrieben, zeigt die Registerkarte *„Keine DHCP-Daten verfügbar“* und erklärt es je Registerkarte: Bei **Vergebene Adressen** fehlt die Lease-Datenbank, bei **Verlauf** das DHCP-Protokoll, das das Log-Relay im selben Container schreibt. Einen vom Satelliten gemeldeten Grund zeigt die Seite nicht an. Lässt sich eine Liste gar nicht laden, meldet die Seite das eigens für **Vergebene Adressen** beziehungsweise **Verlauf**.
+:::
+
+:::note[Nicht alle Daten sichtbar]
+Liefert der Satellit nicht alle Adressen oder Protokollzeilen, steht über der Tabelle der Hinweis *„Es werden nur N von M Adressen angezeigt. Der Satellit liefert nicht alle Daten.“* beziehungsweise der entsprechende für Zeilen. Suche und Filter wirken dann nur auf die angezeigten Einträge.
+:::
+
+#### Protokolle
+
+Die Unterseite **Protokolle** ist die letzte der Seitenleiste und zeigt das Protokoll des LINBO-Dienstes auf dem Satelliten: die letzten 500 Einträge mit **Stufe**, **Zeit** und **Meldung**. Sie ist nur lesbar und fragt den Satelliten alle 15 Sekunden ab, solange der Browser-Tab sichtbar ist. Das Suchfeld durchsucht die Meldungen; die Auswahl **Stufe** schränkt die Liste auf **Fehler**, **Warnung**, **Info** und **Debug** ein und nennt bei jeder Stufe, wie viele der geladenen Einträge sie trägt. Die neuesten Einträge stehen oben. Ein Klick auf einen Eintrag öffnet den Dialog **Protokolleintrag** mit Typ, Zeit, Stufe und vollständiger Meldung; **Kopieren** übernimmt den ganzen Eintrag als JSON. Auch ohne Maus öffnen Sie den Dialog: Die Spalte **Aktionen** am Ende jeder Zeile trägt eine Schaltfläche **Details anzeigen** (Augen-Symbol), die sich mit der Tastatur erreichen lässt. Auf schmalen Bildschirmen entfällt die Spalte **Zeit**; die Zeit steht dann nur im Dialog. Scheitert eine Aktualisierung, bleibt der zuletzt geladene Stand stehen und die Seite meldet den Fehler; solange noch nichts geladen war, meldet sie, dass sich das Protokoll nicht lesen lässt, und hat der Satellit noch nichts protokolliert, sagt sie das.
+
+#### Einstellungen
+
+**Einstellungen** in der Aktionsleiste der LINBO-Unterseiten öffnet den Dialog **LINBO-Einstellungen**. Er wirkt ausschließlich auf den ausgewählten Satelliten; die zentralen Plattformeinstellungen bleiben davon unberührt. Links steht die **Verbindung zum Schulserver** mit **API-Adresse**, **Benutzer**, **Passwort**, **Schule** und **LINBO-Server-IP** sowie **Verbindung testen**, rechts die **Synchronisation** mit **Synchronisation aktiv** und dem **Intervall**. Ein Lesezeichen auf die frühere Unterseite **Einstellungen** führt zu **Hosts** und öffnet dort den Dialog.
+
+**Synchronisation aktiv** nimmt `true` oder `false` an und schaltet die selbsttätige Synchronisation ein oder aus. **Intervall (Sekunden, 0 deaktiviert)** ist der Abstand zwischen zwei selbsttätigen Läufen; `0` schaltet den Zeitgeber ab. **API-Adresse** ist die Adresse der Linuxmuster-API des Schulservers, **LINBO-Server-IP** die IP-Adresse, die der Satellit den Rechnern als LINBO-Server nennt.
+
+Neben jedem Feld steht, woher der Satellit den Wert bezieht:
+
+| Kennzeichnung | Bedeutung |
+|---------------|-----------|
+| **Standard** | Vorgabewert des Satelliten |
+| **Aus der Umgebung** | bei der Einrichtung des Geräts gesetzt |
+| **Überschrieben** | hier in der Plattform gesetzt |
+
+**Speichern** übernimmt alle geänderten Felder auf einmal; Felder ohne Änderung sendet die Plattform nicht mit. Die Plattform prüft eine Eingabe nach denselben Regeln wie der Satellit und nennt unter dem Feld den Grund, wenn ein Wert nicht passt; solange ein Feld nicht passt, lässt sich nichts speichern. Leerzeichen am Anfang und Ende entfernt die Plattform vor dem Speichern. Ein geleertes Feld wird nicht gespeichert; einen hier überschriebenen Wert entfernt das Zurücksetzen. Lehnt der Satellit einzelne Felder ab, bleibt der Dialog offen und nennt sie; die übrigen Änderungen sind dann bereits gespeichert, die abgelehnten stehen weiter im Formular. Schließen Sie den Dialog mit ungespeicherten Änderungen, fragt die Plattform, ob Sie sie verwerfen möchten.
+
+Zurücksetzen verwirft eine hier gesetzte Überschreibung, sodass wieder der Wert aus der Umgebung beziehungsweise der Vorgabewert gilt. **Auf Standard zurücksetzen** unten im Dialog setzt alle Felder mit der Kennzeichnung **Überschrieben** zurück; ein einzelnes Feld setzt das Pfeil-Symbol neben seiner Kennzeichnung zurück, das nur bei überschriebenen Feldern erscheint. Ein Wert aus der Umgebung lässt sich hier nicht zurücksetzen. Vor dem Zurücksetzen fragt die Plattform nach und nennt die betroffenen Einstellungen. Bei **API-Adresse**, **Benutzer**, **Passwort**, **Schule** und **LINBO-Server-IP** warnt sie dabei, dass die Synchronisation mit dem Schulserver von der Einstellung abhängt und fehlschlägt, wenn der danach geltende Wert nicht passt.
+
+:::note[Zeitplan und Intervall starten womöglich sofort einen Lauf]
+Änderungen an **Synchronisation aktiv** und **Intervall** – auch das Zurücksetzen auf den Standard – richten den Zeitplan des Satelliten neu ein. Ist ein Lauf dabei bereits überfällig, startet der Satellit ihn sofort nach dem Speichern. Die Rückfragen vor dem Speichern und vor dem Zurücksetzen weisen darauf hin – setzen Sie alle Felder auf einmal zurück und ist darunter eine Einstellung der Verbindung zum Schulserver, warnt die Rückfrage stattdessen vor den Folgen für die Synchronisation.
+:::
+
+:::note[Das Passwort wird nie zurückgegeben]
+Der Satellit gibt das gespeicherte Passwort nicht heraus; über dem Feld steht nur die maskierte Form, die er meldet – vier Sterne und die letzten vier Zeichen – oder **Nicht gesetzt**, wenn kein Passwort hinterlegt ist. Das Eingabefeld beginnt bei jedem Aufruf leer – das ist keine Aufforderung, das Passwort zu löschen: Ein leer gelassenes Feld wird nicht gesendet. Nur wenn Sie etwas eintragen und speichern, wird das Passwort ersetzt.
+:::
+
+Über **Verbindung testen** prüft der Satellit, ob er den Schulserver erreicht. Dabei verwendet er die in **API-Adresse**, **Benutzer** und **Passwort** eingetragenen, noch nicht gespeicherten Werte und für leer gelassene Felder die gespeicherten – so lässt sich etwa ein neues Passwort prüfen, bevor es gespeichert wird. Der Test speichert selbst nichts. Das Ergebnis lautet:
+
+- *„Der Schulserver ist erreichbar.“* – zusammen mit der Version der API und der Antwortzeit,
+- *„Der Schulserver antwortet, meldet aber keinen betriebsbereiten Zustand. Bitte Benutzer und Passwort prüfen.“*
+- *„Der Schulserver ist nicht erreichbar.“*
+
+:::note[Satellitenwechsel verwirft Eingaben]
+Wechseln Sie den Satelliten, während ein Feld noch ungespeichert ist, werden die Eingaben verworfen. So gelangt kein Wert – und vor allem kein Passwort – versehentlich auf das falsche Gerät.
+:::
 
 ## Siehe auch
 

@@ -29,9 +29,9 @@ Jede Zeile entspricht einem Gerät. Folgende Spalten werden angezeigt:
 
 | Spalte | Beschreibung |
 |--------|--------------|
-| **Raum** | Raumbezeichnung des Geräts (nur Buchstaben, Ziffern und `-`, max. 15 Zeichen) |
-| **Rechnername** | Hostname des Geräts (nur Buchstaben, Ziffern und `-`, max. 15 Zeichen, eindeutig) |
-| **Gruppe** | LINBO-Hardwaregruppe des Geräts |
+| **Raum** | Raumbezeichnung des Geräts (nur Buchstaben, Ziffern und `-`, beginnt mit einem Buchstaben oder einer Ziffer, max. 63 Zeichen) |
+| **Rechnername** | Hostname des Geräts (nur Buchstaben, Ziffern und `-`, beginnt und endet mit einem Buchstaben oder einer Ziffer, max. 15 Zeichen, eindeutig) |
+| **Gruppe** | LINBO-Hardwaregruppe des Geräts (nur Buchstaben, Ziffern, `-` und `_`, beginnt mit einem Buchstaben oder einer Ziffer, max. 63 Zeichen) |
 | **MAC** | MAC-Adresse im Format `XX:XX:XX:XX:XX:XX` (eindeutig) |
 | **IP** | IP-Adresse als Dotted-Quad, z. B. `10.0.0.10` (eindeutig) |
 | **Sophomorix-Rolle** | Rolle des Geräts (Auswahlliste, siehe unten) |
@@ -73,6 +73,10 @@ Die Spalte **PXE** steuert das Netzwerk-Startverhalten (LINBO):
 |------|-----------|
 | **0** | Kein PXE |
 | **1** | Linbo-PXE |
+| **2** | Linbo-PXE + OPSI-Management |
+| **3** | OPSI-PXE |
+
+Die Werte **2** und **3** zeigt die Liste an, wenn sie bereits in der Geräteliste stehen; neu auswählen lassen sie sich nicht. LINBO-Kommandos erreichen nur Geräte mit **1** oder **2**.
 
 ## Geräte bearbeiten
 
@@ -137,6 +141,12 @@ Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen.
 
 :::warning Fehler beim Import
 **Anwenden** legt die Geräteliste zuerst auf dem Server ab und startet den Import erst danach. Schlägt allein der Importlauf fehl, ist die Liste bereits gespeichert: Die zum Entfernen markierten Geräte kehren dann **nicht** in die Tabelle zurück, und die Liste gilt als gespeichert. Wiederholen Sie in diesem Fall **Anwenden**, um den Import erneut anzustoßen.
+:::
+
+:::warning[Geräteliste inzwischen geändert]
+Hat sich die Geräteliste auf dem Server geändert, seit Sie sie geöffnet haben – etwa durch einen anderen Admin, einen anderen Tab oder das [Umbenennen einer LINBO-Gruppe](../../../edulution-server/linuxmuster.md#eine-gruppe-umbenennen), das Geräte auf den neuen Gruppennamen umstellt –, lehnen **Speichern** und **Anwenden** ab und schreiben nichts; ein Import läuft dann nicht. Die Meldung lautet *„Die Geräteliste von … wurde inzwischen geändert. Ihre Änderungen wurden nicht gespeichert; laden Sie die Liste neu und übernehmen Sie sie erneut.“*
+
+Ihre ungespeicherten Einträge bleiben in der Tabelle, bis Sie in der Meldung **Neu laden** wählen. Das lädt den aktuellen Stand und verwirft die Einträge. Notieren Sie Ihre Änderungen deshalb vorher und tragen Sie sie nach dem Neuladen erneut ein.
 :::
 
 </Audience>

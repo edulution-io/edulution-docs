@@ -37,9 +37,11 @@ Für Benutzertypen mit Verwaltungsliste ist die Ansicht in zwei Registerkarten g
 Für Benutzertypen ohne Verwaltungsliste (Schuladmins, Globaladmins) entfällt die Registerkarte **Import**; dort erscheint der Hinweis *„Für diesen Benutzertyp ist kein Import verfügbar."*
 
 :::note[Schulauswahl]
-In Umgebungen mit mehreren Schulen enthalten die Ansichten oben rechts eine **Schulauswahl**; ein Wechsel lädt die Listen der gewählten Schule neu. Als **Globaladmin** wählen Sie dort jede Schule des Servers, als **Schuladmin** enthält die Auswahl nur Ihre eigene Schule.
+In Umgebungen mit mehreren Schulen enthalten die Ansichten für **Globaladmins** eine **Schulauswahl** mit jeder Schule des Servers; ein Wechsel lädt die Listen der gewählten Schule neu. Beim Benutzertyp **Globaladmins** entfällt sie. Ein Schuladmin sieht keine Schulauswahl und arbeitet immer in seiner eigenen Schule.
+:::
 
-Als **Schuladmin** bleibt die Benutzertabelle beim Benutzertyp **Globaladmins** ohne Einträge – diese Konten gehören keiner einzelnen Schule an.
+:::note[Wer die Globaladmins sieht]
+Den Benutzertyp **Globaladmins** sehen nur Globaladmins; einem Schuladmin fehlt er in der Seitenleiste und als Kachel auf der Übersicht. Diese Konten gehören keiner einzelnen Schule an, und die Linuxmuster-API gibt ihre Liste nur an Globaladmins heraus.
 :::
 
 ## Registerkarte „Benutzer"

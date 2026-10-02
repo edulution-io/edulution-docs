@@ -60,7 +60,7 @@ function HomepageContent() {
             </p>
             <Link
               className="button button--primary button--sm"
-              to="/docs/edulution-mail/installation"
+              to="/docs/edulution-mail/konfiguration/installation"
             >
               Mail Setup
             </Link>

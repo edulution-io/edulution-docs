@@ -1,3 +1,8 @@
+---
+sidebar_custom_props:
+  audience: admin-setup
+---
+
 # SSL-Zertifikate & Reverse-Proxy
 
 **Zertifikat-Speicherort**

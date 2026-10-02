@@ -37,6 +37,7 @@ Die Gesamtzahl ungelesener Nachrichten – am Postfach in der Ordnerliste, am E-
 
 - Haben Sie Zugriff auf **freigegebene Postfächer** (z. B. ein Funktionspostfach wie `verwaltung@…`), erscheinen diese als zusätzliche Postfächer mit eigenen Ordnern in der Liste.
 - Über das **Aktionen**-Menü an einem Ordner legen Sie **neue Ordner** an, **benennen** sie um oder **löschen** sie – ausgenommen die Standardordner. Ordnernamen dürfen bestimmte Sonderzeichen nicht enthalten; das Löschen wird mit einer Sicherheitsabfrage bestätigt.
+- Am **Papierkorb** und am **Spam**-Ordner enthält das **Aktionen**-Menü zusätzlich **Papierkorb leeren** bzw. **Spam-Ordner leeren** (siehe [Papierkorb und Spam-Ordner leeren](#papierkorb-und-spam-ordner-leeren)).
 
 ## Nachrichten lesen und verwalten
 
@@ -53,8 +54,30 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 **In den Papierkorb verschieben** legt Nachrichten im **Papierkorb** des Postfachs ab, in dem sie liegen – bei einem freigegebenen Postfach also in dessen eigenem Papierkorb, nicht in Ihrem.
 
 :::caution[Postfach ohne Papierkorb]
-Besitzt ein Postfach keinen Papierkorb, löscht **In den Papierkorb verschieben** die Nachrichten endgültig. Die Schaltfläche behält ihre Beschriftung; erst die Sicherheitsabfrage weist darauf hin: „Es gibt keinen Papierkorb-Ordner. Diese E-Mail wird endgültig gelöscht und kann nicht wiederhergestellt werden.“
+Besitzt ein Postfach keinen Papierkorb, löscht **In den Papierkorb verschieben** die Nachrichten endgültig. Die Schaltfläche behält ihre Beschriftung; erst die Sicherheitsabfrage weist darauf hin: „Es gibt keinen Papierkorb-Ordner. Diese E-Mail wird endgültig gelöscht.“
 :::
+
+Nachrichten, die Sie im **Papierkorb** selbst löschen, werden nach einer Sicherheitsabfrage ebenfalls endgültig gelöscht.
+
+### Papierkorb und Spam-Ordner leeren
+
+Öffnen Sie in der Ordnerliste das **Aktionen**-Menü am **Papierkorb** und wählen Sie **Papierkorb leeren** – am **Spam**-Ordner entsprechend **Spam-Ordner leeren**. Nach einer Sicherheitsabfrage, die die Anzahl der enthaltenen Nachrichten nennt, werden alle Nachrichten des Ordners auf einmal endgültig gelöscht, auch solche, die in der Liste noch nicht geladen sind.
+
+- Den Menüeintrag gibt es auch am Papierkorb und am Spam-Ordner eines **freigegebenen Postfachs**; das Leeren betrifft dann dessen eigenen Ordner. Dafür benötigen Sie in diesem Postfach das Recht zum Löschen – fehlt es, erscheint eine Fehlermeldung und die Nachrichten bleiben erhalten.
+- Gelöscht werden nur die Nachrichten, die beim Öffnen der Sicherheitsabfrage bereits im Ordner lagen. Was danach eintrifft oder dorthin verschoben wird – auch aus einem anderen Mailprogramm –, bleibt erhalten.
+- Liegen beim Bestätigen mehr Nachrichten im Ordner, als die Sicherheitsabfrage genannt hat, wird nichts gelöscht und es erscheint die Meldung **Der Ordner wurde zwischenzeitlich verändert – es wurde nichts gelöscht**. Öffnen Sie die Abfrage dann erneut; sie nennt die aktuelle Anzahl.
+- Ein selbst angelegter Ordner, der nur „Trash“ oder „Papierkorb“ heißt, bietet die Funktion nicht an, solange Ihr Postfach einen anderen Ordner als Papierkorb führt.
+- Ist der Ordner bereits leer, weist die Sicherheitsabfrage mit **Der Ordner ist bereits leer** darauf hin, und **Löschen** lässt sich nicht anklicken.
+
+### Endgültiges Löschen rückgängig machen
+
+Jedes endgültige Löschen – im Papierkorb, beim Leeren von Papierkorb und Spam-Ordner sowie in einem Postfach ohne Papierkorb – lässt sich für ein kurzes Zeitfenster rückgängig machen. Wie lang es ist, legen Sie in Ihren E-Mail-Einstellungen unter **Zeitfenster** fest (siehe [Mein Profil → Senden rückgängig machen](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#senden-rückgängig-machen)); das gilt auch, wenn das verzögerte Senden ausgeschaltet ist. Standardmäßig sind es 10 Sekunden. Die Nachrichten verschwinden sofort aus der Liste, für die eingestellte Dauer erscheint jedoch eine Meldung wie **3 E-Mails werden gelöscht …** mit der Schaltfläche **Rückgängig**. Ein Klick darauf innerhalb des Zeitfensters bricht das Löschen ab, und die Nachrichten erscheinen wieder. Wie beim verzögerten Senden läuft das Löschen serverseitig – es wird also auch ausgeführt, wenn Sie das Fenster oder den Browser zwischenzeitlich schließen.
+
+| Meldung | Bedeutung |
+|---------|-----------|
+| **Zu spät – die E-Mails wurden bereits gelöscht** | Beim Klick auf **Rückgängig** war das Zeitfenster bereits abgelaufen |
+| **Das Löschen konnte nicht abgebrochen werden – die E-Mails werden trotzdem gelöscht** | Der Abbruch hat den Server nicht erreicht, etwa bei einer Netzwerkstörung |
+| **E-Mails konnten nicht gelöscht werden – sie sind wieder sichtbar** | Das Löschen ist fehlgeschlagen, z. B. weil Ihnen in einem freigegebenen Postfach das Recht dazu fehlt; die Nachrichten bleiben erhalten |
 
 ### Links in Nachrichten
 

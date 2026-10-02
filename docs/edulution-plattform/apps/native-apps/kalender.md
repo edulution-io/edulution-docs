@@ -210,15 +210,21 @@ Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender
 
 Termine mit fester Uhrzeit werden an die **Zeitzone** gebunden, in der Sie sie anlegen – in der Regel die Zeitzone Ihres Geräts. Dadurch bleibt die eingetragene Uhrzeit erhalten: Der Termin wird stets zur festgelegten Ortszeit angezeigt, auch über die Umstellung zwischen Sommer- und Winterzeit hinweg und unabhängig davon, in welcher Zeitzone er später betrachtet wird. Bearbeiten Sie einen bestehenden Termin, behält er seine ursprüngliche Zeitzone – selbst dann, wenn Sie sich inzwischen in einer anderen Zeitzone befinden. Ganztägige Termine haben keine Uhrzeit und sind an keine Zeitzone gebunden.
 
-Im Dialog zum Erstellen und Bearbeiten finden Sie die Zeitzone unterhalb der Felder **Beginn** und **Ende** im Auswahlfeld **Zeitzone**. Vorbelegt ist die Zeitzone Ihres Geräts; über das Auswahlfeld können Sie stattdessen jede andere Zeitzone wählen – etwa, um einen Termin bereits in der Ortszeit des Veranstaltungsorts einzutragen. Bei eingeschalteter Option **Ganztägig** wird das Feld ausgeblendet.
+Im Dialog zum Erstellen und Bearbeiten finden Sie die Zeitzone unterhalb der Felder **Beginn** und **Ende** im Auswahlfeld **Zeitzone**. Bei einem neuen Termin ist die Zeitzone Ihres Geräts vorbelegt, sobald der Dialog die Liste der verfügbaren Zeitzonen geladen hat. Über das Auswahlfeld können Sie stattdessen jede andere Zeitzone wählen – etwa, um einen Termin bereits in der Ortszeit des Veranstaltungsorts einzutragen – oder mit **Keine Zeitzone** auf eine Zeitzone verzichten. Bei eingeschalteter Option **Ganztägig** wird das Feld ausgeblendet.
 
 Die Uhrzeiten in **Beginn** und **Ende** verstehen sich immer als Ortszeit der gewählten Zeitzone. Wechseln Sie die Zeitzone, ändern sich die eingetragenen Uhrzeiten daher nicht – der Termin verschiebt sich stattdessen auf den entsprechenden Zeitpunkt in der neuen Zeitzone.
 
+Weicht die Zeitzone eines Termins von der Ihres Geräts ab, zeigt die Detailansicht des Termins eine zusätzliche Zeile **Zeitzone** mit Beginn und Ende in der Ortszeit des Termins.
+
 :::info[Termine ohne hinterlegte Zeitzone]
-Termine, die vor der Einführung der Zeitzonen-Unterstützung angelegt wurden, tragen noch keine Zeitzone. Sobald Sie einen solchen Termin zum Bearbeiten öffnen oder ihn im Kalender verschieben, erhält er Ihre eigene Zeitzone. Bis dahin bleibt seine Uhrzeit unverändert gespeichert.
+Termine, die vor der Einführung der Zeitzonen-Unterstützung angelegt wurden, tragen noch keine Zeitzone; ihre Uhrzeit bleibt unverändert gespeichert.
+
+- Öffnen Sie einen solchen **Einzeltermin** zum Bearbeiten, ist die Zeitzone Ihres Geräts vorbelegt und wird beim Speichern übernommen.
+- Einen **Serientermin** ohne Zeitzone lässt der Dialog ohne Zeitzone, damit seine bisherigen Termine ihre Uhrzeiten behalten. Wählen Sie bei Bedarf selbst eine Zeitzone.
+- Verschieben Sie einen Termin ohne Zeitzone [per Drag & Drop](#termine-per-drag--drop-verschieben), erhält er die Zeitzone Ihres Geräts – auch ein Serientermin.
 :::
 
-Kennt Ihr Browser die Zeitzone eines Termins nicht – etwa, weil sie erst vor Kurzem eingeführt wurde und Ihr Gerät veraltet ist –, weist der Dialog unterhalb des Auswahlfelds darauf hin und nennt die Zeitzone, in der die Uhrzeiten stattdessen angezeigt und gespeichert werden. Prüfen Sie eingetragene Uhrzeiten in diesem Fall besonders sorgfältig und aktualisieren Sie nach Möglichkeit Ihren Browser.
+Unterhalb des Auswahlfelds weist der Dialog darauf hin, wenn der Server eine Zeitzone nicht speichern kann. Betrifft das die gewählte Zeitzone, wählen Sie eine andere; betrifft es die Zeitzone Ihres Geräts, wird der Termin ohne Zeitzone gespeichert. Kann der Server eine Zeitzone für das Datum eines Termins nicht abbilden, speichert er den Termin ohne sie und eine Meldung weist darauf hin; die Uhrzeit des Termins bleibt dabei unverändert.
 
 :::info[Zeitumstellung: doppelte und fehlende Uhrzeiten]
 In der Nacht der Umstellung von Sommer- auf Winterzeit tritt eine Uhrzeit zweimal auf – in Berliner Zeit etwa 02:30 Uhr. Tragen Sie einen Termin auf eine solche Uhrzeit ein, wird stets der **spätere** der beiden Zeitpunkte gewählt, also derjenige bereits in der Winterzeit. Das gilt ebenso, wenn Sie in der Stundenplan-Ansicht direkt auf die betreffende Zeile klicken. Ein Termin, der bereits auf dem früheren der beiden Zeitpunkte gespeichert ist, bleibt dort liegen, solange Sie seine Uhrzeit nicht ändern.
@@ -323,6 +329,8 @@ Eine Ausnahme gilt in der Wochen-, Tages- und Stundenplan-Ansicht: Würde der Te
 Ganztägige Termine behalten beim Verschieben ihre Länge und bleiben ganztägig. Sie werden nach derselben Regel um ganze Tage verschoben; ein eintägiger Termin landet also auf dem Tag, auf den Sie ihn ziehen. In der Wochen-, Tages- und Stundenplan-Ansicht ist die Zeile der ganztägigen Termine (**Ganzt.**) kein Ablageziel: Ziehen Sie einen ganztägigen Termin dort auf einen beliebigen Zeitabschnitt des gewünschten Tages. Er erhält dadurch keine Uhrzeit, sondern wechselt lediglich das Datum.
 
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
+
+Ein Termin mit Uhrzeit, der noch keine Zeitzone trägt, erhält beim Verschieben die Zeitzone Ihres Geräts (siehe [Zeitzone von Terminen](#zeitzone-von-terminen)).
 
 :::info[Termine ohne Bearbeitungsrecht]
 Verschieben lassen sich nur Termine, für die Sie das Recht zum **Ändern** besitzen. In einem freigegebenen Kalender kann das je Sichtbarkeit unterschiedlich sein (siehe [Abonnierte und schreibgeschützte Kalender](#abonnierte-und-schreibgeschützte-kalender)). Auch einzelne Ausnahmen innerhalb einer Serie lassen sich nicht frei verschieben.

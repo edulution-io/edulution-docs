@@ -210,7 +210,7 @@ Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender
 
 Termine mit fester Uhrzeit werden an die **Zeitzone** gebunden, in der Sie sie anlegen – in der Regel die Zeitzone Ihres Geräts. Dadurch bleibt die eingetragene Uhrzeit erhalten: Der Termin wird stets zur festgelegten Ortszeit angezeigt, auch über die Umstellung zwischen Sommer- und Winterzeit hinweg und unabhängig davon, in welcher Zeitzone er später betrachtet wird. Bearbeiten Sie einen bestehenden Termin, behält er seine ursprüngliche Zeitzone – selbst dann, wenn Sie sich inzwischen in einer anderen Zeitzone befinden. Ganztägige Termine haben keine Uhrzeit und sind an keine Zeitzone gebunden.
 
-Im Dialog zum Erstellen und Bearbeiten finden Sie die Zeitzone unterhalb der Felder **Beginn** und **Ende** im Auswahlfeld **Zeitzone**. Bei einem neuen Termin ist die Zeitzone Ihres Geräts vorbelegt, sobald der Dialog die Liste der verfügbaren Zeitzonen geladen hat. Über das Auswahlfeld können Sie stattdessen jede andere Zeitzone wählen – etwa, um einen Termin bereits in der Ortszeit des Veranstaltungsorts einzutragen – oder mit **Keine Zeitzone** auf eine Zeitzone verzichten. Bei eingeschalteter Option **Ganztägig** wird das Feld ausgeblendet.
+Im Dialog zum Erstellen und Bearbeiten finden Sie die Zeitzone unterhalb der Felder **Beginn** und **Ende** im Auswahlfeld **Zeitzone**. Bei einem neuen Termin ist die Zeitzone Ihres Geräts vorbelegt, sobald der Dialog die Liste der verfügbaren Zeitzonen geladen hat – außer bei einem Beginn vor 2015 (siehe unten). Über das Auswahlfeld können Sie stattdessen jede andere Zeitzone wählen – etwa, um einen Termin bereits in der Ortszeit des Veranstaltungsorts einzutragen – oder mit **Keine Zeitzone** auf eine Zeitzone verzichten. Bei eingeschalteter Option **Ganztägig** wird das Feld ausgeblendet.
 
 Die Uhrzeiten in **Beginn** und **Ende** verstehen sich immer als Ortszeit der gewählten Zeitzone. Wechseln Sie die Zeitzone, ändern sich die eingetragenen Uhrzeiten daher nicht – der Termin verschiebt sich stattdessen auf den entsprechenden Zeitpunkt in der neuen Zeitzone.
 
@@ -219,12 +219,12 @@ Weicht die Zeitzone eines Termins von der Ihres Geräts ab, zeigt die Detailansi
 :::info[Termine ohne hinterlegte Zeitzone]
 Termine, die vor der Einführung der Zeitzonen-Unterstützung angelegt wurden, tragen noch keine Zeitzone; ihre Uhrzeit bleibt unverändert gespeichert.
 
-- Öffnen Sie einen solchen **Einzeltermin** zum Bearbeiten, ist die Zeitzone Ihres Geräts vorbelegt und wird beim Speichern übernommen.
+- Öffnen Sie einen solchen **Einzeltermin** zum Bearbeiten, ist die Zeitzone Ihres Geräts vorbelegt und wird beim Speichern übernommen – außer bei einem Beginn vor 2015.
 - Einen **Serientermin** ohne Zeitzone lässt der Dialog ohne Zeitzone, damit seine bisherigen Termine ihre Uhrzeiten behalten. Wählen Sie bei Bedarf selbst eine Zeitzone.
-- Verschieben Sie einen Termin ohne Zeitzone [per Drag & Drop](#termine-per-drag--drop-verschieben), erhält er die Zeitzone Ihres Geräts – auch ein Serientermin.
+- Verschieben Sie einen Termin ohne Zeitzone [per Drag & Drop](#termine-per-drag--drop-verschieben), erhält er die Zeitzone Ihres Geräts – auch ein Serientermin, nicht jedoch bei einem Beginn vor 2015.
 :::
 
-Unterhalb des Auswahlfelds weist der Dialog darauf hin, wenn der Server eine Zeitzone nicht speichern kann. Betrifft das die gewählte Zeitzone, wählen Sie eine andere; betrifft es die Zeitzone Ihres Geräts, wird der Termin ohne Zeitzone gespeichert. Kann der Server eine Zeitzone für das Datum eines Termins nicht abbilden, speichert er den Termin ohne sie und eine Meldung weist darauf hin; die Uhrzeit des Termins bleibt dabei unverändert.
+Unterhalb des Auswahlfelds weist der Dialog darauf hin, wenn der Server eine Zeitzone nicht speichern kann. Betrifft das die gewählte Zeitzone, wählen Sie eine andere; betrifft es die Zeitzone Ihres Geräts, wird der Termin ohne Zeitzone gespeichert. Einige wenige Zeitzonen kann der Server erst ab 2015 exakt abbilden. Legen Sie einen Termin mit Beginn vor 2015 in einer solchen Zeitzone an oder wechseln Sie einen Termin in eine solche Zeitzone, lehnt der Server das Speichern mit der Meldung „Diese Zeitzone kann der Server für einen Termin vor 2015 nicht abbilden“ ab; wählen Sie dann eine andere Zeitzone oder ein späteres Datum. Ändern Sie dagegen die Uhrzeit einer bereits gespeicherten Serie in einer solchen Zeitzone, wird die Serie ohne Zeitzone gespeichert und eine Meldung weist darauf hin; die Uhrzeit des Termins bleibt dabei unverändert.
 
 :::info[Zeitumstellung: doppelte und fehlende Uhrzeiten]
 In der Nacht der Umstellung von Sommer- auf Winterzeit tritt eine Uhrzeit zweimal auf – in Berliner Zeit etwa 02:30 Uhr. Tragen Sie einen Termin auf eine solche Uhrzeit ein, wird stets der **spätere** der beiden Zeitpunkte gewählt, also derjenige bereits in der Winterzeit. Das gilt ebenso, wenn Sie in der Stundenplan-Ansicht direkt auf die betreffende Zeile klicken. Ein Termin, der bereits auf dem früheren der beiden Zeitpunkte gespeichert ist, bleibt dort liegen, solange Sie seine Uhrzeit nicht ändern.
@@ -330,7 +330,7 @@ Ganztägige Termine behalten beim Verschieben ihre Länge und bleiben ganztägig
 
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
 
-Ein Termin mit Uhrzeit, der noch keine Zeitzone trägt, erhält beim Verschieben die Zeitzone Ihres Geräts (siehe [Zeitzone von Terminen](#zeitzone-von-terminen)).
+Ein Termin mit Uhrzeit, der noch keine Zeitzone trägt, erhält beim Verschieben die Zeitzone Ihres Geräts, sofern er nicht vor 2015 beginnt (siehe [Zeitzone von Terminen](#zeitzone-von-terminen)).
 
 :::info[Termine ohne Bearbeitungsrecht]
 Verschieben lassen sich nur Termine, für die Sie das Recht zum **Ändern** besitzen. In einem freigegebenen Kalender kann das je Sichtbarkeit unterschiedlich sein (siehe [Abonnierte und schreibgeschützte Kalender](#abonnierte-und-schreibgeschützte-kalender)). Auch einzelne Ausnahmen innerhalb einer Serie lassen sich nicht frei verschieben.

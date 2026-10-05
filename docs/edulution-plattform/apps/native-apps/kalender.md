@@ -340,15 +340,15 @@ Ist ein Empfänger im Verzeichnis nicht mehr auffindbar — etwa weil sein Konto
 
 Die Suche unter **Personen oder Gruppen hinzufügen** speist sich aus zwei getrennten Quellen:
 
-- **Personen** stammen ausschließlich aus den Adressbüchern, auf die Sie in der [Kontakte](kontakte.md)-App Zugriff haben – nicht aus dem Verzeichnis. Wen Sie dort nicht als Kontakt führen, können Sie hier auch nicht vorschlagen lassen; legen Sie die Person in diesem Fall zunächst in der Kontakte-App an.
+- **Personen** stammen ausschließlich aus den Adressbüchern, auf die Sie in der [Kontakte](kontakte.md)-App Zugriff haben, nicht aus dem Verzeichnis. Wen Sie dort nicht als Kontakt führen, legen Sie zunächst in der Kontakte-App an.
 - **Verteiler** stammen aus dem Verzeichnis, einschließlich ihrer Kategorien. Angeboten werden dabei auch Verteiler, für die sich kein Kalender freigeben lässt (siehe [Freigabe an einen Verteiler](#freigabe-an-einen-verteiler)).
 
 Für die Personensuche gilt darüber hinaus:
 
-- Durchsucht werden **alle** Ihre Adressbücher gleichzeitig – anders als das Suchfeld der Kontakte-App, das sich immer nur auf das ausgewählte Adressbuch bezieht. Auf Schreibweisen von Umlauten kommt es dabei ebenso wenig an wie dort.
-- Vorgeschlagen wird nur, wer eine **E-Mail-Adresse** hinterlegt hat; ein Kontakt ohne Adresse erscheint nicht. Sind bei einem Kontakt mehrere Adressen hinterlegt, steht jede davon als eigener Eintrag zur Auswahl.
-- Personen erscheinen ab **zwei** eingegebenen Zeichen, Verteiler bereits ab einem. Führen Sie dieselbe Person in mehreren Adressbüchern, wird sie nur einmal angeboten.
-- Trägt einer Ihrer Kontakte die Adresse eines Verteilers, wird dieses Ziel einmal angeboten – und zwar als **Verteiler**. Die Freigabe erreicht dann wie gewohnt alle Mitglieder, nicht nur den einen Kontakt.
+- Durchsucht werden alle Ihre Adressbücher gleichzeitig. Das Suchfeld der Kontakte-App bezieht sich immer nur auf das ausgewählte Adressbuch. Auf Schreibweisen von Umlauten kommt es dabei ebenso wenig an wie dort.
+- Vorgeschlagen wird nur, wer eine E-Mail-Adresse hinterlegt hat; ein Kontakt ohne Adresse erscheint nicht. Sind bei einem Kontakt mehrere Adressen hinterlegt, steht jede davon als eigener Eintrag zur Auswahl.
+- Personen erscheinen ab zwei eingegebenen Zeichen, Verteiler bereits ab einem. Führen Sie dieselbe Person in mehreren Adressbüchern, wird sie nur einmal angeboten.
+- Trägt einer Ihrer Kontakte die Adresse eines Verteilers, wird dieses Ziel nur einmal angeboten, und zwar als Verteiler. Die Freigabe erreicht dann wie gewohnt alle Mitglieder, nicht nur den einen Kontakt.
 
 :::info[Wenn keine Personen vorgeschlagen werden]
 Ist die Kontakte-App nicht eingerichtet oder der Adressbuch-Server gerade nicht erreichbar, bleibt die Suche nutzbar: Sie bietet weiterhin die Verteiler an, lediglich die Personen fehlen. Eine Fehlermeldung erscheint dabei nicht. Finden Sie also keine einzige Person, obwohl Verteiler erscheinen, wenden Sie sich an Ihre Administration.
@@ -421,7 +421,7 @@ Tritt jemand dem Verteiler bei oder verlässt ihn, wird der Zugriff **nicht sofo
 
 Daraus folgt: Wer den Verteiler verlässt, behält den Zugriff auf den Kalender so lange, bis Sie den Freigabe-Dialog erneut öffnen. Bei einem Kalender, der einmal freigegeben und danach nicht wieder angefasst wird, kann das beliebig lange dauern. Öffnen Sie den Dialog daher gezielt, wenn sich die Zusammensetzung eines Verteilers geändert hat.
 
-Eine bestehende Freigabe an einen Verteiler, den Sie heute nicht mehr freigeben könnten – etwa aus einer früheren Version von edulution –, gleicht edulution nicht mehr ab: Die Mitglieder behalten den Zugriff, den sie zuletzt erhalten haben; wer dem Verteiler beitritt, erhält keinen, und wer ihn verlässt, verliert ihn nicht. Auch die Rechte einer solchen Freigabe lassen sich nicht mehr ändern; der Versuch scheitert mit derselben Meldung wie eine neue Freigabe. Entziehen können Sie die Freigabe weiterhin über das Mülleimer-Symbol.
+Eine bestehende Freigabe an einen Verteiler, den Sie heute nicht mehr freigeben könnten (etwa aus einer früheren Version von edulution), gleicht edulution nicht mehr ab: Die Mitglieder behalten den Zugriff, den sie zuletzt erhalten haben; wer dem Verteiler beitritt, erhält keinen, und wer ihn verlässt, verliert ihn nicht. Auch die Rechte einer solchen Freigabe lassen sich nicht mehr ändern; der Versuch scheitert mit derselben Meldung wie eine neue Freigabe. Entziehen können Sie die Freigabe weiterhin über das Mülleimer-Symbol.
 
 ### Für den Benutzer abonnieren
 
@@ -537,7 +537,7 @@ Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](
 
 Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
 
-Eine Ausnahme ist die Personensuche im Freigabe-Dialog: Sie liest die Adressbücher des jeweiligen Benutzers und setzt daher zusätzlich die [CardDAV-Verbindung der Kontakte-App](../../konfiguration/einstellungen.md#kontakte-carddav) voraus. Ist sie nicht konfiguriert oder der CardDAV-Server nicht erreichbar, bietet die Suche weiterhin die Verteiler aus dem Verzeichnis an; die Personen fehlen dann stillschweigend, ohne Fehlermeldung. Meldet ein Benutzer, dass er im Freigabe-Dialog niemanden findet, Verteiler aber erscheinen, prüfen Sie deshalb die CardDAV-Einstellungen – nicht die der Kalender-App.
+Eine Ausnahme ist die Personensuche im Freigabe-Dialog: Sie liest die Adressbücher des jeweiligen Benutzers und setzt daher zusätzlich die [CardDAV-Verbindung der Kontakte-App](../../konfiguration/einstellungen.md#kontakte-carddav) voraus. Ist sie nicht konfiguriert oder der CardDAV-Server nicht erreichbar, bietet die Suche weiterhin die Verteiler aus dem Verzeichnis an; die Personen fehlen dann ohne Fehlermeldung. Meldet ein Benutzer, dass er im Freigabe-Dialog niemanden findet, Verteiler aber erscheinen, prüfen Sie deshalb die CardDAV-Einstellungen und nicht die der Kalender-App.
 
 Die Personensuche durchsucht dieselben Adressbücher wie das Verfassen von E-Mails, einschließlich der systemweiten Adressbücher von SOGo. Solange diese aktiv sind, findet sie darüber auch Personen anderer Schulen; wie Sie das abstellen, steht unter [E-Mail – Einrichtung](../../../edulution-mail/index.md#einrichtung-für-administratoren).
 

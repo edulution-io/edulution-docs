@@ -86,18 +86,18 @@ Sie können Ihre Version übernehmen, die andere übernehmen oder den Konflikt m
 
 **Neue Seite**
 1. Klicken Sie auf **Neue Seite**
-2. Wählen Sie unter **Ort** den Zielordner – vorausgewählt ist der Ordner der gerade geöffneten Seite
-3. Geben Sie den **Titel** ein
-4. Optional: Setzen Sie das Häkchen bei **Diese Seite als Hauptseite des Ordners anlegen** (Index), wenn die Seite als Einstiegsseite des Ordners dienen soll
+2. Geben Sie den **Titel** ein
+3. Wählen Sie unter **Ort** den Zielordner – vorausgewählt ist der Ordner der gerade geöffneten Seite
+4. Optional: Schalten Sie **Diese Seite als Hauptseite des Ordners anlegen** (Index) ein, wenn die Seite als Einstiegsseite des Ordners dienen soll. Der Schalter erscheint nur, solange der gewählte Ordner noch keine Hauptseite hat
 5. **Erstellen** bestätigt das Anlegen
 
 **Neuer Ordner**
 1. Klicken Sie auf **Neuer Ordner**
-2. Wählen Sie unter **Ort** den übergeordneten Ordner – vorausgewählt ist der Ordner der gerade geöffneten Seite
-3. Geben Sie den **Ordnernamen** ein
+2. Geben Sie den **Ordnernamen** ein
+3. Wählen Sie unter **Ort** den übergeordneten Ordner – vorausgewählt ist der Ordner der gerade geöffneten Seite
 4. **Erstellen** bestätigt das Anlegen
 
-Haben Sie in der Seitenleiste einen Ordner geöffnet, ist dieser Ordner selbst vorausgewählt. Die Vorauswahl richtet sich immer nach der gerade geöffneten Seite – auch dann, wenn Sie über einen Link innerhalb eines Artikels, über die Zurück-Schaltfläche des Browsers oder über eine direkt aufgerufene Adresse dorthin gelangt sind.
+Haben Sie in der Seitenleiste einen Ordner geöffnet, ist dieser Ordner selbst vorausgewählt. Die Vorauswahl richtet sich immer nach der gerade geöffneten Seite – auch dann, wenn Sie über einen Link innerhalb eines Artikels, über die Zurück-Schaltfläche des Browsers oder über eine direkt aufgerufene Adresse dorthin gelangt sind. Der gewählte Ort steht als Pfad direkt unter **Ort**, auch wenn der Ordner im Baum darunter erst nach dem Scrollen zu sehen ist.
 
 ## Seiten suchen
 

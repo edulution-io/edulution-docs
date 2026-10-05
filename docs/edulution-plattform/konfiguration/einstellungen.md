@@ -577,40 +577,41 @@ Die Mitgliedschaft hebelt die Zugriffsgruppen aller Apps aus: Administratoren se
 
 ## Gruppen
 
-Auf der Registerkarte **Gruppen** sehen Sie alle Gruppen, die edulution für eine Schule verwaltet – etwa Verteiler und Räume –, und pflegen die Verteiler. Die Registerkarte braucht kein eigenes Postfach: Auch ein Administratorkonto ohne E-Mail-Adresse, etwa `global-admin`, kann hier Verteiler anlegen und bearbeiten.
+Auf der Registerkarte **Gruppen** pflegen Sie die Verteiler einer Schule. Die Tabelle zeigt außerdem die übrigen Gruppen, die edulution für die Schule verwaltet, etwa Räume. Ein eigenes Postfach brauchen Sie dafür nicht: Auch `global-admin` ohne E-Mail-Adresse kann hier Verteiler anlegen und bearbeiten.
 
-Die Schule wählen Sie wie bei der [Unterrichtsverwaltung](#schule-wählen) in der Kopfzeile der Karte. Neben dem Suchfeld schränkt **Nach Art filtern** die Tabelle auf eine Art ein; eine Gruppe, die zugleich Raum und Verteiler ist, erscheint unter beiden Arten.
+Die Schule wählen Sie wie bei der [Unterrichtsverwaltung](#schule-wählen).
 
 ### Was die Tabelle zeigt
 
 | Spalte | Bedeutung |
 |--------|-----------|
-| **Herkunft** | **edulution** für Gruppen, die hier angelegt wurden; **linuxmuster** für Gruppen aus dem Schulserver. Gruppen aus linuxmuster lassen sich hier nicht bearbeiten oder löschen – Änderungen nehmen Sie auf dem Schulserver vor. |
-| **Mitglieder** | die Zahl der einzeln eingetragenen Benutzer, der Mitgliedsgruppen und der externen Adressen. Die Mitglieder einer Mitgliedsgruppe sind nicht einzeln mitgezählt. |
+| **Herkunft** | **edulution** für Gruppen, die hier angelegt wurden; **linuxmuster** für Gruppen aus dem Schulserver. Gruppen aus linuxmuster lassen sich hier nicht bearbeiten oder löschen. Änderungen nehmen Sie auf dem Schulserver vor (siehe [Verteilerlisten](../../edulution-mail/konfiguration/verteilerlisten.md)). |
+| **Mitglieder** | je eine Zahl für die einzeln eingetragenen Benutzer, die Mitgliedsgruppen und die externen Adressen. Die Mitglieder einer Mitgliedsgruppe zählen dabei nicht einzeln mit. |
 | **Zustellung** | bei Verteilern derzeit **Noch nicht eingerichtet**: Der Verteiler ist in edulution angelegt, aber noch nicht auf dem Mailserver. E-Mails an seine Adresse werden noch nicht an die Mitglieder verteilt. |
 
-Räume werden nicht auf dieser Registerkarte bearbeitet.
+Mit der Auswahl **Alle Arten** beschränken Sie die Tabelle auf **Raum** oder **Verteiler**. Eine Gruppe, die zugleich Raum und Verteiler ist, erscheint unter beiden.
 
 ### Verteiler anlegen
 
-Über das Plus-Symbol unter der Tabelle legen Sie einen Verteiler an. Beim Anlegen geben Sie nur **Name**, **Adresse** und **Externe Mitglieder** an; Benutzer und Gruppen fügen Sie anschließend beim Bearbeiten hinzu.
+Einen neuen Verteiler legen Sie über **Verteiler hinzufügen** (Plus-Symbol) an. Beim Anlegen geben Sie nur **Name**, **Adresse** und **Externe Mitglieder** an; Benutzer und Gruppen fügen Sie anschließend beim Bearbeiten hinzu.
 
-- Der **Name** muss innerhalb der Schule eindeutig sein, und zwar über alle Gruppen hinweg – ein Verteiler kann nicht so heißen wie ein Raum derselben Schule.
-- Die **Adresse** darf kein anderer Verteiler verwenden, auch nicht an einer anderen Schule. Für den Mailserver reserviert und daher abgelehnt sind die Adressen `postmaster@…`, `abuse@…`, `root@…`, `hostmaster@…`, `webmaster@…`, `noreply@…`, `no-reply@…` und `mailer-daemon@…`.
-- **Externe Mitglieder** sind Adressen außerhalb des Verzeichnisses, etwa von Eltern oder Partnern. Tippen Sie die Adresse ein und bestätigen Sie mit Enter; ein Verteiler nimmt bis zu 50 externe Adressen auf. Die Adresse eines anderen Verteilers kann kein externes Mitglied sein.
+| Feld | Regel |
+|------|-------|
+| **Name** | höchstens 64 Zeichen; eindeutig innerhalb der Schule, ohne Rücksicht auf Groß- und Kleinschreibung und auch gegenüber Räumen und anderen Gruppen |
+| **Adresse** | von keinem anderen Verteiler verwendet, weder als Adresse noch als externes Mitglied, auch nicht an einer anderen Schule. Für den Mailserver reserviert und daher abgelehnt sind `postmaster@…`, `abuse@…`, `root@…`, `hostmaster@…`, `webmaster@…`, `noreply@…`, `no-reply@…` und `mailer-daemon@…`. |
+| **Externe Mitglieder** | Adressen außerhalb des Verzeichnisses, etwa von Eltern oder Partnern; bis zu 50 je Verteiler. Die Adresse eines anderen Verteilers ist nicht zulässig. Mehrere eingefügte Adressen trennt das Feld selbst auf. |
 
 ### Verteiler bearbeiten
 
-Klicken Sie auf die Zeile eines Verteilers. Nur Verteiler mit der Herkunft **edulution** öffnen sich; ein Klick auf eine Gruppe aus linuxmuster oder einen Raum bewirkt nichts.
+Zum Bearbeiten öffnen Sie einen Verteiler mit einem Klick auf seine Zeile. Das geht nur bei der Herkunft **edulution**; andere Zeilen öffnen sich nicht.
 
-- **Mitglieder** schlägt nur Benutzer der gewählten Schule vor.
-- **Mitgliedsgruppen** schlägt nur Gruppen der gewählten Schule vor. Alle Mitglieder einer solchen Gruppe gehören zum Verteiler.
+**Mitglieder** und **Mitgliedsgruppen** schlagen nur Benutzer bzw. Gruppen der gewählten Schule vor. Alle Mitglieder einer Mitgliedsgruppe gehören zum Verteiler.
 
-Lehnt edulution beim Speichern einzelne Einträge ab – etwa einen Benutzer, der nicht zur Schule gehört, oder eine Adresse, die bereits ein Verteiler verwendet –, bleibt der Dialog offen und nennt die abgelehnten Einträge unter dem Feld, zu dem sie gehören.
+Lehnt edulution beim Speichern einzelne Einträge ab, nennt der Dialog sie unter dem zugehörigen Feld.
 
 ### Verteiler löschen
 
-Im Bearbeitungsdialog löscht **Löschen** den Verteiler nach einer Rückfrage. Ist die Gruppe zugleich ein Raum, bleibt der Raum erhalten; entfernt wird nur der Verteiler.
+Gelöscht wird ein Verteiler über **Löschen** im Bearbeitungsdialog. Ist die Gruppe zugleich ein Raum, bleibt der Raum erhalten.
 
 ---
 

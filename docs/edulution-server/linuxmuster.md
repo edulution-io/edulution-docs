@@ -90,7 +90,7 @@ Die schreibenden Aktionen **Speichern** und **Prüfen** stehen nur Globaladmins 
 
 ### Passwörter
 
-Über die **Passwort-Aktionen** eines Kontos setzen Sie Passwörter neu. **Erstpasswort wiederherstellen** setzt das Konto auf das ursprünglich vergebene Erstpasswort zurück.
+Über die **Passwort-Aktionen** eines Kontos setzen Sie Passwörter neu. **Initiales Passwort wiederherstellen** setzt das aktuelle Passwort des Kontos auf das Initiale Passwort zurück. Welche Passwörter zulässig sind, bestimmt die [Passwortrichtlinie](./benutzerverwaltung.md#passwortrichtlinie).
 
 :::tip[Ausführliche Anleitung]
 Eine vollständige Beschreibung der Benutzerverwaltung – Benutzertabelle, Sophomorix-Status, Spalten der Verwaltungslisten, CSV-Import und -Export sowie der Prüf- und Übernahmeprozess – finden Sie unter [Benutzerverwaltung](./benutzerverwaltung.md).

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { useMailConfig } from './MailConfigContext';
 
 interface CommandVariant {
   platform: 'Windows' | 'Linux' | 'macOS' | 'All';
@@ -18,26 +19,17 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ variants, title, description }) =
   const [selectedPlatform, setSelectedPlatform] = useState<string>('All');
   const [copied, setCopied] = useState(false);
   const [processedCommand, setProcessedCommand] = useState('');
+  const { config } = useMailConfig();
 
-  const replacePlaceholders = (text: string): string => {
-    try {
-      const mailDomain = localStorage.getItem('mailDomain') || 'mail.edulution.io';
-      const emailAddress = localStorage.getItem('emailAddress') || 'benutzer@example.com';
-      const userName = localStorage.getItem('userName') || 'benutzer';
-
-      return text
-        .replace(/\{\{mailDomain\}\}/g, mailDomain)
-        .replace(/\{\{emailAddress\}\}/g, emailAddress)
-        .replace(/\{\{userName\}\}/g, userName);
-    } catch (error) {
-      return text;
-    }
-  };
+  const replacePlaceholders = (text: string): string =>
+    text
+      .replace(/\{\{mailDomain\}\}/g, config?.imapServer || 'mail.edulution.io')
+      .replace(/\{\{emailAddress\}\}/g, config?.email || 'benutzer@example.com');
 
   useEffect(() => {
     const currentVariant = variants.find((v) => v.platform === selectedPlatform) || variants[0];
     setProcessedCommand(replacePlaceholders(currentVariant.command));
-  }, [selectedPlatform, variants]);
+  }, [selectedPlatform, variants, config]);
 
   const handleCopy = async () => {
     try {

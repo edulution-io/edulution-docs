@@ -35,9 +35,14 @@ Dieser Befehl generiert statische Inhalte im `build` Verzeichnis.
 - `/docs` - Dokumentationsinhalte
 
   - `/edulution-plattform` - edulution Plattform Dokumentation
+  - `/edulution-server` - edulution Server Dokumentation
   - `/edulution-mail` - edulution Mail Dokumentation
+  - `/edulution-app` - edulution App Dokumentation
+  - `/edulution-satellite` - edulution Satellite Dokumentation
+  - `/edulution-lms` - edulution LMS Dokumentation
+  - `/edulution-vdi` - edulution VDI Dokumentation
+  - `/edulution-mdm` - edulution MDM Dokumentation
   - `/edulution-fileproxy` - edulution FileProxy Dokumentation
-  - `/edulution-onlyoffice` - edulution OnlyOffice Dokumentation
 
 - `/changelogs` - Versionshistorie und Änderungsprotokolle
 - `/static` - Statische Assets (Bilder, Icons, etc.)

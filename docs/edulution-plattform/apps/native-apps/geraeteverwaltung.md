@@ -7,7 +7,7 @@ sidebar_custom_props:
 
 Die **Geräteverwaltung** ist Teil der Linuxmuster-App und zeigt alle am Schulserver registrierten Geräte in einer bearbeitbaren Tabelle an. Sie pflegen hier die Geräteliste (`devices.csv`) Ihrer Schule und importieren Änderungen direkt in Linuxmuster.
 
-:::info Linuxmuster Integration
+:::info[Linuxmuster-Integration]
 Die Geräteverwaltung arbeitet direkt auf der Sophomorix-Gerätedatei `/etc/linuxmuster/sophomorix/<schule>/devices.csv`. Mehr Informationen zum Import: [Linuxmuster Dokumentation](https://docs.linuxmuster.net/de/latest/systemadministration/index.html)
 :::
 
@@ -19,7 +19,7 @@ Sie erreichen die Geräteverwaltung über die **Linuxmuster-App** → **Gerätev
 
 Die Seite listet alle Geräte der ausgewählten Schule in einer Tabelle. Neu hinzugefügte Zeilen werden **grün**, geänderte Felder **blau** und ungültige oder doppelte Einträge mit einem **roten Rand** markiert, solange die Änderungen noch nicht gespeichert sind.
 
-:::note Berechtigungen
+:::note[Berechtigungen]
 Die Geräteliste kann von allen berechtigten Nutzern der Linuxmuster-App geöffnet und die CSV-Datei angesehen werden. Das **Speichern** und **Anwenden** von Änderungen ist nur für **Schuladministratoren** und **Global-Administratoren** möglich. Global-Administratoren können zusätzlich über ein Auswahlmenü zwischen den Schulen wechseln.
 :::
 
@@ -29,15 +29,15 @@ Jede Zeile entspricht einem Gerät. Folgende Spalten werden angezeigt:
 
 | Spalte | Beschreibung |
 |--------|--------------|
-| **Raum** | Raumbezeichnung des Geräts (nur Buchstaben, Ziffern und `-`, beginnt mit einem Buchstaben oder einer Ziffer, max. 63 Zeichen) |
-| **Rechnername** | Hostname des Geräts (nur Buchstaben, Ziffern und `-`, beginnt und endet mit einem Buchstaben oder einer Ziffer, max. 15 Zeichen, eindeutig) |
-| **Gruppe** | LINBO-Hardwaregruppe des Geräts (nur Buchstaben, Ziffern, `-` und `_`, beginnt mit einem Buchstaben oder einer Ziffer, max. 63 Zeichen) |
+| **Raum** | Raumbezeichnung des Geräts |
+| **Rechnername** | Hostname des Geräts (eindeutig) |
+| **Gruppe** | LINBO-Hardwaregruppe des Geräts |
 | **MAC** | MAC-Adresse im Format `XX:XX:XX:XX:XX:XX` (eindeutig) |
 | **IP** | IP-Adresse als Dotted-Quad, z. B. `10.0.0.10` (eindeutig) |
-| **Sophomorix-Rolle** | Rolle des Geräts (Auswahlliste, siehe unten) |
-| **PXE** | PXE-/LINBO-Startverhalten (Auswahlliste, siehe unten) |
+| **Sophomorix-Rolle** | Rolle des Geräts (Auswahlliste, siehe [Sophomorix-Rollen](#sophomorix-rollen)) |
+| **PXE** | PXE-/LINBO-Startverhalten (Auswahlliste, siehe [PXE-Startverhalten](#pxe-startverhalten)) |
 
-Die Spalten sind sortierbar; standardmäßig ist nach **Raum** aufsteigend sortiert. Weitere Felder der `devices.csv` (z. B. die Kommentarspalte oder reservierte Sophomorix-Felder) werden nicht angezeigt, bleiben beim Speichern aber erhalten.
+Zulässige Zeichen und Längen von **Raum**, **Rechnername** und **Gruppe** stehen unter [Geräteverwaltung](../../../edulution-server/linuxmuster.md#geräteverwaltung). Weitere Felder der `devices.csv` (z. B. die Kommentarspalte oder reservierte Sophomorix-Felder) werden nicht angezeigt, bleiben beim Speichern aber erhalten.
 
 ### Sophomorix-Rollen
 
@@ -61,7 +61,7 @@ Die Spalten sind sortierbar; standardmäßig ist nach **Raum** aufsteigend sorti
 | `voip` | VoIP-Gerät |
 | `iponly` | IP-Only |
 
-:::note Business-Umgebungen
+:::note[Business-Umgebungen]
 In Business-Organisationen entfallen die Klassenzimmer-Rollen (`classroom-*`, `faculty-teachercomputer`); die Rolle `staffcomputer` wird dort als **Computer** bezeichnet.
 :::
 
@@ -76,7 +76,7 @@ Die Spalte **PXE** steuert das Netzwerk-Startverhalten (LINBO):
 | **2** | Linbo-PXE + OPSI-Management |
 | **3** | OPSI-PXE |
 
-Die Werte **2** und **3** zeigt die Liste an, wenn sie bereits in der Geräteliste stehen; neu auswählen lassen sie sich nicht. LINBO-Kommandos erreichen nur Geräte mit **1** oder **2**.
+In der Auswahlliste lassen sich nur **0** und **1** wählen; **2** und **3** sind dort deaktiviert. Stehen sie bereits in der Geräteliste, zeigt die Tabelle sie an. LINBO-Kommandos erreichen nur Geräte mit **1** oder **2**.
 
 ## Geräte bearbeiten
 
@@ -107,7 +107,7 @@ Haben Sie bereits gespeichert, aber noch nicht angewendet, hilft **Zurücksetzen
 
 Markierte Geräte sind im CSV-Dialog bereits nicht mehr enthalten: Die dort angezeigte und die heruntergeladene Datei entsprechen der Liste **ohne** diese Geräte.
 
-:::note Während Speichern oder Anwenden läuft
+:::note[Während Speichern oder Anwenden läuft]
 Mit **Speichern** oder **Anwenden** gehen die Löschmarkierungen in den laufenden Vorgang ein. Schlägt er fehl, stellt die Tabelle den Stand von davor wieder her: Die betroffenen Geräte stehen wieder an ihrer ursprünglichen Position in der Liste und bleiben zum Entfernen markiert – Ihre Auswahl geht dabei nicht verloren.
 
 Die Tabelle bleibt währenddessen bearbeitbar. Änderungen, die Sie in dieser Zeit vornehmen, bleiben erhalten, gehören aber nicht zum laufenden Vorgang: Sie bleiben als ungespeichert hervorgehoben und benötigen einen weiteren **Speichern**-Vorgang.
@@ -135,18 +135,18 @@ Zwei Aktionen schreiben Ihre Änderungen zurück:
 
 Nach der Bestätigung laufen die Meldungen *„Geräteliste wird angewendet…“* und anschließend *„Geräteliste erfolgreich angewendet“*.
 
-:::warning
+:::caution[Import dauert]
 Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen. Wenden Sie Änderungen möglichst außerhalb des Unterrichts an.
 :::
 
-:::warning Fehler beim Import
+:::warning[Fehler beim Import]
 **Anwenden** legt die Geräteliste zuerst auf dem Server ab und startet den Import erst danach. Schlägt allein der Importlauf fehl, ist die Liste bereits gespeichert: Die zum Entfernen markierten Geräte kehren dann **nicht** in die Tabelle zurück, und die Liste gilt als gespeichert. Wiederholen Sie in diesem Fall **Anwenden**, um den Import erneut anzustoßen.
 :::
 
 :::warning[Geräteliste inzwischen geändert]
-Hat sich die Geräteliste auf dem Server geändert, seit Sie sie geöffnet haben – etwa durch einen anderen Admin, einen anderen Tab oder das [Umbenennen einer LINBO-Gruppe](../../../edulution-server/linuxmuster.md#eine-gruppe-umbenennen), das Geräte auf den neuen Gruppennamen umstellt –, lehnen **Speichern** und **Anwenden** ab und schreiben nichts; ein Import läuft dann nicht. Die Meldung lautet *„Die Geräteliste von … wurde inzwischen geändert. Ihre Änderungen wurden nicht gespeichert; laden Sie die Liste neu und übernehmen Sie sie erneut.“*
+Hat sich die Geräteliste auf dem Server geändert, seit Sie sie geladen haben, lehnen **Speichern** und **Anwenden** ab. Es wird nichts geschrieben und kein Import gestartet. Ursache kann ein anderer Admin sein, ein anderer Browser-Tab oder das [Umbenennen einer LINBO-Gruppe](../../../edulution-server/linuxmuster.md#eine-gruppe-umbenennen), das die Geräte auf den neuen Gruppennamen umstellt. Die Meldung lautet *„Die Geräteliste von … wurde inzwischen geändert. Ihre Änderungen wurden nicht gespeichert; laden Sie die Liste neu und übernehmen Sie sie erneut.“*
 
-Ihre ungespeicherten Einträge bleiben in der Tabelle, bis Sie in der Meldung **Neu laden** wählen. Das lädt den aktuellen Stand und verwirft die Einträge. Notieren Sie Ihre Änderungen deshalb vorher und tragen Sie sie nach dem Neuladen erneut ein.
+Ihre ungespeicherten Einträge bleiben in der Tabelle, bis Sie in der Meldung **Neu laden** wählen. Das lädt den aktuellen Stand und verwirft die Einträge.
 :::
 
 </Audience>
@@ -163,7 +163,7 @@ Ihre ungespeicherten Einträge bleiben in der Tabelle, bis Sie in der Meldung **
 
 Eine geladene Datei ersetzt nur den Inhalt des Textfelds. Erst **Speichern** im Dialog übernimmt diesen Inhalt: Er ersetzt die gesamte Tabelle, und sämtliche Löschmarkierungen entfallen – maßgeblich ist danach ausschließlich, was im Textfeld stand. Zum Entfernen markierte Geräte kehren dadurch nicht zurück, denn sie fehlen bereits im Textfeld. Nur wenn Sie sie dort wieder eintragen oder die geladene Datei sie enthält, sind sie wieder Teil der Liste. Auf den Server geschrieben wird die Liste auch dann erst mit **Speichern** oder **Anwenden** der Geräteliste.
 
-:::tip
+:::tip[CSV-Export als Sicherung]
 Der CSV-Export eignet sich gut für Sicherungen vor größeren Änderungen sowie zum Übertragen von Gerätelisten zwischen Servern.
 :::
 

@@ -34,21 +34,21 @@ Für Benutzertypen mit Verwaltungsliste ist die Ansicht in zwei Registerkarten g
 - **Benutzer** – die bestehenden Konten (Nur-Lese-Ansicht).
 - **Import** – die bearbeitbare, CSV-gestützte Liste.
 
-Für Benutzertypen ohne Verwaltungsliste (Schuladmins, Globaladmins) entfällt die Registerkarte **Import**; dort erscheint der Hinweis *„Für diesen Benutzertyp ist kein Import verfügbar."*
+Für Benutzertypen ohne Verwaltungsliste (Schuladmins, Globaladmins) entfällt die Registerkarte **Import**; dort erscheint der Hinweis *„Für diesen Benutzertyp ist kein Import verfügbar.“*
 
 :::note[Schulauswahl]
 In Umgebungen mit mehreren Schulen enthalten die Ansichten für **Globaladmins** eine **Schulauswahl** mit jeder Schule des Servers; ein Wechsel lädt die Listen der gewählten Schule neu. Beim Benutzertyp **Globaladmins** entfällt sie. Ein Schuladmin sieht keine Schulauswahl und arbeitet immer in seiner eigenen Schule.
 :::
 
 :::note[Wer die Globaladmins sieht]
-Den Benutzertyp **Globaladmins** sehen nur Globaladmins; einem Schuladmin fehlt er in der Seitenleiste und als Kachel auf der Übersicht. Diese Konten gehören keiner einzelnen Schule an, und die Linuxmuster-API gibt ihre Liste nur an Globaladmins heraus.
+Den Benutzertyp **Globaladmins** sehen nur Globaladmins; einem Schuladmin fehlt er in der Seitenleiste. Diese Konten gehören keiner einzelnen Schule an.
 :::
 
-## Registerkarte „Benutzer"
+## Registerkarte „Benutzer“
 
 ![Benutzerverwaltung](/img/benutzerverwaltung/benutzerverwaltung01.png)
 
-Die Registerkarte **Benutzer** zeigt die vorhandenen Konten des gewählten Benutzertyps in einer Tabelle. Über das Suchfeld (*„Benutzer filtern…"*) grenzen Sie die Liste ein.
+Die Registerkarte **Benutzer** zeigt die vorhandenen Konten des gewählten Benutzertyps in einer Tabelle. Über das Suchfeld (*„Benutzer filtern...“*) grenzen Sie die Liste ein.
 
 | Spalte | Inhalt |
 |--------|--------|
@@ -105,7 +105,7 @@ Die Spalte **Status** zeigt den Sophomorix-Status des Kontos:
 
 ![Benutzerverwaltung-Benutzer-Passwort](/img/benutzerverwaltung/benutzerverwaltung05-userPasswort.png)
 
-## Registerkarte „Import"
+## Registerkarte „Import“
 
 ![Benutzerverwaltung-Import](/img/benutzerverwaltung/benutzerverwaltung06-import.png)
 
@@ -151,7 +151,7 @@ Ein über den CSV-Dialog eingelesener Inhalt hat Vorrang vor einem noch laufende
 
 ### Eingaben prüfen
 
-Vor dem Speichern werden die Einträge geprüft. Solange eine Zelle ungültig ist, bleiben **Speichern** und **Prüfen** blockiert und es erscheint der Hinweis *„Bitte korrigieren Sie alle ungültigen Felder vor dem Speichern"*.
+Vor dem Speichern werden die Einträge geprüft. Solange eine Zelle ungültig ist, bleiben **Speichern** und **Prüfen** blockiert und es erscheint der Hinweis *„Bitte korrigieren Sie alle ungültigen Felder vor dem Speichern“*.
 
 - **Geburtsdatum** muss dem Format `TT.MM.JJJJ` entsprechen und ein gültiges Datum sein.
 - **Klasse**, **Kategorie** und **Gewünschter Login** dürfen nur Buchstaben (inklusive Umlaute und `ß`), Ziffern, Leerzeichen sowie die Zeichen `_` und `-` enthalten.
@@ -187,7 +187,7 @@ Löschen Sie Einträge, bleibt ein Kommentar vor dem Eintrag stehen, der ihm bis
 Der Import ist bewusst mehrstufig aufgebaut, damit Sie die Auswirkungen sehen, bevor sie geschrieben werden:
 
 1. **Speichern** – die bearbeitete Liste wird auf dem Server abgelegt. Die Bestätigungsmeldung weist ausdrücklich darauf hin, anschließend **Prüfen** zu verwenden; gespeichert allein bewirkt noch keine Änderung an den Konten.
-2. **Prüfen** – bevor die Prüfung startet, muss die Liste gespeichert sein; ist das noch nicht geschehen, fragt der Dialog *„Die Liste muss vor der Prüfung gespeichert werden. Möchten Sie die Liste jetzt speichern und fortfahren?"*. Linuxmuster wertet die Liste anschließend als Testlauf aus und zeigt das Ergebnis im Dialog **Prüfergebnis** an.
+2. **Prüfen** – bevor die Prüfung startet, muss die Liste gespeichert sein; ist das noch nicht geschehen, fragt der Dialog *„Die Liste muss vor der Prüfung gespeichert werden. Möchten Sie die Liste jetzt speichern und fortfahren?“*. Linuxmuster wertet die Liste anschließend als Testlauf aus und zeigt das Ergebnis im Dialog **Prüfergebnis** an.
 3. **Übernehmen** – erst dieser Schritt schreibt die ausgewählten Änderungen tatsächlich in Linuxmuster.
 
 ### Prüfergebnis
@@ -201,10 +201,10 @@ Der Dialog **Prüfergebnis** gliedert das Ergebnis in mehrere Registerkarten:
 | **Aktualisieren** | Konten, die aktualisiert würden |
 | **Entfernen** | Konten, die entfernt würden |
 
-Über Auswahlkästchen legen Sie fest, welche dieser Änderungsarten übernommen werden sollen, und lösen sie über **Übernehmen** aus. Werden keine Unterschiede gefunden, erscheint der Hinweis *„Keine Änderungen erkannt. Die aktuellen Daten stimmen mit den vorhandenen Benutzerkonten überein."*
+Über Auswahlkästchen legen Sie fest, welche dieser Änderungsarten übernommen werden sollen, und lösen sie über **Übernehmen** aus. Werden keine Unterschiede gefunden, erscheint der Hinweis *„Keine Änderungen erkannt. Die aktuellen Daten stimmen mit den vorhandenen Benutzerkonten überein.“*
 
 :::note[Übernahme im Hintergrund]
-Nach dem Auslösen verarbeitet Sophomorix die Änderungen im Hintergrund (*„Anwendung gestartet — sophomorix verarbeitet die Änderungen im Hintergrund"*). Die Konten stehen daher unter Umständen erst kurze Zeit nach der Übernahme vollständig zur Verfügung.
+Nach dem Auslösen verarbeitet Sophomorix die Änderungen im Hintergrund (*„Anwendung gestartet — sophomorix verarbeitet die Änderungen im Hintergrund“*). Die Konten stehen daher unter Umständen erst kurze Zeit nach der Übernahme vollständig zur Verfügung.
 :::
 
 ## Siehe auch

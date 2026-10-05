@@ -299,7 +299,7 @@ const renderMarkdown = (text: string) => {
   let currentIndex = 0;
   let key = 0;
 
-  const pattern = /(\[.*?\]\(.*?\)|\*\*.*?\*\*|\*(?!\*)[^*]+?\*|—)/g;
+  const pattern = /(`[^`]+`|\[.*?\]\(.*?\)|\*\*.*?\*\*|\*(?!\*)[^*]+?\*|—)/g;
   let match;
 
   while ((match = pattern.exec(text)) !== null) {
@@ -309,7 +309,10 @@ const renderMarkdown = (text: string) => {
 
     const matched = match[0];
 
-    if (matched.startsWith('[')) {
+    // Inline code: `text`
+    if (matched.startsWith('`')) {
+      parts.push(<code key={key++}>{matched.slice(1, -1)}</code>);
+    } else if (matched.startsWith('[')) {
       const linkMatch = matched.match(/\[(.*?)\]\((.*?)\)/);
       if (linkMatch) {
         parts.push(

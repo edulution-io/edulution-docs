@@ -471,6 +471,16 @@ const sidebars: SidebarsConfig = {
           id: 'edulution-satellite/verwaltung',
           label: 'Satelliten verwalten',
         },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/linbo',
+          label: 'LINBO am Satelliten',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/linbo-referenz',
+          label: 'LINBO – Nachschlagewerk',
+        },
       ],
     },
     {

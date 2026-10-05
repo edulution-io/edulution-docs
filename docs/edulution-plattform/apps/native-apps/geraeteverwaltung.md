@@ -37,7 +37,7 @@ Jede Zeile entspricht einem Gerät. Folgende Spalten werden angezeigt:
 | **Sophomorix-Rolle** | Rolle des Geräts (Auswahlliste, siehe [Sophomorix-Rollen](#sophomorix-rollen)) |
 | **PXE** | PXE-/LINBO-Startverhalten (Auswahlliste, siehe [PXE-Startverhalten](#pxe-startverhalten)) |
 
-Zulässige Zeichen und Längen von **Raum**, **Rechnername** und **Gruppe** stehen unter [Geräteverwaltung](../../../edulution-server/linuxmuster.md#geräteverwaltung). Weitere Felder der `devices.csv` (z. B. die Kommentarspalte oder reservierte Sophomorix-Felder) werden nicht angezeigt, bleiben beim Speichern aber erhalten.
+Zulässige Zeichen und Längen von **Raum**, **Rechnername** und **Gruppe** stehen unter [Namensregeln](../../../edulution-server/linuxmuster.md#namensregeln-für-rechnername-raum-und-hardwaregruppe). Weitere Felder der `devices.csv` (z. B. die Kommentarspalte oder reservierte Sophomorix-Felder) werden nicht angezeigt, bleiben beim Speichern aber erhalten.
 
 ### Sophomorix-Rollen
 

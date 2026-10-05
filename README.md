@@ -184,7 +184,12 @@ In `sidebars.ts` an der Kategorie:
 
 ## Deployment
 
-Die Dokumentation wird automatisch über GitHub Actions deployed, wenn Änderungen auf den `main` Branch gepusht werden.
+Ein Push auf `main` ändert die Live-Doku noch nicht – sie wird erst mit einem Release neu gebaut.
+
+1. In GitHub unter **Actions** den Workflow **Release** öffnen und mit **Run workflow** auf `main` starten.
+2. Der Workflow baut die Doku, legt ein Release mit Tag nach dem Schema `vJahr.Monat.Nummer` an (z. B. `v2026.10.0`, danach `v2026.10.1`) und startet den Deploy.
+
+Ein Release, das von Hand in der GitHub-Oberfläche veröffentlicht wird, löst den Deploy ebenfalls aus. Um einen älteren Stand wieder live zu schalten, den Workflow **Deploy Docusaurus to GitHub Pages** mit **Run workflow** auf dessen Tag starten. Von einem Branch aus bricht der Deploy ab.
 
 ## Lizenz
 

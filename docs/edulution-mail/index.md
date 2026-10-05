@@ -37,7 +37,6 @@ Die Gesamtzahl ungelesener Nachrichten – am Postfach in der Ordnerliste, am E-
 
 - Haben Sie Zugriff auf **freigegebene Postfächer** (z. B. ein Funktionspostfach wie `verwaltung@…`), erscheinen diese als zusätzliche Postfächer mit eigenen Ordnern in der Liste.
 - Über das **Aktionen**-Menü an einem Ordner legen Sie **neue Ordner** an, **benennen** sie um oder **löschen** sie – ausgenommen die Standardordner. Ordnernamen dürfen bestimmte Sonderzeichen nicht enthalten; das Löschen wird mit einer Sicherheitsabfrage bestätigt.
-- Am **Papierkorb** und am **Spam**-Ordner enthält das **Aktionen**-Menü zusätzlich **Papierkorb leeren** bzw. **Spam-Ordner leeren** (siehe [Papierkorb und Spam-Ordner leeren](#papierkorb-und-spam-ordner-leeren)).
 
 ## Nachrichten lesen und verwalten
 
@@ -59,25 +58,13 @@ Besitzt ein Postfach keinen Papierkorb, löscht **In den Papierkorb verschieben*
 
 ### Endgültiges Löschen rückgängig machen
 
-Endgültig gelöscht werden Nachrichten, die Sie im Papierkorb nach einer Sicherheitsabfrage löschen, die Inhalte eines geleerten Papierkorbs oder Spam-Ordners und Nachrichten in einem Postfach ohne Papierkorb. In allen drei Fällen lässt sich das Löschen für ein kurzes Zeitfenster rückgängig machen. Wie lang es ist, legen Sie unter [Mein Profil → Senden rückgängig machen](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#senden-rückgängig-machen) mit **Zeitfenster** fest; das gilt auch bei ausgeschaltetem verzögertem Senden.
+Auch endgültiges Löschen lässt sich für ein kurzes Zeitfenster rückgängig machen: im Papierkorb, beim Leeren von Papierkorb oder Spam-Ordner und in einem Postfach ohne Papierkorb. Wie lang es ist, legen Sie unter [Mein Profil → Senden rückgängig machen](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#senden-rückgängig-machen) mit **Zeitfenster** fest; das gilt auch bei ausgeschaltetem verzögertem Senden.
 
-Eine Meldung wie **3 E-Mails werden gelöscht …** zeigt die Schaltfläche **Rückgängig**, mit der Sie das Löschen abbrechen. Gelöscht wird auf dem Mailserver, also auch dann, wenn Sie edulution vorher schließen; eine Fehlermeldung sehen Sie in diesem Fall nicht.
+Während dieses Zeitfensters zeigt eine Meldung die Schaltfläche **Rückgängig**. Gelöscht wird auf dem Mailserver, also auch dann, wenn Sie edulution vorher schließen.
 
 | Meldung | Ursache und Abhilfe |
 |---------|---------------------|
 | **E-Mails konnten nicht gelöscht werden – sie sind wieder sichtbar** | Das Löschen ist auf dem Mailserver gescheitert, meist weil Ihnen in einem freigegebenen Postfach das Recht zum Löschen fehlt, seltener wegen einer gestörten Verbindung. Die Nachrichten bleiben erhalten. |
-
-### Papierkorb und Spam-Ordner leeren
-
-**Papierkorb leeren** und **Spam-Ordner leeren** löschen nach einer Sicherheitsabfrage alle Nachrichten des Ordners endgültig, auch solche, die in der Liste noch nicht geladen sind. Gelöscht werden nur die Nachrichten, die die Abfrage nennt; später eintreffende oder dorthin verschobene bleiben erhalten, auch wenn sie aus einem anderen Mailprogramm kommen.
-
-- In einem **freigegebenen Postfach** leeren Sie dessen eigenen Papierkorb bzw. Spam-Ordner; dafür brauchen Sie dort das Recht zum Löschen.
-- Während ein Leeren läuft, ist der Menüeintrag an diesem Ordner ausgeblendet, längstens bis 30 Sekunden nach Ablauf des Zeitfensters.
-- Welcher Ordner als Papierkorb bzw. Spam-Ordner gilt, bestimmt der Mailserver. Einen selbst angelegten Ordner namens „Trash“, „Junk“ oder „Spam“ auf oberster Ebene behandelt edulution nur dann so, wenn der Mailserver im Postfach keinen solchen Ordner kennzeichnet.
-
-| Meldung | Ursache und Abhilfe |
-|---------|---------------------|
-| **Nur der Papierkorb und der Spam-Ordner können geleert werden** | Der Mailserver führt den Ordner nicht mehr als Papierkorb bzw. Spam-Ordner, etwa nach einer Änderung in einem anderen Mailprogramm. Laden Sie die Seite neu; der Menüeintrag erscheint dann nur noch am richtigen Ordner. |
 
 ### Links in Nachrichten
 

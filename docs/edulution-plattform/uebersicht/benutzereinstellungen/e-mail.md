@@ -52,7 +52,7 @@ Dieselbe Umschaltung steht Ihnen auch beim [Verfassen einer E-Mail](../../../edu
 
 ## Senden rückgängig machen
 
-Mit dieser Option verzögern Sie den Versand Ihrer E-Mails um ein kurzes Zeitfenster, in dem Sie das Senden noch abbrechen können. Das eingestellte Zeitfenster gilt außerdem immer für das endgültige Löschen von E-Mails, etwa beim Leeren des Papierkorbs, auch bei ausgeschaltetem verzögertem Senden; abschalten lässt es sich dafür nicht (siehe [E-Mail → Endgültiges Löschen rückgängig machen](../../../edulution-mail/index.md#endgültiges-löschen-rückgängig-machen)).
+Mit dieser Option verzögern Sie den Versand Ihrer E-Mails um ein kurzes Zeitfenster, in dem Sie das Senden noch abbrechen können. Das eingestellte Zeitfenster gilt außerdem immer für das endgültige Löschen von E-Mails, etwa beim Leeren des Papierkorbs, auch bei ausgeschaltetem verzögertem Senden (siehe [E-Mail → Endgültiges Löschen rückgängig machen](../../../edulution-mail/index.md#endgültiges-löschen-rückgängig-machen)).
 
 - **Senden verzögern**: Schaltet das verzögerte Senden ein oder aus. Standardmäßig ist es ausgeschaltet.
 - **Zeitfenster**: Wie lange der Versand zurückgehalten wird – 5, 10, 20 oder 30 Sekunden (Standard: 10 Sekunden).

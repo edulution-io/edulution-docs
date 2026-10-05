@@ -53,7 +53,7 @@ Sparsam und gezielt: dort, wo ein Element schwer zu finden ist oder eine Entsche
 - Bedienelemente fett (**Speichern**), Platzhaltertexte kursiv (*Unverändert lassen*).
 - Admonitions mit Titel in eckigen Klammern: `:::warning[Titel]`. Typ nach Gewicht wählen: `note` < `info` < `caution` < `warning` < `danger`.
 - Feldlisten, Meldungen und Fehlerursachen als Tabelle, nicht als Fließtext.
-- Frontmatter `sidebar_custom_props.audience` und vorhandene `<Audience roles="…">`-Blöcke beibehalten. Rollen, Organisationstypen und Syntax des Zielgruppen-Systems stehen im [README](README.md#zielgruppen-rollen-organisationstyp-modul).
+- Frontmatter `sidebar_custom_props.audience` und vorhandene `<Audience roles="…">`-Blöcke beibehalten. Rollen, Organisationstypen und Syntax des Zielgruppen-Systems stehen im [README](README.md#zielgruppen-rolle-organisationstyp).
 - Interne Verweise als relative Links auf die `.md`-Datei, nie als absolute URL.
 
 ## Kommentare im Code

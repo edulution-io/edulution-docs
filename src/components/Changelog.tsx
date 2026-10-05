@@ -4,7 +4,8 @@ import './Changelog.css';
 export type ContentBlock =
   | { type: 'image'; url: string; alt: string }
   | { type: 'text'; content: string }
-  | { type: 'improvements'; title: string; items: string[] }
+  | { type: 'improvements'; title: string; items: string[]; subsections?: { title: string; items: string[] }[] }
+  | { type: 'section-label'; title: string }
   | { type: 'link'; text: string; url: string }
   | { type: 'text-with-tags'; text: string; tags: string[] };
 
@@ -195,6 +196,10 @@ const CARD_CLASS =
 const CARD_HEADING_CLASS = 'flex items-center gap-3 text-lg font-semibold leading-6 text-gray-900 dark:text-white mb-6';
 const CARD_ITEM_CLASS =
   'relative pl-6 text-sm leading-7 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors';
+const SECTION_LABEL_CLASS =
+  'flex items-center gap-3 pt-4 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400';
+const SUBSECTION_CLASS = 'mt-6 pt-5 border-t border-[#8FC046]/20 dark:border-gray-800';
+const SUBSECTION_HEADING_CLASS = 'text-sm font-semibold text-[var(--edu-green-text)] mt-0 mb-3';
 const LINK_BUTTON_CLASS =
   'inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[var(--edu-green-text)] bg-[#8FC046]/5 rounded-lg border border-[#8FC046]/20 hover:bg-[#8FC046]/10 hover:border-[#8FC046]/40 transition-all duration-200';
 const FILTER_BUTTON_ACTIVE_CLASS = 'bg-[#8FC046] text-black shadow-lg shadow-[#8FC046]/20';
@@ -255,6 +260,20 @@ const FeatureTag: React.FC<{ type: string }> = ({ type }) => {
     <span className={`inline-block px-2 py-0.5 text-[0.625rem] font-medium rounded border ${colorClass}`}>{label}</span>
   );
 };
+
+const ItemList: React.FC<{ items: string[] }> = ({ items }) => (
+  <ul className="list-none pl-0 m-0 space-y-3">
+    {items.map((item, itemIdx) => (
+      <li
+        key={itemIdx}
+        className={CARD_ITEM_CLASS}
+      >
+        <span className="absolute left-0 top-[0.6rem] w-1.5 h-1.5 rounded-full bg-[#8FC046]"></span>
+        {renderTextWithTags(item)}
+      </li>
+    ))}
+  </ul>
+);
 
 const SparkleIcon: React.FC = () => (
   <svg
@@ -524,6 +543,18 @@ export const ChangelogItem: React.FC<{
                   );
                 }
 
+                if (block.type === 'section-label') {
+                  return (
+                    <div
+                      key={idx}
+                      className={SECTION_LABEL_CLASS}
+                    >
+                      {block.title}
+                      <span className="h-px flex-1 bg-gray-200 dark:bg-gray-800" />
+                    </div>
+                  );
+                }
+
                 if (block.type === 'improvements') {
                   return (
                     <div
@@ -536,17 +567,16 @@ export const ChangelogItem: React.FC<{
                         </div>
                         {block.title}
                       </h3>
-                      <ul className="list-none pl-0 m-0 space-y-3">
-                        {block.items.map((item, itemIdx) => (
-                          <li
-                            key={itemIdx}
-                            className={CARD_ITEM_CLASS}
-                          >
-                            <span className="absolute left-0 top-[0.6rem] w-1.5 h-1.5 rounded-full bg-[#8FC046]"></span>
-                            {renderTextWithTags(item)}
-                          </li>
-                        ))}
-                      </ul>
+                      {block.items.length > 0 && <ItemList items={block.items} />}
+                      {block.subsections?.map((sub, subIdx) => (
+                        <div
+                          key={subIdx}
+                          className={subIdx === 0 && block.items.length === 0 ? '' : SUBSECTION_CLASS}
+                        >
+                          <h4 className={SUBSECTION_HEADING_CLASS}>{sub.title}</h4>
+                          <ItemList items={sub.items} />
+                        </div>
+                      ))}
                     </div>
                   );
                 }

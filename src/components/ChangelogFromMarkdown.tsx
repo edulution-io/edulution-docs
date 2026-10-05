@@ -117,16 +117,22 @@ function parseEntryContent(
     let descriptionEnded = false;
     let currentSectionTitle = '';
     let currentSectionItems: string[] = [];
+    let currentSubsections: { title: string; items: string[] }[] = [];
+    // A #### heading followed by ##### cards becomes a label above them instead of a card.
+    let pendingGroupTitle = '';
 
     const flushSection = () => {
-        if (currentSectionTitle && currentSectionItems.length > 0) {
+        const subsections = currentSubsections.filter(sub => sub.items.length > 0);
+        if (currentSectionTitle && (currentSectionItems.length > 0 || subsections.length > 0)) {
             content.push({
                 type: 'improvements',
                 title: currentSectionTitle,
-                items: [...currentSectionItems]
+                items: [...currentSectionItems],
+                ...(subsections.length > 0 && { subsections })
             });
-            currentSectionItems = [];
         }
+        currentSectionItems = [];
+        currentSubsections = [];
     };
 
     while (i < lines.length) {
@@ -154,11 +160,35 @@ function parseEntryContent(
             continue;
         }
 
+        // Subsection inside a card: ###### Navigation
+        const subsectionMatch = line.match(/^######\s+(.*)/);
+        if (subsectionMatch && currentSectionTitle) {
+            currentSubsections.push({ title: subsectionMatch[1], items: [] });
+            i++;
+            continue;
+        }
+
+        // Card inside a group: ##### LINBO
+        const cardMatch = line.match(/^#####\s+(.*)/);
+        if (cardMatch) {
+            const groupTitle = currentSectionItems.length === 0 && currentSubsections.length === 0 ? currentSectionTitle : '';
+            flushSection();
+            if (groupTitle && groupTitle === pendingGroupTitle) {
+                content.push({ type: 'section-label', title: groupTitle });
+                pendingGroupTitle = '';
+            }
+            currentSectionTitle = cardMatch[1];
+            descriptionEnded = true;
+            i++;
+            continue;
+        }
+
         // Improvements section: #### Verbesserungen, #### Neue Features, #### Bugfixes
         const sectionMatch = line.match(/^####\s+(.*)/);
         if (sectionMatch) {
             flushSection();
             currentSectionTitle = sectionMatch[1];
+            pendingGroupTitle = sectionMatch[1];
             descriptionEnded = true;
             i++;
             continue;
@@ -166,7 +196,8 @@ function parseEntryContent(
 
         if (currentSectionTitle && line.startsWith('-')) {
             const itemText = line.replace(/^-\s*/, '');
-            currentSectionItems.push(itemText); // Behalte die Tags im Text
+            const target = currentSubsections[currentSubsections.length - 1]?.items ?? currentSectionItems;
+            target.push(itemText); // Behalte die Tags im Text
             i++;
             continue;
         }

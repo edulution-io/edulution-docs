@@ -11,7 +11,6 @@ export interface Option {
 export interface RoleView extends Option {
   /** Shown in the summary line below the role picker. */
   overview: string;
-  pages: string;
 }
 
 /**
@@ -165,7 +164,6 @@ const ADMIN_ROLES: RoleView[] = [
     description: 'Sie setzen eine neue Instanz zum ersten Mal auf.',
     overview:
       'Setzt eine neue Instanz auf: Voraussetzungen, Installation, SSL und Reverse Proxy, Anbindung an Linuxmuster.',
-    pages: 'Installation, Linuxmuster verbinden',
   },
   {
     id: 'admin-operate',
@@ -174,7 +172,6 @@ const ADMIN_ROLES: RoleView[] = [
     description: 'Sie betreuen eine bereits laufende Instanz.',
     overview:
       'Betreut eine laufende Instanz: Einstellungen, Benutzer, Container, Updates und Upgrades.',
-    pages: 'Administration, Upgrade',
   },
 ];
 
@@ -190,7 +187,6 @@ export const ORG_ROLES: Record<string, RoleView[]> = {
       short: 'Schüler:in',
       description: 'Sie nutzen edulution für den Unterricht.',
       overview: 'Nutzt edulution im Unterricht: Dateien, Aufgaben, Konferenzen.',
-      pages: 'Nutzerhandbuch',
     },
     {
       id: 'teacher',
@@ -199,7 +195,6 @@ export const ORG_ROLES: Record<string, RoleView[]> = {
       description: 'Sie unterrichten mit edulution und betreuen Klassen und Projekte.',
       overview:
         'Unterrichtet mit edulution, betreut Klassen und Projekte, sammelt Dateien ein und beaufsichtigt Bildschirme.',
-      pages: 'Nutzerhandbuch, Klassenzimmer',
     },
     {
       id: 'parent',
@@ -207,7 +202,6 @@ export const ORG_ROLES: Record<string, RoleView[]> = {
       short: 'Eltern',
       description: 'Sie begleiten Ihr Kind und nutzen die Elternfunktionen.',
       overview: 'Begleiten ihr Kind über die Eltern-Schüler-Zuordnung und die zugehörigen Benachrichtigungen.',
-      pages: 'Nutzerhandbuch, Eltern-Schüler-Zuordnung',
     },
     ...ADMIN_ROLES,
   ],
@@ -218,7 +212,6 @@ export const ORG_ROLES: Record<string, RoleView[]> = {
       short: 'Teilnehmer:in',
       description: 'Sie nehmen an Kursen und Schulungen teil.',
       overview: 'Nimmt an Kursen teil: Dateien, Aufgaben, Konferenzen.',
-      pages: 'Nutzerhandbuch',
     },
     {
       id: 'teacher',
@@ -226,7 +219,6 @@ export const ORG_ROLES: Record<string, RoleView[]> = {
       short: 'Lehrende:r',
       description: 'Sie leiten Kurse und betreuen Gruppen.',
       overview: 'Leitet Kurse, betreut Gruppen und Projekte, sammelt Dateien ein.',
-      pages: 'Nutzerhandbuch, Klassenzimmer',
     },
     {
       id: 'staff',
@@ -234,7 +226,6 @@ export const ORG_ROLES: Record<string, RoleView[]> = {
       short: 'Mitarbeiter:in',
       description: 'Sie arbeiten mit edulution, ohne Kurse zu leiten.',
       overview: 'Arbeitet mit edulution, ohne Kurse zu leiten – der übliche Fall in Behörden.',
-      pages: 'Nutzerhandbuch',
     },
     ...ADMIN_ROLES,
   ],
@@ -245,7 +236,6 @@ export const ORG_ROLES: Record<string, RoleView[]> = {
       short: 'Mitarbeiter:in',
       description: 'Sie arbeiten täglich mit edulution.',
       overview: 'Arbeitet täglich mit edulution: Dateien, E-Mail, Kalender, Chat, Konferenzen.',
-      pages: 'Nutzerhandbuch',
     },
     {
       id: 'teacher',
@@ -254,7 +244,6 @@ export const ORG_ROLES: Record<string, RoleView[]> = {
       description: 'Sie führen ein Team und betreuen dessen Gruppen und Projekte.',
       overview:
         'Führt ein Team, betreut dessen Primärgruppe und Projekte, sammelt Dateien ein und beaufsichtigt Bildschirme.',
-      pages: 'Nutzerhandbuch, Klassenzimmer',
     },
     ...ADMIN_ROLES,
   ],

@@ -56,6 +56,17 @@ Sparsam und gezielt: dort, wo ein Element schwer zu finden ist oder eine Entsche
 - Frontmatter `sidebar_custom_props.audience` und vorhandene `<Audience roles="…">`-Blöcke beibehalten. Rollen, Organisationstypen und Syntax des Zielgruppen-Systems stehen im [README](README.md#zielgruppen-rollen-organisationstyp-modul).
 - Interne Verweise als relative Links auf die `.md`-Datei, nie als absolute URL.
 
+## Kommentare im Code
+
+Gilt für Code (`src/`, `docusaurus.config.ts`, `sidebars.ts`, CSS), nicht für den Doku-Text.
+
+- **Im Normalfall kein Kommentar.** Code erklärt sich über Namen, benannte Konstanten, kleine Funktionen und genaue Typen.
+- Erlaubt sind nur:
+  - das **Warum**, das der Code nicht zeigt: eine Designentscheidung, eine nicht offensichtliche Einschränkung, eine verworfene Alternative, ein Workaround für einen Fremdfehler samt Upstream-Link;
+  - Werkzeug- und Pflichtkommentare: `eslint-disable` und `@ts-expect-error` jeweils mit Begründung, Lizenzköpfe, Pragmas;
+  - ein kurzer Doc-Kommentar, wo Code ein Format oder einen Vertrag für Autoren festlegt, den die Typen nicht ausdrücken, z. B. das Eintragsformat, das `ChangelogFromMarkdown` liest. Vorher prüfen, ob das nicht in die Autorendoku (README) gehört.
+- Ein bis zwei Sätze, englisch. Keine Historie („previously …“), kein TODO ohne Issue-Link, kein auskommentierter Code, keine Abschnittstrenner.
+
 ## Vor dem Commit
 
 - `npm run build` ausführen. `onBrokenLinks` und `onBrokenAnchors` stehen auf `throw`, ein erfolgreicher Build belegt also, dass alle internen Verweise auflösen – auf die Seite ebenso wie auf den Abschnitt (`#anker`).

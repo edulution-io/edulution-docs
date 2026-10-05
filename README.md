@@ -186,7 +186,7 @@ In `sidebars.ts` an der Kategorie:
 
 Ein Push auf `main` ändert die Live-Doku noch nicht – sie wird erst mit einem Release neu gebaut.
 
-Den Workflow **Release** unter **Actions** mit **Run workflow** auf `main` starten. Er baut die Doku, legt ein Release mit Tag nach dem Schema `vJahr.Monat.Nummer` an (z. B. `v2026.10.0`, danach `v2026.10.1`) und startet den Deploy.
+Den Workflow **Release** unter **Actions** mit **Run workflow** auf `main` starten. Er baut die Doku und schreibt die nächste Version nach dem Schema `Jahr.Monat.Nummer` (z. B. `2026.10.0`, danach `2026.10.1`) als Commit in die `package.json` auf `main`. Dann legt er das Release mit dem Tag `v` + Version an (z. B. `v2026.10.0`) und startet den Deploy. Die Fußzeile der Doku zeigt diese Version.
 
 Ein Release, das von Hand in der GitHub-Oberfläche veröffentlicht wird, löst den Deploy ebenfalls aus. Um einen älteren Stand wieder live zu schalten, den Workflow **Deploy Docusaurus to GitHub Pages** mit **Run workflow** auf dessen Tag starten.
 

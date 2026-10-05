@@ -47,17 +47,24 @@ jobs:
       GH_REPO: ${{ github.repository }}
 
     steps:
-      # CalVer: v<year>.<month>.<n>, n counting from 0 within the month.
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # CalVer: <year>.<month>.<n>, n counting from 0 within the month. The atomic push fails if main moved after the
+      # verified commit, so neither the version commit nor the tag lands with an unbuilt change.
       # A release created with GITHUB_TOKEN triggers no `release` event, so the deploy is started explicitly,
       # on the tag, which is the only ref the github-pages environment accepts.
-      - name: Create the release and deploy it
+      - name: Release and deploy
         run: |
-          prefix="v$(TZ=Europe/Berlin date +%Y.%-m)"
-          n=$(gh api "repos/$GH_REPO/git/matching-refs/tags/$prefix." \
+          month=$(TZ=Europe/Berlin date +%Y.%-m)
+          n=$(gh api "repos/$GH_REPO/git/matching-refs/tags/v$month." \
             --jq '[.[].ref | split(".")[-1] | select(test("^[0-9]+$")) | tonumber] | max // -1')
-          tag="$prefix.$((n + 1))"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          tag=$(npm version "$month.$((n + 1))" -m "Release v%s")
+          git push --atomic origin HEAD:main "$tag"
           previous=$(gh release list --exclude-drafts --exclude-pre-releases --limit 1 --json tagName --jq '.[0].tagName // empty')
-          gh release create "$tag" --target "$GITHUB_SHA" --title "$tag" --generate-notes \
+          gh release create "$tag" --verify-tag --title "$tag" --generate-notes \
             ${previous:+--notes-start-tag "$previous"}
           gh workflow run static.yml --ref "$tag"
-          echo "Released $tag from $GITHUB_SHA and started the deploy." >> "$GITHUB_STEP_SUMMARY"
+          echo "Released $tag and started the deploy." >> "$GITHUB_STEP_SUMMARY"

@@ -30,7 +30,7 @@ npm install --save-dev raw-loader
 1. Erstelle eine Markdown-Datei in `changelogs/`:
 
 ```markdown
-## v1.2.0 | 2024-03-15 | edulution-plattform, edulution-mail
+## v1.2.0 | 2024-03-15 | edulution-plattform
 
 ### Feature Title
 
@@ -82,7 +82,7 @@ import { Changelog } from "@site/src/components/Changelog";
       date: "2024-03-15",
       title: "Feature Title",
       description: "Description of the feature",
-      tags: [{ name: "edulution-plattform" }, { name: "edulution-mail" }],
+      tag: "edulution-plattform",
       image: "/img/screenshot.png", // optional
       improvements: ["Improvement 1", "Improvement 2"],
       links: [{ text: "Docs", url: "/docs" }],
@@ -96,19 +96,21 @@ import { Changelog } from "@site/src/components/Changelog";
 ### Header-Format
 
 ```markdown
-## v{version} | {date} | {tags}
+## v{version} | {date} | {tag}
 ```
+
+Jeder Eintrag trägt genau ein Tag: das Produkt, zu dem er gehört.
 
 Beispiel:
 
 ```markdown
-## v2.1.0 | 2025-03-15 | edulution-plattform, edulution-mail
+## v2.1.0 | 2025-03-15 | edulution-plattform
 ```
 
 ### Vollständiges Beispiel
 
 ```markdown
-## v2.1.0 | 2025-03-15 | edulution-plattform, edulution-mail
+## v2.1.0 | 2025-03-15 | edulution-plattform
 
 ![Optional Screenshot](/img/feature.png)
 
@@ -168,16 +170,12 @@ Die Komponente erkennt automatisch diese Tags und wendet passende Farben an:
 - `edulution-mail` - Blau (#0081c6)
 - `edulution-fileproxy` - Rot (#dc2626)
 - `edulution-backend` - Gelb (#FFD700)
+- `edulution-app` - Violett (#9333ea)
 
 ### Eigene Tag-Farben
 
-Du kannst auch eigene Farben definieren:
-
-```jsx
-tags: [{ name: "custom-tag", color: "bg-purple-500 text-white" }];
-```
-
-Die `color`-Property akzeptiert Tailwind-Klassen.
+Ein Tag ohne eigene Farbe wird grün dargestellt. Weitere Farben ergänzt man in der Zuordnung
+`colors` der Komponente `Tag` in `src/components/Changelog.tsx`.
 
 ## Styling
 
@@ -226,10 +224,10 @@ Neue interaktive Mail-Konfigurationskomponente.
 ---
 ```
 
-### Eintrag mit mehreren Tags und Links
+### Eintrag mit Links
 
 ```markdown
-## v2.0.0 | 2025-01-20 | edulution-plattform, edulution-mail, edulution-fileproxy
+## v2.0.0 | 2025-01-20 | edulution-plattform
 
 ### Major Release
 

@@ -46,7 +46,7 @@ Jede Karte zeigt:
 - Klasse
 - Speichernutzung (Quota)
 
-Über die Karte öffnen Sie die Passwort-Aktionen des Schülers. Welche Passwörter zulässig sind, bestimmt die [Passwortrichtlinie](../../../edulution-server/benutzerverwaltung.md#passwortrichtlinie) der Linuxmuster-Installation.
+Über das Schlüssel-Symbol öffnen Sie die Passwortoptionen des Schülers, sofern Sie Lehrkraft in dessen Klasse sind. Welche Passwörter zulässig sind, bestimmt die [Passwortrichtlinie](../../../edulution-server/benutzerverwaltung.md#passwortrichtlinie) der Linuxmuster-Installation.
 
 ### Steuerungs-Icons
 

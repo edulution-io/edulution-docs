@@ -96,6 +96,7 @@ Diese Seite beschreibt die Passwortänderung durch den Benutzer selbst. Das **Zu
 |---|---|---|
 | *Das aktuelle Passwort ist nicht korrekt* | Keycloak hat die Anmeldung mit dem eingegebenen alten Passwort abgelehnt. | Eingabe prüfen. Tritt die Meldung trotz korrektem Passwort auf, prüfen Sie, ob **Direct access grants** für den edu-ui-Client aktiviert ist. |
 | *Passwort konnte nicht geändert werden* | Keycloak hat das neue Passwort abgelehnt oder konnte es nicht schreiben. | Passwortrichtlinie des Realms und den **Edit mode** des LDAP-Verbunds prüfen. Auf Linuxmuster-Systemen zusätzlich die Erreichbarkeit der Linuxmuster-API. |
+| *Das Passwort erfüllt die Passwortrichtlinie nicht* | Auf dem Rückfallweg hat die [Passwortrichtlinie](../../edulution-server/benutzerverwaltung.md#passwortrichtlinie) der Linuxmuster-Installation das neue Passwort abgelehnt. Die Meldung nennt die verletzten Regeln. | Ein Passwort wählen, das den genannten Regeln genügt. Umlaute und ß sind nicht zulässig. |
 | *Verbindung zum Authentifizierungsserver fehlgeschlagen* | Keycloak war nicht erreichbar. | Zustand des Containers `edu-keycloak` prüfen. |
 | *Das Passwort muss mindestens 8 Zeichen lang sein* | Vorabprüfung im Formular. | Längeres Passwort wählen. |
 

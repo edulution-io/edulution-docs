@@ -1,6 +1,5 @@
 import React from 'react';
 import { Changelog, ChangelogEntry, ContentBlock } from './Changelog';
-import Tag from './Tag';
 
 const ENTRY_SEPARATOR = /\n---+\n/;
 const ENTRY_HEADER = /^##\s+v?([\d.]+)\s*\|\s*([\d-]+)\s*(?:\|\s*(.+))?$/;
@@ -9,12 +8,6 @@ const ENTRY_HEADER_WITH_META = /^##\s+(.+?)\s*\{\{\s*(.+?)\s*\}\}$/;
 interface ParsedChangelog {
     entries: ChangelogEntry[];
 }
-
-type ExtendedContentBlock = ContentBlock | {
-    type: 'text-with-tags';
-    text: string;
-    tags: string[];
-};
 
 /** Parses the entry format described in changelogs/README.md. An entry takes exactly one tag. */
 export function parseChangelogMarkdown(markdown: string): ParsedChangelog {
@@ -83,7 +76,7 @@ function parseEntryContent(
 ): ChangelogEntry {
     let title = defaultTitle;
     let description = '';
-    const content: ExtendedContentBlock[] = [];
+    const content: ContentBlock[] = [];
 
     let i = 0;
     let descriptionLines: string[] = [];
@@ -91,8 +84,7 @@ function parseEntryContent(
     let currentSectionTitle = '';
     let currentSectionItems: string[] = [];
     let currentSubsections: { title: string; items: string[] }[] = [];
-    // A #### heading followed by ##### cards becomes a label above them instead of a card.
-    let pendingGroupTitle = '';
+    let currentSectionLevel = 0;
 
     const flushSection = () => {
         const subsections = currentSubsections.filter(sub => sub.items.length > 0);
@@ -100,8 +92,8 @@ function parseEntryContent(
             content.push({
                 type: 'improvements',
                 title: currentSectionTitle,
-                items: [...currentSectionItems],
-                ...(subsections.length > 0 && { subsections })
+                items: currentSectionItems,
+                subsections
             });
         }
         currentSectionItems = [];
@@ -131,32 +123,22 @@ function parseEntryContent(
             continue;
         }
 
-        const subsectionMatch = line.match(/^######\s+(.*)/);
-        if (subsectionMatch && currentSectionTitle) {
-            currentSubsections.push({ title: subsectionMatch[1], items: [] });
+        const headingMatch = line.match(/^(#{4,6})\s+(.*)/);
+        const level = headingMatch?.[1].length;
+        if (headingMatch && level === 6 && currentSectionTitle) {
+            currentSubsections.push({ title: headingMatch[2], items: [] });
             i++;
             continue;
         }
 
-        const cardMatch = line.match(/^#####\s+(.*)/);
-        if (cardMatch) {
-            const groupTitle = currentSectionItems.length === 0 && currentSubsections.length === 0 ? currentSectionTitle : '';
-            flushSection();
-            if (groupTitle && groupTitle === pendingGroupTitle) {
-                content.push({ type: 'section-label', title: groupTitle });
-                pendingGroupTitle = '';
+        if (headingMatch && level !== 6) {
+            // A #### heading followed directly by ##### cards becomes a label above them instead of a card.
+            if (level === 5 && currentSectionLevel === 4 && currentSectionItems.length === 0 && currentSubsections.length === 0) {
+                content.push({ type: 'section-label', title: currentSectionTitle });
             }
-            currentSectionTitle = cardMatch[1];
-            descriptionEnded = true;
-            i++;
-            continue;
-        }
-
-        const sectionMatch = line.match(/^####\s+(.*)/);
-        if (sectionMatch) {
             flushSection();
-            currentSectionTitle = sectionMatch[1];
-            pendingGroupTitle = sectionMatch[1];
+            currentSectionTitle = headingMatch[2];
+            currentSectionLevel = level;
             descriptionEnded = true;
             i++;
             continue;

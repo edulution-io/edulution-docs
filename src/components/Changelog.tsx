@@ -1,4 +1,5 @@
 import React, { JSX, useEffect, useRef, useState } from 'react';
+import { useHistory } from '@docusaurus/router';
 import Heading from '@theme/Heading';
 import './Changelog.css';
 
@@ -635,17 +636,7 @@ export const ChangelogItem: React.FC<{
                     </div>
                     Verbesserungen & Features
                   </h3>
-                  <ul className="list-none pl-0 m-0 space-y-3">
-                    {entry.improvements.map((improvement, idx) => (
-                      <li
-                        key={idx}
-                        className={CARD_ITEM_CLASS}
-                      >
-                        <span className="absolute left-0 top-[0.6rem] w-1.5 h-1.5 rounded-full bg-[#8FC046]"></span>
-                        {renderMarkdown(improvement)}
-                      </li>
-                    ))}
-                  </ul>
+                  <ItemList items={entry.improvements} />
                 </div>
               )}
 
@@ -688,37 +679,39 @@ export const ChangelogItem: React.FC<{
 export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState<string>('all');
+  const history = useHistory();
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
-  const [barHeight, setBarHeight] = useState(0);
-  const scrolledToHash = useRef(false);
 
-  useEffect(() => {
-    if (!barRef.current) {
-      return;
-    }
-    const observer = new ResizeObserver(([e]) => setBarHeight(e.target.getBoundingClientRect().height));
-    observer.observe(barRef.current);
-    return () => observer.disconnect();
-  }, []);
-
+  // Written straight to the DOM so a resize of the bar does not re-render every entry.
   // The browser jumps to the hash before the bar is measured, so jump again once it is.
   // A bare #v<version> link resolves to the plattform entry, the only product it was ever used for.
   useEffect(() => {
-    if (!barHeight || scrolledToHash.current) {
+    const wrapper = wrapperRef.current;
+    if (!wrapper || !barRef.current) {
       return;
     }
-    scrolledToHash.current = true;
-    const hash = decodeURIComponent(window.location.hash.slice(1));
-    const id = /^v[\d.]+$/.test(hash) ? `plattform-${hash}` : hash;
-    const target = id && document.getElementById(id);
-    if (!target) {
-      return;
-    }
-    if (id !== hash) {
-      window.history.replaceState(null, '', `#${id}`);
-    }
-    target.scrollIntoView();
-  }, [barHeight]);
+    let scrolledToHash = false;
+    const observer = new ResizeObserver(([e]) => {
+      wrapper.style.setProperty('--changelog-bar-height', `${e.borderBoxSize[0].blockSize}px`);
+      if (scrolledToHash) {
+        return;
+      }
+      scrolledToHash = true;
+      const hash = decodeURIComponent(window.location.hash.slice(1));
+      const id = /^v[\d.]+$/.test(hash) ? `plattform-${hash}` : hash;
+      const target = id && document.getElementById(id);
+      if (!target) {
+        return;
+      }
+      if (id !== hash) {
+        history.replace({ ...history.location, hash: `#${id}` });
+      }
+      target.scrollIntoView();
+    });
+    observer.observe(barRef.current);
+    return () => observer.disconnect();
+  }, [history]);
 
   const allTags = Array.from(new Set(entries.map((e) => e.tag).filter(Boolean))) as string[];
 
@@ -745,9 +738,9 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
 
   return (
     <div
+      ref={wrapperRef}
       id="tw-scope"
       className="relative flex-auto"
-      style={{ '--changelog-bar-height': `${barHeight}px` } as React.CSSProperties}
     >
       <div
         ref={barRef}

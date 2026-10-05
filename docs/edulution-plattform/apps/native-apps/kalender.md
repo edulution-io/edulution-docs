@@ -235,11 +235,9 @@ Im Feld **Wiederholung** legen Sie fest, ob ein Termin wiederkehrt. Es stehen fo
 - **Alle** und **Einheit** – Das Intervall, z. B. alle 2 Wochen.
 - **An folgenden Wochentagen** – Bei wöchentlicher Wiederholung wählen Sie hier die betroffenen Wochentage.
 - **Monatliches Muster** – Bei monatlicher Wiederholung wählen Sie zwischen einem festen Tag im Monat (z. B. „Am 15. des Monats“) und einem Muster nach Wochentag (z. B. „Am zweiten Dienstag des Monats“).
-- **Endet** – Wann die Serie endet: **Nie**, **Nach** einer Anzahl von Terminen oder **Am Datum**.
+- **Endet** – Wann die Serie endet: **Nie**, **Nach** einer Anzahl von Terminen oder **Am Datum**. Bei **Nach** ist die Anzahl mit 10 vorbelegt; zulässig sind ganze Zahlen ab 1, bei anderen Werten gilt das Feld als leer. Bei **Am Datum** ist das Datumsfeld zunächst leer. Solange kein Datum beziehungsweise keine gültige Anzahl eingetragen ist, bleibt **Speichern** deaktiviert – eine gesonderte Meldung erscheint nicht.
 
-Bei **Nach** und **Am Datum** ist das zugehörige Feld zunächst leer. Solange dort keine Anzahl beziehungsweise kein Datum eingetragen ist, bleibt **Speichern** deaktiviert – eine gesonderte Meldung erscheint nicht. Als Anzahl ist mindestens 1 zulässig; **Nie** benötigt keine weitere Angabe.
-
-Unterhalb der Auswahl wird die aktuell eingestellte Wiederholung als Text zusammengefasst.
+Die aktuell eingestellte Wiederholung wird im Dialog als Text zusammengefasst.
 
 :::info[Wiederholungsregel bestehender Serien]
 Das nachträgliche Ändern der Wiederholungsregel einer bereits bestehenden Serie wird derzeit nicht unterstützt. Beim Bearbeiten einer einzelnen Wiederholung wird die Regel daher nur als Text angezeigt.

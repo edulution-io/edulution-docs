@@ -2,39 +2,27 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useAudience } from './AudienceContext';
-import { ANY, audienceClassNames, resolveOrgs, resolveRoles } from './taxonomy';
+import { ANY, audienceClassNames, EDULUTION_DEFAULT_ORG, resolveOrgs, resolveRoles } from './taxonomy';
 
-/** Ein Einstieg in die Dokumentation einer Komponente. */
 interface Target {
   to: string;
-  /** Beschriftung des Links – sagt, wo man landet. */
   label: string;
 }
 
+type TextPerOrg = string | Record<string, string>;
+
 interface AppCard {
-  /** Kürzel unter dem Schriftzug, wie auf den Produktseiten. */
-  badge: string | Record<string, string>;
-  title: string | Record<string, string>;
-  /** Die grüne Zeile: ein Satzteil, keine Wiederholung des Titels. */
+  badge: TextPerOrg;
+  title: TextPerOrg;
+  /** A sentence fragment that does not repeat the title. */
   tagline: string;
   text: string;
-  /**
-   * Wer die Karte sieht. Leer = alle. Rein administrative Komponenten
-   * tauchen für Endnutzer gar nicht erst auf – sie können sie weder
-   * installieren noch betreiben.
-   */
+  /** Who sees the card, in the `<Audience roles>` syntax; omitted means everyone. */
   roles?: string;
   orgs?: string;
-  /**
-   * Nimmt zwei Spalten ein, sobald eine Rolle gewaehlt ist, fuer die diese
-   * Komponente den Schwerpunkt bildet – siehe `.app-card--wide` im CSS.
-   */
+  /** Spans two columns only while a teacher or admin role is selected (see `.app-card--wide`). */
   wide?: boolean;
-  /**
-   * Einstieg je Rolle. `default` gilt für jede Rolle ohne eigenen Eintrag,
-   * also insbesondere für alle Endnutzer und für die Ansicht ohne Auswahl.
-   */
-  targets: Record<string, Target>;
+  targets: Record<string, Target> & { default: Target };
 }
 
 const CARDS: AppCard[] = [
@@ -57,8 +45,8 @@ const CARDS: AppCard[] = [
     },
   },
   {
-    // Der Organisationstyp benennt diese App um – siehe Einstellungen →
-    // Globale Einstellungen → Allgemein → Organisationstyp.
+    // The org type renames this app, see Einstellungen → Globale Einstellungen → Allgemein →
+    // Organisationstyp.
     badge: { school: 'SCHULSERVER', 'public-administration': 'SCHULSERVER', business: 'SERVER' },
     title: {
       school: 'edulution Schulserver',
@@ -184,19 +172,8 @@ const CARDS: AppCard[] = [
 ];
 
 /**
- * Die Komponenten von edulution als Einstiegskarten.
- *
- * Zwei Dinge hängen an der Auswahl der Lesenden:
- *
- * 1. **Wohin die Karte führt.** Eine Lehrkraft landet beim Nutzerhandbuch,
- *    die Ersteinrichtung bei der Installation, der Betrieb bei der
- *    Administration. Niemand muss sich durch fremde Kapitel arbeiten.
- * 2. **Ob die Karte erscheint.** Satellite und FileProxy sind reine
- *    Administrationsthemen und verschwinden für Endnutzer.
- *
- * Ausgeblendet wird per CSS (die Klassen stehen schon im HTML, das
- * Inline-Skript setzt `data-role` vor dem ersten Paint), das Linkziel
- * dagegen aus dem Kontext – deshalb springt beim Laden nichts.
+ * Card visibility comes from CSS classes so admin-only cards never flash on load; only the link
+ * target follows the context.
  */
 export default function AppCards(): React.JSX.Element {
   const { role, org } = useAudience();
@@ -206,10 +183,10 @@ export default function AppCards(): React.JSX.Element {
     <div className="app-cards">
       {CARDS.map((card) => {
         const target = card.targets[role] ?? card.targets.default;
-        const title = pick(card.title, org);
+        const title = textForOrg(card.title, org);
         return (
           <Link
-            key={pick(card.title, ANY)}
+            key={textForOrg(card.title, ANY)}
             to={target.to}
             className={`app-card${card.wide ? ' app-card--wide' : ''} ${audienceClassNames(
               resolveRoles(card.roles),
@@ -223,7 +200,7 @@ export default function AppCards(): React.JSX.Element {
                 <span className="app-card__word">
                   edulution<span className="app-card__tld">.io</span>
                 </span>
-                <span className="app-card__badge">{pick(card.badge, org)}</span>
+                <span className="app-card__badge">{textForOrg(card.badge, org)}</span>
               </span>
             </span>
 
@@ -243,11 +220,9 @@ export default function AppCards(): React.JSX.Element {
   );
 }
 
-/** Wählt die Schreibweise des gewählten Organisationstyps. */
-function pick(value: string | Record<string, string>, org: string): string {
+function textForOrg(value: TextPerOrg, org: string): string {
   if (typeof value === 'string') {
     return value;
   }
-  // Ohne Auswahl gilt Schule – die Voreinstellung von edulution.
-  return value[org] ?? value.school;
+  return value[org] ?? value[EDULUTION_DEFAULT_ORG];
 }

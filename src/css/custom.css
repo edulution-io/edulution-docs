@@ -1,13 +1,6 @@
-/**
- * edulution.io Documentation - Custom Styling
- * Based on edulution.io brand colors
- * Dark mode by default
- */
-
 :root {
   --edu-green: #8fc046;
-  /* Auf hellem Grund reicht das Markengruen fuer Text nicht aus (Kontrast
-     unter 3:1), deshalb eine abgedunkelte Variante fuer Schrift. */
+  /* The brand green has a contrast below 3:1 on light backgrounds, so text uses a darker variant. */
   --edu-green-text: #4e7a13;
 }
 
@@ -15,7 +8,6 @@
   --edu-green-text: #a7d45f;
 }
 
-/* Responsive Table Wrapper for Mail Client Tables */
 .mail-table-wrapper {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -30,7 +22,6 @@
   border: none;
 }
 
-/* Mail Compatibility Table Styles */
 table.mail-compat-table {
   width: 100% !important;
   table-layout: auto !important;
@@ -112,7 +103,6 @@ table.mail-compat-table tbody td:first-child {
   color: var(--ifm-color-warning);
 }
 
-/* Mail Compatibility Matrix Styles */
 .mail-compat-legend {
   display: flex;
   gap: 32px;
@@ -243,12 +233,10 @@ table.mail-compat-table tbody td:first-child {
   }
 }
 
-/* Brand colors */
 :root {
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(136, 216, 64, 0.1);
 
-  /* Edulution colors */
   --edulution-green: #8fc046;
   --edulution-blue: #0081c6;
   --edulution-dark-blue: #1a202c;
@@ -258,8 +246,8 @@ table.mail-compat-table tbody td:first-child {
   --edulution-gradient: linear-gradient(45deg, #8fc046, #0081c6);
 }
 
-/* Light mode, following the light theme of edulution-ui: #8fc046 stays the fill colour, but it is
-   too pale for text on white, so text accents use the darker --edu-green-text scale. */
+/* Mirrors the light theme of edulution-ui: --edu-green stays the fill colour, while Infima's primary
+   scale, which colours text accents, follows the darker --edu-green-text. */
 [data-theme="light"] {
   --ifm-color-primary: var(--edu-green-text);
   --ifm-color-primary-dark: #466e11;
@@ -283,9 +271,7 @@ table.mail-compat-table tbody td:first-child {
 }
 
 
-/* Dark mode - main theme (default) */
 [data-theme="dark"] {
-  /* Primary colors - edulution green */
   --ifm-color-primary: #8fc046;
   --ifm-color-primary-dark: #7ac639;
   --ifm-color-primary-darker: #72bd35;
@@ -294,24 +280,19 @@ table.mail-compat-table tbody td:first-child {
   --ifm-color-primary-lighter: #a0e06a;
   --ifm-color-primary-lightest: #b4e88a;
 
-  /* Background colors - very dark like edulution.io */
   --ifm-background-color: #0a0a0a;
   --ifm-background-surface-color: #1a1a1a;
   --ifm-navbar-background-color: #0a0a0a;
   --ifm-footer-background-color: #0a0a0a;
 
-  /* Text colors for better readability */
   --ifm-font-color-base: #e8e8e8;
   --ifm-heading-color: #ffffff;
 
-  /* Code highlighting */
   --docusaurus-highlighted-code-line-bg: rgba(136, 216, 64, 0.15);
 
-  /* Cards and surfaces */
   --ifm-card-background-color: #1a1a1a;
   --ifm-hover-overlay: rgba(136, 216, 64, 0.05);
 
-  /* Secondary color - edulution blue */
   --ifm-color-secondary: #0281c7;
   --ifm-color-secondary-dark: #0273b3;
   --ifm-color-secondary-darker: #026ca9;
@@ -320,7 +301,6 @@ table.mail-compat-table tbody td:first-child {
   --ifm-color-secondary-lighter: #0295e5;
   --ifm-color-secondary-lightest: #1aa8ff;
 
-  /* Success color - same as primary (green) */
   --ifm-color-success: #8fc046;
   --ifm-color-success-dark: #7ac639;
   --ifm-color-success-darker: #72bd35;
@@ -329,7 +309,6 @@ table.mail-compat-table tbody td:first-child {
   --ifm-color-success-lighter: #a0e06a;
   --ifm-color-success-lightest: #b4e88a;
 
-  /* Borders */
   --ifm-color-emphasis-300: #2a2a2a;
   --ifm-hr-border-color: #2a2a2a;
   --ifm-toc-border-color: #2a2a2a;
@@ -337,7 +316,6 @@ table.mail-compat-table tbody td:first-child {
   --edu-hero-background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
-/* Hero section styling - edulution gradient per theme */
 .hero--primary {
   background: var(--edu-hero-background);
   border-bottom: 2px solid var(--edu-green);
@@ -352,7 +330,6 @@ table.mail-compat-table tbody td:first-child {
   color: #e8e8e8;
 }
 
-/* Buttons - edulution color scheme with gradient */
 .button--primary {
   background: var(--edulution-gradient);
   color: #ffffff;
@@ -394,7 +371,6 @@ table.mail-compat-table tbody td:first-child {
   opacity: 1;
 }
 
-/* Links - green accent (primary color) */
 [data-theme="dark"] a:where(:not(.button)) {
   color: #8fc046;
 }
@@ -403,7 +379,6 @@ table.mail-compat-table tbody td:first-child {
   color: #96dc55;
 }
 
-/* Code blocks */
 [data-theme="dark"] pre {
   background-color: #0f0f0f;
   border: 1px solid #2a2a2a;
@@ -415,7 +390,6 @@ table.mail-compat-table tbody td:first-child {
   border: 1px solid #2a2a2a;
 }
 
-/* Sidebar */
 [data-theme="dark"] .theme-doc-sidebar-container {
   background-color: #0a0a0a;
   border-right: 1px solid #2a2a2a;
@@ -431,7 +405,6 @@ table.mail-compat-table tbody td:first-child {
   background-color: rgba(136, 216, 64, 0.1);
 }
 
-/* Navbar */
 [data-theme="dark"] .navbar {
   background-color: #0a0a0a;
   border-bottom: 1px solid #2a2a2a;
@@ -446,7 +419,6 @@ table.mail-compat-table tbody td:first-child {
   color: #8fc046;
 }
 
-/* Footer */
 [data-theme="dark"] .footer {
   background-color: #0a0a0a;
   border-top: 1px solid #2a2a2a;
@@ -460,13 +432,11 @@ table.mail-compat-table tbody td:first-child {
   color: #8fc046;
 }
 
-/* Admonitions (Notes, Warnings, etc.) */
 [data-theme="dark"] .alert {
   background-color: #1a1a1a;
   border-left-color: #8fc046;
 }
 
-/* Tables */
 [data-theme="dark"] table {
   border-color: #2a2a2a;
 }
@@ -480,7 +450,6 @@ table.mail-compat-table tbody td:first-child {
   border-color: #2a2a2a;
 }
 
-/* Search */
 [data-theme="dark"] .navbar__search-input {
   background-color: #1a1a1a;
   color: #e8e8e8;
@@ -491,29 +460,12 @@ table.mail-compat-table tbody td:first-child {
   border-color: #8fc046;
 }
 
-/* ==========================================================================
-   Zielgruppen (Rolle / Organisationstyp)
-   --------------------------------------------------------------------------
-   Sichtbarkeit haengt allein an den Attributen `data-role` und `data-org`
-   des <html>-Elements. Ein Inline-Skript setzt sie vor dem ersten Paint
-   (src/plugins/audience.js), deshalb flackert nichts und Server- und
-   Client-Render bleiben identisch.
+/* Audience filtering depends only on the `data-role`/`data-org` attributes that src/plugins/audience.js
+   sets on <html> before first paint, so nothing flickers and server and client render match. An element
+   restricting an axis (`.aud--roled`/`.aud--orged`) is hidden unless one of its `.aud-role-*`/`.aud-org-*`
+   classes names the current value; this is display filtering, not access control. */
 
-   Ein Element traegt `.aud--roled` bzw. `.aud--orged`, sobald es die
-   jeweilige Achse einschraenkt, dazu je eine `.aud-role-*`/`.aud-org-*`
-   Klasse pro erlaubtem Wert. Ausgeblendet wird also nur, was die Achse
-   ueberhaupt einschraenkt und den aktuellen Wert nicht nennt. Ohne Auswahl
-   steht `all` – dann greift keine Regel und alles bleibt sichtbar.
-
-   `.aud--revealed` deckt einen einzelnen Abschnitt wieder auf, wenn ein
-   Link von aussen genau dorthin zeigt (siehe AudienceContext).
-
-   Hinweis: reine Anzeige-Einstellung, keine Zugriffskontrolle – die Inhalte
-   liegen weiterhin im ausgelieferten HTML.
-   ========================================================================== */
-
-/* Wrapper duerfen das umgebende Layout nicht veraendern, solange sie
-   sichtbar sind (Sidebar-Eintraege, ganze Seiteninhalte). */
+/* Audience wrappers around sidebar items and whole page contents must not affect the layout. */
 .aud--contents {
   display: contents;
 }
@@ -547,10 +499,8 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   display: none !important;
 }
 
-/* Optische Kennzeichnung eines Abschnitts, der nur fuer bestimmte Rollen
-   geschrieben ist – aber nur, wenn er als eigener Block im Text steht.
-   `.aud--plain` nimmt Elemente mit eigenem Layout aus (Einstiegskarten,
-   Rollentabellen): sie werden gefiltert, aber nicht umrandet. */
+/* Marks role-specific prose blocks. Elements with their own layout (entry cards, role tables) carry
+   `.aud--plain` and are filtered without the marker. */
 .aud--roled:not(.aud--contents):not(.aud--plain) {
   border-left: 3px solid var(--ifm-color-emphasis-300);
   padding-left: 1rem;
@@ -562,19 +512,18 @@ html[data-role='admin-operate'] .aud-role-admin-operate:not(.aud--contents):not(
   border-left-color: #8fc046;
 }
 
-/* Ein von aussen verlinkter Abschnitt wird aufgedeckt und markiert. */
+/* AudienceContext reveals a hidden section when an incoming link targets it, and marks it. */
 .aud--revealed {
   border-left-color: #8fc046 !important;
 }
 
-/* Inhaltsverzeichnis-Eintraege, die auf eine ausgeblendete Ueberschrift
-   zeigen (wird von HiddenContentSync gesetzt). */
+/* Set by HiddenContentSync on TOC entries whose heading is hidden. */
 .table-of-contents .toc-hidden {
   display: none;
 }
 
-/* Hinweis auf Seiten, die sich komplett an eine andere Zielgruppe richten.
-   Gegenstueck zum Seiten-Wrapper: genau eines von beiden ist sichtbar. */
+/* Notice for pages aimed entirely at another audience; it follows the page wrapper, and exactly one
+   of the two is visible. */
 .aud-fallback {
   display: none;
 }
@@ -591,16 +540,10 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   display: block;
 }
 
-/* --- Die zwei Fragen auf der Startseite ---------------------------------- */
-
-/* Zwei Spalten in der ersten Zeile: links die Frage, rechts die
-   Schaltflaechen. Die Zeile zur gewaehlten Antwort steht darunter und laeuft
-   ueber beide – sie beantwortet die Frage und gehoert nicht unter die Chips
-   allein. Die feste Breite der linken Spalte laesst die Chips beider Fragen
-   fluchten, obwohl die eine Frage laenger ist als die andere. Kein Kasten
-   drumherum – die Chips selbst sind die einzige Umrandung. Der erklaerende
-   Satz kommt weiterhin aus dem Markdown. */
+/* The fixed width of the question column keeps the chips of both questions aligned, although
+   the questions differ in length. */
 .audience-picker {
+  --audience-chip-padding-block: 0.3125rem;
   display: grid;
   grid-template-columns: minmax(0, 17rem) 1fr;
   align-items: baseline;
@@ -613,26 +556,20 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   margin: 0;
   font-weight: 600;
   line-height: 1.4;
-  /* Die Chips haben 0.3125rem Innenabstand oben; ohne den Ausgleich sitzt
-     die Frage eine Winzigkeit zu hoch. */
-  padding-top: 0.3125rem;
+  padding-top: var(--audience-chip-padding-block);
 }
 
 .audience-picker__options {
   grid-column: 2;
 }
 
-/* Nur die Zeilen im Picker spannen ueber beide Spalten – RoleSummary laesst
-   sich auch allein im Markdown verwenden und bleibt dort unberuehrt. Die
-   nicht gewaehlten Zeilen stehen auf `display: none` und belegen deshalb
-   keine Rasterzelle. */
+/* Scoped to the picker because RoleSummary can also stand alone in Markdown. Unselected rows are
+   `display: none` and take no grid cell. */
 .audience-picker > .org-summary,
 .audience-picker > .role-summary {
   grid-column: 1 / -1;
 }
 
-/* Unter der Breite reicht der Platz nicht fuer zwei Spalten: die Frage
-   rueckt ueber die Schaltflaechen. */
 @media (max-width: 48rem) {
   .audience-picker {
     grid-template-columns: 1fr;
@@ -660,7 +597,7 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   background: transparent;
   color: inherit;
   border-radius: 999px;
-  padding: 0.3125rem 0.9375rem;
+  padding: var(--audience-chip-padding-block) 0.9375rem;
   font-size: 0.875rem;
   line-height: 1.4;
   cursor: pointer;
@@ -698,8 +635,6 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   font-size: inherit;
 }
 
-/* --- Einstiegskarten je Komponente --------------------------------------- */
-
 .app-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
@@ -722,10 +657,8 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   transition: border-color 120ms ease, transform 120ms ease, box-shadow 120ms ease;
 }
 
-/* Fuer Rollen, deren Arbeit sich vor allem in der Plattform abspielt, nimmt
-   deren Karte zwei Spalten ein und fuehrt das Raster damit sichtbar an.
-   Erst ab 768px – darunter hat das Raster nur eine Spalte, und ein
-   `span 2` wuerde eine zweite, ueberlaufende Spalte erzeugen. */
+/* Only from 768px: below, the grid has a single column and `span 2` would add an overflowing second
+   one. */
 @media (min-width: 768px) {
   html[data-role='teacher'] .app-card--wide,
   html[data-role='admin-setup'] .app-card--wide,
@@ -741,7 +674,6 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Logo-Lockup: Bildmarke, Schriftzug, Kuerzel der Komponente. */
 .app-card__brand {
   display: flex;
   align-items: center;
@@ -749,9 +681,6 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   margin-bottom: 0.625rem;
 }
 
-/* Die Bildmarke bringt ihren Farbverlauf selbst mit und steht deshalb in
-   beiden Themes unveraendert. Die Breite folgt der Hoehe, damit sie nicht
-   verzerrt – das Original ist hoeher als breit. */
 .app-card__mark {
   width: auto;
   height: 1.875rem;
@@ -798,8 +727,8 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   color: var(--ifm-color-emphasis-700);
 }
 
-/* `margin-top: auto` haelt den Link am unteren Rand, damit die Karten einer
-   Reihe trotz unterschiedlich langer Texte gleich abschliessen. */
+/* `margin-top: auto` pins the link to the bottom, so cards in a row end level despite different text
+   lengths. */
 .app-card__more {
   display: inline-flex;
   align-items: center;
@@ -818,11 +747,6 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
 .app-card:hover .app-card__chevron {
   transform: translateX(3px);
 }
-
-/* --- Einstiegskarten auf Kapitelseiten ------------------------------------ */
-
-/* Kachel und Hover teilen sich die Regeln mit `.app-card` weiter oben; hier
-   steht nur, was diese Karten eigen haben. */
 
 .doc-cards {
   display: grid;
@@ -855,11 +779,8 @@ html[data-org='public-administration'] .aud--orged:not(.aud-org-public-administr
   color: var(--ifm-color-emphasis-700);
 }
 
-/* --- Haeufige Fragen je Rolle -------------------------------------------- */
-
-/* Wie bei der Rollenuebersicht steht je Rolle ein Block im HTML; sichtbar
-   ist genau einer. Ohne Rollenauswahl uebernimmt `.faq--default`. Die
-   Blockrollen selbst blenden die `.aud-role-*`-Regeln weiter oben aus. */
+/* One FAQ block per role is rendered and the `.aud-role-*` rules hide the others; while no role is
+   selected, `.faq--default` is shown instead. */
 html[data-role='all'] .faq:not(.faq--default) {
   display: none;
 }
@@ -911,23 +832,16 @@ html[data-role='admin-operate'] .faq--default {
   color: var(--ifm-color-emphasis-700);
 }
 
-/* --- Die gewaehlte Antwort unter den Schaltflaechen ----------------------- */
-
-/* Unter jeder Frage steht genau eine Zeile. Die Zeile zu einer Rolle setzt
-   beide Antworten voraus – dieselbe Rollen-ID heisst je Organisationstyp
-   anders –, die zum Organisationstyp nur die eigene. Welche Paarung uebrig
-   bleibt, entscheiden die `.aud-role-*`- und `.aud-org-*`-Regeln weiter
-   oben. */
+/* A role summary needs both answers because the same role ID is named differently per organisation
+   type; the `.aud-role-*` and `.aud-org-*` rules leave the matching pair. */
 html[data-org='all'] .role-summary:not(.role-summary--any),
 html[data-role='all'] .role-summary:not(.role-summary--any),
 html[data-org='all'] .org-summary:not(.org-summary--any) {
   display: none;
 }
 
-/* Gegenstueck dazu: Die »Egal«-Zeile gilt genau solange, wie ihre Frage
-   unbeantwortet ist. Die Werte stehen einzeln da und nicht als
-   `:not([data-org='all'])`, damit ohne JavaScript – also ohne die Attribute
-   ueberhaupt – dasselbe erscheint wie ohne Auswahl. */
+/* Lists each value instead of `:not([data-org='all'])`, so that without JavaScript, when the attributes
+   are missing, the "any" summaries show just as with no selection. */
 html[data-org='school'] .org-summary--any,
 html[data-org='business'] .org-summary--any,
 html[data-org='public-administration'] .org-summary--any,
@@ -940,10 +854,8 @@ html[data-role='admin-operate'] .role-summary--any {
   display: none;
 }
 
-/* In den Farben der aktiven Schaltflaeche, damit die Zeile als Ergebnis der
-   Auswahl erkennbar ist und nicht als weiteres Eingabefeld. Label und Text
-   trennt der Schriftschnitt: der Name klein, gruen und in Versalien, die
-   Beschreibung dagegen fett im Fliesstextgrad. */
+/* Styled like the active chip, so the summary reads as the result of the selection and not as
+   another input. */
 .role-summary,
 .org-summary {
   display: flex;
@@ -957,9 +869,8 @@ html[data-role='admin-operate'] .role-summary--any {
   background: rgba(143, 192, 70, 0.12);
 }
 
-/* Die »Egal«-Zeile ist keine Antwort, sondern der Zustand davor – und
-   deshalb gedaempft: grauer Rand, ruhiger Grund, Text im normalen
-   Schriftschnitt. Sonst laese sie sich wie eine getroffene Auswahl. */
+/* Muted because the "any" summary is the state before an answer; styled like the others it would
+   read as a selection. */
 .org-summary--any,
 .role-summary--any {
   border-left-color: var(--ifm-color-emphasis-300);
@@ -992,8 +903,6 @@ html[data-role='admin-operate'] .role-summary--any {
   font-weight: 700;
   line-height: 1.5;
 }
-
-/* --- Anzeige der Auswahl in der Navigationsleiste ------------------------ */
 
 .audience-badge {
   position: relative;

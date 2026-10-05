@@ -4,11 +4,8 @@ import { useAudience } from './AudienceContext';
 import { ANY, ORGS, labelFor, roleShort, rolesFor } from './taxonomy';
 
 /**
- * Anzeige und schnelle Änderung der Auswahl in der Navigationsleiste.
- *
- * Reihenfolge wie auf der Startseite: erst die Organisation, dann die Rolle
- * – die Rollenliste hängt schließlich an der Organisation. Ohne Auswahl
- * lädt der Knopf zum Beantworten der beiden Fragen ein.
+ * Lists the org type before the role, as on the start page, because the roles depend on the org
+ * type.
  */
 export default function AudienceBadge(): React.JSX.Element {
   const audience = useAudience();

@@ -30,7 +30,8 @@ Beides auf einer Seite zu mischen hilft niemandem. Konzepte („was ist ein gete
 
 - Was der Bildschirm ohnehin zeigt: Sortieren per Klick auf die Spaltenüberschrift, Einträge pro Seite, Auswahlkästchen, welche Spalten auf schmalen Bildschirmen wegfallen, eine Sicherheitsabfrage ohne Besonderheit.
 - Beschriftungen, die sich selbst erklären: „**POP3 Zugriff** | Zugang per POP3“.
-- Verhalten, das ohnehin jeder erwartet – auch wenn man es nicht sieht. Prüffrage: Würde jemand ohne Kenntnis des Tickets etwas anderes annehmen? Nach einem Bugfix gehört nicht in die Doku, dass der Fehler nicht mehr auftritt, sondern nur, was sich für Nutzer spürbar geändert hat.
+- Verhalten, das ohnehin jeder erwartet – auch wenn man es nicht sieht. Prüffrage: Würde jemand ohne Kenntnis des Tickets etwas anderes annehmen? Dazu zählt alles, was vergleichbare Programme genauso machen, etwa Papierkorb leeren oder Antworten in einem Mailprogramm. Nach einem Bugfix gehört nicht in die Doku, dass der Fehler nicht mehr auftritt, sondern nur, was sich für Nutzer spürbar geändert hat.
+- Zwischenzustände und interne Zeiten, die niemanden aufhalten, etwa ein Menüeintrag, der während einer laufenden Aktion kurz fehlt.
 - Dieselbe Aussage zweimal. Jede Information steht an einer Stelle – dort, wo sie gebraucht wird.
 - Platzhalter für später („TODO Screenshot“). Entweder ein Bild liegt vor oder der Abschnitt kommt ohne aus.
 
@@ -40,7 +41,7 @@ Beides auf einer Seite zu mischen hilft niemandem. Konzepte („was ist ein gete
 - Grenzwerte und Voreinstellungen mit konkreter Zahl.
 - Wer etwas sehen und tun darf, und was passiert, wenn eine Voraussetzung fehlt (leere Liste, Ladefehler, fehlende Berechtigung).
 - Sonderfälle, die Nacharbeit erfordern, und der Weg zurück.
-- **Fehlermeldungen** im Wortlaut, mit Ursache und Abhilfe. Der Wortlaut macht sie auffindbar, die beiden anderen Angaben beantworten „was ist passiert“ und „wie komme ich weiter“.
+- **Fehlermeldungen**, deren Ursache oder Abhilfe der Wortlaut nicht verrät – im Wortlaut, mit Ursache und Abhilfe. Der Wortlaut macht sie auffindbar, die beiden anderen Angaben beantworten „was ist passiert“ und „wie komme ich weiter“. Eine Meldung, die beides schon selbst sagt („Zu spät – die Nachricht wurde bereits gesendet“), gehört nicht hinein.
 
 ## Screenshots
 

@@ -20,9 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Require a release tag
-        if: github.ref_type != 'tag'
+        if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
         run: |
-          echo "::error::Only release tags are deployed; run this workflow from a tag, not from ${{ github.ref_name }}"
+          echo "::error::Only release tags (v*) are deployed; run this workflow from one, not from ${{ github.ref_name }}"
           exit 1
 
       - name: Checkout

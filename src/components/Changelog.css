@@ -1,7 +1,6 @@
-/* Minimal CSS - most styling is done via Tailwind classes in the component */
-
 .changelog-typography {
-  color: rgb(209 213 219); /* gray-300 */
+  --changelog-gray-300: rgb(209 213 219);
+  color: var(--changelog-gray-300);
   font-size: 0.875rem;
   line-height: 1.5rem;
 }
@@ -25,7 +24,7 @@
 }
 
 .changelog-typography p {
-  color: rgb(209 213 219); /* gray-300 */
+  color: var(--changelog-gray-300);
   font-size: 0.875rem;
   line-height: 1.5rem;
   margin-bottom: 1.5rem;
@@ -100,7 +99,7 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--ifm-color-emphasis-300);
   cursor: pointer;
   transition:
     width 0.3s ease,
@@ -108,7 +107,7 @@
 }
 
 .changelog-carousel-dot:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--ifm-color-emphasis-500);
 }
 
 .changelog-carousel-dot.active {

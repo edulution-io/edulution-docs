@@ -33,8 +33,10 @@ Oben rechts finden Sie in der Aktionen-Leiste die wichtigsten Aktionen:
 
 In der Ordnerliste sehen Sie Ihr Postfach mit den Standardordnern **Posteingang**, **Entwürfe**, **Gesendet**, **Papierkorb**, **Spam** und **Archiv**. Eigene Unterordner werden eingerückt darunter dargestellt, und neben jedem Ordner wird die Zahl ungelesener Nachrichten angezeigt.
 
+Die Gesamtzahl ungelesener Nachrichten – am Postfach in der Ordnerliste, am E-Mail-Symbol in der Seitenleiste und im Dashboard – lässt **Spam**, **Papierkorb** und **Entwürfe** außen vor. Neben diesen Ordnern selbst steht ihre Zahl weiterhin.
+
 - Haben Sie Zugriff auf **freigegebene Postfächer** (z. B. ein Funktionspostfach wie `verwaltung@…`), erscheinen diese als zusätzliche Postfächer mit eigenen Ordnern in der Liste.
-- Über das **Aktionen**-Menü an einem Ordner legen Sie **neue Ordner** an, **benennen** sie um oder **löschen** sie. Ordnernamen dürfen bestimmte Sonderzeichen nicht enthalten; das Löschen wird mit einer Sicherheitsabfrage bestätigt.
+- Über das **Aktionen**-Menü an einem Ordner legen Sie **neue Ordner** an, **benennen** sie um oder **löschen** sie – ausgenommen die Standardordner. Ordnernamen dürfen bestimmte Sonderzeichen nicht enthalten; das Löschen wird mit einer Sicherheitsabfrage bestätigt.
 
 ## Nachrichten lesen und verwalten
 
@@ -44,7 +46,15 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 
 - Ein Klick auf eine Nachricht öffnet sie in der Leseansicht. In der Kopfzeile stehen **Antworten**, **Allen antworten**, **Weiterleiten** und **Drucken** zur Verfügung; weitere Aktionen wie als gelesen/ungelesen markieren, verschieben oder löschen erreichen Sie über das Aktionsmenü.
 - **Anhänge** können Sie herunterladen oder direkt **in Dateien speichern**.
-- Über die Auswahlkästchen markieren Sie mehrere Nachrichten gleichzeitig. Ist mindestens eine Nachricht ausgewählt, erscheint eine Aktionsleiste (**… ausgewählt**) mit **In den Papierkorb verschieben** und einem **Mehr**-Menü für weitere Sammelaktionen (z. B. als gelesen markieren, verschieben, endgültig löschen, als Spam markieren).
+- Über die Auswahlkästchen markieren Sie mehrere Nachrichten gleichzeitig. Ist mindestens eine Nachricht ausgewählt, erscheint eine Aktionsleiste (**… ausgewählt**) mit **In den Papierkorb verschieben** und einem **Mehr**-Menü für weitere Sammelaktionen.
+
+### Nachrichten löschen
+
+**In den Papierkorb verschieben** legt Nachrichten im **Papierkorb** des Postfachs ab, in dem sie liegen – bei einem freigegebenen Postfach also in dessen eigenem Papierkorb, nicht in Ihrem.
+
+:::caution[Postfach ohne Papierkorb]
+Besitzt ein Postfach keinen Papierkorb, löscht **In den Papierkorb verschieben** die Nachrichten endgültig. Die Schaltfläche behält ihre Beschriftung; erst die Sicherheitsabfrage weist darauf hin: „Es gibt keinen Papierkorb-Ordner. Diese E-Mail wird endgültig gelöscht und kann nicht wiederhergestellt werden.“
+:::
 
 ### Links in Nachrichten
 
@@ -65,10 +75,12 @@ Bilder und andere extern nachgeladene Inhalte blendet edulution zum Schutz Ihrer
 Über **Verfassen** öffnen Sie das Schreibfenster:
 
 - **Von**: Absenderadresse. Neben Ihrer eigenen Adresse können hier auch freigegebene Postfächer zur Auswahl stehen, für die Sie eine Sendeberechtigung besitzen.
-- **An** sowie optional **CC/BCC** (über **CC/BCC hinzufügen** einblendbar).
+- **An** sowie optional **CC/BCC** (über **CC/BCC hinzufügen** einblendbar). Über den Pfeil neben der Feldbezeichnung klappen Sie ein Adressfeld zusammen. Es zeigt dann nur die Anzahl der Empfänger an (z. B. *3 Empfänger*); die Adressen bleiben erhalten, und Fehlermeldungen zum Feld bleiben sichtbar.
 - **Betreff** und der Nachrichtentext im Editor mit Formatierungsfunktionen (fett, kursiv, Listen, Links u. a.).
 - **Anhänge** fügen Sie **vom Gerät** oder **aus Dateien** (Ihrem edulution-Dateibereich) hinzu. Für Text und Anhänge zusammen gilt eine maximale Gesamtgröße.
 - Über **Signatur einfügen** ergänzen Sie Ihre Signatur (siehe [Mein Profil → Signatur](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#signatur)).
+
+Bei Bildschirmbreiten unter 768 Pixeln, etwa auf Smartphones, öffnet sich das Schreibfenster im Vollbild und lässt nur die Kopfleiste der Seite frei. Es verdeckt die übrige E-Mail-Ansicht, bis Sie es schließen (siehe [Schreibfenster schließen](#schreibfenster-schließen)).
 
 Entwürfe werden während des Schreibens automatisch gespeichert; zusätzlich können Sie **Als Entwurf speichern** wählen. **Senden** verschickt die Nachricht.
 
@@ -92,15 +104,21 @@ Konnte keiner der Empfänger beliefert werden, bleibt die Nachricht ebenfalls al
 Sobald Sie in **An**, **CC** oder **BCC** zu tippen beginnen, schlägt edulution passende Empfänger vor. Die Vorschläge stammen aus drei Quellen und erscheinen in dieser Reihenfolge:
 
 1. **Zuletzt verwendete Empfänger** aus Ihren vorherigen Nachrichten.
-2. **Kontakte** aus der Kontakte-App – nur, wenn die Kontakte-App eingerichtet ist und Ihre Eingabe mindestens zwei Zeichen umfasst.
-3. **Empfänger aus dem Verzeichnis** Ihrer Schule: Personen, Gruppen und Verteiler.
+2. **Kontakte** aus den Adressbüchern der [Kontakte-App](../edulution-plattform/apps/native-apps/kontakte.md) – nur, wenn die Kontakte-App eingerichtet ist und Ihre Eingabe mindestens zwei Zeichen umfasst. Durchsucht werden gleichzeitig alle Adressbücher, auf die Sie Zugriff haben: Ihre eigenen, die für Sie freigegebenen und das globale Adressbuch. Das Suchfeld der Kontakte-App durchsucht dagegen nur das ausgewählte. Am Vorschlag wird zusätzlich das Adressbuch genannt, aus dem er stammt; steht dieselbe Adresse in mehreren Adressbüchern, erscheint sie einmal und nennt alle.
+3. **Empfänger aus dem Verzeichnis**: Verteiler, Alias-Adressen und freigegebene Postfächer. Auf einer Instanz mit mehreren Schulen stehen darunter auch die der anderen Schulen.
 
 Eine Adresse, die in mehreren Quellen vorkommt, erscheint nur einmal. Die Liste ist auf 50 Vorschläge begrenzt; die am besten passenden stehen oben – eine vollständige Übereinstimmung vor einem Treffer am Namensanfang und dieser vor einem Treffer irgendwo im Namen.
 
 Auf die **Schreibweise von Umlauten und Sonderzeichen** kommt es dabei nicht an: `Müller`, `Mueller` und `Muller` führen zum selben Vorschlag, gleich welche Schreibweise im Verzeichnis oder im Kontakt hinterlegt ist. Dasselbe gilt für `ß` und `ss` sowie für Akzentzeichen. Wie in der [Kontaktsuche](../edulution-plattform/apps/native-apps/kontakte.md#suche) wird die Schreibweise bei sehr kurzen Eingaben nicht zusätzlich vereinfacht.
 
+:::info[Einzelne Personen stammen aus Ihren Adressbüchern]
+Das Verzeichnis liefert keine einzelnen Personen. Ist die Kontakte-App für Sie nicht eingerichtet, schlägt edulution daher nur zuletzt verwendete Empfänger, Verteiler, Alias-Adressen und freigegebene Postfächer vor. Ein Hinweis darauf erscheint nicht.
+
+Eine Adresse, zu der Sie keinen Kontakt haben, tippen Sie wie gewohnt vollständig ein; sie wird als Empfänger übernommen. Personen, die Sie häufig anschreiben, legen Sie am besten als Kontakt in einem Ihrer Adressbücher an.
+:::
+
 :::info[Eltern über den Namen des Kindes finden]
-Eltern erreichen Sie auch, indem Sie den Namen ihres Kindes eingeben. Der Vorschlag weist dann zusätzlich aus, über welches Kind er gefunden wurde – hilfreich, wenn mehrere Elternteile denselben Nachnamen tragen. Auch hier spielt die Schreibweise keine Rolle: `Öztürk`, `Oeztuerk` und `Ozturk` führen gleichermaßen zu den Eltern des Kindes.
+Die Eltern eines Kindes erreichen Sie über den zugehörigen Eltern-Verteiler, den Sie auch durch Eingabe des Namens des Kindes finden. Der Vorschlag weist dann zusätzlich aus, über welches Kind er gefunden wurde – hilfreich, wenn mehrere Familien denselben Nachnamen tragen. Auch hier spielt die Schreibweise keine Rolle: `Öztürk`, `Oeztuerk` und `Ozturk` führen gleichermaßen zum Eltern-Verteiler des Kindes. Einzelne Elternteile werden nur vorgeschlagen, wenn sie in einem Ihrer Adressbücher stehen.
 :::
 
 ### Verteiler als Empfänger
@@ -122,6 +140,8 @@ Auch beim **Antworten**, **Allen antworten** und **Weiterleiten** sowie beim ern
 
 :::info[Nicht jeder Eintrag lässt sich auflösen]
 Auflösen lassen sich nur Verteiler, die das Mailsystem als solche kennt. Lassen sich zu einem Verteiler keine Mitglieder ermitteln, bleibt er ohne Zahl und ohne Pluszeichen stehen – als einzelne Adresse ist er weiterhin verwendbar, und die Nachricht wird normal an ihn versendet.
+
+Ohne Mitglieder bleiben auch Verteiler **einer anderen Schule** der Instanz. Dasselbe gilt für schulübergreifende Verteiler, die zu keiner einzelnen Schule gehören, und zwar auch auf einer Instanz mit nur einer Schule. Sie lassen sich wie jeder andere Verteiler auswählen und anschreiben, und die Nachricht wird zugestellt; ihre Mitglieder zeigt edulution jedoch nicht an. Ein Warnsymbol erscheint dafür nicht, da es sich nicht um einen Fehler handelt.
 :::
 
 ### Schreibfenster schließen
@@ -152,7 +172,7 @@ Fügen Sie HTML-Quelltext direkt in die **formatierte** Ansicht ein, wird er als
 
 ## Benachrichtigungen bei neuen E-Mails
 
-Trifft eine neue E-Mail ein, werden Sie in edulution benachrichtigt – über die **Benachrichtigungen** der Plattform und, sofern auf Ihrem Gerät eingerichtet, zusätzlich als **Push-Benachrichtigung**.
+Trifft eine neue E-Mail ein, werden Sie in edulution benachrichtigt – über die **Benachrichtigungen** der Plattform und, sofern auf Ihrem Gerät eingerichtet, zusätzlich als **Push-Benachrichtigung**. Nachrichten, die im **Spam**-Ordner oder im **Papierkorb** landen, lösen keine Benachrichtigung aus.
 
 Ein Klick bzw. Tipp auf eine solche Benachrichtigung bringt Sie direkt an die passende Stelle in der E-Mail-App:
 
@@ -202,6 +222,12 @@ Ob die E-Mail-App für Sie sichtbar ist, an welcher Stelle sie in der App-Liste 
 Welche Nutzergruppen die E-Mail-App überhaupt sehen, an welcher Stelle sie in der App-Liste erscheint und welches Theme der SOGo-Webmailer verwendet, legen Administratoren unter [Einstellungen → E-Mails](../edulution-plattform/konfiguration/einstellungen.md#e-mails) fest.
 
 Die Postfächer selbst — anlegen, Speicherplatz vergeben, löschen sowie ein Postfach als **freigegebenes Postfach** an weitere Benutzer freigeben — verwalten Administratoren unter [Mailboxen und geteilte Postfächer](./konfiguration/mailbox-verwaltung.md).
+
+Einzelne Personen schlagen die Empfängerfelder ausschließlich aus den Adressbüchern der Kontakte-App vor. Ist die [Kontakte-App](../edulution-plattform/konfiguration/einstellungen.md#kontakte-carddav) nicht konfiguriert oder für eine Nutzergruppe nicht freigegeben, erhalten deren Mitglieder beim Verfassen keine Personenvorschläge. Verteiler, Alias-Adressen und freigegebene Postfächer stehen weiterhin zur Verfügung, und eine Fehlermeldung erscheint nicht.
+
+Auf einer Mailcow-Installation stellt SOGo jedem Benutzer zusätzlich systemweite Adressbücher bereit: das globale Adressbuch der Mail-Domain und, je nach Konfiguration, das Adressbuch **Benutzer**. Beide enthalten die Postfächer aller Schulen der Instanz. Über sie finden Benutzer beim Verfassen daher auch Personen anderer Schulen. Soll das nicht möglich sein, schalten Sie in der SOGo-Konfiguration für beide Benutzerquellen die Verwendung als Adressbuch ab (`isAddressBook`). Personenvorschläge stammen danach nur noch aus den eigenen und den freigegebenen Adressbüchern.
+
+Die Mitglieder von Verteilern einer anderen Schule und von schulübergreifenden Verteilern zeigt edulution beim Verfassen nicht an (siehe [Verteiler als Empfänger](#verteiler-als-empfänger)). Für solche Verteiler lässt sich auch kein Kalender freigeben (siehe [Freigabe an einen Verteiler](../edulution-plattform/apps/native-apps/kalender.md#freigabe-an-einen-verteiler)). Ausgenommen sind Global-Admins: Sie gehören keiner einzelnen Schule an, sehen die Mitglieder aller Verteiler und können Kalender für jeden Verteiler freigeben.
 
 Postfach-Freigaben und die Übernahme der Profilsprache in den Webmailer laufen nicht über IMAP, sondern über die [DAV-Verbindung](../edulution-plattform/konfiguration/einstellungen.md#dav-verbindung) der E-Mail-App. Diese Verbindung gilt ausschließlich für die E-Mail-App: Die Kalender- und die Kontakte-App bringen jeweils eine eigene mit, und eine dort abgeschaltete Zertifikatsprüfung lockert die Prüfung der E-Mail-Verbindung nicht. Ist die DAV-URL fehlerhaft eingetragen, betrifft das nur diese Funktionen — Nachrichten lesen, verfassen, Ordner und Filter bleiben davon unberührt.
 

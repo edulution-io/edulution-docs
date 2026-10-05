@@ -95,11 +95,12 @@ Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalen
 - **Als Stundenplan markieren** bzw. **Stundenplan-Markierung entfernen** – Verschiebt einen eigenen Kalender in die Gruppe **Stundenplan** oder zurück zu **Meine Kalender** (siehe [Stundenplan](#stundenplan)).
 - **Als Standardkalender festlegen** bzw. **Als Standardkalender entfernen** – Bestimmt, welcher Kalender beim [Erstellen eines Termins](#termine-erstellen) vorausgewählt ist.
 - **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
+- **Kalender veröffentlichen** – Öffnet den [Veröffentlichen-Dialog](#kalender-veröffentlichen), über den Sie den Kalender als Abonnement-Link bereitstellen; nur bei eigenen Kalendern verfügbar.
 - **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht an derselben Stelle wie **Freigeben**.
 - **Jetzt aktualisieren** – Lädt einen [Web-Kalender](#web-kalender-abonnieren) sofort neu, ohne auf die nächste automatische Aktualisierung zu warten; nur bei Web-Kalendern verfügbar.
 - **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
 
-Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
+Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben**, **Kalender veröffentlichen** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
 
 Bei einem als Stundenplan markierten Kalender führt der Eintrag in der Seitenleiste direkt in die [Stundenplan-Ansicht](#stundenplan); sein Kontextmenü enthält deshalb keine Anzeige-Aktionen, sondern **Stundenplan-Markierung entfernen**, **Einstellungen**, **Freigeben** und **Löschen**. Ein Stundenplan lässt sich nicht als Standardkalender festlegen.
 
@@ -340,11 +341,29 @@ Bei abonnierten oder schreibgeschützten Kalendern werden **Einstellungen** und 
 
 ## Kalender freigeben
 
-Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie über **Personen oder Gruppen hinzufügen** nach Benutzern oder Gruppen; unter **Freigegeben für** stehen anschließend alle bestehenden Freigaben.
+Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie über **Personen oder Gruppen hinzufügen** nach Personen aus Ihren Adressbüchern und nach Verteilern (siehe [Wen die Suche findet](#wen-die-suche-findet)); unter **Freigegeben für** stehen anschließend alle bestehenden Freigaben.
 
 Jede Freigabe ist eine aufklappbare Zeile. Zugeklappt sehen Sie Name, E-Mail-Adresse und rechts eine Zusammenfassung der vergebenen Rechte (**Kein Zugriff**, **Nur Frei/Belegt**, **Ansehen** oder **Bearbeiten**). Über das Pfeilsymbol am rechten Rand klappen Sie die Zeile auf und vergeben die Rechte im Einzelnen. Über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder.
 
 Ist ein Empfänger im Verzeichnis nicht mehr auffindbar — etwa weil sein Konto zwischenzeitlich gelöscht wurde —, erscheint seine Zeile mit der Rolle **Keine** für alle drei Sichtbarkeiten. Die übrigen Freigaben bleiben davon unberührt und bearbeitbar; die verwaiste Zeile entfernen Sie über das Mülleimer-Symbol.
+
+### Wen die Suche findet
+
+Die Suche unter **Personen oder Gruppen hinzufügen** speist sich aus zwei getrennten Quellen:
+
+- **Personen** stammen ausschließlich aus den Adressbüchern, auf die Sie in der [Kontakte](kontakte.md)-App Zugriff haben, nicht aus dem Verzeichnis. Wen Sie dort nicht als Kontakt führen, legen Sie zunächst in der Kontakte-App an.
+- **Verteiler** stammen aus dem Verzeichnis, einschließlich ihrer Kategorien. Angeboten werden dabei auch Verteiler, für die sich kein Kalender freigeben lässt (siehe [Freigabe an einen Verteiler](#freigabe-an-einen-verteiler)).
+
+Für die Personensuche gilt darüber hinaus:
+
+- Durchsucht werden alle Ihre Adressbücher gleichzeitig. Das Suchfeld der Kontakte-App bezieht sich immer nur auf das ausgewählte Adressbuch. Auf Schreibweisen von Umlauten kommt es dabei ebenso wenig an wie dort.
+- Vorgeschlagen wird nur, wer eine E-Mail-Adresse hinterlegt hat; ein Kontakt ohne Adresse erscheint nicht. Sind bei einem Kontakt mehrere Adressen hinterlegt, steht jede davon als eigener Eintrag zur Auswahl.
+- Personen erscheinen ab zwei eingegebenen Zeichen, Verteiler bereits ab einem. Führen Sie dieselbe Person in mehreren Adressbüchern, wird sie nur einmal angeboten.
+- Trägt einer Ihrer Kontakte die Adresse eines Verteilers, wird dieses Ziel nur einmal angeboten, und zwar als Verteiler. Die Freigabe erreicht dann wie gewohnt alle Mitglieder, nicht nur den einen Kontakt.
+
+:::info[Wenn keine Personen vorgeschlagen werden]
+Ist die Kontakte-App nicht eingerichtet oder der Adressbuch-Server gerade nicht erreichbar, bleibt die Suche nutzbar: Sie bietet weiterhin die Verteiler an, lediglich die Personen fehlen. Eine Fehlermeldung erscheint dabei nicht. Finden Sie also keine einzige Person, obwohl Verteiler erscheinen, wenden Sie sich an Ihre Administration.
+:::
 
 ### Rechte je Sichtbarkeit
 
@@ -392,6 +411,14 @@ Neben einzelnen Personen geben Sie einen Kalender auch für einen **Verteiler** 
 
 Die Treffer der Suche unter **Personen oder Gruppen hinzufügen** werden nach Kategorie gruppiert und stehen unter der Überschrift **Personen**, **Eltern** bzw. **Gruppen**. Verteilen sie sich auf mehrere dieser Kategorien, erscheint darüber eine Reihe von Schaltflächen — **Alle** sowie je eine pro vorhandener Kategorie —, mit denen Sie die Anzeige auf eine einzelne Kategorie beschränken. Eine eigene Überschrift für Klassen oder Projekte gibt es dabei nicht: Beide stehen zusammen mit den übrigen Verteilern unter **Gruppen**.
 
+Freigeben lassen sich nur Verteiler **Ihrer eigenen Schule**. Die Suche bietet zwar auch Verteiler anderer Schulen der Instanz und schulübergreifende Verteiler an, die zu keiner einzelnen Schule gehören; wählen Sie einen davon, legt edulution keine Freigabe an und meldet:
+
+| Meldung | Ursache und Abhilfe |
+|---|---|
+| **Dieser Verteiler gehört zu einer anderen Schule.** | Der Verteiler gehört nicht zu Ihrer Schule. Die Meldung erscheint auch bei schulübergreifenden Verteilern, selbst auf einer Instanz mit nur einer Schule. Geben Sie den Kalender stattdessen für einen Verteiler Ihrer Schule oder für die Personen einzeln frei. |
+
+Global-Admins gehören keiner einzelnen Schule an; für sie gilt diese Einschränkung nicht.
+
 Die Freigabe wird an **jedes einzelne Mitglied** des Verteilers vergeben. In der Liste **Freigegeben für** steht dafür dennoch nur eine Zeile für den Verteiler; sie nennt anstelle der E-Mail-Adresse die Anzahl der Mitglieder (etwa **Verteiler mit 12 Mitgliedern**), und die Mitglieder selbst erscheinen nicht als eigene Zeilen. Die Rechte vergeben Sie wie bei einer Person; sie gelten dann für alle Mitglieder gleichermaßen.
 
 Entziehen Sie die Freigabe des Verteilers über das Mülleimer-Symbol, verlieren dessen Mitglieder den Zugriff. Zwei Fälle sind davon ausgenommen:
@@ -404,6 +431,8 @@ Entziehen Sie die Freigabe des Verteilers über das Mülleimer-Symbol, verlieren
 Tritt jemand dem Verteiler bei oder verlässt ihn, wird der Zugriff **nicht sofort** angepasst. Der Abgleich läuft, sobald Sie den Freigabe-Dialog des betreffenden Kalenders das nächste Mal öffnen. Währenddessen sind die Bedienelemente des Dialogs gesperrt; hat sich etwas geändert, nennt anschließend ein Hinweis je Verteiler, wie viele Mitglieder hinzugefügt und wie viele entfernt wurden.
 
 Daraus folgt: Wer den Verteiler verlässt, behält den Zugriff auf den Kalender so lange, bis Sie den Freigabe-Dialog erneut öffnen. Bei einem Kalender, der einmal freigegeben und danach nicht wieder angefasst wird, kann das beliebig lange dauern. Öffnen Sie den Dialog daher gezielt, wenn sich die Zusammensetzung eines Verteilers geändert hat.
+
+Eine bestehende Freigabe an einen Verteiler, den Sie heute nicht mehr freigeben könnten (etwa aus einer früheren Version von edulution), gleicht edulution nicht mehr ab: Die Mitglieder behalten den Zugriff, den sie zuletzt erhalten haben; wer dem Verteiler beitritt, erhält keinen, und wer ihn verlässt, verliert ihn nicht. Auch die Rechte einer solchen Freigabe lassen sich nicht mehr ändern; der Versuch scheitert mit derselben Meldung wie eine neue Freigabe. Entziehen können Sie die Freigabe weiterhin über das Mülleimer-Symbol.
 
 ### Für den Benutzer abonnieren
 
@@ -437,6 +466,49 @@ Schlägt diese Korrektur fehl, wird die betroffene Zeile mit **Überzählige Rec
 Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktionen von **SoGo** und ist nur verfügbar, wenn als CalDAV-Server SoGo eingesetzt wird. Die reine Terminsynchronisierung funktioniert dagegen mit jedem standardkonformen CalDAV-Server. Welcher CalDAV-Server verwendet wird, legt die Administration in den [Einstellungen der Kalender-App](../../konfiguration/einstellungen.md#kalender-caldav) fest.
 
 :::
+
+## Kalender veröffentlichen
+
+Während eine [Freigabe](#kalender-freigeben) sich an Benutzer und Gruppen Ihrer Schule richtet, stellt das Veröffentlichen einen Kalender **außerhalb** von edulution bereit: Sie erhalten einen Link, den beliebige Kalender-Programme wie Google Kalender, Apple Kalender, Outlook oder Thunderbird abonnieren können. Der veröffentlichte Kalender ist dort ausschließlich lesbar; Änderungen sind nur in edulution möglich.
+
+Öffnen Sie dazu in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Kalender veröffentlichen**. Abonnierte und schreibgeschützte Kalender lassen sich nicht veröffentlichen.
+
+:::warning[Der Link ist das einzige Kennwort]
+Wer den Link besitzt, sieht die Inhalte des Kalenders **ohne Anmeldung**. Es gibt keine weitere Zugangsprüfung. Geben Sie den Link deshalb nur an den vorgesehenen Personenkreis weiter und bedenken Sie, dass er über Browser-Verläufe, Chat-Vorschauen oder Server-Protokolle weitergetragen werden kann.
+:::
+
+Nach dem Klick auf **Veröffentlichen** zeigt der Dialog zwei Adressen zum gleichen Kalender:
+
+- Den **Abonnement-Link** (`https://…`), den Sie in Google Kalender oder Outlook unter „Per URL hinzufügen“ einfügen.
+- Den **Link für einen Klick** (`webcal://…`), der auf macOS, iOS und vielen Desktop-Programmen das Abonnieren direkt startet.
+
+Solange der Kalender veröffentlicht ist, zeigt der Dialog beide Adressen bei jedem Öffnen erneut an — Sie müssen den Link also nicht aufbewahren.
+
+### Was der Link preisgibt
+
+Zwei Einstellungen bestimmen, wie viel der veröffentlichte Kalender verrät. Beide sind zunächst **zurückhaltend eingestellt**; erst wenn Sie sie ändern, enthält der Link mehr:
+
+- **Private und vertrauliche Termine** – Standardmäßig erscheinen Termine mit der [Sichtbarkeit](#rechte-je-sichtbarkeit) **Privat** oder **Vertraulich** gar nicht im veröffentlichten Kalender. Schalten Sie **Nur als „Belegt“ anzeigen** ein, werden sie stattdessen als belegte Zeit ohne Titel, Ort, Beschreibung, Teilnehmer und Farbe übertragen — Ihre Verfügbarkeit ist dann sichtbar, der Anlass nicht. Auch ein Termin, den Sie als **Frei** markiert haben, erscheint dabei als belegte Zeit, und seine Sichtbarkeit wird nicht mit übertragen.
+- **E-Mail-Adressen der Teilnehmer** – Standardmäßig überträgt der Kalender keine Teilnehmer- und Organisator-Adressen. Schalten Sie die Option ein, sieht jede Person mit dem Link sämtliche in diesem Kalender eingetragenen Adressen.
+
+Eine geänderte Einstellung gilt sofort für den nächsten Abruf; Sie müssen den Link dafür nicht neu erzeugen.
+
+Termine, die ein anderes Kalender-Programm mit einer edulution unbekannten Sichtbarkeit anlegt, behandelt der veröffentlichte Kalender wie private Termine. Sie werden also nach der oben gewählten Einstellung ausgelassen oder nur als belegte Zeit übertragen, nicht versehentlich vollständig.
+
+### Link zurückziehen oder erneuern
+
+- **Veröffentlichung zurückziehen** beendet die Veröffentlichung. Der Link liefert ab dem nächsten Abruf keine Termine mehr.
+- **Neuen Link erzeugen** ersetzt die Adresse durch eine neue. Der bisherige Link wird dabei sofort ungültig — verwenden Sie dies, wenn ein Link in falsche Hände geraten ist, und verteilen Sie anschließend die neue Adresse an alle vorgesehenen Abonnenten.
+
+:::info[Bereits abonnierte Programme aktualisieren verzögert]
+Wie schnell ein Abonnement die Änderung bemerkt, bestimmt das abonnierende Programm, nicht edulution. Google Kalender ruft einen abonnierten Kalender erfahrungsgemäß nur alle acht bis vierundzwanzig Stunden ab, Outlook in ähnlich großen Abständen. Nach dem Zurückziehen oder Erneuern eines Links können dort also noch eine Zeit lang zwischengespeicherte Termine erscheinen. Enthält ein Kalender Termine, die sofort niemand mehr sehen darf, genügt das Zurückziehen des Links allein daher nicht.
+:::
+
+Löschen Sie einen veröffentlichten Kalender, wird seine Veröffentlichung automatisch mit zurückgezogen.
+
+### Umfang des veröffentlichten Kalenders
+
+Der Link überträgt die Termine von fünf Jahren in der Vergangenheit bis fünf Jahre in der Zukunft. Serientermine werden als Serie übertragen, sodass das abonnierende Programm auch Wiederholungen außerhalb dieses Zeitraums fortschreibt. Termine, die Sie in edulution ändern, erscheinen beim nächsten Abruf des abonnierenden Programms.
 
 ## Abonnierte und schreibgeschützte Kalender
 
@@ -519,6 +591,10 @@ Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](
 
 Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
 
+Eine Ausnahme ist die Personensuche im Freigabe-Dialog: Sie liest die Adressbücher des jeweiligen Benutzers und setzt daher zusätzlich die [CardDAV-Verbindung der Kontakte-App](../../konfiguration/einstellungen.md#kontakte-carddav) voraus. Ist sie nicht konfiguriert oder der CardDAV-Server nicht erreichbar, bietet die Suche weiterhin die Verteiler aus dem Verzeichnis an; die Personen fehlen dann ohne Fehlermeldung. Meldet ein Benutzer, dass er im Freigabe-Dialog niemanden findet, Verteiler aber erscheinen, prüfen Sie deshalb die CardDAV-Einstellungen und nicht die der Kalender-App.
+
+Die Personensuche durchsucht dieselben Adressbücher wie das Verfassen von E-Mails, einschließlich der systemweiten Adressbücher von SOGo. Solange diese aktiv sind, findet sie darüber auch Personen anderer Schulen; wie Sie das abstellen, steht unter [E-Mail – Einrichtung](../../../edulution-mail/index.md#einrichtung-für-administratoren).
+
 [Web-Kalender](#web-kalender-abonnieren) benötigen dagegen **keine CalDAV- oder SoGo-Konfiguration**: Sie werden vom edulution-Server direkt über HTTPS von der jeweiligen Quelle abgerufen. Voraussetzung ist, dass der Server die betreffenden Adressen aus dem Internet erreichen darf – in Umgebungen mit ausgehendem Proxy oder restriktiver Firewall muss der Zugriff dafür freigegeben sein.
 
 Adressen, die auf das interne Netz zeigen, werden dabei grundsätzlich abgewiesen. Der Server prüft dies nicht nur anhand der eingegebenen Adresse, sondern auch anhand der IP-Adresse, auf die ein Name tatsächlich aufgelöst wird, sowie bei jeder Weiterleitung erneut. Ein Web-Kalender kann also nicht dazu verwendet werden, interne Dienste abzufragen.
@@ -539,3 +615,4 @@ Wird einem Benutzer, der zuvor Kalender sehen konnte, plötzlich keiner mehr ang
 
 - [Dashboard](../../uebersicht/dashboard.md) – Schnellzugriff auf den Kalender
 - [App-Store](../app-store.md) – Kalender-App aktivieren
+- [Kontakte](kontakte.md) – Adressbücher, aus denen die Freigabe die Personen vorschlägt

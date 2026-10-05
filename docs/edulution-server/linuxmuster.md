@@ -10,7 +10,7 @@ Die App **Schulserver** (in Unternehmensumgebungen **Server**) verbindet die edu
 Alle Daten werden direkt über die Linuxmuster-API (`linuxmuster-api7`) geladen – die edulution Plattform hält dafür keinen eigenen Zwischenspeicher.
 
 :::warning[Voraussetzungen]
-Die App steht nur zur Verfügung, wenn die **Plattform** in den globalen Einstellungen auf **Linuxmuster** gesetzt ist und die Linuxmuster-API mindestens in Version 7.3.26 vorliegt. Andernfalls ersetzt eine Meldung die Seiten der App:
+Die App steht nur zur Verfügung, wenn die **Plattform** in den globalen Einstellungen auf **Linuxmuster** gesetzt ist und die Linuxmuster-API mindestens in Version 7.3.26 vorliegt. Andernfalls ersetzt eine Meldung alle Seiten der App außer der [Versionsübersicht](#versionsübersicht):
 
 | Meldung | Ursache | Abhilfe |
 |---------|---------|---------|
@@ -109,14 +109,16 @@ Sie bearbeiten die Einträge direkt in der Tabelle, fügen mit **Gerät hinzufü
 
 Jedes Gerät benötigt neben Rechnername, MAC- und IP-Adresse eine **Rolle** und ein **PXE-Flag**:
 
-| PXE-Flag | Bedeutung | Im Auswahlfeld |
-|----------|-----------|----------------|
-| **Kein PXE** | Das Gerät bootet nicht über das Netzwerk. | wählbar |
-| **Linbo-PXE** | Das Gerät bootet LINBO. | wählbar |
-| **Linbo-PXE + OPSI-Management** | Das Gerät bootet LINBO und wird zusätzlich über OPSI verwaltet. | gesperrt |
-| **OPSI-PXE** | Das Gerät bootet ausschließlich OPSI. | gesperrt |
+| Wert | PXE-Flag | Bedeutung | Im Auswahlfeld | LINBO-Kommandos | Import nach dem Speichern einer Gruppe |
+|------|----------|-----------|----------------|-----------------|----------------------------------------|
+| 0 | **Kein PXE** | Das Gerät bootet nicht über das Netzwerk. | wählbar | überspringen das Gerät | berücksichtigt das Gerät nicht |
+| 1 | **Linbo-PXE** | Das Gerät bootet LINBO. | wählbar | erreichen das Gerät | berücksichtigt das Gerät |
+| 2 | **Linbo-PXE + OPSI-Management** | Das Gerät bootet LINBO und wird zusätzlich über OPSI verwaltet. | gesperrt | erreichen das Gerät | berücksichtigt das Gerät |
+| 3 | **OPSI-PXE** | Das Gerät startet über OPSI, nicht über LINBO. | gesperrt | überspringen das Gerät | berücksichtigt das Gerät |
 
-Die gesperrten Werte lassen sich nicht neu vergeben; sie erscheinen nur bei Geräten, deren Eintrag in der Geräteliste sie bereits trägt.
+Die gesperrten Werte lassen sich nicht neu vergeben; sie erscheinen nur bei Geräten, deren Eintrag in der Geräteliste sie bereits trägt. Die Bezeichnung des Werts 2 lautete früher *Linbo-PXE + OPSI-PXE*.
+
+Die beiden Spalten rechts gelten an allen Stellen der App; die Abschnitte zu LINBO-Kommandos und zum Anwenden einer Gruppe verweisen hierher. Der Import berücksichtigt außerdem nur Geräte, deren Raum mit einem Buchstaben oder einer Ziffer beginnt.
 
 Als Rolle stehen unter anderem *Schüler-PC im Klassenzimmer*, *Lehrer-PC im Klassenzimmer*, *Fachbereich-Lehrer-PC*, *Lehrer-PC*, *Server*, *Domaincontroller*, *Drucker*, *Router*, *Switch*, *Thinclient*, *BYOD*, *Mobiles Gerät*, *VOIP*, *WLan* und *IP-Only* zur Verfügung. In Unternehmensumgebungen entfallen die drei Klassenzimmer- und Fachbereich-Rollen, und *Lehrer-PC* heißt *Computer*.
 
@@ -226,7 +228,7 @@ Zu welchen Meldungen es kommt, wenn einzelne Hosts nicht erreichbar sind oder ke
 Die Warnungen nach dem Auslösen erscheinen bei **Neu starten**, **Herunterfahren** und **Aktion schicken**; ist keiner der ausgewählten Rechner ein gültiges Ziel, läuft nichts.
 
 :::caution[LINBO-Kommandos erreichen nur Rechner mit LINBO-Netzwerkstart]
-`linbo-remote` spricht nur Rechner an, deren PXE-Flag in der [Geräteliste](#geräteliste-pflegen) **Linbo-PXE** oder **Linbo-PXE + OPSI-Management** lautet. Rechner mit **Kein PXE** oder **OPSI-PXE** überspringt deshalb jedes LINBO-Kommando – **Neu starten**, **Herunterfahren**, **Aktion schicken** sowie die Aktionen für eine Gruppe oder einen Raum. Bleibt in der Auswahl, der Gruppe oder dem Raum kein solcher Rechner übrig, lässt sich das Ziel nicht wählen beziehungsweise das Abschicken ist gesperrt.
+`linbo-remote` spricht nur Rechner an, deren PXE-Flag in der [Geräteliste](#geräteliste-pflegen) LINBO-Kommandos zulässt (Tabelle dort). Alle anderen Rechner überspringt jedes LINBO-Kommando – **Neu starten**, **Herunterfahren**, **Aktion schicken** sowie die Aktionen für eine Gruppe oder einen Raum. Bleibt in der Auswahl, der Gruppe oder dem Raum kein solcher Rechner übrig, lässt sich das Ziel nicht wählen beziehungsweise das Abschicken ist gesperrt.
 
 **Aufwecken** ist davon nicht betroffen: Es weckt jeden ausgewählten Rechner über seine MAC-Adresse, unabhängig vom PXE-Flag.
 :::
@@ -635,7 +637,7 @@ In diesen Fällen bleibt **Speichern** im Editor gesperrt, und der Editor nennt 
 
 ##### Speichern und Anwenden
 
-Nach dem **Speichern** wendet die Plattform die Gruppe sofort an: Sie startet den Geräteimport einer Schule, in der der Gruppe ein Gerät zugeordnet ist, dessen Raum mit einem Buchstaben oder einer Ziffer beginnt und dessen PXE-Flag **Linbo-PXE**, **Linbo-PXE + OPSI-Management** oder **OPSI-PXE** lautet. Dadurch wird die Startkonfiguration der Gruppe neu erzeugt. Gesucht wird zuerst in der gewählten Schule, als Globaladmin danach in den übrigen Schulen des Servers – ein Schuladmin wendet nur in seiner eigenen Schule an. Importiert wird nur die erste Schule, die die Gruppe verwendet.
+Nach dem **Speichern** wendet die Plattform die Gruppe sofort an: Sie startet den Geräteimport einer Schule, in der der Gruppe ein Gerät zugeordnet ist, das der Import nach dem [PXE-Flag](#geräteliste-pflegen) berücksichtigt. Dadurch wird die Startkonfiguration der Gruppe neu erzeugt. Gesucht wird zuerst in der gewählten Schule, als Globaladmin danach in den übrigen Schulen des Servers – ein Schuladmin wendet nur in seiner eigenen Schule an. Importiert wird nur die erste Schule, die die Gruppe verwendet.
 
 | Meldung | Bedeutung |
 |---------|-----------|
@@ -771,13 +773,17 @@ Vor dem Wiederherstellen legt der Server eine neue Sicherung des aktuellen Image
 
 Die Seite **Versionsübersicht** listet die Versionen der beteiligten Linuxmuster-Komponenten – nützlich, um die Mindestversionen der nächsten Abschnitte zu prüfen.
 
+Sie ist die einzige Seite der App, die weder die Versionsprüfung noch die Rollenprüfung der Voraussetzungen am Seitenanfang durchläuft. Sie bleibt deshalb erreichbar, wenn die Linuxmuster-API zu alt oder nicht erreichbar ist oder dem Konto die Rolle fehlt – über den Eintrag **Versionsübersicht** in der Seitenleiste; die **Übersicht** ist dann durch die Meldung ersetzt und bietet die Kachel nicht an.
+
+Die Versionen lädt die Plattform bei der Anmeldung für Globaladmins und Schuladmins; Globaladmins lädt die Seite sie beim Öffnen erneut. Bei anderen Rollen bleibt die Liste leer. Ist die Linuxmuster-API nicht erreichbar, hat die Plattform keine Versionen und die Liste bleibt ebenfalls leer.
+
 ## Mindestversionen der Linuxmuster-API
 
 Einzelne Funktionen setzen eine neuere Linuxmuster-API voraus:
 
 | Version | Funktion | Ohne diese Version |
 |---------|----------|--------------------|
-| 7.3.26 | die App **Schulserver** | Eine Meldung ersetzt die Seiten, siehe Voraussetzungen am Seitenanfang. |
+| 7.3.26 | die App **Schulserver** | Eine Meldung ersetzt alle Seiten außer der **Versionsübersicht**, siehe Voraussetzungen am Seitenanfang. |
 | 7.3.35 | der Bereich **LINBO** und die Registerkarte **Geräte** | *„Diese LINBO-Funktion benötigt mindestens linuxmuster-api 7.3.35. Der verbundene Server ist älter.“* |
 | 7.4.8 | **Neu starten**, **Herunterfahren**, **Aktion schicken** (Hosts und Gruppen), **Raum-Aktion**, **Sitzungen** | Die Schaltflächen erscheinen nicht. |
 | 7.4.10 | **Bearbeiten**, **Sicherungen**, **Duplizieren** und die Löschaktionen der Images | *„Diese LINBO-Funktion benötigt mindestens linuxmuster-api 7.4.10. Der verbundene Server ist älter.“* |

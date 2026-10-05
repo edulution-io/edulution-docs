@@ -67,16 +67,7 @@ In Business-Organisationen entfallen die Klassenzimmer-Rollen (`classroom-*`, `f
 
 ### PXE-Startverhalten
 
-Die Spalte **PXE** steuert das Netzwerk-Startverhalten (LINBO):
-
-| Wert | Bedeutung |
-|------|-----------|
-| **0** | Kein PXE |
-| **1** | Linbo-PXE |
-| **2** | Linbo-PXE + OPSI-Management |
-| **3** | OPSI-PXE |
-
-In der Auswahlliste lassen sich nur **0** und **1** wählen; **2** und **3** sind dort deaktiviert. Stehen sie bereits in der Geräteliste, zeigt die Tabelle sie an. LINBO-Kommandos erreichen nur Geräte mit **1** oder **2**.
+Die Spalte **PXE** steuert das Netzwerk-Startverhalten (LINBO). In der Auswahlliste lassen sich nur **Kein PXE** (0) und **Linbo-PXE** (1) wählen; **Linbo-PXE + OPSI-Management** (2) und **OPSI-PXE** (3) sind dort gesperrt und erscheinen nur bei Geräten, die sie bereits tragen. Welche Werte LINBO-Kommandos erreichen und was der Import nach dem Speichern einer Gruppe berücksichtigt, steht in [Geräteliste pflegen](../../../edulution-server/linuxmuster.md#geräteliste-pflegen).
 
 ## Geräte bearbeiten
 

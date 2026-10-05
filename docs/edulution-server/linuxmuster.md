@@ -10,7 +10,7 @@ Die App **Schulserver** verbindet die edulution Plattform mit Ihrem Linuxmuster-
 Alle Daten werden direkt über die Linuxmuster-API (`linuxmuster-api7`) geladen – die edulution Plattform hält dafür keinen eigenen Zwischenspeicher.
 
 :::warning[Voraussetzungen]
-Der Bereich steht nur zur Verfügung, wenn die **Plattform** in den globalen Einstellungen auf **Linuxmuster** gesetzt ist und die Linuxmuster-API mindestens in **Version 7.3.26** vorliegt. Bei einer älteren API-Version wird die App nicht angezeigt, sondern durch den Hinweis *„Die Linuxmuster API-Version ist zu alt"* ersetzt.
+Der Bereich steht nur zur Verfügung, wenn die **Plattform** in den globalen Einstellungen auf **Linuxmuster** gesetzt ist und die Linuxmuster-API mindestens in **Version 7.3.26** vorliegt. Bei einer älteren API-Version wird die App nicht angezeigt, sondern durch den Hinweis *„Die Linuxmuster API-Version ist zu alt…“* ersetzt. Meldet die Linuxmuster-API gar keine Version, etwa weil sie nicht erreichbar ist, erscheint stattdessen *„Die Linuxmuster API-Version konnte nicht ermittelt werden. Bitte die Erreichbarkeit der Linuxmuster API prüfen.“* – prüfen Sie in diesem Fall die Verbindung zur API, ein Update hilft nicht.
 :::
 
 ## Aufbau der App

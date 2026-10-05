@@ -160,10 +160,10 @@ Die Unterseite **Dienste** bündelt die laufenden Dienste in drei ausklappbaren 
 
 Der Eintrag **LINBO** zeigt, was die LINBO-Installation *des Satelliten* über die Rechner an seinem Standort weiß. Er ist unabhängig vom Bereich **LINBO** der App **Schulserver**: dort sehen Sie die LINBO-Installation Ihres zentralen Linuxmuster-Servers, hier die des ausgewählten Satelliten.
 
-Der Bereich gliedert sich in die Unterseiten **Gruppen**, **Hosts**, **Images**, **Synchronisation**, **DHCP** und **Protokolle**. Ein Klick auf **LINBO** öffnet zuerst **Gruppen**. Auf jeder dieser Unterseiten öffnet **Einstellungen** in der Aktionsleiste die Einstellungen des Satelliten, ohne die Unterseite zu verlassen.
+Der Bereich gliedert sich in die Unterseiten **Gruppen**, **Hosts**, **Images**, **Synchronisation**, **DHCP**, **Protokolle**, **Hardware**, **Treiber** und **System**. Ein Klick auf **LINBO** öffnet zuerst **Gruppen**. Auf jeder dieser Unterseiten öffnet **Einstellungen** in der Aktionsleiste die Einstellungen des Satelliten, ohne die Unterseite zu verlassen. Bis auf **System** hat keine dieser Unterseiten eine Aktion zum Neuladen: Sie fragen den Satelliten selbst ab, solange der Browser-Tab sichtbar ist; die Abstände nennt jede Unterseite.
 
 :::note[Schnell geöffnet, im Hintergrund aktualisiert]
-Beim Öffnen einer Unterseite zeigt die Seite eine Ladeanzeige, bis der Satellit geantwortet hat; nur **Synchronisation** zeigt sofort den zuletzt bekannten Stand des ausgewählten Satelliten und aktualisiert ihn, sobald er antwortet. Schnell erscheint eine Unterseite auch sonst, wenn der Zwischenspeicher der Plattform die Antwort hält: Die Listen **Hosts**, **Gruppen** (samt Vorschau), **Images**, **Beim nächsten Start**, **Synchronisation** und **DHCP** gibt die Plattform bis zu 10 Sekunden unverändert weiter und bis zu 10 weitere Sekunden als „zuletzt bekannt“, während sie im Hintergrund neu fragt; Älteres fragt sie frisch ab. **Aufträge**, **Protokolle** sowie Prüfsummen und Beipack-Dateien eines Images liest sie immer frisch, ebenso die regelmäßigen Abfragen einer geöffneten Seite; schreibende Aktionen laufen nie über den Zwischenspeicher. Die Unterseite **Synchronisation** baut sich bei Satelliten ab Version 2.7.22 aus einer einzigen Abfrage auf; ältere Satelliten liefern denselben Inhalt in mehreren Abfragen, sodass die Seite langsamer erscheint.
+Beim Öffnen einer Unterseite zeigt die Seite eine Ladeanzeige, bis der Satellit geantwortet hat; nur **Synchronisation** zeigt sofort den zuletzt bekannten Stand des ausgewählten Satelliten und aktualisiert ihn, sobald er antwortet. Schnell erscheint eine Unterseite auch sonst, wenn der Zwischenspeicher der Plattform die Antwort hält: Die Listen **Hosts**, **Gruppen** (samt Vorschau), **Images**, **Beim nächsten Start**, **Synchronisation** und **DHCP** gibt die Plattform bis zu 10 Sekunden unverändert weiter und bis zu 10 weitere Sekunden als „zuletzt bekannt“, während sie im Hintergrund neu fragt; Älteres fragt sie frisch ab. **Aufträge**, **Protokolle** sowie Prüfsummen und Beipack-Dateien eines Images liest sie immer frisch, ebenso die regelmäßigen Abfragen einer geöffneten Seite; schreibende Aktionen laufen nie über den Zwischenspeicher. Die Unterseite **Synchronisation** baut sich bei Satelliten ab Version 2.7.22 aus einer einzigen Abfrage auf, die der Zwischenspeicher nicht hält; ältere Satelliten liefern denselben Inhalt in mehreren Abfragen, die er bis zu 10 Sekunden hält, sodass die Seite dort langsamer erscheint.
 :::
 
 :::note[Satelliten ohne LINBO]
@@ -181,7 +181,7 @@ Die gewählte Ansicht merkt sich die Plattform für diese Seite getrennt von der
 Über das Suchfeld schränken Sie die Liste auf einen Gruppennamen oder einen Dateinamen wie `start.conf.raum101` ein. Die Zahl der zugeordneten Rechner stammt aus der Hostliste desselben Satelliten: gezählt werden die Rechner, die der Satellit dieser Gruppe zuordnet, nicht die des Linuxmuster-Servers.
 
 :::note[Jede Gruppe wird einzeln gelesen]
-Der Satellit liefert in seiner Gruppenliste keine `start.conf`. Die Plattform liest deshalb die `start.conf` jeder Gruppe einzeln vom Satelliten und wertet sie aus wie am Schulserver. Beim erneuten Öffnen verwendet sie bereits gelesene Dateien weiter, bis der Satellit wieder synchronisiert, einen Sicherungspunkt wiederhergestellt oder seinen Cursor geleert hat; danach liest sie alle erneut. Solange die Seite geöffnet ist, fragt sie Gruppen und Hosts jede Minute und beim Zurückwechseln in den Browser-Tab erneut ab und hält sich dabei an dieselbe Regel; ist der Tab nicht sichtbar, pausiert die Abfrage. Eine Aktion zum Neuladen gibt es nicht. Die Karten zeigen damit dieselben Angaben, einschließlich Cache, Download-Typ und der verwendeten Images. Bei vielen Gruppen erscheint die Liste erst, wenn alle Dateien gelesen sind; bis dahin läuft die Ladeanzeige.
+Der Satellit liefert in seiner Gruppenliste keine `start.conf`. Die Plattform liest deshalb die `start.conf` jeder Gruppe einzeln vom Satelliten und wertet sie aus wie am Schulserver. Beim erneuten Öffnen verwendet sie bereits gelesene Dateien weiter, bis der Satellit wieder synchronisiert, einen Sicherungspunkt wiederhergestellt oder seinen Cursor geleert hat; danach liest sie alle erneut. Solange die Seite geöffnet ist, fragt sie Gruppen und Hosts jede Minute und beim Zurückwechseln in den Browser-Tab erneut ab und hält sich dabei an dieselbe Regel; ist der Tab nicht sichtbar, pausiert die Abfrage. Die Karten zeigen damit dieselben Angaben, einschließlich Cache, Download-Typ und der verwendeten Images. Bei vielen Gruppen erscheint die Liste erst, wenn alle Dateien gelesen sind; bis dahin läuft die Ladeanzeige.
 :::
 
 Als **Aktualisiert** zeigt die Plattform den Zeitstempel, den der Satellit mit der GRUB-Konfiguration der Gruppe übernommen hat, bei einer Gruppe ohne GRUB-Konfiguration den Zeitpunkt ihrer Synchronisation. Die letzte Änderung der `start.conf` ist das nicht.
@@ -209,14 +209,14 @@ Die Unterseite hat drei Registerkarten: **Hosts**, **Aufträge** und **Beim näc
 
 Die Registerkarte **Hosts** zeigt alle Rechner, die der Satellit kennt. Über die Ansichtswahl wählen Sie zwischen denselben drei Ansichten wie in der [Hostliste des Schulservers](../edulution-server/linuxmuster.md#hosts): **Kacheln** (Vorgabe), **Datenblatt** und **Tabelle**. Karten, Auswahl und Detaildialog sind dort beschrieben; auf dem Satelliten unterscheiden sie sich so:
 
-- Neben dem Hostnamen steht der **Status**, den der Satellit meldet (siehe unten), nicht die Erreichbarkeit aus einem Hostscan.
-- Die **Kachel** nennt unter dem Inhalt den Stand des **Images** und, sofern sich der Rechner schon gemeldet hat, wann er **zuletzt gesehen** wurde.
-- Die **Rolle** ist hier keine Tabellenspalte, sondern ein Filter und eine Zeile des **Datenblatts**, das sie oben zeigt. Dazu führt es die Zeilen **Image** (Anzeige und Name des Images), **Zuletzt gesehen** und **Geplant** – die Kette, die der Satellit für den nächsten Start des Rechners vorgemerkt hat (siehe [Aufträge und geplante Aktionen](#aufträge-und-geplante-aktionen)).
+- Neben dem Hostnamen steht der **Status**, den der Satellit meldet (die Werte nennt die Tabelle zur Spalte **Status**), nicht die Erreichbarkeit aus einem Hostscan.
+- Die **Kachel** nennt den Stand des **Images** und, sofern sich der Rechner schon gemeldet hat, wann er **zuletzt gesehen** wurde.
+- Die **Rolle** ist hier keine Tabellenspalte, sondern ein Filter und eine Zeile des **Datenblatts**. Dazu führt es die Zeilen **Image** (Anzeige und Name des Images), **Zuletzt gesehen** und **Geplant** – die Kette, die der Satellit für den nächsten Start des Rechners vorgemerkt hat (siehe [Aufträge und geplante Aktionen](#aufträge-und-geplante-aktionen)).
 - Der **Detaildialog** zeigt die Zeilen **Image**, **Zuletzt gesehen** und **Geplant** zusätzlich zu den Angaben der Geräteliste; einen Abschnitt **Images** hat er nicht.
 
 Die gewählte Ansicht merkt sich die Plattform getrennt von der Hostliste des Schulservers.
 
-Eine Aktion zum Neuladen gibt es nicht: Die Seite fragt die Hosts und ihren Abgleichsstand alle 30 Sekunden und beim Zurückwechseln in den Browser-Tab erneut ab, solange der Tab sichtbar ist. Ein geöffneter Detaildialog übernimmt den neuen Stand und schließt sich, wenn der Rechner nicht mehr in der Liste steht.
+Die Seite fragt die Hosts und ihren Abgleichsstand alle 30 Sekunden und beim Zurückwechseln in den Browser-Tab erneut ab, solange der Tab sichtbar ist. Ein geöffneter Detaildialog übernimmt den neuen Stand und schließt sich, wenn der Rechner nicht mehr in der Liste steht.
 
 In der Ansicht **Tabelle** stehen **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Image** und **Zuletzt gesehen**. Wie in der [Hostliste des Schulservers](../edulution-server/linuxmuster.md#hosts) lassen sich über die Spaltenauswahl sechs ausgeblendete Spalten einschalten: **PXE**, **PXE aktiv**, **Kommentar**, **DHCP-Optionen**, **Office-Schlüssel** und **Windows-Schlüssel**. Das Suchfeld findet einen Rechner über Hostname, MAC-Adresse, IP, Gruppe, Raum und Kommentar. Daneben schränken die Auswahlen **Rolle**, **Gruppe** und **Raum** die Liste auf einen oder mehrere Werte ein; sie gelten in allen drei Ansichten und wirken zusammen. **Rolle** bietet dieselben Gerätetypen wie die [Hostliste des Schulservers](../edulution-server/linuxmuster.md#hosts) – ein Rechner ohne Rolle zählt zu **Sonstige**. **Gruppe** und **Raum** führen nur Werte auf, die mindestens ein Rechner des Satelliten trägt, und erscheinen erst, wenn es welche gibt. Beim Wechsel des Satelliten setzt die Seite alle drei zurück. Alle Filter arbeiten im Browser: die Liste wird vollständig geladen, sodass das Filtern ohne erneute Abfrage des Satelliten geschieht.
 
@@ -287,9 +287,9 @@ In beiden Fällen bleibt der Dialog geöffnet. Ist der Satellit nicht erreichbar
 
 ##### Aufträge und geplante Aktionen
 
-Unter der Hostliste zeigt die Registerkarte **Hosts** von beiden Listen eine Vorschau: die drei jüngsten Aufträge und die ersten drei geplanten Starts. Die vollständigen Listen stehen auf den Registerkarten **Aufträge** und **Beim nächsten Start**. Kann der Satellit eine davon nicht liefern, sagt die Liste das, statt leer zu erscheinen. Eine Auftragszeile nennt zuerst die Rechner, darunter die Befehle und den Zeitpunkt.
+Die Registerkarte **Hosts** zeigt zusätzlich von beiden Listen eine Vorschau: die drei jüngsten Aufträge und die ersten drei geplanten Starts. Die vollständigen Listen stehen auf den Registerkarten **Aufträge** und **Beim nächsten Start**. Kann der Satellit eine davon nicht liefern, sagt die Liste das, statt leer zu erscheinen. Eine Auftragszeile nennt die Rechner, die Befehle und den Zeitpunkt.
 
-**Aufträge** listet die sofort ausgeführten Aufträge der letzten 24 Stunden, jüngste zuerst, zehn je Seite. Ältere Aufträge verwirft der Satellit selbst. Über die Auswahl **Status** auf der Registerkarte **Aufträge** schränken Sie die Liste auf einen Zustand ein: **Wartet**, **Läuft**, **Wird abgebrochen**, **Erfolgreich**, **Teilweise fehlgeschlagen**, **Fehlgeschlagen** oder **Abgebrochen**. Die Seitenzahl bezieht sich dann auf die gefilterte Liste; beim Zurückwechseln zur Registerkarte **Hosts** entfällt der Filter. Ein Klick auf einen Auftrag öffnet ihn mit jedem beteiligten Rechner: Zustand, aktueller Arbeitsschritt, eine Meldung des Satelliten und das Protokoll. Die Meldungen des Satelliten erscheinen in seinem eigenen Wortlaut. Solange ein Auftrag läuft, lädt die Seite ihn alle fünf Sekunden nach – ebenso die Liste der Aufträge und die geplanten Starts. Dasselbe gilt, solange ein Statusfilter gesetzt ist, damit ein Auftrag in der gefilterten Liste erscheint, sobald er den gewählten Zustand erreicht. Starten Sie eine Aktion, springt die Liste auf die erste Seite, der Statusfilter entfällt und die Liste lädt sichtbar neu, sodass der neue Auftrag oben erscheint.
+**Aufträge** listet die sofort ausgeführten Aufträge der letzten 24 Stunden, jüngste zuerst, zehn je Seite. Ältere Aufträge verwirft der Satellit selbst. Über die Auswahl **Status** auf der Registerkarte **Aufträge** schränken Sie die Liste auf einen Zustand ein: **Wartet**, **Läuft**, **Wird abgebrochen**, **Erfolgreich**, **Teilweise fehlgeschlagen**, **Fehlgeschlagen** oder **Abgebrochen**. Die Seitenzahl bezieht sich dann auf die gefilterte Liste; beim Zurückwechseln zur Registerkarte **Hosts** entfällt der Filter. Ein Klick auf einen Auftrag öffnet ihn mit jedem beteiligten Rechner: Zustand, aktueller Arbeitsschritt, eine Meldung des Satelliten und das Protokoll. Die Meldungen des Satelliten erscheinen in seinem eigenen Wortlaut. Solange ein Auftrag läuft, lädt die Seite ihn alle fünf Sekunden nach – ebenso die Liste der Aufträge und die geplanten Starts. Dasselbe gilt, solange ein Statusfilter gesetzt ist, damit ein Auftrag in der gefilterten Liste erscheint, sobald er den gewählten Zustand erreicht. Starten Sie eine Aktion, springt die Liste auf die erste Seite, der Statusfilter entfällt und die Liste lädt sichtbar neu, sodass der neue Auftrag als jüngster erscheint.
 
 Der Zustand eines Auftrags richtet sich nach seinen Rechnern, nicht allein nach der Meldung des Satelliten: **Teilweise fehlgeschlagen** heißt, dass mindestens ein Rechner fehlschlug, während andere erfolgreich waren. Ein **abgebrochener** Auftrag nennt weiterhin, wie viele Rechner vor dem Abbruch erfolgreich waren. Hat der Satellit weniger Rechner übernommen als geschickt wurden, weist der Auftrag darauf hin.
 
@@ -326,7 +326,7 @@ Die Tabelle zeigt **Name**, **Typ**, **Größe**, **Verwendet in**, **Status**, 
 
 Images, die nur auf dem Schulserver liegen, führt die **Tabelle** zusätzlich auf: mit **Nur am Server** im Abgleich, Größe und Datum vom Server und ohne Status. Für sie steht nur **Vom Server holen** bereit; die übrigen Aktionen sind gesperrt, weil das Image auf dem Satelliten noch fehlt, und der Grund steht am Knopf. In den Kartenansichten erscheinen solche Images nicht, denn die Karten zeigen die Images auf dem Satelliten.
 
-Nach jeder Synchronisation des Satelliten liest die Plattform die `start.conf`-Dateien beim nächsten Öffnen erneut; **Verwendet in** zeigt dann die neue Zuordnung. Solange die Seite geöffnet ist, fragt sie die Images, die `start.conf`-Dateien und den Abgleich mit dem Schulserver jede Minute und beim Zurückwechseln in den Browser-Tab erneut ab; ist der Tab nicht sichtbar, pausiert die Abfrage. Die `start.conf`-Dateien liest sie dabei nur nach einer Synchronisation neu. Den Abgleich lässt sie aus, solange eine Aktion an einem Image läuft oder ein Dialog dazu offen ist. Eine Aktion zum Neuladen gibt es nicht.
+Nach jeder Synchronisation des Satelliten liest die Plattform die `start.conf`-Dateien beim nächsten Öffnen erneut; **Verwendet in** zeigt dann die neue Zuordnung. Solange die Seite geöffnet ist, fragt sie die Images, die `start.conf`-Dateien und den Abgleich mit dem Schulserver jede Minute und beim Zurückwechseln in den Browser-Tab erneut ab; ist der Tab nicht sichtbar, pausiert die Abfrage. Die `start.conf`-Dateien liest sie dabei nur nach einer Synchronisation neu. Den Abgleich lässt sie aus, solange eine Aktion an einem Image läuft oder ein Dialog dazu offen ist.
 
 :::note[Images im Altformat]
 Für ein Image im Altformat bietet der Satellit keine Detail- und Änderungsrouten an. Seine Aktionen – Prüfsumme, Sicherungen, Beipack-Dateien, beide Übertragungsrichtungen und Löschen – sind deshalb gesperrt; der Grund steht am Knopf.
@@ -337,6 +337,13 @@ Ist genau ein Image markiert, bietet die Aktionsleiste **Prüfsumme prüfen**, *
 ##### Zusatzdateien holen
 
 Die Spalte **Abgleich** der Tabelle und die Karten der Ansichten nennen zusätzlich zum Vergleich des Images, ob dessen Zusatzdateien – Beipack-Dateien wie `.info`, `.desc` oder `.reg` – mit denen des Schulservers übereinstimmen: **Zusatzdateien aktuell** oder **Zusatzdateien veraltet**. Bei veralteten Zusatzdateien holt **Zusatzdateien holen** sie vom Schulserver, ohne das Image selbst zu übertragen. Die Rückfrage nennt, welche Dateien fehlen, sich geändert haben oder entfallen; Dateien, die es auf dem Schulserver nicht mehr gibt, löscht der Satellit dabei. „Aktuell“ heißt hier: gleiche Dateigröße wie auf dem Schulserver, nicht zwingend gleicher Inhalt. Die Aktion ist gesperrt, wenn die Zusatzdateien schon aktuell sind, der Abgleich noch unbekannt ist, das Image nur auf dem Schulserver liegt oder im Altformat vorliegt; der Grund steht am Knopf. Anschließend meldet die Plattform, wie viele Dateien geholt und wie viele gelöscht wurden, und liest den Abgleich neu.
+
+**Zusatzdateien für alle Images holen** gleicht in einem Schritt alle Images ab, deren Zusatzdateien als veraltet gelten. Die Aktion steht ohne Markierung in der Aktionsleiste und überträgt die Images selbst nicht. Sie ist gesperrt, solange der Abgleich mit dem Schulserver nicht vorliegt, und wenn nichts abzugleichen ist (*„Die Zusatzdateien aller Images sind bereits aktuell.“*). Die Rückfrage nennt die Zahl der betroffenen Images und warnt: *„Zusatzdateien, die es auf dem Server nicht mehr gibt, werden auf dem Satelliten gelöscht. Der Vorgang kann einige Zeit dauern.“* Danach liest die Plattform den Abgleich neu.
+
+| Meldung | Ursache und Abhilfe |
+|---------|---------------------|
+| *„Zusatzdateien für … Images abgeglichen, bei … Images ist es fehlgeschlagen: …“* | Bei den genannten Images ist der Abgleich gescheitert, die übrigen sind abgeglichen. Holen Sie die Zusatzdateien dieser Images einzeln über **Zusatzdateien holen**. |
+| *„Der Vorgang läuft möglicherweise noch auf dem Satelliten. Der Abgleich wird aktualisiert, sobald er abgeschlossen ist.“* | Die Verbindung zum Satelliten war kürzer offen als der Vorgang. Warten Sie ab; die Spalte **Abgleich** zeigt den Stand, sobald der Satellit fertig ist. Starten Sie die Aktion nicht erneut, bevor sich der Abgleich ändert. |
 
 ##### Prüfsumme prüfen
 
@@ -355,12 +362,31 @@ Welche Richtung angeboten wird, entscheidet die Plattform aus dem Vergleich mit 
 **Vom Server holen** löscht das Imageverzeichnis auf dem Satelliten vollständig – einschließlich aller dortigen Sicherungen und Beipack-Dateien – und ersetzt es durch den Stand des Servers. **Zum Server übertragen** überschreibt das Image auf dem Schulserver, das auch andere Satelliten nutzen. Beide Schritte lassen sich nicht rückgängig machen.
 :::
 
-Eine gestartete Übertragung meldet der Satellit nicht zurück. Die Plattform bestätigt nur den Start; den Ausgang zeigt die Liste, sobald die Übertragung abgeschlossen ist und die Seite das nächste Mal abfragt.
+Nach **Übertragung starten** bestätigt die Plattform nur den Start: *„Die Übertragung von … wurde gestartet. Den Fortschritt zeigt die Übertragungswarteschlange.“* Ob die Übertragung gelingt, meldet sie nicht als Nachricht.
+
+##### Übertragungswarteschlange
+
+Solange der Satellit eine Übertragung ausführt oder vormerkt, zeigt die Unterseite **Images** den Abschnitt **Übertragungswarteschlange**; ist nichts in der Warteschlange, entfällt er. Er führt **Vom Server holen** (*Download vom Server*) und **Zum Server übertragen** (*Upload zum Server*) gemeinsam auf, je Richtung den laufenden Auftrag vor den wartenden.
+
+| Status | Bedeutung |
+|--------|-----------|
+| **Wartet** | Der Auftrag ist vorgemerkt und hat noch nicht begonnen. |
+| **Lädt herunter** / **Lädt hoch** | Die Daten werden übertragen. Die Plattform zeigt Fortschritt, übertragene und Gesamtmenge, Geschwindigkeit und geschätzte Restzeit. |
+| **MD5-Prüfung läuft** | Der Satellit prüft die übertragenen Daten. Geschwindigkeit und Restzeit entfallen. |
+| **Wird abgeschlossen** | Der Satellit schließt die Übertragung ab. |
+
+**Abbrechen** fragt vorher nach (*„Die Übertragung von … wird abgebrochen. Du kannst sie später erneut starten.“*) und gilt für den gewählten Auftrag, laufend oder wartend. Solange eine andere Aktion am Image läuft, ist **Abbrechen** gesperrt.
+
+Die Plattform fragt die Warteschlange alle 3 Sekunden ab, solange ein Auftrag läuft oder wartet, sonst alle 30 Sekunden. Läuft der letzte Auftrag aus der Warteschlange, liest sie Imageliste und Abgleich sofort neu, ohne die Minutenabfrage abzuwarten.
+
+:::note[Was nach dem Ende bleibt]
+Ein beendeter Auftrag verlässt die Warteschlange. Das Ergebnis – *Abgeschlossen*, *Fehlgeschlagen* oder *Abgebrochen* – zeigt die Plattform nicht an, und eine Fehlermeldung zu einem gescheiterten Auftrag erscheint nicht. Ob eine Übertragung gelungen ist, erkennen Sie an der Spalte **Abgleich**: Steht dort nicht mehr der Unterschied, der Anlass war, hat sie funktioniert.
+:::
 
 :::note[Wenn der Abgleich nicht verfügbar ist]
 Antwortet der Schulserver nicht auf den Vergleich, meldet die Seite *„Der Abgleich mit dem Schulserver ist nicht verfügbar. Die Spalte "Abgleich" und die Übertragung bleiben deshalb ohne Aussage.“* Es wird dann keine Übertragungsrichtung angeboten; die Imageliste selbst bleibt nutzbar.
 
-Scheitert der Abgleich an der LMN-API des Schulservers, nennt die Seite die Ursache. *„Der Satellit kann die Images nicht bei der LMN-API des Schulservers abfragen“* bedeutet, dass die API nicht antwortet: Prüfen Sie, ob das Netz, in dem LINBO auf dem Satelliten läuft, die in den [LINBO-Einstellungen](#einstellungen) eingetragene **API-Adresse** erreicht – etwa über eine Freigabe zwischen den VLANs und eine Rückroute oder NAT. *„Die LMN-API des Schulservers lehnt die Anmeldung des Satelliten ab oder antwortet mit einem Fehler“* bedeutet, dass die API erreichbar ist, aber die Anfrage abweist: Prüfen Sie dort **Benutzer** und **Passwort**. **Verbindung testen** im selben Dialog prüft beides. Ältere Satelliten unterscheiden die beiden Fälle nicht und melden auch eine abgelehnte Anmeldung als nicht erreichbar.
+Scheitert der Abgleich an der LMN-API des Schulservers, nennt die Seite die Ursache. *„Der Satellit kann die Images nicht bei der LMN-API des Schulservers abfragen: Sie ist nicht erreichbar oder lehnt die Anmeldung ab.“* bedeutet bei Satelliten, die beide Fälle nicht trennen, dass die API nicht antwortet oder die Anmeldung abweist. Antwortet die API nicht: Prüfen Sie, ob das Netz, in dem LINBO auf dem Satelliten läuft, die in den [LINBO-Einstellungen](#einstellungen) eingetragene **API-Adresse** erreicht – etwa über eine Freigabe zwischen den VLANs und eine Rückroute oder NAT. *„Die LMN-API des Schulservers lehnt die Anmeldung des Satelliten ab oder antwortet mit einem Fehler“* bedeutet, dass die API erreichbar ist, aber die Anfrage abweist: Prüfen Sie dort **Benutzer** und **Passwort**. **Verbindung testen** im selben Dialog prüft beides. Ältere Satelliten unterscheiden die beiden Fälle nicht und melden auch eine abgelehnte Anmeldung als nicht erreichbar.
 :::
 
 ##### Sicherungen
@@ -371,7 +397,7 @@ Es öffnet sich derselbe Dialog wie im Bereich **LINBO** der App **Schulserver**
 Beim Wiederherstellen wird die Sicherung selbst gelöscht. Dateien, die im Image vorhanden sind, in der Sicherung aber fehlen, bleiben erhalten – das Ergebnis ist also eine Mischung aus beiden Ständen und nicht der Stand der Sicherung. Der Schritt lässt sich nicht rückgängig machen. Die Nachfrage vor dem Wiederherstellen nennt diese Warnung noch einmal.
 :::
 
-Meldet der Satellit den Ausgang der Wiederherstellung nicht zurück, weist die Plattform darauf hin, dass der Vorgang noch laufen kann. Laden Sie die Liste in diesem Fall neu, bevor Sie erneut wiederherstellen.
+Meldet der Satellit den Ausgang der Wiederherstellung nicht zurück, weist die Plattform darauf hin, dass der Vorgang noch laufen kann. Öffnen Sie die **Sicherungen** des Images in diesem Fall erneut, bevor Sie nochmals wiederherstellen.
 
 ##### Beipack-Dateien
 
@@ -418,7 +444,7 @@ Den Zustand der Torrent-Verteilung melden Satelliten ab Version 2.7.17. Bei eine
 
 Die Unterseite **Synchronisation** zeigt, was der Satellit vom Linuxmuster-Server übernommen und auf seinem eigenen System angewendet hat – und lässt einen Lauf von Hand anstoßen.
 
-Der Abschnitt **Synchronisationszustand** nennt den **Modus** (**Synchronisation aktiv** oder **Offline**), den Zeitpunkt der letzten Synchronisation, die Zahl der übernommenen Hosts und Gruppen, wie viele Hosts davon online sind und ob der Satellit die Schulserver-API erreicht. Dazu kommen der **Gesamtzustand** über alle Bestandteile, der **letzte Lauf** – inkrementell, vollständig oder eine Wiederherstellung – mit Ergebnis, Beginn und Ende, der **Cursor** sowie die Zeitpunkte des letzten Sicherungspunkts und der letzten Wiederherstellung. Läuft gerade ein Lauf, wird das hier vermerkt; ein zuletzt gemeldeter Fehler erscheint darunter.
+Der Abschnitt **Synchronisationszustand** nennt den **Modus** (**Synchronisation aktiv** oder **Offline**), den Zeitpunkt der letzten Synchronisation, die Zahl der übernommenen Hosts und Gruppen, wie viele Hosts davon online sind und ob der Satellit die Schulserver-API erreicht. Dazu kommen der **Gesamtzustand** über alle Bestandteile, der **letzte Lauf** – inkrementell, vollständig oder eine Wiederherstellung – mit Ergebnis, Beginn und Ende, der **Cursor** sowie die Zeitpunkte des letzten Sicherungspunkts und der letzten Wiederherstellung. Läuft gerade ein Lauf, wird das hier vermerkt; ein zuletzt gemeldeter Fehler erscheint ebenfalls dort.
 
 Der **Cursor** ist die Stelle, bis zu der der Satellit die Änderungen des Schulservers zuletzt übernommen hat; der nächste gewöhnliche Lauf liest ab dort weiter. Steht beim Cursor **Keiner – der nächste Lauf liest den gesamten Bestand**, übernimmt der nächste Lauf wieder alles – so erkennen Sie auch, dass **Cursor leeren** gegriffen hat. Hat der Satellit die verwalteten Dateien aus einem Sicherungspunkt wiederhergestellt – von Hand oder nach einem fehlgeschlagenen Lauf –, vermerkt der letzte Lauf das eigens.
 
@@ -440,7 +466,7 @@ Die übrigen Bestandteile liegen im LINBO-Dateisystem des Satelliten: Schreiben 
 
 ##### Einen Lauf anstoßen
 
-In der Aktionsleiste stehen **Synchronisieren**, **Komplett-Sync**, **Cursor leeren** und **Einstellungen**. Eine Aktion zum Neuladen gibt es hier nicht: Die Seite fragt den Zustand von selbst ab, solange kein Lauf läuft alle 30 Sekunden. Ist der Browser-Tab nicht sichtbar, pausieren die Abfragen. **Synchronisieren** übernimmt nur, was sich seit dem Cursor geändert hat; **Komplett-Sync** übernimmt den gesamten Bestand und schreibt alle verwalteten Dateien neu. **Cursor leeren** verwirft den Cursor, sodass der nächste gewöhnliche Lauf wieder alles betrachtet; einen Lauf startet es selbst nicht. Jede der drei Aktionen fragt vor dem Start nach.
+In der Aktionsleiste stehen **Synchronisieren**, **Komplett-Sync**, **Cursor leeren** und **Einstellungen**. Die Seite fragt den Zustand von selbst ab, solange kein Lauf läuft alle 30 Sekunden. Ist der Browser-Tab nicht sichtbar, pausieren die Abfragen. **Synchronisieren** übernimmt nur, was sich seit dem Cursor geändert hat; **Komplett-Sync** übernimmt den gesamten Bestand und schreibt alle verwalteten Dateien neu. **Cursor leeren** verwirft den Cursor, sodass der nächste gewöhnliche Lauf wieder alles betrachtet; einen Lauf startet es selbst nicht. Jede der drei Aktionen fragt vor dem Start nach.
 
 :::note[Während ein Lauf läuft]
 Solange ein Lauf läuft, verschwinden die drei Aktionen, und Sicherungspunkte lassen sich nicht wiederherstellen – auch bei einem Lauf, den der Satellit selbst nach seinem Zeitplan gestartet hat. In dieser Zeit lädt die Seite den Zustand alle fünf Sekunden nach, sonst alle 30 Sekunden. Häufiger fragt sie nicht, weil jede Abfrage den Satelliten eine Prüfung der Verbindung zum Schulserver kostet. Ein Lauf überdauert regelmäßig die Verbindung zum Satelliten; bricht sie ab, gilt der Lauf weiterhin als laufend und wird nicht als fehlgeschlagen gemeldet. Die Seite folgt einem Lauf, solange der Satellit ihn als laufend meldet; lässt sich sein Zustand nicht lesen, gibt sie nach fünf Minuten auf und fragt danach wieder im Abstand von 30 Sekunden nach. Läuft auf dem Satelliten bereits ein Lauf, wird auch das gemeldet, statt einen zweiten zu starten.
@@ -460,28 +486,147 @@ Solange kein Sicherungspunkt vorliegt, weist der Abschnitt dies aus. Lässt sich
 
 Die Unterseite **DHCP** steht in der Seitenleiste des Bereichs **LINBO** hinter **Synchronisation** und zeigt, was der DHCP-Dienst des Satelliten tut. Sie ist nur lesbar: Adressen lassen sich hier weder vergeben noch freigeben, und die DHCP-Konfiguration stammt aus der [Synchronisation](#synchronisation) mit dem Linuxmuster-Server. Die Seite fragt den Satelliten alle 30 Sekunden ab, solange der Browser-Tab sichtbar ist. Zwei Registerkarten gliedern sie:
 
-- **Vergebene Adressen** – die Adressen, die der DHCP-Dienst kennt, mit **Adresse**, **MAC**, **Hostname**, **Status**, **Gültig bis** und **Hersteller**. Der Status ist **Aktiv**, **Frei**, **Reserve** oder **Verworfen**; eine Adresse ohne Ablauf zeigt **Unbegrenzt**. Das Suchfeld findet Adresse, MAC, Hostname und Hersteller, der Schalter **Nur aktive** blendet alle übrigen Adressen aus. Über der Tabelle stehen die Zeile **Adressen** mit „N aktiv von M“ und der **Stand der Daten**. Auf schmalen Bildschirmen entfallen die Spalten **MAC**, **Gültig bis** und **Hersteller**.
-- **Verlauf** – die letzten 500 Zeilen des DHCP-Protokolls mit **Zeit**, **Typ** und **Meldung**. Das Suchfeld findet die MAC- oder IP-Adresse eines Clients, die Auswahl **Meldungstyp** schränkt die Zeilen auf Typen wie `DHCPDISCOVER`, `DHCPOFFER`, `DHCPREQUEST` oder `DHCPACK` ein. Über der Tabelle stehen die Zeile **Zeilen** („x von y“) und der **Stand der Daten**. Auf schmalen Bildschirmen entfallen die Spalten **Zeit** und **Typ**.
+- **Vergebene Adressen** – die Adressen, die der DHCP-Dienst kennt, mit **Adresse**, **MAC**, **Hostname**, **Status**, **Gültig bis** und **Hersteller**. Der Status ist **Aktiv**, **Frei**, **Reserve** oder **Verworfen**; eine Adresse ohne Ablauf zeigt **Unbegrenzt**. Das Suchfeld findet Adresse, MAC, Hostname und Hersteller, der Schalter **Nur aktive** blendet alle übrigen Adressen aus. Zusätzlich zeigt die Seite die Zeile **Adressen** mit „N aktiv von M“ und den **Stand der Daten**. Auf schmalen Bildschirmen entfallen die Spalten **MAC**, **Gültig bis** und **Hersteller**.
+- **Verlauf** – die letzten 500 Zeilen des DHCP-Protokolls mit **Zeit**, **Typ** und **Meldung**. Das Suchfeld findet die MAC- oder IP-Adresse eines Clients, die Auswahl **Meldungstyp** schränkt die Zeilen auf Typen wie `DHCPDISCOVER`, `DHCPOFFER`, `DHCPREQUEST` oder `DHCPACK` ein. Zusätzlich zeigt die Seite die Zeile **Zeilen** („x von y“) und den **Stand der Daten**. Auf schmalen Bildschirmen entfallen die Spalten **Zeit** und **Typ**.
 
 :::note[Keine DHCP-Daten]
 Läuft der DHCP-Container des Satelliten nicht oder hat er noch nichts geschrieben, zeigt die Registerkarte *„Keine DHCP-Daten verfügbar“* und erklärt es je Registerkarte: Bei **Vergebene Adressen** fehlt die Lease-Datenbank, bei **Verlauf** das DHCP-Protokoll, das das Log-Relay im selben Container schreibt. Einen vom Satelliten gemeldeten Grund zeigt die Seite nicht an. Lässt sich eine Liste gar nicht laden, meldet die Seite das eigens für **Vergebene Adressen** beziehungsweise **Verlauf**.
 :::
 
 :::note[Nicht alle Daten sichtbar]
-Liefert der Satellit nicht alle Adressen oder Protokollzeilen, steht über der Tabelle der Hinweis *„Es werden nur N von M Adressen angezeigt. Der Satellit liefert nicht alle Daten.“* beziehungsweise der entsprechende für Zeilen. Suche und Filter wirken dann nur auf die angezeigten Einträge.
+Liefert der Satellit nicht alle Adressen oder Protokollzeilen, erscheint der Hinweis *„Es werden nur N von M Adressen angezeigt. Der Satellit liefert nicht alle Daten.“* beziehungsweise der entsprechende für Zeilen. Suche und Filter wirken dann nur auf die angezeigten Einträge.
 :::
 
 #### Protokolle
 
-Die Unterseite **Protokolle** ist die letzte der Seitenleiste und zeigt das Protokoll des LINBO-Dienstes auf dem Satelliten: die letzten 500 Einträge mit **Stufe**, **Zeit** und **Meldung**. Sie ist nur lesbar und fragt den Satelliten alle 15 Sekunden ab, solange der Browser-Tab sichtbar ist. Das Suchfeld durchsucht die Meldungen; die Auswahl **Stufe** schränkt die Liste auf **Fehler**, **Warnung**, **Info** und **Debug** ein und nennt bei jeder Stufe, wie viele der geladenen Einträge sie trägt. Die neuesten Einträge stehen oben. Ein Klick auf einen Eintrag öffnet den Dialog **Protokolleintrag** mit Typ, Zeit, Stufe und vollständiger Meldung; **Kopieren** übernimmt den ganzen Eintrag als JSON. Auch ohne Maus öffnen Sie den Dialog: Die Spalte **Aktionen** am Ende jeder Zeile trägt eine Schaltfläche **Details anzeigen** (Augen-Symbol), die sich mit der Tastatur erreichen lässt. Auf schmalen Bildschirmen entfällt die Spalte **Zeit**; die Zeit steht dann nur im Dialog. Scheitert eine Aktualisierung, bleibt der zuletzt geladene Stand stehen und die Seite meldet den Fehler; solange noch nichts geladen war, meldet sie, dass sich das Protokoll nicht lesen lässt, und hat der Satellit noch nichts protokolliert, sagt sie das.
+Die Unterseite **Protokolle** zeigt das Protokoll des LINBO-Dienstes auf dem Satelliten: die letzten 500 Einträge mit **Stufe**, **Zeit** und **Meldung**. Sie ist nur lesbar und fragt den Satelliten alle 15 Sekunden ab, solange der Browser-Tab sichtbar ist. Das Suchfeld durchsucht die Meldungen; die Auswahl **Stufe** schränkt die Liste auf **Fehler**, **Warnung**, **Info** und **Debug** ein und nennt bei jeder Stufe, wie viele der geladenen Einträge sie trägt. Die neuesten Einträge stehen zuerst. Ein Klick auf einen Eintrag öffnet den Dialog **Protokolleintrag** mit Typ, Zeit, Stufe und vollständiger Meldung; **Kopieren** übernimmt den ganzen Eintrag als JSON. Auch ohne Maus öffnen Sie den Dialog: Die Spalte **Aktionen** trägt in jeder Zeile eine Schaltfläche **Details anzeigen** (Augen-Symbol), die sich mit der Tastatur erreichen lässt. Auf schmalen Bildschirmen entfällt die Spalte **Zeit**; die Zeit steht dann nur im Dialog. Scheitert eine Aktualisierung, bleibt der zuletzt geladene Stand stehen und die Seite meldet den Fehler; solange noch nichts geladen war, meldet sie, dass sich das Protokoll nicht lesen lässt, und hat der Satellit noch nichts protokolliert, sagt sie das.
+
+#### Hardware
+
+Die Unterseite **Hardware** zeigt das Hardware-Inventar der Clients, die LINBO auf dem Satelliten gemeldet haben: **Host**, **IP-Adresse**, **Modell**, **Prozessor**, **Arbeitsspeicher**, **Platten** und den Zeitpunkt der Erfassung (**Erfasst**). Das Suchfeld findet außerdem MAC-Adresse, Gruppe, Raum und Seriennummer. Die Seite fragt den Satelliten alle 60 Sekunden ab.
+
+Die Plattform führt Hosts und Inventardaten über die MAC-Adresse zusammen, ersatzweise über die IP-Adresse. Ein Host ohne Inventardaten steht mit leeren Feldern in der Tabelle, Inventardaten ohne passenden Host mit leerem **Host**. Ein Klick auf eine Zeile öffnet **Hardware von *Host***: MAC-Adresse, Hersteller, Produkt, Seriennummer, BIOS, Prozessor, Kerne, Arbeitsspeicher sowie die Listen **Netzwerk**, **Platten** und **PCI-Geräte**.
+
+- **Neu lesen** im Dialog liest die Hardwaredaten dieses einen Clients erneut aus.
+- **Alle scannen** liest die Daten aller Clients. Solange der Scan läuft, zeigt die Schaltfläche **Scan läuft …**, und es lässt sich kein zweiter starten. Dauert er länger, als die Anfrage wartet, läuft er auf dem Satelliten weiter: Die Seite fragt dann alle 5 Sekunden nach und beendet die Anzeige, sobald sich die Zahl der Einträge dreimal in Folge nicht geändert hat – frühestens nach 30, spätestens nach 180 Sekunden. Nach dem Scan meldet sie *„Scan abgeschlossen: N gelesen, N bereits erfasst, N ohne Datei, N fehlgeschlagen.“* Erfolgreich gelesene Clients bleiben auch dann erfasst, wenn andere fehlschlagen.
+
+| Meldung | Ursache und Abhilfe |
+|---------|---------------------|
+| *„Das Hardware-Inventar des Satelliten konnte nicht geladen werden.“* | Der Satellit hat das Inventar nicht geliefert. Liegen noch keine Daten vor, steht in der Tabelle *„Das Hardware-Inventar ist derzeit nicht erreichbar.“* Prüfen Sie die Verbindung zum Satelliten; die Seite versucht es beim nächsten Abruf erneut. |
+| *„Die Hosts des Satelliten konnten nicht geladen werden. Die Tabelle zeigt nur Rechner mit Inventardaten.“* | Die Hostliste fehlt, das Inventar ist da. Der **Host** bleibt leer. |
+| *„Es liegen noch keine Hardwaredaten vor. Starte „Alle scannen“, sobald sich Clients mit LINBO gemeldet haben.“* | Weder Hosts noch Inventardaten vorhanden. |
+| *„Für diesen Rechner liegen noch keine Hardwaredaten vor.“* | Der Rechner hat noch keine Hardwaredatei geliefert. Starten Sie **Neu lesen** oder **Alle scannen**, sobald der Client LINBO gestartet hat. |
+| *„Für … liegt noch keine Hardwaredatei vor. Der Client ist vermutlich noch nicht partitioniert.“* | **Neu lesen** fand keine Datei. Partitionieren Sie den Client mit LINBO und lesen Sie danach neu. |
+
+#### Treiber
+
+Die Unterseite **Treiber** verwaltet **Treiber-Profile**. Ein Profil ist ein Ordner auf dem Satelliten, der zu einem Gerätemodell gehört (**Hersteller** und **Produkt**) und die Treiberdateien dafür enthält. Es lässt sich einem Image zuordnen. Die Tabelle zeigt **Ordner**, **Hersteller**, **Produkt**, **Image**, **Dateien** und **Größe**; das Suchfeld findet Ordner, Hersteller, Produkt und Image. Die Seite fragt den Satelliten alle 60 Sekunden ab.
+
+:::warning[Treiber-Installation erst ab LINBO 7.4.8]
+Zugewiesene Treiber erreichen die Clients erst mit LINBO 7.4.8 oder neuer, weil die Installation im ausgelieferten `linbofs64` liegt. Fehlt sie, zeigt die Seite **Treiber werden noch nicht installiert**, und Zuordnungen bleiben ohne Wirkung. Aktualisieren Sie LINBO (siehe [System](#system)) und laden Sie die Seite danach neu.
+:::
+
+##### Profil anlegen
+
+**Profil anlegen** liest die Hardwaredaten von einem gestarteten LINBO-Client. Der Satellit holt sie per SSH, der Client muss also erreichbar sein. Geben Sie die IPv4-Adresse des Clients ein, etwa *10.0.0.100*, oder wählen Sie einen Host aus **Oder wähle einen Host**; die Liste nennt nur Hosts mit gültiger IPv4-Adresse. Gibt es für das Gerätemodell schon ein Profil, legt die Plattform kein zweites an und meldet *„Das Profil … gab es bereits.“*, sonst *„Profil … wurde angelegt.“* Das neue Profil enthält noch keine Treiberdateien.
+
+##### Profil bearbeiten
+
+Ein Klick auf eine Zeile öffnet den Dialog **Treiber-Profil**.
+
+- **Image-Zuordnung**: Wählen Sie ein Image und dann **Image zuordnen**; **Zuordnung entfernen** löst sie wieder. Ein Profil hat höchstens ein Image.
+- **match.conf**: Der Text legt fest, auf welche Geräte das Profil passt. **Speichern** schreibt ihn auf den Satelliten. Er darf nicht leer und höchstens 10.240 Zeichen lang sein. **Änderungen verwerfen** setzt das Feld auf den gespeicherten Stand zurück.
+- **Dateien**: zeigt die Treiberdateien mit Pfad und Größe. Hochladen lassen sich Treiberdateien hier nicht.
+- **Profil löschen**: entfernt das Profil mit allen Treiberdateien endgültig. Solange ein Image zugeordnet ist, ist die Schaltfläche gesperrt: *„Entferne zuerst die Image-Zuordnung.“*
+
+| Meldung | Ursache und Abhilfe |
+|---------|---------------------|
+| *„Die Treiber-Profile des Satelliten konnten nicht geladen werden.“* | Der Satellit hat die Profile nicht geliefert. Liegen noch keine Daten vor, steht in der Tabelle *„Die Treiber-Profile sind derzeit nicht erreichbar.“* Prüfen Sie die Verbindung zum Satelliten. |
+| *„Ob die Treiber-Installation auf den Clients verfügbar ist, konnte nicht geprüft werden.“* | Die Abfrage nach der Treiber-Installation ist gescheitert. Laden Sie die Seite neu. |
+| *„Gib eine gültige IPv4-Adresse ein.“* | Die eingegebene Adresse ist keine IPv4-Adresse. |
+| *„Die Dateien des Profils konnten nicht geladen werden.“* | Der Satellit hat die Dateiliste nicht geliefert. Öffnen Sie das Profil erneut. |
+| *„Die Aktion konnte nicht ausgeführt werden.“* | Anlegen, Zuordnen, Speichern oder Löschen ist gescheitert; der bisherige Stand bleibt bestehen. Beim Anlegen ist häufig der Client nicht per SSH erreichbar. |
+
+#### System
+
+Die Unterseite **System** verwaltet den Startunterbau, den LINBO-Clients vom Satelliten laden: `linbofs64` (das Startabbild, in das Kernel-Modul, Firmware, WLAN-Zugang und Zugangsdaten eingebaut werden), den Kernel, die Firmware und das WLAN. Sie hat die Registerkarten **Kernel**, **Firmware** und **WLAN**; die Karte **linbofs64** gilt für alle drei. **Neu laden** in der Aktionsleiste lädt alles neu.
+
+Änderungen an Firmware und WLAN schreiben nur Einstellungen. Auf den Clients wirken sie erst, wenn `linbofs64` neu gebaut ist, und auch dann erst beim nächsten Start des Clients. Laufende Clients bleiben unberührt.
+
+##### linbofs64
+
+Die Karte zeigt **Zustand**, **Größe**, **MD5**, **Geändert**, **Zuletzt gebaut** und **Hooks** (*„… ausgeführt, … mit Warnung“*). Der **Zustand** ist **Bereit**, **Fehlt**, **Beschädigt**, **Nicht eingerichtet**, **Unvollständig** oder **Unbekannt**. Bei **Fehlt**, **Beschädigt**, **Nicht eingerichtet** und **Unvollständig** weist die Karte darauf hin: *„linbofs64 ist nicht vollständig eingerichtet. Ein Neubau behebt das.“*
+
+**linbofs64 neu bauen** fragt vorher nach. Der Satellit baut die Datei mit den aktuellen Passwörtern, Schlüsseln sowie den Firmware- und WLAN-Einstellungen neu; das dauert einige Minuten. Die neue Datei gilt für Clients ab ihrem nächsten Start.
+
+Wurde seit dem letzten Neubau Firmware oder WLAN geändert, meldet die Karte: *„Änderungen warten auf den Neubau: Firmware und WLAN wirken auf den LINBO-Clients erst, wenn linbofs64 neu gebaut ist.“* Diesen Merker hält die Plattform nur im geöffneten Browser; er entfällt, sobald ein Neubau gestartet wurde, und beim Neuladen der Seite.
+
+##### Aktivität im Hintergrund
+
+Läuft auf dem Satelliten ein Neubau von `linbofs64` – auch durch einen Kernel-Wechsel oder eine LINBO-Aktualisierung ausgelöst – oder eine LINBO-Aktualisierung, gilt der Satellit als beschäftigt:
+
+- Der **Zustand** zeigt **Wird neu gebaut**: *„linbofs64 wird neu gebaut. Das dauert einige Minuten, die Seite aktualisiert sich selbst.“*
+- Alle ändernden Aktionen sind gesperrt: Neubau, Kernel-Wechsel, Reparatur, LINBO-Aktualisierung, Firmware hinzufügen und löschen, WLAN speichern und ausschalten. Der Grund steht am Knopf: *„Auf dem Satelliten läuft gerade ein Neubau oder eine Aktualisierung. Warte, bis sie abgeschlossen ist.“* **Auf Aktualisierung prüfen** und **Aktualisierung abbrechen** bleiben bedienbar.
+- Die Seite fragt **linbofs64** und **Kernel** alle 3 Sekunden ab, sonst alle 30 Sekunden. Firmware und WLAN lädt nur **Neu laden**.
+
+Auf einen gestarteten Neubau wartet die Plattform höchstens 10 Minuten. Bricht dabei die Verbindung zum Satelliten ab, geht sie davon aus, dass der Neubau dort weiterläuft, und fragt weiter ab. Eine LINBO-Aktualisierung verfolgt sie höchstens 30 Minuten und gibt nach 20 aufeinanderfolgenden Lesefehlern auf.
+
+##### Kernel
+
+Die Registerkarte hat zwei Karten.
+
+**LINBO-Paket und Boot-Dateien** zeigt **Installiert**, **Verfügbar** und **Paketgröße**. **Auf Aktualisierung prüfen** fragt die Paketquelle neu ab. Ist eine neuere Version da, erscheint **LINBO aktualisieren**; die Rückfrage nennt die Zielversion. Die Aktualisierung lädt das Paket, prüft die Prüfsumme, entpackt es, richtet die Boot-Dateien ein und baut zuletzt `linbofs64` neu. Der Fortschritt läuft in Prozent mit den Phasen **Wird vorbereitet**, **Paket wird geladen**, **Prüfsumme wird geprüft**, **Paket wird entpackt**, **Boot-Dateien werden eingerichtet** und **linbofs64 wird neu gebaut**. **Aktualisierung abbrechen** bricht sie ab; das Ergebnis lautet dann **Aktualisierung abgebrochen**. Clients übernehmen die neuen Boot-Dateien bei ihrem nächsten Start.
+
+**Kernel** zeigt **Aktive Variante**, **Version**, **Größe von linbo64**, **MD5 von linbo64** und **Letzter Wechsel**. Die Varianten **Stable**, **Longterm** und **Legacy** sind aufgelistet; nicht eingespielte tragen *„Nicht installiert“*. **Aktivieren** wechselt die Variante und baut `linbofs64` neu. Clients starten ab ihrem nächsten Start mit dem neuen Kernel.
+
+**Konfiguration reparieren** setzt die Kernel-Konfiguration auf **Stable** zurück, ohne `linbofs64` neu zu bauen. **Reparieren und neu bauen** tut dasselbe und baut danach neu; es erscheint nur bei ungültiger Konfiguration. Bei ungültiger Konfiguration ist **Aktivieren** gesperrt.
+
+| Meldung | Ursache und Abhilfe |
+|---------|---------------------|
+| *„Der Satellit erreicht die Paketquelle von LINBO nicht. Läuft er mit alten Boot-Dateien, aktualisiert er sie erst, wenn er die Paketquelle erreicht (Internet und DNS).“* | Prüfen Sie Internetzugang und DNS des Satelliten. |
+| *„Die installierte LINBO-Version ist nicht bekannt.“* | Der Satellit meldet keine installierte Version; eine Aktualisierung wird nicht angeboten. |
+| *„Diese LINBO-Version liefert nur einen Kernel. Eine Variante lässt sich nicht wählen.“* | Keine Variante ist wechselbar. |
+| *„Die Kernel-Konfiguration ist ungültig.“* (oder der Text, den der Satellit mitliefert) | Wählen Sie **Konfiguration reparieren** oder **Reparieren und neu bauen**. |
+| *„Aktualisierung fehlgeschlagen“* mit Fehlertext | Der Satellit nennt die Ursache im Text. |
+
+##### Firmware
+
+Die Registerkarte hat drei Karten.
+
+**Firmware der Clients** wertet die Boot-Protokolle der Clients aus: *„… ohne Fehler, … mit fehlender Firmware, … ohne Protokoll“*. Aufgelistet sind nur Clients mit Protokoll, also **In Ordnung** oder **Firmware fehlt**; Clients ohne Protokoll zählt nur die Zusammenfassung. Zu jeder fehlenden Datei öffnet **Firmware suchen** den Dialog mit dem Dateinamen als Suchbegriff.
+
+**Eingetragene Firmware** listet die Einträge, die in `linbofs64` eingebaut werden. Ein Eintrag kann ein **Verzeichnis** sein, *„Auf dem Satelliten nicht vorhanden“* oder *„Ungültiger Eintrag“*. **Löschen** entfernt den Eintrag nur aus der Konfiguration; die Änderung wirkt erst nach dem Neubau von `linbofs64`.
+
+**Katalog** gruppiert bekannte Firmware nach Hersteller (*„… von … eingetragen“*). **Hinzufügen** trägt einen Eintrag ein; bei einer Dateigruppe nur die Dateien, die noch fehlen. Bereits Eingetragenes zeigt **Eingetragen**, Fehlendes auf dem Satelliten *„Nicht auf dem Satelliten“*.
+
+**Firmware hinzufügen** sucht Dateien und Verzeichnisse auf dem Satelliten. Die Suche beginnt ab 2 Zeichen und liefert höchstens 50 Treffer. **Auswahl hinzufügen** trägt alle markierten Treffer in einem Schritt ein. Jede Eintragung markiert `linbofs64` als neu zu bauen.
+
+| Meldung | Ursache und Abhilfe |
+|---------|---------------------|
+| *„Noch kein Client hat ein Boot-Protokoll geliefert.“* | Clients müssen einmal über den Satelliten gestartet sein, bevor ihr Zustand erscheint. |
+| *„Für linbofs64 ist keine Firmware eingetragen.“* | Legen Sie Einträge über **Firmware hinzufügen** oder den Katalog an. |
+| *„Keine Firmware gefunden.“* | Auf dem Satelliten gibt es keinen Treffer für den Suchbegriff. |
+
+##### WLAN
+
+Die Registerkarte legt den WLAN-Zugang fest, den LINBO-Clients beim Start nutzen. Der Kopf nennt den Stand: *„WLAN ist eingerichtet: …“* oder *„WLAN ist nicht eingerichtet.“*
+
+| Feld | Regel |
+|------|-------|
+| **Netzwerkname (SSID)** | Pflicht, höchstens 32 Zeichen, keine Steuerzeichen |
+| **Verschlüsselt (WPA-PSK)** | Bei einer neuen Konfiguration eingeschaltet. Ausgeschaltet gilt das Netz als offen. |
+| **Schlüssel** | 8 bis 128 Zeichen oder genau 64 Hexadezimalzeichen. Wird nie angezeigt; leer gelassen behält er den gespeicherten Schlüssel (*Unverändert*). Pflicht, solange keiner gespeichert ist. |
+| **Verstecktes Netzwerk** | Der Client sucht die SSID gezielt. |
+
+**WLAN ausschalten** löscht die Konfiguration auf dem Satelliten; Clients verbinden sich nach dem Neubau von `linbofs64` beim Start nicht mehr mit dem WLAN. **Speichern** und **WLAN ausschalten** markieren `linbofs64` als neu zu bauen. Verstößt eine Eingabe gegen die Regeln, nennt der Dialog den Grund am Feld.
 
 #### Einstellungen
 
-**Einstellungen** in der Aktionsleiste der LINBO-Unterseiten öffnet den Dialog **LINBO-Einstellungen**. Er wirkt ausschließlich auf den ausgewählten Satelliten; die zentralen Plattformeinstellungen bleiben davon unberührt. Links steht die **Verbindung zum Schulserver** mit **API-Adresse**, **Benutzer**, **Passwort**, **Schule** und **LINBO-Server-IP** sowie **Verbindung testen**, rechts die **Synchronisation** mit **Synchronisation aktiv** und dem **Intervall**. Ein Lesezeichen auf die frühere Unterseite **Einstellungen** führt zu **Hosts** und öffnet dort den Dialog.
+**Einstellungen** in der Aktionsleiste der LINBO-Unterseiten öffnet den Dialog **LINBO-Einstellungen**. Er wirkt ausschließlich auf den ausgewählten Satelliten; die zentralen Plattformeinstellungen bleiben davon unberührt. Er gliedert sich in **Verbindung zum Schulserver** mit **API-Adresse**, **Benutzer**, **Passwort**, **Schule** und **LINBO-Server-IP** sowie **Verbindung testen**, in **Synchronisation** mit **Synchronisation aktiv** und dem **Intervall (Sekunden, 0 deaktiviert)** und in das [**LINBO-Client-Passwort**](#linbo-client-passwort). Ein Lesezeichen auf die frühere Unterseite **Einstellungen** führt zu **Hosts** und öffnet dort den Dialog.
 
 **Synchronisation aktiv** nimmt `true` oder `false` an und schaltet die selbsttätige Synchronisation ein oder aus. **Intervall (Sekunden, 0 deaktiviert)** ist der Abstand zwischen zwei selbsttätigen Läufen; `0` schaltet den Zeitgeber ab. **API-Adresse** ist die Adresse der Linuxmuster-API des Schulservers, **LINBO-Server-IP** die IP-Adresse, die der Satellit den Rechnern als LINBO-Server nennt.
 
-Neben jedem Feld steht, woher der Satellit den Wert bezieht:
+Jedes Feld trägt eine Kennzeichnung, woher der Satellit den Wert bezieht:
 
 | Kennzeichnung | Bedeutung |
 |---------------|-----------|
@@ -491,14 +636,14 @@ Neben jedem Feld steht, woher der Satellit den Wert bezieht:
 
 **Speichern** übernimmt alle geänderten Felder auf einmal; Felder ohne Änderung sendet die Plattform nicht mit. Die Plattform prüft eine Eingabe nach denselben Regeln wie der Satellit und nennt unter dem Feld den Grund, wenn ein Wert nicht passt; solange ein Feld nicht passt, lässt sich nichts speichern. Leerzeichen am Anfang und Ende entfernt die Plattform vor dem Speichern. Ein geleertes Feld wird nicht gespeichert; einen hier überschriebenen Wert entfernt das Zurücksetzen. Lehnt der Satellit einzelne Felder ab, bleibt der Dialog offen und nennt sie; die übrigen Änderungen sind dann bereits gespeichert, die abgelehnten stehen weiter im Formular. Schließen Sie den Dialog mit ungespeicherten Änderungen, fragt die Plattform, ob Sie sie verwerfen möchten.
 
-Zurücksetzen verwirft eine hier gesetzte Überschreibung, sodass wieder der Wert aus der Umgebung beziehungsweise der Vorgabewert gilt. **Auf Standard zurücksetzen** unten im Dialog setzt alle Felder mit der Kennzeichnung **Überschrieben** zurück; ein einzelnes Feld setzt das Pfeil-Symbol neben seiner Kennzeichnung zurück, das nur bei überschriebenen Feldern erscheint. Ein Wert aus der Umgebung lässt sich hier nicht zurücksetzen. Vor dem Zurücksetzen fragt die Plattform nach und nennt die betroffenen Einstellungen. Bei **API-Adresse**, **Benutzer**, **Passwort**, **Schule** und **LINBO-Server-IP** warnt sie dabei, dass die Synchronisation mit dem Schulserver von der Einstellung abhängt und fehlschlägt, wenn der danach geltende Wert nicht passt.
+Zurücksetzen verwirft eine hier gesetzte Überschreibung, sodass wieder der Wert aus der Umgebung beziehungsweise der Vorgabewert gilt. **Auf Standard zurücksetzen** in der Fußleiste des Dialogs setzt alle Felder mit der Kennzeichnung **Überschrieben** zurück; ein einzelnes Feld setzt das Pfeil-Symbol neben seiner Kennzeichnung zurück, das nur bei überschriebenen Feldern erscheint. Ein Wert aus der Umgebung lässt sich hier nicht zurücksetzen. Vor dem Zurücksetzen fragt die Plattform nach und nennt die betroffenen Einstellungen. Bei **API-Adresse**, **Benutzer**, **Passwort**, **Schule** und **LINBO-Server-IP** warnt sie dabei, dass die Synchronisation mit dem Schulserver von der Einstellung abhängt und fehlschlägt, wenn der danach geltende Wert nicht passt.
 
 :::note[Zeitplan und Intervall starten womöglich sofort einen Lauf]
 Änderungen an **Synchronisation aktiv** und **Intervall** – auch das Zurücksetzen auf den Standard – richten den Zeitplan des Satelliten neu ein. Ist ein Lauf dabei bereits überfällig, startet der Satellit ihn sofort nach dem Speichern. Die Rückfragen vor dem Speichern und vor dem Zurücksetzen weisen darauf hin – setzen Sie alle Felder auf einmal zurück und ist darunter eine Einstellung der Verbindung zum Schulserver, warnt die Rückfrage stattdessen vor den Folgen für die Synchronisation.
 :::
 
 :::note[Das Passwort wird nie zurückgegeben]
-Der Satellit gibt das gespeicherte Passwort nicht heraus; über dem Feld steht nur die maskierte Form, die er meldet – vier Sterne und die letzten vier Zeichen – oder **Nicht gesetzt**, wenn kein Passwort hinterlegt ist. Das Eingabefeld beginnt bei jedem Aufruf leer – das ist keine Aufforderung, das Passwort zu löschen: Ein leer gelassenes Feld wird nicht gesendet. Nur wenn Sie etwas eintragen und speichern, wird das Passwort ersetzt.
+Der Satellit gibt das gespeicherte Passwort der Schulserver-Verbindung nicht heraus; das Feld zeigt als Hinweis nur die maskierte Form, die er meldet – vier Sterne und die letzten vier Zeichen – oder **Nicht gesetzt**, wenn kein Passwort hinterlegt ist. Das Eingabefeld beginnt bei jedem Aufruf leer (Platzhalter *Unverändert lassen*) – das ist keine Aufforderung, das Passwort zu löschen: Ein leer gelassenes Feld wird nicht gesendet. Nur wenn Sie etwas eintragen und speichern, wird das Passwort ersetzt.
 :::
 
 Über **Verbindung testen** prüft der Satellit, ob er den Schulserver erreicht. Dabei verwendet er die in **API-Adresse**, **Benutzer** und **Passwort** eingetragenen, noch nicht gespeicherten Werte und für leer gelassene Felder die gespeicherten – so lässt sich etwa ein neues Passwort prüfen, bevor es gespeichert wird. Der Test speichert selbst nichts. Das Ergebnis lautet:
@@ -510,6 +655,25 @@ Der Satellit gibt das gespeicherte Passwort nicht heraus; über dem Feld steht n
 :::note[Satellitenwechsel verwirft Eingaben]
 Wechseln Sie den Satelliten, während ein Feld noch ungespeichert ist, werden die Eingaben verworfen. So gelangt kein Wert – und vor allem kein Passwort – versehentlich auf das falsche Gerät.
 :::
+
+##### LINBO-Client-Passwort
+
+Mit diesem Passwort melden sich die LINBO-Clients per rsync am Satelliten an. Die Plattform zeigt es nie an; Sie können nur ein neues setzen. Tragen Sie es im Abschnitt **LINBO-Client-Passwort** unter **Neues Passwort** und **Neues Passwort wiederholen** ein und setzen Sie es mit **Passwort ändern**. Das geschieht sofort und unabhängig von **Speichern**.
+
+| Regel | Meldung |
+|-------|---------|
+| mindestens 4 Zeichen | *„Das Passwort braucht mindestens 4 Zeichen.“* |
+| kein Doppelpunkt, kein Zeilenumbruch | *„Das Passwort darf keinen Doppelpunkt und keinen Zeilenumbruch enthalten.“* |
+| kein Leerzeichen am Anfang oder Ende | *„Das Passwort darf nicht mit einem Leerzeichen beginnen oder enden.“* |
+| beide Eingaben gleich | *„Die beiden Passwörter stimmen nicht überein.“* |
+
+Solange eine Regel verletzt ist, bleibt **Passwort ändern** gesperrt, ebenso während **Speichern** läuft. Eine Höchstlänge prüft die Plattform nicht.
+
+:::warning[Laufende Clients melden sich erst nach einem Neustart an]
+Vor dem Setzen fragt die Plattform nach: *„Der Satellit baut linbofs64 mit dem neuen Passwort neu auf. Das kann einen Moment dauern.“* Clients, die noch mit dem alten Passwort gestartet wurden, melden sich erst nach einem Neustart wieder an. Starten Sie Rechner, die bei der Änderung bereits laufen, deshalb neu.
+:::
+
+Nach dem Setzen leert die Plattform beide Felder, auch bei einem Fehler. Sie meldet *„Das LINBO-Client-Passwort wurde geändert.“* beziehungsweise *„Das LINBO-Client-Passwort konnte nicht geändert werden.“*; im zweiten Fall gilt das alte Passwort weiter, und Sie geben das neue erneut ein. Ein eingegebenes, aber nicht gesetztes Passwort behandelt die Plattform beim Schließen des Dialogs wie ungespeicherte Änderungen; verwerfen Sie, ist es nicht gesetzt.
 
 ## Siehe auch
 

@@ -208,15 +208,15 @@ Zusätzlich lässt sich über das Filtersymbol in der Suchleiste nach einer oder
 
 | Ansicht | Zeigt |
 |---------|-------|
-| **Kacheln** (Vorgabe) | je Host eine kleine Karte mit Hostname und **Status**, darunter IP und MAC-Adresse, dazu Gruppe und Raum als Etiketten. Das PXE-Kennzeichen erscheint nur bei Rechnern ohne LINBO-Netzwerkstart, also bei denen, die LINBO-Kommandos überspringen |
+| **Kacheln** (Vorgabe) | je Host eine kleine Karte mit Hostname, **Status**, IP und MAC-Adresse sowie Gruppe und Raum als Etiketten. Das PXE-Kennzeichen erscheint nur bei Rechnern ohne LINBO-Netzwerkstart, also bei denen, die LINBO-Kommandos überspringen |
 | **Datenblatt** | je Host eine Karte mit Hostname und **Status** und den Zeilen Rolle, IP, MAC-Adresse, Gruppe, Raum, PXE und Kommentar; Zeilen ohne Wert entfallen |
 | **Tabelle** | die unten beschriebenen Spalten |
 
 Suche, Filter und Auswahl bleiben erhalten, wenn Sie die Ansicht wechseln. In den beiden Kartenansichten wählen Sie einen Host ausschließlich über das Auswahlkästchen seiner Karte aus; **Alle auswählen** wählt alle Hosts, die Suche und Filter zeigen.
 
-Ein Klick auf eine Karte – in der Tabelle auf eine Zeile – öffnet die **Details** des Hosts. Der Dialog zeigt seinen **Status** und alle Angaben, die die Geräteliste zu diesem Rechner führt: neben denen des Datenblatts auch Schule, PXE aktiv, DHCP-Optionen, Office-Schlüssel und Windows-Schlüssel. Hat die Plattform nach einer Aktion für genau diesen Host erhoben, wann seine Images zuletzt synchronisiert wurden (siehe unten), listet der Dialog das zusätzlich unter **Images**. Die Details lassen sich nur ansehen; geändert werden die Angaben in der [Geräteverwaltung](#geräteverwaltung).
+Ein Klick auf eine Karte – in der Tabelle auf eine Zeile – öffnet die **Details** des Hosts. Der Dialog zeigt seinen **Status** und alle Angaben, die die Geräteliste zu diesem Rechner führt: neben denen des Datenblatts auch Schule, PXE aktiv, DHCP-Optionen, Office-Schlüssel und Windows-Schlüssel. Hat die Plattform nach einer Aktion für genau diesen Host erhoben, wann seine Images zuletzt synchronisiert wurden (siehe **Status**), listet der Dialog das zusätzlich unter **Images**. Die Details lassen sich nur ansehen; geändert werden die Angaben in der [Geräteverwaltung](#geräteverwaltung).
 
-In der Ansicht **Tabelle** zeigt die Liste Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**. **Geplant** zeigt „–“; beim Überfahren erscheint *„Geplante Aktionen werden vom Edulution-Satellite verwaltet und sind in dieser Version noch nicht angebunden.“* Die Spalte **Rolle** zeigt dieselbe Bezeichnung wie der Import; eine Rolle, die Ihre Installation selbst definiert hat, erscheint unter ihrem technischen Namen, ein Gerät ohne Rolle mit „—“. Bricht das Laden mittendrin ab, zeigt sie die bis dahin geladenen Hosts, und darüber bleibt bis zum nächsten Laden der Hinweis *„Die Hosts konnten nicht vollständig geladen werden.“* stehen.
+In der Ansicht **Tabelle** zeigt die Liste Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle sowie die Spalten **Status** und **Geplant**. **Geplant** zeigt „–“; beim Überfahren erscheint *„Geplante Aktionen werden vom Edulution-Satellite verwaltet und sind in dieser Version noch nicht angebunden.“* Die Spalte **Rolle** zeigt dieselbe Bezeichnung wie der Import; eine Rolle, die Ihre Installation selbst definiert hat, erscheint unter ihrem technischen Namen, ein Gerät ohne Rolle mit „—“. Bricht das Laden mittendrin ab, zeigt sie die bis dahin geladenen Hosts, und bis zum nächsten Laden bleibt der Hinweis *„Die Hosts konnten nicht vollständig geladen werden.“* stehen.
 
 Sechs weitere Spalten sind ausgeblendet und lassen sich über die Spaltenauswahl einschalten: **PXE** mit der Bezeichnung des PXE-Kennzeichens, **PXE aktiv**, **Kommentar**, **DHCP-Optionen**, **Office-Schlüssel** und **Windows-Schlüssel**. Sie geben wieder, was die Geräteliste zu einem Rechner führt; geändert werden diese Angaben in der [Geräteverwaltung](#geräteverwaltung), nicht hier. Die Suche findet einen Rechner auch über seinen **Kommentar** – die beiden Schlüssel bleiben aus der Suche heraus.
 
@@ -226,7 +226,7 @@ Anders als die Gruppen sind Hosts schulgebunden. Ein Schuladmin sieht die Rechne
 **Aufwecken** steht **Globaladmins** und **Schuladmins** zur Verfügung. Für einen Schuladmin weckt die Linuxmuster-API nur die Rechner seiner eigenen Schule und übergeht alle übrigen. Besteht die Auswahl ausschließlich aus Rechnern anderer Schulen, wird sie mit *„Keiner der gewählten Rechner gehört zu deiner Schule“* abgewiesen.
 :::
 
-**Status** nennt je Host **Online** oder **Offline** – in den Kartenansichten und im Detaildialog neben dem Hostnamen; die Spaltenüberschrift sagt beim Überfahren, wann der Zustand zuletzt erhoben wurde. Solange für einen Host noch keine Erhebung vorliegt, bleibt das Feld leer.
+**Status** nennt je Host **Online** oder **Offline** – in den Kartenansichten und im Detaildialog neben dem Hostnamen; die Spaltenüberschrift sagt beim Überfahren, wann der Zustand zuletzt erhoben wurde. Solange für einen Host noch keine Erhebung vorliegt, zeigt das Feld „–“; beim Überfahren erscheint *„Noch nicht abgefragt“*.
 
 Eine Aktion zum Neuladen gibt es nicht: Alle 30 Sekunden und beim Zurückwechseln in den Browser-Tab holt die Seite die Hostliste erneut vom Server und erhebt danach den Status; ist der Tab nicht sichtbar, pausiert die Abfrage. So erscheinen auch Hosts, die in der Geräteverwaltung hinzugekommen sind. Ein geöffneter Detaildialog übernimmt den neuen Stand und schließt sich, wenn der Host nicht mehr in der Liste steht.
 
@@ -236,7 +236,7 @@ Nach einer Aktion – etwa **Aufwecken**, **Neu starten** oder **Herunterfahren*
 
 Aktionen für einzelne Hosts laufen immer über die Auswahl – auch einen einzigen Rechner wählen Sie dafür aus.
 
-Die Aktionsleiste im Seitenkopf bietet unabhängig von der Auswahl **Sitzungen** und **Raum-Aktion** an, sofern die Linuxmuster-API Sitzungen beziehungsweise Kommandoketten unterstützt – **Raum-Aktion** nur, wenn die Geräteliste Räume führt. Sobald mindestens ein Host ausgewählt ist, nennt sie die Anzahl und ergänzt **Aufwecken**, **Neu starten**, **Herunterfahren** und **Aktion schicken**. Ein Host, der nicht erreichbar ist, wird übersprungen und in der Rückmeldung benannt. **Neu starten**, **Herunterfahren** und **Aktion schicken** überspringen außerdem Rechner, deren Name kein gültiges Ziel eines `linbo-remote`-Laufs ist, etwa einen älteren Namen mit Unterstrich. Der [Kommando-Dialog](#der-kommando-dialog) nennt sie schon vor dem Abschicken (*„Der Rechner … wird übersprungen, weil sein Name kein gültiges Ziel eines linbo-remote-Laufs ist.“*) und sperrt das Abschicken mit *„Keiner der ausgewählten Rechner hat einen Namen, der Ziel eines linbo-remote-Laufs sein kann.“*, wenn keiner ein gültiges Ziel ist. Bei **Neu starten** und **Herunterfahren** nennt eine Warnung sie beim Auslösen (*„Der Rechner … wurde übersprungen, weil sein Name kein gültiges Ziel eines linbo-remote-Laufs ist.“*); ist keiner der ausgewählten Rechner ein gültiges Ziel, läuft nichts. Übersprungene Rechner werden in jedem Fall abgewählt, die erreichten nach dem Lauf. **Aufwecken** erreicht auch diese Rechner, weil es sie über ihre MAC-Adresse anspricht.
+Die Aktionsleiste der Seite bietet unabhängig von der Auswahl **Sitzungen** und **Raum-Aktion** an, sofern die Linuxmuster-API Sitzungen beziehungsweise Kommandoketten unterstützt – **Raum-Aktion** nur, wenn die Geräteliste Räume führt. Sobald mindestens ein Host ausgewählt ist, nennt sie die Anzahl und ergänzt **Aufwecken**, **Neu starten**, **Herunterfahren** und **Aktion schicken**. Ein Host, der nicht erreichbar ist, wird übersprungen und in der Rückmeldung benannt. **Neu starten**, **Herunterfahren** und **Aktion schicken** überspringen außerdem Rechner, deren Name kein gültiges Ziel eines `linbo-remote`-Laufs ist, etwa einen älteren Namen mit Unterstrich. Der [Kommando-Dialog](#der-kommando-dialog) nennt sie schon vor dem Abschicken (*„Der Rechner … wird übersprungen, weil sein Name kein gültiges Ziel eines linbo-remote-Laufs ist.“*) und sperrt das Abschicken mit *„Keiner der ausgewählten Rechner hat einen Namen, der Ziel eines linbo-remote-Laufs sein kann.“*, wenn keiner ein gültiges Ziel ist. Bei **Neu starten** und **Herunterfahren** nennt eine Warnung sie beim Auslösen (*„Der Rechner … wurde übersprungen, weil sein Name kein gültiges Ziel eines linbo-remote-Laufs ist.“*); ist keiner der ausgewählten Rechner ein gültiges Ziel, läuft nichts. Übersprungene Rechner werden in jedem Fall abgewählt, die erreichten nach dem Lauf. **Aufwecken** erreicht auch diese Rechner, weil es sie über ihre MAC-Adresse anspricht.
 
 :::warning[LINBO-Kommandos erreichen nur Rechner mit LINBO-Netzwerkstart]
 `linbo-remote` spricht nur Rechner an, deren PXE-Flag in der [Geräteliste](#geräteverwaltung) **Linbo-PXE** oder **Linbo-PXE + OPSI-Management** lautet. Rechner mit **Kein PXE** oder **OPSI-PXE** überspringt deshalb jedes LINBO-Kommando – **Neu starten**, **Herunterfahren**, **Aktion schicken** sowie die Aktionen für eine Gruppe oder einen Raum. Der Kommando-Dialog nennt diese Rechner vor dem Abschicken (*„… weil für ihn in der Geräteliste kein LINBO-Netzwerkstart eingetragen ist.“*), bei **Neu starten** und **Herunterfahren** nennt sie eine Warnung beim Auslösen (*„Ohne LINBO-Netzwerkstart übersprungen: …“*). Bleibt in der Auswahl, der Gruppe oder dem Raum kein solcher Rechner übrig, lässt sich das Ziel nicht wählen beziehungsweise das Abschicken ist gesperrt.
@@ -252,7 +252,7 @@ Nach einer Sammelaktion werden die Hosts abgewählt, für die der Server den Auf
 
 #### Eine Aktion an einen Raum schicken
 
-**Raum-Aktion** richtet eine Kommandokette an einen Raum, auch ohne dass ein Rechner ausgewählt ist. Sie wählen den Raum aus einer Liste; die Räume stammen aus der Geräteliste (`devices.csv`), nicht aus den Sitzplänen. Ein Raum, dessen Name kein gültiges Ziel eines `linbo-remote`-Laufs ist, steht in der Liste, lässt sich aber nicht wählen; der Grund steht am Eintrag. Der Dialog nennt, wie viele Rechner mit LINBO-Netzwerkstart die Geräteliste in diesem Raum führt und wie viele übrigen Rechner des Raums übersprungen werden; ein Raum ohne einen solchen Rechner lässt sich nicht wählen. Der Server löst den Raum beim Ausführen selbst auf. Aktionen mit Betriebssystem stehen nur für Räume bereit, deren Rechner alle derselben Hardwaregruppe angehören – bei einem gemischten Raum nennt der Dialog die beteiligten Gruppen. Auch die Bestätigung für einen zerstörenden Schritt nennt dann den Raum statt einer Anzahl von Rechnern. Sind Hosts ausgewählt, steht im Feld **Ziel** zunächst *Raum wählen*; die aktuelle Auswahl bleibt dort als Ziel wählbar.
+**Raum-Aktion** richtet eine Kommandokette an einen Raum, auch ohne dass ein Rechner ausgewählt ist. Sie wählen den Raum aus einer Liste; die Räume stammen aus der Geräteliste (`devices.csv`), nicht aus den Sitzplänen. Ein Raum, dessen Name kein gültiges Ziel eines `linbo-remote`-Laufs ist, steht in der Liste, lässt sich aber nicht wählen; der Grund steht am Eintrag. Der Dialog nennt, wie viele Rechner mit LINBO-Netzwerkstart die Geräteliste in diesem Raum führt und wie viele übrigen Rechner des Raums übersprungen werden; ein Raum ohne einen solchen Rechner lässt sich nicht wählen. Der Server löst den Raum beim Ausführen selbst auf. Aktionen mit Betriebssystem stehen nur für Räume bereit, deren Rechner alle derselben Hardwaregruppe angehören – bei einem gemischten Raum nennt der Dialog die beteiligten Gruppen. Führt der Raum auch Rechner mit LINBO-Netzwerkstart, aber ohne Hardwaregruppe, sind diese Aktionen ebenfalls gesperrt, denn für sie würde die Standard-`start.conf` gelten; weisen Sie die Rechner zuerst einer Hardwaregruppe zu. Auch die Bestätigung für einen zerstörenden Schritt nennt dann den Raum statt einer Anzahl von Rechnern. Sind Hosts ausgewählt, steht im Feld **Ziel** zunächst *Raum wählen*; die aktuelle Auswahl bleibt dort als Ziel wählbar.
 
 #### Der Kommando-Dialog
 
@@ -286,7 +286,7 @@ Im zweiten Schritt wählen Sie unter **Zeitpunkt**, ob die Kette **Jetzt** läuf
 
 Lässt sich nicht weitergehen oder nicht ausführen, nennt der Dialog den Grund neben der gesperrten Schaltfläche – etwa ein Schritt, dem noch die Auswahl fehlt, eine fehlende Wartezeit für das Wecken oder ein Lauf, der bereits läuft.
 
-Nicht jede Aktion steht für jede Auswahl bereit. Fehlt eine, erklärt der Dialog oberhalb der Schaltflächen, warum:
+Nicht jede Aktion steht für jede Auswahl bereit. Fehlt eine, erklärt der Dialog, warum:
 
 | Hinweis | Ursache |
 |---------|---------|
@@ -303,9 +303,11 @@ Nach dem Abschicken meldet die Plattform, ob die Kette alle Rechner erreicht hat
 
 Ein Lauf wird auf dem Schulserver je Host in einer eigenen Sitzung ausgeführt und läuft dort weiter, auch wenn Sie den Dialog schließen oder die Seite verlassen. **Sitzungen** in der Aktionsleiste der Hostliste zeigt, was gerade läuft; steht etwas an, nennt die Schaltfläche die Anzahl.
 
-Der Dialog listet je Sitzung den Hostnamen und seit wann sie läuft. **Protokoll** zeigt die Ausgabe des Laufs für diesen Host; über **Zurück zur Liste** kehren Sie zur Übersicht zurück. Der Schulserver schreibt die Ausgabe mit, solange der Lauf dauert, und behält sie danach – das Protokoll eines gerade beendeten Laufs bleibt also lesbar, auch wenn die Sitzung nicht mehr in der Liste steht.
+Der Dialog listet je Sitzung den Hostnamen und seit wann sie läuft. Eine Sitzung, die Sie laufen gesehen haben und die inzwischen beendet ist, bleibt mit der Marke **Beendet** in der Liste, bis Sie die Seite neu laden; höchstens 50 solcher Einträge merkt sich die Seite. **Protokoll** zeigt die Ausgabe des Laufs für diesen Host; über **Zurück zur Liste** kehren Sie zur Übersicht zurück. Der Schulserver schreibt die Ausgabe mit, solange der Lauf dauert, und behält sie danach – das Protokoll eines beendeten Laufs bleibt also lesbar.
 
-Solange die Hostliste im Vordergrund liegt, wird die Liste etwa alle fünf Sekunden neu gelesen und ein geöffnetes Protokoll im Sekundentakt nachgeführt; nach dem Ende der Sitzung wird es ein letztes Mal gelesen. Ein Browser-Tab im Hintergrund fragt nichts ab und holt beim Zurückwechseln nach.
+Befehle, die Sie mit **Beim nächsten Start** abschicken, erscheinen hier nicht: Der Schulserver listet sie nicht auf, und sie lassen sich aus der Plattform nicht zurücknehmen. Der Dialog weist darauf hin.
+
+Solange die Hostliste im Vordergrund liegt, wird die Liste etwa alle fünf Sekunden neu gelesen und ein geöffnetes Protokoll, solange der Lauf läuft, alle zwei Sekunden nachgeführt; nach dem Ende der Sitzung wird es ein letztes Mal gelesen. Ein Browser-Tab im Hintergrund fragt nichts ab und holt beim Zurückwechseln nach.
 
 :::note[Die Liste folgt nicht der gewählten Schule]
 Welche Sitzungen Sie sehen, entscheidet der Schulserver anhand Ihres Kontos: ein Schuladmin sieht die Hosts der eigenen Schule, ein Globaladmin jede laufende Sitzung. Der **Schulauswahl** folgt sie deshalb nicht – ein Wechsel blendet keine Sitzung aus, die weiterläuft.
@@ -457,7 +459,7 @@ Geprüft werden nur Felder, die Sie ändern: Ein Wert, der unverändert aus eine
 
 Die Vorschau **Gruppe \<ID\>** hat drei Registerkarten:
 
-- **Zusammenfassung** – die ausgewertete `start.conf`: der Abschnitt `[LINBO]` als Liste der gesetzten Schlüssel, darunter dasselbe Plattenlayout wie im Gruppen-Editor – je Platte ihre Partitionen, darunter die Betriebssysteme. Hier lässt sich nichts verschieben oder bearbeiten.
+- **Zusammenfassung** – die ausgewertete `start.conf`: der Abschnitt `[LINBO]` als Liste der gesetzten Schlüssel, dazu dasselbe Plattenlayout wie im Gruppen-Editor – je Platte ihre Partitionen, dann die Betriebssysteme. Hier lässt sich nichts verschieben oder bearbeiten.
 - **Rohdaten** – der unveränderte Inhalt der `start.conf`.
 - **GRUB cfg** – der Inhalt der GRUB-Konfiguration.
 
@@ -499,11 +501,11 @@ Ein Feld der Registerkarte **Allgemein**, das Sie leeren, verschwindet beim Spei
 
 **Partitionen** zeigt je Platte eine Karte. Über die Preset-Schaltflächen fügen Sie eine Partition mit sinnvoller Vorgabegröße hinzu: *EFI*, *MSR*, *Windows*, *Linux*, *Swap*, *Daten*, *Erweitert* und *Cache*. Die Reihenfolge ändern Sie durch Ziehen: Eine Partition lässt sich innerhalb ihrer Platte verschieben, und ein Preset lässt sich direkt an die Stelle ziehen, an der die neue Partition entstehen soll. Klicken Sie ein Preset nur an, bestimmt es die Position selbst: *EFI* an den Anfang, *MSR* dahinter, alle übrigen ans Ende. Gerätenamen und alle Verweise darauf werden danach neu durchnummeriert. Der **Plattentyp** – Automatisch, SATA, VirtIO, Xen, IDE, MMC, NVMe – bestimmt die Gerätenamen; **Automatisch** (`/dev/disk0pX`) ist die Vorgabe der fünf Vorlagen und einer im Editor neu hinzugefügten Platte in einer Gruppe ohne Platten; jede weitere Platte übernimmt den Typ der vorhandenen Platten (z. B. `/dev/sdb` neben `/dev/sda`) und die nächste freie Gerätenummer; bereits vorhandene Platten und die Beispielkonfigurationen des Servers behalten ihren Typ, und **Duplizieren** übernimmt das Layout unverändert; ein Wechsel nummeriert die Partitionen der Platte samt aller Verweise darauf um. Ein Klick auf eine Partition öffnet einen Dialog mit den Unterregisterkarten **Partition** und **Betriebssystem**. Er öffnet in der einfachen Ansicht; **Erweitert** blendet auf **Partition** zusätzlich **Partitionstyp** und **Dateisystem** ein und gilt nur für die geöffnete Partition.
 
-Im Feld **Größe** gilt: eine nackte Zahl sind Kibibytes, ein Suffix `K`, `M`, `G` oder `T` legt die Einheit fest – wahlweise gefolgt von `B` oder `iB`, etwa `40GB` –, und ein leeres Feld bedeutet *Rest der Platte* (in der Plattenkarte als `∞` dargestellt). Unter dem Feld steht laufend, welche Größe daraus wird. Dezimalzahlen, Leerzeichen in der Angabe und andere Einheiten liest LINBO nicht, und eine Partition muss mindestens 2 MiB groß sein; eine solche Größe markiert der Dialog als ungültig. Enthält die Gruppe noch eine ungültige Größe, lässt sich der Editor nicht speichern und nennt die betroffenen Partitionen.
+Im Feld **Größe** gilt: eine nackte Zahl sind Kibibytes, ein Suffix `K`, `M`, `G` oder `T` legt die Einheit fest – wahlweise gefolgt von `B` oder `iB`, etwa `40GB` –, und ein leeres Feld bedeutet *Rest der Platte* (in der Plattenkarte als `∞` dargestellt). Der Dialog nennt laufend, welche Größe daraus wird. Dezimalzahlen, Leerzeichen in der Angabe und andere Einheiten liest LINBO nicht, und eine Partition muss mindestens 2 MiB groß sein; eine solche Größe markiert der Dialog als ungültig. Enthält die Gruppe noch eine ungültige Größe, lässt sich der Editor nicht speichern und nennt die betroffenen Partitionen.
 
 Über **Neue Festplatte** fügen Sie eine weitere Platte hinzu. Solange sie keine Partition trägt, bleibt sie beim Wechsel der Registerkarten erhalten, wird aber nicht in die `start.conf` geschrieben – legen Sie vor dem Speichern mindestens eine Partition darauf an.
 
-Unter den Platten listet der Abschnitt **Betriebssysteme** die Einträge der Gruppe mit Partition, Basisimage, Kernel, Initrd und den Schaltern für Autostart, Sync und Start. **Bearbeiten** öffnet die Partition, an der ein Eintrag hängt. Zeigt das Root-Gerät eines Eintrags auf keine Partition des Layouts, wird der Eintrag als verwaist gekennzeichnet (**Ohne Partition**) und lässt sich hier löschen. Dieselbe Kennzeichnung trägt das Betriebssystem auf der Karte der Gruppe in der **Plattenkarte**.
+Der Abschnitt **Betriebssysteme** listet die Einträge der Gruppe mit Partition, Basisimage, Kernel, Initrd und den Schaltern für Autostart, Sync und Start. **Bearbeiten** öffnet die Partition, an der ein Eintrag hängt. Zeigt das Root-Gerät eines Eintrags auf keine Partition des Layouts, wird der Eintrag als verwaist gekennzeichnet (**Ohne Partition**) und lässt sich hier löschen. Dieselbe Kennzeichnung trägt das Betriebssystem auf der Karte der Gruppe in der **Plattenkarte**.
 
 Bearbeitet wird ein Betriebssystem auf der Unterregisterkarte **Betriebssystem** des Partitionsdialogs. Dort stehen **Name**, **Version**, **Standardaktion**, **Symbol**, **Beschreibung**, **Basisimage**, die **Startknöpfe im LINBO-Menü** – *Start*, *Sync & Start*, *Neu & Start* und *Autostart* – sowie das **Autostart-Timeout (Sekunden)**. Hinter **Erweitert** liegen **Kernel**, **Zusätzliche Kernel-Parameter**, **Opsi-Setup erzwingen**, **Opsi-Status wiederherstellen** und **Im Startmenü ausblenden**.
 
@@ -531,6 +533,10 @@ Nach dem **Speichern** wendet die Plattform die Gruppe sofort an: Sie startet de
 Der Geräteimport ist derselbe, den **Anwenden** in der Geräteverwaltung auslöst. Er übernimmt die auf dem Server gespeicherte Geräteliste der Schule vollständig – auch Änderungen, die dort gespeichert, aber noch nicht angewendet wurden. Beim Löschen einer Gruppe läuft kein Geräteimport.
 :::
 
+:::warning[Die Gruppe wurde inzwischen geändert]
+Hat jemand anderes die `start.conf` der Gruppe auf dem Server geändert, seit Sie den Editor geöffnet haben – etwa ein anderer Admin oder ein zweiter Tab –, speichert die Plattform nicht: Es wird nichts geschrieben und nichts angewendet. Die Meldung lautet *„Die start.conf dieser Gruppe wurde inzwischen geändert. Deine Änderungen wurden nicht gespeichert.“* **Neu laden** in der Meldung holt den aktuellen Stand und verwirft Ihre ungespeicherten Änderungen im Editor. Notieren Sie diese deshalb vorher.
+:::
+
 :::note[Was beim Speichern geprüft wird]
 Bevor die Plattform eine `start.conf` auf den Server schreibt, prüft sie deren Abschnitt `[LINBO]` und weist die Datei mit einer Meldung ab, wenn
 
@@ -547,9 +553,9 @@ Gewertet wird dabei ausschließlich der Abschnitt `[LINBO]`: ein `Cache`-Eintrag
 
 | Ansicht | Zeigt |
 |---------|-------|
-| **Speicher** | wie voll die Partition mit dem Image ist, dazu Partitionsgerät und Dateizahl |
+| **Speicher** | wie voll die Partition mit dem Image ist, dazu Partitionsgerät, Dateizahl und **Verwendet in** |
 | **Kacheln** | Betriebssystem-Symbol, Größe, vorhandene Sidecars und die erste Zeile der Beschreibung |
-| **Datenblatt** (Vorgabe) | Dateiname, Größe, Partition, Partitionsgröße, ob eine Prüfsumme vorliegt, Dateizahl und Änderungszeitpunkt |
+| **Datenblatt** (Vorgabe) | Dateiname, Größe, Partition, Partitionsgröße, ob eine Prüfsumme vorliegt, Dateizahl, Änderungszeitpunkt und **Verwendet in** |
 | **Tabelle** | Name, Größe, **Verwendet in**, Sidecars und Aktualisierungszeitpunkt |
 
 Die Werkzeugleiste ist dieselbe wie bei den Gruppen, ohne Schulauswahl. Die Suche findet ein Image über seinen Namen, seine Beschreibung und die Fehlermeldung, die die Plattform zu einem fehlerhaften Image anzeigt. In den Kartenansichten wählen Sie ein Image über das Auswahlkästchen seiner Karte aus; ein Klick auf die Karte oder auf eine Zeile der **Tabelle** öffnet die Details des Images.
@@ -572,7 +578,14 @@ Sidecars sind die Beipack-Dateien eines Images: Beschreibung (`.desc`), Info (`.
 Der **Erstellungszeitpunkt** stammt aus dem `.info`-Sidecar und ist die Uhrzeit, die der Schulserver beim Erstellen des Images auf seiner eigenen Uhr gelesen hat – ohne Zeitzone. Die Plattform zeigt ihn unverändert an. Der **Änderungszeitpunkt** der Datei dagegen ist ein absoluter Zeitpunkt und wird in die Zeitzone Ihres Browsers umgerechnet. Stehen Schulserver und Arbeitsplatz in derselben Zeitzone – der Normalfall –, passen beide Angaben zusammen; andernfalls unterscheiden sie sich um den Abstand der beiden Zonen.
 :::
 
-Ein Image fügen Sie in allen vier Ansichten über **Image hochladen** in der Aktionsleiste hinzu; die Schaltfläche steht dort, solange kein Image ausgewählt ist. Zulässig sind Image-Dateien (`.qcow2`, `.qdiff`, `.cloop`, `.rsync`) und alle oben genannten Beipack-Dateien; andere Dateitypen weist der Dialog ab und nennt dabei die abgelehnte Datei. Für den Namen eines neuen Images gelten dieselben Regeln wie beim [Duplizieren](#aktionen-eines-images); ein Name, der sich von einem vorhandenen Image nur in Groß- und Kleinschreibung unterscheidet, wird abgewiesen.
+Ein Image fügen Sie in allen vier Ansichten über **Image hochladen** in der Aktionsleiste hinzu; die Schaltfläche steht dort, solange kein Image ausgewählt ist. Zulässig sind die Image-Dateien `.qcow2` und `.qdiff` sowie die Beipack-Dateien `.desc`, `.info`, `.vdi`, `.torrent`, `.macct`, `.md5` und `.hash` (jeweils hinter der Image-Endung, etwa `debian13.qcow2.info`) und `.reg`, `.prestart` und `.postsync` (hinter dem Image-Namen, etwa `debian13.reg`); andere Dateitypen weist der Dialog ab und nennt dabei die abgelehnte Datei. Für den Namen eines neuen Images gelten dieselben Regeln wie beim [Duplizieren](#aktionen-eines-images), und zwar auch für den Dateinamen samt Endung; ein Name, der sich von einem vorhandenen Image nur in Groß- und Kleinschreibung unterscheidet, wird abgewiesen. Bietet der Server den Upload nicht an, fehlt die Schaltfläche; legen Sie das Image dann direkt auf dem Server ab.
+
+Laden Sie eine `.qcow2`-Datei für einen neuen Namen hoch, weist der Dialog darauf hin, dass die `.info`-Datei noch fehlt: Ohne sie ist das Image unvollständig und lässt sich nicht verwalten, bis sie hochgeladen ist.
+
+| Meldung | Ursache und Abhilfe |
+|---------|---------------------|
+| *„Zu diesem Image-Namen gibt es noch kein Image. Lade zuerst die .qcow2-Datei hoch, sonst erscheint die Datei in keiner Liste“* | Sie haben eine Beipack-Datei für ein Image hochgeladen, das es nicht gibt. Laden Sie zuerst die `.qcow2`-Datei hoch. |
+| *„Der Dateiname passt nicht zum Image-Namen. Der Upload wurde abgelehnt, weil das Image sonst in keiner Liste erscheinen würde“* | Dateiname und Image-Name passen nicht zusammen. Korrigieren Sie einen von beiden. |
 
 :::warning[Ein Upload unter vorhandenem Namen ersetzt das Image]
 Laden Sie eine `.qcow2`-Datei unter dem Namen eines vorhandenen Images hoch, ersetzt der Upload dieses Image. Der Dialog nennt das betroffene Image schon neben dem Dateinamen; **Hochladen** fragt dann in einem zweiten Dialog nach, und erst **Ersetzen und hochladen** startet den Upload. **Abbrechen** kehrt zum Upload-Dialog zurück, Datei und Name bleiben erhalten. Die bisherige Version legt der Server in einem Sicherungsordner ab, der unter **Sicherungen** nicht erscheint und sich nur direkt auf dem Server löschen lässt – bei großen Images belegt er entsprechend viel Speicherplatz. Das gilt auch, wenn Sie zu einem vorhandenen Image nur eine Beipack-Datei hochladen: Auch dann kopiert der Server das vollständige Image in diesen Ordner.
@@ -580,7 +593,7 @@ Laden Sie eine `.qcow2`-Datei unter dem Namen eines vorhandenen Images hoch, ers
 
 Im Dialog geben Sie Image-Name und Dateiname an; während der Übertragung sind beide Felder gesperrt und ein Fortschrittsbalken zeigt den Stand in Prozent. **Abbrechen** bricht die laufende Übertragung ab und verwirft zugleich die Daten, die der Server bereits entgegengenommen hat – es bleibt also kein angefangenes Image auf dem Server zurück. Fällt **Abbrechen** in den Augenblick, in dem der Server das vollständig übertragene Image bereits fertigstellt, wartet die Plattform diesen Schritt ab; das Image liegt danach vollständig vor.
 
-Der Browser überträgt die Datei in Teilstücken unmittelbar an den Schulserver. Die Größenbeschränkung, die bisher der Zwischenspeicher des edulution-Servers setzte, entfällt damit; abgewiesen wird eine Datei erst, wenn sie die Obergrenze von LINBO überschreitet – die Meldung nennt diese Grenze. Bricht die Übertragung ab, weil etwa die Verbindung wegfällt, setzt ein erneuter Upload derselben Datei dort an, wo er stehengeblieben ist, und der Dialog weist mit *„Setzt einen abgebrochenen Upload bei N % fort“* darauf hin; bei einem mehrere Gigabyte großen Image erspart das den bereits übertragenen Teil.
+Der Browser überträgt die Datei in Teilstücken von 16 MiB unmittelbar an den Schulserver. Abgewiesen wird eine Datei, die größer als 100 GiB ist; die Meldung nennt die Grenze. Wie Sie sie ändern, steht unter [Einrichtung](#einrichtung-für-administratoren). Bricht die Übertragung ab, weil etwa die Verbindung wegfällt, setzt ein erneuter Upload derselben Datei dort an, wo er stehengeblieben ist, und der Dialog weist mit *„Setzt einen abgebrochenen Upload bei N % fort“* darauf hin; bei einem mehrere Gigabyte großen Image erspart das den bereits übertragenen Teil.
 
 Scheitert ein Teilstück unterwegs – die Verbindung reißt ab oder der Server antwortet mit einem Fehler –, wartet der Browser 2 Sekunden, beim zweiten Mal 5, prüft dann, ob das Teilstück doch angekommen ist, und sendet es andernfalls erneut; erst wenn auch der dritte Versuch scheitert, bricht der Upload ab. Weist der Server ein Teilstück dagegen ab, etwa wegen eines unzulässigen Image- oder Dateinamens, endet der Upload sofort mit der Meldung. Das gilt auch, wenn dieselbe Datei desselben Images gerade schon übertragen wird – etwa aus einem zweiten Tab oder von einer anderen Administration: Der zweite Upload endet mit *„Diese Datei wird bereits hochgeladen“*, der erste läuft weiter.
 
@@ -592,7 +605,7 @@ Laden Sie unter einem bereits angefangenen Namen eine andere Datei hoch – etwa
 
 #### Aktionen eines Images
 
-Die Aktionen bietet die Aktionsleiste an, sobald Images ausgewählt sind; Aktionen für ein einzelnes Image stehen nur bei genau einer Auswahl zur Wahl:
+Die Aktionen bietet die Aktionsleiste an, sobald Images ausgewählt sind; Aktionen für ein einzelnes Image stehen nur bei genau einer Auswahl zur Wahl. **Bearbeiten**, **Sicherungen**, **Duplizieren** und die Löschaktionen setzen **Version 7.4.10** der Linuxmuster-API voraus; mit einer älteren meldet die Plattform *„Diese LINBO-Funktion benötigt mindestens linuxmuster-api 7.4.10. Der verbundene Server ist älter.“*
 
 | Aktion | Wirkung |
 |--------|---------|
@@ -600,8 +613,8 @@ Die Aktionen bietet die Aktionsleiste an, sobald Images ausgewählt sind; Aktion
 | **Bearbeiten** | öffnet den [Sidecar-Editor](#beschreibung-und-skripte-bearbeiten) |
 | **Sicherungen** | listet die Sicherungen des Images zum Wiederherstellen oder Löschen |
 | **Duplizieren** | kopiert das Image samt Beschreibung, Registry-Patch und Skripten, aber ohne Sicherungen |
-| **Beschreibung und Skripte des Differenzimages** | erscheint nur, wenn zum Image ein Differenzimage existiert |
-| **Differenzimage löschen** | löscht die Differenzimages aller ausgewählten Images, die eines haben |
+| **Diff ändern** | erscheint nur, wenn zum Image ein Differenzimage existiert |
+| **Diff löschen** | löscht die Differenzimages aller ausgewählten Images, die eines haben |
 | **Löschen** | löscht die ausgewählten Images mit Sicherungen, Differenzimage und Beipack-Dateien |
 
 Beim Duplizieren und beim Umbenennen erlaubt der Name Buchstaben, Ziffern, Leerzeichen sowie `.`, `_`, `+` und `-` und ist höchstens 200 Zeichen lang; er darf nicht mit einem Punkt beginnen und keine zwei Punkte hintereinander enthalten. Einen Namen, den ein Image bereits trägt, weist der Dialog ab – auch in anderer Groß- und Kleinschreibung und beim Duplizieren auch den Namen der Vorlage.
@@ -647,6 +660,7 @@ Eine Kommandokette mit dem Schritt **Cache befüllen** weist die Linuxmuster-API
 - Die **Plattform** stellen Sie unter [Einstellungen → Globale Einstellungen → Allgemein](../edulution-plattform/konfiguration/einstellungen.md#allgemein) auf **Linuxmuster**.
 - Welche Bereiche dieser App sichtbar sind und wie sie beschriftet werden, hängt zusätzlich vom [Organisationstyp](../edulution-plattform/konfiguration/einstellungen.md#organisationstyp) ab.
 - Die Verbindung zum Schulserver richten Sie nach der Anleitung [Linuxmuster verbinden](./installation.md) ein.
+- Die Obergrenze für den Upload eines Images liegt bei 100 GiB. Um sie zu ändern, setzen Sie die Umgebungsvariable `LINBO_MAX_UPLOAD_BYTES` des edulution-API-Dienstes auf einen Wert in Bytes.
 - Dauern Kopier- und Verschiebeaktionen an sehr großen Images länger als zehn Minuten, setzen Sie die Umgebungsvariable `LMN_API_FILE_OPERATION_TIMEOUT_MS` des edulution-API-Dienstes auf einen höheren Wert in Millisekunden; ohne Angabe gilt `600000`.
 
 :::warning[Anmeldelimit der Linuxmuster-API bei vielen gleichzeitigen Anmeldungen]

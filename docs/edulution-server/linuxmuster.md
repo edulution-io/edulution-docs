@@ -202,7 +202,7 @@ Der Bereich **LINBO** ist in zwei Unterseiten gegliedert: **Gruppen** und **Imag
 | **Netzwerk** | Router, Switch, WLan, VOIP, IP-Only |
 | **Sonstige** | Geräte ohne Rolle und Geräte mit einer Rolle, die keiner dieser Gruppen angehört – etwa einer Rolle, die auf Ihrem Server zusätzlich eingerichtet wurde |
 
-Zusätzlich lässt sich über das Filtersymbol in der Suchleiste nach einer oder mehreren **Gruppen** einschränken.
+Zusätzlich lässt sich über die Filtersymbole in der Suchleiste nach einer oder mehreren **Gruppen** und nach einem oder mehreren **Räumen** einschränken. Der jeweilige Filter erscheint nur, wenn mindestens ein Host eine Gruppe beziehungsweise einen Raum hat. Die Filter wirken zusammen mit der Rolle: Die Liste zeigt nur Hosts, die alle gesetzten Auswahlen erfüllen.
 
 Über die Ansichtswahl wählen Sie zwischen drei Ansichten derselben Liste. Ihre Wahl bleibt erhalten und gilt auch nach einem Neuladen:
 

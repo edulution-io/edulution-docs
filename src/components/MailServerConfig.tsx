@@ -286,10 +286,6 @@ export default function MailServerConfig(): React.JSX.Element {
         smtpServer: baseDomain,
       };
       mailConfigContext.setConfig(configToSave);
-
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('edulution-mail-config', JSON.stringify(configToSave));
-      }
     } else {
       setConfig(null);
       mailConfigContext.setConfig(null);

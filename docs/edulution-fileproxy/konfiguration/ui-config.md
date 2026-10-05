@@ -119,6 +119,12 @@ Die Pfade oben sind Beispielwerte basierend auf einer Standard-Linuxmuster Konfi
 3. Format: `/webdav/<school-name>/<share-name>/`
 :::
 
+:::warning[Anzeigename ändern oder Share löschen]
+Freigabe-Links und die Einträge unter **Geteilte Dateien** finden ihren Share über dessen **Anzeigenamen**. Benennen Sie einen Share um oder löschen Sie ihn, funktionieren alle bestehenden Freigaben aus diesem Share nicht mehr.
+
+Sobald wieder ein Share diesen Anzeigenamen trägt, verweisen die alten Freigaben auf ihn – auch ein neu angelegter Share. Vergeben Sie den Namen eines gelöschten Shares deshalb nur neu, wenn seine alten Freigaben für den neuen Share gelten dürfen.
+:::
+
 ## 3. Ergebnis: Dateien-App
 
 Nach der Einrichtung sehen Ihre Benutzer die konfigurierten Shares in der **Dateien-App**:
@@ -184,6 +190,14 @@ Ihre Benutzer können jetzt auf ihre Dateien zugreifen:
 1. Speicherplatz auf SMB-Server verfügbar?
 2. Benutzer hat Schreibrechte auf dem Share?
 3. Quota nicht überschritten? (siehe [Dashboard](../../edulution-plattform/uebersicht/dashboard.md))
+
+### Freigabe-Links funktionieren nicht mehr
+
+Benutzer sehen die Meldung „Die gewählte WebDAV-Freigabe ist nicht verfügbar", wenn eine Freigabe auf einen Share verweist, den es unter diesem Anzeigenamen nicht mehr gibt.
+
+**Prüfen Sie:**
+1. Wurde der Anzeigename des Shares geändert? Dann stellt der alte Name die Freigaben wieder her.
+2. Wurde der Share gelöscht? Dann müssen die Freigaben neu erstellt werden.
 
 ## Nächste Schritte
 

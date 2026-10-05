@@ -1,10 +1,7 @@
 /**
- * Setzt `data-org` und `data-role` am <html>-Element, bevor die Seite
- * gezeichnet wird.
- *
- * Ohne dieses Skript waeren Inhalte anderer Zielgruppen bei jedem
- * Seitenaufruf kurz sichtbar, bis React hydriert und den LocalStorage liest.
- * Docusaurus loest den Dark-Mode-Flash auf dieselbe Weise.
+ * Sets `data-org` and `data-role` on <html> before first paint, so content for other audiences does
+ * not flash until React hydrates and reads localStorage. Docusaurus avoids the dark-mode flash the
+ * same way.
  */
 const script = `
 (function () {

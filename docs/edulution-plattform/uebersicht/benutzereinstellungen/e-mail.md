@@ -50,6 +50,16 @@ Der formatierte Editor unterstützt nicht alle HTML-Formatierungen. Enthält Ihr
 
 Dieselbe Umschaltung steht Ihnen auch beim [Verfassen einer E-Mail](../../../edulution-mail/index.md#html-quelltext-bearbeiten) zur Verfügung.
 
+## Senden rückgängig machen
+
+Mit dieser Option verzögern Sie den Versand Ihrer E-Mails um ein kurzes Zeitfenster, in dem Sie das Senden noch abbrechen können.
+
+- **Senden verzögern**: Schaltet das verzögerte Senden ein oder aus. Standardmäßig ist es ausgeschaltet.
+- **Zeitfenster**: Bei aktivierter Option wählen Sie hier, um wie lange der Versand zurückgehalten wird – 5, 10, 20 oder 30 Sekunden (Standard: 10 Sekunden).
+- **Speichern** übernimmt die Änderungen, **Zurücksetzen** verwirft noch nicht gespeicherte Anpassungen.
+
+Ist das verzögerte Senden aktiv, erscheint nach dem Klick auf **Senden** für die eingestellte Dauer die Meldung **Nachricht wird gesendet …** mit der Schaltfläche **Rückgängig**. Ein Klick darauf bricht den Versand ab und öffnet die Nachricht erneut zur Bearbeitung; läuft das Zeitfenster ab, wird sie verschickt. Schlägt der Versand danach fehl, bleibt die Nachricht als Entwurf erhalten. Den vollständigen Ablauf mit allen Meldungen beschreibt [E-Mail → E-Mail verfassen](../../../edulution-mail/index.md#e-mail-verfassen).
+
 ## Automatische Antwort
 
 Mit der automatischen Antwort (Abwesenheitsnotiz) beantworten Sie eingehende Nachrichten automatisch, z. B. während einer Abwesenheit. Sie können mehrere **Vorlagen** anlegen, aber es ist immer nur eine gleichzeitig aktiv.
@@ -108,6 +118,8 @@ Leiten Sie eingehende E-Mails automatisch an andere Adressen weiter.
 - **Kopie in diesem Postfach behalten**: Ist diese Option aktiv, verbleibt zusätzlich eine Kopie jeder Nachricht in Ihrem Postfach.
 - Unter **Aktivierungsbedingungen** lässt sich die Weiterleitung optional zeitlich einschränken (siehe [Aktivierungsbedingungen](#aktivierungsbedingungen)).
 - **Speichern** übernimmt die Konfiguration, **Löschen** entfernt sie nach einer Sicherheitsabfrage.
+
+Die Vorschläge im Feld **Weiterleiten an** stammen aus denselben Quellen wie beim [Verfassen einer E-Mail](../../../edulution-mail/index.md#empfängervorschläge-im-adressfeld): zuletzt verwendete Empfänger, Personen aus Ihren [Adressbüchern](../../apps/native-apps/kontakte.md) sowie Verteiler, Alias-Adressen und freigegebene Postfächer aus dem Verzeichnis. Vorschläge aus den Adressbüchern erscheinen ab zwei eingegebenen Zeichen und nur, wenn die Kontakte-App eingerichtet ist. Andernfalls entfallen sie ohne Hinweis, die übrigen Quellen bleiben verfügbar. Unabhängig von den Vorschlägen können Sie eine Adresse auch direkt eintippen.
 
 ### Aktivierungsbedingungen
 

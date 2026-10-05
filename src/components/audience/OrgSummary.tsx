@@ -2,18 +2,8 @@ import React from 'react';
 import { ANY_ORG, audienceClassNames, ORGS } from './taxonomy';
 
 /**
- * Eine Zeile zum gewählten Organisationstyp, unter dessen Schaltflächen.
- *
- * Gegenstück zu [[RoleSummary]] und im selben Stil: Sie nennt den Typ und
- * das, was er tatsächlich umstellt – gerade weil die vollständige Liste der
- * Auswirkungen in der Administration liegt und Endnutzern verborgen bleibt.
- *
- * Solange nichts gewählt ist, tritt die Zeile zu *Egal* an ihre Stelle. Sie
- * sagt nicht nur, dass alles sichtbar bleibt, sondern auch, dass die Rollen
- * der zweiten Frage bis dahin die Namen einer Schule tragen – ohne diese
- * Frage hier ließe sich das nicht ändern.
- *
- * Alle vier Zeilen stehen im HTML, CSS blendet drei davon aus.
+ * All lines are rendered and CSS shows only the selected org type's line, so nothing jumps on
+ * load.
  */
 export default function OrgSummary(): React.JSX.Element {
   return (

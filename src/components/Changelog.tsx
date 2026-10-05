@@ -406,7 +406,7 @@ function ContentWrapper({ className = '', children }: { className?: string; chil
   return (
     <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
       <div className="lg:ml-48 lg:flex lg:w-full lg:justify-start lg:pl-16">
-        <div className={`mx-auto max-w-3xl lg:mx-0 lg:w-full lg:max-w-3xl ${className}`}>{children}</div>
+        <div className={`mx-auto max-w-5xl lg:mx-0 lg:w-full lg:max-w-5xl ${className}`}>{children}</div>
       </div>
     </div>
   );

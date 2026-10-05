@@ -54,30 +54,30 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 **In den Papierkorb verschieben** legt Nachrichten im **Papierkorb** des Postfachs ab, in dem sie liegen – bei einem freigegebenen Postfach also in dessen eigenem Papierkorb, nicht in Ihrem.
 
 :::caution[Postfach ohne Papierkorb]
-Besitzt ein Postfach keinen Papierkorb, löscht **In den Papierkorb verschieben** die Nachrichten endgültig. Die Schaltfläche behält ihre Beschriftung; erst die Sicherheitsabfrage weist darauf hin: „Es gibt keinen Papierkorb-Ordner. Diese E-Mail wird endgültig gelöscht.“
+Besitzt ein Postfach keinen Papierkorb, löscht **In den Papierkorb verschieben** die Nachrichten endgültig. Die Schaltfläche behält ihre Beschriftung; erst die Sicherheitsabfrage weist darauf hin: „Es gibt keinen Papierkorb-Ordner. Diese E-Mail wird endgültig gelöscht.“ Für ein kurzes Zeitfenster lässt sich das Löschen trotzdem rückgängig machen (siehe [Endgültiges Löschen rückgängig machen](#endgültiges-löschen-rückgängig-machen)).
 :::
-
-Nachrichten, die Sie im **Papierkorb** selbst löschen, werden nach einer Sicherheitsabfrage ebenfalls endgültig gelöscht.
-
-### Papierkorb und Spam-Ordner leeren
-
-Öffnen Sie in der Ordnerliste das **Aktionen**-Menü am **Papierkorb** und wählen Sie **Papierkorb leeren** – am **Spam**-Ordner entsprechend **Spam-Ordner leeren**. Nach einer Sicherheitsabfrage, die die Anzahl der enthaltenen Nachrichten nennt, werden alle Nachrichten des Ordners auf einmal endgültig gelöscht, auch solche, die in der Liste noch nicht geladen sind.
-
-- Den Menüeintrag gibt es auch am Papierkorb und am Spam-Ordner eines **freigegebenen Postfachs**; das Leeren betrifft dann dessen eigenen Ordner. Dafür benötigen Sie in diesem Postfach das Recht zum Löschen – fehlt es, erscheint eine Fehlermeldung und die Nachrichten bleiben erhalten.
-- Gelöscht werden nur die Nachrichten, die beim Öffnen der Sicherheitsabfrage bereits im Ordner lagen. Was danach eintrifft oder dorthin verschoben wird – auch aus einem anderen Mailprogramm –, bleibt erhalten.
-- Liegen beim Bestätigen mehr Nachrichten im Ordner, als die Sicherheitsabfrage genannt hat, wird nichts gelöscht und es erscheint die Meldung **Der Ordner wurde zwischenzeitlich verändert – es wurde nichts gelöscht**. Öffnen Sie die Abfrage dann erneut; sie nennt die aktuelle Anzahl.
-- Ein selbst angelegter Ordner, der nur „Trash“ oder „Papierkorb“ heißt, bietet die Funktion nicht an, solange Ihr Postfach einen anderen Ordner als Papierkorb führt.
-- Ist der Ordner bereits leer, weist die Sicherheitsabfrage mit **Der Ordner ist bereits leer** darauf hin, und **Löschen** lässt sich nicht anklicken.
 
 ### Endgültiges Löschen rückgängig machen
 
-Jedes endgültige Löschen – im Papierkorb, beim Leeren von Papierkorb und Spam-Ordner sowie in einem Postfach ohne Papierkorb – lässt sich für ein kurzes Zeitfenster rückgängig machen. Wie lang es ist, legen Sie in Ihren E-Mail-Einstellungen unter **Zeitfenster** fest (siehe [Mein Profil → Senden rückgängig machen](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#senden-rückgängig-machen)); das gilt auch, wenn das verzögerte Senden ausgeschaltet ist. Standardmäßig sind es 10 Sekunden. Die Nachrichten verschwinden sofort aus der Liste, für die eingestellte Dauer erscheint jedoch eine Meldung wie **3 E-Mails werden gelöscht …** mit der Schaltfläche **Rückgängig**. Ein Klick darauf innerhalb des Zeitfensters bricht das Löschen ab, und die Nachrichten erscheinen wieder. Wie beim verzögerten Senden läuft das Löschen serverseitig – es wird also auch ausgeführt, wenn Sie das Fenster oder den Browser zwischenzeitlich schließen.
+Endgültig gelöscht werden Nachrichten, die Sie im Papierkorb nach einer Sicherheitsabfrage löschen, die Inhalte eines geleerten Papierkorbs oder Spam-Ordners und Nachrichten in einem Postfach ohne Papierkorb. In allen drei Fällen lässt sich das Löschen für ein kurzes Zeitfenster rückgängig machen. Wie lang es ist, legen Sie unter [Mein Profil → Senden rückgängig machen](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#senden-rückgängig-machen) mit **Zeitfenster** fest; das gilt auch bei ausgeschaltetem verzögertem Senden.
 
-| Meldung | Bedeutung |
-|---------|-----------|
-| **Zu spät – die E-Mails wurden bereits gelöscht** | Beim Klick auf **Rückgängig** war das Zeitfenster bereits abgelaufen |
-| **Das Löschen konnte nicht abgebrochen werden – die E-Mails werden trotzdem gelöscht** | Der Abbruch hat den Server nicht erreicht, etwa bei einer Netzwerkstörung |
-| **E-Mails konnten nicht gelöscht werden – sie sind wieder sichtbar** | Das Löschen ist fehlgeschlagen, z. B. weil Ihnen in einem freigegebenen Postfach das Recht dazu fehlt; die Nachrichten bleiben erhalten |
+Eine Meldung wie **3 E-Mails werden gelöscht …** zeigt die Schaltfläche **Rückgängig**, mit der Sie das Löschen abbrechen. Gelöscht wird auf dem Mailserver, also auch dann, wenn Sie edulution vorher schließen; eine Fehlermeldung sehen Sie in diesem Fall nicht.
+
+| Meldung | Ursache und Abhilfe |
+|---------|---------------------|
+| **E-Mails konnten nicht gelöscht werden – sie sind wieder sichtbar** | Das Löschen ist auf dem Mailserver gescheitert, meist weil Ihnen in einem freigegebenen Postfach das Recht zum Löschen fehlt, seltener wegen einer gestörten Verbindung. Die Nachrichten bleiben erhalten. |
+
+### Papierkorb und Spam-Ordner leeren
+
+**Papierkorb leeren** und **Spam-Ordner leeren** löschen nach einer Sicherheitsabfrage alle Nachrichten des Ordners endgültig, auch solche, die in der Liste noch nicht geladen sind. Gelöscht werden nur die Nachrichten, die die Abfrage nennt; später eintreffende oder dorthin verschobene bleiben erhalten, auch wenn sie aus einem anderen Mailprogramm kommen.
+
+- In einem **freigegebenen Postfach** leeren Sie dessen eigenen Papierkorb bzw. Spam-Ordner; dafür brauchen Sie dort das Recht zum Löschen.
+- Während ein Leeren läuft, ist der Menüeintrag an diesem Ordner ausgeblendet, längstens bis 30 Sekunden nach Ablauf des Zeitfensters.
+- Welcher Ordner als Papierkorb bzw. Spam-Ordner gilt, bestimmt der Mailserver. Einen selbst angelegten Ordner namens „Trash“, „Junk“ oder „Spam“ auf oberster Ebene behandelt edulution nur dann so, wenn der Mailserver im Postfach keinen solchen Ordner kennzeichnet.
+
+| Meldung | Ursache und Abhilfe |
+|---------|---------------------|
+| **Nur der Papierkorb und der Spam-Ordner können geleert werden** | Der Mailserver führt den Ordner nicht mehr als Papierkorb bzw. Spam-Ordner, etwa nach einer Änderung in einem anderen Mailprogramm. Laden Sie die Seite neu; der Menüeintrag erscheint dann nur noch am richtigen Ordner. |
 
 ### Links in Nachrichten
 

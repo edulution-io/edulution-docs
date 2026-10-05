@@ -7,7 +7,7 @@ sidebar_custom_props:
 
 Die **Geräteverwaltung** ist Teil der Linuxmuster-App und zeigt alle am Schulserver registrierten Geräte in einer bearbeitbaren Tabelle an. Sie pflegen hier die Geräteliste (`devices.csv`) Ihrer Schule und importieren Änderungen direkt in Linuxmuster.
 
-:::info Linuxmuster Integration
+:::info[Linuxmuster-Integration]
 Die Geräteverwaltung arbeitet direkt auf der Sophomorix-Gerätedatei `/etc/linuxmuster/sophomorix/<schule>/devices.csv`. Mehr Informationen zum Import: [Linuxmuster Dokumentation](https://docs.linuxmuster.net/de/latest/systemadministration/index.html)
 :::
 
@@ -19,7 +19,7 @@ Sie erreichen die Geräteverwaltung über die **Linuxmuster-App** → **Gerätev
 
 Die Seite listet alle Geräte der ausgewählten Schule in einer Tabelle. Neu hinzugefügte Zeilen werden **grün**, geänderte Felder **blau** und ungültige oder doppelte Einträge mit einem **roten Rand** markiert, solange die Änderungen noch nicht gespeichert sind.
 
-:::note Berechtigungen
+:::note[Berechtigungen]
 Die Geräteliste kann von allen berechtigten Nutzern der Linuxmuster-App geöffnet und die CSV-Datei angesehen werden. Das **Speichern** und **Anwenden** von Änderungen ist nur für **Schuladministratoren** und **Global-Administratoren** möglich. Global-Administratoren können zusätzlich über ein Auswahlmenü zwischen den Schulen wechseln.
 :::
 
@@ -29,15 +29,15 @@ Jede Zeile entspricht einem Gerät. Folgende Spalten werden angezeigt:
 
 | Spalte | Beschreibung |
 |--------|--------------|
-| **Raum** | Raumbezeichnung des Geräts (nur Buchstaben, Ziffern und `-`, max. 15 Zeichen) |
-| **Rechnername** | Hostname des Geräts (nur Buchstaben, Ziffern und `-`, max. 15 Zeichen, eindeutig) |
+| **Raum** | Raumbezeichnung des Geräts |
+| **Rechnername** | Hostname des Geräts (eindeutig) |
 | **Gruppe** | LINBO-Hardwaregruppe des Geräts |
 | **MAC** | MAC-Adresse im Format `XX:XX:XX:XX:XX:XX` (eindeutig) |
 | **IP** | IP-Adresse als Dotted-Quad, z. B. `10.0.0.10` (eindeutig) |
-| **Sophomorix-Rolle** | Rolle des Geräts (Auswahlliste, siehe unten) |
-| **PXE** | PXE-/LINBO-Startverhalten (Auswahlliste, siehe unten) |
+| **Sophomorix-Rolle** | Rolle des Geräts (Auswahlliste, siehe [Sophomorix-Rollen](#sophomorix-rollen)) |
+| **PXE** | PXE-/LINBO-Startverhalten (Auswahlliste, siehe [PXE-Startverhalten](#pxe-startverhalten)) |
 
-Die Spalten sind sortierbar; standardmäßig ist nach **Raum** aufsteigend sortiert. Weitere Felder der `devices.csv` (z. B. Kommentare oder reservierte Sophomorix-Felder) werden nicht angezeigt, bleiben beim Speichern aber erhalten.
+Zulässige Zeichen und Längen von **Raum**, **Rechnername** und **Gruppe** stehen unter [Namensregeln](../../../edulution-server/linuxmuster.md#namensregeln-für-rechnername-raum-und-hardwaregruppe). Weitere Felder der `devices.csv` (z. B. die Kommentarspalte oder reservierte Sophomorix-Felder) werden nicht angezeigt, bleiben beim Speichern aber erhalten.
 
 ### Sophomorix-Rollen
 
@@ -61,18 +61,13 @@ Die Spalten sind sortierbar; standardmäßig ist nach **Raum** aufsteigend sorti
 | `voip` | VoIP-Gerät |
 | `iponly` | IP-Only |
 
-:::note Business-Umgebungen
+:::note[Business-Umgebungen]
 In Business-Organisationen entfallen die Klassenzimmer-Rollen (`classroom-*`, `faculty-teachercomputer`); die Rolle `staffcomputer` wird dort als **Computer** bezeichnet.
 :::
 
 ### PXE-Startverhalten
 
-Die Spalte **PXE** steuert das Netzwerk-Startverhalten (LINBO):
-
-| Wert | Bedeutung |
-|------|-----------|
-| **0** | Kein PXE |
-| **1** | Linbo-PXE |
+Die Spalte **PXE** steuert das Netzwerk-Startverhalten (LINBO). In der Auswahlliste lassen sich nur **Kein PXE** (0) und **Linbo-PXE** (1) wählen; **Linbo-PXE + OPSI-Management** (2) und **OPSI-PXE** (3) sind dort gesperrt und erscheinen nur bei Geräten, die sie bereits tragen. Welche Werte LINBO-Kommandos erreichen und was der Import nach dem Speichern einer Gruppe berücksichtigt, steht in [Geräteliste pflegen](../../../edulution-server/linuxmuster.md#geräteliste-pflegen).
 
 ## Geräte bearbeiten
 
@@ -80,19 +75,46 @@ Die Spalte **PXE** steuert das Netzwerk-Startverhalten (LINBO):
 
 Alle Felder lassen sich direkt in der Tabelle bearbeiten – Textfelder per Eingabe, Rolle und PXE über Auswahllisten.
 
-Über die untere Aktionsleiste stehen folgende Funktionen bereit:
+In der Werkzeugleiste stehen neben **Speichern**, **Anwenden** und **CSV** diese Aktionen für die ganze Liste bereit:
 
 - **Gerät hinzufügen** (`+`) – fügt eine neue, leere Zeile am Ende der Tabelle hinzu.
-- **Gerät duplizieren** (Kopier-Symbol pro Zeile) – erstellt eine Kopie der Zeile als Vorlage für ein ähnliches Gerät.
-- **Löschen** (Papierkorb-Symbol pro Zeile) – markiert die Zeile zum Löschen; entfernt wird sie erst beim Speichern.
-- **Rückgängig** – lädt die Liste neu vom Server und verwirft alle nicht gespeicherten Änderungen.
+- **Zurücksetzen** – lädt die Liste neu vom Server und verwirft alle nicht gespeicherten Änderungen.
+
+Jede Zeile hat zusätzlich zwei eigene Schaltflächen:
+
+- **Duplizieren** (Kopier-Symbol) – fügt eine Kopie des Geräts am Ende der Tabelle an, als Vorlage für ein ähnliches Gerät. Die Kopie übernimmt auch die Felder, die die Tabelle nicht anzeigt.
+- **Löschen** (Papierkorb-Symbol) – markiert das Gerät zum Entfernen, siehe [Geräte entfernen](#geräte-entfernen).
+
+### Geräte entfernen
+
+Über **Löschen** (Papierkorb-Symbol) in der Zeile eines Geräts markieren Sie das Gerät zum Entfernen. Die Zeile verschwindet sofort aus der Tabelle, das Gerät ist damit aber noch nicht gelöscht:
+
+- **Speichern** entfernt es nur aus der `devices.csv`. In Linuxmuster bleibt es bis zum nächsten Geräteimport bestehen.
+- Erst **Anwenden** importiert die Liste und entfernt das Gerät damit auch aus Linuxmuster.
+
+Eine gesetzte Markierung lässt sich nicht einzeln zurücknehmen, und sie bleibt auch nach einem Neuladen der Seite bestehen. Solange Sie noch nicht gespeichert haben, holt **Zurücksetzen** die Geräteliste erneut vom Server und stellt das Gerät damit wieder her – dabei gehen allerdings auch alle übrigen ungespeicherten Änderungen verloren.
+
+Haben Sie bereits gespeichert, aber noch nicht angewendet, hilft **Zurücksetzen** nicht mehr, denn die `devices.csv` auf dem Server enthält das Gerät dann nicht mehr. Legen Sie das Gerät mit denselben Daten neu an und speichern Sie, bevor Sie **Anwenden**. Werte in Feldern, die die Tabelle nicht anzeigt, ergänzen Sie dabei im CSV-Dialog.
+
+Markierte Geräte sind im CSV-Dialog bereits nicht mehr enthalten: Die dort angezeigte und die heruntergeladene Datei entsprechen der Liste **ohne** diese Geräte.
+
+:::note[Während Speichern oder Anwenden läuft]
+Mit **Speichern** oder **Anwenden** gehen die Löschmarkierungen in den laufenden Vorgang ein. Schlägt er fehl, stellt die Tabelle den Stand von davor wieder her: Die betroffenen Geräte stehen wieder an ihrer ursprünglichen Position in der Liste und bleiben zum Entfernen markiert – Ihre Auswahl geht dabei nicht verloren.
+
+Die Tabelle bleibt währenddessen bearbeitbar. Änderungen, die Sie in dieser Zeit vornehmen, bleiben erhalten, gehören aber nicht zum laufenden Vorgang: Sie bleiben als ungespeichert hervorgehoben und benötigen einen weiteren **Speichern**-Vorgang.
+
+Übernehmen Sie in dieser Zeit einen Inhalt aus dem CSV-Dialog, hat dieser Vorrang: Er ersetzt die Tabelle, alle Löschmarkierungen entfallen, und das Ergebnis des laufenden Vorgangs wird verworfen. Dasselbe gilt, wenn Sie währenddessen die Schule wechseln.
+:::
+
+### Neuladen der Seite und Ladefehler
+
+Ungespeicherte Änderungen an der Geräteliste der zuletzt gewählten Schule bleiben auch nach einem Neuladen der Seite erhalten – bis Sie sie speichern, mit **Zurücksetzen** verwerfen oder sich abmelden. Ungespeicherte Änderungen an den Gerätelisten anderer Schulen gehen beim Neuladen verloren.
+
+Kann die Geräteliste der gewählten Schule nicht geladen werden, erscheint anstelle der Tabelle die Meldung *„Geräteliste konnte nicht geladen werden“* mit dem Hinweis *„Die Liste konnte nicht geladen werden. Sie kann erst bearbeitet werden, wenn sie geladen ist.“* und der Schaltfläche **Erneut versuchen**. Bis die Liste geladen ist, sind **Gerät hinzufügen**, **Speichern**, **Anwenden** und **CSV** ausgeblendet.
 
 ### Validierung
 
-Vor dem Speichern werden alle Felder geprüft. Ungültige Werte und doppelte Einträge (bei **Rechnername**, **MAC** und **IP**) werden mit einem roten Rand markiert und verhindern das Speichern. In diesem Fall erscheint ein Hinweis:
-
-- *„Bitte korrigieren Sie alle ungültigen Felder vor dem Speichern"*
-- *„Doppelte Einträge für Rechnername, MAC oder IP gefunden"*
+Vor dem Speichern werden alle Felder geprüft. Ungültige Werte und doppelte Einträge (bei **Rechnername**, **MAC** und **IP**) werden mit einem roten Rand markiert und verhindern das Speichern und Anwenden. Für ungültige wie für doppelte Werte erscheint dieselbe Meldung: *„Bitte korrigieren Sie alle ungültigen Felder vor dem Speichern“*.
 
 <Audience roles="admin">
 
@@ -100,7 +122,7 @@ Vor dem Speichern werden alle Felder geprüft. Ungültige Werte und doppelte Ein
 
 Zwei Aktionen schreiben Ihre Änderungen zurück:
 
-- **Speichern** – schreibt die Geräteliste in die `devices.csv`, ohne sie zu importieren. Bestätigung: *„Geräteliste erfolgreich gespeichert"*.
+- **Speichern** – schreibt die Geräteliste in die `devices.csv`, ohne sie zu importieren. Bestätigung: *„Geräteliste erfolgreich gespeichert“*.
 - **Anwenden** – speichert die Liste **und** startet sofort den Linuxmuster-Geräteimport (Sophomorix). Zuvor erscheint eine Sicherheitsabfrage:
 
 {/* ![Anwenden bestätigen](/img/features/geraeteverwaltung-apply.png) */}
@@ -108,10 +130,20 @@ Zwei Aktionen schreiben Ihre Änderungen zurück:
 > **Geräteliste anwenden**
 > Die Geräteliste wird gespeichert und sofort importiert. Möchten Sie fortfahren?
 
-Nach der Bestätigung laufen die Meldungen *„Geräteliste wird angewendet…"* und anschließend *„Geräteliste erfolgreich angewendet"*.
+Nach der Bestätigung laufen die Meldungen *„Geräteliste wird angewendet…“* und anschließend *„Geräteliste erfolgreich angewendet“*.
 
-:::warning
+:::caution[Import dauert]
 Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen. Wenden Sie Änderungen möglichst außerhalb des Unterrichts an.
+:::
+
+:::warning[Fehler beim Import]
+**Anwenden** legt die Geräteliste zuerst auf dem Server ab und startet den Import erst danach. Schlägt allein der Importlauf fehl, ist die Liste bereits gespeichert: Die zum Entfernen markierten Geräte kehren dann **nicht** in die Tabelle zurück, und die Liste gilt als gespeichert. Wiederholen Sie in diesem Fall **Anwenden**, um den Import erneut anzustoßen.
+:::
+
+:::warning[Geräteliste inzwischen geändert]
+Hat sich die Geräteliste auf dem Server geändert, seit Sie sie geladen haben, lehnen **Speichern** und **Anwenden** ab. Es wird nichts geschrieben und kein Import gestartet. Ursache kann ein anderer Admin sein, ein anderer Browser-Tab oder das [Umbenennen einer LINBO-Gruppe](../../../edulution-server/linuxmuster.md#eine-gruppe-umbenennen), das die Geräte auf den neuen Gruppennamen umstellt. Die Meldung lautet *„Die Geräteliste von … wurde inzwischen geändert. Ihre Änderungen wurden nicht gespeichert; laden Sie die Liste neu und übernehmen Sie sie erneut.“*
+
+Ihre ungespeicherten Einträge bleiben in der Tabelle, bis Sie in der Meldung **Neu laden** wählen. Das lädt den aktuellen Stand und verwirft die Einträge.
 :::
 
 </Audience>
@@ -123,12 +155,18 @@ Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen.
 Über die Schaltfläche **CSV** öffnen Sie den Rohinhalt der `devices.csv`. Hier können Sie:
 
 - den Inhalt direkt als Text bearbeiten oder einfügen,
-- eine `.csv`- oder `.txt`-Datei per Drag & Drop importieren (*„Datei hier hin schieben um sie zu importieren"*),
-- die aktuelle Liste über **CSV Herunterladen** als `devices.csv` exportieren.
+- eine `.csv`- oder `.txt`-Datei per Drag & Drop oder über den Dateidialog in das Textfeld laden (*„Ziehe Dateien hierher oder klicke, um Dateien auszuwählen“*),
+- den Inhalt des Textfelds über **Herunterladen** als `devices.csv` exportieren.
 
-:::tip
+Eine geladene Datei ersetzt nur den Inhalt des Textfelds. Erst **Speichern** im Dialog übernimmt diesen Inhalt: Er ersetzt die gesamte Tabelle, und sämtliche Löschmarkierungen entfallen – maßgeblich ist danach ausschließlich, was im Textfeld stand. Zum Entfernen markierte Geräte kehren dadurch nicht zurück, denn sie fehlen bereits im Textfeld. Nur wenn Sie sie dort wieder eintragen oder die geladene Datei sie enthält, sind sie wieder Teil der Liste. Auf den Server geschrieben wird die Liste auch dann erst mit **Speichern** oder **Anwenden** der Geräteliste.
+
+:::tip[CSV-Export als Sicherung]
 Der CSV-Export eignet sich gut für Sicherungen vor größeren Änderungen sowie zum Übertragen von Gerätelisten zwischen Servern.
 :::
+
+### Kommentarzeilen
+
+Die `devices.csv` enthält in der Regel schon Kommentarzeilen aus der Linuxmuster-Vorlage, etwa die auskommentierte Beispielzeile `#r100;r100-pc01;…`. Die Trennzeilen der Vorlage, die nur aus `#` bestehen, werden beim ersten Speichern oder Anwenden der Geräteliste zu Leerzeilen. Wie Kommentarzeilen erhalten bleiben und in welchen Fällen sie sich beim Speichern verändern, beschreibt die Benutzerverwaltung unter [Kommentarzeilen](../../../edulution-server/benutzerverwaltung.md#kommentarzeilen) – die Regeln gelten für die Geräteliste genauso, beim **Speichern** wie beim **Anwenden**.
 
 ## Siehe auch
 

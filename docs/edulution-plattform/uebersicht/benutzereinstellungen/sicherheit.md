@@ -20,12 +20,16 @@ ausklappen. In der linken Leiste der Benutzereinstellungen stehen sie zusätzlic
 
 ### Anforderungen an das Passwort
 
-- **Mindestens 8 Zeichen** – diese Länge prüft das Formular direkt bei der Eingabe.
-- Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen erhöhen die Sicherheit.
+Unter den Passwortfeldern steht die **Passwortrichtlinie** Ihrer Einrichtung mit den Regeln, die
+das neue Passwort erfüllen muss, etwa die Mindestlänge, geforderte Zeichenarten oder das Verbot, den
+Benutzernamen als Passwort zu verwenden. Das Formular prüft das neue Passwort schon bei der Eingabe
+gegen diese Regeln und nennt die verletzten. Mindestens **8 Zeichen** sind immer erforderlich, auch
+wenn die Richtlinie weniger verlangt.
 
-Darüber hinausgehende Anforderungen legt Ihre Einrichtung zentral fest. Sie werden erst **beim
-Speichern** geprüft – ein Passwort, das ihnen nicht genügt, wird mit einer Fehlermeldung
-abgewiesen.
+Die Regeln legt Ihre Einrichtung zentral fest. Verlangt sie weitere Regeln, die das Formular nicht
+vorab prüfen kann, werden diese **beim Speichern** geprüft – ein Passwort, das ihnen nicht genügt,
+wird mit einer Fehlermeldung abgewiesen, die die verletzte Regel nennt. Ein abgewiesenes Passwort
+wird nicht auf einem anderen Weg doch noch gesetzt.
 
 Auf Linuxmuster-Systemen setzt edulution das Passwort in der Regel über den Linuxmuster-Server
 (siehe [Passwortänderung einrichten](../../konfiguration/passwort-aenderung.md)). Dann gilt

@@ -17,7 +17,6 @@ export interface ChangelogEntry {
   description?: string;
   tag?: string;
   content?: ContentBlock[];
-  // Legacy support
   image?: string;
   images?: string[];
   improvements?: string[];
@@ -71,9 +70,7 @@ const ImageCarousel: React.FC<{ images: { url: string; alt: string }[] }> = ({ i
         const recalc = () => {
           try {
             instance?.recalculateWidth?.();
-          } catch {
-            /* noop */
-          }
+          } catch {}
         };
         el.querySelectorAll('img').forEach((img) => {
           if (!(img as HTMLImageElement).complete) {
@@ -92,15 +89,13 @@ const ImageCarousel: React.FC<{ images: { url: string; alt: string }[] }> = ({ i
       cancelled = true;
       try {
         instance?.destroy?.();
-      } catch {
-        /* noop */
-      }
+      } catch {}
       const w = window as any;
       if (Array.isArray(w.$hsCarouselCollection)) {
         w.$hsCarouselCollection = w.$hsCarouselCollection.filter((c: any) => c?.element?.el !== el);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- `images` is rebuilt on every render; `imagesKey` changes only with the URLs.
   }, [imagesKey]);
 
   if (images.length === 1) {
@@ -228,7 +223,7 @@ const formatDate = (dateString: string) => {
 const Tag: React.FC<{ tag: string }> = ({ tag }) => {
   const colors: Record<string, string> = {
     'edulution-plattform': GREEN_TAG_CLASS,
-    // Legacy-Tag früherer Releases
+    // Tag of entries written before the product was renamed to edulution Plattform.
     'edulution-ui': GREEN_TAG_CLASS,
     'edulution-mail': 'bg-[rgba(0,129,198,0.15)] text-[#0081c6] border-[#0081c6]/30',
     'edulution-fileproxy': 'bg-[rgba(220,38,38,0.15)] text-[#dc2626] border-[#dc2626]/30',
@@ -338,7 +333,6 @@ const renderMarkdown = (text: string) => {
 
     const matched = match[0];
 
-    // Inline code: `text`
     if (matched.startsWith('`')) {
       parts.push(<code key={key++}>{matched.slice(1, -1)}</code>);
     } else if (matched.startsWith('[')) {
@@ -382,7 +376,6 @@ const renderMarkdown = (text: string) => {
         );
       }
     }
-    // Italic: *text*
     else if (matched.startsWith('*') && matched.endsWith('*') && !matched.startsWith('**')) {
       parts.push(
         <em
@@ -393,7 +386,6 @@ const renderMarkdown = (text: string) => {
         </em>,
       );
     }
-    // Em dash
     else if (matched === '—') {
       parts.push(<span key={key++}> — </span>);
     } else {
@@ -403,7 +395,6 @@ const renderMarkdown = (text: string) => {
     currentIndex = match.index + matched.length;
   }
 
-  // Add remaining text
   if (currentIndex < text.length) {
     parts.push(text.substring(currentIndex));
   }
@@ -411,7 +402,6 @@ const renderMarkdown = (text: string) => {
   return parts.length > 0 ? parts : text;
 };
 
-// ContentWrapper - weniger Links-Abstand
 function ContentWrapper({ className = '', children }: { className?: string; children: React.ReactNode }) {
   return (
     <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
@@ -422,7 +412,6 @@ function ContentWrapper({ className = '', children }: { className?: string; chil
   );
 }
 
-// ArticleHeader
 function ArticleHeader({ id, date, tag }: { id: string; date: string; tag?: string }) {
   return (
     <header className="relative mb-10 xl:mb-0">
@@ -454,7 +443,6 @@ function ArticleHeader({ id, date, tag }: { id: string; date: string; tag?: stri
   );
 }
 
-// Article
 export const ChangelogItem: React.FC<{
   entry: ChangelogEntry;
 }> = ({ entry }) => {
@@ -510,7 +498,6 @@ export const ChangelogItem: React.FC<{
           </Heading>
           {entry.description && <p className="text-base leading-7 text-gray-700 dark:text-gray-300 mb-6">{entry.description}</p>}
 
-          {/* Content Blocks */}
           {entry.content && entry.content.length > 0 ? (
             <div className="space-y-6">
               {entry.content.map((block, idx) => {
@@ -629,7 +616,6 @@ export const ChangelogItem: React.FC<{
             </div>
           ) : (
             <>
-              {/* Legacy rendering */}
               {entry.image && <ImageCarousel images={[{ url: entry.image, alt: entry.title }]} />}
 
               {entry.images && entry.images.length > 0 && (
@@ -716,7 +702,7 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
   }, []);
 
   // The browser jumps to the hash before the bar is measured, so jump again once it is.
-  // Old links use #v2.2.0, from before anchors named the product; those were all plattform entries.
+  // A bare #v<version> link resolves to the plattform entry, the only product it was ever used for.
   useEffect(() => {
     if (!barHeight || scrolledToHash.current) {
       return;
@@ -734,11 +720,9 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
     target.scrollIntoView();
   }, [barHeight]);
 
-  // Alle verfügbaren Tags sammeln
   const allTags = Array.from(new Set(entries.map((e) => e.tag).filter(Boolean))) as string[];
 
-  // Produktübergreifend nach Datum (neueste zuerst) sortieren, bei Gleichstand nach Version.
-  // Verhindert, dass die Reihenfolge von der Dateipfad-Sortierung in changelog.mdx abhängt.
+  // Sorted here so the order does not depend on how changelog.mdx joins the files.
   const sortedEntries = [...entries].sort((a, b) => {
     const dateCompare = (b.date || '').localeCompare(a.date || '');
     if (dateCompare !== 0) {
@@ -747,7 +731,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
     return (b.version || '').localeCompare(a.version || '', undefined, { numeric: true });
   });
 
-  // Filtern
   const filteredEntries = sortedEntries.filter((entry) => {
     const matchesSearch =
       searchTerm === '' ||
@@ -766,7 +749,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
       className="relative flex-auto"
       style={{ '--changelog-bar-height': `${barHeight}px` } as React.CSSProperties}
     >
-      {/* Suche und Filter */}
       <div
         ref={barRef}
         className="sticky top-[var(--ifm-navbar-height)] z-50 border-b border-gray-200 dark:border-gray-800/50 backdrop-blur-xl py-6"
@@ -774,7 +756,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
       >
         <ContentWrapper>
           <div className="flex flex-col md:flex-row gap-4">
-            {/* Suchfeld */}
             <div className="flex-1 relative">
               <svg
                 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500"
@@ -799,7 +780,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
               />
             </div>
 
-            {/* Filter-Buttons */}
             <div className="flex gap-2 flex-wrap">
               <button
                 onClick={() => setSelectedTag('all')}
@@ -829,7 +809,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
             </div>
           </div>
 
-          {/* Ergebnis-Counter */}
           {(searchTerm || selectedTag !== 'all') && (
             <div className="mt-4 text-sm font-medium text-gray-600 dark:text-gray-400">
               {filteredEntries.length} {filteredEntries.length === 1 ? 'Eintrag' : 'Einträge'} gefunden
@@ -838,7 +817,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
         </ContentWrapper>
       </div>
 
-      {/* Timeline - angepasst für weniger Links-Abstand */}
       <div className="pointer-events-none absolute inset-0 z-40 overflow-hidden lg:left-[180px] lg:overflow-visible">
         <svg
           className="absolute top-0 left-[max(0px,calc(50%-18.125rem))] h-full w-1.5 lg:left-0"
@@ -866,7 +844,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
         </svg>
       </div>
 
-      {/* Content */}
       <main className="space-y-16 py-12 sm:space-y-20 sm:py-16">
         {filteredEntries.length > 0 ? (
           filteredEntries.map((entry, index) => (

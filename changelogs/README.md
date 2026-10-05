@@ -129,6 +129,37 @@ und wird automatisch formatiert.
 ---
 ```
 
+### Bereiche mit Unterabschnitten
+
+Längere Release Notes lassen sich in Bereiche gliedern. Jede Überschriftenebene hat eine feste Darstellung:
+
+| Überschrift | Darstellung |
+| --- | --- |
+| `####` mit Punkten darunter | Karte |
+| `####` direkt gefolgt von `#####` | Zwischentitel über die ganze Breite, darunter die Karten |
+| `#####` | Karte |
+| `######` | Zwischenüberschrift innerhalb der Karte |
+
+```markdown
+#### Highlights
+
+##### LINBO
+
+###### Navigation und Übersichten
+
+- LINBO öffnet direkt die Hardwaregruppen
+
+###### Images
+
+- Images lassen sich umbenennen, kopieren und löschen
+
+##### Mail
+
+- Neuer Editor beim Verfassen von Mails
+```
+
+In Punkten werden `**fett**`, `*kursiv*`, `` `Code` `` und Links dargestellt.
+
 ## Verfügbare Tags
 
 Die Komponente erkennt automatisch diese Tags und wendet passende Farben an:

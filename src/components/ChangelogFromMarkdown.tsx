@@ -1,60 +1,35 @@
 import React from 'react';
 import { Changelog, ChangelogEntry, ContentBlock } from './Changelog';
-import Tag from './Tag'; // Importiere die Tag-Komponente
+import Tag from './Tag';
 
-/**
- * Parses a markdown changelog file and converts it to ChangelogEntry objects.
- *
- * Expected format:
- *
- * ## v1.2.0 | 2024-03-15 | edulution-plattform
- *
- * ![Optional Image](path/to/image.png)
- *
- * ### Feature Title
- *
- * Description of the feature or changes.
- *
- * #### Verbesserungen
- * - Improvement 1 [tags: school, ios]
- * - Improvement 2
- *
- * [Link Text](https://example.com)
- *
- * **Feature Name** [tags: school, ios, android]
- *
- * ---
- *
- * Note: Only ONE tag per release!
- */
+const ENTRY_SEPARATOR = /\n---+\n/;
+const ENTRY_HEADER = /^##\s+v?([\d.]+)\s*\|\s*([\d-]+)\s*(?:\|\s*(.+))?$/;
+const ENTRY_HEADER_WITH_META = /^##\s+(.+?)\s*\{\{\s*(.+?)\s*\}\}$/;
 
 interface ParsedChangelog {
     entries: ChangelogEntry[];
 }
 
-// Erweitere ContentBlock um tags type
 type ExtendedContentBlock = ContentBlock | {
     type: 'text-with-tags';
     text: string;
     tags: string[];
 };
 
+/** Parses the entry format described in changelogs/README.md. An entry takes exactly one tag. */
 export function parseChangelogMarkdown(markdown: string): ParsedChangelog {
     const entries: ChangelogEntry[] = [];
 
-    // Split by horizontal rules (---) to separate entries
-    const sections = markdown.split(/\n---+\n/).filter(s => s.trim());
+    const sections = markdown.split(ENTRY_SEPARATOR).filter(s => s.trim());
 
     sections.forEach(section => {
         const lines = section.trim().split('\n');
         let i = 0;
 
-        // Parse header: ## v1.2.0 | 2024-03-15 | tag1, tag2
-        const headerMatch = lines[i]?.match(/^##\s+v?([\d.]+)\s*\|\s*([\d-]+)\s*(?:\|\s*(.+))?$/);
+        const headerMatch = lines[i]?.match(ENTRY_HEADER);
 
         if (!headerMatch) {
-            // Try alternative format: ## Title {{ date: '2024-03-15', version: '1.2.0', tags: 'tag1, tag2' }}
-            const altMatch = lines[i]?.match(/^##\s+(.+?)\s*\{\{\s*(.+?)\s*\}\}$/);
+            const altMatch = lines[i]?.match(ENTRY_HEADER_WITH_META);
             if (altMatch) {
                 const title = altMatch[1].trim();
                 const meta = altMatch[2];
@@ -65,7 +40,7 @@ export function parseChangelogMarkdown(markdown: string): ParsedChangelog {
 
                 const date = dateMatch?.[1] || new Date().toISOString().split('T')[0];
                 const version = versionMatch?.[1] || '0.0.0';
-                const tag = tagMatch?.[1] || undefined; // Only ONE tag
+                const tag = tagMatch?.[1] || undefined;
 
                 i++;
 
@@ -77,12 +52,11 @@ export function parseChangelogMarkdown(markdown: string): ParsedChangelog {
 
         const version = headerMatch[1];
         const date = headerMatch[2];
-        const tagStr = headerMatch[3]?.trim() || ''; // Only ONE tag
+        const tagStr = headerMatch[3]?.trim() || '';
         const tag = tagStr || undefined;
 
         i++;
 
-        // Rest of the content
         const entry = parseEntryContent(lines.slice(i), '', date, version, tag);
         entries.push(entry);
     });
@@ -90,7 +64,6 @@ export function parseChangelogMarkdown(markdown: string): ParsedChangelog {
     return { entries };
 }
 
-// Hilfsfunktion um Tags aus einer Zeile zu extrahieren
 function extractTags(text: string): { cleanText: string; tags: string[] } {
     const tagMatch = text.match(/\[tags:\s*([^\]]+)\]/);
     if (tagMatch) {
@@ -138,7 +111,6 @@ function parseEntryContent(
     while (i < lines.length) {
         const line = lines[i].trim();
 
-        // Image: ![alt](url)
         if (line.startsWith('![')) {
             flushSection();
             const imgMatch = line.match(/!\[([^\]]*)\]\((.+?)\)/);
@@ -153,14 +125,12 @@ function parseEntryContent(
             continue;
         }
 
-        // Title: ### Title
         if (line.startsWith('### ') && !title) {
             title = line.replace(/^###\s+/, '');
             i++;
             continue;
         }
 
-        // Subsection inside a card: ###### Navigation
         const subsectionMatch = line.match(/^######\s+(.*)/);
         if (subsectionMatch && currentSectionTitle) {
             currentSubsections.push({ title: subsectionMatch[1], items: [] });
@@ -168,7 +138,6 @@ function parseEntryContent(
             continue;
         }
 
-        // Card inside a group: ##### LINBO
         const cardMatch = line.match(/^#####\s+(.*)/);
         if (cardMatch) {
             const groupTitle = currentSectionItems.length === 0 && currentSubsections.length === 0 ? currentSectionTitle : '';
@@ -183,7 +152,6 @@ function parseEntryContent(
             continue;
         }
 
-        // Improvements section: #### Verbesserungen, #### Neue Features, #### Bugfixes
         const sectionMatch = line.match(/^####\s+(.*)/);
         if (sectionMatch) {
             flushSection();
@@ -197,12 +165,11 @@ function parseEntryContent(
         if (currentSectionTitle && line.startsWith('-')) {
             const itemText = line.replace(/^-\s*/, '');
             const target = currentSubsections[currentSubsections.length - 1]?.items ?? currentSectionItems;
-            target.push(itemText); // Behalte die Tags im Text
+            target.push(itemText);
             i++;
             continue;
         }
 
-        // Link: [text](url)
         const linkMatch = line.match(/^\[(.+?)\]\((.+?)\)$/);
         if (linkMatch && !line.startsWith('!') && !line.includes('[tags:')) {
             flushSection();
@@ -215,7 +182,6 @@ function parseEntryContent(
             continue;
         }
 
-        // Text mit Tags: **Text** [tags: school, ios]
         const { cleanText, tags } = extractTags(line);
         if (tags.length > 0 && line.startsWith('**')) {
             flushSection();
@@ -229,7 +195,6 @@ function parseEntryContent(
             continue;
         }
 
-        // Regular description text (only before any #### section)
         if (line && !descriptionEnded) {
             descriptionLines.push(line);
         }
@@ -237,7 +202,6 @@ function parseEntryContent(
         i++;
     }
 
-    // Flush any remaining section
     flushSection();
 
     description = descriptionLines.join(' ').trim();
@@ -261,7 +225,6 @@ export const ChangelogFromMarkdown: React.FC<ChangelogFromMarkdownProps> = ({ ma
     return <Changelog entries={entries} />;
 };
 
-// Helper component to load markdown from a file path (for static sites)
 interface ChangelogFromFileProps {
     entries: ChangelogEntry[];
 }

@@ -81,7 +81,7 @@ Bei akzeptierten Satelliten wählen Sie in der Auswahlliste eine **Schule**; **K
 
 ## WireGuard-Zugang erneut senden
 
-Sobald dem Satelliten eine Tunnel-IP zugewiesen ist, zeigt der Eintrag den Abschnitt **WireGuard-Tunnel** mit **Tunnel-IP**, **Peer-Endpunkt** und **Öffentlicher Schlüssel**. Vom Schlüssel stehen die ersten 20 Zeichen da.
+Sobald dem Satelliten eine Tunnel-IP zugewiesen ist, zeigt der Eintrag den Abschnitt **WireGuard-Tunnel** mit **Tunnel-IP**, **Peer-Endpunkt** und **Öffentlicher Schlüssel**. Vom Schlüssel zeigt die Plattform die ersten 20 Zeichen.
 
 **WG neu konfigurieren** sendet die WireGuard-Konfiguration erneut und legt den Zugang neu an, falls er fehlt:
 
@@ -92,7 +92,7 @@ Sobald dem Satelliten eine Tunnel-IP zugewiesen ist, zeigt der Eintrag den Absch
 
 ## Satellit aktualisieren
 
-Bei einem akzeptierten, erreichbaren Satelliten fragt **Updates prüfen** nach neuen Versionen. Die Plattform zeigt die installierte Version, bei einem Update zusätzlich die Zielversion mit einer Schaltfläche je Komponente, beschriftet mit „*KOMPONENTE* aktualisieren“ (der Komponentenname in Großbuchstaben). Ist alles aktuell, steht **Aktuell** da.
+Bei einem akzeptierten, erreichbaren Satelliten fragt **Updates prüfen** nach neuen Versionen. Die Plattform zeigt die installierte Version, bei einem Update zusätzlich die Zielversion mit einer Schaltfläche je Komponente, beschriftet mit „*KOMPONENTE* aktualisieren“ (der Komponentenname in Großbuchstaben). Ist alles aktuell, erscheint **Aktuell**.
 
 ## Satelliten-Bereich
 
@@ -153,7 +153,7 @@ Liefert das Gerät keine Messwerte, steht dort „Keine Ressourcen-Metriken von 
 | **Base DN** | Basis für die Suche |
 | **Benutzerfilter** | Vorgabe `(uid={username})` |
 
-**Testen** prüft den gewählten Anbieter. Die Plattform zeigt die Meldung des Satelliten; nur wenn er keine liefert, steht „Verbindung erfolgreich“ oder „Verbindung fehlgeschlagen“ da.
+**Testen** prüft den gewählten Anbieter. Die Plattform zeigt die Meldung des Satelliten; nur wenn er keine liefert, lautet sie „Verbindung erfolgreich“ oder „Verbindung fehlgeschlagen“.
 
 ### Dienste
 
@@ -165,7 +165,7 @@ Liefert das Gerät keine Messwerte, steht dort „Keine Ressourcen-Metriken von 
 | **RADIUS-Server** | Netzwerk-Authentifizierung für ein **Netzwerk** mit einem **Auth**-Anbieter; ebenfalls **Starten**, **Stoppen** und löschen |
 | **Container** | die Container des Satelliten, nur zur Ansicht |
 
-Der **Status** von mDNS-Repeater und RADIUS-Server steht als **● aktiv** oder **○ gestoppt** da. Bei Containern zeigt die Spalte den Wert, den der Satellit meldet, zum Beispiel `running`.
+Der **Status** von mDNS-Repeater und RADIUS-Server lautet **● aktiv** oder **○ gestoppt**. Bei Containern zeigt die Spalte den Wert, den der Satellit meldet, zum Beispiel `running`.
 
 ## Siehe auch
 

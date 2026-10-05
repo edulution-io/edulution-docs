@@ -174,7 +174,7 @@ Die Termine eines als Stundenplan markierten Kalenders werden ausschließlich in
 
 Hat ein Termin eine [eigene Farbe](#termine-erstellen), wird er in **Monat**, **Woche**, **Tag**, **Agenda** und **Stundenplan** in dieser Farbe dargestellt, auch wenn er aus einem externen CalDAV-Programm stammt. Termine ohne eigene Farbe erhalten die Farbe ihres Kalenders.
 
-Damit erkennbar bleibt, zu welchem Kalender ein farbiger Termin gehört, trägt er zusätzlich ein kleines Quadrat in der Farbe seines Kalenders (wie in der [Kalenderliste](#seitenleiste-und-kalenderliste); bei abonnierten und Web-Kalendern kräftiger und ohne Rahmen) vor der Uhrzeit und dem Titel.
+Damit erkennbar bleibt, zu welchem Kalender ein farbiger Termin gehört, trägt er zusätzlich vor der Uhrzeit und dem Titel ein kleines Quadrat in der Farbe seines Kalenders (wie in der [Kalenderliste](#seitenleiste-und-kalenderliste); bei abonnierten und Web-Kalendern kräftiger und ohne Rahmen).
 
 Das Quadrat erscheint nur an Terminen mit eigener Farbe und nur dort, wo die Zuordnung sonst mehrdeutig wäre:
 

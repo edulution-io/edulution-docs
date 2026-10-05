@@ -27,6 +27,13 @@ Darüber hinausgehende Anforderungen legt Ihre Einrichtung zentral fest. Sie wer
 Speichern** geprüft – ein Passwort, das ihnen nicht genügt, wird mit einer Fehlermeldung
 abgewiesen.
 
+Auf Linuxmuster-Systemen setzt edulution das Passwort in der Regel über den Linuxmuster-Server
+(siehe [Passwortänderung einrichten](../../konfiguration/passwort-aenderung.md)). Dann gilt
+zusätzlich die [Passwortrichtlinie](../../../edulution-server/benutzerverwaltung.md#passwortrichtlinie)
+der Linuxmuster-Installation. Lehnt sie Ihr neues Passwort ab, nennt die Fehlermeldung die
+verletzten Regeln, etwa die Mindestlänge oder die geforderten Zeichenarten. Umlaute und ß sind auf
+diesem Weg nicht zulässig, weil die Anmeldung mit ihnen fehlschlägt.
+
 Das neue Passwort wird zentral in der Benutzerverwaltung hinterlegt und gilt für alle Dienste, die
 Sie über edulution nutzen – Dateien, E-Mail und die Anmeldung an der Oberfläche selbst.
 

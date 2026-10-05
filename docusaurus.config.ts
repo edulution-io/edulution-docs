@@ -2,6 +2,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import tagPlugin from './src/rehype/tagPlugin';
+import { version } from './package.json';
 
 const config: Config = {
   title: 'edulution',
@@ -381,7 +382,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} edulution.io`,
+      copyright: `Copyright © ${new Date().getFullYear()} edulution.io · v${version}`,
     },
     prism: {
       theme: prismThemes.github,

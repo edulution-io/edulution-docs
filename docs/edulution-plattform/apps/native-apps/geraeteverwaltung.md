@@ -151,7 +151,7 @@ Der Import kann je nach Größe der Geräteliste einige Zeit in Anspruch nehmen.
 - eine `.csv`- oder `.txt`-Datei per Drag & Drop oder über den Dateidialog in das Textfeld laden (*„Ziehe Dateien hierher oder klicke, um Dateien auszuwählen“*),
 - den Inhalt des Textfelds über **Herunterladen** als `devices.csv` exportieren.
 
-Eine geladene Datei durchläuft zuerst den Schritt **Spalten zuordnen**. Er bringt etwa eine Inventarliste mit anderer Spaltenreihenfolge oder zusätzlichen Spalten in das Format der `devices.csv`. Überschriften wie *Raum*, *Rechnername*, *MAC-Adresse* oder *IP-Adresse* erkennt der Dialog selbst. **Zuordnung übernehmen** bleibt gesperrt, solange eines der Pflichtfelder **Raum**, **Rechnername**, **Gruppe**, **MAC** und **IP** keiner Spalte zugeordnet ist. Wie die Zuordnung im Einzelnen funktioniert, beschreibt die Benutzerverwaltung unter [Spalten zuordnen](../../../edulution-server/benutzerverwaltung.md#spalten-zuordnen) – der Schritt arbeitet für die Geräteliste genauso.
+Eine geladene Datei durchläuft zuerst den Schritt **Spalten zuordnen**. Er bringt etwa eine Inventarliste mit anderer Spaltenreihenfolge oder zusätzlichen Spalten in das Format der `devices.csv`. Überschriften wie *Raum*, *Rechnername*, *MAC-Adresse* oder *IP-Adresse* erkennt der Dialog selbst. **Zuordnung übernehmen** bleibt gesperrt, solange eines der Pflichtfelder **Raum**, **Rechnername**, **Gruppe**, **MAC** und **IP** keiner Spalte zugeordnet ist. Ansonsten arbeitet der Schritt genauso wie in der Benutzerverwaltung, die ihn unter [Spalten zuordnen](../../../edulution-server/benutzerverwaltung.md#spalten-zuordnen) im Einzelnen beschreibt.
 
 ![Spalten einer Inventarliste der Geräteliste zuordnen](/img/features/geraeteverwaltung-csv-spalten-zuordnen.png)
 

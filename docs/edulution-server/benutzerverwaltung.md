@@ -153,7 +153,7 @@ Vor dem Speichern werden die Einträge geprüft. Solange eine Zelle ungültig is
 
 - **Geburtsdatum** muss dem Format `TT.MM.JJJJ` entsprechen und ein gültiges Datum sein.
 - **Klasse**, **Kategorie** und **Gewünschter Login** dürfen nur Buchstaben (inklusive Umlaute und `ß`), Ziffern, Leerzeichen sowie die Zeichen `_` und `-` enthalten.
-- **Gewünschter Login** darf bei Extra-Schülern leer bleiben – Linuxmuster bildet den Anmeldenamen dann aus dem Namen. Bei Lehrern ist er Pflicht: Für sie sieht die Standardkonfiguration von Linuxmuster keine automatische Vergabe vor, und ein leerer Login bricht den Prüflauf ab.
+- **Gewünschter Login** darf bei Extra-Schülern leer bleiben. Linuxmuster bildet den Anmeldenamen dann aus dem Namen. Bei Lehrern ist er Pflicht: Für sie sieht die Standardkonfiguration von Linuxmuster keine automatische Vergabe vor, und ein leerer Login bricht den Prüflauf ab.
 - **Vorname**, **Nachname** und **ID** unterliegen keiner Formatprüfung.
 
 ![Benutzerverwaltung-Import-Pruefen](/img/benutzerverwaltung/benutzerverwaltung08-import-pruefen.png)
@@ -171,22 +171,22 @@ Ein über den Dialog importierter CSV-Inhalt ersetzt die Einträge der Tabelle. 
 
 ### Spalten zuordnen
 
-Linuxmuster erwartet die Spalten einer Liste in einer festen Reihenfolge. Exporte aus einer Schulverwaltungssoftware oder einer Tabellenkalkulation weichen davon meist ab: Die Spalten stehen anders, oder es gibt zusätzliche Spalten wie eine E-Mail-Adresse. Deshalb öffnet eine geladene Datei zuerst den Schritt **Spalten zuordnen**. Er schreibt die Datei in die Reihenfolge um, die Linuxmuster erwartet, bevor sie im Textfeld erscheint. Text, den Sie direkt in das Textfeld einfügen, übernimmt der Dialog dagegen unverändert.
+Linuxmuster erwartet die Spalten einer Liste in einer festen Reihenfolge, doch Exporte aus einer Schulverwaltungssoftware oder einer Tabellenkalkulation halten sich selten daran: Dort stehen die Spalten anders, oder es kommen weitere hinzu, etwa eine E-Mail-Adresse. Deshalb öffnet eine geladene Datei zuerst den Schritt **Spalten zuordnen**. Er bringt die Datei in die Reihenfolge, die Linuxmuster erwartet, bevor sie im Textfeld erscheint. Text, den Sie direkt einfügen, bleibt unverändert.
 
 ![Benutzerverwaltung-CSV-Spalten-zuordnen](/img/benutzerverwaltung/benutzerverwaltung09-csv-spalten-zuordnen.png)
 
-Jede Spalte der Datei erscheint als eigene Karte: oben das Feld, dem sie zugeordnet ist, darunter ihre ursprüngliche Überschrift und eine Vorschau der ersten fünf Einträge. Unter **Spalte ignorieren** fällt eine Spalte beim Umschreiben weg. Jedes Feld lässt sich nur einer Spalte zuordnen – wählen Sie ein Feld, das bereits eine andere Spalte trägt, wird diese andere Spalte auf **Spalte ignorieren** gesetzt.
+Jede Spalte der Datei erscheint als eigene Karte: oben das Feld, dem sie zugeordnet ist, darunter ihre ursprüngliche Überschrift und eine Vorschau der ersten fünf Einträge. Unter **Spalte ignorieren** fällt eine Spalte beim Umschreiben weg. Jedes Feld lässt sich nur einer Spalte zuordnen. Wählen Sie ein Feld, das bereits eine andere Spalte trägt, wechselt diese auf **Spalte ignorieren**.
 
-**Vorbelegung.** Der Dialog belegt die Zuordnung vorab:
+Beim Öffnen belegt der Dialog die Zuordnung vor:
 
 - **Mit Kopfzeile** – Als Kopfzeile gilt die erste Zeile, sobald mindestens zwei ihrer Überschriften zu einem Feld passen. Erkannt werden deutsche, englische und französische Bezeichnungen, etwa *Nachname*, *Last name* oder *Nom*, *Geburtsdatum* oder *Birthday*, *Klasse* oder *Kurs*. Groß- und Kleinschreibung, Umlaute, Leer- und Sonderzeichen spielen dabei keine Rolle: *Schüler-ID* wird zu **ID**. Eine Überschrift, die zu keinem Feld passt, bleibt auf **Spalte ignorieren**.
 - **Ohne Kopfzeile** – Die Spalten werden der Reihe nach belegt, in der Reihenfolge, die Linuxmuster für die Liste erwartet.
 
 Das Feld **Passwort** ordnet der Dialog über die Kopfzeile nie selbst zu, auch wenn eine Spalte *Passwort* heißt. Wählen Sie es nur bewusst aus.
 
-**Erste Zeile ist eine Kopfzeile.** Mit diesem Kontrollkästchen korrigieren Sie die Erkennung. Setzen Sie den Haken, ermittelt der Dialog die Zuordnung aller Spalten neu aus der Kopfzeile; Ihre bisherigen Änderungen an der Zuordnung gehen dabei verloren. Entfernen Sie den Haken, zählt die erste Zeile als Eintrag, und die Zuordnung bleibt, wie sie ist.
+Mit dem Kontrollkästchen **Erste Zeile ist eine Kopfzeile** korrigieren Sie die Erkennung. Setzen Sie den Haken, ermittelt der Dialog die Zuordnung aller Spalten neu aus der Kopfzeile. Ihre Handkorrekturen gehen dabei verloren. Entfernen Sie den Haken, zählt die erste Zeile als Eintrag, und die Zuordnung bleibt, wie sie ist.
 
-**Pflichtfelder.** Solange ein Pflichtfeld keiner Spalte zugeordnet ist, bleibt **Zuordnung übernehmen** gesperrt, und der Dialog nennt das fehlende Feld (*„Es fehlt noch: Geburtsdatum"*).
+Solange ein Pflichtfeld keiner Spalte zugeordnet ist, bleibt **Zuordnung übernehmen** gesperrt, und der Dialog nennt das fehlende Feld (*„Es fehlt noch: Geburtsdatum“*). Welche Felder Pflicht sind, hängt vom Benutzertyp ab:
 
 | Benutzertyp | Pflichtfelder |
 |-------------|---------------|
@@ -200,7 +200,7 @@ Das **Geburtsdatum** ist für jeden Benutzertyp Pflicht, auch für Eltern und Mi
 
 ![Benutzerverwaltung-CSV-Pflichtfeld-fehlt](/img/benutzerverwaltung/benutzerverwaltung10-csv-pflichtfeld-fehlt.png)
 
-**Abschließen.** **Zuordnung übernehmen** schreibt die umgeschriebene Datei in das Textfeld; eine Kopfzeile fällt dabei weg, und Kommentarzeilen bleiben an ihrer Stelle zwischen den Einträgen. **Ohne Zuordnung übernehmen** lädt die Datei unverändert in das Textfeld – etwa wenn sie bereits im Format von Linuxmuster vorliegt. In beiden Fällen ersetzt der Inhalt die Tabelle erst, wenn Sie den CSV-Dialog mit **Speichern** schließen. Eine leere Datei oder eine, die nur aus Kommentarzeilen besteht, landet ohne diesen Schritt direkt im Textfeld.
+**Zuordnung übernehmen** schreibt die umgeschriebene Datei in das Textfeld. Eine Kopfzeile fällt dabei weg, während Kommentarzeilen an ihrer Stelle zwischen den Einträgen bleiben. **Ohne Zuordnung übernehmen** lädt die Datei unverändert in das Textfeld, etwa wenn sie bereits im Format von Linuxmuster vorliegt. In beiden Fällen ersetzt der Inhalt die Tabelle erst, wenn Sie den CSV-Dialog mit **Speichern** schließen. Eine leere Datei oder eine, die nur aus Kommentarzeilen besteht, überspringt den Schritt und landet direkt im Textfeld.
 
 ### Kommentarzeilen
 

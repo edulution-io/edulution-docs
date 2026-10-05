@@ -184,7 +184,7 @@ Beim Öffnen belegt der Dialog die Zuordnung vor:
 
 Das Feld **Passwort** ordnet der Dialog über die Kopfzeile nie selbst zu, auch wenn eine Spalte *Passwort* heißt. Wählen Sie es nur bewusst aus.
 
-Mit dem Kontrollkästchen **Erste Zeile ist eine Kopfzeile** korrigieren Sie die Erkennung. Setzen Sie den Haken, ermittelt der Dialog die Zuordnung aller Spalten neu aus der Kopfzeile. Ihre Handkorrekturen gehen dabei verloren. Entfernen Sie den Haken, zählt die erste Zeile als Eintrag, und die Zuordnung bleibt, wie sie ist.
+Mit dem Kontrollkästchen **Erste Zeile ist eine Kopfzeile** korrigieren Sie die Erkennung. Setzen Sie den Haken, ermittelt der Dialog die Zuordnung aller Spalten neu aus der Kopfzeile. Ihre Handkorrekturen gehen dabei verloren. Entfernen Sie den Haken wieder, zählt die erste Zeile als Eintrag, und die Spalten erhalten die Zuordnung zurück, die sie vor dem Setzen hatten. Was Sie inzwischen von Hand geändert haben, bleibt. Hatte der Dialog die Kopfzeile selbst erkannt, bleibt die Zuordnung beim Entfernen des Hakens, wie sie ist.
 
 Solange ein Pflichtfeld keiner Spalte zugeordnet ist, bleibt **Zuordnung übernehmen** gesperrt, und der Dialog nennt das fehlende Feld (*„Es fehlt noch: Geburtsdatum“*). Welche Felder Pflicht sind, hängt vom Benutzertyp ab:
 

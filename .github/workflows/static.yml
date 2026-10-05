@@ -1,9 +1,8 @@
 name: Deploy Docusaurus to GitHub Pages
 
+# Started by the Release workflow on its new tag, or by hand from an older tag to roll back. Releases created in the
+# GitHub UI are not deployed, because they leave the version in package.json, and with it the footer, behind.
 on:
-  release:
-    types: [published]
-  # Run from a release tag to redeploy it, e.g. to roll back.
   workflow_dispatch:
 
 permissions:

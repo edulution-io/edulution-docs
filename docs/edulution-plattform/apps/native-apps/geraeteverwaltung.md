@@ -106,6 +106,12 @@ Die Tabelle bleibt währenddessen bearbeitbar. Änderungen, die Sie in dieser Ze
 Übernehmen Sie in dieser Zeit einen Inhalt aus dem CSV-Dialog, hat dieser Vorrang: Er ersetzt die Tabelle, alle Löschmarkierungen entfallen, und das Ergebnis des laufenden Vorgangs wird verworfen. Dasselbe gilt, wenn Sie währenddessen die Schule wechseln.
 :::
 
+### Neuladen der Seite und Ladefehler
+
+Ungespeicherte Änderungen an der Geräteliste der zuletzt gewählten Schule bleiben auch nach einem Neuladen der Seite erhalten – bis Sie sie speichern, mit **Zurücksetzen** verwerfen oder sich abmelden. Ungespeicherte Änderungen an den Gerätelisten anderer Schulen gehen beim Neuladen verloren.
+
+Kann die Geräteliste der gewählten Schule nicht geladen werden, erscheint anstelle der Tabelle die Meldung *„Geräteliste konnte nicht geladen werden“* mit dem Hinweis *„Die Liste konnte nicht geladen werden. Sie kann erst bearbeitet werden, wenn sie geladen ist.“* und der Schaltfläche **Erneut versuchen**. Bis die Liste geladen ist, sind **Gerät hinzufügen**, **Speichern**, **Anwenden** und **CSV** ausgeblendet.
+
 ### Validierung
 
 Vor dem Speichern werden alle Felder geprüft. Ungültige Werte und doppelte Einträge (bei **Rechnername**, **MAC** und **IP**) werden mit einem roten Rand markiert und verhindern das Speichern und Anwenden. Für ungültige wie für doppelte Werte erscheint dieselbe Meldung: *„Bitte korrigieren Sie alle ungültigen Felder vor dem Speichern“*.

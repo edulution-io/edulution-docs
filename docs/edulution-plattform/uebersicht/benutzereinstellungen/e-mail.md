@@ -64,6 +64,8 @@ Ist das verzögerte Senden aktiv, erscheint nach dem Klick auf **Senden** für d
 
 Mit der automatischen Antwort (Abwesenheitsnotiz) beantworten Sie eingehende Nachrichten automatisch, z. B. während einer Abwesenheit. Sie können mehrere **Vorlagen** anlegen, aber es ist immer nur eine gleichzeitig aktiv.
 
+Die automatische Antwort gilt für Nachrichten an Ihre eigenen Adressen. Nachrichten, die Sie nur über einen in edulution angelegten Verteiler erreichen, beantwortet sie nicht.
+
 ### Vorlagen verwalten
 
 - Über die Auswahl **Vorlage auswählen** wechseln Sie zwischen vorhandenen Vorlagen; **Neue Vorlage** legt eine weitere an.

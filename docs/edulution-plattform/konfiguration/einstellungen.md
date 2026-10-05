@@ -577,7 +577,7 @@ Die Mitgliedschaft hebelt die Zugriffsgruppen aller Apps aus: Administratoren se
 
 ## Gruppen
 
-Auf der Registerkarte **Gruppen** pflegen Sie die Verteiler einer Schule. Die Tabelle zeigt außerdem die übrigen Gruppen, die edulution für die Schule verwaltet, etwa Räume. Ein eigenes Postfach brauchen Sie dafür nicht: Auch `global-admin` ohne E-Mail-Adresse kann hier Verteiler anlegen und bearbeiten.
+Auf der Registerkarte **Gruppen** pflegen Sie die Verteiler einer Schule. Die Tabelle zeigt außerdem die übrigen Gruppen, die edulution für die Schule verwaltet, etwa Räume. Ein eigenes Postfach brauchen Sie dafür nicht, auch `global-admin` ohne E-Mail-Adresse kann hier Verteiler pflegen: Auf dem Mailserver richtet edulution sie mit dem API-Schlüssel der Mail-App ein, nicht mit Ihrem Konto.
 
 Die Schule wählen Sie wie bei der [Unterrichtsverwaltung](#schule-wählen).
 
@@ -587,7 +587,7 @@ Die Schule wählen Sie wie bei der [Unterrichtsverwaltung](#schule-wählen).
 |--------|-----------|
 | **Herkunft** | **edulution** für Gruppen, die hier angelegt wurden; **linuxmuster** für Gruppen aus dem Schulserver. Gruppen aus linuxmuster lassen sich hier nicht bearbeiten oder löschen. Änderungen nehmen Sie auf dem Schulserver vor (siehe [Verteilerlisten](../../edulution-mail/konfiguration/verteilerlisten.md)). |
 | **Mitglieder** | je eine Zahl für die einzeln eingetragenen Benutzer, die Mitgliedsgruppen und die externen Adressen. Die Mitglieder einer Mitgliedsgruppe zählen dabei nicht einzeln mit. |
-| **Zustellung** | bei Verteilern derzeit **Noch nicht eingerichtet**: Der Verteiler ist in edulution angelegt, aber noch nicht auf dem Mailserver. E-Mails an seine Adresse werden noch nicht an die Mitglieder verteilt. |
+| **Zustellung** | bei Verteilern der Stand auf dem Mailserver (siehe [Zustellung über den Mailserver](#zustellung-über-den-mailserver)) |
 
 Mit der Auswahl **Alle Arten** beschränken Sie die Tabelle auf **Raum** oder **Verteiler**. Eine Gruppe, die zugleich Raum und Verteiler ist, erscheint unter beiden.
 
@@ -598,8 +598,8 @@ Einen neuen Verteiler legen Sie über **Verteiler hinzufügen** (Plus-Symbol) an
 | Feld | Regel |
 |------|-------|
 | **Name** | höchstens 64 Zeichen; eindeutig innerhalb der Schule, ohne Rücksicht auf Groß- und Kleinschreibung und auch gegenüber Räumen und anderen Gruppen |
-| **Adresse** | von keinem anderen Verteiler verwendet, weder als Adresse noch als externes Mitglied, auch nicht an einer anderen Schule. Für den Mailserver reserviert und daher abgelehnt sind `postmaster@…`, `abuse@…`, `root@…`, `hostmaster@…`, `webmaster@…`, `noreply@…`, `no-reply@…` und `mailer-daemon@…`. |
-| **Externe Mitglieder** | Adressen außerhalb des Verzeichnisses, etwa von Eltern oder Partnern; bis zu 50 je Verteiler. Die Adresse eines anderen Verteilers ist nicht zulässig. Mehrere eingefügte Adressen trennt das Feld selbst auf. |
+| **Adresse** | von keinem anderen Verteiler verwendet, weder als Adresse noch als externes Mitglied, auch nicht an einer anderen Schule. Die Domain muss der Mailserver verwalten und dort aktiv sein; eine deaktivierte Domain oder eine, für die er nur als Backup-MX dient, zählt nicht. Als Postfach oder Alias darf die Adresse auf dem Mailserver noch nicht vergeben sein. Für den Mailserver reserviert und daher abgelehnt sind `postmaster@…`, `abuse@…`, `root@…`, `hostmaster@…`, `webmaster@…`, `noreply@…`, `no-reply@…` und `mailer-daemon@…`. |
+| **Externe Mitglieder** | Adressen außerhalb des Verzeichnisses, etwa von Eltern oder Partnern; bis zu 50 je Verteiler. Nicht zulässig sind die Adresse eines anderen Verteilers und Adressen auf einer Domain des eigenen Mailservers; Benutzer mit Postfach tragen Sie unter **Mitglieder** ein. Mehrere eingefügte Adressen trennt das Feld selbst auf. |
 
 ### Verteiler bearbeiten
 
@@ -609,9 +609,33 @@ Zum Bearbeiten öffnen Sie einen Verteiler mit einem Klick auf seine Zeile. Das 
 
 Lehnt edulution beim Speichern einzelne Einträge ab, nennt der Dialog sie unter dem zugehörigen Feld.
 
+Mitgliedsgruppen löst edulution beim Speichern in ihre Mitglieder auf. Tritt jemand später einer Mitgliedsgruppe bei oder verlässt sie, ändert sich der Verteiler erst, wenn Sie ihn das nächste Mal speichern. Dasselbe gilt für Änderungen, die direkt auf dem Mailserver an der Adresse vorgenommen werden: Beim nächsten Speichern setzt edulution die Adresse wieder auf den Stand des Verteilers.
+
+Ein Verteiler erreicht höchstens 1000 Empfänger; gezählt werden die Benutzer, die Mitglieder aller Mitgliedsgruppen und die externen Adressen. Ein Verteiler, der mehr erreichen würde, wird nicht gespeichert, und der Dialog nennt die Zahl.
+
+Beim Anlegen und bei jedem Speichern prüft edulution die Adresse auf dem Mailserver; ist er nicht erreichbar, wird der Verteiler nicht gespeichert. Meldet edulution **Der Mailserver hat den API-Schlüssel abgelehnt. Bitte die Mailkonfiguration prüfen.**, tragen Sie in der [Mail-App](../../edulution-mail/konfiguration/mail-app-konfiguration.md) einen gültigen Schlüssel ein. Hat inzwischen jemand anderes die Adresse auf dem Mailserver belegt, lässt sich der Verteiler erst wieder speichern, wenn Sie die Adresse ändern oder dort freigeben.
+
+### Zustellung über den Mailserver
+
+Nach dem Speichern richtet edulution den Verteiler im Hintergrund als Adresse auf dem Mailserver ein. Voraussetzung ist ein in der [Mail-App](../../edulution-mail/konfiguration/mail-app-konfiguration.md) eingetragener Mailserver mit API-Schlüssel. Solange ein Verteiler eingerichtet wird, lädt die Tabelle etwa 15 Sekunden lang selbst neu; danach sehen Sie den Abschluss erst nach dem Neuladen der Seite.
+
+| Anzeige | Bedeutung |
+|---------|-----------|
+| **Wird eingerichtet** | edulution überträgt den Verteiler gerade auf den Mailserver. Ist der Mailserver nicht erreichbar oder sind die Mitglieder einer Mitgliedsgruppe noch nicht bekannt, versucht edulution es selbstständig erneut, spätestens nach fünf Minuten. |
+| **Aktiv** | E-Mails an die Adresse des Verteilers gehen an alle Mitglieder. |
+| Zusatz **N ohne Postfach** | So viele Mitglieder haben kein Postfach auf dem Mailserver. Sie erhalten keine Nachrichten des Verteilers, auch nicht an eine andere, etwa private Adresse aus dem Verzeichnis. |
+| Zusatz **offen für alle Absender** | Jeder kann an die Adresse schreiben, auch von außerhalb der Schule. Der Zusatz erscheint, wenn der Mailserver die Absender eines Verteilers nicht auf die eigene Domain einschränken kann, etwa eine Mailcow-Version ohne diese Funktion. |
+| **Fehlgeschlagen: …** | Der Mailserver hat den Verteiler abgelehnt, etwa weil die Adresse dort inzwischen vergeben ist. Den Grund nennen die Anzeige und der Bearbeitungsdialog. Haben Sie die Ursache behoben, richtet **Erneut einrichten** im Dialog den Verteiler noch einmal ein; auch jedes Speichern löst einen neuen Versuch aus. Von selbst versucht edulution es nur bei *Für E-Mails ist kein Mailserver eingerichtet* erneut, spätestens fünf Minuten nachdem ein Mailserver eingetragen ist. |
+
+Nach einem abgelehnten API-Schlüssel bleiben die betroffenen Verteiler fehlgeschlagen, auch wenn Sie den Schlüssel inzwischen korrigiert haben. Richten Sie sie einzeln neu ein.
+
+Hat kein Mitglied ein Postfach und gibt es keine externen Mitglieder, zeigt die Tabelle **Aktiv**, die Adresse bleibt auf dem Mailserver aber abgeschaltet. E-Mails an sie werden dann nicht zugestellt.
+
+Die Adresse eines Verteilers steht seinen Mitgliedern nicht als Absenderadresse zur Verfügung, auch nicht im Webmailer.
+
 ### Verteiler löschen
 
-Gelöscht wird ein Verteiler über **Löschen** im Bearbeitungsdialog. Ist die Gruppe zugleich ein Raum, bleibt der Raum erhalten.
+Gelöscht wird ein Verteiler über **Löschen** im Bearbeitungsdialog. Ist die Gruppe zugleich ein Raum, bleibt der Raum erhalten. edulution entfernt dabei auch die Adresse vom Mailserver. Ist in der Mail-App gerade kein Mailserver eingetragen, holt edulution das nach, sobald wieder einer eingetragen ist; bis dahin bleibt die Adresse aktiv.
 
 ---
 

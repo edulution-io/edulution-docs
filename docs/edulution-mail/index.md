@@ -74,7 +74,7 @@ Bilder und andere extern nachgeladene Inhalte blendet edulution zum Schutz Ihrer
 
 Über **Verfassen** öffnen Sie das Schreibfenster:
 
-- **Von**: Absenderadresse. Neben Ihrer eigenen Adresse können hier auch freigegebene Postfächer zur Auswahl stehen, für die Sie eine Sendeberechtigung besitzen.
+- **Von**: Absenderadresse. Neben Ihrer eigenen Adresse können hier auch freigegebene Postfächer zur Auswahl stehen, für die Sie eine Sendeberechtigung besitzen. Die Adresse eines Verteilers, dem Sie angehören, steht hier nicht zur Auswahl.
 - **An** sowie optional **CC/BCC** (über **CC/BCC hinzufügen** einblendbar). Über den Pfeil neben der Feldbezeichnung klappen Sie ein Adressfeld zusammen. Es zeigt dann nur die Anzahl der Empfänger an (z. B. *3 Empfänger*); die Adressen bleiben erhalten, und Fehlermeldungen zum Feld bleiben sichtbar.
 - **Betreff** und der Nachrichtentext im Editor mit Formatierungsfunktionen (fett, kursiv, Listen, Links u. a.).
 - **Anhänge** fügen Sie **vom Gerät** oder **aus Dateien** (Ihrem edulution-Dateibereich) hinzu. Für Text und Anhänge zusammen gilt eine maximale Gesamtgröße.
@@ -105,7 +105,7 @@ Sobald Sie in **An**, **CC** oder **BCC** zu tippen beginnen, schlägt edulution
 
 1. **Zuletzt verwendete Empfänger** aus Ihren vorherigen Nachrichten.
 2. **Kontakte** aus den Adressbüchern der [Kontakte-App](../edulution-plattform/apps/native-apps/kontakte.md) – nur, wenn die Kontakte-App eingerichtet ist und Ihre Eingabe mindestens zwei Zeichen umfasst. Durchsucht werden gleichzeitig alle Adressbücher, auf die Sie Zugriff haben: Ihre eigenen, die für Sie freigegebenen und das globale Adressbuch. Das Suchfeld der Kontakte-App durchsucht dagegen nur das ausgewählte. Am Vorschlag wird zusätzlich das Adressbuch genannt, aus dem er stammt; steht dieselbe Adresse in mehreren Adressbüchern, erscheint sie einmal und nennt alle.
-3. **Empfänger aus dem Verzeichnis**: Verteiler, Alias-Adressen und freigegebene Postfächer. Auf einer Instanz mit mehreren Schulen stehen darunter auch die der anderen Schulen.
+3. **Empfänger aus dem Verzeichnis**: Verteiler, Alias-Adressen und freigegebene Postfächer. Auf einer Instanz mit mehreren Schulen stehen darunter auch die der anderen Schulen. Verteiler, die ein Administrator in edulution unter [Einstellungen → Gruppen](../edulution-plattform/konfiguration/einstellungen.md#gruppen) angelegt hat, schlägt das Adressfeld nicht vor; ihre Adresse geben Sie vollständig ein.
 
 Eine Adresse, die in mehreren Quellen vorkommt, erscheint nur einmal. Die Liste ist auf 50 Vorschläge begrenzt; die am besten passenden stehen oben – eine vollständige Übereinstimmung vor einem Treffer am Namensanfang und dieser vor einem Treffer irgendwo im Namen.
 

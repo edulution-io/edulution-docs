@@ -18,7 +18,6 @@ export function MailConfigProvider({ children }: { children: ReactNode }) {
   const [config, setConfigState] = useState<MailConfig | null>(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // Load from LocalStorage on mount
   useEffect(() => {
     if (typeof window !== 'undefined' && !isInitialized) {
       const stored = localStorage.getItem('edulution-mail-config');
@@ -34,7 +33,6 @@ export function MailConfigProvider({ children }: { children: ReactNode }) {
     }
   }, [isInitialized]);
 
-  // Save to LocalStorage when config changes
   const setConfig = (newConfig: MailConfig | null) => {
     setConfigState(newConfig);
     if (typeof window !== 'undefined') {
@@ -56,7 +54,6 @@ export function MailConfigProvider({ children }: { children: ReactNode }) {
 export function useMailConfig() {
   const context = useContext(MailConfigContext);
   if (context === undefined) {
-    // Return default values if provider is not available (e.g., during SSG)
     return {
       config: null,
       setConfig: () => {},
@@ -65,7 +62,6 @@ export function useMailConfig() {
   return context;
 }
 
-// Helper component to display values with fallback
 interface ConfigValueProps {
   value?: string;
   fallback: string;

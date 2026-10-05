@@ -20,7 +20,7 @@ Wählen Sie die passende Installationsanleitung für Ihre Situation:
   <Card
     to="/docs/edulution-lms/installation/schnellstart"
     title="Schnellstart"
-    text="In 10 Minuten zur ersten Moodle-Instanz"
+    text="Aufsetzen der ersten Moodle-Instanz"
   />
   <Card
     to="/docs/edulution-lms/installation/detailliert"

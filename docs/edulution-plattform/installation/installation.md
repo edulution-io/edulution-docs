@@ -29,12 +29,6 @@ Die Installation gliedert sich in folgende Bereiche:
 - BindUser erstellen
 - Setup-Token generieren
 
-## Zeitaufwand
-
-- **Voraussetzungen prüfen**: ~15 Minuten
-- **Installation durchführen**: ~20-30 Minuten
-- **Linuxmuster konfigurieren**: ~10 Minuten
-
 ## Unterstützung
 
 Bei Fragen oder Problemen steht Ihnen die Community im [Forum](https://ask.linuxmuster.net/c/edulution/63) gerne zur Verfügung.

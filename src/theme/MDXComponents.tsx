@@ -8,7 +8,6 @@ import { Cards, Card } from '@site/src/components/Cards';
 
 export default {
   ...MDXComponents,
-  // Ohne Import in jeder .md/.mdx-Datei verwendbar.
   Audience,
   AudiencePicker,
   AppCards,

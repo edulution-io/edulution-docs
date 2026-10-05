@@ -63,20 +63,21 @@ Erfahren Sie mehr unter [Mobile App & Tablet-Nutzung](../../edulution-app/mobile
 
 ### Quotas
 
-Übersicht über Ihre Speichernutzung:
+Das Widget **Quotas** zeigt Ihren belegten und Ihren gesamten Dateispeicher in GB, darunter eine Fortschrittsanzeige und den belegten Anteil in Prozent. Ist der Speicher vollständig belegt, erscheint zusätzlich **Speicher voll**.
 
-**Anzeige der Speicherkontingente:**
-- **Schul-Quota**: Verwendeter vs. verfügbarer Speicher (z.B. "--/-- MiB")
-- **Cloud quota calculated**: Berechnetes Cloud-Speicherkontingent
-- **E-Mail quota calculated**: E-Mail-Speicherlimit (z.B. "306 MiB")
+Angezeigt wird dabei immer die Quota **Ihres eigenen Benutzerverzeichnisses** – unabhängig davon, welchen Ordner oder welche Freigabe Sie zuletzt in der Dateiverwaltung geöffnet haben. Eine fast volle Klassen- oder Tauschfreigabe verändert diese Anzeige also nicht.
 
-Die visuelle Fortschrittsanzeige zeigt den aktuellen Verbrauch an.
+Solange die Werte noch geladen werden oder wenn sich keine Quota ermitteln lässt, steht an Stelle der Zahlen `--` und die Fortschrittsanzeige bleibt leer.
+
+Die Anzeige aktualisiert sich selbständig, sobald ein Datei-Vorgang abgeschlossen ist – etwa ein Upload in der Dateien-App oder das Einsammeln im Klassenraum. Ein Neuladen der Seite ist dafür nicht nötig.
+
+Ihre einzelnen Kontingente – Cloud- und E-Mailquota – finden Sie unter [Benutzerdetails](./benutzereinstellungen/benutzerdetails.md#quotas). Wie Sie belegten Speicher wieder freigeben, steht unter [Speicherplatz und Quota](../../edulution-fileproxy/dateien/speicherplatz-und-quota.md).
 
 ### Termine
 
 Das Widget **Termine** zeigt einen gleitenden Ausschnitt von drei Tagen – **Gestern**, **Heute** und **Morgen** – als Stundenleiste. Es erscheint nur, wenn es im Dashboard-Layout aktiviert ist (siehe [Dashboard anpassen](#dashboard-anpassen)).
 
-Über der Stundenleiste stehen der gerade sichtbare Tag und die Anzahl seiner Termine; blättern Sie in der Leiste, wechselt diese Beschriftung auf den jeweils sichtbaren Tag. Hat der gerade sichtbare Tag keine Termine, erscheint an dieser Stelle – statt der Anzahl – **Keine Termine an diesem Tag**. Ganztägige Termine stehen nicht in der Stundenleiste, sondern als eigene Reihe kleiner Schaltflächen darüber – je mit einem farbigen Punkt und dem gekürzten Titel. Angezeigt werden höchstens zwei; weitere fasst eine Angabe wie **+3** zusammen. Unterhalb der Leiste nennt eine Fußzeile unter **Jetzt** und **Als Nächstes** den laufenden und den darauffolgenden Termin. Die Farben entsprechen den Kalenderfarben aus der [Kalender-Seitenleiste](../apps/native-apps/kalender.md#seitenleiste-und-kalenderliste).
+Über der Stundenleiste stehen der gerade sichtbare Tag und die Anzahl seiner Termine; blättern Sie in der Leiste, wechselt diese Beschriftung auf den jeweils sichtbaren Tag. Hat der gerade sichtbare Tag keine Termine, erscheint an dieser Stelle – statt der Anzahl – **Keine Termine an diesem Tag**. Solange die Kalenderliste noch geladen wird, bleibt diese Stelle leer, denn ob der Tag Termine enthält, steht zu diesem Zeitpunkt noch nicht fest. Lässt sich die Kalenderliste nicht laden, steht dort **Termine konnten nicht geladen werden**; das Widget meldet in diesem Fall bewusst keinen freien Tag. Ganztägige Termine stehen nicht in der Stundenleiste, sondern als eigene Reihe kleiner Schaltflächen darüber – je mit einem farbigen Punkt und dem gekürzten Titel. Angezeigt werden höchstens zwei; weitere fasst eine Angabe wie **+3** zusammen. Unterhalb der Leiste nennt eine Fußzeile unter **Jetzt** und **Als Nächstes** den laufenden und den darauffolgenden Termin. Die Farben entsprechen den Kalenderfarben aus der [Kalender-Seitenleiste](../apps/native-apps/kalender.md#seitenleiste-und-kalenderliste).
 
 Was ein Klick auf einen Termin bewirkt, hängt von Ihren Rechten am zugehörigen Kalender ab:
 

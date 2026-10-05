@@ -1,162 +1,175 @@
 ---
+sidebar_position: 5
+title: Satelliten verwalten
+description: Satelliten in der edulution Plattform koppeln, freigeben und betreiben – Status, Netzwerke, Authentifizierung und Dienste
 sidebar_custom_props:
   audience: admin
 ---
 
 # Satelliten verwalten
 
-Satelliten sind eigenständige edulution-Geräte (Appliances) an entfernten Standorten, die über einen WireGuard-Tunnel mit Ihrer zentralen edulution-Instanz verbunden sind. Nach der Kopplung lassen sich ihre Netzwerke (VLANs), Authentifizierungs-Anbieter (LDAP) und Dienste wie der mDNS-Repeater und der RADIUS-Server zentral aus der edulution Plattform heraus verwalten und überwachen.
+Ein Satellit ist ein edulution-Gerät an einem entfernten Standort. Nach der Kopplung verwalten Sie seine Netzwerke (VLANs), LDAP-Anbieter und Dienste zentral in der edulution Plattform. Die Verwaltung besteht aus zwei Teilen:
 
-:::tip[Satelliten erstmalig in Betrieb nehmen]
-Diese Seite beschreibt den **laufenden Betrieb** in der edulution Plattform. Die Erstinbetriebnahme eines Geräts – Apps installieren, WireGuard starten, Gerät koppeln und zentrale Netze bereitstellen – ist unter [edulution Satellite](./index.md) beschrieben.
+- **Einstellungen → Satellites** – Satelliten koppeln, freigeben, einer Schule zuweisen, aktualisieren und entfernen.
+- **App Satellites** – den laufenden Betrieb eines gewählten Satelliten einsehen und konfigurieren: **Übersicht**, **Netzwerke**, **Authentifizierung**, **Dienste** und **LINBO**.
+
+:::note[Nur für Administratoren]
+Die gesamte Satellitenverwaltung steht nur Administratoren offen – in den **Einstellungen** ebenso wie in der App.
 :::
 
-Die Verwaltung gliedert sich in zwei Bereiche:
+Die Erstinbetriebnahme eines Geräts beschreibt [Einrichtung mit edulution](./einrichtung-mit-edulution.md). LINBO behandelt [LINBO am Satelliten](./linbo.md).
 
-- **Einstellungen → Satellites** – Satelliten koppeln, genehmigen, einer Schule zuweisen und aktualisieren (nur Global-Admin).
-- **App „Satellites"** – den laufenden Betrieb eines ausgewählten Satelliten einsehen und konfigurieren (Übersicht, Netzwerke, Authentifizierung, Dienste).
+## Status eines Satelliten
 
-:::warning[Nur Global-Admin]
-Das Koppeln und Verwalten von Satelliten in den **Einstellungen** ist ausschließlich für Global-Admins zugänglich. Der Schulfilter im Satelliten-Bereich erscheint ebenfalls nur für Global-Admins mit mehr als einer Schule.
-:::
+Die Liste **Verbundene Satellites** zeigt den Status als Rohwert. Ist ein Satellit erreichbar, steht stattdessen **● Online**; die verfügbaren Aktionen richten sich trotzdem nach dem zugrunde liegenden Status.
 
-## Lebenszyklus eines Satelliten
+| Anzeige | Bedeutung |
+|---------|-----------|
+| **pending** | Der Satellit hat sich selbst registriert und wartet auf **Akzeptieren**. |
+| **paired** | Die Seriennummer ist hinterlegt, der Satellit hat sich noch nicht gemeldet. Bei der ersten Verbindung wird er automatisch **accepted**. |
+| **accepted** | Der Satellit ist freigegeben. Nur diese Satelliten erscheinen in der App. |
+| **rejected** | Die Anfrage wurde abgelehnt. |
 
-Ein Satellit durchläuft mehrere Zustände, bis er betriebsbereit ist:
+## Satellit koppeln
 
-| Status | Bedeutung |
-|--------|-----------|
-| **Ausstehend** (pending) | Der Satellit hat sich registriert und wartet auf Ihre Genehmigung. |
-| **Gekoppelt** (paired) | Der Satellit wurde über seine Seriennummer vorab gekoppelt und meldet sich bei der nächsten Verbindung. |
-| **Akzeptiert** (accepted) | Der Satellit ist freigegeben und wird im Satelliten-Bereich angezeigt. |
-| **Abgelehnt** (rejected) | Die Verbindungsanfrage wurde abgewiesen. |
-| **Online** | Ein akzeptierter Satellit ist aktuell erreichbar (regelmäßiger Heartbeat). |
+Eine Kopplung über die Seriennummer spart das Freigeben von Hand: Der Satellit verbindet sich bei der ersten Meldung selbst.
 
-Nur **akzeptierte** Satelliten erscheinen im Satelliten-Bereich und können dort konfiguriert werden.
+1. Wählen Sie unter **Einstellungen → Satellites** das Plus-Symbol.
+2. Geben Sie die **Seriennummer** ein, zum Beispiel *HJB0A1B2C3D*.
+3. Wählen Sie **Hinzufügen**.
 
-## Satelliten koppeln und verwalten (Einstellungen)
+Die Plattform meldet „Satellit erfolgreich hinzugefügt! Warte auf erste Verbindung...“. Der Eintrag hat den Status **paired**.
 
-Öffnen Sie als Global-Admin die **Einstellungen** (Zahnrad-Symbol unten im Menü) und wählen Sie in der Seitenleiste **Satellites**. Unter dem Abschnitt **Verbundene Satellites** werden alle Satelliten – unabhängig von ihrem Status – in einer gemeinsamen Liste angezeigt; jeder Eintrag ist mit seinem aktuellen Status gekennzeichnet. Die Liste aktualisiert sich automatisch in regelmäßigen Abständen.
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| Satellit bereits gekoppelt mit: *Besitzer* | Die Seriennummer gehört bereits einer anderen edulution-Instanz. | Den Satelliten an der Instanz des Besitzers entkoppeln. |
+| Satellit ist bereits mit einer anderen Instanz gekoppelt. | Die Seriennummer ist vergeben, der Besitzer ist unbekannt – oder in der Liste steht schon ein Eintrag dazu, dessen Status nicht **pending** ist. | Zuerst den alten Eintrag in der Liste entfernen, sonst die Kopplung an der anderen Instanz aufheben. |
+| Für das Koppeln fehlt EDULUTION_BASE_DOMAIN in der API-Konfiguration. Bitte die öffentliche edulution-Domain eintragen und die API neu starten. | Auf dem edulution-Server fehlt die Variable `EDULUTION_BASE_DOMAIN`. | Variable setzen, API neu starten. |
 
-Solange noch kein Satellit vorhanden ist, erscheint nur die Schaltfläche zum Hinzufügen.
-
-### Satellit hinzufügen
-
-1. Klicken Sie auf die Schaltfläche mit dem **Plus-Symbol** (*Satellit hinzufügen*).
-2. Geben Sie im Dialog **Satellit hinzufügen** die **Seriennummer** des Geräts ein (z. B. `SN-1234567890`).
-3. Bestätigen Sie mit **Hinzufügen**.
-
-Bei Erfolg erscheint die Meldung, dass der Satellit hinzugefügt wurde und auf die erste Verbindung gewartet wird.
-
-:::note[Bereits gekoppelte Geräte]
-Ist die Seriennummer bereits mit einer anderen edulution-Instanz gekoppelt, meldet der Dialog dies und nennt – sofern bekannt – den aktuellen Besitzer. Die Kopplung muss dann zuerst an der anderen Instanz aufgehoben werden.
-:::
-
-### Einen Satelliten genehmigen oder ablehnen
-
-Für jeden Satelliten werden Name, Status, Version, zugewiesene Schule, URL sowie – sofern gemeldet – Hostname, letzter Kontakt, Modell, Seriennummer und MAC-Adressen angezeigt. Bei akzeptierten Satelliten erscheinen zusätzlich Statusanzeigen der laufenden Dienste (● aktiv / ○ gestoppt). Je nach Status stehen folgende Aktionen zur Verfügung:
+## Satelliten freigeben und entfernen
 
 | Status | Verfügbare Aktionen |
 |--------|---------------------|
-| Ausstehend | **Akzeptieren**, **Ablehnen**, **Entfernen** |
-| Abgelehnt | **Akzeptieren**, **Entfernen** |
-| Akzeptiert | **Updates prüfen** (wenn online), **Entkoppeln**, **Entfernen**, Schule zuweisen |
+| **pending** | **Akzeptieren**, **Ablehnen**, **Entfernen** |
+| **paired** | **Entfernen** |
+| **rejected** | **Akzeptieren**, **Entfernen** |
+| **accepted** | **Updates prüfen** (nur wenn online), **Zentrales Netzwerk**, **Entkoppeln**, **Entfernen**, Auswahl der Schule |
 
-- **Akzeptieren** gibt den Satelliten frei; er erscheint anschließend im Satelliten-Bereich.
-- **Ablehnen** weist die Anfrage ab.
-- **Entkoppeln** löst die Kopplung, sodass das Gerät an einer anderen Instanz verwendet werden kann.
-- **Entfernen** löscht den Eintrag aus der Liste.
+**Zentrales Netzwerk** erscheint nur auf Linuxmuster-Installationen und bei Satelliten mit Seriennummer; die Konfiguration steht in [Einrichtung mit edulution](./einrichtung-mit-edulution.md#zentrale-netze-über-wireguard). **Entkoppeln** erscheint nur bei Satelliten, die über ihre Seriennummer gekoppelt wurden.
 
-### Schule zuweisen
+**Entkoppeln** und **Entfernen** löschen den Eintrag, den WireGuard-Zugang des Satelliten und seine zentralen Netze auf dem Linuxmuster-Server. Sie unterscheiden sich in einem Punkt:
 
-Akzeptierten Satelliten können Sie über das Auswahlfeld eine **Schule** zuordnen. Die Zuordnung steuert, unter welcher Schule der Satellit im Satelliten-Bereich gruppiert und gefiltert wird. Über **Keine Schule** entfernen Sie die Zuordnung wieder.
+| Aktion | Seriennummer |
+|--------|--------------|
+| **Entkoppeln** | wird beim Provisionierungsdienst freigegeben; das Gerät lässt sich an einer anderen Instanz koppeln |
+| **Entfernen** | bleibt beim Provisionierungsdienst Ihrer Instanz zugeordnet |
 
-### WireGuard-Tunnel
+:::caution[Keine Rückfrage]
+**Entkoppeln** und **Entfernen** laufen ohne Sicherheitsabfrage. Ob die Seriennummer beim Provisionierungsdienst freigegeben werden konnte, meldet die Plattform nicht.
+:::
 
-Sobald ein Tunnel besteht, zeigt der Satelliten-Eintrag einen Abschnitt **WireGuard-Tunnel** mit **Tunnel-IP**, **Peer-Endpunkt** und **öffentlichem Schlüssel**. Über **WG neu konfigurieren** senden Sie die WireGuard-Konfiguration erneut an den Satelliten:
+Konnte beim Entkoppeln oder Entfernen ein Teil nicht aufgeräumt werden, ist der Eintrag trotzdem gelöscht. Die Plattform meldet „Abgeschlossen, mit Hinweisen: …“ mit einem oder beiden dieser Texte:
 
-- Ist der Satellit online, wird die Konfiguration sofort übertragen.
-- Ist er offline, wird sie bei der nächsten Verbindung angewendet.
+| Hinweis | Abhilfe |
+|---------|---------|
+| Die LMN-Subnetze konnten nicht entfernt werden. | Die Subnetze des Satelliten im Linuxmuster-Server von Hand löschen. |
+| Der WireGuard-Peer konnte nicht entfernt werden. | Den Peer `sat-<seriennummer>` unter **Einstellungen → WireGuard** löschen. |
 
-### Updates
+## Schule zuweisen
 
-Bei akzeptierten, online erreichbaren Satelliten können Sie über **Updates prüfen** nach neuen Versionen suchen. Steht ein Update bereit, wird die aktuelle Version mit der verfügbaren Zielversion angezeigt, und Sie können einzelne Komponenten gezielt aktualisieren. Ist alles aktuell, erscheint der Hinweis **Aktuell**.
+Bei akzeptierten Satelliten wählen Sie in der Auswahlliste eine **Schule**; **Keine Schule** hebt die Zuweisung auf. Die Schule bestimmt, wie die App die Satelliten gruppiert und filtert.
 
-## Der Satelliten-Bereich
+## WireGuard-Zugang erneut senden
 
-Den laufenden Betrieb eines Satelliten verwalten Sie in der App **Satellites** (sofern für Sie freigeschaltet). Am oberen Rand befindet sich die Satelliten-Auswahl, darunter wechseln Sie über die Seitenleiste zwischen **Übersicht**, **Netzwerke**, **Authentifizierung** und **Diensten**.
+Sobald dem Satelliten eine Tunnel-IP zugewiesen ist, zeigt der Eintrag den Abschnitt **WireGuard-Tunnel** mit **Tunnel-IP**, **Peer-Endpunkt** und **Öffentlicher Schlüssel**. Vom Schlüssel zeigt die Plattform die ersten 20 Zeichen.
 
-### Satellit auswählen
+**WG neu konfigurieren** sendet die WireGuard-Konfiguration erneut und legt den Zugang neu an, falls er fehlt:
 
-Über das Auswahlfeld **Satellit** wählen Sie das gewünschte Gerät. Jeder Eintrag ist mit seinem Verbindungszustand gekennzeichnet (`[Online]` bzw. `[Offline]`) und – falls zugewiesen – mit der Schule. Global-Admins mit Satelliten an mehreren Schulen sehen zusätzlich das Feld **Schule**, mit dem sich die Auswahl auf eine Schule (oder **Alle Schulen**) einschränken lässt. Die Liste enthält ausschließlich akzeptierte Satelliten und wird laufend aktualisiert.
+| Satellit | Plattform meldet |
+|----------|------------------|
+| online | WireGuard-Konfiguration an Satellit gesendet. |
+| offline | Satellit offline — Konfiguration wird bei der nächsten Verbindung angewendet. |
 
-Ist kein Satellit ausgewählt, erscheint der Hinweis, einen Satelliten auszuwählen. Ist der gewählte Satellit offline, wird statt der Inhalte die Meldung **Satellit ist offline** angezeigt.
+## Satellit aktualisieren
+
+Bei einem akzeptierten, erreichbaren Satelliten fragt **Updates prüfen** nach neuen Versionen. Die Plattform zeigt die installierte Version, bei einem Update zusätzlich die Zielversion mit einer Schaltfläche je Komponente, beschriftet mit „*KOMPONENTE* aktualisieren“ (der Komponentenname in Großbuchstaben). Ist alles aktuell, erscheint **Aktuell**.
+
+## Satelliten-Bereich
+
+In der App **Satellites** wählen Sie den Satelliten im Feld **Satellit**. Die Liste enthält nur akzeptierte Satelliten, jeweils mit **[Online]** oder **[Offline]**, dem Namen und – falls zugewiesen – der Schule. Der erste Satellit ist vorgewählt.
+
+Das Feld **Schule** (mit **Alle Schulen**) erscheint nur für Global-Admins und nur, wenn die akzeptierten Satelliten zu mehr als einer Schule gehören.
+
+Was die Unterseiten bei fehlender Auswahl oder einem nicht erreichbaren Satelliten zeigen:
+
+| Situation | Anzeige |
+|-----------|---------|
+| Kein Satellit gewählt | Bitte einen Satelliten auswählen, um fortzufahren. |
+| **Übersicht**, Satellit offline | Satellit ist offline. |
+| **Netzwerke**, **Authentifizierung**, **Dienste**, **LINBO**, Satellit offline | Die Seite meldet einen Ladefehler. |
 
 ### Übersicht
 
-Die **Übersicht** fasst den Zustand des ausgewählten Satelliten zusammen:
+Die **Übersicht** gibt es nur für erreichbare Satelliten. Sie zeigt:
 
-- **Satellite-Übersicht** – Status (Online/Offline), Version, Laufzeit und Seriennummer.
-- **Kennzahlen-Kacheln** – Anzahl der **Netzwerke**, **Container** und **Auth-Anbieter**. Ein Klick auf eine Kachel führt direkt zur jeweiligen Unterseite.
-- **Container-Status** – ein Ringdiagramm mit der Zahl laufender und gestoppter Container.
-- **Ressourcen** – Auslastung von CPU, Arbeitsspeicher und Speicher als Balken. Neben der Auslastung wird die Plattform (z. B. MikroTik-Board und Architektur) angezeigt.
+- **Satellite-Übersicht** – Status, Version, Laufzeit und Seriennummer.
+- Kacheln für **Netzwerke**, **Container** und **Auth-Anbieter**; sie führen zur jeweiligen Unterseite.
+- **Container-Status** – wie viele Container laufen und wie viele gestoppt sind.
+- **Ressourcen** – Auslastung von CPU, Arbeitsspeicher und Speicher, dazu die Plattform des Geräts.
 
-Die Ressourcen-Balken sind nach Auslastung eingefärbt:
+Liefert das Gerät keine Messwerte, steht dort „Keine Ressourcen-Metriken von der Satelliten-Hardware verfügbar.“ Die Balken wechseln mit der Auslastung die Farbe:
 
-| Auslastung | Farbe | Bedeutung |
-|------------|-------|-----------|
-| unter 65 % | grün | normaler Bereich |
-| 65 % bis 85 % | gelb | erhöhte Auslastung |
-| ab 85 % | rot | kritische Auslastung |
-
-:::note[Hardware- und VM-Satelliten]
-Bei MikroTik-basierten Geräten werden die detaillierten Hardware-Metriken bevorzugt verwendet; auf VM-Satelliten dienen die Host-Werte als Grundlage. Liefert die Hardware keine Metriken, erscheint statt der Balken ein entsprechender Hinweis.
-:::
+| Auslastung | Farbe |
+|------------|-------|
+| unter 65 % | grün |
+| 65 % bis unter 85 % | gelb |
+| ab 85 % | rot |
 
 ### Netzwerke
 
-Die Unterseite **Netzwerke** verwaltet die VLAN-Netzwerke des Satelliten. Die Tabelle zeigt **VLAN**, **Name**, **Eltern-Interface**, **Adresse**, **Maske** und **Satelliten-IP**. Über die Schaltflächen am unteren Rand sowie die Aktionen je Zeile können Sie Netzwerke anlegen, bearbeiten, löschen und die Liste neu laden.
+**Netzwerke** verwaltet die VLANs des Satelliten. Beim Anlegen und Bearbeiten gelten diese Felder:
 
-Beim Anlegen oder Bearbeiten füllen Sie folgende Felder aus:
-
-| Feld | Beschreibung |
-|------|--------------|
+| Feld | Hinweis |
+|------|---------|
 | **Name** | Bezeichnung des Netzwerks |
-| **VLAN-ID** | numerische VLAN-Kennung (beim Bearbeiten nicht änderbar) |
-| **Eltern-Interface** | physisches Interface, auf dem das VLAN aufsetzt (Auswahl) |
-| **Adresse** | Netzadresse, z. B. `10.0.0.0` |
-| **Maske** | Präfixlänge, z. B. `24` |
-| **Satelliten-IP** | IP-Adresse des Satelliten in diesem Netz, z. B. `10.0.0.1` |
+| **VLAN-ID** | beim Bearbeiten nicht änderbar |
+| **Eltern-Interface** | Interface, auf dem das VLAN aufsetzt; vorgewählt ist das erste der Liste |
+| **Adresse** | Netzadresse, zum Beispiel `10.0.0.0` |
+| **Maske** | Netzmaske in Punktschreibweise, Vorgabe `255.255.255.0` – keine Präfixlänge wie `24` |
+| **Satelliten-IP** | Adresse des Satelliten im Netz, zum Beispiel `10.0.0.1` |
 
 ### Authentifizierung
 
-Unter **Authentifizierung** pflegen Sie die LDAP-Authentifizierungs-Anbieter des Satelliten. Die Tabelle zeigt **Name**, **Server**, **Port**, **SSL** und **Base DN**. Neben Anlegen, Bearbeiten, Löschen und Neuladen können Sie einen ausgewählten Anbieter über **Testen** prüfen – das Ergebnis wird als **Verbindung erfolgreich** oder **Verbindung fehlgeschlagen** gemeldet.
+**Authentifizierung** verwaltet die LDAP-Anbieter des Satelliten. Beim Anlegen und Bearbeiten gelten diese Felder:
 
-Der Dialog umfasst folgende Felder:
-
-| Feld | Beschreibung |
-|------|--------------|
-| **Name** | Bezeichnung des Anbieters (beim Bearbeiten nicht änderbar) |
+| Feld | Hinweis |
+|------|---------|
+| **Name** | beim Bearbeiten nicht änderbar |
 | **Server** | Adresse des LDAP-Servers |
-| **Port** | LDAP-Port (Standard `389`) |
-| **SSL** | verschlüsselte Verbindung aktivieren |
-| **Zertifikat prüfen** | Server-Zertifikat validieren |
-| **Bind-Benutzer** | Benutzer für die LDAP-Anmeldung |
-| **Passwort** | Passwort des Bind-Benutzers |
-| **Base DN** | Basis-DN für die Suche |
-| **Benutzerfilter** | LDAP-Filter, Standard `(uid={username})` |
+| **Port** | Vorgabe `389` |
+| **SSL** | Vorgabe aus |
+| **Zertifikat prüfen** | Vorgabe an |
+| **Bind-Benutzer**, **Passwort** | Zugangsdaten für die LDAP-Anmeldung |
+| **Base DN** | Basis für die Suche |
+| **Benutzerfilter** | Vorgabe `(uid={username})` |
+
+**Testen** prüft den gewählten Anbieter. Die Plattform zeigt die Meldung des Satelliten; nur wenn er keine liefert, lautet sie „Verbindung erfolgreich“ oder „Verbindung fehlgeschlagen“.
 
 ### Dienste
 
-Die Unterseite **Dienste** bündelt die laufenden Dienste in drei ausklappbaren Abschnitten:
+**Dienste** hat drei ausklappbare Abschnitte:
 
-- **mDNS-Repeater** – leitet mDNS-Anfragen zwischen zwei Netzwerken weiter. Die Tabelle zeigt **Name**, **Netzwerk 1**, **Netzwerk 2** (jeweils als VLAN) und den **Status**. Einzelne Repeater lassen sich **starten**, **stoppen** und löschen.
-- **RADIUS-Server** – stellt die Netzwerk-Authentifizierung bereit. Die Tabelle zeigt **Name**, **Netzwerk** (VLAN), den zugeordneten **Auth**-Anbieter und den **Status**. Auch hier können Einträge gestartet, gestoppt und gelöscht werden.
-- **Container** – listet die auf dem Satelliten laufenden Container mit **Name**, **Status** und zugeordneten **Netzwerken** (rein informativ).
+| Abschnitt | Inhalt |
+|-----------|--------|
+| **mDNS-Repeater** | leitet mDNS zwischen **Netzwerk 1** und **Netzwerk 2** weiter; Repeater lassen sich **Starten**, **Stoppen** und löschen |
+| **RADIUS-Server** | Netzwerk-Authentifizierung für ein **Netzwerk** mit einem **Auth**-Anbieter; ebenfalls **Starten**, **Stoppen** und löschen |
+| **Container** | die Container des Satelliten, nur zur Ansicht |
 
-Über die Aktion zum Neuladen aktualisieren Sie alle drei Listen.
+Der **Status** von mDNS-Repeater und RADIUS-Server lautet **● aktiv** oder **○ gestoppt**. Bei Containern zeigt die Spalte den Wert, den der Satellit meldet, zum Beispiel `running`.
 
 ## Siehe auch
 
+- [LINBO am Satelliten](./linbo.md) – Rechner am Standort per LINBO bereitstellen
+- [Einrichtung mit edulution](./einrichtung-mit-edulution.md) – Erstinbetriebnahme und zentrale Netze
 - [Einstellungen](../edulution-plattform/konfiguration/einstellungen.md) – weitere globale Konfigurationsoptionen
 - [Administration](../edulution-plattform/konfiguration/administration.md) – allgemeine Admin-Aufgaben

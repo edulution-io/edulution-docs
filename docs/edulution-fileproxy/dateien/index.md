@@ -65,6 +65,12 @@ Wenn Sie eine Datei auswählen (Checkbox), erscheinen folgende Aktionen:
 - **Kopieren** - Datei duplizieren
 - **Teilen** - Freigabe-Link erstellen
 
+### Download-Fortschritt
+
+Während eine Datei heruntergeladen wird, erscheint eine Meldung **Datei *Name* wird heruntergeladen** mit Fortschrittsbalken, Übertragungsrate, verbleibender Zeit und der bereits übertragenen Datenmenge. Laden Sie einen Ordner herunter, wird er zuvor als ZIP-Archiv gepackt; solange dessen Gesamtgröße noch nicht feststeht, zeigt die Meldung nur die übertragene Datenmenge und keine Prozentangabe.
+
+Schlägt ein Download fehl, nennt dieselbe Meldung den Grund – etwa *Kein Zugriff auf diese Ressource*. Jeder Download hat dabei seine eigene Meldung: Schlägt einer fehl, bleiben gleichzeitig laufende Downloads davon unberührt.
+
 ### In App öffnen [tags: ios, android]
 
 Rufen Sie die Dateiverwaltung über die [edulution.io App](/docs/edulution-app) auf, kommt die Aktion **In App öffnen** hinzu. Die Datei wird an die App übergeben und dort mit den Mitteln des Betriebssystems angezeigt – unter iOS über die Dateien-App. Im Browser entfällt die Aktion, ebenso in App-Versionen älter als 2.0.
@@ -103,7 +109,7 @@ Um große Dateien hochladen zu können (Videos, Backups, große Projekte), richt
 ### Speicherplatz
 Ihre Speichernutzung steht am unteren Rand der Menüleiste: Schulname, Fortschrittsbalken und die belegten GB. Wird der Platz knapp, erscheint eine Warnung unter der Überschrift **Dateien**; bei sehr geringer Quota werden Hochladen und Erstellen ausgeblendet und Freigaben lassen sich nicht mehr mit Schreibrechten versehen.
 
-Alle Details finden Sie unter [Speicherplatz und Quota](./speicherplatz-und-quota.md), die berechneten Cloud- und E-Mail-Quotas im [Dashboard](../../edulution-plattform/uebersicht/dashboard.md#quotas).
+Alle Details finden Sie unter [Speicherplatz und Quota](./speicherplatz-und-quota.md), die berechneten Cloud- und E-Mail-Quotas unter [Benutzerdetails](../../edulution-plattform/uebersicht/benutzereinstellungen/benutzerdetails.md#quotas).
 
 ### Unterstützte Formate
 Alle Dateiformate sind möglich. Direkt bearbeiten können Sie:
@@ -137,5 +143,5 @@ Sie können Ihre Dateien auch direkt über den Dateimanager Ihres Betriebssystem
 - [Vorschau und Drucken](./vorschau-und-drucken.md) - Dateien ansehen und ausdrucken
 - [Dashboard](../../edulution-plattform/uebersicht/dashboard.md) - Speichernutzung anzeigen
 - [Mobile App](../../edulution-app/mobile-ansicht.md) - Dateien mobil synchronisieren
-- [Eingebettete App](../../edulution-plattform/apps/eingebettete-app.md) - HTML/JS/CSS hochladen
+- [Eingebettete App](../../edulution-plattform/apps/eingebettete-app.md) - Eigene Web-Anwendungen hochladen und in edulution anzeigen
 - [Schutzmechanismen beim Hochladen](./upload-schutzmechanismen.md) - Dateinamen, Duplikate und Bildumwandlung

@@ -160,7 +160,7 @@ Oder nutzen Sie den **Einrichtungsassistenten** beim ersten Start.
   <Card
     to="/docs/edulution-lms/installation/schnellstart"
     title="Schnellstart"
-    text="In 10 Minuten zum Ergebnis"
+    text="Aufsetzen des Lern Management Systems"
   />
   <Card
     to="/docs/edulution-lms/installation/voraussetzungen"

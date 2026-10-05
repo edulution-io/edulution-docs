@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { useMailConfig } from './MailConfigContext';
 
 interface CommandVariant {
   platform: 'Windows' | 'Linux' | 'macOS' | 'All';
@@ -18,27 +19,17 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ variants, title, description }) =
   const [selectedPlatform, setSelectedPlatform] = useState<string>('All');
   const [copied, setCopied] = useState(false);
   const [processedCommand, setProcessedCommand] = useState('');
+  const { config } = useMailConfig();
 
-  // Get values from localStorage and replace placeholders
-  const replacePlaceholders = (text: string): string => {
-    try {
-      const mailDomain = localStorage.getItem('mailDomain') || 'mail.edulution.io';
-      const emailAddress = localStorage.getItem('emailAddress') || 'benutzer@example.com';
-      const userName = localStorage.getItem('userName') || 'benutzer';
-
-      return text
-        .replace(/\{\{mailDomain\}\}/g, mailDomain)
-        .replace(/\{\{emailAddress\}\}/g, emailAddress)
-        .replace(/\{\{userName\}\}/g, userName);
-    } catch (error) {
-      return text;
-    }
-  };
+  const replacePlaceholders = (text: string): string =>
+    text
+      .replace(/\{\{mailDomain\}\}/g, config?.imapServer || 'mail.edulution.io')
+      .replace(/\{\{emailAddress\}\}/g, config?.email || 'benutzer@example.com');
 
   useEffect(() => {
     const currentVariant = variants.find((v) => v.platform === selectedPlatform) || variants[0];
     setProcessedCommand(replacePlaceholders(currentVariant.command));
-  }, [selectedPlatform, variants]);
+  }, [selectedPlatform, variants, config]);
 
   const handleCopy = async () => {
     try {
@@ -53,7 +44,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ variants, title, description }) =
   const currentVariant = variants.find((v) => v.platform === selectedPlatform) || variants[0];
   const processedOutput = currentVariant.expectedOutput ? replacePlaceholders(currentVariant.expectedOutput) : null;
 
-  // Only show platform selector if there are multiple platforms
   const showPlatformSelector = variants.length > 1;
   const availablePlatforms = variants.map((v) => v.platform);
 
@@ -62,7 +52,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ variants, title, description }) =
       id="tw-scope"
       className="my-6 rounded-lg border border-gray-300 dark:border-[#2a2a2a] overflow-hidden"
     >
-      {/* Header */}
       <div className="bg-gray-100 dark:bg-[#1a1a1a] px-4 py-3 flex items-center justify-between border-b border-gray-300 dark:border-[#2a2a2a]">
         <div className="flex-1">
           {title && <h4 className="text-sm font-semibold mb-1">{title}</h4>}
@@ -70,7 +59,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ variants, title, description }) =
         </div>
 
         <div className="flex items-center gap-3">
-          {/* Platform Selector */}
           {showPlatformSelector && (
             <div className="flex gap-1 bg-gray-200 dark:bg-[#2d3748] rounded p-1">
               {availablePlatforms.map((platform) => (
@@ -96,7 +84,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ variants, title, description }) =
             </div>
           )}
 
-          {/* Copy Button */}
           <button
             onClick={handleCopy}
             className="px-3 py-1.5 text-xs font-semibold rounded bg-gray-200 dark:text-white hover:bg-gray-300 transition-all flex items-center gap-2"
@@ -120,14 +107,12 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ variants, title, description }) =
         </div>
       </div>
 
-      {/* Code */}
       <div className="bg-gray-50 dark:bg-[#0f0f0f]">
         <pre className="p-4 overflow-x-auto text-sm">
           <code className="text-gray-800 dark:text-gray-200">{processedCommand}</code>
         </pre>
       </div>
 
-      {/* Expected Output */}
       {processedOutput && (
         <div className="border-t border-gray-300 dark:border-[#2a2a2a]">
           <div className="bg-gray-100 dark:bg-[#1a1a1a] px-4 py-2 border-b border-gray-300 dark:border-[#2a2a2a]">

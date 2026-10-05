@@ -106,25 +106,19 @@ Wir haben einige standardmäßige Vorlagen vordefiniert, an denen Sie sich orien
 
 #### Benutzer-Ansicht
 
-![Vorlagen - Kachel-Ansicht - Benutzer](/img/umfragen/Screenshot_20260506_113106.png)
-
-Jede Vorlage wird als eigene Kachel dargestellt. Alle Kacheln sind gleich hoch, unabhängig davon, ob eine Vorlage eine Beschreibung besitzt.
-
-- **Vorlage öffnen**: Klicken Sie die Kachel an. Die Vorlage wird als Grundgerüst in den Editor geladen, an dem Sie sich orientieren können. Mit der Tastatur erreichen Sie die Kacheln über die Tabulatortaste und öffnen die ausgewählte Vorlage mit **Enter** oder der **Leertaste**.
+- **Vorlage öffnen**: Klicken Sie die Kachel an. Die Vorlage wird als Grundgerüst in den Editor geladen, an dem Sie sich orientieren können. Mit der Tastatur erreichen Sie die Kacheln über die **Tabulatortaste** und öffnen die Kachel mit **Enter** oder der **Leertaste**.
 - **Neue Umfrage**: Die letzte Kachel des Rasters trägt ein Plus-Symbol und startet mit einer leeren Umfrage, also ohne Vorlage.
 - **Vorschau** (Augen-Symbol): Öffnet eine Vorschau der Vorlage, ohne sie in den Editor zu laden.
 
-:::tip[Lange Namen und Beschreibungen]
-Ist der Name einer Vorlage zu lang für die Kachel, wird er gekürzt; der vollständige Name erscheint, sobald Sie mit der Maus darauf zeigen. Die Beschreibung wird nach zwei Zeilen abgeschnitten und vollständig als Kurzinfo eingeblendet, wenn Sie sie mit der Maus oder der Tastatur ansteuern.
+:::note[Lange Namen und Beschreibungen]
+Die Beschreibung wird nach zwei Zeilen abgeschnitten und vollständig als Kurzinfo eingeblendet, wenn Sie sie mit der Maus oder der Tastatur ansteuern.
 :::
 
-Über das Suchfeld oberhalb des Rasters filtern Sie die Vorlagen nach ihrem Namen. Die eingegebenen Buchstaben müssen dabei nicht zusammenhängend vorkommen, sondern nur in der richtigen Reihenfolge im Namen enthalten sein. Gibt es keinen Treffer, erscheint **Keine Vorlage gefunden**; sind überhaupt keine Vorlagen vorhanden, erscheint **Keine Vorlagen vorhanden**. Die Kachel **Neue Umfrage** bleibt in beiden Fällen verfügbar.
+Über das Suchfeld der Kachelansicht filtern Sie die Vorlagen nach ihrem Namen. Die eingegebenen Buchstaben müssen dabei nicht zusammenhängend vorkommen, sondern nur in der richtigen Reihenfolge im Namen enthalten sein. Gibt es keinen Treffer, erscheint **Keine Vorlage gefunden**; sind überhaupt keine Vorlagen vorhanden, erscheint **Keine Vorlagen vorhanden**. Die Kachel **Neue Umfrage** bleibt in beiden Fällen verfügbar.
 
 <Audience roles="admin">
 
 #### Administrator-Ansicht
-
-![Vorlagen - Kachel-Ansicht - Administrator](/img/umfragen/Screenshot_20260506_113129.png)
 
 Im Gegensatz zum Standard-Benutzer stehen einem Administrator auf jeder Vorlagen-Kachel zusätzliche Schaltflächen zur Verfügung:
 
@@ -137,7 +131,7 @@ Deaktivierte Vorlagen bleiben für Sie sichtbar: Sie werden abgeblendet dargeste
 Bei den mitgelieferten Standard-Vorlagen lässt sich ausschließlich der Aktiv-Status umschalten; sie können nicht gelöscht werden.
 :::
 
-Welche Gruppe über diese zusätzlichen Rechte verfügt, legen Sie in den [Einstellungen](../../konfiguration/einstellungen.md#administratorengruppe-festlegen) fest.
+Welche Gruppen über diese zusätzlichen Rechte verfügen, legen Sie unter [Administratorengruppe festlegen](../../konfiguration/einstellungen.md#administratorengruppe-festlegen) fest.
 
 Administratoren können Vorlagen auch bearbeiten. Dazu muss die Vorlage ausgewählt werden, und beim [Speichern der Umfrage](#umfrage-speichern) muss der Haken an der Checkbox "Als Vorlage speichern" gesetzt werden.
 

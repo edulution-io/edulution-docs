@@ -330,7 +330,7 @@ Bei abonnierten oder schreibgeschützten Kalendern werden **Einstellungen** und 
 
 ## Kalender freigeben
 
-Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie über **Personen oder Gruppen hinzufügen** nach Personen aus Ihren Adressbüchern und nach Verteilern Ihrer Schule (siehe [Wen die Suche findet](#wen-die-suche-findet)); unter **Freigegeben für** stehen anschließend alle bestehenden Freigaben.
+Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie über **Personen oder Gruppen hinzufügen** nach Personen aus Ihren Adressbüchern und nach Verteilern (siehe [Wen die Suche findet](#wen-die-suche-findet)); unter **Freigegeben für** stehen anschließend alle bestehenden Freigaben.
 
 Jede Freigabe ist eine aufklappbare Zeile. Zugeklappt sehen Sie Name, E-Mail-Adresse und rechts eine Zusammenfassung der vergebenen Rechte (**Kein Zugriff**, **Nur Frei/Belegt**, **Ansehen** oder **Bearbeiten**). Über das Pfeilsymbol am rechten Rand klappen Sie die Zeile auf und vergeben die Rechte im Einzelnen. Über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder.
 
@@ -340,15 +340,15 @@ Ist ein Empfänger im Verzeichnis nicht mehr auffindbar — etwa weil sein Konto
 
 Die Suche unter **Personen oder Gruppen hinzufügen** speist sich aus zwei getrennten Quellen:
 
-- **Personen** stammen ausschließlich aus den Adressbüchern, auf die Sie in der [Kontakte](kontakte.md)-App Zugriff haben — nicht aus dem Verzeichnis Ihrer Schule. Wen Sie dort nicht als Kontakt führen, können Sie hier auch nicht vorschlagen lassen; legen Sie die Person in diesem Fall zunächst in der Kontakte-App an.
-- **Verteiler** stammen unverändert aus dem Verzeichnis Ihrer Schule, einschließlich ihrer Kategorien (siehe [Freigabe an einen Verteiler](#freigabe-an-einen-verteiler)).
+- **Personen** stammen ausschließlich aus den Adressbüchern, auf die Sie in der [Kontakte](kontakte.md)-App Zugriff haben – nicht aus dem Verzeichnis. Wen Sie dort nicht als Kontakt führen, können Sie hier auch nicht vorschlagen lassen; legen Sie die Person in diesem Fall zunächst in der Kontakte-App an.
+- **Verteiler** stammen aus dem Verzeichnis, einschließlich ihrer Kategorien. Angeboten werden dabei auch Verteiler, für die sich kein Kalender freigeben lässt (siehe [Freigabe an einen Verteiler](#freigabe-an-einen-verteiler)).
 
 Für die Personensuche gilt darüber hinaus:
 
-- Durchsucht werden **alle** Ihre Adressbücher gleichzeitig — anders als das Suchfeld der Kontakte-App, das sich immer nur auf das ausgewählte Adressbuch bezieht. Auf Schreibweisen von Umlauten kommt es dabei ebenso wenig an wie dort.
+- Durchsucht werden **alle** Ihre Adressbücher gleichzeitig – anders als das Suchfeld der Kontakte-App, das sich immer nur auf das ausgewählte Adressbuch bezieht. Auf Schreibweisen von Umlauten kommt es dabei ebenso wenig an wie dort.
 - Vorgeschlagen wird nur, wer eine **E-Mail-Adresse** hinterlegt hat; ein Kontakt ohne Adresse erscheint nicht. Sind bei einem Kontakt mehrere Adressen hinterlegt, steht jede davon als eigener Eintrag zur Auswahl.
 - Personen erscheinen ab **zwei** eingegebenen Zeichen, Verteiler bereits ab einem. Führen Sie dieselbe Person in mehreren Adressbüchern, wird sie nur einmal angeboten.
-- Trägt einer Ihrer Kontakte die Adresse eines Verteilers, wird dieses Ziel einmal angeboten — und zwar als **Verteiler**. Die Freigabe erreicht dann wie gewohnt alle Mitglieder, nicht nur den einen Kontakt.
+- Trägt einer Ihrer Kontakte die Adresse eines Verteilers, wird dieses Ziel einmal angeboten – und zwar als **Verteiler**. Die Freigabe erreicht dann wie gewohnt alle Mitglieder, nicht nur den einen Kontakt.
 
 :::info[Wenn keine Personen vorgeschlagen werden]
 Ist die Kontakte-App nicht eingerichtet oder der Adressbuch-Server gerade nicht erreichbar, bleibt die Suche nutzbar: Sie bietet weiterhin die Verteiler an, lediglich die Personen fehlen. Eine Fehlermeldung erscheint dabei nicht. Finden Sie also keine einzige Person, obwohl Verteiler erscheinen, wenden Sie sich an Ihre Administration.
@@ -400,6 +400,14 @@ Neben einzelnen Personen geben Sie einen Kalender auch für einen **Verteiler** 
 
 Die Treffer der Suche unter **Personen oder Gruppen hinzufügen** werden nach Kategorie gruppiert und stehen unter der Überschrift **Personen**, **Eltern** bzw. **Gruppen**. Verteilen sie sich auf mehrere dieser Kategorien, erscheint darüber eine Reihe von Schaltflächen — **Alle** sowie je eine pro vorhandener Kategorie —, mit denen Sie die Anzeige auf eine einzelne Kategorie beschränken. Eine eigene Überschrift für Klassen oder Projekte gibt es dabei nicht: Beide stehen zusammen mit den übrigen Verteilern unter **Gruppen**.
 
+Freigeben lassen sich nur Verteiler **Ihrer eigenen Schule**. Die Suche bietet zwar auch Verteiler anderer Schulen der Instanz und schulübergreifende Verteiler an, die zu keiner einzelnen Schule gehören; wählen Sie einen davon, legt edulution keine Freigabe an und meldet:
+
+| Meldung | Ursache und Abhilfe |
+|---|---|
+| **Dieser Verteiler gehört zu einer anderen Schule.** | Der Verteiler gehört nicht zu Ihrer Schule. Die Meldung erscheint auch bei schulübergreifenden Verteilern, selbst auf einer Instanz mit nur einer Schule. Geben Sie den Kalender stattdessen für einen Verteiler Ihrer Schule oder für die Personen einzeln frei. |
+
+Global-Admins gehören keiner einzelnen Schule an; für sie gilt diese Einschränkung nicht.
+
 Die Freigabe wird an **jedes einzelne Mitglied** des Verteilers vergeben. In der Liste **Freigegeben für** steht dafür dennoch nur eine Zeile für den Verteiler; sie nennt anstelle der E-Mail-Adresse die Anzahl der Mitglieder (etwa **Verteiler mit 12 Mitgliedern**), und die Mitglieder selbst erscheinen nicht als eigene Zeilen. Die Rechte vergeben Sie wie bei einer Person; sie gelten dann für alle Mitglieder gleichermaßen.
 
 Entziehen Sie die Freigabe des Verteilers über das Mülleimer-Symbol, verlieren dessen Mitglieder den Zugriff. Zwei Fälle sind davon ausgenommen:
@@ -412,6 +420,8 @@ Entziehen Sie die Freigabe des Verteilers über das Mülleimer-Symbol, verlieren
 Tritt jemand dem Verteiler bei oder verlässt ihn, wird der Zugriff **nicht sofort** angepasst. Der Abgleich läuft, sobald Sie den Freigabe-Dialog des betreffenden Kalenders das nächste Mal öffnen. Währenddessen sind die Bedienelemente des Dialogs gesperrt; hat sich etwas geändert, nennt anschließend ein Hinweis je Verteiler, wie viele Mitglieder hinzugefügt und wie viele entfernt wurden.
 
 Daraus folgt: Wer den Verteiler verlässt, behält den Zugriff auf den Kalender so lange, bis Sie den Freigabe-Dialog erneut öffnen. Bei einem Kalender, der einmal freigegeben und danach nicht wieder angefasst wird, kann das beliebig lange dauern. Öffnen Sie den Dialog daher gezielt, wenn sich die Zusammensetzung eines Verteilers geändert hat.
+
+Eine bestehende Freigabe an einen Verteiler, den Sie heute nicht mehr freigeben könnten – etwa aus einer früheren Version von edulution –, gleicht edulution nicht mehr ab: Die Mitglieder behalten den Zugriff, den sie zuletzt erhalten haben; wer dem Verteiler beitritt, erhält keinen, und wer ihn verlässt, verliert ihn nicht. Auch die Rechte einer solchen Freigabe lassen sich nicht mehr ändern; der Versuch scheitert mit derselben Meldung wie eine neue Freigabe. Entziehen können Sie die Freigabe weiterhin über das Mülleimer-Symbol.
 
 ### Für den Benutzer abonnieren
 
@@ -527,7 +537,7 @@ Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](
 
 Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
 
-Eine Ausnahme ist die Personensuche im Freigabe-Dialog: Sie liest die Adressbücher des jeweiligen Benutzers und setzt daher zusätzlich die [CardDAV-Verbindung der Kontakte-App](../../konfiguration/einstellungen.md#kontakte-carddav) voraus. Ist sie nicht konfiguriert oder der CardDAV-Server nicht erreichbar, bietet die Suche weiterhin die Verteiler aus dem Verzeichnis an; die Personen fehlen dann stillschweigend, ohne Fehlermeldung. Meldet ein Benutzer, dass er im Freigabe-Dialog niemanden findet, Verteiler aber erscheinen, prüfen Sie deshalb die CardDAV-Einstellungen — nicht die der Kalender-App.
+Eine Ausnahme ist die Personensuche im Freigabe-Dialog: Sie liest die Adressbücher des jeweiligen Benutzers und setzt daher zusätzlich die [CardDAV-Verbindung der Kontakte-App](../../konfiguration/einstellungen.md#kontakte-carddav) voraus. Ist sie nicht konfiguriert oder der CardDAV-Server nicht erreichbar, bietet die Suche weiterhin die Verteiler aus dem Verzeichnis an; die Personen fehlen dann stillschweigend, ohne Fehlermeldung. Meldet ein Benutzer, dass er im Freigabe-Dialog niemanden findet, Verteiler aber erscheinen, prüfen Sie deshalb die CardDAV-Einstellungen – nicht die der Kalender-App.
 
 Die Personensuche durchsucht dieselben Adressbücher wie das Verfassen von E-Mails, einschließlich der systemweiten Adressbücher von SOGo. Solange diese aktiv sind, findet sie darüber auch Personen anderer Schulen; wie Sie das abstellen, steht unter [E-Mail – Einrichtung](../../../edulution-mail/index.md#einrichtung-für-administratoren).
 

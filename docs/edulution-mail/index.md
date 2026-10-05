@@ -203,8 +203,6 @@ Ein Klick auf den Hinweis bringt Sie direkt zu den **E-Mail-Einstellungen**, wo 
 
 Signatur, verzögertes Senden (Senden rückgängig machen), automatische Antwort (Abwesenheitsnotiz), Weiterleitung und Filter verwalten Sie in den **E-Mail-Einstellungen**. Eine ausführliche Beschreibung finden Sie unter [Mein Profil](../edulution-plattform/uebersicht/benutzereinstellungen/index.md).
 
-Die automatische Antwort gilt für Nachrichten an Ihre eigenen Adressen. Nachrichten, die Sie nur über einen in edulution angelegten Verteiler erreichen, beantwortet sie nicht.
-
 Bei der automatischen Antwort können Sie zusätzlich festlegen, welche Absender überhaupt eine Antwort erhalten: alle Absender, nur Absender innerhalb der Domänen Ihrer Organisation (interne Absender) oder ausschließlich externe Absender. Die internen Domänen werden Ihnen dabei direkt angezeigt. Details dazu finden Sie unter [Mein Profil](../edulution-plattform/uebersicht/benutzereinstellungen/index.md).
 
 Sind Sie als Berechtigter für ein **freigegebenes Postfach** eingetragen, können Sie dort auch dessen **automatische Antwort** verwalten – siehe [Mein Profil → Automatische Antwort für freigegebene Postfächer](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#automatische-antwort-für-freigegebene-postfächer).

@@ -1,4 +1,5 @@
 import React, { JSX, useEffect, useRef, useState } from 'react';
+import Heading from '@theme/Heading';
 import './Changelog.css';
 
 export type ContentBlock =
@@ -205,6 +206,15 @@ const LINK_BUTTON_CLASS =
 const FILTER_BUTTON_ACTIVE_CLASS = 'bg-[#8FC046] text-black shadow-lg shadow-[#8FC046]/20';
 const FILTER_BUTTON_IDLE_CLASS =
   'text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5';
+
+// Versions repeat across products (app and plattform both have v2.1.0), so the anchor names the product.
+const entryAnchor = (entry: ChangelogEntry) => {
+  const product = (entry.tag || 'edulution-plattform').replace(/^edulution-/, '').replace(/^ui$/, 'plattform');
+  return `${product}-${entry.version ? `v${entry.version}` : entry.date.replace(/\//g, '-')}`;
+};
+
+// Clears the navbar and the sticky search bar; its height is set on the wrapper.
+const ANCHOR_SCROLL_MARGIN = 'calc(var(--ifm-navbar-height) + var(--changelog-bar-height, 0px) + 1rem)';
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
@@ -472,7 +482,7 @@ export const ChangelogItem: React.FC<{
     };
   }, []);
 
-  const id = entry.version ? `v${entry.version}` : entry.date.replace(/\//g, '-');
+  const id = entryAnchor(entry);
 
   const contentImages = (entry.content?.filter((b) => b.type === 'image') ?? []) as Array<{
     type: 'image';
@@ -482,11 +492,7 @@ export const ChangelogItem: React.FC<{
   const firstImageIdx = entry.content?.findIndex((b) => b.type === 'image') ?? -1;
 
   return (
-    <article
-      id={id}
-      className="scroll-mt-16"
-      style={{ paddingBottom: `${heightAdjustment}px` }}
-    >
+    <article style={{ paddingBottom: `${heightAdjustment}px` }}>
       <div ref={heightRef}>
         <ArticleHeader
           id={id}
@@ -494,7 +500,14 @@ export const ChangelogItem: React.FC<{
           tag={entry.tag}
         />
         <ContentWrapper className="relative">
-          <h2 className="text-2xl font-semibold leading-7 text-gray-900 dark:text-white mb-4 mt-6">{entry.title}</h2>
+          <Heading
+            as="h2"
+            id={id}
+            className="text-2xl font-semibold leading-7 text-gray-900 dark:text-white mb-4 mt-6"
+            style={{ scrollMarginTop: ANCHOR_SCROLL_MARGIN }}
+          >
+            {entry.title}
+          </Heading>
           {entry.description && <p className="text-base leading-7 text-gray-700 dark:text-gray-300 mb-6">{entry.description}</p>}
 
           {/* Content Blocks */}
@@ -689,6 +702,37 @@ export const ChangelogItem: React.FC<{
 export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState<string>('all');
+  const barRef = useRef<HTMLDivElement>(null);
+  const [barHeight, setBarHeight] = useState(0);
+  const scrolledToHash = useRef(false);
+
+  useEffect(() => {
+    if (!barRef.current) {
+      return;
+    }
+    const observer = new ResizeObserver(([e]) => setBarHeight(e.target.getBoundingClientRect().height));
+    observer.observe(barRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // The browser jumps to the hash before the bar is measured, so jump again once it is.
+  // Old links use #v2.2.0, from before anchors named the product; those were all plattform entries.
+  useEffect(() => {
+    if (!barHeight || scrolledToHash.current) {
+      return;
+    }
+    scrolledToHash.current = true;
+    const hash = decodeURIComponent(window.location.hash.slice(1));
+    const id = /^v[\d.]+$/.test(hash) ? `plattform-${hash}` : hash;
+    const target = id && document.getElementById(id);
+    if (!target) {
+      return;
+    }
+    if (id !== hash) {
+      window.history.replaceState(null, '', `#${id}`);
+    }
+    target.scrollIntoView();
+  }, [barHeight]);
 
   // Alle verfügbaren Tags sammeln
   const allTags = Array.from(new Set(entries.map((e) => e.tag).filter(Boolean))) as string[];
@@ -720,10 +764,12 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
     <div
       id="tw-scope"
       className="relative flex-auto"
+      style={{ '--changelog-bar-height': `${barHeight}px` } as React.CSSProperties}
     >
       {/* Suche und Filter */}
       <div
-        className="sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800/50 backdrop-blur-xl py-6"
+        ref={barRef}
+        className="sticky top-[var(--ifm-navbar-height)] z-50 border-b border-gray-200 dark:border-gray-800/50 backdrop-blur-xl py-6"
         style={{ background: 'var(--ifm-background-color)' }}
       >
         <ContentWrapper>

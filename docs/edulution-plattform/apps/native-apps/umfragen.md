@@ -133,7 +133,7 @@ Bei den mitgelieferten Standard-Vorlagen lässt sich ausschließlich der Aktiv-S
 
 Welche Gruppen über diese zusätzlichen Rechte verfügen, legen Sie unter [Administratorengruppe festlegen](../../konfiguration/einstellungen.md#administratorengruppe-festlegen) fest.
 
-Administratoren können Vorlagen auch bearbeiten. Dazu muss die Vorlage ausgewählt werden, und beim [Speichern der Umfrage](#umfrage-speichern) muss der Haken an der Checkbox "Als Vorlage speichern" gesetzt werden.
+Administratoren können Vorlagen auch bearbeiten. Dazu muss die Vorlage ausgewählt werden, und beim [Speichern der Umfrage](#umfrage-speichern) muss **Als Vorlage speichern** aktiviert sein.
 
 </Audience>
 
@@ -416,7 +416,7 @@ Als Administrator können Sie die aktuell bearbeitete Umfrage auch als Vorlage s
 - **Name der Vorlage**: Unter diesem Namen wird die Vorlage in der Kachelansicht angezeigt.
 - **Zugriffsgruppen**: Die Vorlage wird in der Kachelansicht nur den Benutzern angezeigt, die Mitglied in mindestens einer der ausgewählten Gruppen sind.
 
-Auf diesem Weg können Administratoren auch bestehende Vorlagen bearbeiten. Dazu muss die entsprechende Vorlage ausgewählt werden. Beim [Speichern der Umfrage](#umfrage-speichern) muss dann der Haken an der Checkbox "Als Vorlage speichern" gesetzt werden.
+Auf diesem Weg können Administratoren auch bestehende Vorlagen bearbeiten. Dazu muss die entsprechende Vorlage ausgewählt werden. Beim [Speichern der Umfrage](#umfrage-speichern) muss dann **Als Vorlage speichern** aktiviert sein.
 
 </Audience>
 

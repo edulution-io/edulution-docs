@@ -53,8 +53,18 @@ Ungelesene Nachrichten sind in der Liste deutlich hervorgehoben: Absender und Be
 **In den Papierkorb verschieben** legt Nachrichten im **Papierkorb** des Postfachs ab, in dem sie liegen – bei einem freigegebenen Postfach also in dessen eigenem Papierkorb, nicht in Ihrem.
 
 :::caution[Postfach ohne Papierkorb]
-Besitzt ein Postfach keinen Papierkorb, löscht **In den Papierkorb verschieben** die Nachrichten endgültig. Die Schaltfläche behält ihre Beschriftung; erst die Sicherheitsabfrage weist darauf hin: „Es gibt keinen Papierkorb-Ordner. Diese E-Mail wird endgültig gelöscht und kann nicht wiederhergestellt werden.“
+Besitzt ein Postfach keinen Papierkorb, löscht **In den Papierkorb verschieben** die Nachrichten endgültig. Die Schaltfläche behält ihre Beschriftung; erst die Sicherheitsabfrage weist darauf hin: „Es gibt keinen Papierkorb-Ordner. Diese E-Mail wird endgültig gelöscht.“ Für ein kurzes Zeitfenster lässt sich das Löschen trotzdem rückgängig machen (siehe [Endgültiges Löschen rückgängig machen](#endgültiges-löschen-rückgängig-machen)).
 :::
+
+### Endgültiges Löschen rückgängig machen
+
+Auch endgültiges Löschen lässt sich für ein kurzes Zeitfenster rückgängig machen: im Papierkorb, beim Leeren von Papierkorb oder Spam-Ordner und in einem Postfach ohne Papierkorb. Wie lang es ist, legen Sie unter [Mein Profil → Senden rückgängig machen](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#senden-rückgängig-machen) mit **Zeitfenster** fest; das gilt auch bei ausgeschaltetem verzögertem Senden.
+
+Während dieses Zeitfensters zeigt eine Meldung die Schaltfläche **Rückgängig**. Gelöscht wird auf dem Mailserver, also auch dann, wenn Sie edulution vorher schließen.
+
+| Meldung | Ursache und Abhilfe |
+|---------|---------------------|
+| **E-Mails konnten nicht gelöscht werden – sie sind wieder sichtbar** | Das Löschen ist auf dem Mailserver gescheitert, meist weil Ihnen in einem freigegebenen Postfach das Recht zum Löschen fehlt, seltener wegen einer gestörten Verbindung. Die Nachrichten bleiben erhalten. |
 
 ### Links in Nachrichten
 

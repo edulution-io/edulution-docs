@@ -83,7 +83,7 @@ Grün bedeutet eingeschaltet, ein Klick schaltet um.
 5. **Drucken**
 6. **Klassenarbeitsmodus**
 7. **Veyon** – öffnet die [Veyon-Aktionen](#bildschirmüberwachung-veyon). Ohne Verbindung zum Gerät ist das Symbol ausgegraut.
-8. **Passwortoptionen**
+8. **Passwortoptionen** – nur wenn Sie Lehrkraft in der Klasse des Schülers sind. Welche Passwörter zulässig sind, bestimmt die [Passwortrichtlinie](../../../edulution-server/benutzerverwaltung.md#passwortrichtlinie) der Linuxmuster-Installation.
 
 ### Aktionen für mehrere Schüler
 

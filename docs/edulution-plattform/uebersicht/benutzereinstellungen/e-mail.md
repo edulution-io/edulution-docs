@@ -3,35 +3,9 @@
 
 ![E-Mail](/img/benutzer/profil-email.png)
 
-Konfiguration der E-Mail-Synchronisation für mobile Geräte.
-
 ## E-Mail-Sync
 
-Einrichtung der E-Mail-Synchronisation:
-- **Dropdown-Menü**: "Laden..." zeigt verfügbare Sync-Optionen
-- **E-Mail-Adresse**: Tragen Sie Ihre E-Mail-Adresse ein
-- **Passwort**: Ihr E-Mail-Passwort für die Synchronisation
-
-## Sync-Jobs
-
-Übersicht über aktive E-Mail-Synchronisationen:
-
-**Tabellenspalten:**
-- **Hostname**: Mail-Server Adresse
-- **Port**: Verwendeter Port
-- **Verschlüsselung**: SSL/TLS Einstellungen
-- **Benutzername**: Login-Name
-- **Sync-Intervall**: Häufigkeit der Synchronisation
-- **Aktiv**: Status der Synchronisation
-
-**Status:** "Keine Daten verfügbar", wenn keine Sync-Jobs konfiguriert sind
-
-**Aktionen:**
-- **Neu laden**: Button zum Aktualisieren der Sync-Job Liste
-
-:::tip[Hinweis]
-Weitere Informationen zur E-Mail-Migration finden Sie unter [E-Mail Migration](../../../edulution-mail/migration.md).
-:::
+Mit **E-Mail-Sync** holen Sie E-Mails aus einem Postfach bei einem anderen Anbieter in Ihr edulution-Postfach. Sie wählen den Anbieter und geben E-Mail-Adresse und Passwort des Postfachs ein; edulution legt dafür einen Sync-Job an, der in der Tabelle **Sync-Jobs** erscheint. Mehr dazu unter [E-Mail Migration](../../../edulution-mail/migration.md).
 
 ## Signatur
 
@@ -52,149 +26,68 @@ Dieselbe Umschaltung steht Ihnen auch beim [Verfassen einer E-Mail](../../../edu
 
 ## Senden rückgängig machen
 
-Mit dieser Option verzögern Sie den Versand Ihrer E-Mails um ein kurzes Zeitfenster, in dem Sie das Senden noch abbrechen können.
+Mit dieser Option verzögern Sie den Versand Ihrer E-Mails um ein kurzes Zeitfenster, in dem Sie das Senden noch abbrechen können. Das **Zeitfenster** gilt auch bei ausgeschaltetem verzögertem Senden für das [endgültige Löschen](../../../edulution-mail/index.md#endgültiges-löschen-rückgängig-machen).
 
-- **Senden verzögern**: Schaltet das verzögerte Senden ein oder aus. Standardmäßig ist es ausgeschaltet.
-- **Zeitfenster**: Bei aktivierter Option wählen Sie hier, um wie lange der Versand zurückgehalten wird – 5, 10, 20 oder 30 Sekunden (Standard: 10 Sekunden).
-- **Speichern** übernimmt die Änderungen, **Zurücksetzen** verwirft noch nicht gespeicherte Anpassungen.
+- **Senden verzögern**: Standardmäßig ausgeschaltet.
+- **Zeitfenster**: Wie lange der Versand zurückgehalten wird – 5, 10, 20 oder 30 Sekunden (Standard: 10 Sekunden).
 
-Ist das verzögerte Senden aktiv, erscheint nach dem Klick auf **Senden** für die eingestellte Dauer die Meldung **Nachricht wird gesendet …** mit der Schaltfläche **Rückgängig**. Ein Klick darauf bricht den Versand ab und öffnet die Nachricht erneut zur Bearbeitung; läuft das Zeitfenster ab, wird sie verschickt. Schlägt der Versand danach fehl, bleibt die Nachricht als Entwurf erhalten. Den vollständigen Ablauf mit allen Meldungen beschreibt [E-Mail → E-Mail verfassen](../../../edulution-mail/index.md#e-mail-verfassen).
+Ablauf und Fehlerfälle beschreibt [E-Mail → Verzögertes Senden](../../../edulution-mail/index.md#verzögertes-senden).
 
 ## Automatische Antwort
 
-Mit der automatischen Antwort (Abwesenheitsnotiz) beantworten Sie eingehende Nachrichten automatisch, z. B. während einer Abwesenheit. Sie können mehrere **Vorlagen** anlegen, aber es ist immer nur eine gleichzeitig aktiv.
+Mit der automatischen Antwort (Abwesenheitsnotiz) beantworten Sie eingehende Nachrichten automatisch, z. B. während einer Abwesenheit. Sie können bis zu 20 **Vorlagen** anlegen, aber es ist immer nur eine gleichzeitig aktiv.
 
-### Vorlagen verwalten
-
-- Über die Auswahl **Vorlage auswählen** wechseln Sie zwischen vorhandenen Vorlagen; **Neue Vorlage** legt eine weitere an.
-- Oberhalb des Formulars sehen Sie, ob aktuell eine Vorlage aktiv ist oder keine automatische Antwort läuft.
+Die automatische Antwort gilt für Nachrichten an Ihre eigenen Adressen. Nachrichten, die Sie nur über einen in edulution angelegten Verteiler erreichen, beantwortet sie nicht.
 
 ### Vorlage bearbeiten
 
 | Feld | Beschreibung |
 |------|--------------|
-| **Name der Vorlage** | Interne Bezeichnung der Vorlage |
-| **Betreff** | Betreff der automatischen Antwort. Mit `${subject}` fügen Sie den ursprünglichen Betreff der eingehenden Nachricht ein |
-| **Nachricht** | Text der automatischen Antwort |
+| **Betreff** | Mit `${subject}` fügen Sie den ursprünglichen Betreff der eingehenden Nachricht ein |
+| **Nachricht** | höchstens 4000 Zeichen |
 | **E-Mail-Adressen** | Antworten werden nur für Nachrichten an diese Adressen gesendet (Hauptadresse und Aliase). Über **Standardadressen hinzufügen** ergänzen Sie Ihre eigenen Adressen |
-| **Mindestabstand zwischen Antworten (Tage)** | Verhindert, dass derselbe Absender innerhalb dieses Zeitraums mehrfach automatisch beantwortet wird |
-| **Eingehende Nachrichten während der Abwesenheit verwerfen** | Verwirft eingehende Nachrichten im Aktivierungszeitraum |
+| **Mindestabstand zwischen Antworten (Tage)** | Derselbe Absender wird innerhalb dieses Zeitraums nur einmal automatisch beantwortet; 1 bis 365 Tage, Standard 1 |
+| **Eingehende Nachrichten während der Abwesenheit verwerfen** | Verwirft eingehende Nachrichten im Aktivierungszeitraum, aber nur von Absendern, die auch eine Antwort erhalten (siehe [Absender einschränken](#absender-einschränken-intern--extern)) |
 
-Zusätzlich können Sie unter **Aktivierungsbedingungen** den Geltungsbereich optional einschränken (siehe [Aktivierungsbedingungen](#aktivierungsbedingungen)).
+Aktivieren lässt sich eine Vorlage erst, wenn ihre Änderungen gespeichert sind. **Aktivieren** schaltet eine zuvor aktive Vorlage automatisch ab.
+
+Unter **Aktivierungsbedingungen** schränken Sie die Antwort optional nach Zeitraum, Tageszeit und Wochentagen ein; ohne Angabe gilt sie durchgehend.
 
 ### Absender einschränken (intern / extern)
 
-Über die Option **Antworten an Absender außerhalb der Organisation senden** legen Sie fest, ob auch externe Absender eine automatische Antwort erhalten:
-
-- **Deaktiviert**: Die automatische Antwort geht ausschließlich an Absender innerhalb der Domänen Ihrer Organisation (interne Absender).
-- **Aktiviert**: Auch externe Absender werden berücksichtigt. Zusätzlich wählen Sie aus, welche Absender genau beantwortet werden:
-  - **Interne und alle externen Absender** – alle Absender erhalten eine Antwort.
-  - **Nur externe Absender (nicht intern)** – ausschließlich Absender außerhalb der Organisation erhalten eine Antwort; interne Absender werden nicht automatisch beantwortet.
-  - **Nur meine Kontakte** – reserviert für eine künftige Kontakte-App und derzeit nicht auswählbar.
-
-Die zur Unterscheidung herangezogenen **internen Domänen** Ihrer Organisation werden unterhalb der Option angezeigt.
-
-### Aktivieren und Löschen
-
-- **Speichern** sichert die Vorlage. Änderungen müssen gespeichert sein, bevor eine Vorlage aktiviert werden kann.
-- **Aktivieren** schaltet die Vorlage scharf; eine zuvor aktive Vorlage wird dabei automatisch deaktiviert.
-- **Deaktivieren** schaltet die automatische Antwort wieder ab.
-- **Löschen** entfernt die ausgewählte Vorlage nach einer Sicherheitsabfrage.
+Ist **Antworten an Absender außerhalb der Organisation senden** deaktiviert, geht die automatische Antwort nur an Absender innerhalb der Domänen Ihrer Organisation. Aktiviert wählen Sie, ob **Interne und alle externen Absender** oder **Nur externe Absender (nicht intern)** eine Antwort erhalten.
 
 ### Automatische Antwort für freigegebene Postfächer
 
-Sind Sie als Berechtigter für ein oder mehrere **freigegebene Postfächer** (z. B. `verwaltung@…`) eingetragen, können Sie auch deren automatische Antwort verwalten. Der Abschnitt **Automatische Antwort für freigegebene Postfächer** erscheint nur dann, wenn Ihnen mindestens ein freigegebenes Postfach zugewiesen ist – andernfalls bleibt er ausgeblendet.
-
-- Über die Auswahl **Freigegebenes Postfach auswählen** wählen Sie das Postfach, dessen automatische Antwort Sie bearbeiten möchten.
-- Darunter erscheint dasselbe Formular wie für Ihr eigenes Postfach: Sie legen **Vorlagen** an, bearbeiten Betreff, Nachricht und Adressen, schränken den Geltungsbereich ein und **aktivieren** bzw. **deaktivieren** die automatische Antwort.
-- Jedes freigegebene Postfach besitzt eigene Vorlagen und eine eigene aktive Antwort, unabhängig von Ihrem persönlichen Postfach. Beim Wechsel des Postfachs werden dessen Vorlagen geladen.
+Sind Sie als Berechtigter für ein oder mehrere **freigegebene Postfächer** (z. B. `verwaltung@…`) eingetragen, verwalten Sie auch deren automatische Antwort. Der Abschnitt **Automatische Antwort für freigegebene Postfächer** erscheint nur, wenn Ihnen mindestens ein freigegebenes Postfach zugewiesen ist. Jedes freigegebene Postfach hat eigene Vorlagen und eine eigene aktive Antwort, unabhängig von Ihrem persönlichen Postfach.
 
 ## Weiterleitung
 
-Leiten Sie eingehende E-Mails automatisch an andere Adressen weiter.
+Leiten Sie eingehende E-Mails automatisch an bis zu vier andere Adressen weiter. Eine Weiterleitung an Ihre eigenen Adressen ist nicht möglich. Standardmäßig bleibt keine Kopie in Ihrem Postfach; dafür aktivieren Sie **Kopie in diesem Postfach behalten**. Unter **Aktivierungsbedingungen** schränken Sie die Weiterleitung optional nach Zeitraum, Tageszeit und Wochentagen ein.
 
-- **Weiterleitung aktivieren**: Schaltet die Weiterleitung ein. Erst danach werden die weiteren Optionen angezeigt.
-- **Weiterleiten an**: Die Zieladressen, an die eingehende E-Mails weitergeleitet werden (maximal vier). Eine Weiterleitung an Ihre eigenen Adressen ist nicht möglich.
-- **Kopie in diesem Postfach behalten**: Ist diese Option aktiv, verbleibt zusätzlich eine Kopie jeder Nachricht in Ihrem Postfach.
-- Unter **Aktivierungsbedingungen** lässt sich die Weiterleitung optional zeitlich einschränken (siehe [Aktivierungsbedingungen](#aktivierungsbedingungen)).
-- **Speichern** übernimmt die Konfiguration, **Löschen** entfernt sie nach einer Sicherheitsabfrage.
-
-### Aktivierungsbedingungen
-
-Automatische Antwort und Weiterleitung lassen sich optional nach Zeitraum, Tageszeit und Wochentagen einschränken. Ohne Angabe gelten sie durchgehend.
-
-| Feld | Beschreibung |
-|------|--------------|
-| **Startdatum** / **Enddatum** | Zeitraum, in dem die Funktion aktiv ist |
-| **Täglich ab** / **Täglich bis** | Tägliche Uhrzeitspanne, in der die Funktion greift |
-| **Aktive Wochentage** | Wochentage (Mo–So), an denen die Funktion angewendet wird |
+Die Vorschläge im Feld **Weiterleiten an** entsprechen den [Empfängervorschlägen beim Verfassen einer E-Mail](../../../edulution-mail/index.md#empfängervorschläge-im-adressfeld).
 
 ## Filter
 
 Mit Filtern legen Sie Regeln fest, die automatisch auf eingehende E-Mails angewendet werden. So können Sie Nachrichten beispielsweise in einen bestimmten Ordner einsortieren, weiterleiten, markieren oder verwerfen lassen.
 
-:::info[Auswertungsreihenfolge]
-Die Regeln werden von oben nach unten ausgewertet. Über **Nach oben** und **Nach unten** können Sie die Reihenfolge einer Regel anpassen.
-:::
+Sie können bis zu 50 Regeln anlegen, jede mit bis zu zehn Bedingungen und zehn Aktionen. Die Regeln werden von oben nach unten ausgewertet; die Reihenfolge ändern Sie mit **Nach oben** und **Nach unten**.
 
-### Filterregel erstellen
+**Fertig** schließt nur die Bearbeitung einer Regel ab. Wirksam werden die Filter erst mit **Speichern**. Eine deaktivierte Regel bleibt erhalten, wird aber nicht angewendet. **Alle löschen** wirkt dagegen sofort, ohne **Speichern**.
 
-1. Klicken Sie auf **Filter erstellen**, um eine neue Regel anzulegen
-2. Vergeben Sie einen **Filternamen**
-3. Über den Schalter neben der Regel können Sie diese aktivieren oder deaktivieren – deaktivierte Regeln bleiben erhalten, werden aber nicht angewendet
-4. Klicken Sie auf **Fertig**, um die Bearbeitung der Regel abzuschließen
-5. Klicken Sie abschließend auf **Speichern**, damit die Filter wirksam werden
+Bei der Bedingung **Größe** geben Sie den Wert als ganze Zahl mit optionaler Einheit `K`, `M` oder `G` an, etwa `1M`. Andere Schreibweisen wie `1,5M` oder `1 MB` wertet der Filter als 0; **ist größer als** trifft dann auf jede Nachricht zu. Bei **entspricht** steht `*` für beliebig viele Zeichen und `?` für genau eines.
 
-### Bedingungen
-
-Legen Sie unter **Für eingehende Nachrichten, die** fest, wann eine Regel greift:
-
-- **allen folgenden Regeln entsprechen** – die Regel greift nur, wenn *alle* Bedingungen zutreffen
-- **einer der folgenden Regeln entsprechen** – die Regel greift, sobald *eine* der Bedingungen zutrifft
-
-Über **Bedingung hinzufügen** fügen Sie weitere Bedingungen hinzu. Jede Bedingung besteht aus einem Feld, einem Vergleich und einem Wert.
-
-| Feld | Beschreibung |
-|------|--------------|
-| **Von** | Absender der Nachricht |
-| **An** | Empfänger der Nachricht |
-| **Cc** | Kopieempfänger der Nachricht |
-| **Betreff** | Betreffzeile der Nachricht |
-| **Größe** | Größe der Nachricht (z. B. `1M`) |
-
-| Vergleich | Beschreibung |
-|-----------|--------------|
-| **enthält** | Der Wert kommt im Feld vor |
-| **ist** | Das Feld stimmt exakt mit dem Wert überein |
-| **entspricht** | Das Feld passt auf ein Muster (mit Platzhaltern) |
-| **ist größer als** | Nur bei **Größe**: Nachricht ist größer als der Wert |
-| **ist kleiner als** | Nur bei **Größe**: Nachricht ist kleiner als der Wert |
-
-### Aktionen
-
-Bestimmen Sie unter **Diese Aktionen ausführen**, was mit zutreffenden Nachrichten geschehen soll. Über **Aktion hinzufügen** können Sie mehrere Aktionen kombinieren.
+Wird der Zielordner einer Regel gelöscht, kennzeichnet edulution die Regel mit **Aktion erforderlich** und wendet sie nicht mehr an. Benennen Sie den Ordner nur um, zieht edulution die Regel selbst nach.
 
 | Aktion | Beschreibung |
 |--------|--------------|
-| **Nachricht ablegen in** | Verschiebt die Nachricht in den ausgewählten Ordner |
-| **Umleiten an** | Leitet die Nachricht an eine andere E-Mail-Adresse weiter |
-| **Kopie senden an** | Sendet eine Kopie an eine andere E-Mail-Adresse, behält das Original |
-| **Nachricht verwerfen** | Löscht die Nachricht ohne Zustellung |
-| **Markierung hinzufügen** | Versieht die Nachricht zusätzlich mit einer Markierung |
-| **Markierung setzen** | Setzt die Markierung der Nachricht (ersetzt vorhandene) |
+| **Umleiten an** | Leitet die Nachricht an eine andere Adresse weiter, ohne sie zu behalten |
+| **Kopie senden an** | Sendet eine Kopie an eine andere Adresse und behält das Original |
+| **Markierung hinzufügen** | Ergänzt eine Markierung, vorhandene bleiben erhalten |
+| **Markierung setzen** | Ersetzt die vorhandenen Markierungen |
 
-Als Markierungen stehen **Gelesen**, **Beantwortet**, **Markiert**, **Gelöscht** und **Entwurf** zur Verfügung.
-
-### Weitere Regeln stoppen
-
-Mit der Option **Weitere Regeln nicht mehr verarbeiten** beenden Sie die Auswertung, sobald diese Regel zutrifft.
-
-:::warning[Hinweis]
-Wenn diese Regel zutrifft, werden keine darunterliegenden Regeln mehr ausgewertet – auch nicht Weiterleitung und automatische Antwort.
+:::warning[Weitere Regeln nicht mehr verarbeiten]
+Trifft eine Regel mit dieser Option zu, werden keine darunterliegenden Regeln mehr ausgewertet, auch nicht Weiterleitung und automatische Antwort.
 :::
-
-### Filter löschen
-
-Über **Alle löschen** entfernen Sie sämtliche Filterregeln dauerhaft. Sie werden vor dem endgültigen Löschen um Bestätigung gebeten.
 
 ---

@@ -452,16 +452,16 @@ Ohne konfigurierten Proxy zeigen die Schülerkarten im Unterricht keine Bildschi
 
 ## Klassenraum (Sitzplan)
 
-Der Sitzplan im [Klassenraum](../apps/native-apps/klassenzimmer.md) ist nach der Installation ausgeschaltet. Solange er aus ist, fehlt im Klassenraum der Menüpunkt **Räume**, und im Unterricht gibt es keinen Raumplan.
+Der [Sitzplan im Klassenraum](../apps/native-apps/klassenzimmer.md#sitzplan) ist nach der Installation ausgeschaltet. Solange er aus ist, fehlt im Klassenraum der Menüpunkt **Räume**, und im Unterricht gibt es keinen Raumplan.
 
 ![Sitzplan in den Einstellungen der Klassenraum-App einschalten](/img/einstellungen/klassenraum-sitzplan-aktivieren.webp)
 
-1. Wählen Sie in den Einstellungen links die App **Klassenraum**.
+1. Wählen Sie in der Seitenleiste der Einstellungen die App **Klassenraum**.
 2. Springen Sie über den Unterpunkt **Sitzplan** zum gleichnamigen Abschnitt.
 3. Schalten Sie **Sitzplan aktivieren** ein.
-4. Übernehmen Sie die Änderung oben rechts mit **Speichern**.
+4. Übernehmen Sie die Änderung mit **Speichern**.
 
-Der Schalter gilt für die ganze edulution-Instanz, also für alle Schulen. Räume, Layouts und Vorlagen legen danach Schuladministratoren und globale Administratoren an. Lehrkräfte wählen im Unterricht einen Raum und setzen ihre Schüler auf die Plätze. Den Raumplan im Unterricht gibt es nur, wenn die [**Plattform**](#allgemein) auf **Linuxmuster** steht.
+Der Schalter gilt für die ganze edulution-Instanz, also für alle Schulen. Den Raumplan im Unterricht gibt es nur, wenn die [**Plattform**](#allgemein) auf **Linuxmuster** steht. Räume, Layouts und Vorlagen legen danach Schuladministratoren und globale Administratoren im Klassenraum an, siehe [Räume und Layouts anlegen](../apps/native-apps/klassenzimmer.md#räume-und-layouts-anlegen).
 
 Damit Lehrkräfte für jedes Fach einen eigenen Sitzplan führen können, legen Sie die Fächer der Schule unter [Unterrichtsverwaltung](#unterrichtsverwaltung) an.
 
@@ -605,16 +605,16 @@ Bei **Generisch** gibt es keine Schulauswahl; alle Fächer bilden eine gemeinsam
 
 So legen Sie ein Fach an:
 
-1. Wählen Sie in den Einstellungen links **Allgemein**.
-2. Wechseln Sie auf die Registerkarte **Unterricht**.
-3. Oben rechts in der Karte **Schulfächer** wählen Sie die Schule.
-4. Klicken Sie unter der Tabelle auf **+** (**Fach hinzufügen**). Es öffnet sich der Dialog **Fach anlegen**.
+1. Wählen Sie in der Seitenleiste der Einstellungen **Allgemein**.
+2. Öffnen Sie die Registerkarte **Unterricht**.
+3. Wählen Sie in der Karte **Schulfächer** die [Schule](#schule-wählen).
+4. Klicken Sie unter der Tabelle auf **+** (**Fach hinzufügen**).
 
 ![Dialog Fach anlegen mit Kürzel, Anzeigename und Farbe](/img/einstellungen/unterricht-fach-anlegen.webp)
 
-1. Tragen Sie das **Kürzel** ein, zum Beispiel „MA“.
-2. Als **Anzeigenamen** geben Sie zum Beispiel „Mathematik“ ein.
-3. Wählen Sie bei Bedarf eine **Farbe**. Wie das Kürzel damit aussieht, zeigt die **Vorschau** oben im Dialog.
+1. Geben Sie das **Kürzel** ein, zum Beispiel „MA“.
+2. Geben Sie den **Anzeigenamen** ein, zum Beispiel „Mathematik“.
+3. Wählen Sie bei Bedarf eine **Farbe**. Wie das Kürzel damit aussieht, zeigt die **Vorschau** im Dialog.
 4. Legen Sie das Fach mit **Speichern** an.
 
 Bestehende Fächer bearbeiten und löschen Sie so:
@@ -622,11 +622,13 @@ Bestehende Fächer bearbeiten und löschen Sie so:
 - **Bearbeiten:** Klicken Sie auf die Zeile des Fachs.
 - **Löschen:** Markieren Sie ein oder mehrere Fächer und wählen Sie **Fächer löschen**. Im Bearbeitungsdialog löscht **Löschen** nur das gerade geöffnete Fach, unabhängig davon, was in der Tabelle markiert ist.
 
-Pflichtangaben sind **Kürzel** (zum Beispiel „MA“) und **Anzeigename**, alles Weitere ist optional. Das Kürzel muss innerhalb einer Schule eindeutig sein; Groß- und Kleinschreibung zählen dabei nicht, „MA“ und „ma“ sind also dasselbe Kürzel.
+:::caution[Sitzpläne gehen mit verloren]
+Ist der [Sitzplan](#klassenraum-sitzplan) eingeschaltet, löscht edulution mit einem Fach auch alle Sitzpläne, die Lehrkräfte für dieses Fach angelegt haben. Der Löschdialog nennt vorher die Gruppen, die dabei ihre Sitzordnung verlieren.
+:::
 
-Ein Fach, das nicht mehr unterrichtet wird, müssen Sie nicht löschen: Deaktivieren Sie **Aktiv**. Das Fach bleibt erhalten, wird aber nicht mehr zur Auswahl angeboten.
+Pflichtangaben sind **Kürzel** und **Anzeigename**, alles Weitere ist optional. Das Kürzel muss innerhalb einer Schule eindeutig sein; Groß- und Kleinschreibung zählen dabei nicht, „MA“ und „ma“ sind also dasselbe Kürzel.
 
-Ist der [Sitzplan](#klassenraum-sitzplan) eingeschaltet, führen Lehrkräfte für jedes Fach eigene Sitzpläne. Wenn Sie ein Fach löschen, löscht edulution diese Sitzpläne mit. Der Löschdialog nennt vorher die Gruppen, die dabei ihre Sitzordnung verlieren. Ein deaktiviertes Fach behält seine Sitzpläne, lässt sich im Unterricht aber nicht mehr auswählen.
+Ein Fach, das nicht mehr unterrichtet wird, müssen Sie nicht löschen: Deaktivieren Sie **Aktiv**. Das Fach bleibt samt seinen Sitzplänen erhalten, wird aber nicht mehr zur Auswahl angeboten.
 
 ---
 

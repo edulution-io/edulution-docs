@@ -23,8 +23,8 @@ Der Klassenraum nutzt die Linuxmuster-Funktionen für Klassenverwaltung und Proj
    - **Klassenlisten** – Schülerlisten einer Klasse als PDF oder CSV
    - **Meine Projekte** – die Projekte, in denen Sie Admin sind
    - **Räume** – Räume und Layouts für den [Sitzplan](#sitzplan), nur sichtbar bei eingeschaltetem Sitzplan
-2. **Sitzung starten** öffnet den Startdialog, siehe [Stunde starten](#stunde-starten).
-3. **Mitglieder hinzufügen** stellt eine Stunde aus einzelnen Schülern, Klassen oder Projekten zusammen, siehe [Mitglieder hinzufügen](#mitglieder-hinzufügen).
+2. **Sitzung starten**, siehe [Stunde starten](#stunde-starten).
+3. **Mitglieder hinzufügen**, siehe [Mitglieder hinzufügen](#mitglieder-hinzufügen).
 
 ## Unterricht
 
@@ -32,30 +32,30 @@ Der Klassenraum nutzt die Linuxmuster-Funktionen für Klassenverwaltung und Proj
 
 ![Dialog Sitzung starten mit Klasse, Fach und Raum](/img/klassenraum/sitzplan-sitzung-starten.webp)
 
-**Sitzung starten** führt Sie in einem Dialog Schritt für Schritt zur Stunde:
+So starten Sie eine Stunde. Ist der [Sitzplan](#sitzplan) eingeschaltet, kommen die Schritte Fach und Raum hinzu.
 
-1. Wählen Sie links, womit Sie starten:
+1. Wählen Sie, womit Sie starten:
    - **Meine Klassen** – die Klassen, in die Sie [eingeschrieben](#einschreiben) sind
    - **Meine Projekte** – Ihre Projekte
-   - **Mein Raum** – die Schüler, die in dem Raum angemeldet sind, in dem Sie selbst gerade an einem Schulrechner sitzen
+   - **Mein Raum** – die Schüler in dem Raum, in dem Sie selbst gerade an einem Schulrechner angemeldet sind
    - **Meine Sitzungen** – Ihre gespeicherten Sitzungen
-   - **Fächer** und **Räume** – nur mit eingeschaltetem [Sitzplan](#sitzplan)
-2. Klicken Sie die Klasse, das Projekt oder die Sitzung an.
-3. Wählen Sie das Fach oder **Ohne Fach**. Diesen Schritt gibt es nur mit Sitzplan und nur, wenn die Schule Räume und [Fächer](../../konfiguration/einstellungen.md#unterrichtsverwaltung) hat.
-4. Legen Sie Raum und Layout fest. **Ohne Raum starten** öffnet die Stunde in der Kachelansicht. Auch diesen Schritt gibt es nur mit Sitzplan.
-5. Starten Sie die Stunde mit **Starten**.
+   - **Fächer** und **Räume** – nur mit Sitzplan
+2. Wählen Sie die Klasse, das Projekt oder die Sitzung.
+3. Wählen Sie das Fach oder **Ohne Fach**. Diesen Schritt gibt es nur, wenn die Schule Räume und [Fächer](../../konfiguration/einstellungen.md#unterrichtsverwaltung) hat.
+4. Legen Sie Raum und Layout fest. **Ohne Raum starten** öffnet die Stunde in der Kachelansicht.
+5. Wählen Sie **Starten**.
 
 ### Mitglieder hinzufügen
 
 ![Dialog Mitglieder hinzufügen mit Suche und Treffer](/img/klassenraum/mitglieder-hinzufuegen.webp)
 
-Über **Mitglieder hinzufügen** nehmen Sie einzelne Schüler, ganze Klassen oder Projekte in die Stunde auf – auf der leeren Unterrichtsseite ebenso wie während einer Stunde über das Personen-Symbol über der Schülerliste.
+Über **Mitglieder hinzufügen** nehmen Sie einzelne Schüler, ganze Klassen oder Projekte in die Stunde auf. Das geht auf der leeren Unterrichtsseite und während einer Stunde über das Personen-Symbol der Schülerliste.
 
-1. Tippen Sie einen Namen, eine Klasse oder ein Projekt ein.
-2. Die Treffer stehen nach Art gruppiert darunter. Ein Klick oder **Enter** nimmt den Treffer auf.
-3. Jede Auswahl wird sofort übernommen. Unten sehen Sie, wie viele Einträge ausgewählt sind.
+1. Geben Sie einen Namen, eine Klasse oder ein Projekt ein.
+2. Wählen Sie einen Treffer oder bestätigen Sie mit **Enter**.
+3. Jede Auswahl wird sofort übernommen. Der Zähler zeigt, wie viele Einträge ausgewählt sind.
 
-Haben Sie einer laufenden Klasse oder einem Projekt Personen hinzugefügt, fragt edulution beim Schließen, ob daraus eine Sitzung werden soll, und schlägt einen Namen vor, etwa „niclass_05-10“. Die Klasse oder das Projekt selbst bleibt dabei unverändert. Mit **Name ändern** wählen Sie einen anderen Namen, mit **Nicht jetzt** arbeiten Sie ohne gespeicherte Sitzung weiter. Gespeicherte Sitzungen finden Sie im Startdialog unter **Meine Sitzungen**. Eine geöffnete Sitzung ändern Sie oben rechts über **Bearbeiten**.
+Haben Sie einer laufenden Klasse oder einem Projekt Personen hinzugefügt, fragt edulution beim Schließen, ob daraus eine Sitzung werden soll, und schlägt einen Namen vor, etwa „niclass_05-10“. Die Klasse oder das Projekt selbst bleibt dabei unverändert. Mit **Name ändern** wählen Sie einen anderen Namen, mit **Nicht jetzt** arbeiten Sie ohne gespeicherte Sitzung weiter. Gespeicherte Sitzungen finden Sie im Startdialog unter **Meine Sitzungen**. Eine geöffnete Sitzung ändern Sie über **Bearbeiten**.
 
 Schüler aus Klassen, in die Sie nicht eingeschrieben sind, sehen Sie in der Stunde, können sie aber nicht steuern: Ihre Schalter sind ausgegraut. Über das Pfeil-Symbol in ihrer Zeile treten Sie der Klasse des Schülers bei.
 
@@ -63,9 +63,9 @@ Schüler aus Klassen, in die Sie nicht eingeschrieben sind, sehen Sie in der Stu
 
 ![Laufende Stunde in der Kachelansicht](/img/klassenraum/unterricht-kacheln.webp)
 
-1. **Mitglieder hinzufügen** – siehe oben.
-2. **Alle auswählen** wählt alle Schüler der Stunde aus.
-3. Die Schülerliste mit Suchfeld. Unter jedem Namen stehen die [Schalter des Schülers](#schalter-je-schüler).
+1. **Mitglieder hinzufügen**, siehe [Mitglieder hinzufügen](#mitglieder-hinzufügen).
+2. **Alle auswählen**
+3. Die Schülerliste mit Suchfeld und den [Schaltern je Schüler](#schalter-je-schüler).
 4. Hier wechseln Sie zwischen **Alle Nutzer** (Kachelansicht) und **Raumplan**. Den Raumplan gibt es nur mit [Sitzplan](#sitzplan).
 5. Jede Kachel zeigt einen Schüler mit seiner [Bildschirmvorschau](#bildschirmüberwachung-veyon).
 6. **Neue Sitzung starten** öffnet wieder den Startdialog, **Stunde verlassen** kehrt zur leeren Unterrichtsseite zurück, **Neu laden** liest den Stand aller Schüler neu ein.
@@ -74,7 +74,7 @@ Schüler aus Klassen, in die Sie nicht eingeschrieben sind, sehen Sie in der Stu
 
 ![Schalter in einer Zeile der Schülerliste](/img/klassenraum/schueler-zeile.webp)
 
-Unter jedem Namen in der Schülerliste stehen die Schalter dieses Schülers. Grün bedeutet eingeschaltet, ein Klick schaltet um.
+Grün bedeutet eingeschaltet, ein Klick schaltet um.
 
 1. **Wifi**
 2. **Web Filter**
@@ -87,26 +87,26 @@ Unter jedem Namen in der Schülerliste stehen die Schalter dieses Schülers. Gr�
 
 ### Aktionen für mehrere Schüler
 
-![Ausgewählte Schüler und die Aktionsleiste oben](/img/klassenraum/aktionsleiste.webp)
+![Ausgewählte Schüler und die Aktionsleiste](/img/klassenraum/aktionsleiste.webp)
 
-Wählen Sie Schüler über ihre Häkchen (1) oder alle auf einmal (2) aus, zeigt die Leiste oben die Aktionen für diese Auswahl:
+Wählen Sie Schüler über ihre Häkchen (1) oder alle auf einmal (2) aus, zeigt die Aktionsleiste die Aktionen für diese Auswahl:
 
-3. **Austeilen** und **Einsammeln** verteilen Dateien an die Schüler und holen sie wieder ab. **Dateien anzeigen** zeigt die Dateien der ausgewählten Schüler.
-4. **Wifi**, **Web Filter**, **Internet**, **Intranet** und **Drucken** schalten Sie für alle Ausgewählten gemeinsam.
-5. **Klassenarbeitsmodus** – ebenfalls für alle Ausgewählten.
+3. **Austeilen** und **Einsammeln** von Dateien sowie **Dateien anzeigen**
+4. **Wifi**, **Web Filter**, **Internet**, **Intranet** und **Drucken**
+5. **Klassenarbeitsmodus**
 
 ### Einzelansicht eines Schülers
 
 ![Einzelansicht eines Schülers mit großer Bildschirmvorschau](/img/klassenraum/einzelansicht.webp)
 
 1. Klicken Sie in der Schülerliste auf einen Schüler.
-2. Oben stehen die Veyon-Aktionen **Bildschirm sperren**, **Eingabe sperren**, **System neu starten** und **System herunterfahren**.
-3. Darunter sehen Sie die große Bildschirmvorschau des Schülers.
+2. Die Veyon-Aktionen **Bildschirm sperren**, **Eingabe sperren**, **System neu starten** und **System herunterfahren**.
+3. Die große Bildschirmvorschau des Schülers.
 4. Über **Alle Nutzer** kehren Sie zur Kachelansicht zurück.
 
 ### Ablauf einer Aktion
 
-Solange eine Aktion läuft, ersetzt ein Ladekreis das Symbol der ausgelösten Funktion. Die übrigen Schalter desselben Schülers sind währenddessen gesperrt, bleiben aber in ihrer Farbe lesbar, sodass Sie den aktuellen Zustand des Schülers weiterhin ablesen können.
+Solange eine Aktion läuft, ersetzt ein Ladekreis das Symbol der ausgelösten Funktion. Die übrigen Schalter desselben Schülers sind währenddessen gesperrt, behalten aber ihre Farbe, sodass Sie den Zustand des Schülers weiter ablesen können.
 
 Nach Abschluss der Aktion lädt edulution den Stand des Schülers neu und zeigt den neuen Zustand. Schlägt die Aktion fehl, verschwindet der Ladekreis ebenfalls und die Schalter bleiben bedienbar.
 
@@ -114,7 +114,7 @@ Bei einer Massenaktion über die Aktionsleiste schließt sich der Dialog sofort 
 
 ### Bildschirmüberwachung (Veyon)
 
-Ist ein Veyon-Proxy hinterlegt, zeigt jede Kachel automatisch eine kleine Live-Vorschau des Schülerbildschirms – Sie müssen die Überwachung nicht eigens starten. Über das Symbol zum Vergrößern öffnen Sie die Vorschau in einem eigenen Fenster, das häufiger aktualisiert wird. Eine große Vorschau zeigt auch die [Einzelansicht](#einzelansicht-eines-schülers).
+Ist ein Veyon-Proxy hinterlegt, zeigt jede Kachel automatisch eine kleine Live-Vorschau des Schülerbildschirms. Über das Symbol zum Vergrößern öffnen Sie die Vorschau in einem eigenen Fenster, das häufiger aktualisiert wird. Eine große Vorschau zeigt auch die [Einzelansicht](#einzelansicht-eines-schülers).
 
 Die Veyon-Aktionen erreichen Sie über das Augen-Symbol in der Zeile des Schülers:
 
@@ -167,7 +167,7 @@ Wie Sie Ihre Speichernutzung einsehen und Platz schaffen, steht unter [Speicherp
 
 ## Sitzplan
 
-Mit dem Sitzplan bilden Sie ein Klassenzimmer samt Tischen, Tafel, Türen, Fenstern und weiteren Objekten auf einem Raster nach und setzen Ihre Schüler im Unterricht auf feste Plätze. Ein Administrator schaltet den Sitzplan in den [Einstellungen der Klassenraum-App](../../konfiguration/einstellungen.md#klassenraum-sitzplan) ein. Erst dann erscheint links der Menüpunkt **Räume**. Den Raumplan im Unterricht gibt es nur, wenn edulution an Linuxmuster angebunden ist.
+Mit dem Sitzplan bilden Sie ein Klassenzimmer samt Tischen, Tafel, Türen, Fenstern und weiteren Objekten auf einem Raster nach und setzen Ihre Schüler im Unterricht auf feste Plätze. Ein Administrator schaltet den Sitzplan in den [Einstellungen der Klassenraum-App](../../konfiguration/einstellungen.md#klassenraum-sitzplan) ein. Erst dann erscheint im Klassenraum der Menüpunkt **Räume**. Räume und Layouts legen Schuladministratoren und globale Administratoren an, Lehrkräfte sehen sie dort nur lesend. Den Raumplan im Unterricht gibt es nur, wenn edulution an Linuxmuster angebunden ist.
 
 Eine Sitzordnung gehört immer zu einer Gruppe (Klasse, Projekt oder gespeicherte Sitzung), zu einem Layout eines Raums und, wenn Sie eines wählen, zu einem Fach. Dieselbe Klasse kann also in Mathematik anders sitzen als in Deutsch. Raum, Layout und Fach wählen Sie beim [Starten der Stunde](#stunde-starten). Für eine Sitzung gibt es erst dann einen Sitzplan, wenn Sie sie gespeichert haben.
 
@@ -175,49 +175,47 @@ Eine Sitzordnung gehört immer zu einer Gruppe (Klasse, Projekt oder gespeichert
 
 ### Räume und Layouts anlegen
 
-Räume und ihre Layouts legen Schuladministratoren und globale Administratoren an. Lehrkräfte sehen die Seite **Räume** nur lesend.
-
 ![Seite Räume mit Raumliste und einem Raum ohne Layout](/img/klassenraum/sitzplan-raeume.webp)
 
-1. Öffnen Sie im Klassenraum links **Räume**.
-2. Legen Sie oben rechts über **Raum anlegen** einen Raum an. Als globaler Administrator wählen Sie dabei auch die Schule.
+1. Öffnen Sie im Klassenraum **Räume**.
+2. Legen Sie über **Raum anlegen** einen Raum an. Als globaler Administrator wählen Sie dabei auch die Schule.
 3. Globale Administratoren sehen die Räume aller Schulen nach Schule gruppiert und können die Liste hier auf eine Schule einschränken.
 4. Wählen Sie den Raum in der Liste aus.
 5. Legen Sie über **Layout anlegen** das erste Layout des Raums an.
-6. Über **Raum umbenennen** und **Raum löschen** bearbeiten Sie den ausgewählten Raum.
+6. Über **Raum umbenennen** und **Raum löschen** bearbeiten Sie den ausgewählten Raum. Was beim Löschen mit verloren geht, steht unter [Was beim Löschen verloren geht](#was-beim-löschen-verloren-geht).
 
 Ein Raum kann mehrere Layouts haben, zum Beispiel „Frontalunterricht“ und „Gruppentische“.
 
 ![Dialog Layout anlegen mit Name und Vorlage](/img/klassenraum/sitzplan-layout-anlegen.webp)
 
 1. Geben Sie dem Layout einen **Namen**.
-2. Wählen Sie eine **Vorlage**: **Leer beginnen**, eine der mitgelieferten Vorlagen (Frontalunterricht, Gruppentische, U-Form, Sitzkreis) oder eine Vorlage Ihrer Schule. Nur bei **Leer beginnen** wählen Sie zusätzlich die **Raumgröße**: Klein (12 × 8), Normal (20 × 12), Groß (28 × 16) oder eine eigene Größe. Eine Vorlage bringt ihre Größe mit.
+2. Wählen Sie eine **Vorlage**: **Leer beginnen**, eine der mitgelieferten Vorlagen (Frontalunterricht, Gruppentische, U-Form, Sitzkreis) oder eine Vorlage Ihrer Schule. Nur bei **Leer beginnen** wählen Sie zusätzlich die **Raumgröße**: Klein (12 × 8), Normal (20 × 12), Groß (28 × 16) oder **Eigene Größe** mit 4 bis 40 Spalten und Zeilen. Die erste Zahl ist jeweils die Zahl der Spalten. Eine Vorlage bringt ihre Größe mit.
 3. Legen Sie das Layout mit **Erstellen** an.
 
 #### Layout bearbeiten
 
 ![Layout-Editor mit Objektarten, Raster und Layouts des Raums](/img/klassenraum/sitzplan-editor.webp)
 
-1. Wählen Sie oben eine Objektart und klicken Sie auf eine freie Zelle im Raster, um das Objekt dort zu setzen. Vorhandene Objekte ziehen Sie mit der Maus an eine andere Stelle.
-2. Das Raster ist der Raum. Tische bringen ihre Sitzplätze mit, ein Doppeltisch zum Beispiel zwei. Die Zahl der Sitzplätze steht über dem Raster.
+1. Wählen Sie eine Objektart und klicken Sie auf eine freie Zelle im Raster, um das Objekt dort zu setzen. Vorhandene Objekte ziehen Sie mit der Maus an eine andere Stelle.
+2. Das Raster ist der Raum. Tische bringen ihre Sitzplätze mit, ein Doppeltisch zum Beispiel zwei.
 3. Vergrößern oder verkleinern Sie die Ansicht.
 4. An den Rändern des Rasters ziehen Sie den Raum breiter, schmaler, höher oder flacher. Ziehen Sie am linken oder oberen Rand, rücken die Objekte mit.
 5. Unter **Layouts dieses Raums** legen Sie weitere Layouts an, bearbeiten oder löschen das ausgewählte.
-6. **Als Vorlage speichern** macht aus dem Layout eine Vorlage, die danach in dieser Schule für jeden Raum zur Auswahl steht. Sobald Ihre Schule eigene Vorlagen hat, erscheint oben rechts zusätzlich **Vorlagen**. Dort benennen Sie die Vorlagen um oder löschen sie.
+6. **Als Vorlage speichern** macht aus dem Layout eine Vorlage, die danach in dieser Schule für jeden Raum zur Auswahl steht. Sobald Ihre Schule eigene Vorlagen hat, erscheint im Editor zusätzlich **Vorlagen**. Dort benennen Sie die Vorlagen um oder löschen sie.
 
-Änderungen im Editor speichert edulution sofort, einen eigenen Speichern-Knopf gibt es nicht.
+edulution speichert jede Änderung im Editor sofort.
 
 ![Angeklicktes Objekt mit den Schaltflächen zum Drehen, Beschriften und Löschen](/img/klassenraum/sitzplan-editor-objekt.webp)
 
-Klicken Sie ein Objekt an (1), erscheinen oben rechts seine Schaltflächen:
+Klicken Sie ein Objekt an (1), erscheinen seine Schaltflächen:
 
-2. **Drehen** dreht das Objekt schrittweise weiter.
-3. **Beschriften** gibt ihm eine eigene Beschriftung, zum Beispiel „PC 1“.
-4. **Löschen** entfernt es aus dem Layout.
-5. Am Griff unten rechts ziehen Sie das Objekt größer oder kleiner. Die Griffe an den Kanten ändern nur Breite oder Höhe.
+2. Dreht das Objekt schrittweise weiter.
+3. Gibt dem Objekt eine eigene Beschriftung, zum Beispiel „PC 1“.
+4. Entfernt das Objekt aus dem Layout.
+5. Am Eckgriff ziehen Sie das Objekt größer oder kleiner. Die Griffe an den Kanten ändern nur Breite oder Höhe.
 
 :::warning[Belegte Plätze]
-Löschen oder verkleinern Sie ein Objekt, auf dem schon Schüler sitzen, fragt edulution vorher nach. Die Schüler verlieren ihren Platz. Beim nächsten Öffnen der Stunde sieht die Lehrkraft einen Hinweis, wer betroffen ist.
+Löschen oder verkleinern Sie ein Objekt, auf dem schon Schüler sitzen, fragt edulution vorher nach. Die Schüler verlieren ihren Platz.
 :::
 
 </Audience>
@@ -226,9 +224,9 @@ Löschen oder verkleinern Sie ein Objekt, auf dem schon Schüler sitzen, fragt e
 
 ![Raumplan im Unterricht mit Schülerliste und belegten Plätzen](/img/klassenraum/sitzplan-unterricht.webp)
 
-1. Hier wechseln Sie zwischen **Alle Nutzer** (Kachelansicht) und **Raumplan**.
+1. Wechseln Sie auf **Raumplan**.
 2. Raum und Layout der Stunde.
-3. Das Fach. Jedes Fach hat seine eigene Sitzordnung.
+3. Das Fach der Stunde.
 4. Der Plan, siehe [Pläne und Varianten](#pläne-und-varianten).
 5. **Zufällig platzieren** setzt alle Schüler ohne Platz auf zufällige freie Plätze. Wer schon sitzt, bleibt sitzen.
 6. **Sitzordnung leeren** gibt nach einer Rückfrage alle Plätze frei. Das lässt sich nicht rückgängig machen.
@@ -237,7 +235,7 @@ Löschen oder verkleinern Sie ein Objekt, auf dem schon Schüler sitzen, fragt e
 
 ![Ausgewählter Schüler im Raumplan mit freien Plätzen und seinen Schaltflächen](/img/klassenraum/sitzplan-platz.webp)
 
-Ein Klick auf einen belegten Platz (1) wählt den Schüler aus, genau wie das Häkchen in der Liste. Die Aktionen oben (Austeilen, Einsammeln, Internet …) gelten dann für ihn, und die freien Plätze sind markiert:
+Ein Klick auf einen belegten Platz (1) wählt den Schüler aus, genau wie das Häkchen in der Liste. Die [Aktionen der Aktionsleiste](#aktionen-für-mehrere-schüler) gelten dann für ihn, und die freien Plätze sind markiert:
 
 2. Klicken Sie auf einen freien Platz, um den Schüler dorthin umzusetzen.
 3. **Öffnen** zeigt den Schüler in der [Einzelansicht](#einzelansicht-eines-schülers).
@@ -248,9 +246,9 @@ Ein Klick auf einen belegten Platz (1) wählt den Schüler aus, genau wie das H�
 ![Planauswahl mit Standardplan, neuer Variante und der Variante Klassenarbeit](/img/klassenraum/sitzplan-varianten.webp)
 
 1. Jede Gruppe hat je Layout und Fach einen **Standardplan**. Der Balken zeigt, wie viele Plätze belegt sind.
-2. Über **Neue Variante …** legen Sie weitere benannte Pläne an, etwa für Klassenarbeiten, bis zu 20 je Layout. Eine neue Variante beginnt leer.
+2. Über **Neue Variante …** legen Sie weitere benannte Pläne an, etwa für Klassenarbeiten, bis zu 20 je Layout und Fach, den Standardplan nicht mitgezählt. Eine neue Variante beginnt leer.
 3. Ihre Varianten stehen unter **In diesem Layout**.
-4. Über **…** benennen Sie die ausgewählte Variante um oder löschen sie. Der Standardplan und die anderen Varianten bleiben dabei unverändert.
+4. Über **…** benennen Sie die ausgewählte Variante um oder löschen sie.
 
 Hat die Gruppe in einem anderen Layout schon Varianten, bietet die Liste deren Namen unter **Aus anderen Layouts übernehmen** an. Ein Klick legt im aktuellen Layout eine leere Variante mit diesem Namen an, ohne die Sitzordnung zu übernehmen.
 
@@ -265,13 +263,13 @@ Sitzordnungen hängen an Räumen, Layouts, Fächern und Gruppen. Löschen Sie ei
 | ein Fach | die Sitzpläne dieses Fachs, siehe [Unterrichtsverwaltung](../../konfiguration/einstellungen.md#unterrichtsverwaltung) |
 | eine Sitzung oder ein Projekt | ihre Sitzpläne in allen Räumen und Fächern |
 
+Löscht oder verkleinert ein Administrator im Layout ein Objekt, auf dem Schüler sitzen, verlieren diese ihren Platz. Beim nächsten Öffnen der Stunde zeigt edulution einen Hinweis, wer betroffen ist. Setzen Sie diese Schüler neu.
+
 <Audience roles="admin">
 
 ## Einrichtung (für Administratoren)
 
 Die Bildschirmüberwachung setzt einen konfigurierten Veyon-WebAPI-Proxy voraus. Die Proxy-Adresse wird in den Einstellungen der Klassenraum-App hinterlegt und muss `https` verwenden (Ausnahmen für lokale Proxys siehe dort): [Einstellungen → Klassenraum (Veyon-Proxy)](../../konfiguration/einstellungen.md#klassenraum-veyon-proxy).
-
-Den Sitzplan schalten Sie ebenfalls in den Einstellungen der Klassenraum-App ein: [Einstellungen → Klassenraum (Sitzplan)](../../konfiguration/einstellungen.md#klassenraum-sitzplan).
 
 </Audience>
 
@@ -279,13 +277,13 @@ Den Sitzplan schalten Sie ebenfalls in den Einstellungen der Klassenraum-App ein
 
 ![Seite Einschreiben mit Klassen, Druckern und Projekten](/img/klassenraum/einschreiben.webp)
 
-Hier schreiben Sie sich in Klassen, Druckergruppen und Projekte ein. Ein Häkchen auf der Karte schreibt Sie sofort ein, ein Klick auf ein gesetztes Häkchen schreibt Sie wieder aus. Die Klassen, in die Sie eingeschrieben sind, erscheinen beim [Starten einer Stunde](#stunde-starten) unter **Meine Klassen**.
+Hier schreiben Sie sich in Klassen, Druckergruppen und Projekte ein. Aktivieren Sie das Häkchen auf einer Karte, sind Sie sofort eingeschrieben. Deaktivieren Sie es, sind Sie wieder ausgeschrieben.
 
 1. Das Suchfeld filtert alle Karten.
-2. **Klassen** – jede Karte zeigt die Zahl der Benutzer und die Schule.
+2. **Klassen**
 3. **Drucker** – die Druckergruppen der Schule, sofern es welche gibt.
-4. **Projekte** – jede Karte zeigt die Zahl der Admins und der Benutzer. Private Projekte tragen ein Schloss-Symbol.
-5. Über die Unterpunkte links springen Sie direkt zu einem der drei Bereiche.
+4. **Projekte** – private Projekte tragen ein Schloss-Symbol.
+5. Über die Unterpunkte in der Seitenleiste springen Sie direkt zu einem der drei Bereiche.
 
 :::tip[Projekte nutzen]
 Projekte sind ideal für:
@@ -304,7 +302,7 @@ Hier laden Sie die Schülerlisten Ihrer Klassen herunter.
 
 1. Mit dem Häkchen wählen Sie eine Klasse aus.
 2. **PDF** oder **CSV** neben einer Klasse lädt die Liste dieser einen Klasse herunter.
-3. Haben Sie Klassen ausgewählt, laden **PDF** und **CSV** oben rechts die Listen aller ausgewählten Klassen auf einmal herunter.
+3. Haben Sie Klassen ausgewählt, laden **PDF** und **CSV** in der Kopfzeile der Seite die Listen aller ausgewählten Klassen auf einmal herunter.
 
 ## Meine Projekte
 
@@ -313,7 +311,7 @@ Hier laden Sie die Schülerlisten Ihrer Klassen herunter.
 Hier sehen Sie alle Projekte, in denen Sie Admin sind.
 
 1. Das Suchfeld filtert die Projekte.
-2. Ein Klick auf ein Projekt öffnet **Projekt bearbeiten** mit Name, Eigenschaften, Gruppenadministratoren und Gruppenbenutzern. Dort löschen Sie das Projekt auch. Ist der Sitzplan eingeschaltet, verschwinden dabei seine [Sitzpläne](#was-beim-löschen-verloren-geht) mit.
+2. Ein Klick auf ein Projekt öffnet **Projekt bearbeiten**. Dort löschen Sie das Projekt auch. Ist der Sitzplan eingeschaltet, verschwinden dabei seine [Sitzpläne](#was-beim-löschen-verloren-geht) mit.
 3. **Projekt erstellen** legt ein neues Projekt an.
 
 ## Passwörter drucken
@@ -324,7 +322,7 @@ Hier erzeugen Sie Dateien mit den Zugangsdaten einer Klasse zum Ausdrucken.
 
 1. Mit dem Häkchen wählen Sie eine Klasse aus.
 2. **PDF** oder **CSV** neben einer Klasse erzeugt die Datei für diese eine Klasse.
-3. Haben Sie Klassen ausgewählt, erzeugen **PDF** und **CSV** oben rechts eine Datei für alle ausgewählten Klassen zusammen.
+3. Haben Sie Klassen ausgewählt, erzeugen **PDF** und **CSV** in der Kopfzeile der Seite eine Datei für alle ausgewählten Klassen zusammen.
 
 :::tip[Verwendung]
 Nützlich für:
@@ -349,7 +347,7 @@ Nützlich für:
 
 ## Siehe auch
 
-- [Dashboard](../../uebersicht/dashboard.md) - Klassenübersicht
-- [Einstellungen → Klassenraum (Veyon-Proxy)](../../konfiguration/einstellungen.md#klassenraum-veyon-proxy) - Bildschirmüberwachung einrichten
-- [Einstellungen → Klassenraum (Sitzplan)](../../konfiguration/einstellungen.md#klassenraum-sitzplan) - Sitzplan einschalten
+- [Dashboard](../../uebersicht/dashboard.md) – Klassenübersicht
+- [Einstellungen → Klassenraum (Veyon-Proxy)](../../konfiguration/einstellungen.md#klassenraum-veyon-proxy) – Bildschirmüberwachung einrichten
+- [Einstellungen → Klassenraum (Sitzplan)](../../konfiguration/einstellungen.md#klassenraum-sitzplan) – Sitzplan einschalten
 - [Linuxmuster verbinden](../../../edulution-server/installation.md)

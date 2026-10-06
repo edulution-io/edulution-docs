@@ -188,7 +188,9 @@ Die Ansichtswahl bietet drei Ansichten derselben Liste:
 | **Datenblatt** | je Host eine Karte mit Hostname und **Status** und den Zeilen Rolle, IP, MAC-Adresse, Gruppe, Raum, PXE und Kommentar; Zeilen ohne Wert entfallen |
 | **Tabelle** | Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle, **Status** und **Geplant** |
 
-Ein Klick auf eine Karte – in der Tabelle auf eine ganze Zeile – öffnet den Dialog **Host \<Hostname\>**. Er zeigt den **Status** und alle Angaben, die die Geräteliste zu diesem Rechner führt. Zu denen des Datenblatts kommen Schule, PXE aktiv, DHCP-Optionen, Office-Schlüssel und Windows-Schlüssel hinzu. Hat die Plattform nach einer Aktion für genau diesen Host erhoben, wann seine Images zuletzt synchronisiert wurden, listet der Dialog das zusätzlich unter **Images**. Die Angaben lassen sich nur ansehen.
+Ein Klick auf eine Karte – in der Tabelle auf eine ganze Zeile – öffnet den Dialog **Host \<Hostname\>**. Er zeigt den **Status** und alle Angaben, die die Geräteliste zu diesem Rechner führt. Zu denen des Datenblatts kommen Schule, PXE aktiv, DHCP-Optionen, Office-Schlüssel und Windows-Schlüssel hinzu. Hat die Plattform nach einer Aktion für genau diesen Host erhoben, wann seine Images zuletzt synchronisiert wurden, listet der Dialog das zusätzlich unter **Images**. Die Angaben der Geräteliste lassen sich nur ansehen; die vorgemerkten Befehle lassen sich zurückziehen (siehe unten).
+
+Hat ein Rechner Befehle, die für seinen nächsten Start vorgemerkt sind (**Zeitpunkt** **Beim nächsten Start** im [Kommando-Dialog](#der-kommando-dialog)), nennt der Dialog sie unter **Beim nächsten Start**. **Zurückziehen** entfernt sie nach einer Bestätigung auf dem Schulserver; der Rechner führt sie dann beim nächsten Start nicht mehr aus, und der Eintrag verschwindet ohne Neuladen. Ein vorgemerkter Abbild-Upload zeigt statt der Befehle nur den Hinweis, dass sie Zugangsdaten enthalten und nicht angezeigt werden; zurückziehen lässt er sich trotzdem. Der Abschnitt erscheint nur, wenn die Linuxmuster-API die Befehle für den nächsten Start ausliefert; auf einem Server, der sie nicht kennt, bleibt er aus.
 
 Zur Tabelle:
 
@@ -308,7 +310,7 @@ Ein Lauf wird auf dem Schulserver je Host in einer eigenen Sitzung ausgeführt u
 - Der Dialog listet je Sitzung den Hostnamen und seit wann sie läuft.
 - Eine Sitzung, die Sie laufen gesehen haben und die inzwischen beendet ist, bleibt mit der Marke **Beendet** in der Liste, bis Sie die Seite neu laden; höchstens 50 solcher Einträge merkt sich die Seite.
 - **Protokoll** zeigt die Ausgabe des Laufs für diesen Host; **Zurück zur Liste** führt zur Übersicht. Der Schulserver schreibt die Ausgabe mit, solange der Lauf dauert, und behält sie danach – das Protokoll eines beendeten Laufs bleibt lesbar.
-- Befehle, die Sie mit **Beim nächsten Start** abschicken, erscheinen hier nicht: Der Schulserver listet sie nicht auf, und sie lassen sich aus der Plattform nicht zurücknehmen. Der Dialog weist darauf hin.
+- Befehle, die Sie mit **Beim nächsten Start** abschicken, erscheinen hier nicht. Sie stehen im Dialog **Host \<Hostname\>** des Rechners und lassen sich dort [zurückziehen](#hosts). Der Dialog weist darauf hin.
 - Antwortet der Server nicht, bleibt der zuletzt bekannte Stand stehen, und der Dialog sagt es. Der nächste Versuch läuft von selbst, ohne die Meldung bei jedem Durchgang zu wiederholen.
 
 :::note[Die Liste folgt nicht der gewählten Schule]

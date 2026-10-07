@@ -113,6 +113,7 @@ Was die Unterseiten bei fehlender Auswahl oder einem nicht erreichbaren Satellit
 Die **Übersicht** gibt es nur für erreichbare Satelliten. Sie zeigt:
 
 - **Satellite-Übersicht** – Status, Version, Laufzeit und Seriennummer.
+- **LINBO** – eine Kachel mit **Hosts online** (online von allen Hosts), **Gruppen**, **Schulserver** (erreichbar oder nicht erreichbar) und **Aktiver Kernel** (Variante und Version). Sie ist nur lesend; Details stehen in [LINBO am Satelliten](./linbo.md). Meldet der Satellit keinen LINBO-Dienst, fehlt die Kachel. Was der Satellit nicht liefert, zeigt die Kachel als „—“.
 - Kacheln für **Netzwerke**, **Container** und **Auth-Anbieter**; sie führen zur jeweiligen Unterseite.
 - **Container-Status** – wie viele Container laufen und wie viele gestoppt sind.
 - **Ressourcen** – Auslastung von CPU, Arbeitsspeicher und Speicher, dazu die Plattform des Geräts.

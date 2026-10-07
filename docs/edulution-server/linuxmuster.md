@@ -58,7 +58,7 @@ Eine Aktion zum Neuladen gibt es in den LINBO-Listen nicht. Die Seiten holen die
 | Hosts (samt **Status**) | 30 Sekunden |
 | Gruppen und Images | 1 Minute |
 | Sitzungen | 5 Sekunden, ein geöffnetes Protokoll alle 2 Sekunden |
-| Verlauf beendeter Läufe | 5 Sekunden, solange der Dialog **Sitzungen** geöffnet ist |
+| Verlauf beendeter Läufe | 5 Sekunden, solange der Dialog **Sitzungen** geöffnet ist; nach einem Fehler 30 Sekunden |
 
 Solange eine Gruppe im Gruppen-Editor geöffnet ist oder gespeichert wird, fragt die Gruppenliste nicht ab, damit ungespeicherte Änderungen erhalten bleiben.
 

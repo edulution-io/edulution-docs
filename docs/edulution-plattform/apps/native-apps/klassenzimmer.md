@@ -182,7 +182,8 @@ Eine Sitzordnung gehört immer zu einer Gruppe (Klasse, Projekt oder gespeichert
 3. Globale Administratoren sehen die Räume aller Schulen nach Schule gruppiert und können die Liste hier auf eine Schule einschränken.
 4. Wählen Sie den Raum in der Liste aus.
 5. Legen Sie über **Layout anlegen** das erste Layout des Raums an.
-6. Über **Raum umbenennen** und **Raum löschen** bearbeiten Sie den ausgewählten Raum. Was beim Löschen mit verloren geht, steht unter [Was beim Löschen verloren geht](#was-beim-löschen-verloren-geht).
+6. Über **Raum umbenennen** und **Raum löschen** bearbeiten Sie den ausgewählten Raum. Einen aus Linuxmuster übernommenen Raum können Sie nicht umbenennen, sein Name kommt aus Linuxmuster. Was beim Löschen mit verloren geht, steht unter [Was beim Löschen verloren geht](#was-beim-löschen-verloren-geht).
+7. Ist edulution an Linuxmuster angebunden, legen Sie die Räume einer Schule auch auf einmal an, siehe [Räume aus Linuxmuster übernehmen](#räume-aus-linuxmuster-übernehmen).
 
 Ein Raum kann mehrere Layouts haben, zum Beispiel „Frontalunterricht“ und „Gruppentische“.
 
@@ -217,6 +218,24 @@ Klicken Sie ein Objekt an (1), erscheinen seine Schaltflächen:
 :::warning[Belegte Plätze]
 Löschen oder verkleinern Sie ein Objekt, auf dem schon Schüler sitzen, fragt edulution vorher nach. Die Schüler verlieren ihren Platz.
 :::
+
+#### Räume aus Linuxmuster übernehmen
+
+Ist edulution an Linuxmuster angebunden, finden Sie in der Aktionsleiste der Seite **Räume** die Aktion **Räume aus Linuxmuster übernehmen**. Sie liest die Räume aus der [Geräteliste](geraeteverwaltung.md) der Schule. Als globaler Administrator übernehmen Sie die Räume der Schule, auf die die Raumliste eingeschränkt ist. Zeigt die Liste alle Schulen, ist die Aktion gesperrt.
+
+Der Dialog zeigt jeden Raum aus Linuxmuster mit der Zahl seiner Geräte, deren Rollen, seinem Status und dem Raum in edulution, zu dem er gehört:
+
+| Status | Was die Übernahme tut |
+|---|---|
+| **Neu** | Legt in edulution einen Raum mit dem Namen aus Linuxmuster an. |
+| **Gleichnamiger Raum vorhanden** | Verknüpft den vorhandenen Raum gleichen Namens, Groß- und Kleinschreibung zählen dabei nicht. Der Raum behält seine Layouts und Sitzordnungen und übernimmt die Schreibweise aus Linuxmuster. |
+| **Name schon vergeben** | Nichts, ein Verteiler in edulution trägt schon diesen Namen. Um den Raum zu übernehmen, [benennen Sie den Verteiler um](../../konfiguration/einstellungen.md#verteiler-bearbeiten). |
+| **Verknüpft** | Nichts, der Raum ist schon übernommen. |
+| **Nicht mehr in Linuxmuster** | Nichts, der Raum bleibt in edulution, wie er ist. |
+
+Alle Räume mit dem Status **Neu** oder **Gleichnamiger Raum vorhanden** sind vorausgewählt. Nehmen Sie das Häkchen bei Einträgen heraus, die kein Klassenraum sind, etwa `mobil` oder `server`. Einen Raum, dessen Name nicht den [Namensregeln](../../../edulution-server/linuxmuster.md#namensregeln-für-rechnername-raum-und-hardwaregruppe) entspricht, markiert der Dialog als **Ungültiger Raumname**; er lässt sich nicht auswählen.
+
+Kommen in Linuxmuster später Räume hinzu, übernehmen Sie sie auf demselben Weg. Bereits übernommene Räume bleiben dabei unverändert.
 
 </Audience>
 

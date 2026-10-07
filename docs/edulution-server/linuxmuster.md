@@ -58,6 +58,7 @@ Eine Aktion zum Neuladen gibt es in den LINBO-Listen nicht. Die Seiten holen die
 | Hosts (samt **Status**) | 30 Sekunden |
 | Gruppen und Images | 1 Minute |
 | Sitzungen | 5 Sekunden, ein geöffnetes Protokoll alle 2 Sekunden |
+| Verlauf beendeter Läufe | 5 Sekunden, solange der Dialog **Sitzungen** geöffnet ist; nach einem Fehler 30 Sekunden |
 
 Solange eine Gruppe im Gruppen-Editor geöffnet ist oder gespeichert wird, fragt die Gruppenliste nicht ab, damit ungespeicherte Änderungen erhalten bleiben.
 
@@ -306,13 +307,16 @@ Nach dem Abschicken meldet die Plattform, ob die Kette alle Rechner erreicht hat
 Ein Lauf wird auf dem Schulserver je Host in einer eigenen Sitzung ausgeführt und läuft dort weiter, auch wenn Sie den Dialog schließen oder die Seite verlassen. **Sitzungen** zeigt, was gerade läuft; steht etwas an, nennt die Schaltfläche die Anzahl.
 
 - Der Dialog listet je Sitzung den Hostnamen und seit wann sie läuft.
-- Eine Sitzung, die Sie laufen gesehen haben und die inzwischen beendet ist, bleibt mit der Marke **Beendet** in der Liste, bis Sie die Seite neu laden; höchstens 50 solcher Einträge merkt sich die Seite.
-- **Protokoll** zeigt die Ausgabe des Laufs für diesen Host; **Zurück zur Liste** führt zur Übersicht. Der Schulserver schreibt die Ausgabe mit, solange der Lauf dauert, und behält sie danach – das Protokoll eines beendeten Laufs bleibt lesbar.
+- Unter den laufenden Sitzungen steht der Verlauf der beendeten Läufe, die letzten 50. Jeder Eintrag nennt den Hostnamen, die Befehle des Laufs und den Beginn. Die Marke **Beendet** kennzeichnet einen Lauf, der ohne Fehler endete; bei einem Rückgabestatus ungleich 0 steht stattdessen **Fehlgeschlagen (Status …)**.
+- Den Verlauf führt der Schulserver, nicht die Seite. Er bleibt nach dem Neuladen, in einem zweiten Tab und für andere Administratoren erhalten und enthält auch einen Lauf, der zwischen zwei Abfragen begann und endete, etwa ein kurzer Neustart.
+- Bei einem Lauf, der einen Rechner nur im Hintergrund startet oder neu startet, heißt Status 0 lediglich, dass der Befehl abgeschickt wurde.
+- **Protokoll** zeigt die Ausgabe des Laufs für diesen Host; **Zurück zur Liste** führt zur Übersicht. Der Schulserver schreibt die Ausgabe mit, solange der Lauf dauert, und behält sie danach. Jeder Lauf hat sein eigenes Protokoll: Zwei Läufe desselben Hosts zeigen zwei verschiedene Ausgaben.
+- Der Schulserver löscht alte Läufe samt Protokoll. Das Protokoll eines gelöschten Laufs ist leer; der Dialog meldet dann, dass es noch leer ist.
 - Befehle, die Sie mit **Beim nächsten Start** abschicken, erscheinen hier nicht: Der Schulserver listet sie nicht auf, und sie lassen sich aus der Plattform nicht zurücknehmen. Der Dialog weist darauf hin.
-- Antwortet der Server nicht, bleibt der zuletzt bekannte Stand stehen, und der Dialog sagt es. Der nächste Versuch läuft von selbst, ohne die Meldung bei jedem Durchgang zu wiederholen.
+- Antwortet der Server nicht, bleibt der zuletzt bekannte Stand von Sitzungen und Verlauf stehen, und der Dialog sagt es. Der nächste Versuch läuft von selbst, ohne die Meldung bei jedem Durchgang zu wiederholen.
 
 :::note[Die Liste folgt nicht der gewählten Schule]
-Welche Sitzungen Sie sehen, entscheidet der Schulserver anhand Ihres Kontos: Ein Schuladmin sieht die Hosts der eigenen Schule, ein Globaladmin jede laufende Sitzung. Der Schulauswahl folgt die Liste deshalb nicht – ein Wechsel blendet keine Sitzung aus, die weiterläuft.
+Welche Sitzungen und Läufe Sie sehen, entscheidet der Schulserver anhand Ihres Kontos: Ein Schuladmin sieht die Hosts der eigenen Schule, ein Globaladmin jede Sitzung und jeden Lauf. Der Schulauswahl folgt die Liste deshalb nicht – ein Wechsel blendet weder eine Sitzung, die weiterläuft, noch einen beendeten Lauf aus.
 :::
 
 ## Elternzuweisung

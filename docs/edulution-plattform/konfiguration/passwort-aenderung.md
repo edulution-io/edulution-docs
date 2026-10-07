@@ -64,7 +64,7 @@ Die folgenden Einstellungen nehmen Sie in der Keycloak-Administrationsoberfläch
 | LDAP-Verbund im Modus **WRITABLE** | **User federation → *LDAP-Verbund* → Edit mode** | Stammen die Benutzer aus einem LDAP-Verzeichnis, kann Keycloak das Passwort nur bei `WRITABLE` zurückschreiben. Bei `READ_ONLY` oder `UNSYNCED` landet die Änderung nicht im Verzeichnis. |
 
 :::info[Passwortrichtlinie und Eingabemaske]
-edulution liest die Passwortrichtlinie des Realms und zeigt sie im Formular unter den Passwortfeldern an. Das Formular prüft das neue Passwort vorab gegen die Regeln **Mindestlänge**, **Ziffern**, **Kleinbuchstaben**, **Großbuchstaben**, **Sonderzeichen** und **Benutzername als Passwort verboten**; mindestens **8 Zeichen** verlangt es in jedem Fall. Ein Wert wie `digits(2)` wird dabei als „mindestens eine Ziffer“ formuliert.
+edulution liest die Passwortrichtlinie des Realms und zeigt sie im Formular unter den Passwortfeldern an. Das Formular prüft das neue Passwort vorab gegen die Regeln **Mindestlänge**, **Ziffern**, **Kleinbuchstaben**, **Großbuchstaben**, **Sonderzeichen** und **Benutzername als Passwort verboten**; mindestens **8 Zeichen** verlangt es in jedem Fall. Verlangt eine Regel mehrere Zeichen einer Art, etwa `digits(2)`, nennt die Meldung die Anzahl, zum Beispiel „Mindestens 2 Ziffern“.
 
 Weitere Regeln der Richtlinie, etwa Passwort-Verlauf oder reguläre Ausdrücke, prüft das Formular nicht. Sie greifen erst beim Speichern in Keycloak, und die Meldung nennt dann die verletzte Regel.
 :::

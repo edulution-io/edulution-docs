@@ -345,6 +345,8 @@ Der Abschnitt wirkt unabhängig von **Speichern**. Die Eingabefelder sind danach
 
 :::warning[Das Ändern baut linbofs64 neu]
 Der Satellit baut linbofs64 mit dem neuen Passwort neu auf, was einen Moment dauert. Clients, die noch mit dem alten Passwort gestartet wurden, melden sich erst nach einem Neustart wieder an.
+
+Antwortet der Satellit nicht rechtzeitig, meldet die Plattform das als unbekanntes Ergebnis statt als Fehler: Der Aufbau kann noch laufen. Prüfen Sie nach einigen Minuten, ob sich ein LINBO-Client anmeldet, und ändern Sie das Passwort sonst erneut.
 :::
 
 ## Siehe auch

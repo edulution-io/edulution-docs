@@ -53,7 +53,7 @@ Die Schaltfläche **Hinzufügen** öffnet den Dialog **Mailbox erstellen** mit f
 - **Lokaler Teil:** Buchstaben, Ziffern, `_`, `+` und `-`, durch einzelne Punkte trennbar; höchstens 64 Zeichen. Die Eingabe wird beim Speichern in Kleinbuchstaben umgewandelt.
 - **Domain:** auswählbar sind ausschließlich Domains, die Mailcow bereits kennt. Existiert genau eine Domain, ist sie vorausgewählt. Bleibt die Liste leer, konnten die Domains nicht geladen werden; prüfen Sie dann zuerst die Mailcow-Verbindung.
 - **Quota:** mindestens 1 MB, höchstens 1.048.576 MB (1 TiB). Eine Quota von 0, die Mailcow als „unbegrenzt“ deutet, lässt sich über diese Oberfläche nicht eintragen.
-- **Passwort:** mindestens 8 Zeichen und mindestens eine Ziffer sowie ein Sonderzeichen.
+- **Passwort:** mindestens 8 Zeichen und mindestens eine Ziffer sowie ein Sonderzeichen. Diese Regeln stehen als **Passwortrichtlinie** über den Passwortfeldern des Dialogs.
 
 Adresse und Domain stehen nur beim Anlegen zur Verfügung. Beim Bearbeiten einer bestehenden Mailbox sind sie ausgeblendet, da Mailcow das Umbenennen einer Mailbox nicht unterstützt – legen Sie in diesem Fall eine neue Mailbox an.
 

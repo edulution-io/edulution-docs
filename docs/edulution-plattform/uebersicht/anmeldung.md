@@ -12,7 +12,7 @@ Die Seite ist zweigeteilt:
 
 | Bereich | Inhalt |
 | --- | --- |
-| **Links: Anmeldeformular** | edulution-Logo, Überschrift **Anmelden** mit dem Hinweis *„Willkommen zurück! Bitte gib deine Zugangsdaten ein."*, die Felder **Benutzername** und **Passwort**, die Schaltflächen **Anmelden** und **Anmelden mit QR-Login** sowie die Fußzeile |
+| **Links: Anmeldeformular** | edulution-Logo, Überschrift **Anmelden** mit dem Hinweis *„Willkommen zurück! Bitte gib deine Zugangsdaten ein."*, die Felder **Benutzername** und **Passwort**, die Schaltflächen **Anmelden** und – sofern erlaubt – **Anmelden mit QR-Login** sowie die Fußzeile |
 | **Rechts: Organisationsbereich** | Login-Bild als Hintergrund, darauf das Logo Ihrer Organisation sowie ein abgesetzter Kasten mit **Organisationsname** und **Login-Text** |
 
 Die Fußzeile enthält die Versionsnummer der Oberfläche und – sofern eingerichtet – die Links zu **Impressum** und **Datenschutz** (siehe [Impressum und Datenschutz einrichten](../konfiguration/impressum-datenschutz.md)).
@@ -66,6 +66,10 @@ Mit der Schaltfläche **Anmelden mit QR-Login** melden Sie sich ohne Eingabe von
 3. Die Anmeldung wird daraufhin automatisch abgeschlossen – Sie müssen am Rechner nichts weiter eingeben.
 
 Mit **Abbrechen** kehren Sie zum Anmeldeformular zurück.
+
+:::info[Nur wenn ein Administrator es erlaubt]
+Die Schaltfläche **Anmelden mit QR-Login** erscheint nur, wenn ein Administrator die Anmeldung per QR-Code in den [Einstellungen](../konfiguration/einstellungen.md#anmeldung-mit-der-app) erlaubt hat. Standardmäßig ist sie ausgeschaltet.
+:::
 
 :::caution[QR-Code läuft ab]
 Ein QR-Code ist **3 Minuten** gültig. Danach erscheint der Hinweis *„Zeit für Login mit edulution.io APP abgelaufen."* und die Seite kehrt zum Anmeldeformular zurück. Klicken Sie einfach erneut auf **Anmelden mit QR-Login**, um einen neuen Code zu erzeugen.

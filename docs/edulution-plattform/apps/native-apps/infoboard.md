@@ -29,7 +29,7 @@ Standardmäßig werden die Kategorien in einer Zeile von links nach rechts aufge
 ![Infoboard - Neue Mitteilung erstellen](/img/schwarzes-brett/schwarzes-brett-create-new-entry.png)
 
 1. Wählen Sie eine **Kategorie**.
-2. Geben Sie einen **Titel** ein und verfassen Sie den **Inhalt** im Editor. Dieser unterstützt Formatierungen wie **Fett**, *Kursiv*, Listen und Links; bei Bedarf lassen sich auch Bilder direkt einfügen.
+2. Geben Sie einen **Titel** ein und verfassen Sie den **Inhalt** im Editor. Dieser unterstützt Formatierungen wie **Fett**, *Kursiv*, Listen und Links; bei Bedarf lassen sich auch Bilder direkt einfügen. Eingefügte Bilder müssen im Format JPEG, PNG, WebP, GIF oder SVG vorliegen und eine zum Format passende Dateiendung tragen.
 3. Legen Sie optional den Sichtbarkeitszeitraum fest – ein Datum, ab dem die Mitteilung erscheint (**Aktiv von**), und ein Datum, ab dem sie nicht mehr angezeigt wird (**Aktiv bis**).
 4. Wählen Sie über die **Veröffentlichungsart**, ob und wie die Mitteilung verschickt wird (siehe [Veröffentlichungsart](#veröffentlichungsart)).
 5. Speichern Sie die Mitteilung.

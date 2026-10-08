@@ -171,6 +171,8 @@ Mit dem Sitzplan bilden Sie ein Klassenzimmer samt Tischen, Tafel, Türen, Fenst
 
 Eine Sitzordnung gehört immer zu einer Gruppe (Klasse, Projekt oder gespeicherte Sitzung), zu einem Layout eines Raums und, wenn Sie eines wählen, zu einem Fach. Dieselbe Klasse kann also in Mathematik anders sitzen als in Deutsch. Raum, Layout und Fach wählen Sie beim [Starten der Stunde](#stunde-starten). Für eine Sitzung gibt es erst dann einen Sitzplan, wenn Sie sie gespeichert haben.
 
+Die Sitzordnungen einer Klasse oder eines Projekts sehen und ändern nur Lehrkräfte, die in Linuxmuster als Administrator der Gruppe eingetragen sind. Das gilt auch für Schuladministratoren und globale Administratoren. Alle anderen sehen im Raumplan den Hinweis **Nur für Lehrkräfte der Gruppe**, und die Planauswahl bleibt ausgeblendet. Den Sitzplan einer gespeicherten Sitzung sieht nur die Lehrkraft, der die Sitzung gehört.
+
 <Audience roles="admin">
 
 ### Räume und Layouts anlegen

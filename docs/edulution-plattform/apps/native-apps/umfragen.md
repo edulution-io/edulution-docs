@@ -287,6 +287,10 @@ Vom Teilnehmer wird erwartet, dass er die Objekte anordnet. Ob nach Zeit, Vorlie
 Um das Backend nicht zu stark zu belasten, werden keine Dateien größer als **50 MB** akzeptiert.
 :::
 
+:::note[Namen von Upload-Fragen]
+Der Name einer Frage vom Typ **Datei**, **Bild** oder **Bildauswahl** darf weder „/“ noch „\“ enthalten und nicht „.“ oder „..“ lauten. Eine Umfrage mit einem solchen Fragenamen lässt sich erst speichern, wenn Sie die Frage umbenannt haben.
+:::
+
 **Datei**
 
 ![Datei](/img/umfragen/Screenshot_20260507_151539.png)
@@ -298,6 +302,7 @@ Es wird erwartet, dass der Teilnehmer eine Datei anheftet.
 :::info[Speichern von Bildern im Backend]
 Die Bilder werden serverseitig gespeichert.
 Damit das Backend nicht zu sehr belastet wird, werden Bilder der Formate JPEG, PNG, WebP und GIF bereits im Browser in das WebP-Format (.webp) konvertiert und komprimiert, bevor sie ans Backend gesendet werden. Andere Formate werden unverändert hochgeladen.
+Bilder, die Sie beim Erstellen der Umfrage hochladen (etwa für **Bild**, **Bildauswahl** oder das Logo), nimmt das Backend nur in den Formaten JPEG, PNG, WebP, GIF und SVG an. Die Dateiendung muss dabei zum Format passen.
 :::
 
 **Bild**

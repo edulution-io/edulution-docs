@@ -149,6 +149,12 @@ Die Rückfrage nennt, welche Dateien fehlen, sich geändert haben oder entfallen
 
 Beide Aktionen sind gesperrt, solange der Abgleich unbekannt ist. Das Ergebnis meldet die Plattform in den Meldungen des [Nachschlagewerks](./linbo-referenz.md#images).
 
+### Dienste neu starten
+
+**Dienste neu starten** in der Aktionsleiste braucht keine Auswahl. Nach Änderungen an Images startet es den Torrent-Dienst des Satelliten neu, damit er die geänderten Images verteilt. Der Satellit betreibt keinen Multicast-Dienst; die Plattform fasst ihn nicht an. Die Plattform fragt vorher nach, laufende Übertragungen werden beim Neustart unterbrochen. Danach nennt eine Meldung die neu gestarteten Dienste.
+
+Scheitert der Neustart, nennt die Meldung den Grund, den der Satellit zurückgibt. Ist der Torrent-Dienst auf dem Satelliten abgeschaltet, startet nichts neu. Dauert der Neustart länger, als die Verbindung zum Satelliten zulässt, läuft er auf dem Satelliten weiter; die Plattform weist darauf hin. Während der Neustart läuft, ist der Knopf gesperrt. Ein Satellit, der den Neustart noch nicht kennt, lehnt ihn ab; die Meldung nennt dann den Fehler des Satelliten.
+
 ### Prüfsumme prüfen
 
 Der Satellit berechnet die Prüfsumme und meldet, ob sie zur hinterlegten passt. Einen Fortschritt meldet er nicht. Bei großen Images dauert das länger, als die Verbindung zum Satelliten zulässt; die Prüfung läuft dann weiter, ihr Ergebnis ist aber nicht mehr abrufbar. Meldet der Satellit, dass keine Prüfsumme hinterlegt ist, sperrt die Plattform **Prüfsumme prüfen** für dieses Image. Haben Sie inzwischen einen anderen Satelliten gewählt, erscheint das Ergebnis trotzdem, mit dem Zusatz „Auf dem Satelliten …“.

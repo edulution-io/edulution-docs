@@ -32,7 +32,7 @@ Bei vielen Gruppen erscheint die Liste erst, wenn alle Dateien gelesen sind.
 
 ### Spalten
 
-Die **Tabelle** zeigt **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Image** und **Zuletzt gesehen**. Über die Spaltenauswahl blenden Sie sechs weitere ein:
+Die **Tabelle** zeigt **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Image**, **Letzte Synchronisation** und **Zuletzt gesehen**. Über die Spaltenauswahl blenden Sie sechs weitere ein:
 
 | Spalte | Inhalt |
 |--------|--------|
@@ -45,7 +45,7 @@ Die **Tabelle** zeigt **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum*
 
 **Status** zeigt, was der Satellit meldet: **Online**, **Offline**, **Überträgt** oder **Unbekannt**. Einen Wert, den die Plattform nicht kennt, zeigt sie unverändert an.
 
-Die Spalte **Image** zeigt **Aktuell**, **Veraltet**, **Nie synchronisiert** oder **Unbekannt** und nennt den Namen des Images. Die Plattform gibt dabei den Abgleichsstand wieder, den der Satellit je Rechner meldet.
+Die Spalte **Image** zeigt **Aktuell**, **Veraltet**, **Nie synchronisiert** oder **Unbekannt** und nennt den Namen des Images. Dazu nennt die Spalte die Version, die der Rechner hat. Weicht sie von der Version auf dem Satelliten ab, folgt „(Server: …)“ mit der Version des Satelliten. **Letzte Synchronisation** nennt den Zeitpunkt der letzten Synchronisation des Rechners; hat er noch nie synchronisiert, bleibt das Feld leer. Die Plattform gibt dabei den Abgleichsstand wieder, den der Satellit je Rechner meldet.
 
 ### Aufträge
 
@@ -65,7 +65,11 @@ Die Plattform leitet den Zustand aus den Rechnern des Auftrags ab, nicht allein 
 
 | Meldung | Ursache | Abhilfe |
 |---------|---------|---------|
-| Ein Rechner ist bereits mit einem Auftrag beschäftigt, oder zwei ausgewählte Rechner teilen sich eine Adresse. | Auf einem Rechner läuft schon ein Auftrag, oder zwei ausgewählte Rechner haben dieselbe Adresse. Die Meldung unterscheidet beides nicht. | **Auftrag anzeigen** in der Meldung öffnet den belegenden Auftrag, sofern der Satellit ihn nennt. Sonst den Auftrag abwarten oder die Adressen der Rechner prüfen. |
+| Ein Rechner ist bereits mit einem Auftrag beschäftigt. | Auf einem der ausgewählten Rechner läuft schon ein Auftrag. | **Auftrag anzeigen** in der Meldung öffnet den belegenden Auftrag, sofern der Satellit ihn nennt. Sonst den Auftrag abwarten. |
+| Zwei ausgewählte Rechner haben dieselbe Adresse. Wählen Sie jeden Rechner nur einmal aus. | Zwei Einträge der Auswahl tragen dieselbe MAC-Adresse. | Jeden Rechner nur einmal auswählen und die Adressen am Server prüfen. |
+| Der Satellit lehnt die Befehle ab: *Grund* | Der Satellit prüft die Befehlskette und nennt, was daran nicht stimmt. Ohne Angabe eines Grundes lautet die Meldung „Der Satellit lehnt die Befehle ab.“ | Befehle im Dialog korrigieren. |
+| Es ist kein Rechner ausgewählt, an den der Auftrag gehen könnte. | Der Satellit fand zur Auswahl keinen Rechner. | Auswahl prüfen, gegebenenfalls Synchronisation anstoßen. |
+| Der Satellit kennt den Rechner oder den Auftrag nicht mehr. Aktualisieren Sie die Liste. | Der Rechner oder der Auftrag ist auf dem Satelliten nicht mehr vorhanden, zum Beispiel weil er die Aufträge nach 24 Stunden vergessen hat. | Liste aktualisieren. |
 | Der Satellit nimmt gerade keine weiteren Aufträge an. Bitte in einer Minute erneut versuchen. | Der Satellit begrenzt, wie viele Aufträge er je Minute annimmt. | Nach einer Minute erneut versuchen. |
 | Diese Rechner hat der Satellit nicht übernommen – er kennt sie nicht oder sie starten nicht über das Netzwerk: *Namen* | Der Satellit hat die genannten Rechner nicht in den Auftrag aufgenommen. | Synchronisation anstoßen, damit der Satellit den Rechner kennt; LINBO-Netzwerkstart in der Geräteliste am Server prüfen. |
 | Ohne MAC-Adresse übersprungen: *Namen* | Für den Rechner ist keine MAC-Adresse hinterlegt. | MAC-Adresse am Server eintragen. |

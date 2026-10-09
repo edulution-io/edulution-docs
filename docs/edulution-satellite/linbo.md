@@ -199,7 +199,7 @@ Die Aktionsleiste bietet drei Läufe an. Jeder fragt vor dem Start nach:
 | **Komplett-Sync** | übernimmt den gesamten Bestand und schreibt alle verwalteten Dateien neu |
 | **Cursor leeren** | startet keinen Lauf, sorgt aber dafür, dass der nächste gewöhnliche Lauf wieder alles übernimmt |
 
-Steht der Satellit im Modus **Offline**, weist ein Hinweis oben auf der Seite darauf hin, dass die Synchronisation deaktiviert ist. **Synchronisieren**, **Komplett-Sync**, **Cursor leeren** und **Wiederherstellen** stehen dann nicht zur Verfügung, bis der Modus in den Einstellungen wieder auf **Synchronisation aktiv** steht.
+Meldet der Satellit den Modus **Offline**, weist der Hinweis **Synchronisation ist deaktiviert** oben auf der Seite darauf hin. Ist der Zustand gar nicht ladbar, erscheint stattdessen die Fehlermeldung der Seite und kein Hinweis. **Synchronisieren**, **Komplett-Sync**, **Cursor leeren** und **Wiederherstellen** stehen dann nicht zur Verfügung, bis der Modus in den Einstellungen wieder auf **Synchronisation aktiv** steht.
 
 Während eines Laufs nennt die Seite, sofern der Satellit sie meldet, die aktuelle Phase (zum Beispiel „start.conf-Dateien werden geschrieben“) und die Kennung des Laufs.
 
@@ -207,11 +207,11 @@ Solange ein Lauf läuft, verschwinden diese Aktionen und Sicherungspunkte lassen
 
 ### Technische Details einer Karte
 
-Jede Karte hat die Schaltfläche **Details**. Sie öffnet die vier Stufen **Gewünscht**, **Geschrieben**, **Geprüft** und **Angewendet** mit Revision, Quell-, erwarteter und wirksamer Revision, Zeitpunkten, Zusammenfassung und Fehler der jeweiligen Stufe. Darüber stehen die letzte gute Revision und ein Fehler der Komponente.
+Jede Karte hat die Schaltfläche **Details**. Der Dialog nennt oben die **Übernahme** der Komponente (direkt über das gemeinsame LINBO-Dateisystem oder mit Rückmeldung des DHCP-Dienstes), die **Letzte gute Revision**, **Zuletzt gemeldet** und einen **Fehler der Komponente**. Darunter stehen die vier Stufen **Gewünscht**, **Geschrieben**, **Geprüft** und **Angewendet** mit je einer Erklärung und, soweit gemeldet, **Revision**, **Quellrevision**, **Erwartete Revision**, **Wirksame Revision**, **Zeitpunkt**, **Empfangen**, **Zusammenfassung** und **Fehler**. Eine Stufe ohne Angabe steht auf **Keine Angabe**.
 
 ### Sicherungspunkt wiederherstellen
 
-Vor einem Lauf legt der Satellit einen Sicherungspunkt an. Der Abschnitt **Sicherungspunkte** listet sie mit Zeitpunkt, Kennung, Anlass, den gezählten Änderungen sowie der Zahl der gesicherten Dateien und Symlinks. **Wiederherstellen** fragt vorher nach und nennt den Sicherungspunkt. Nach der Wiederherstellung nennt die Seite, wie viele Dateien und Symlinks zurückgespielt wurden.
+Vor einem Lauf legt der Satellit einen Sicherungspunkt an. Der Abschnitt **Sicherungspunkte** listet sie mit Zeitpunkt, Kennung, **Anlass** (bei einem Sicherungspunkt vor einem Lauf **Vor der Synchronisation**), den gezählten **Änderungen** sowie der Zahl der gesicherten Dateien und Symlinks. Meldet der Satellit eine Angabe nicht, lässt die Seite sie weg, statt eine Null anzuzeigen. **Wiederherstellen** fragt vorher nach und nennt den Sicherungspunkt. Nach der Wiederherstellung nennt die Seite, wie viele Dateien und Symlinks zurückgespielt wurden, und weist darauf hin, dass Images nicht Teil eines Sicherungspunkts sind. Der Hinweis verschwindet, sobald Sie einen neuen Lauf oder eine weitere Wiederherstellung starten, den Satelliten wechseln oder **Cursor leeren** ausführen.
 
 :::warning[Was eine Wiederherstellung ersetzt]
 Alle verwalteten `start.conf`-Dateien, alle DHCP- und GRUB-Konfigurationen sowie der zwischengespeicherte Host- und Gruppenbestand werden gelöscht und durch den Stand des Sicherungspunkts ersetzt. Images und Treiber bleiben unberührt.

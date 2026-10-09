@@ -241,13 +241,29 @@ Der **Status** einer Adresse ist **Aktiv**, **Frei**, **Reserve** oder **Verworf
 
 ## Protokolle
 
-Die Tabelle zeigt **Stufe**, **Zeit**, **Meldung** und **Aktionen**. Die **Stufe** ist **Fehler**, **Warnung**, **Info** oder **Debug**.
+Registerkarte **Protokolle**: Die Tabelle zeigt **Stufe**, **Zeit**, **Meldung** und **Aktionen**. Die **Stufe** ist **Fehler**, **Warnung**, **Info** oder **Debug**.
 
 | Meldung | Ursache | Abhilfe |
 |---------|---------|---------|
 | Das Protokoll des Satelliten konnte nicht aktualisiert werden. | Eine Aktualisierung ist gescheitert. Die Seite behält den zuletzt geladenen Stand. | Erreichbarkeit prüfen. |
 | Das Protokoll des Satelliten konnte nicht gelesen werden. | Es war noch nichts geladen, als der Fehler auftrat. | Erreichbarkeit prüfen. |
 | Der Satellit hat noch keine Protokolleinträge. | Es gibt keine Einträge. | – |
+
+### Boot-Logs
+
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| Der Satellit hat keine Boot-Logs. | Es liegen keine Dateien vor. | – |
+| Die Boot-Logs konnten nicht gelesen werden. | Die Liste war nicht abrufbar. | Erreichbarkeit prüfen. |
+| Dieses Log ist größer als 5 MB und kann nicht angezeigt werden. | Der Satellit liefert größere Dateien nicht aus. | Datei auf dem Satelliten ansehen oder löschen. |
+| Das Boot-Log konnte nicht gelesen werden. | Der Satellit hat die Datei nicht geliefert. | Erneut öffnen, Erreichbarkeit prüfen. |
+
+### Überwachung
+
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| Eine kritische Prüfung ist fehlgeschlagen | Mindestens eine kritische Prüfung hat das Ergebnis **Fehlgeschlagen**. | Die Prüfung mit dem Zusatz **Kritisch** und dem Ergebnis **Fehlgeschlagen** in der Liste ansehen; ihre Zeile nennt die Einzelheit. |
+| Die Überwachungsprüfungen konnten nicht gelesen werden. | Der Satellit hat keinen Bericht geliefert. | Erreichbarkeit prüfen. |
 
 ## Hardware
 
@@ -388,3 +404,7 @@ Jedes Feld trägt eine Kennzeichnung, woher der Satellit den Wert bezieht:
 | Der Schulserver ist erreichbar. | Ergebnis von **Verbindung testen**, mit Version der API und Antwortzeit. | – |
 | Der Schulserver antwortet, meldet aber keinen betriebsbereiten Zustand. Bitte Benutzer und Passwort prüfen. | Ergebnis von **Verbindung testen** | **Benutzer** und **Passwort** prüfen. |
 | Der Schulserver ist nicht erreichbar. | Ergebnis von **Verbindung testen** | **API-Adresse** und Netzwerkfreigaben prüfen. |
+| Der LMN-Server hat die Zugangsdaten abgelehnt. | Ergebnis von **Schulen laden**: Der LMN-Server hat **LMN-Benutzer** oder **LMN-Passwort** nicht angenommen. | Zugangsdaten prüfen. |
+| Die Schulen konnten nicht vom LMN-Server geladen werden. | Ergebnis von **Schulen laden**: Die Abfrage ist gescheitert, etwa weil der LMN-Server, der Tunnel oder der Satellit nicht erreichbar ist. | **API-Adresse** und Erreichbarkeit prüfen; die Schule von Hand eintragen. |
+| Der LMN-Server meldet keine Schulen. | Ergebnis von **Schulen laden**: Die Antwort enthält keine Schule. | Die Schule von Hand eintragen. |
+| Die gespeicherte Einstellung für die Synchronisation gilt erst nach einem Neustart des LINBO-Dienstes auf dem Satelliten. Bis dahin läuft er noch im bisherigen Modus. | Der Wert von **Synchronisation aktiv** weicht vom Modus ab, in dem der Dienst läuft. | LINBO-Dienst auf dem Satelliten neu starten. |

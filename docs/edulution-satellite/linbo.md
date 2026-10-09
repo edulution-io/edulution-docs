@@ -89,7 +89,7 @@ Ohne LINBO-Netzwerkstart heißt: Die einblendbare Spalte **PXE** steht weder auf
 - Wake-on-LAN ist ein Schalter: **Rechner nach dem Planen aufwecken**.
 - Wake-on-LAN, **Oberfläche des Clients beim nächsten Start abschalten** und **Automatische Funktionen der start.conf beim nächsten Start übergehen** erscheinen erst, wenn unter **Zeitpunkt** die Option **Beim nächsten Start** gewählt ist.
 
-Mit **Jetzt** läuft die Kette sofort. Mit **Beim nächsten Start** schreibt der Satellit sie für den nächsten Start der Rechner vor; sie erscheint unter **Beim nächsten Start**. Ist das Wecken gewählt, werden nur Rechner geweckt, für die das Planen gelungen ist. Die übrigen nennt die Meldung.
+Mit **Jetzt** läuft die Kette sofort. Mit **Beim nächsten Start** schreibt der Satellit sie für den nächsten Start der Rechner vor; sie erscheint unter **Beim nächsten Start**. Ist das Wecken gewählt, schickt die Plattform Planen und Wecken in einer einzigen Anfrage. Lehnt der Satellit die Kette ab, wird kein Rechner geweckt. Gelingt das Planen für einzelne Rechner nicht, nennt die Meldung sie, sofern der Satellit das meldet. Abgewählt werden nur Rechner, für die die Kette vorgemerkt ist.
 
 :::caution[Planen ersetzt eine vorhandene Aktion]
 Ist für einen Rechner schon eine Aktion für den nächsten Start geplant, ersetzt die neue sie ohne Rückfrage.
@@ -287,6 +287,8 @@ Erreicht der Satellit die Paketquelle nicht, lässt sich nicht prüfen, ob die B
 
 Die Karte **Kernel** zeigt die aktive Variante – **Stable**, **Longterm** oder **Legacy** –, ihre Version und Größe. **Aktivieren** bei einer anderen Variante wechselt den Kernel und baut dabei linbofs64 neu; Clients starten ab ihrem nächsten Start mit dem neuen Kernel. Eine nicht installierte Variante lässt sich nicht aktivieren. Liefert die installierte LINBO-Version nur einen Kernel, gibt es keine Auswahl.
 
+Ist eine Variante nur teilweise installiert, steht bei ihr **Unvollständig**; ein Hinweis nennt den Grund, und sie lässt sich nicht aktivieren. Fehlt dem Kernel-Satz die Basis-initramfs, warnt die Karte mit „Vorlage fehlt“.
+
 Ist die Kernel-Konfiguration ungültig, warnt die Karte und sperrt den Wechsel. **Konfiguration reparieren** setzt sie auf **Stable** zurück; **Reparieren und neu bauen** baut danach zusätzlich linbofs64 neu. Beides ist auch bei gültiger Konfiguration verfügbar. Ein Fehler des letzten Wechsels steht im Wortlaut des Satelliten auf der Karte.
 
 ### Firmware eintragen
@@ -294,8 +296,8 @@ Ist die Kernel-Konfiguration ungültig, warnt die Karte und sperrt den Wechsel. 
 Die Registerkarte **Firmware** steuert, welche Firmware-Dateien linbofs64 enthält:
 
 - **Firmware der Clients** wertet die Boot-Protokolle aus und nennt je Client, ob alles **In Ordnung** ist oder **Firmware fehlt**. Bei fehlender Firmware öffnet **Firmware suchen** die Suche mit dem Namen der fehlenden Datei.
-- **Eingetragene Firmware** listet die Einträge von linbofs64. **Firmware hinzufügen** öffnet die Suche; Löschen fragt vorher nach.
-- **Katalog** bietet Firmware in ausklappbaren Herstellergruppen an. **Hinzufügen** trägt einen Eintrag ein. Ist er vollständig eingetragen, steht dort **Eingetragen**.
+- **Eingetragene Firmware** listet die Einträge von linbofs64. **Firmware hinzufügen** öffnet die Suche; Löschen fragt vorher nach. **Empfohlenes Set hinzufügen** trägt mit einem Klick das Basis-Set für Schul-PCs ein (Intel-/AMD-Grafik, Realtek-Ethernet und -Bluetooth sowie Intel-Firmware für WLAN und Bluetooth: `i915`, `amdgpu`, `rtl_nic`, `intel`, `rtl_bt`), soweit es noch fehlt. Nach jedem Eintragen mehrerer Dateien nennt eine Meldung, wie viele eingetragen wurden, nicht auf dem Satelliten liegen oder schon vorhanden waren. Ist alles eingetragen, steht dort stattdessen, dass alle empfohlenen Einträge bereits konfiguriert sind.
+- **Katalog** bietet Firmware in ausklappbaren Herstellergruppen an. **Hinzufügen** trägt einen Eintrag ein. Ist er vollständig eingetragen, steht dort **Eingetragen**. Bei Einträgen, die aus mehreren Dateien bestehen, zeigt **Dateien (*n*)** die einzelnen Dateien. Das Feld **Dateien filtern …** grenzt die Liste ein; **Alle hinzufügen (*n*)** trägt alle noch fehlenden Dateien ein, die der Filter anzeigt.
 
 Die Suche im Dialog **Firmware hinzufügen** findet Dateien und Verzeichnisse auf dem Satelliten und beginnt ab zwei Zeichen. Mehrere Treffer tragen Sie mit **Auswahl hinzufügen** gemeinsam ein. Bei Katalogeinträgen, die dem Satelliten fehlen, steht **Nicht auf dem Satelliten**.
 

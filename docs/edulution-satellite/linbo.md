@@ -56,13 +56,13 @@ Die Unterseite hat drei Registerkarten: **Hosts**, **Aufträge** und **Beim näc
 
 - **Status** ist der Zustand, den der Satellit meldet, nicht das Ergebnis eines Hostscans.
 - **Rolle** ist eine Zeile im **Datenblatt** und ein Filter, keine Tabellenspalte.
-- **Datenblatt** und Detaildialog zeigen zusätzlich **Image**, **Zuletzt gesehen** und **Geplant** – die Kette, die der Satellit für den nächsten Start vorgemerkt hat. Einen Abschnitt **Images** hat der Detaildialog nicht.
+- **Datenblatt** und Detaildialog zeigen zusätzlich **Image**, **Image-Stand**, **Letzte Synchronisation**, **Zuletzt gesehen** und **Geplant** – die Kette, die der Satellit für den nächsten Start vorgemerkt hat. Einen Abschnitt **Images** hat der Detaildialog nicht.
 
 ### Hosts suchen und filtern
 
 Das Suchfeld findet Hostname, MAC-Adresse, IP, Gruppe, Raum und Kommentar. Die Auswahlen **Status**, **Image**, **Rolle**, **Gruppe** und **Raum** schränken die Liste auf einen oder mehrere Werte ein. **Status** bietet **Online** und **Offline**, **Image** bietet **Veraltet**, **Aktuell** und **Nie synchronisiert**. Die Auswahlen wirken zusammen und in allen Ansichten. Ein Rechner ohne Rolle zählt zu **Sonstige**. Beim Wechsel des Satelliten setzt die Seite alle fünf zurück.
 
-Die Werkzeugleiste nennt außerdem, wie viele Rechner online und offline sind, zum Beispiel „12 online / 3 offline“. Die Zahl zählt alle Rechner des Satelliten und ändert sich nicht, wenn Sie filtern.
+Die Werkzeugleiste nennt außerdem, wie viele Rechner online und offline sind, zum Beispiel „12 online / 3 offline“. Die Zahlen berücksichtigen alle Rechner des Satelliten, auch wenn Sie filtern.
 
 Spalten und Zustände: [Nachschlagewerk](./linbo-referenz.md#hosts).
 
@@ -105,7 +105,7 @@ Nach dem Senden öffnet sich der Auftrag in einem Dialog und lädt alle fünf Se
 
 Die Registerkarte **Hosts** zeigt eine Vorschau: die drei jüngsten Aufträge und die ersten drei geplanten Starts. Die vollständigen Listen stehen auf **Aufträge** und **Beim nächsten Start**. **Aufträge** zeigt die Aufträge der letzten 24 Stunden, zehn je Seite. Die Auswahl **Status** schränkt sie auf einen Zustand ein; die Zustände stehen im [Nachschlagewerk](./linbo-referenz.md#aufträge).
 
-Ein Klick auf einen Auftrag öffnet ihn. Der Auftrag nennt Fortschritt, Start, Ende und Dauer sowie einen Fehler des Auftrags selbst. Jeder beteiligte Rechner erscheint mit Zustand, aktuellem Arbeitsschritt, Meldung des Satelliten in seinem Wortlaut und Protokoll. Bei einem fehlgeschlagenen Rechner nennt die Plattform zusätzlich den Hinweis und den Code der Diagnose, den Exit-Code und die Ausführung („native“ oder „node“). Der Vermerk **Unterbrochen** zeigt an, dass der Rechner sein Ergebnis nicht mehr gemeldet hat. In der Liste zeigt ein laufender Auftrag seinen Fortschritt, ein beendeter seine Dauer.
+Ein Klick auf einen Auftrag öffnet ihn. Der Auftrag nennt Fortschritt, Start, Ende, Dauer und einen eigenen Fehler. Jeder beteiligte Rechner erscheint mit Zustand, aktuellem Arbeitsschritt, Meldung des Satelliten in seinem Wortlaut und Protokoll. Die weiteren Angaben je Rechner stehen im [Nachschlagewerk](./linbo-referenz.md#aufträge). In der Liste der Aufträge zeigt ein nicht beendeter Auftrag seinen Fortschritt in Prozent, ein beendeter seine Dauer, zum Beispiel „1 Min. 5 s“.
 
 :::caution[Abbrechen hält nur wartende Rechner an]
 **Auftrag abbrechen** fragt vorher nach und stoppt nur Rechner, die noch nicht begonnen haben. Läuft die Kette schon, arbeitet der Rechner weiter und wird danach als abgebrochen geführt – auch wenn sein Schritt gelungen ist. Bis der letzte Rechner fertig ist, zeigt der Auftrag **Wird abgebrochen**.

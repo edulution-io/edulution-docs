@@ -241,7 +241,7 @@ Der **Status** einer Adresse ist **Aktiv**, **Frei**, **Reserve** oder **Verworf
 
 ## Protokolle
 
-Die Tabelle zeigt **Stufe**, **Zeit**, **Meldung** und **Aktionen**. Die **Stufe** ist **Fehler**, **Warnung**, **Info** oder **Debug**.
+Registerkarte **Protokolle**: Die Tabelle zeigt **Stufe**, **Zeit**, **Meldung** und **Aktionen**. Die **Stufe** ist **Fehler**, **Warnung**, **Info** oder **Debug**.
 
 | Meldung | Ursache | Abhilfe |
 |---------|---------|---------|
@@ -262,8 +262,7 @@ Die Tabelle zeigt **Stufe**, **Zeit**, **Meldung** und **Aktionen**. Die **Stufe
 
 | Meldung | Ursache | Abhilfe |
 |---------|---------|---------|
-| Alle kritischen Prüfungen bestanden | Keine kritische Prüfung ist fehlgeschlagen. | – |
-| Eine kritische Prüfung ist fehlgeschlagen | Der LINBO-Dienst meldet sich als nicht gesund. | Die Prüfung mit dem Ergebnis **Fehlgeschlagen** in der Liste ansehen. |
+| Eine kritische Prüfung ist fehlgeschlagen | Mindestens eine kritische Prüfung hat das Ergebnis **Fehlgeschlagen**. | Die Prüfung mit dem Zusatz **Kritisch** und dem Ergebnis **Fehlgeschlagen** in der Liste ansehen; ihre Zeile nennt die Einzelheit. |
 | Die Überwachungsprüfungen konnten nicht gelesen werden. | Der Satellit hat keinen Bericht geliefert. | Erreichbarkeit prüfen. |
 
 ## Hardware
@@ -405,7 +404,7 @@ Jedes Feld trägt eine Kennzeichnung, woher der Satellit den Wert bezieht:
 | Der Schulserver ist erreichbar. | Ergebnis von **Verbindung testen**, mit Version der API und Antwortzeit. | – |
 | Der Schulserver antwortet, meldet aber keinen betriebsbereiten Zustand. Bitte Benutzer und Passwort prüfen. | Ergebnis von **Verbindung testen** | **Benutzer** und **Passwort** prüfen. |
 | Der Schulserver ist nicht erreichbar. | Ergebnis von **Verbindung testen** | **API-Adresse** und Netzwerkfreigaben prüfen. |
-| Der LMN-Server hat die Zugangsdaten abgelehnt. | Ergebnis von **Schulen laden**: **LMN-Benutzer** oder **LMN-Passwort** stimmen nicht. | Zugangsdaten prüfen. |
-| Die Schulen konnten nicht vom LMN-Server geladen werden. | Ergebnis von **Schulen laden**: Der Schulserver oder der Tunnel ist nicht erreichbar. | **API-Adresse** und Erreichbarkeit prüfen; die Schule von Hand eintragen. |
-| Der LMN-Server meldet keine Schulen. | Ergebnis von **Schulen laden**: Die Antwort enthält keine Schulliste. | Die Schule von Hand eintragen. |
+| Der LMN-Server hat die Zugangsdaten abgelehnt. | Ergebnis von **Schulen laden**: Der LMN-Server hat **LMN-Benutzer** oder **LMN-Passwort** nicht angenommen. | Zugangsdaten prüfen. |
+| Die Schulen konnten nicht vom LMN-Server geladen werden. | Ergebnis von **Schulen laden**: Die Abfrage ist gescheitert, etwa weil der LMN-Server, der Tunnel oder der Satellit nicht erreichbar ist. | **API-Adresse** und Erreichbarkeit prüfen; die Schule von Hand eintragen. |
+| Der LMN-Server meldet keine Schulen. | Ergebnis von **Schulen laden**: Die Antwort enthält keine Schule. | Die Schule von Hand eintragen. |
 | Die gespeicherte Einstellung für die Synchronisation gilt erst nach einem Neustart des LINBO-Dienstes auf dem Satelliten. Bis dahin läuft er noch im bisherigen Modus. | Der Wert von **Synchronisation aktiv** weicht vom Modus ab, in dem der Dienst läuft. | LINBO-Dienst auf dem Satelliten neu starten. |

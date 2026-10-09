@@ -14,7 +14,7 @@ Der Bereich **LINBO** der App **Satellites** zeigt, was die LINBO-Installation d
 
 Felder, Zustände, Grenzwerte und Meldungen stehen im [Nachschlagewerk](./linbo-referenz.md). Wie Sie den Satelliten auswählen, steht in [Satelliten verwalten](./verwaltung.md#satelliten-bereich).
 
-Die Unterseiten sind **Gruppen**, **Hosts**, **Images**, **Synchronisation**, **DHCP**, **Protokolle**, **Hardware**, **Treiber** und **System**. **LINBO** öffnet zuerst **Gruppen**. **Einstellungen** in der Aktionsleiste jeder Unterseite öffnet den [Einstellungsdialog](#einstellungen); auf **Protokolle** steht die Schaltfläche in der Registerkarte **Protokolle**. Solange der Browser-Tab sichtbar ist, laden sich die Unterseiten selbst nach: die Registerkarte **Protokolle** alle 15 Sekunden, **Hosts**, **DHCP**, **Synchronisation** und **System** alle 30 Sekunden, alle übrigen jede Minute.
+Die Unterseiten sind **Gruppen**, **Hosts**, **Images**, **Synchronisation**, **DHCP**, **Protokolle**, **Hardware**, **Treiber** und **System**. **LINBO** öffnet zuerst **Gruppen**. **Einstellungen** in der Aktionsleiste jeder Unterseite öffnet den [Einstellungsdialog](#einstellungen); auf **Protokolle** steht die Schaltfläche in der Registerkarte **Protokolle**. Solange das Browserfenster sichtbar ist, laden sich die Unterseiten selbst nach: die Registerkarte **Protokolle** alle 15 Sekunden, **Hosts**, **DHCP**, **Synchronisation** und **System** alle 30 Sekunden, alle übrigen jede Minute.
 
 ## Wenn LINBO nicht verfügbar ist
 
@@ -228,10 +228,10 @@ Die Registerkarte **Protokolle** zeigt die letzten 500 Einträge des LINBO-Diens
 
 Ein Klick auf einen Eintrag öffnet den Dialog **Protokolleintrag** mit Typ, Zeit, Stufe und vollständiger Meldung. **Kopieren** übernimmt den Eintrag als JSON. Per Tastatur erreichen Sie den Dialog über **Details anzeigen** in der Spalte **Aktionen**.
 
-Die Aktionsleiste bietet drei Schaltflächen für die Anzeige:
+Die Aktionsleiste der Registerkarte enthält:
 
-- **Aktualisierung anhalten** stoppt das automatische Nachladen. **Aktualisierung fortsetzen** startet es wieder.
-- **Anzeige leeren** blendet alle Einträge aus, die bis jetzt geloggt wurden. Neuere Einträge erscheinen weiter. Auf dem Satelliten löscht das nichts.
+- **Aktualisierung anhalten** stoppt das automatische Nachladen, bis Sie **Aktualisierung fortsetzen** wählen.
+- **Anzeige leeren** blendet alle bereits geladenen Einträge aus. Neuere Einträge erscheinen weiter. Auf dem Satelliten löscht das nichts.
 - **Als JSON exportieren** speichert die Einträge als Datei, die der **Stufe**-Filter anzeigt, ohne die geleerten Einträge und unabhängig vom Suchfeld.
 
 Angehaltene Aktualisierung und geleerte Anzeige gelten nur für die Registerkarte **Protokolle**. Wechseln Sie die Registerkarte oder den Satelliten, lädt die Seite wieder alle Einträge und aktualisiert sich selbst.
@@ -240,11 +240,13 @@ Scheitert eine Aktualisierung, bleibt der zuletzt geladene Stand stehen und die 
 
 ### Boot-Logs
 
-Die Registerkarte **Boot-Logs** listet die Boot-Logs der LINBO-Clients, die auf dem Satelliten liegen, mit Größe und Änderungszeit. **Öffnen** zeigt eine Datei in einem Dialog. Standardmäßig sind das die letzten 200 Zeilen. Mit den Schaltflächen für die Zeilenzahl (bis 2000) und **Vom Ende** oder **Vom Anfang** lesen Sie mehr oder die andere Seite der Datei. Ist die Datei länger als die gewählte Zeilenzahl, nennt der Dialog, wie viele Zeilen er von wie vielen zeigt. **Löschen** entfernt eine Datei vom Satelliten.
+Die Registerkarte **Boot-Logs** listet die Dateien im LINBO-Protokollverzeichnis des Satelliten, vor allem die Boot-Logs der LINBO-Clients, mit Größe und Änderungszeit. **Öffnen** zeigt eine Datei in einem Dialog. Standardmäßig sind das die letzten 200 Zeilen. Die Schaltflächen **200 Zeilen**, **500 Zeilen**, **1000 Zeilen** und **2000 Zeilen** bestimmen, wie viele Zeilen der Dialog zeigt. Die Schaltfläche **Vom Ende** zeigt die letzten Zeilen; ein Klick wechselt zu **Vom Anfang** mit den ersten Zeilen. Ist die Datei länger als die gewählte Zeilenzahl, nennt der Dialog, wie viele Zeilen er von wie vielen zeigt.
+
+**Löschen** löscht die Datei auf dem Satelliten, nicht nur aus der Liste. Meldungen: [Nachschlagewerk](./linbo-referenz.md#boot-logs).
 
 ### Überwachung
 
-Die Registerkarte **Überwachung** zeigt die Prüfungen, mit denen der LINBO-Dienst seinen eigenen Zustand bewertet: ob alle kritischen Prüfungen bestanden haben, die Zahl der Prüfungen je Ergebnis (**Bestanden**, **Warnung**, **Fehlgeschlagen**, **Übersprungen**) und jede Prüfung mit ihrem Ergebnis. Kritische Prüfungen tragen den Zusatz **Kritisch**. **Erneut prüfen** fragt den Satelliten neu ab.
+Die Registerkarte **Überwachung** zeigt die Prüfungen, mit denen der LINBO-Dienst seinen eigenen Zustand bewertet: ob alle kritischen Prüfungen bestanden haben, die Zahl der Prüfungen je Ergebnis (**Bestanden**, **Warnung**, **Fehlgeschlagen**, **Übersprungen**) und jede Prüfung mit ihrem Ergebnis. Kritische Prüfungen tragen den Zusatz **Kritisch**. **Warnung** steht für eine fehlgeschlagene Prüfung, die nicht kritisch ist; sie ändert das Gesamtergebnis nicht. **Erneut prüfen** fragt den Satelliten neu ab. Meldungen: [Nachschlagewerk](./linbo-referenz.md#überwachung).
 
 ## Hardware
 
@@ -329,13 +331,11 @@ Die Registerkarte **WLAN** hinterlegt die Zugangsdaten, die LINBO-Clients beim S
 
 Der Dialog hat drei Teile: **Verbindung zum Schulserver** mit **Verbindung testen**, **Synchronisation** und **LINBO-Client-Passwort**.
 
-Weicht der eingestellte Wert von **Synchronisation aktiv** vom Modus ab, in dem der LINBO-Dienst läuft, weist der Teil **Synchronisation** darauf hin: Die Einstellung gilt erst nach einem Neustart des Dienstes auf dem Satelliten, bis dahin läuft er im bisherigen Modus. Felder und Kennzeichnungen stehen im [Nachschlagewerk](./linbo-referenz.md#einstellungen).
+Weicht der eingestellte Wert von **Synchronisation aktiv** vom Modus ab, in dem der LINBO-Dienst läuft, zeigt der Teil **Synchronisation** einen Hinweis. Wortlaut und Abhilfe: [Nachschlagewerk](./linbo-referenz.md#einstellungen). Felder und Kennzeichnungen stehen im [Nachschlagewerk](./linbo-referenz.md#einstellungen).
 
-### Schule vom Schulserver laden
+### Schule vom LMN-Server laden
 
-**Schule vom LMN-Server laden** unter dem Feld **Schule** öffnet die Abfrage. Tragen Sie **LMN-Benutzer** (vorbelegt mit dem gespeicherten **Benutzer**) und **LMN-Passwort** ein und wählen Sie **Schulen laden**. Die Plattform fragt den Host der gespeicherten **API-Adresse** ab; eine Änderung der **API-Adresse** gilt erst nach dem Speichern, und ohne gespeicherte Adresse bleibt **Schulen laden** gesperrt. Ein Klick auf eine Schule trägt sie in das Feld **Schule** ein. Gespeichert wird sie erst mit **Speichern**.
-
-Die Zugangsdaten gehen nur für diese Abfrage über den Tunnel an den Schulserver. Die Plattform speichert sie nicht, und das Passwortfeld leert sich sofort nach dem Absenden. Das Eingabefeld **Schule** bleibt bestehen, sodass Sie den Namen weiterhin von Hand eintragen können. Mögliche Meldungen: [Nachschlagewerk](./linbo-referenz.md#einstellungen).
+Im Feld **Schule** öffnet **Schule vom LMN-Server laden** die Abfrage. Tragen Sie **LMN-Benutzer** (vorbelegt mit dem gespeicherten **Benutzer**) und **LMN-Passwort** ein und wählen Sie **Schulen laden**. Der Satellit fragt den LMN-Server über den Tunnel der Plattform ab. Verwendet wird der Host der **API-Adresse**, wie der Dialog sie geladen hat; eine ungespeicherte Änderung der **API-Adresse** gilt erst nach dem Speichern. Ist keine **API-Adresse** gesetzt, bleibt **Schulen laden** gesperrt. Ein Klick auf eine Schule trägt sie in das Feld **Schule** ein. Gespeichert wird sie erst mit **Speichern**. Meldungen: [Nachschlagewerk](./linbo-referenz.md#einstellungen).
 
 ### Einstellungen speichern
 

@@ -32,7 +32,7 @@ Bei vielen Gruppen erscheint die Liste erst, wenn alle Dateien gelesen sind.
 
 ### Spalten
 
-Die **Tabelle** zeigt **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Image** und **Zuletzt gesehen**. Über die Spaltenauswahl blenden Sie sechs weitere ein:
+Die **Tabelle** zeigt **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum**, **Status**, **Image**, **Letzte Synchronisation** und **Zuletzt gesehen**. Über die Spaltenauswahl blenden Sie sechs weitere ein:
 
 | Spalte | Inhalt |
 |--------|--------|
@@ -45,7 +45,9 @@ Die **Tabelle** zeigt **Hostname**, **MAC-Adresse**, **IP**, **Gruppe**, **Raum*
 
 **Status** zeigt, was der Satellit meldet: **Online**, **Offline**, **Überträgt** oder **Unbekannt**. Einen Wert, den die Plattform nicht kennt, zeigt sie unverändert an.
 
-Die Spalte **Image** zeigt **Aktuell**, **Veraltet**, **Nie synchronisiert** oder **Unbekannt** und nennt den Namen des Images. Die Plattform gibt dabei den Abgleichsstand wieder, den der Satellit je Rechner meldet.
+Die Spalte **Image** zeigt **Aktuell**, **Veraltet**, **Nie synchronisiert** oder **Unbekannt**, den Namen des Images und die Version, die der Rechner hat. Weicht sie von der Version auf dem Satelliten ab, folgt „(Server: …)“ mit der Version des Satelliten. Die Plattform gibt den Abgleichsstand wieder, den der Satellit je Rechner meldet.
+
+**Letzte Synchronisation** nennt den Zeitpunkt der letzten Synchronisation des Rechners. Hat er noch nie synchronisiert, steht in der **Tabelle** „–“, im **Datenblatt** fehlt die Zeile.
 
 ### Aufträge
 
@@ -61,11 +63,24 @@ Die Spalte **Image** zeigt **Aktuell**, **Veraltet**, **Nie synchronisiert** ode
 
 Die Plattform leitet den Zustand aus den Rechnern des Auftrags ab, nicht allein aus der Meldung des Satelliten. Ein Rechner im Auftrag ist **Wartet**, **Läuft**, **Erfolgreich**, **Fehlgeschlagen** oder **Abgebrochen**. Der Filter gilt nur auf der Registerkarte **Aufträge**; beim Zurückwechseln zu **Hosts** entfällt er.
 
+Im Auftrag nennt jeder Rechner, soweit der Satellit sie meldet, diese Angaben:
+
+| Angabe | Bedeutung |
+|--------|-----------|
+| **Meldung des Satelliten** | Zusammenfassung der Diagnose im Wortlaut des Satelliten, nicht übersetzt. Dazu gehören der **Hinweis** und der Code der Diagnose. |
+| **Ausführung** | Womit der Satellit den Rechner bedient hat: `native` oder `node`. |
+| **Exit-Code** | Rückgabewert der Ausführung; `0` heißt, sie ist ohne Fehler beendet. |
+| **Unterbrochen** | Der Satellit wurde neu gestartet, bevor der Rechner fertig war. Der Rechner und der Auftrag gelten dann als fehlgeschlagen. |
+
 ### Meldungen beim Senden von Aktionen
 
 | Meldung | Ursache | Abhilfe |
 |---------|---------|---------|
-| Ein Rechner ist bereits mit einem Auftrag beschäftigt, oder zwei ausgewählte Rechner teilen sich eine Adresse. | Auf einem Rechner läuft schon ein Auftrag, oder zwei ausgewählte Rechner haben dieselbe Adresse. Die Meldung unterscheidet beides nicht. | **Auftrag anzeigen** in der Meldung öffnet den belegenden Auftrag, sofern der Satellit ihn nennt. Sonst den Auftrag abwarten oder die Adressen der Rechner prüfen. |
+| Ein Rechner ist bereits mit einem Auftrag beschäftigt. | Auf einem der ausgewählten Rechner läuft schon ein Auftrag. Dieselbe Meldung erscheint, wenn ein Hostname mehreren MAC-Adressen zugeordnet ist. | **Auftrag anzeigen** in der Meldung öffnet den belegenden Auftrag, sofern der Satellit ihn nennt. Sonst den Auftrag abwarten oder die Geräteliste am Server prüfen. |
+| Zwei ausgewählte Rechner haben dieselbe Adresse. Wählen Sie jeden Rechner nur einmal aus. | Zwei ausgewählte Rechner haben dieselbe IP-Adresse; ohne IP-Adresse zählt der Hostname. | Jeden Rechner nur einmal auswählen und die IP-Adressen in der Geräteliste am Server prüfen. |
+| Der Satellit lehnt die Befehle ab: *Grund* | Der Satellit prüft die Befehlskette und nennt, was daran nicht stimmt. Ohne Angabe eines Grundes lautet die Meldung „Der Satellit lehnt die Befehle ab.“ | Befehle im Dialog korrigieren. |
+| Es ist kein Rechner ausgewählt, an den der Auftrag gehen könnte. | Die Anfrage enthält weder Rechner noch Gruppe oder Raum. | Mindestens einen Rechner auswählen. |
+| Der Satellit kennt den Rechner oder den Auftrag nicht mehr. Aktualisieren Sie die Liste. | Der Satellit kennt den Auftrag nicht mehr, weil er Aufträge nach 24 Stunden löscht, oder für den Rechner ist keine geplante Aktion mehr hinterlegt. Die Meldung kann auch beim Abbrechen eines Auftrags erscheinen. | Liste aktualisieren. |
 | Der Satellit nimmt gerade keine weiteren Aufträge an. Bitte in einer Minute erneut versuchen. | Der Satellit begrenzt, wie viele Aufträge er je Minute annimmt. | Nach einer Minute erneut versuchen. |
 | Diese Rechner hat der Satellit nicht übernommen – er kennt sie nicht oder sie starten nicht über das Netzwerk: *Namen* | Der Satellit hat die genannten Rechner nicht in den Auftrag aufgenommen. | Synchronisation anstoßen, damit der Satellit den Rechner kennt; LINBO-Netzwerkstart in der Geräteliste am Server prüfen. |
 | Ohne MAC-Adresse übersprungen: *Namen* | Für den Rechner ist keine MAC-Adresse hinterlegt. | MAC-Adresse am Server eintragen. |
@@ -82,7 +97,7 @@ Ist der Satellit nicht erreichbar, erscheint die allgemeine Fehlermeldung der Pl
 | Meldung | Ursache | Abhilfe |
 |---------|---------|---------|
 | Die Hosts des Satelliten konnten nicht geladen werden. | Die Hostliste ist nicht lesbar. Die Tabelle bleibt leer. Die Plattform meldet den Fehler zusätzlich, wenn Sie die Seite öffnen oder neu laden. | Erreichbarkeit des Satelliten prüfen. |
-| Der Image-Status der Hosts konnte nicht gelesen werden. Die Spalte „Image“ zeigt deshalb „Unbekannt“. | Der Image-Stand kommt aus einer eigenen Abfrage, die gescheitert ist. Die Rechner stehen trotzdem in der Tabelle. | Seite später erneut öffnen. |
+| Der Image-Status der Hosts konnte nicht gelesen werden. Die Spalte „Image“ zeigt deshalb „Unbekannt“. | Die Image-Angaben kommen aus einer eigenen Abfrage, die gescheitert ist. Die Rechner stehen trotzdem in der Tabelle. | Seite später erneut öffnen. |
 | Die Aufträge des Satelliten konnten nicht gelesen werden. | Der Satellit hat die Auftragsliste nicht geliefert. Die Seite zeigt statt einer leeren Liste diese Meldung. | Erreichbarkeit prüfen. |
 | Die geplanten Aktionen des Satelliten konnten nicht gelesen werden. | Der Satellit hat die Liste **Beim nächsten Start** nicht geliefert. | Erreichbarkeit prüfen. |
 | Keine Aufträge in den letzten 24 Stunden. | Es gibt keine Aufträge. | – |

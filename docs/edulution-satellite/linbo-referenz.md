@@ -123,7 +123,7 @@ Eine Zeile zeigt Image, Richtung (**Download vom Server** oder **Upload zum Serv
 | **MD5-Prüfung läuft** | Geschwindigkeit und Restzeit entfallen |
 | **Wird abgeschlossen** | letzter Schritt vor dem Ende |
 
-Die Schaltfläche **Abbrechen** gilt auch für wartende Aufträge und ist gesperrt, solange eine andere ändernde Aktion der Seite läuft. Das Ergebnis (**Abgeschlossen**, **Fehlgeschlagen**, **Abgebrochen**) zeigt die Plattform nicht.
+Die Schaltfläche **Abbrechen** gilt auch für wartende Aufträge und ist gesperrt, solange eine andere ändernde Aktion der Seite läuft. Das Ergebnis eines beendeten Auftrags zeigt die Warteschlange nicht; eine fehlgeschlagene Übertragung meldet die Plattform mit den Meldungen der [Images](#meldungen-der-images).
 
 ### Beipack-Dateien
 
@@ -151,6 +151,24 @@ Die Schaltfläche **Abbrechen** gilt auch für wartende Aufträge und ist gesper
 
 Bei **Wird geseedet** und **Eingeschränkt** nennt die Marke außerdem die Zahl der Seeder und Leecher, die der Tracker kennt. Meldet der Satellit den Zustand nicht, fehlen Marke und Spalte; die Imageliste bleibt unverändert.
 
+Der Abschnitt **Torrent** im Dialog der Beipack-Dateien nennt zum Image:
+
+| Angabe | Bedeutung |
+|--------|-----------|
+| **Seeder** | ob der Seeder läuft oder gestoppt ist, und **ohne Sitzung**, wenn seine Sitzung fehlt |
+| **Schwarm** | Seeder und Leecher, die der Tracker kennt, und wie oft das Image heruntergeladen wurde |
+| **Tracker** | die Adresse, unter der der Torrent-Dienst den Tracker anspricht |
+| **Metainfo-Name** | der Name, der in der Torrent-Datei steht |
+| **Länge** | die Größe laut Torrent-Datei; weicht die Datei auf der Platte ab, steht ihre Größe dahinter und die Zeile ist hervorgehoben |
+| **Stückgröße** | die Größe der Teilstücke, falls der Satellit sie meldet |
+| **Announce-URL** | die Tracker-Adresse, die in der Torrent-Datei steht |
+| **Infohash** | die Kennung des Torrents |
+| **Hash-Datei** | ob die `.hash`-Datei zur Torrent-Datei passt (**stimmt überein**) oder nicht (**weicht ab**, hervorgehoben); ist das unbekannt, fehlt die Zeile |
+| **Stand** | wann der Torrent-Dienst zuletzt berichtet hat |
+| **Probleme** | die Gründe, wenn der Zustand nicht **Wird geseedet** ist |
+
+Angaben, die der Satellit nicht meldet, fehlen in der Liste. Ist der Zustand veraltet, weist ein Hinweis darauf hin und die Liste bleibt leer. Lässt sich der Zustand nicht lesen, nennt der Abschnitt das. Verteilt der Satellit das Image nicht per Torrent, steht dort nur, dass es nicht per Torrent verteilt wird.
+
 | Meldung | Ursache | Abhilfe |
 |---------|---------|---------|
 | Die Torrent-Verteilung ist auf diesem Satelliten nicht aktiv. | Der Torrent-Dienst ist nicht eingerichtet. Das ist ein normaler Zustand. | Keine; die Images werden klassisch verteilt. |
@@ -172,6 +190,11 @@ Bei **Wird geseedet** und **Eingeschränkt** nennt die Marke außerdem die Zahl 
 | Die Prüfung von *Name* dauert länger als die Verbindung zum Satelliten zulässt. Sie läuft auf dem Satelliten weiter, das Ergebnis ist hier aber nicht abrufbar. | Die Berechnung der Prüfsumme dauert bei großen Images länger als die Verbindung. | – |
 | Für *Name* ist keine Prüfsumme hinterlegt. | Der Satellit kennt keine Prüfsumme zu diesem Image. **Prüfsumme prüfen** ist dafür gesperrt. | – |
 | Der Vorgang läuft möglicherweise noch auf dem Satelliten. Bitte die Liste neu laden, bevor erneut wiederhergestellt wird. | Der Satellit meldet den Ausgang der Wiederherstellung nicht zurück. | **Sicherungen** des Images erneut öffnen, bevor Sie nochmals wiederherstellen. |
+| Übertragung von *Name* fehlgeschlagen: *Grund* | Der Satellit meldet den Auftrag als fehlgeschlagen und nennt den Grund, etwa eine abweichende MD5-Prüfsumme oder einen Neustart des Containers. | Grund beheben und die Übertragung neu starten. |
+| Übertragung von *Name* fehlgeschlagen. | Wie oben, der Satellit nennt aber keinen Grund. | Übertragung neu starten. |
+| Der Auftrag für *Name* ist aus der Warteschlange verschwunden, das Image ist aber nicht aktuell. Der Satellit wurde möglicherweise neu gestartet. | Der Satellit kennt die Abfrage des Ergebnisses nicht, und der Vergleich zeigt, dass die Kopie nicht angekommen ist. | Spalte **Abgleich** prüfen und die Übertragung bei Bedarf neu starten. |
+| Es gibt keine Sicherungen. | In **Alle Sicherungen** hat keines der Images eine Sicherung. | – |
+| Die Sicherungen von *n* Images konnten nicht gelesen werden. | Der Satellit hat die Sicherungen dieser Images nicht geliefert. | **Alle Sicherungen** erneut öffnen. |
 | Der Umfang der Löschung konnte nicht ermittelt werden. Das Image wird nicht gelöscht. | Die Plattform konnte nicht feststellen, was das Löschen entfernen würde. | Später erneut versuchen. |
 
 ## Synchronisation

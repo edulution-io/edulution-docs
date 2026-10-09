@@ -324,6 +324,19 @@ Die Clients zeigen **In Ordnung**, **Firmware fehlt** oder **Kein Protokoll**. D
 | Noch kein Client hat ein Boot-Protokoll geliefert. | Es gibt nichts auszuwerten. | Clients starten. |
 | Keine Firmware gefunden. | Die Suche hat keinen Treffer. | Suchbegriff ändern. |
 | Die Suche ist fehlgeschlagen. | Der Satellit hat die Suche nicht beantwortet. | Erneut suchen. |
+| Die IP-Adresse ist ungültig. | Die Eingabe bei **Firmware von einem Client erkennen** ist keine IPv4-Adresse. | Adresse prüfen. |
+| Die SSH-Verbindung zum Client ist fehlgeschlagen oder der Satellit war nicht erreichbar. Ist der Client gestartet und erreichbar? | Der Client ist nicht in LINBO gestartet oder nicht erreichbar, oder die Verbindung zum Satelliten ist unterbrochen. | Client in LINBO starten, Netzwerk und Satellitenstatus prüfen, erneut erkennen. |
+| Die Anfrage hat zu lange gedauert. Das Ergebnis ist unbekannt, bitte erneut versuchen. | Der Client hat den Befehl nicht innerhalb von 15 Sekunden beantwortet, oder der Satellit hat der Plattform nicht rechtzeitig geantwortet. | Erneut erkennen. |
+| Die Firmware konnte nicht erkannt werden. | Die Abfrage ist aus einem anderen Grund gescheitert. | Erneut erkennen. |
+| Auf *Adresse* fehlt keine Firmware. | Der Client meldet keine fehlende Firmware. | – |
+
+### Container
+
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| Der Satellit stellt keine Container-Informationen bereit (kein Docker-Zugriff). | Der Docker-Socket ist im Satelliten nicht eingebunden oder die Container-Anzeige ist abgeschaltet. Das ist die Standardinstallation. | Betreiber des Satelliten fragen, ob die Anzeige gewünscht ist. |
+| Es laufen keine Container. | Es läuft kein LINBO-Container, oder Docker hat die Abfrage nicht beantwortet. | **Neu laden** wählen. |
+| Die Container konnten nicht gelesen werden. | Der Satellit hat die Abfrage nicht beantwortet. | **Neu laden** wählen. |
 
 ### WLAN
 

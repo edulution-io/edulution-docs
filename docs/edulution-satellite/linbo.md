@@ -267,7 +267,7 @@ Grenzen für **match.conf**: [Nachschlagewerk](./linbo-referenz.md#treiber).
 
 ## System
 
-**System** verwaltet die Boot-Dateien, die der Satellit den LINBO-Clients ausliefert. Die Seite besteht aus der Karte **linbofs64** und den Registerkarten **Kernel**, **Firmware** und **WLAN**. Darunter listet die Karte **Container** die Container des Satelliten. **Neu laden** liest alle Bereiche neu.
+**System** verwaltet die Boot-Dateien, die der Satellit den LINBO-Clients ausliefert. Die Seite besteht aus der Karte **linbofs64** und den Registerkarten **Kernel**, **Firmware** und **WLAN**. Darunter listet die Karte **Container** die LINBO-Container des Satelliten. **Neu laden** liest alle Bereiche neu.
 
 Firmware- und WLAN-Änderungen erreichen die Clients erst, wenn linbofs64 neu gebaut ist. Während auf dem Satelliten ein Neubau oder eine Aktualisierung läuft, sind alle ändernden Aktionen der Unterseite gesperrt.
 
@@ -301,19 +301,15 @@ Die Suche im Dialog **Firmware hinzufügen** findet Dateien und Verzeichnisse au
 
 ### Fehlende Firmware an einem laufenden Client erkennen
 
-Die Karte **Firmware von einem Client erkennen** am Ende der Registerkarte **Firmware** fragt einen laufenden LINBO-Client direkt ab. Tragen Sie die IP-Adresse des Clients ein und wählen Sie **Firmware erkennen**. Der Satellit verbindet sich per SSH mit dem Client und liest dessen Kernel-Meldungen aus.
+Die Karte **Firmware von einem Client erkennen** am Ende der Registerkarte **Firmware** fragt einen Client direkt ab, der gerade in LINBO gestartet ist. Ein Client, der das installierte Betriebssystem ausführt, antwortet nicht. Tragen Sie die IPv4-Adresse des Clients ein und wählen Sie **Firmware erkennen**. Der Satellit verbindet sich per SSH mit dem Client und liest dessen Kernel-Meldungen aus. Die Abfrage dauert einige Sekunden.
 
-Die Karte nennt die fehlenden Firmware-Dateien, gruppiert nach Treiber, und zu jeder Datei, ob sie **Bereits eingetragen** ist, **Auf dem Satelliten verfügbar** ist oder **Nicht auf dem Satelliten** liegt. Die Abfrage ändert nichts. Fehlende Firmware tragen Sie wie oben über **Firmware hinzufügen** ein, die Karte öffnet die Suche nicht selbst.
+Die Karte nennt die fehlenden Firmware-Dateien, gruppiert nach Treiber, und zu jeder Datei, ob sie **Bereits eingetragen** ist, **Auf dem Satelliten verfügbar** ist oder **Nicht auf dem Satelliten** liegt. Darüber steht eine Zusammenfassung. Meldet der Client keine fehlende Firmware, nennt die Zusammenfassung das ausdrücklich. Fehlende Firmware tragen Sie wie oben über **Firmware hinzufügen** ein, die Karte öffnet die Suche nicht selbst.
 
-Schlägt die Abfrage fehl, nennt die Karte den Grund:
-
-- Die IP-Adresse ist ungültig.
-- Die SSH-Verbindung zum Client ist fehlgeschlagen oder der Satellit war nicht erreichbar. Prüfen Sie, ob der Client gestartet ist.
-- Die Anfrage hat zu lange gedauert. Das Ergebnis ist dann unbekannt, versuchen Sie es erneut.
+Schlägt die Abfrage fehl, nennt die Karte den Grund, etwa eine ungültige IP-Adresse, eine gescheiterte SSH-Verbindung oder eine Zeitüberschreitung. Nach einer Zeitüberschreitung ist das Ergebnis unbekannt, versuchen Sie es erneut. Die Texte und ihre Abhilfe stehen im [Nachschlagewerk](./linbo-referenz.md#firmware).
 
 ### Container des Satelliten ansehen
 
-Die Karte **Container** unter den Registerkarten zeigt zu jedem laufenden Container des Satelliten den Namen, das Image und den Status, den der Satellit meldet. Die Liste dient nur zur Ansicht. Hat der Satellit keinen Zugriff auf Docker, steht dort ein Hinweis statt der Liste, zum Beispiel bei einer Installation in einem einzigen Container.
+Die Karte **Container** unter den Registerkarten zeigt zu jedem laufenden LINBO-Container des Satelliten den Namen, das Image und den Status, den der Satellit meldet. Die Liste dient nur zur Ansicht und wird mit **Neu laden** aktualisiert. Die Standardinstallation des Satelliten schaltet die Container-Anzeige aus und bindet den Docker-Socket nicht ein. Dann steht statt der Liste ein Hinweis. Die Container des Satelliten-Basissystems stehen unter [Dienste](./verwaltung.md#dienste).
 
 ### WLAN für LINBO-Clients hinterlegen
 

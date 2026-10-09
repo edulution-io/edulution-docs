@@ -199,11 +199,19 @@ Die Aktionsleiste bietet drei Läufe an. Jeder fragt vor dem Start nach:
 | **Komplett-Sync** | übernimmt den gesamten Bestand und schreibt alle verwalteten Dateien neu |
 | **Cursor leeren** | startet keinen Lauf, sorgt aber dafür, dass der nächste gewöhnliche Lauf wieder alles übernimmt |
 
+Steht der Satellit im Modus **Offline**, weist ein Hinweis oben auf der Seite darauf hin, dass die Synchronisation deaktiviert ist. **Synchronisieren**, **Komplett-Sync**, **Cursor leeren** und **Wiederherstellen** stehen dann nicht zur Verfügung, bis der Modus in den Einstellungen wieder auf **Synchronisation aktiv** steht.
+
+Während eines Laufs nennt die Seite, sofern der Satellit sie meldet, die aktuelle Phase (zum Beispiel „start.conf-Dateien werden geschrieben“) und die Kennung des Laufs.
+
 Solange ein Lauf läuft, verschwinden diese Aktionen und Sicherungspunkte lassen sich nicht wiederherstellen – auch bei einem Lauf, den der Satellit nach seinem Zeitplan selbst gestartet hat. Läuft schon einer, meldet die Seite das, statt einen zweiten zu starten. Die Seite folgt einem Lauf höchstens fünf Minuten, auch wenn sie keinen Lauf beobachtet; danach fragt sie wieder im normalen Abstand.
+
+### Technische Details einer Karte
+
+Jede Karte hat die Schaltfläche **Details**. Sie öffnet die vier Stufen **Gewünscht**, **Geschrieben**, **Geprüft** und **Angewendet** mit Revision, Quell-, erwarteter und wirksamer Revision, Zeitpunkten, Zusammenfassung und Fehler der jeweiligen Stufe. Darüber stehen die letzte gute Revision und ein Fehler der Komponente.
 
 ### Sicherungspunkt wiederherstellen
 
-Vor einem Lauf legt der Satellit einen Sicherungspunkt an. Der Abschnitt **Sicherungspunkte** listet sie mit Zeitpunkt und Kennung. **Wiederherstellen** fragt vorher nach und nennt den Sicherungspunkt.
+Vor einem Lauf legt der Satellit einen Sicherungspunkt an. Der Abschnitt **Sicherungspunkte** listet sie mit Zeitpunkt, Kennung, Anlass, den gezählten Änderungen sowie der Zahl der gesicherten Dateien und Symlinks. **Wiederherstellen** fragt vorher nach und nennt den Sicherungspunkt. Nach der Wiederherstellung nennt die Seite, wie viele Dateien und Symlinks zurückgespielt wurden.
 
 :::warning[Was eine Wiederherstellung ersetzt]
 Alle verwalteten `start.conf`-Dateien, alle DHCP- und GRUB-Konfigurationen sowie der zwischengespeicherte Host- und Gruppenbestand werden gelöscht und durch den Stand des Sicherungspunkts ersetzt. Images und Treiber bleiben unberührt.

@@ -267,7 +267,9 @@ Grenzen für **match.conf**: [Nachschlagewerk](./linbo-referenz.md#treiber).
 
 ## System
 
-**System** verwaltet die Boot-Dateien, die der Satellit den LINBO-Clients ausliefert. Die Seite besteht aus der Karte **linbofs64** und den Registerkarten **Kernel**, **Firmware** und **WLAN**. **Neu laden** liest alle vier Bereiche neu.
+**System** verwaltet die Boot-Dateien, die der Satellit den LINBO-Clients ausliefert. Die Seite besteht aus der Karte **LINBO-Stack**, der Karte **linbofs64** und den Registerkarten **Kernel**, **Firmware** und **WLAN**. **Neu laden** liest alle Bereiche neu.
+
+Die Karte **LINBO-Stack** zeigt die **Version** des LINBO-Stacks auf dem Satelliten, seine **Laufzeit** und den Zustand der Dienste **API**, **Redis** und **WebSocket**. Meldet der Stack Einschränkungen, steht oben in der Karte ein Hinweis. Ältere Satelliten liefern diese Angaben nicht; die Karte erscheint dann nicht.
 
 Firmware- und WLAN-Änderungen erreichen die Clients erst, wenn linbofs64 neu gebaut ist. Während auf dem Satelliten ein Neubau oder eine Aktualisierung läuft, sind alle ändernden Aktionen der Unterseite gesperrt.
 

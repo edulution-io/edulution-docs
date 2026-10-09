@@ -327,6 +327,7 @@ Die Clients zeigen **In Ordnung**, **Firmware fehlt** oder **Kein Protokoll**. D
 | Noch kein Client hat ein Boot-Protokoll geliefert. | Es gibt nichts auszuwerten. | Clients starten. |
 | Keine Firmware gefunden. | Die Suche hat keinen Treffer. | Suchbegriff ändern. |
 | Die Suche ist fehlgeschlagen. | Der Satellit hat die Suche nicht beantwortet. | Erneut suchen. |
+| *n* eingetragen, *m* nicht gefunden, *k* bereits vorhanden | Ergebnis beim Eintragen mehrerer Dateien, auch beim empfohlenen Set. „Nicht gefunden“: Die Datei oder das Verzeichnis liegt nicht auf dem Satelliten. Sind alle nicht gefunden, erscheint die Meldung als Fehler. | Katalog prüfen: Einträge mit „Nicht auf dem Satelliten“ lassen sich erst eintragen, wenn die Firmware dort liegt. |
 
 ### WLAN
 

@@ -136,7 +136,7 @@ Images, die nur auf dem Schulserver liegen, erscheinen nur in der **Tabelle**. F
 Solange eine Übertragung läuft oder wartet, zeigt die Seite die **Übertragungswarteschlange**: je Übertragung eine Zeile mit Image, Richtung, Fortschritt und Schritt. **Abbrechen** beendet eine Übertragung nach Rückfrage; Sie können sie später neu starten.
 
 :::note[Das Ergebnis einer Übertragung]
-Verlässt ein Auftrag die Warteschlange, liest die Plattform sein Ergebnis beim Satelliten. Ist die Übertragung fehlgeschlagen, nennt eine Meldung den Grund des Satelliten, etwa eine abweichende MD5-Prüfsumme oder einen Neustart des Containers. Ein gelungener oder von Ihnen abgebrochener Auftrag bleibt ohne Meldung. Das Ergebnis bleibt nach dem Einreihen 24 Stunden abrufbar.
+Verlässt ein Auftrag die Warteschlange, liest die Plattform sein Ergebnis beim Satelliten. Ist die Übertragung fehlgeschlagen, nennt eine Meldung den Grund des Satelliten, etwa eine abweichende MD5-Prüfsumme oder einen Neustart des Containers. Ein gelungener oder von Ihnen abgebrochener Auftrag bleibt ohne Meldung. Das Ergebnis bleibt nach dem Ende des Auftrags 24 Stunden abrufbar.
 
 Kennt der Satellit diese Abfrage noch nicht, vergleicht die Plattform stattdessen das Image mit dem Schulserver. Zeigt der Vergleich, dass die Kopie nicht angekommen ist, warnt eine Meldung ohne Grund. Sonst bleibt sie aus. Ob eine Übertragung gelungen ist, erkennen Sie dann an der Spalte **Abgleich**.
 :::
@@ -171,7 +171,7 @@ Die Plattform liest die Sicherungen erst beim Öffnen des Dialogs, höchstens vi
 
 ### Beipack-Dateien bearbeiten
 
-Der Dialog hat dieselben Registerkarten wie am Schulserver: **Beschreibung**, **Info**, **Registry**, **Pre-Start Script** und **Post-Sync Script**. **Info** enthält Angaben des Satelliten und ist nur lesbar. Hat das Image einen Torrent, zeigt der Dialog zusätzlich den Abschnitt **Torrent**; seine Angaben stehen im [Nachschlagewerk](./linbo-referenz.md#torrent-verteilung). Eine **VDI-Konfiguration** bietet der Satellit nicht an.
+Der Dialog hat dieselben Registerkarten wie am Schulserver: **Beschreibung**, **Info**, **Registry**, **Pre-Start Script** und **Post-Sync Script**. **Info** enthält Angaben des Satelliten und ist nur lesbar. Hat das Image einen Torrent-Eintrag, zeigt der Dialog zusätzlich den Abschnitt **Torrent**; seine Angaben stehen im [Nachschlagewerk](./linbo-referenz.md#torrent-verteilung). Eine **VDI-Konfiguration** bietet der Satellit nicht an.
 
 Anders als am Schulserver speichert **Speichern** nur die Datei der geöffneten Registerkarte. Änderungen in anderen Registerkarten bleiben als Entwurf stehen. Schließen Sie den Dialog mit einem Entwurf, fragt die Plattform, ob Sie weiterbearbeiten oder verwerfen wollen.
 

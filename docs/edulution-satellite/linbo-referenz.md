@@ -157,17 +157,17 @@ Der Abschnitt **Torrent** im Dialog der Beipack-Dateien nennt zum Image:
 |--------|-----------|
 | **Seeder** | ob der Seeder läuft oder gestoppt ist, und **ohne Sitzung**, wenn seine Sitzung fehlt |
 | **Schwarm** | Seeder und Leecher, die der Tracker kennt, und wie oft das Image heruntergeladen wurde |
-| **Tracker** | die Announce-Adresse des Trackers |
+| **Tracker** | die Adresse, unter der der Torrent-Dienst den Tracker anspricht |
 | **Metainfo-Name** | der Name, der in der Torrent-Datei steht |
 | **Länge** | die Größe laut Torrent-Datei; weicht die Datei auf der Platte ab, steht ihre Größe dahinter und die Zeile ist hervorgehoben |
 | **Stückgröße** | die Größe der Teilstücke, falls der Satellit sie meldet |
-| **Announce-URL** | die Tracker-Adresse aus der Torrent-Datei |
+| **Announce-URL** | die Tracker-Adresse, die in der Torrent-Datei steht |
 | **Infohash** | die Kennung des Torrents |
 | **Hash-Datei** | ob die `.hash`-Datei zur Torrent-Datei passt (**stimmt überein**) oder nicht (**weicht ab**, hervorgehoben); ist das unbekannt, fehlt die Zeile |
 | **Stand** | wann der Torrent-Dienst zuletzt berichtet hat |
 | **Probleme** | die Gründe, wenn der Zustand nicht **Wird geseedet** ist |
 
-Angaben, die der Satellit nicht meldet, fehlen in der Liste.
+Angaben, die der Satellit nicht meldet, fehlen in der Liste. Ist der Zustand veraltet, weist ein Hinweis darauf hin und die Liste bleibt leer. Lässt sich der Zustand nicht lesen, nennt der Abschnitt das. Verteilt der Satellit das Image nicht per Torrent, steht dort nur, dass es nicht per Torrent verteilt wird.
 
 | Meldung | Ursache | Abhilfe |
 |---------|---------|---------|

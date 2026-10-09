@@ -286,6 +286,17 @@ Die Liste zeigt **Ordner**, **Hersteller**, **Produkt**, **Image**, **Dateien** 
 
 ## System
 
+### LINBO-Stack
+
+| Angabe | Inhalt |
+|--------|--------|
+| **Version** | Version des LINBO-Stacks auf dem Satelliten |
+| **Laufzeit** | Zeit seit dem Start des Stacks, etwa „2 d 3 h“, „5 h 12 min“ oder „7 min“ |
+| **Stand** | Zeitpunkt, zu dem der Satellit die Angaben erhoben hat |
+| **API**, **Redis**, **WebSocket** | **Läuft**, **Ausgefallen** oder **Unbekannt** |
+
+Die Karte erscheint nur, wenn der Satellit seinen Zustand meldet. Die Angaben werden mit der Seite alle 30 Sekunden aktualisiert und bei **Neu laden**.
+
 ### linbofs64
 
 Die Karte zeigt **Zustand**, **Größe**, **MD5**, **Geändert**, **Zuletzt gebaut** und **Hooks** („*n* ausgeführt, *m* mit Warnung“). Der **Zustand** ist **Bereit**, **Fehlt**, **Beschädigt**, **Nicht eingerichtet**, **Unvollständig** oder **Unbekannt**. Bei **Fehlt**, **Beschädigt**, **Nicht eingerichtet** und **Unvollständig** weist die Karte darauf hin, dass ein Neubau das behebt.

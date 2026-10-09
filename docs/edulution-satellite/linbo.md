@@ -267,7 +267,7 @@ Grenzen für **match.conf**: [Nachschlagewerk](./linbo-referenz.md#treiber).
 
 ## System
 
-**System** verwaltet die Boot-Dateien, die der Satellit den LINBO-Clients ausliefert. Die Seite besteht aus der Karte **linbofs64** und den Registerkarten **Kernel**, **Firmware** und **WLAN**. **Neu laden** liest alle vier Bereiche neu.
+**System** verwaltet die Boot-Dateien, die der Satellit den LINBO-Clients ausliefert. Die Seite besteht aus der Karte **linbofs64** und den Registerkarten **Kernel**, **Firmware** und **WLAN**. Darunter listet die Karte **Container** die LINBO-Container des Satelliten. **Neu laden** liest alle Bereiche neu.
 
 Firmware- und WLAN-Änderungen erreichen die Clients erst, wenn linbofs64 neu gebaut ist. Während auf dem Satelliten ein Neubau oder eine Aktualisierung läuft, sind alle ändernden Aktionen der Unterseite gesperrt.
 
@@ -298,6 +298,18 @@ Die Registerkarte **Firmware** steuert, welche Firmware-Dateien linbofs64 enthä
 - **Katalog** bietet Firmware in ausklappbaren Herstellergruppen an. **Hinzufügen** trägt einen Eintrag ein. Ist er vollständig eingetragen, steht dort **Eingetragen**.
 
 Die Suche im Dialog **Firmware hinzufügen** findet Dateien und Verzeichnisse auf dem Satelliten und beginnt ab zwei Zeichen. Mehrere Treffer tragen Sie mit **Auswahl hinzufügen** gemeinsam ein. Bei Katalogeinträgen, die dem Satelliten fehlen, steht **Nicht auf dem Satelliten**.
+
+### Fehlende Firmware an einem laufenden Client erkennen
+
+Die Karte **Firmware von einem Client erkennen** am Ende der Registerkarte **Firmware** fragt einen Client direkt ab, der gerade in LINBO gestartet ist. Ein Client, der das installierte Betriebssystem ausführt, antwortet nicht. Tragen Sie die IPv4-Adresse des Clients ein und wählen Sie **Firmware erkennen**. Der Satellit verbindet sich per SSH mit dem Client und liest dessen Kernel-Meldungen aus. Die Abfrage dauert einige Sekunden.
+
+Die Karte nennt die fehlenden Firmware-Dateien, gruppiert nach Treiber, und zu jeder Datei, ob sie **Bereits eingetragen** ist, **Auf dem Satelliten verfügbar** ist oder **Nicht auf dem Satelliten** liegt. Darüber steht eine Zusammenfassung. Meldet der Client keine fehlende Firmware, nennt die Zusammenfassung das ausdrücklich. Fehlende Firmware tragen Sie wie oben über **Firmware hinzufügen** ein, die Karte öffnet die Suche nicht selbst.
+
+Schlägt die Abfrage fehl, nennt die Karte den Grund, etwa eine ungültige IP-Adresse, eine gescheiterte SSH-Verbindung oder eine Zeitüberschreitung. Nach einer Zeitüberschreitung ist das Ergebnis unbekannt, versuchen Sie es erneut. Die Texte und ihre Abhilfe stehen im [Nachschlagewerk](./linbo-referenz.md#firmware).
+
+### Container des Satelliten ansehen
+
+Die Karte **Container** unter den Registerkarten zeigt zu jedem laufenden LINBO-Container des Satelliten den Namen, das Image und den Status, den der Satellit meldet. Die Liste dient nur zur Ansicht und wird mit **Neu laden** aktualisiert. Die Standardinstallation des Satelliten schaltet die Container-Anzeige aus und bindet den Docker-Socket nicht ein. Dann steht statt der Liste ein Hinweis. Die Container des Satelliten-Basissystems stehen unter [Dienste](./verwaltung.md#dienste).
 
 ### WLAN für LINBO-Clients hinterlegen
 

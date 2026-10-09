@@ -249,6 +249,23 @@ Die Tabelle zeigt **Stufe**, **Zeit**, **Meldung** und **Aktionen**. Die **Stufe
 | Das Protokoll des Satelliten konnte nicht gelesen werden. | Es war noch nichts geladen, als der Fehler auftrat. | Erreichbarkeit prüfen. |
 | Der Satellit hat noch keine Protokolleinträge. | Es gibt keine Einträge. | – |
 
+### Boot-Logs
+
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| Der Satellit hat keine Boot-Logs. | Es liegen keine Dateien vor. | – |
+| Die Boot-Logs konnten nicht gelesen werden. | Die Liste war nicht abrufbar. | Erreichbarkeit prüfen. |
+| Dieses Log ist größer als 5 MB und kann nicht angezeigt werden. | Der Satellit liefert größere Dateien nicht aus. | Datei auf dem Satelliten ansehen oder löschen. |
+| Das Boot-Log konnte nicht gelesen werden. | Der Satellit hat die Datei nicht geliefert. | Erneut öffnen, Erreichbarkeit prüfen. |
+
+### Überwachung
+
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| Alle kritischen Prüfungen bestanden | Keine kritische Prüfung ist fehlgeschlagen. | – |
+| Eine kritische Prüfung ist fehlgeschlagen | Der LINBO-Dienst meldet sich als nicht gesund. | Die Prüfung mit dem Ergebnis **Fehlgeschlagen** in der Liste ansehen. |
+| Die Überwachungsprüfungen konnten nicht gelesen werden. | Der Satellit hat keinen Bericht geliefert. | Erreichbarkeit prüfen. |
+
 ## Hardware
 
 Die Tabelle zeigt **Host**, **IP-Adresse**, **Modell**, **Prozessor**, **Arbeitsspeicher**, **Platten** und **Erfasst**. Der Dialog zeigt zusätzlich **MAC-Adresse**, **Hersteller**, **Produkt**, **Seriennummer**, **BIOS**, **Kerne**, **Netzwerk** und **PCI-Geräte**.
@@ -388,3 +405,7 @@ Jedes Feld trägt eine Kennzeichnung, woher der Satellit den Wert bezieht:
 | Der Schulserver ist erreichbar. | Ergebnis von **Verbindung testen**, mit Version der API und Antwortzeit. | – |
 | Der Schulserver antwortet, meldet aber keinen betriebsbereiten Zustand. Bitte Benutzer und Passwort prüfen. | Ergebnis von **Verbindung testen** | **Benutzer** und **Passwort** prüfen. |
 | Der Schulserver ist nicht erreichbar. | Ergebnis von **Verbindung testen** | **API-Adresse** und Netzwerkfreigaben prüfen. |
+| Der LMN-Server hat die Zugangsdaten abgelehnt. | Ergebnis von **Schulen laden**: **LMN-Benutzer** oder **LMN-Passwort** stimmen nicht. | Zugangsdaten prüfen. |
+| Die Schulen konnten nicht vom LMN-Server geladen werden. | Ergebnis von **Schulen laden**: Der Schulserver oder der Tunnel ist nicht erreichbar. | **API-Adresse** und Erreichbarkeit prüfen; die Schule von Hand eintragen. |
+| Der LMN-Server meldet keine Schulen. | Ergebnis von **Schulen laden**: Die Antwort enthält keine Schulliste. | Die Schule von Hand eintragen. |
+| Die gespeicherte Einstellung für die Synchronisation gilt erst nach einem Neustart des LINBO-Dienstes auf dem Satelliten. Bis dahin läuft er noch im bisherigen Modus. | **Synchronisation aktiv** ist gespeichert, der Dienst läuft aber noch im anderen Modus. | LINBO-Dienst auf dem Satelliten neu starten. |

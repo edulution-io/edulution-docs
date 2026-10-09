@@ -20,6 +20,16 @@ Standardmäßig werden die Kategorien in einer Zeile von links nach rechts aufge
 
 ![Infoboard - Tabellen Ansicht](/img/schwarzes-brett/schwarzes-brett-table-view.png)
 
+### Bilder von anderen Servern
+
+Eine Mitteilung kann Bilder enthalten, die nicht auf dem edulution-Server liegen, sondern über die Adresse eines anderen Servers eingebunden sind. Beim Laden eines solchen Bildes erfährt dieser Server, wer die Mitteilung wann gelesen hat. Das Infoboard lädt diese Bilder deshalb nicht automatisch: An ihrer Stelle steht **Externes Bild blockiert**, und über dem Inhalt erscheint ein Hinweis mit dem Link **Bilder herunterladen**.
+
+![Infoboard - Blockierte Bilder von anderen Servern](/img/schwarzes-brett/schwarzes-brett-external-images-blocked.png)
+
+Ein Klick auf **Bilder herunterladen** lädt die Bilder dieser einen Mitteilung, und zwar nur für Sie. Die Freigabe gilt, bis Sie die Seite neu laden oder sich abmelden, auch wenn Sie die Mitteilung zwischendurch zu- und wieder aufklappen. Ändert der Autor den Inhalt der Mitteilung, werden ihre Bilder erneut blockiert. Beim Bearbeiten gilt die Sperre nicht: Öffnen Sie eine solche Mitteilung im Editor, lädt dieser ihre Bilder sofort.
+
+Bilder, die über den Editor hochgeladen wurden, liegen auf dem edulution-Server und werden sofort angezeigt.
+
 ## Mitteilungen
 
 <Audience roles="advanced">
@@ -29,13 +39,21 @@ Standardmäßig werden die Kategorien in einer Zeile von links nach rechts aufge
 ![Infoboard - Neue Mitteilung erstellen](/img/schwarzes-brett/schwarzes-brett-create-new-entry.png)
 
 1. Wählen Sie eine **Kategorie**.
-2. Geben Sie einen **Titel** ein und verfassen Sie den **Inhalt** im Editor. Dieser unterstützt Formatierungen wie **Fett**, *Kursiv*, Listen und Links; bei Bedarf lassen sich auch Bilder direkt einfügen.
+2. Geben Sie einen **Titel** ein und verfassen Sie den **Inhalt** im Editor. Die Werkzeugleiste zeigt zunächst **Fett**, *Kursiv*, Unterstrichen, Links und **Bild hochladen**. Die übrigen Formate, darunter Überschriften, Schriftart und Schriftgröße, Listen, Einzüge und die Ausrichtung, blenden Sie über die Schaltfläche mit den drei Punkten (**Weitere Formatierung**) ein.
 3. Legen Sie optional den Sichtbarkeitszeitraum fest – ein Datum, ab dem die Mitteilung erscheint (**Aktiv von**), und ein Datum, ab dem sie nicht mehr angezeigt wird (**Aktiv bis**).
 4. Wählen Sie über die **Veröffentlichungsart**, ob und wie die Mitteilung verschickt wird (siehe [Veröffentlichungsart](#veröffentlichungsart)).
-5. Speichern Sie die Mitteilung.
+5. Speichern Sie die Mitteilung. Der Inhalt braucht dafür mindestens zehn sichtbare Zeichen oder ein Bild. Eine ältere Mitteilung mit kürzerem Inhalt lässt sich erst wieder speichern, nachdem Sie den Inhalt entsprechend verlängert haben, auch wenn Sie nur ein anderes Feld ändern möchten.
 
 :::info[Autor]
 Neben dem Zeitstempel der neuen Mitteilung wird auch der Ersteller/Autor angeheftet und dann in der Kachelansicht angezeigt.
+:::
+
+:::info[Bilder]
+Bilder, die Sie über **Bild hochladen** einfügen, sehen alle Leser sofort. Ein Bild, das nur über die Adresse eines anderen Servers eingebunden ist, etwa aus einem kopierten Abschnitt einer Webseite, zeigt das Infoboard erst an, nachdem der Leser es freigegeben hat (siehe [Bilder von anderen Servern](#bilder-von-anderen-servern)).
+:::
+
+:::tip[Hell und dunkel]
+Arbeiten Sie im dunklen Design, zeigt die Schaltfläche **Im Light Mode anzeigen** in der Werkzeugleiste den Inhalt so an, wie er im hellen Design erscheint. So lassen sich Textfarben für beide Designs prüfen.
 :::
 
 :::info[Standard-Ablaufdatum]

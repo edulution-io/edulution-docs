@@ -212,6 +212,18 @@ Diese Signatur wird beim Verfassen einer neuen E-Mail automatisch angefügt. Sie
 Ein Logo in der Standard-Signatur wird jeder gesendeten E-Mail beigefügt. Verwenden Sie deshalb ein möglichst kleines Bild (unter 100 KB), um das Mailaufkommen nicht unnötig zu vergrößern.
 :::
 
+**Standard-Schriftart und Standard-Schriftgröße**
+
+Mit dieser Schrift beginnen neue Nachrichten, Antworten und Weiterleitungen im Editor. Beim Senden schreibt edulution sie fest in die Nachricht, sodass die Empfänger sie unabhängig von ihrem Mailprogramm sehen.
+
+- Beide Felder stehen anfangs auf **Keine**. edulution fügt dann keine Schrift hinzu, und die Empfänger sehen unformatierten Text in der Standardschrift ihres Mailprogramms
+- Die Vorgabe gilt für alle Benutzer; eine eigene Standardschrift können sie nicht festlegen
+- Schriftart und Schriftgröße lassen sich auch einzeln setzen. Für den jeweils anderen Wert gilt dann weiterhin der Standard des Mailprogramms
+- Lato, die Schrift der edulution-Oberfläche, steht nicht zur Auswahl, weil sie auf den meisten Geräten der Empfänger fehlt
+- Von Hand formatierter Text behält seine Schrift. Zitierter Text ohne eigene Schriftangabe erscheint in Antworten und Weiterleitungen dagegen ebenfalls in der Standardschrift
+
+![Standard-Schriftart und Standard-Schriftgröße unter der Standard-Signatur](/img/einstellungen/email-standardschrift.webp)
+
 ### Mailserver
 
 Die Verbindung des integrierten E-Mail-Clients zum Mailserver richten Sie im Abschnitt **Mailserver** ein: IMAP-, SMTP- und ManageSieve-Server mit ihren Ports sowie die Zertifikatsprüfung. Felder, Voreinstellungen und Verschlüsselung beschreibt [Mail-App konfigurieren → Mailserver](../../edulution-mail/konfiguration/mail-app-konfiguration.md#mailserver).

@@ -199,7 +199,7 @@ Die Aktionsleiste bietet drei Läufe an. Jeder fragt vor dem Start nach:
 | **Komplett-Sync** | übernimmt den gesamten Bestand und schreibt alle verwalteten Dateien neu |
 | **Cursor leeren** | startet keinen Lauf, sorgt aber dafür, dass der nächste gewöhnliche Lauf wieder alles übernimmt |
 
-Meldet der Satellit den Modus **Offline**, weist der Hinweis **Synchronisation ist deaktiviert** oben auf der Seite darauf hin. Ist der Zustand gar nicht ladbar, erscheint stattdessen die Fehlermeldung der Seite und kein Hinweis. **Synchronisieren**, **Komplett-Sync**, **Cursor leeren** und **Wiederherstellen** stehen dann nicht zur Verfügung, bis der Modus in den Einstellungen wieder auf **Synchronisation aktiv** steht.
+Meldet der Satellit den Modus **Offline**, weist der Hinweis **Synchronisation ist deaktiviert** oben auf der Seite darauf hin. **Synchronisieren**, **Komplett-Sync**, **Cursor leeren** und **Wiederherstellen** stehen in diesem Modus nicht zur Verfügung, bis er in den Einstellungen wieder auf **Synchronisation aktiv** steht. Ist der Zustand gar nicht ladbar, erscheint stattdessen die Fehlermeldung der Seite und kein Hinweis.
 
 Während eines Laufs nennt die Seite, sofern der Satellit sie meldet, die aktuelle Phase (zum Beispiel „start.conf-Dateien werden geschrieben“) und die Kennung des Laufs.
 

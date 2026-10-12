@@ -739,6 +739,9 @@ Die Aktionsleiste bietet die Aktionen an, sobald Images ausgewählt sind; Aktion
 | **Diff ändern** | erscheint nur, wenn zum Image ein Differenzimage existiert |
 | **Diff löschen** | löscht die Differenzimages aller ausgewählten Images, die eines haben |
 | **Löschen** | löscht die ausgewählten Images mit Sicherungen, Differenzimage und Beipack-Dateien |
+| **Dienste neu starten** | startet den Multicast- und den Torrent-Dienst des Servers neu; steht auch ohne Auswahl zur Verfügung |
+
+Nach Änderungen an Images starten Sie mit **Dienste neu starten** den Multicast- und den Torrent-Dienst des Servers neu, damit beide die geänderten Images verteilen. Die Plattform fragt vorher nach; laufende Übertragungen werden beim Neustart unterbrochen. Danach nennt eine Meldung die neu gestarteten Dienste. Scheitert der Neustart oder überschreitet er sein Zeitlimit, nennt die Meldung den Grund, den die Linuxmuster-API zurückgibt. Die Dienste gelten für den ganzen Server: Auch ein Schuladmin startet sie für alle Schulen neu. Ältere Linuxmuster-API-Versionen bieten den Neustart nicht an (siehe [Mindestversionen der Linuxmuster-API](#mindestversionen-der-linuxmuster-api)).
 
 Beim Duplizieren und beim Umbenennen erlaubt der Name Buchstaben, Ziffern, Leerzeichen sowie `.`, `_`, `+` und `-` und ist höchstens 200 Zeichen lang; er darf nicht mit einem Punkt beginnen und keine zwei Punkte hintereinander enthalten. Einen Namen, den ein Image bereits trägt, weist der Dialog ab – auch in anderer Groß- und Kleinschreibung und beim Duplizieren auch den Namen der Vorlage.
 
@@ -790,6 +793,7 @@ Einzelne Funktionen setzen eine neuere Linuxmuster-API voraus:
 | 7.4.11 | die Unterseite **Gruppen**; die Zuordnung von Images und Gruppen (**Verwendet in**) | Die Unterseite entfällt, der Bereich öffnet auf **Images**; die Zuordnung fehlt. |
 | 7.4.12 | **Status** nennt das laufende System eines Hosts | **Status** zeigt nur **Online** oder **Offline**. |
 | 7.4.13 | Zugriff von Schuladmins auf **LINBO**; **Sicherungen** und **VDI** einer Gruppe; **linbo.iso**; Beispielkonfigurationen als Vorlage | Der Bereich entfällt für Schuladmins; die Funktionen erscheinen nicht. |
+| 7.4.14 | **Dienste neu starten** bei den Images | *„Diese LINBO-Funktion benötigt mindestens linuxmuster-api 7.4.14. Der verbundene Server ist älter.“* |
 
 ## Einschränkungen in dieser Version
 

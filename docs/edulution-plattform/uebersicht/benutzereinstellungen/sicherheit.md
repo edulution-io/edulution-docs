@@ -20,23 +20,23 @@ ausklappen. In der linken Leiste der Benutzereinstellungen stehen sie zusätzlic
 
 ### Anforderungen an das Passwort
 
-Unter den Passwortfeldern steht die **Passwortrichtlinie** Ihrer Einrichtung mit den Regeln, die
-das neue Passwort erfüllen muss, etwa die Mindestlänge, geforderte Zeichenarten oder das Verbot, den
-Benutzernamen als Passwort zu verwenden. Das Formular prüft das neue Passwort schon bei der Eingabe
-gegen diese Regeln und nennt die verletzten. Mindestens **8 Zeichen** sind immer erforderlich, auch
-wenn die Richtlinie weniger verlangt.
+Im Formular steht die **Passwortrichtlinie** Ihrer Einrichtung mit den Regeln, die das neue Passwort
+erfüllen muss, etwa die Mindestlänge, geforderte Zeichenarten oder das Verbot, den Benutzernamen als
+Passwort zu verwenden. Das Formular prüft das neue Passwort schon bei der Eingabe gegen diese Regeln
+und nennt die verletzten. Mindestens **8 Zeichen** sind immer erforderlich, auch wenn die Richtlinie
+weniger verlangt.
 
 Die Regeln legt Ihre Einrichtung zentral fest. Verlangt sie weitere Regeln, die das Formular nicht
 vorab prüfen kann, werden diese **beim Speichern** geprüft – ein Passwort, das ihnen nicht genügt,
-wird mit einer Fehlermeldung abgewiesen, die die verletzte Regel nennt. Ein abgewiesenes Passwort
-wird nicht auf einem anderen Weg doch noch gesetzt.
+wird mit einer Fehlermeldung abgewiesen, die die verletzte Regel nennt.
 
-Auf Linuxmuster-Systemen setzt edulution das Passwort in der Regel über den Linuxmuster-Server
-(siehe [Passwortänderung einrichten](../../konfiguration/passwort-aenderung.md)). Dann gilt
-zusätzlich die [Passwortrichtlinie](../../../edulution-server/benutzerverwaltung.md#passwortrichtlinie)
-der Linuxmuster-Installation. Lehnt sie Ihr neues Passwort ab, nennt die Fehlermeldung die
-verletzten Regeln, etwa die Mindestlänge oder die geforderten Zeichenarten. Umlaute und ß sind auf
-diesem Weg nicht zulässig, weil die Anmeldung mit ihnen fehlschlägt.
+Auf Linuxmuster-Systemen kommt im Hinweis „Nur ASCII-Zeichen, keine Umlaute oder ß“ hinzu; das
+Formular weist ein Passwort mit Umlauten oder ß ab, weil die Anmeldung mit ihnen fehlschlägt. Setzt
+edulution das Passwort über den Linuxmuster-Server (siehe
+[Passwortänderung einrichten](../../konfiguration/passwort-aenderung.md)), gilt außerdem die
+[Passwortrichtlinie](../../../edulution-server/benutzerverwaltung.md#passwortrichtlinie) der
+Linuxmuster-Installation. Lehnt sie Ihr neues Passwort ab, nennt die Fehlermeldung die verletzten
+Regeln.
 
 Das neue Passwort wird zentral in der Benutzerverwaltung hinterlegt und gilt für alle Dienste, die
 Sie über edulution nutzen – Dateien, E-Mail und die Anmeldung an der Oberfläche selbst.

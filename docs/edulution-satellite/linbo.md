@@ -260,7 +260,7 @@ Ein Klick auf ein Profil öffnet seinen Dialog:
 
 - **Image-Zuordnung** – wählen Sie ein Image des Satelliten und ordnen Sie es zu; **Zuordnung entfernen** löst es.
 - **match.conf** – die Zuordnungsdatei des Profils, direkt bearbeitbar. **Änderungen verwerfen** stellt den gespeicherten Stand wieder her.
-- **Dateien** – die Treiberdateien, nur lesbar. Hochladen ist nicht möglich.
+- **Dateien** – die Treiberdateien. Das Papierkorb-Symbol neben einer Datei löscht nur diese Datei, nach einer Rückfrage. Hochladen ist nicht möglich.
 - **Profil löschen** – löscht das Profil mit allen Treiberdateien endgültig, nach einer Rückfrage. Solange ein Image zugeordnet ist, ist die Aktion gesperrt; entfernen Sie zuerst die Zuordnung.
 
 Grenzen für **match.conf**: [Nachschlagewerk](./linbo-referenz.md#treiber).

@@ -97,6 +97,8 @@ Sie können Ihre Version übernehmen, die andere übernehmen oder den Konflikt m
 3. Geben Sie den **Ordnernamen** ein
 4. **Erstellen** bestätigt das Anlegen
 
+Unter **Ort** ist der Ordner der gerade geöffneten Seite vorausgewählt. Ist ein Ordner geöffnet, ist es dieser Ordner selbst. Ist keine Seite geöffnet, ist es das erste Wiki in der Seitenleiste.
+
 ## Seiten suchen
 
 ![Wiki Suche](/img/wiki/suche.png)

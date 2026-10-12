@@ -59,6 +59,8 @@ Die Registerkarte **Benutzer** zeigt die vorhandenen Konten des gewählten Benut
 
 Über die Aktionen einer Zeile öffnen Sie die **Passwort-Aktionen** oder die **Details** des Kontos.
 
+Können die Konten der gewählten Schule nicht geladen werden, erscheint anstelle der Tabelle die Meldung *„Abrufen der Benutzer nach Rolle fehlgeschlagen“* mit dem Hinweis *„Die Benutzer dieser Schule konnten nicht geladen werden. Versuchen Sie es erneut.“* und der Schaltfläche **Erneut versuchen**. Waren die Konten zuvor bereits geladen, bleibt die Tabelle mit diesem Stand sichtbar.
+
 ![Benutzerverwaltung-Benutzer-ContextMenu](/img/benutzerverwaltung/benutzerverwaltung02-contextMenu.png)
 
 ### Sophomorix-Status
@@ -157,6 +159,12 @@ Die Tabelle bleibt während des Speicherns bearbeitbar. Änderungen, die Sie in 
 
 Ein über den CSV-Dialog eingelesener Inhalt hat Vorrang vor einem noch laufenden Speichervorgang: Die importierte Liste ersetzt die Tabelle, alle Löschmarkierungen entfallen, und das Ergebnis des offenen Vorgangs wird verworfen. Dasselbe gilt, wenn Sie währenddessen den Benutzertyp oder die Schule wechseln.
 :::
+
+:::warning[Ungespeicherte Änderungen und Neuladen]
+Ungespeicherte Änderungen an einer Verwaltungsliste gehen verloren, sobald Sie die Seite neu laden oder den Browser schließen. Speichern Sie die Liste vorher.
+:::
+
+Kann die Verwaltungsliste der gewählten Schule nicht geladen werden, erscheint anstelle der Tabelle die Meldung *„Abrufen der Verwaltungsliste fehlgeschlagen“* mit dem Hinweis *„Die Liste konnte nicht geladen werden. Sie kann erst bearbeitet werden, wenn sie geladen ist.“* und der Schaltfläche **Erneut versuchen**. Bis die Liste geladen ist, sind **Benutzer hinzufügen**, **Speichern**, **Prüfen** und **CSV** ausgeblendet.
 
 ### Eingaben prüfen
 

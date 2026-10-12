@@ -74,7 +74,7 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 
 Ein Klick auf einen der obersten Gruppeneinträge wechselt zugleich die angezeigte Ansicht: **Meine Kalender**, **Abonnierte Kalender** und **Web-Kalender** führen zur normalen Kalenderansicht, **Stundenplan** öffnet die [Stundenplan-Ansicht](#stundenplan). So kehren Sie aus dem Stundenplan mit einem Klick auf einen der drei anderen Gruppeneinträge wieder in die gewohnte Kalenderansicht zurück. Ansicht und Zeitraum bleiben dabei erhalten: Sie landen in der Ansicht und auf dem Zeitraum, den Sie zuletzt angezeigt haben, nicht auf dem heutigen Datum (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)).
 
-Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet den Kalender in allen Ansichten und dient zugleich als Legende. Abonnierte (freigegebene) Kalender werden zusätzlich mit einem gestrichelten Rahmen gekennzeichnet.
+Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet den Kalender in allen Ansichten und dient zugleich als Legende (siehe [Terminfarben in den Ansichten](#terminfarben-in-den-ansichten)). Abonnierte (freigegebene) Kalender werden zusätzlich mit einem gestrichelten Rahmen gekennzeichnet.
 
 ### Kalender ein- und ausblenden
 
@@ -154,7 +154,7 @@ Beachten Sie dabei die folgenden Besonderheiten:
 
 Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansicht: Sie zeigt nur die Tage **Montag bis Freitag** und einen festen Zeitausschnitt am Tag in feiner Rasterung. Sie öffnen sie über einen als Stundenplan markierten Kalender in der Seitenleiste; über **Zurück** kehren Sie zur normalen Kalenderansicht zurück – und zwar in die Woche, die Sie im Stundenplan zuletzt angezeigt haben, und in die Ansicht, aus der Sie den Stundenplan geöffnet haben.
 
-Auch im Stundenplan steht die angezeigte Woche in der Adresse (URL). Sie können die Seite also neu laden, ohne die Woche zu verlieren, und einen bestimmten Stundenplan mitsamt Woche als Lesezeichen speichern oder als Link weitergeben. Die Schaltflächen **Zurück** und **Vorwärts** des Browsers blättern durch die zuvor angezeigten Wochen (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). Ein Link auf einen Stundenplan führt auch die Ansicht mit, aus der er erstellt wurde: Wer ihn öffnet, gelangt über **Zurück** in eben diese Ansicht. Das gilt selbst für eine Ansicht, die Sie über den Link einer Kollegin erreicht haben – sie übersteht den Weg über den Stundenplan, ohne deshalb zu Ihrer künftigen Startansicht zu werden. In dieser Ansicht werden die Termine in ihrer jeweiligen **Farbe** dargestellt.
+Auch im Stundenplan steht die angezeigte Woche in der Adresse (URL). Sie können die Seite also neu laden, ohne die Woche zu verlieren, und einen bestimmten Stundenplan mitsamt Woche als Lesezeichen speichern oder als Link weitergeben. Die Schaltflächen **Zurück** und **Vorwärts** des Browsers blättern durch die zuvor angezeigten Wochen (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). Ein Link auf einen Stundenplan führt auch die Ansicht mit, aus der er erstellt wurde: Wer ihn öffnet, gelangt über **Zurück** in eben diese Ansicht. Das gilt selbst für eine Ansicht, die Sie über den Link einer Kollegin erreicht haben – sie übersteht den Weg über den Stundenplan, ohne deshalb zu Ihrer künftigen Startansicht zu werden.
 
 Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)). Wie in den übrigen Rasteransichten verschieben Sie einen Termin auch hier [per Drag & Drop](#termine-per-drag--drop-verschieben) auf einen anderen Zeitabschnitt. Über der Stundenskala liegt wie in der Wochenansicht eine eigene Zeile für **ganztägige** Termine.
 
@@ -170,11 +170,17 @@ Der Stundenplan zeigt Montag bis Freitag und einen festen Zeitausschnitt am Tag.
 Die Termine eines als Stundenplan markierten Kalenders werden ausschließlich in der Stundenplan-Ansicht angezeigt – in **Monat**, **Woche**, **Tag** und **Agenda** erscheinen sie nicht. Vermissen Sie dort einen Termin, prüfen Sie, ob sein Kalender als Stundenplan markiert ist, und entfernen Sie die Markierung bei Bedarf über das [Kalenderkontextmenü](#kalenderkontextmenü).
 :::
 
-:::info[Wo die Terminfarbe sichtbar ist]
-Die einem Termin zugewiesene Farbe wird ausschließlich in der Stundenplan-Ansicht angezeigt. In allen übrigen Ansichten – Monat, Woche, Tag und Agenda – richtet sich die Farbe der Termine nach dem zugehörigen Kalender.
+### Terminfarben in den Ansichten
 
-Termine, die aus einem externen CalDAV-Programm stammen, übernehmen die dort gesetzte Farbe.
-:::
+Hat ein Termin eine [eigene Farbe](#termine-erstellen), wird er in **Monat**, **Woche**, **Tag**, **Agenda** und **Stundenplan** in dieser Farbe dargestellt, auch wenn er aus einem externen CalDAV-Programm stammt. Termine ohne eigene Farbe erhalten die Farbe ihres Kalenders.
+
+Damit erkennbar bleibt, zu welchem Kalender ein farbiger Termin gehört, trägt er zusätzlich vor der Uhrzeit und dem Titel ein kleines Quadrat in der Farbe seines Kalenders (wie in der [Kalenderliste](#seitenleiste-und-kalenderliste); bei abonnierten und Web-Kalendern kräftiger und ohne Rahmen).
+
+Das Quadrat erscheint nur an Terminen mit eigener Farbe und nur dort, wo die Zuordnung sonst mehrdeutig wäre:
+
+- Es entfällt, solange **nur ein einziger Kalender eingeblendet** ist – dann können die Termine nur aus diesem einen Kalender stammen. Blenden Sie einen weiteren Kalender ein, erscheint es wieder (siehe [Kalender ein- und ausblenden](#kalender-ein--und-ausblenden)).
+- Als Stundenplan markierte Kalender zählen dabei **nicht mit**, da ihre Termine in **Monat**, **Woche**, **Tag** und **Agenda** ohnehin nicht erscheinen. Haben Sie neben einem Stundenplan nur einen gewöhnlichen Kalender, bleibt das Quadrat also aus.
+- In der **Stundenplan-Ansicht** erscheint es nicht, da diese stets die Termine eines einzelnen Stundenplans zeigt.
 
 ## Termine erstellen
 
@@ -200,7 +206,7 @@ Füllen Sie im Dialog die folgenden Felder aus:
 7. **Wiederholung** – Legt fest, ob der Termin als [Serientermin](#serientermine-und-wiederholungen) wiederkehrt.
 8. **Sichtbarkeit** – **Öffentlich**, **Privat** oder **Vertraulich**.
 9. **Zeit-Status** – Ob die Zeit als **Abwesend (gebucht)** oder **Verfügbar (frei)** gilt.
-10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Auswahl beginnt links mit **Keine Farbe**, darauf folgen die vorgegebenen Farben; ganz rechts öffnet die Schaltfläche **Eigene Farbe** den Farbwähler für eine beliebige Farbe. Die Farbe wirkt sich nur in der Stundenplan-Ansicht aus. Die Beschriftung des Termins wird automatisch dunkel oder hell dargestellt, damit sie vor der gewählten Farbe lesbar bleibt (siehe [Farbwahl und Lesbarkeit](#farbwahl-und-lesbarkeit)).
+10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Auswahl beginnt mit **Keine Farbe**, darauf folgen die vorgegebenen Farben; zuletzt öffnet **Eigene Farbe** den Farbwähler. Die Farbe wirkt sich in allen Ansichten aus; ohne eigene Farbe gilt die Farbe des Kalenders (siehe [Terminfarben in den Ansichten](#terminfarben-in-den-ansichten)). Die Beschriftung des Termins wird automatisch dunkel oder hell dargestellt, damit sie vor der gewählten Farbe lesbar bleibt (siehe [Farbwahl und Lesbarkeit](#farbwahl-und-lesbarkeit)).
 11. **Teilnehmer** – Weitere Benutzer, die zum Termin eingeladen werden.
 
 Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.
@@ -235,9 +241,9 @@ Im Feld **Wiederholung** legen Sie fest, ob ein Termin wiederkehrt. Es stehen fo
 - **Alle** und **Einheit** – Das Intervall, z. B. alle 2 Wochen.
 - **An folgenden Wochentagen** – Bei wöchentlicher Wiederholung wählen Sie hier die betroffenen Wochentage.
 - **Monatliches Muster** – Bei monatlicher Wiederholung wählen Sie zwischen einem festen Tag im Monat (z. B. „Am 15. des Monats“) und einem Muster nach Wochentag (z. B. „Am zweiten Dienstag des Monats“).
-- **Endet** – Wann die Serie endet: **Nie**, **Nach** einer Anzahl von Terminen oder **Am Datum**.
+- **Endet** – Wann die Serie endet: **Nie**, **Nach** einer Anzahl von Terminen oder **Am Datum**. Bei **Nach** ist die Anzahl mit 10 vorbelegt; zulässig sind ganze Zahlen ab 1, bei anderen Werten gilt das Feld als leer. Bei **Am Datum** ist das Datumsfeld zunächst leer. Solange kein Datum beziehungsweise keine gültige Anzahl eingetragen ist, bleibt **Speichern** deaktiviert – eine gesonderte Meldung erscheint nicht.
 
-Unterhalb der Auswahl wird die aktuell eingestellte Wiederholung als Text zusammengefasst.
+Die aktuell eingestellte Wiederholung wird im Dialog als Text zusammengefasst.
 
 :::info[Wiederholungsregel bestehender Serien]
 Das nachträgliche Ändern der Wiederholungsregel einer bereits bestehenden Serie wird derzeit nicht unterstützt. Beim Bearbeiten einer einzelnen Wiederholung wird die Regel daher nur als Text angezeigt.
@@ -331,11 +337,29 @@ Bei abonnierten oder schreibgeschützten Kalendern werden **Einstellungen** und 
 
 ## Kalender freigeben
 
-Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie über **Personen oder Gruppen hinzufügen** nach Benutzern oder Gruppen; unter **Freigegeben für** stehen anschließend alle bestehenden Freigaben.
+Eigene Kalender geben Sie für andere Benutzer oder Gruppen frei: Öffnen Sie in der Seitenleiste unter **Meine Kalender** das Kontextmenü des gewünschten Kalenders und wählen Sie **Freigeben**. Im Freigabe-Dialog suchen Sie über **Personen oder Gruppen hinzufügen** nach Personen aus Ihren Adressbüchern und nach Verteilern (siehe [Wen die Suche findet](#wen-die-suche-findet)); unter **Freigegeben für** stehen anschließend alle bestehenden Freigaben.
 
 Jede Freigabe ist eine aufklappbare Zeile. Zugeklappt sehen Sie Name, E-Mail-Adresse und rechts eine Zusammenfassung der vergebenen Rechte (**Kein Zugriff**, **Nur Frei/Belegt**, **Ansehen** oder **Bearbeiten**). Über das Pfeilsymbol am rechten Rand klappen Sie die Zeile auf und vergeben die Rechte im Einzelnen. Über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder.
 
 Ist ein Empfänger im Verzeichnis nicht mehr auffindbar — etwa weil sein Konto zwischenzeitlich gelöscht wurde —, erscheint seine Zeile mit der Rolle **Keine** für alle drei Sichtbarkeiten. Die übrigen Freigaben bleiben davon unberührt und bearbeitbar; die verwaiste Zeile entfernen Sie über das Mülleimer-Symbol.
+
+### Wen die Suche findet
+
+Die Suche unter **Personen oder Gruppen hinzufügen** speist sich aus zwei getrennten Quellen:
+
+- **Personen** stammen ausschließlich aus den Adressbüchern, auf die Sie in der [Kontakte](kontakte.md)-App Zugriff haben, nicht aus dem Verzeichnis. Wen Sie dort nicht als Kontakt führen, legen Sie zunächst in der Kontakte-App an.
+- **Verteiler** stammen aus dem Verzeichnis, einschließlich ihrer Kategorien. Angeboten werden dabei auch Verteiler, für die sich kein Kalender freigeben lässt (siehe [Freigabe an einen Verteiler](#freigabe-an-einen-verteiler)).
+
+Für die Personensuche gilt darüber hinaus:
+
+- Durchsucht werden alle Ihre Adressbücher gleichzeitig. Das Suchfeld der Kontakte-App bezieht sich immer nur auf das ausgewählte Adressbuch. Auf Schreibweisen von Umlauten kommt es dabei ebenso wenig an wie dort.
+- Vorgeschlagen wird nur, wer eine E-Mail-Adresse hinterlegt hat; ein Kontakt ohne Adresse erscheint nicht. Sind bei einem Kontakt mehrere Adressen hinterlegt, steht jede davon als eigener Eintrag zur Auswahl.
+- Personen erscheinen ab zwei eingegebenen Zeichen, Verteiler bereits ab einem. Führen Sie dieselbe Person in mehreren Adressbüchern, wird sie nur einmal angeboten.
+- Trägt einer Ihrer Kontakte die Adresse eines Verteilers, wird dieses Ziel nur einmal angeboten, und zwar als Verteiler. Die Freigabe erreicht dann wie gewohnt alle Mitglieder, nicht nur den einen Kontakt.
+
+:::info[Wenn keine Personen vorgeschlagen werden]
+Ist die Kontakte-App nicht eingerichtet oder der Adressbuch-Server gerade nicht erreichbar, bleibt die Suche nutzbar: Sie bietet weiterhin die Verteiler an, lediglich die Personen fehlen. Eine Fehlermeldung erscheint dabei nicht. Finden Sie also keine einzige Person, obwohl Verteiler erscheinen, wenden Sie sich an Ihre Administration.
+:::
 
 ### Rechte je Sichtbarkeit
 
@@ -383,6 +407,14 @@ Neben einzelnen Personen geben Sie einen Kalender auch für einen **Verteiler** 
 
 Die Treffer der Suche unter **Personen oder Gruppen hinzufügen** werden nach Kategorie gruppiert und stehen unter der Überschrift **Personen**, **Eltern** bzw. **Gruppen**. Verteilen sie sich auf mehrere dieser Kategorien, erscheint darüber eine Reihe von Schaltflächen — **Alle** sowie je eine pro vorhandener Kategorie —, mit denen Sie die Anzeige auf eine einzelne Kategorie beschränken. Eine eigene Überschrift für Klassen oder Projekte gibt es dabei nicht: Beide stehen zusammen mit den übrigen Verteilern unter **Gruppen**.
 
+Freigeben lassen sich nur Verteiler **Ihrer eigenen Schule**. Die Suche bietet zwar auch Verteiler anderer Schulen der Instanz und schulübergreifende Verteiler an, die zu keiner einzelnen Schule gehören; wählen Sie einen davon, legt edulution keine Freigabe an und meldet:
+
+| Meldung | Ursache und Abhilfe |
+|---|---|
+| **Dieser Verteiler gehört zu einer anderen Schule.** | Der Verteiler gehört nicht zu Ihrer Schule. Die Meldung erscheint auch bei schulübergreifenden Verteilern, selbst auf einer Instanz mit nur einer Schule. Geben Sie den Kalender stattdessen für einen Verteiler Ihrer Schule oder für die Personen einzeln frei. |
+
+Global-Admins gehören keiner einzelnen Schule an; für sie gilt diese Einschränkung nicht.
+
 Die Freigabe wird an **jedes einzelne Mitglied** des Verteilers vergeben. In der Liste **Freigegeben für** steht dafür dennoch nur eine Zeile für den Verteiler; sie nennt anstelle der E-Mail-Adresse die Anzahl der Mitglieder (etwa **Verteiler mit 12 Mitgliedern**), und die Mitglieder selbst erscheinen nicht als eigene Zeilen. Die Rechte vergeben Sie wie bei einer Person; sie gelten dann für alle Mitglieder gleichermaßen.
 
 Entziehen Sie die Freigabe des Verteilers über das Mülleimer-Symbol, verlieren dessen Mitglieder den Zugriff. Zwei Fälle sind davon ausgenommen:
@@ -395,6 +427,8 @@ Entziehen Sie die Freigabe des Verteilers über das Mülleimer-Symbol, verlieren
 Tritt jemand dem Verteiler bei oder verlässt ihn, wird der Zugriff **nicht sofort** angepasst. Der Abgleich läuft, sobald Sie den Freigabe-Dialog des betreffenden Kalenders das nächste Mal öffnen. Währenddessen sind die Bedienelemente des Dialogs gesperrt; hat sich etwas geändert, nennt anschließend ein Hinweis je Verteiler, wie viele Mitglieder hinzugefügt und wie viele entfernt wurden.
 
 Daraus folgt: Wer den Verteiler verlässt, behält den Zugriff auf den Kalender so lange, bis Sie den Freigabe-Dialog erneut öffnen. Bei einem Kalender, der einmal freigegeben und danach nicht wieder angefasst wird, kann das beliebig lange dauern. Öffnen Sie den Dialog daher gezielt, wenn sich die Zusammensetzung eines Verteilers geändert hat.
+
+Eine bestehende Freigabe an einen Verteiler, den Sie heute nicht mehr freigeben könnten (etwa aus einer früheren Version von edulution), gleicht edulution nicht mehr ab: Die Mitglieder behalten den Zugriff, den sie zuletzt erhalten haben; wer dem Verteiler beitritt, erhält keinen, und wer ihn verlässt, verliert ihn nicht. Auch die Rechte einer solchen Freigabe lassen sich nicht mehr ändern; der Versuch scheitert mit derselben Meldung wie eine neue Freigabe. Entziehen können Sie die Freigabe weiterhin über das Mülleimer-Symbol.
 
 ### Für den Benutzer abonnieren
 
@@ -553,6 +587,10 @@ Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](
 
 Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
 
+Eine Ausnahme ist die Personensuche im Freigabe-Dialog: Sie liest die Adressbücher des jeweiligen Benutzers und setzt daher zusätzlich die [CardDAV-Verbindung der Kontakte-App](../../konfiguration/einstellungen.md#kontakte-carddav) voraus. Ist sie nicht konfiguriert oder der CardDAV-Server nicht erreichbar, bietet die Suche weiterhin die Verteiler aus dem Verzeichnis an; die Personen fehlen dann ohne Fehlermeldung. Meldet ein Benutzer, dass er im Freigabe-Dialog niemanden findet, Verteiler aber erscheinen, prüfen Sie deshalb die CardDAV-Einstellungen und nicht die der Kalender-App.
+
+Die Personensuche durchsucht dieselben Adressbücher wie das Verfassen von E-Mails, einschließlich der systemweiten Adressbücher von SOGo. Solange diese aktiv sind, findet sie darüber auch Personen anderer Schulen; wie Sie das abstellen, steht unter [E-Mail – Einrichtung](../../../edulution-mail/index.md#einrichtung-für-administratoren).
+
 [Web-Kalender](#web-kalender-abonnieren) benötigen dagegen **keine CalDAV- oder SoGo-Konfiguration**: Sie werden vom edulution-Server direkt über HTTPS von der jeweiligen Quelle abgerufen. Voraussetzung ist, dass der Server die betreffenden Adressen aus dem Internet erreichen darf – in Umgebungen mit ausgehendem Proxy oder restriktiver Firewall muss der Zugriff dafür freigegeben sein.
 
 Adressen, die auf das interne Netz zeigen, werden dabei grundsätzlich abgewiesen. Der Server prüft dies nicht nur anhand der eingegebenen Adresse, sondern auch anhand der IP-Adresse, auf die ein Name tatsächlich aufgelöst wird, sowie bei jeder Weiterleitung erneut. Ein Web-Kalender kann also nicht dazu verwendet werden, interne Dienste abzufragen.
@@ -573,3 +611,4 @@ Wird einem Benutzer, der zuvor Kalender sehen konnte, plötzlich keiner mehr ang
 
 - [Dashboard](../../uebersicht/dashboard.md) – Schnellzugriff auf den Kalender
 - [App-Store](../app-store.md) – Kalender-App aktivieren
+- [Kontakte](kontakte.md) – Adressbücher, aus denen die Freigabe die Personen vorschlägt

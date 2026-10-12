@@ -685,7 +685,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
 
   // Written straight to the DOM so a resize of the bar does not re-render every entry.
   // The browser jumps to the hash before the bar is measured, so jump again once it is.
-  // A bare #v<version> link resolves to the plattform entry, the only product it was ever used for.
   useEffect(() => {
     const wrapper = wrapperRef.current;
     if (!wrapper || !barRef.current) {
@@ -699,6 +698,7 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
       }
       scrolledToHash = true;
       const hash = decodeURIComponent(window.location.hash.slice(1));
+      // A bare #v<version> link resolves to the plattform entry, the only product it was ever used for.
       const id = /^v[\d.]+$/.test(hash) ? `plattform-${hash}` : hash;
       const target = id && document.getElementById(id);
       if (!target) {

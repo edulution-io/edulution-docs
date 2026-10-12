@@ -2,34 +2,25 @@ import type { ReactNode } from 'react';
 import Link from '@docusaurus/Link';
 
 /**
- * Ein Raster aus Einstiegskarten für Übersichtsseiten.
- *
- * Anders als `AppCards`, das die Komponenten von edulution fest verdrahtet
- * und je nach Rolle umlenkt, steht hier in der Seite selbst, wohin es geht.
- * Gedacht für Kapitel-Startseiten, die ihre Unterseiten anmoderieren.
- *
- * Das Raster füllt sich selbst auf (`auto-fill`) – die Anzahl der Spalten
- * ergibt sich aus der Breite, nicht aus einem Breakpoint in der Seite.
+ * Entry cards for chapter overview pages; unlike `AppCards`, the page itself sets each card's target.
+ * The number of columns follows the available width, so pages need no breakpoints.
  */
 export function Cards({ children }: { children: ReactNode }): React.JSX.Element {
   return <div className="doc-cards">{children}</div>;
 }
 
 interface CardProps {
-  /** Ziel der Karte – ein Doc-Pfad wie `/docs/edulution-mdm/einrichtung/voraussetzungen`. */
+  /** A doc path such as `/docs/edulution-mdm/einrichtung/voraussetzungen`. */
   to: string;
   title: string;
-  /** Ein Satz dazu, was auf der Zielseite steht. Alternativ `children`. */
+  /** One sentence on what the target page covers; `children` can be used instead. */
   text?: string;
   children?: ReactNode;
 }
 
 /**
- * Eine einzelne Karte.
- *
- * Die ganze Kachel ist der Link. Damit der Beschreibungstext deshalb nicht
- * in Linkfarbe erscheint, setzt `.doc-card` die Farbe zurück; die Rolle als
- * Link trägt sichtbar der Chevron hinter dem Titel.
+ * The whole tile is the link. `.doc-card` resets the link colour so the text stays readable, and the
+ * chevron signals the link instead.
  */
 export function Card({ to, title, text, children }: CardProps): React.JSX.Element {
   return (

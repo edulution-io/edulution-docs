@@ -111,11 +111,30 @@ Verhindert der Browser das Öffnen des Tabs, bleibt der Dialog **An dieser Konfe
 
 Eine öffentliche Konferenz erreicht jeder über ihren Zugangslink, auch ohne Konto auf der Plattform. Den Link erhalten Sie über das Weltkugelsymbol auf der Karte oder im Bearbeiten-Dialog unter **Zugangslink** – dort jeweils zum Kopieren und als QR-Code.
 
-Wer dem Link folgt, gibt seinen vollständigen Namen ein, bei geschützten Konferenzen zusätzlich das Passwort. Läuft die Konferenz noch nicht, landet er im Warteraum: „Die Konferenz wurde noch nicht gestartet. Du befindest dich derzeit im Warteraum und wirst automatisch weitergeleitet, sobald die Konferenz beginnt.“
+Wer dem Link folgt, gibt seinen vollständigen Namen ein, bei geschützten Konferenzen zusätzlich das Passwort. Läuft die Konferenz noch nicht, landet er im Warteraum: „Die Konferenz wurde noch nicht gestartet. Du befindest dich derzeit im Warteraum und wirst automatisch weitergeleitet, sobald die Konferenz beginnt.“ Die Weiterleitung geschieht von selbst, die Seite muss nicht neu geladen werden; über **Manuell verbinden** lösen Sie den Beitritt jederzeit selbst aus. Läuft die Konferenz dann noch nicht, meldet die Plattform „Die Konferenz wurde nicht gestartet“, und Sie bleiben im Warteraum.
+
+:::note[Zwei verschiedene Warteräume]
+Der Warteraum des Zugangslinks hat nichts mit der Raumeinstellung **Freigabe durch Moderator bevor der Raum betreten werden kann** zu tun. Im Warteraum des Zugangslinks wartet man darauf, dass die Konferenz überhaupt gestartet wird; bei der Moderatorfreigabe wartet man innerhalb der bereits laufenden Konferenz auf den Einlass.
+:::
 
 :::caution[Der Link gilt weiter]
 Der Zugangslink bleibt gültig, solange die Konferenz öffentlich ist – unabhängig davon, ob sie gerade läuft. Um den Zutritt zu beenden, stellen Sie die Zutrittsbeschränkung auf **Privat** um oder vergeben ein Passwort. Über den Link erscheint dann „Die Konferenz konnte nicht gefunden werden.“ beziehungsweise die Abfrage des neuen Passworts.
 :::
+
+### Änderungen während des Wartens
+
+Bearbeiten, löschen oder beenden Sie eine Konferenz, während Personen am Zugangslink warten, aktualisiert sich deren Seite sofort, ohne Neuladen:
+
+| Änderung | Auswirkung für Wartende |
+|----------|-------------------------|
+| **Name der Konferenz** geändert | Der neue Name erscheint. |
+| **Passwort** vergeben oder geändert | Es erscheint „Das Passwort der Konferenz wurde geändert. Bitte gib das neue Passwort ein, um teilzunehmen.“ Ein bereits eingegebenes Passwort wird verworfen. |
+| **Passwort** entfernt | Es erscheint „Die Konferenz ist nicht mehr passwortgeschützt.“ Die Passwortabfrage entfällt. |
+| **Zutrittsbeschränkung** auf **Privat** gestellt | Die Seite zeigt „Die Konferenz konnte nicht gefunden werden.“ – auch bei Seiten, die schon geöffnet waren. |
+| Konferenz gelöscht | Es erscheint „Die Konferenz wurde abgesagt.“ |
+| Konferenz beendet | Wartende kehren in den Warteraum zurück und werden beim nächsten Start wieder weitergeleitet. Das gilt auch, wenn die Konferenz in BigBlueButton selbst endet. |
+
+Nach dem Umstellen auf **Privat** können nur noch der Ersteller und Eingeladene beitreten – auch mit Passwort und auch angemeldet nicht.
 
 ## Konferenz bearbeiten
 
@@ -123,7 +142,7 @@ Wählen Sie auf der Karte **Bearbeiten**. Der Dialog entspricht dem beim Anlegen
 
 ## Konferenz löschen
 
-Löschen können Sie eigene Konferenzen – einzeln über **Löschen** auf der Karte oder mehrere zugleich, indem Sie die Karten auswählen und **Löschen** in der Werkzeugleiste wählen. Die Konferenz verschwindet damit auch bei allen Eingeladenen; wer gerade über den Zugangslink wartet, sieht „Die Konferenz wurde abgesagt.“
+Löschen können Sie eigene Konferenzen – einzeln über **Löschen** auf der Karte oder mehrere zugleich, indem Sie die Karten auswählen und **Löschen** in der Werkzeugleiste wählen. Die Konferenz verschwindet damit auch bei allen Eingeladenen. Wer gerade über den Zugangslink wartet, erfährt es sofort (siehe [Änderungen während des Wartens](#änderungen-während-des-wartens)).
 
 ## Meldungen
 

@@ -9,47 +9,28 @@ type Props = WrapperProps<typeof DocSidebarItemType>;
 interface AudienceProps {
   audience?: string | string[];
   audienceOrg?: string | string[];
-  /** Ziel eines Querverweises – siehe `CROSS_REF_PLACEHOLDER`. */
+  /** Real target of a cross-reference; see `CROSS_REF_PLACEHOLDER`. */
   crossRef?: string;
 }
 
 /**
- * Platzhalter-Adresse eines Querverweises in `sidebars.ts`.
- *
- * Docusaurus haelt einen Eintrag fuer die *aktive Seite*, sobald dessen
- * `href` mit der Adresse im Browser uebereinstimmt – und klappt dann jede
- * Kategorie darueber auf. Fuer einen Querverweis ist das falsch: Die
- * Dateien-App steht in der Liste unter *edulution Plattform → Apps*, aber
- * dokumentiert ist sie unter *edulution FileProxy*. Waere ihr `href` das
- * echte Ziel, wuerden beide Aeste zugleich aufklappen.
- *
- * Deshalb traegt der Eintrag in `sidebars.ts` diesen Platzhalter als `href`
- * und das echte Ziel in `customProps.crossRef`. Der Vergleich schlaegt damit
- * fehl, der Ast bleibt zu – und unten wird der Platzhalter wieder durch das
- * echte Ziel ersetzt, bevor der Link im HTML landet.
+ * Docusaurus expands every category above an item whose `href` matches the current URL, so a
+ * cross-reference listed in one branch but documented in another would expand both. Cross-references in
+ * `sidebars.ts` therefore use this placeholder as `href` and put the real target in `customProps.crossRef`.
  */
 const CROSS_REF_PLACEHOLDER = '#';
 
 /**
- * Blendet Sidebar-Eintraege aus, die sich an andere Zielgruppen richten, und
- * setzt Querverweise auf ihr echtes Ziel.
- *
- * Die Zielgruppe steht entweder in `sidebars.ts` als
- * `customProps: { audience: 'admin' }` (fuer Kategorien) oder im Front
- * Matter einer Seite als `sidebar_custom_props: { audience: admin }`.
- *
- * Ausgeblendet wird per CSS statt per bedingtem Rendern – sonst wuerde die
- * Sidebar nach der Hydration umspringen. `display: contents` sorgt dafuer,
- * dass der zusaetzliche Wrapper das Listen-Layout nicht stoert.
+ * Items for other audiences are hidden by CSS rather than conditional rendering, which would make the
+ * sidebar jump after hydration. The audience comes from `customProps` in `sidebars.ts` or
+ * `sidebar_custom_props` in a page's front matter.
  */
 export default function DocSidebarItemWrapper(props: Props): React.JSX.Element {
   const custom = (props.item as { customProps?: AudienceProps }).customProps;
   const roles = resolveRoles(custom?.audience);
   const orgs = resolveOrgs(custom?.audienceOrg);
 
-  // Das echte Ziel erst hier einsetzen. `activePath` wird zusaetzlich geleert,
-  // damit auch der Eintrag selbst nicht als aktiv gilt – sonst faende er sich
-  // ueber das nun echte `href` doch wieder.
+  // Clearing `activePath` keeps the item from matching its now real `href` and becoming active after all.
   const item =
     custom?.crossRef && (props.item as { href?: string }).href === CROSS_REF_PLACEHOLDER
       ? ({ ...props.item, href: custom.crossRef } as Props['item'])

@@ -16,19 +16,7 @@ export const STORAGE_KEYS = {
 
 export type Axis = keyof typeof STORAGE_KEYS;
 
-/**
- * Auswahl der Lesenden (Organisationstyp und Rolle).
- *
- * Die Sichtbarkeit steuert allein CSS über die Attribute `data-role` und
- * `data-org` am <html>-Element. Ein Inline-Skript setzt sie vor dem ersten
- * Paint (siehe `src/plugins/audience.js`), damit nichts aufblitzt und
- * Server- und Client-Render identisch bleiben.
- *
- * Ohne Auswahl steht überall `all` – dann ist nichts ausgeblendet.
- *
- * Achtung: Anzeige-Einstellung, keine Zugriffskontrolle. Alle Inhalte
- * stehen weiterhin im ausgelieferten HTML.
- */
+const OBSOLETE_MODULE_STORAGE_KEY = 'edulution-audience-module';
 
 interface AudienceState {
   org: string;
@@ -38,7 +26,6 @@ interface AudienceState {
 interface AudienceContextType extends AudienceState {
   setAxis: (axis: Axis, value: string) => void;
   reset: () => void;
-  /** true, sobald mindestens eine Frage beantwortet wurde. */
   hasSelection: boolean;
 }
 
@@ -69,25 +56,20 @@ function store(axis: Axis, value: string): void {
 }
 
 export function AudienceProvider({ children }: { children: ReactNode }) {
-  // Startet mit den Vorgabewerten, damit SSR und erster Client-Render
-  // übereinstimmen. Das Inline-Skript hat die Attribute zu diesem Zeitpunkt
-  // bereits korrekt gesetzt – sichtbar ist also schon das Richtige.
+  // Starts with DEFAULTS so SSR and the first client render match; the inline script in
+  // `src/plugins/audience.js` has already applied the stored selection to <html>.
   const [state, setState] = useState<AudienceState>(DEFAULTS);
 
   useEffect(() => {
     const stored: AudienceState = { org: read('org'), role: read('role') };
 
-    // Bis zur Umstellung waren Organisation und Rolle unabhaengig
-    // voneinander waehlbar, es konnte also "Unternehmen" und "Eltern"
-    // zugleich gespeichert sein. Solche Kombinationen gibt es nicht mehr:
-    // Die Rolle faellt auf "alles" zurueck und wird gleich zurueck-
-    // geschrieben, damit sich der Zustand einmalig selbst repariert.
+    // localStorage can hold a role that does not exist in the stored org type (e.g. `parent`
+    // with `business`); reset and persist it so the stored state repairs itself.
     if (!roleExistsIn(stored.org, stored.role)) {
       stored.role = ANY;
       store('role', ANY);
     }
-    // Die dritte Achse "Modul" ist entfallen; ihren Schluessel aufraeumen.
-    window.localStorage.removeItem('edulution-audience-module');
+    window.localStorage.removeItem(OBSOLETE_MODULE_STORAGE_KEY);
 
     setState(stored);
     apply(stored);
@@ -96,11 +78,8 @@ export function AudienceProvider({ children }: { children: ReactNode }) {
   const setAxis = useCallback((axis: Axis, value: string) => {
     setState((previous) => {
       const next = { ...previous, [axis]: value };
-      // Nicht jede Rolle kommt in jeder Organisation vor: Eltern gibt es in
-      // einem Unternehmen nicht. Beim Wechsel des Organisationstyps fällt
-      // eine Rolle, die es dort nicht gibt, deshalb auf "alles" zurück –
-      // sonst bliebe eine Auswahl aktiv, die im Auswahldialog gar nicht
-      // mehr auftaucht und sich nicht abwählen ließe.
+      // A role that does not exist in the new org type would stay active without a button
+      // to deselect it.
       if (axis === 'org' && !roleExistsIn(value, next.role)) {
         next.role = ANY;
         store('role', ANY);
@@ -119,9 +98,8 @@ export function AudienceProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  // Auswahl über mehrere Tabs hinweg synchron halten.
   useEffect(() => {
-    const onStorage = (event: StorageEvent) => {
+    const syncFromOtherTab = (event: StorageEvent) => {
       const axis = (Object.keys(STORAGE_KEYS) as Axis[]).find(
         (a) => STORAGE_KEYS[a] === event.key,
       );
@@ -134,8 +112,8 @@ export function AudienceProvider({ children }: { children: ReactNode }) {
         return next;
       });
     };
-    window.addEventListener('storage', onStorage);
-    return () => window.removeEventListener('storage', onStorage);
+    window.addEventListener('storage', syncFromOtherTab);
+    return () => window.removeEventListener('storage', syncFromOtherTab);
   }, []);
 
   const hasSelection = state.org !== ANY || state.role !== ANY;
@@ -151,29 +129,20 @@ export function AudienceProvider({ children }: { children: ReactNode }) {
 export function useAudience(): AudienceContextType {
   const context = useContext(AudienceContext);
   if (context === undefined) {
-    // Fallback während SSG oder wenn der Provider fehlt.
     return { ...DEFAULTS, setAxis: () => {}, reset: () => {}, hasSelection: false };
   }
   return context;
 }
 
 /**
- * Zwei Aufräumarbeiten nach jedem Render, die sich nur im Browser erledigen
- * lassen, weil sie davon abhängen, was gerade tatsächlich sichtbar ist:
- *
- * 1. Einträge im Inhaltsverzeichnis, die auf eine ausgeblendete Überschrift
- *    zeigen, würden ins Leere führen – sie werden mit ausgeblendet.
- * 2. Führt ein Link von außen (Suchtreffer, geteilte URL) auf einen Anker
- *    innerhalb eines ausgeblendeten Abschnitts, wird genau dieser Abschnitt
- *    aufgedeckt. Sonst landet man auf einer Seite, auf der die gesuchte
- *    Stelle scheinbar fehlt.
+ * Reads computed styles, so it runs in the browser after each render: it hides TOC entries for
+ * hidden headings and reveals the hidden section an incoming URL hash points into.
  */
 function HiddenContentSync({ state }: { state: AudienceState }): null {
   const location = useLocation();
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
-      // Zuvor aufgedeckte Abschnitte wieder zurücksetzen.
       document
         .querySelectorAll('.aud--revealed')
         .forEach((element) => element.classList.remove('aud--revealed'));

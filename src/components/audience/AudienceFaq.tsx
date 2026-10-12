@@ -3,24 +3,16 @@ import Link from '@docusaurus/Link';
 import { audienceClassNames, resolveOrgs, resolveRoles } from './taxonomy';
 
 interface Entry {
-  /** Die Frage, so wie sie jemand stellen wuerde. */
+  /** Phrased the way a reader would ask it. */
   q: string;
-  /** Eine Zeile Antwort – genug, um zu erkennen, ob der Link der richtige ist. */
+  /** One line, just enough to tell whether the link is the right one. */
   a: string;
   to: string;
-  /** Nur fuer diese Organisationstypen. Leer = alle. */
+  /** Org types in the `<Audience org>` syntax; omitted means all. */
   orgs?: string;
 }
 
-/**
- * Häufige Fragen je Rolle.
- *
- * `default` erscheint, solange keine Rolle gewählt ist, und sortiert grob
- * vor. Die übrigen Blöcke lösen ab, was vorher die Kategorie *Schnellstart*
- * in der Seitenleiste war: ein kurzer, geführter Weg in die Dokumentation –
- * nur eben als Frage formuliert statt als Kapitelname, und für jede Rolle
- * statt nur für die Ersteinrichtung.
- */
+/** Keyed by role ID; the `default` block is shown while no role is selected. */
 const FAQ: Record<string, Entry[]> = {
   default: [
     {
@@ -136,7 +128,7 @@ const FAQ: Record<string, Entry[]> = {
       q: 'Wie ordne ich Eltern ihren Kindern zu?',
       a: 'Die Zuordnung schaltet die Elternfunktionen für ein Konto frei.',
       to: '/docs/edulution-plattform/uebersicht/benutzereinstellungen/meine-kinder-eltern',
-      // Die Elternzuweisung entfaellt beim Organisationstyp Unternehmen.
+      // Business org types have no parent role.
       orgs: 'school public-administration',
     },
     {
@@ -226,14 +218,7 @@ const FAQ: Record<string, Entry[]> = {
   ],
 };
 
-/**
- * Die Fragen, mit denen Leute tatsächlich ankommen – je Rolle eine andere
- * Auswahl.
- *
- * Alle Blöcke stehen im HTML und werden per CSS umgeschaltet, damit beim
- * Laden nichts umspringt. Sichtbar ist immer genau einer: der zur gewählten
- * Rolle, ohne Auswahl der Block `default`.
- */
+/** All blocks are rendered and CSS shows exactly one, so nothing jumps on load. */
 export default function AudienceFaq(): React.JSX.Element {
   return (
     <>

@@ -87,12 +87,12 @@ Einrichtung und unterstützte Apps sind unter [Benutzereinstellungen → Sicherh
 | **Anmeldung dauert länger als erwartet** – *„Deine Anmeldung konnte nicht abgeschlossen werden."* | Die Anmeldung war erfolgreich, das Laden der Anwendung hat aber zu lange gedauert. Wählen Sie **Erneut versuchen** oder **Abmelden**. |
 | *„Sitzung abgelaufen."* | Sie wurden nach längerer Inaktivität automatisch abgemeldet. Melden Sie sich einfach neu an. |
 | *„Verbindung zum Schulserver fehlgeschlagen."* | Der Linuxmuster-Server ist nicht erreichbar. Wenden Sie sich an Ihre Administration. |
-| *„Benutzername oder Passwort falsch"* | Benutzername oder Passwort stimmen nicht. Nach mehreren Fehlversuchen ist das Konto außerdem [vorübergehend gesperrt](#vorübergehende-sperre-nach-fehlversuchen); dann wird auch das richtige Passwort abgelehnt. |
-| *„Zu viele Anfragen. Bitte versuche es später erneut"* | Für dieses Konto gab es aus Ihrem Netzwerk zu viele fehlgeschlagene Anmeldungen. Warten Sie fünf Minuten. |
+| *„Benutzername oder Passwort falsch“* | Benutzername oder Passwort stimmen nicht. Nach mehreren Fehlversuchen ist das Konto außerdem [vorübergehend gesperrt](#vorübergehende-sperre-nach-fehlversuchen); dann wird auch das richtige Passwort abgelehnt. |
+| *„Zu viele Anfragen. Bitte versuche es später erneut“* | Für dieses Konto gab es von Ihrer IP-Adresse aus zehn fehlgeschlagene Anmeldungen innerhalb von fünf Minuten. Warten Sie fünf Minuten. |
 
 ## Vorübergehende Sperre nach Fehlversuchen
 
-Zum Schutz vor dem Ausprobieren von Passwörtern sperrt edulution ein Konto nach 30 fehlgeschlagenen Anmeldungen innerhalb von zwölf Stunden vorübergehend. Die erste Sperre dauert eine Minute, jede weitere länger, höchstens 15 Minuten. Während der Sperre erscheint dieselbe Meldung wie bei einem falschen Passwort. Warten Sie einige Minuten oder wenden Sie sich an Ihre Administration.
+Zum Schutz vor dem Ausprobieren von Passwörtern sperrt edulution in der Grundeinstellung ein Konto nach 30 fehlgeschlagenen Anmeldungen innerhalb von zwölf Stunden vorübergehend. Die erste Sperre dauert eine Minute, jede weitere länger, höchstens 15 Minuten. Während der Sperre erscheint dieselbe Meldung wie bei einem falschen Passwort. Warten Sie bis zu 15 Minuten oder wenden Sie sich an Ihre Administration.
 
 Die Sperre gilt für alle Anmeldungen über edulution, auch für angebundene Anwendungen wie Moodle. Eine dauerhafte Sperre gibt es nicht.
 
@@ -100,7 +100,7 @@ Die Sperre gilt für alle Anmeldungen über edulution, auch für angebundene Anw
 
 **Konto entsperren:** Öffnen Sie in der Keycloak-Administrationskonsole den Realm von edulution und unter **Users** das Konto. Schalten Sie dort **Temporarily locked** aus.
 
-**Werte ändern:** Die Grenzwerte stehen unter **Realm settings → Security defenses → Brute force detection**. edulution schaltet die Erkennung beim Update einmalig ein. Ändern Sie die Werte danach oder schalten Sie die Erkennung aus, bleibt Ihre Einstellung auch nach weiteren Updates erhalten.
+**Werte ändern:** Die Grenzwerte stehen unter **Realm settings → Security defenses → Brute force detection**. edulution schaltet die Erkennung beim Update einmalig ein. War sie bereits eingeschaltet, bleiben die vorhandenen Werte unverändert. Ändern Sie die Werte danach oder schalten Sie die Erkennung aus, bleibt Ihre Einstellung auch nach weiteren Updates erhalten.
 
 </Audience>
 

@@ -152,6 +152,7 @@ Löschen können Sie eigene Konferenzen – einzeln über **Löschen** auf der K
 | „Diese Konferenz ist bereits in einem anderen Tab geöffnet.“ | Sie sind derselben Konferenz bereits in einem Browser-Tab beigetreten. | Zu diesem Tab wechseln. |
 | „Die Konferenz wurde nicht gestartet“ | Beitritt zu einer Konferenz, die noch nicht läuft. | Warten, bis der Ersteller startet. Über den Zugangslink werden Sie aus dem Warteraum automatisch weitergeleitet. |
 | „Das eingegebene Passwort ist falsch“ | Das Passwort der Konferenz wurde geändert oder falsch eingegeben. | Passwort beim Ersteller erfragen und erneut eingeben. |
+| „Zu viele Anfragen. Bitte versuche es später erneut“ | Über den Zugangslink gab es aus Ihrem Netzwerk mehr als 60 Beitrittsversuche innerhalb von fünf Minuten. | Einige Minuten warten und erneut beitreten. |
 | „Du bist nicht der Ersteller der Konferenz“ | Starten, Beenden oder Ändern einer fremden Konferenz. | Den Ersteller bitten – er steht auf der Karte. |
 | „Ein Meeting mit dieser ID wurde nicht gefunden“ | Die Konferenz wurde zwischenzeitlich gelöscht. | Übersicht neu laden. |
 | „Die Konferenz-App ist nicht richtig konfiguriert, wende dich an den Systemadministrator“ | Der BigBlueButton-Server ist in der Plattform nicht oder unvollständig hinterlegt. | An die Administration wenden. |

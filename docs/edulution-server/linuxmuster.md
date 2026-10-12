@@ -192,12 +192,9 @@ Vorgemerkte Befehle zeigen die Karte der Ansicht **Kacheln** als Etikett **Beim 
 
 Ein Klick auf eine Karte – in der Tabelle auf eine ganze Zeile – öffnet den Dialog **Host \<Hostname\>**. Er zeigt den **Status** und alle Angaben, die die Geräteliste zu diesem Rechner führt. Zu denen des Datenblatts kommen Schule, PXE aktiv, DHCP-Optionen, Office-Schlüssel und Windows-Schlüssel hinzu. Hat die Plattform nach einer Aktion für genau diesen Host erhoben, wann seine Images zuletzt synchronisiert wurden, listet der Dialog das zusätzlich unter **Images**. Die Angaben der Geräteliste lassen sich nur ansehen.
 
-Eine Ausnahme sind Befehle, die für den nächsten Start des Rechners vorgemerkt sind (im [Kommando-Dialog](#der-kommando-dialog) den **Zeitpunkt** auf **Beim nächsten Start** gesetzt): Der Dialog nennt sie unter **Beim nächsten Start**, und **Zurückziehen** entfernt sie auf dem Schulserver. Der Rechner führt sie dann beim nächsten Start nicht mehr aus. Ein vorgemerkter Abbild-Upload erscheint überall – im Etikett, im Datenblatt, in **Geplant** und im Dialog – nur als Hinweis, dass die Befehle Zugangsdaten enthalten und nicht angezeigt werden; zurückziehen lässt er sich trotzdem. Der Abschnitt erscheint nur, wenn die Linuxmuster-API die Befehle für den nächsten Start ausliefert ([Mindestversion](#mindestversionen-der-linuxmuster-api)); auf einem Server, der sie nicht kennt, bleibt er aus.
+Eine Ausnahme sind Befehle, die für den nächsten Start des Rechners vorgemerkt sind (im [Kommando-Dialog](#der-kommando-dialog) den **Zeitpunkt** auf **Beim nächsten Start** gesetzt): Der Dialog nennt sie unter **Beim nächsten Start**, und **Zurückziehen** entfernt sie auf dem Schulserver. Ein vorgemerkter Abbild-Upload erscheint überall – im Etikett, im Datenblatt, in **Geplant** und im Dialog – nur als Hinweis, dass die Befehle Zugangsdaten enthalten und nicht angezeigt werden; zurückziehen lässt er sich trotzdem. Der Abschnitt erscheint nur, wenn die Linuxmuster-API die Befehle für den nächsten Start ausliefert ([Mindestversion](#mindestversionen-der-linuxmuster-api)); auf einem Server, der sie nicht kennt, bleibt er aus.
 
-| Meldung | Ursache | Abhilfe |
-|---------|---------|---------|
-| *„Die Befehle für den nächsten Start konnten nicht geladen werden“* | Die Linuxmuster-API hat die Liste nicht geliefert. Die Meldung erscheint einmal und wiederholt sich erst nach einem erfolgreichen Laden. | Laden Sie die Seite neu; bleibt die Meldung, prüfen Sie die Verbindung zur Linuxmuster-API. |
-| *„Die Befehle für den nächsten Start konnten nicht zurückgezogen werden“* | Die Linuxmuster-API hat das Zurückziehen abgelehnt. Die Befehle bleiben vorgemerkt. | Versuchen Sie es erneut. |
+Die Meldung *„Die Befehle für den nächsten Start konnten nicht geladen werden“* erscheint einmal und wiederholt sich erst, nachdem ein Laden gelungen ist. Scheitert das Zurückziehen, bleiben die Befehle vorgemerkt.
 
 Zur Tabelle:
 
@@ -794,12 +791,12 @@ Einzelne Funktionen setzen eine neuere Linuxmuster-API voraus:
 |---------|----------|--------------------|
 | 7.3.26 | die App **Schulserver** | Eine Meldung ersetzt alle Seiten außer der **Versionsübersicht**, siehe Voraussetzungen am Seitenanfang. |
 | 7.3.35 | der Bereich **LINBO** und die Registerkarte **Geräte** | *„Diese LINBO-Funktion benötigt mindestens linuxmuster-api 7.3.35. Der verbundene Server ist älter.“* |
-| 7.4 | die Befehle für den nächsten Start in der Geräteverwaltung (**Beim nächsten Start**, **Zurückziehen**) | Der Server antwortet mit 404; der Abschnitt **Beim nächsten Start** entfällt, und die Hinweise im Kommando-Dialog und unter **Sitzungen** nennen, dass sich die Befehle dort nicht zurückziehen lassen. |
 | 7.4.8 | **Neu starten**, **Herunterfahren**, **Aktion schicken** (Hosts und Gruppen), **Raum-Aktion**, **Sitzungen** | Die Schaltflächen erscheinen nicht. |
 | 7.4.10 | **Bearbeiten**, **Sicherungen**, **Duplizieren** und die Löschaktionen der Images | *„Diese LINBO-Funktion benötigt mindestens linuxmuster-api 7.4.10. Der verbundene Server ist älter.“* |
 | 7.4.11 | die Unterseite **Gruppen**; die Zuordnung von Images und Gruppen (**Verwendet in**) | Die Unterseite entfällt, der Bereich öffnet auf **Images**; die Zuordnung fehlt. |
 | 7.4.12 | **Status** nennt das laufende System eines Hosts | **Status** zeigt nur **Online** oder **Offline**. |
 | 7.4.13 | Zugriff von Schuladmins auf **LINBO**; **Sicherungen** und **VDI** einer Gruppe; **linbo.iso**; Beispielkonfigurationen als Vorlage | Der Bereich entfällt für Schuladmins; die Funktionen erscheinen nicht. |
+| 7.4.14 | die Befehle für den nächsten Start in der Geräteverwaltung (**Beim nächsten Start**, **Zurückziehen**) | Der Server antwortet mit 404; der Abschnitt **Beim nächsten Start** entfällt, und die Hinweise im Kommando-Dialog und unter **Sitzungen** nennen, dass sich die Befehle dort nicht zurückziehen lassen. |
 
 ## Einschränkungen in dieser Version
 

@@ -95,7 +95,7 @@ Ist der Satellit nicht erreichbar, erscheint die allgemeine Fehlermeldung der Pl
 
 Die **Tabelle** zeigt **Name**, **Typ** (**Basisimage** oder **Differenzimage**), **Größe**, **Verwendet in**, **Status**, **Abgleich**, **MD5**, **Info**, **Beschreibung** und **Aktualisiert**. Meldet der Satellit den Zustand seiner Torrent-Verteilung, kommt **Torrent** hinzu.
 
-Unter 1280 Pixel Fensterbreite blendet die Tabelle **MD5** und **Torrent** aus, damit **Abgleich** lesbar bleibt. Über die Spaltenauswahl blenden Sie beide wieder ein.
+Unter 1280 Pixel Fensterbreite blendet die Tabelle **MD5**, **Torrent**, **Info** und **Beschreibung** aus, damit **Abgleich** lesbar bleibt. Über die Spaltenauswahl blenden Sie die Spalten wieder ein.
 
 | Spalte | Bedeutung |
 |--------|-----------|

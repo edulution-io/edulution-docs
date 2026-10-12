@@ -188,15 +188,20 @@ Die Ansichtswahl bietet drei Ansichten derselben Liste:
 | **Datenblatt** | je Host eine Karte mit Hostname und **Status** und den Zeilen Rolle, IP, MAC-Adresse, Gruppe, Raum, PXE und Kommentar; Zeilen ohne Wert entfallen |
 | **Tabelle** | Hostname, MAC-Adresse, IP, Gruppe, Raum, Rolle, **Status** und **Geplant** |
 
-Hat ein Rechner vorgemerkte Befehle, kennzeichnet ihn die Kachel mit dem Etikett **Beim nächsten Start**, das Datenblatt führt sie in einer gleichnamigen Zeile; so sehen Sie das, ohne den Dialog zu öffnen.
+Vorgemerkte Befehle zeigen die Karte der Ansicht **Kacheln** als Etikett **Beim nächsten Start: \<Befehle\>**, die Karte der Ansicht **Datenblatt** als gleichnamige Zeile und die **Tabelle** in der Spalte **Geplant**.
 
-Ein Klick auf eine Karte – in der Tabelle auf eine ganze Zeile – öffnet den Dialog **Host \<Hostname\>**. Er zeigt den **Status** und alle Angaben, die die Geräteliste zu diesem Rechner führt. Zu denen des Datenblatts kommen Schule, PXE aktiv, DHCP-Optionen, Office-Schlüssel und Windows-Schlüssel hinzu. Hat die Plattform nach einer Aktion für genau diesen Host erhoben, wann seine Images zuletzt synchronisiert wurden, listet der Dialog das zusätzlich unter **Images**. Die Angaben der Geräteliste lassen sich nur ansehen; die vorgemerkten Befehle lassen sich zurückziehen (siehe unten).
+Ein Klick auf eine Karte – in der Tabelle auf eine ganze Zeile – öffnet den Dialog **Host \<Hostname\>**. Er zeigt den **Status** und alle Angaben, die die Geräteliste zu diesem Rechner führt. Zu denen des Datenblatts kommen Schule, PXE aktiv, DHCP-Optionen, Office-Schlüssel und Windows-Schlüssel hinzu. Hat die Plattform nach einer Aktion für genau diesen Host erhoben, wann seine Images zuletzt synchronisiert wurden, listet der Dialog das zusätzlich unter **Images**. Die Angaben der Geräteliste lassen sich nur ansehen.
 
-Hat ein Rechner Befehle, die für seinen nächsten Start vorgemerkt sind (**Zeitpunkt** **Beim nächsten Start** im [Kommando-Dialog](#der-kommando-dialog)), nennt der Dialog sie unter **Beim nächsten Start**. **Zurückziehen** entfernt sie nach einer Bestätigung auf dem Schulserver; der Rechner führt sie dann beim nächsten Start nicht mehr aus, und der Eintrag verschwindet ohne Neuladen. Ein vorgemerkter Abbild-Upload zeigt statt der Befehle nur den Hinweis, dass sie Zugangsdaten enthalten und nicht angezeigt werden; zurückziehen lässt er sich trotzdem. Der Abschnitt erscheint nur, wenn die Linuxmuster-API die Befehle für den nächsten Start ausliefert; auf einem Server, der sie nicht kennt, bleibt er aus.
+Eine Ausnahme sind Befehle, die für den nächsten Start des Rechners vorgemerkt sind (im [Kommando-Dialog](#der-kommando-dialog) den **Zeitpunkt** auf **Beim nächsten Start** gesetzt): Der Dialog nennt sie unter **Beim nächsten Start**, und **Zurückziehen** entfernt sie auf dem Schulserver. Der Rechner führt sie dann beim nächsten Start nicht mehr aus. Ein vorgemerkter Abbild-Upload erscheint überall – im Etikett, im Datenblatt, in **Geplant** und im Dialog – nur als Hinweis, dass die Befehle Zugangsdaten enthalten und nicht angezeigt werden; zurückziehen lässt er sich trotzdem. Der Abschnitt erscheint nur, wenn die Linuxmuster-API die Befehle für den nächsten Start ausliefert ([Mindestversion](#mindestversionen-der-linuxmuster-api)); auf einem Server, der sie nicht kennt, bleibt er aus.
+
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| *„Die Befehle für den nächsten Start konnten nicht geladen werden“* | Die Linuxmuster-API hat die Liste nicht geliefert. Die Meldung erscheint einmal und wiederholt sich erst nach einem erfolgreichen Laden. | Laden Sie die Seite neu; bleibt die Meldung, prüfen Sie die Verbindung zur Linuxmuster-API. |
+| *„Die Befehle für den nächsten Start konnten nicht zurückgezogen werden“* | Die Linuxmuster-API hat das Zurückziehen abgelehnt. Die Befehle bleiben vorgemerkt. | Versuchen Sie es erneut. |
 
 Zur Tabelle:
 
-- **Geplant** nennt die Befehle, die für den nächsten Start des Rechners vorgemerkt sind, und zeigt „–“, wenn nichts vorgemerkt ist. Ein vorgemerkter Abbild-Upload erscheint nur als Hinweis, dass die Befehle Zugangsdaten enthalten und nicht angezeigt werden.
+- **Geplant** nennt die Befehle, die für den nächsten Start des Rechners vorgemerkt sind, und zeigt „–“, wenn nichts vorgemerkt ist.
 - **Rolle** zeigt dieselbe Bezeichnung wie der Import. Eine Rolle, die Ihre Installation selbst definiert hat, erscheint unter ihrem technischen Namen, ein Gerät ohne Rolle mit „—“.
 - Bricht das Laden mittendrin ab, zeigt die Tabelle die bis dahin geladenen Hosts und bis zum nächsten Laden den Hinweis *„Die Hosts konnten nicht vollständig geladen werden.“*
 - Sechs weitere Spalten lassen sich über die Spaltenauswahl einschalten: **PXE** mit der Bezeichnung des PXE-Kennzeichens, **PXE aktiv**, **Kommentar**, **DHCP-Optionen**, **Office-Schlüssel** und **Windows-Schlüssel**. Die Suche findet einen Rechner auch über seinen **Kommentar**; die beiden Schlüssel bleiben aus der Suche heraus.
@@ -312,7 +317,7 @@ Ein Lauf wird auf dem Schulserver je Host in einer eigenen Sitzung ausgeführt u
 - Der Dialog listet je Sitzung den Hostnamen und seit wann sie läuft.
 - Eine Sitzung, die Sie laufen gesehen haben und die inzwischen beendet ist, bleibt mit der Marke **Beendet** in der Liste, bis Sie die Seite neu laden; höchstens 50 solcher Einträge merkt sich die Seite.
 - **Protokoll** zeigt die Ausgabe des Laufs für diesen Host; **Zurück zur Liste** führt zur Übersicht. Der Schulserver schreibt die Ausgabe mit, solange der Lauf dauert, und behält sie danach – das Protokoll eines beendeten Laufs bleibt lesbar.
-- Befehle, die Sie mit **Beim nächsten Start** abschicken, erscheinen hier nicht. Sie stehen im Dialog **Host \<Hostname\>** des Rechners und lassen sich dort [zurückziehen](#hosts). Der Dialog weist darauf hin.
+- Befehle, die Sie mit **Beim nächsten Start** abschicken, erscheinen hier nicht. Sie stehen im Dialog **Host \<Hostname\>** des Rechners und lassen sich dort [zurückziehen](#hosts). Der Dialog weist darauf hin. Kennt die Linuxmuster-API die Befehle für den nächsten Start nicht ([Mindestversion](#mindestversionen-der-linuxmuster-api)), erscheinen sie auch dort nicht, und der Hinweis sagt stattdessen, dass sie sich nicht zurückziehen lassen.
 - Antwortet der Server nicht, bleibt der zuletzt bekannte Stand stehen, und der Dialog sagt es. Der nächste Versuch läuft von selbst, ohne die Meldung bei jedem Durchgang zu wiederholen.
 
 :::note[Die Liste folgt nicht der gewählten Schule]
@@ -789,6 +794,7 @@ Einzelne Funktionen setzen eine neuere Linuxmuster-API voraus:
 |---------|----------|--------------------|
 | 7.3.26 | die App **Schulserver** | Eine Meldung ersetzt alle Seiten außer der **Versionsübersicht**, siehe Voraussetzungen am Seitenanfang. |
 | 7.3.35 | der Bereich **LINBO** und die Registerkarte **Geräte** | *„Diese LINBO-Funktion benötigt mindestens linuxmuster-api 7.3.35. Der verbundene Server ist älter.“* |
+| 7.4 | die Befehle für den nächsten Start in der Geräteverwaltung (**Beim nächsten Start**, **Zurückziehen**) | Der Server antwortet mit 404; der Abschnitt **Beim nächsten Start** entfällt, und die Hinweise im Kommando-Dialog und unter **Sitzungen** nennen, dass sich die Befehle dort nicht zurückziehen lassen. |
 | 7.4.8 | **Neu starten**, **Herunterfahren**, **Aktion schicken** (Hosts und Gruppen), **Raum-Aktion**, **Sitzungen** | Die Schaltflächen erscheinen nicht. |
 | 7.4.10 | **Bearbeiten**, **Sicherungen**, **Duplizieren** und die Löschaktionen der Images | *„Diese LINBO-Funktion benötigt mindestens linuxmuster-api 7.4.10. Der verbundene Server ist älter.“* |
 | 7.4.11 | die Unterseite **Gruppen**; die Zuordnung von Images und Gruppen (**Verwendet in**) | Die Unterseite entfällt, der Bereich öffnet auf **Images**; die Zuordnung fehlt. |

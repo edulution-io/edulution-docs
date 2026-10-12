@@ -283,6 +283,8 @@ Die Aktualisierung lädt das Paket, prüft die Prüfsumme, entpackt es, richtet 
 
 Erreicht der Satellit die Paketquelle nicht, lässt sich nicht prüfen, ob die Boot-Dateien aktuell sind. Prüfen Sie dann Internetzugang und DNS des Satelliten.
 
+Läuft der Satellit mit alten Boot-Dateien, weil die Einrichtung der neuen beim letzten Start gescheitert ist, warnt die Karte davor. Das gilt auch, wenn keine neuere Version bereitsteht. **LINBO aktualisieren** erscheint in diesem Fall nur, wenn die Paketquelle eine neuere Version anbietet. Meldungen: [Nachschlagewerk](./linbo-referenz.md#linbo-paket-und-boot-dateien).
+
 ### Kernel wechseln
 
 Die Karte **Kernel** zeigt die aktive Variante – **Stable**, **Longterm** oder **Legacy** –, ihre Version und Größe. **Aktivieren** bei einer anderen Variante wechselt den Kernel und baut dabei linbofs64 neu; Clients starten ab ihrem nächsten Start mit dem neuen Kernel. Eine nicht installierte Variante lässt sich nicht aktivieren. Liefert die installierte LINBO-Version nur einen Kernel, gibt es keine Auswahl.

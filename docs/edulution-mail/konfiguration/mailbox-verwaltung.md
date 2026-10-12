@@ -54,6 +54,7 @@ Die Schaltfläche **Hinzufügen** öffnet den Dialog **Mailbox erstellen** mit f
 - **Domain:** auswählbar sind ausschließlich Domains, die Mailcow bereits kennt. Existiert genau eine Domain, ist sie vorausgewählt. Bleibt die Liste leer, konnten die Domains nicht geladen werden; prüfen Sie dann zuerst die Mailcow-Verbindung.
 - **Quota:** mindestens 1 MB, höchstens 1.048.576 MB (1 TiB). Eine Quota von 0, die Mailcow als „unbegrenzt“ deutet, lässt sich über diese Oberfläche nicht eintragen.
 - **Passwort:** mindestens 8 Zeichen und mindestens eine Ziffer sowie ein Sonderzeichen.
+
 Adresse und Domain stehen nur beim Anlegen zur Verfügung. Beim Bearbeiten einer bestehenden Mailbox sind sie ausgeblendet, da Mailcow das Umbenennen einer Mailbox nicht unterstützt – legen Sie in diesem Fall eine neue Mailbox an.
 
 :::caution[Die Protokoll-Schalter greifen erst beim Bearbeiten]

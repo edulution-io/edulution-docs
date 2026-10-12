@@ -22,9 +22,9 @@ flowchart TD
 ```
 
 1. **Aktuelles Passwort prüfen** – edulution fordert mit Benutzername und altem Passwort ein Token am OIDC-Token-Endpunkt des edulution-Realms an. Schlägt das fehl, ist das eingegebene Passwort falsch.
-2. **Neues Passwort setzen** – über die Keycloak-Administrationsschnittstelle wird das Passwort des Benutzers ersetzt, womit von nun an dass neue Passwort gültig ist.
-3. **Hinterlegte Kopie aktualisieren** – edulution hält eine verschlüsselte Kopie des Passworts vor, die Dienste wie WebDAV und das Mailsystem benötigen. Sie wird mitgeführt, und das zwischengespeicherte Linuxmuster-API-Token wird verworfen, damit die nächste Anfrage ein neues Token mit dem geänderten Passwort erhält muss die Kopie aktualisiert werden.
-4. **Rückfallweg Linuxmuster** – schlägt einer der Schritte fehl, wiederholt edulution die Änderung über `linuxmuster-api7` – außer Keycloak hat das Passwort wegen der Passwortrichtlinie abgewiesen. Das geschieht nur, wenn die **Zielplattform** auf **Linuxmuster** steht und für den Benutzer ein gültiges Linuxmuster-API-Token vorliegt. In allen anderen Fällen erhält der Benutzer die Fehlermeldung.
+2. **Neues Passwort setzen** – über die Keycloak-Administrationsschnittstelle wird das Passwort des Benutzers ersetzt, womit von nun an das neue Passwort gültig ist.
+3. **Hinterlegte Kopie aktualisieren** – edulution hält eine verschlüsselte Kopie des Passworts vor, die Dienste wie WebDAV und das Mailsystem benötigen. Sie wird mitgeführt, und das zwischengespeicherte Linuxmuster-API-Token wird verworfen, damit die nächste Anfrage ein neues Token mit dem geänderten Passwort erhält.
+4. **Rückfallweg Linuxmuster** – schlägt einer der Schritte fehl, wiederholt edulution die Änderung über `linuxmuster-api7` – außer das Passwort wurde wegen der Passwortrichtlinie abgewiesen. Das geschieht nur, wenn die **Zielplattform** auf **Linuxmuster** steht und für den Benutzer ein gültiges Linuxmuster-API-Token vorliegt. In allen anderen Fällen erhält der Benutzer die Fehlermeldung.
 
 :::note[Prüfung des alten Passworts auf Linuxmuster-Systemen]
 Der Rückfallweg greift auch dann, wenn das eingegebene aktuelle Passwort nicht stimmt. Die Linuxmuster-API prüft es in diesem Fall gegen die in edulution hinterlegte Kopie. Eine falsche Eingabe wird also weiterhin abgewiesen, die Meldung stammt dann jedoch aus dem zweiten Durchlauf.
@@ -68,9 +68,11 @@ edulution liest die Passwortrichtlinie des Realms und zeigt sie im Formular als 
 
 Weitere Regeln der Richtlinie, etwa Passwort-Verlauf oder reguläre Ausdrücke, prüft das Formular nicht. Sie greifen erst beim Speichern in Keycloak.
 
-Der Server prüft die Richtlinie, bevor er das aktuelle Passwort prüft. Wer ein falsches aktuelles und ein regelwidriges neues Passwort eingibt, erhält deshalb die Meldung zur Passwortrichtlinie, nicht *Das aktuelle Passwort ist nicht korrekt*.
+Lässt sich die Richtlinie des Realms nicht lesen, gilt im Formular nur die Mindestlänge von 8 Zeichen.
+:::
 
-Lässt sich die Richtlinie des Realms nicht lesen, gilt im Formular nur die Mindestlänge von 8 Zeichen. Regeln der Richtlinie, die dann nicht vorab geprüft wurden, greifen weiterhin beim Speichern in Keycloak.
+:::note[Reihenfolge der Prüfung]
+Der Server prüft die Richtlinie, bevor er das aktuelle Passwort prüft. Wer ein falsches aktuelles und ein regelwidriges neues Passwort eingibt, erhält deshalb die Meldung zur Passwortrichtlinie, nicht *Das aktuelle Passwort ist nicht korrekt*.
 :::
 
 :::info[LDAP-Verbund auf Linuxmuster-Systemen]

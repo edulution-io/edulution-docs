@@ -300,6 +300,7 @@ Die Karte nennt **Installiert**, **Verfügbar** und **Paketgröße**. Der Schrit
 |---------|---------|---------|
 | Die Boot-Dateien sind aktuell. | Es gibt keine neuere Version. | – |
 | Es gibt eine neuere LINBO-Version. Der Satellit läuft mit alten Boot-Dateien. | Die Paketquelle bietet eine neuere Version. | **LINBO aktualisieren** wählen. |
+| Der Satellit läuft mit alten Boot-Dateien, weil die Aktualisierung beim letzten Start fehlgeschlagen ist. | Beim Start des Satelliten ist die Einrichtung der neuen Boot-Dateien gescheitert, etwa weil die Paketquelle nicht erreichbar war. Er läuft mit den Boot-Dateien der vorherigen Version. Erst eine erfolgreiche Aktualisierung oder ein erfolgreicher Start nimmt die Meldung zurück. | Internetzugang und DNS des Satelliten prüfen. Wird **LINBO aktualisieren** angeboten, die Aktualisierung starten. |
 | Ob die Boot-Dateien aktuell sind, lässt sich nicht prüfen: Die Paketquelle ist nicht erreichbar. | Der Satellit erreicht die Paketquelle nicht. Ein Satellit mit alten Boot-Dateien aktualisiert sie erst, wenn er sie erreicht. | Internetzugang und DNS des Satelliten prüfen. |
 | Die installierte LINBO-Version ist nicht bekannt. | Der Satellit meldet die Version nicht. | – |
 | Die Version des LINBO-Pakets konnte nicht gelesen werden. | Die Abfrage ist gescheitert. | **Neu laden** wählen. |

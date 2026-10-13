@@ -33,7 +33,7 @@ Ihre Sprachauswahl wirkt über die edulution-Oberfläche hinaus: edulution über
 Damit erscheinen in Ihrer Sprache:
 
 - Benachrichtigungen, die das Mailsystem selbst verschickt – etwa die E-Mail über [geänderte Kalenderfreigaben](../../apps/native-apps/kalender.md#kalender-freigeben).
-- Die Oberfläche des SOGo-Webmailers, den Sie in der E-Mail-App über **In SOGo öffnen** aufrufen (siehe [E-Mail](../../../edulution-mail/index.md#aktionen-leiste)).
+- Die Oberfläche des SOGo-Webmailers, den Sie in der E-Mail-App über **In SOGo öffnen** aufrufen (siehe [E-Mail](../../../edulution-mail/index.md)).
 
 Übertragen wird immer die Sprache, in der edulution tatsächlich angezeigt wird. Bei der Auswahl **Systemsprache** ist das die erkannte System- beziehungsweise Browsersprache – wird diese nicht unterstützt, entsprechend **Deutsch**.
 

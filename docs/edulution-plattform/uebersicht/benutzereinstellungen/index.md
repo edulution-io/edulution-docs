@@ -25,6 +25,7 @@ Die Benutzereinstellungen sind unterteilt in:
   [Zwei-Faktor-Authentifizierung](./sicherheit.md#zwei-faktor-authentifizierung) und
   [Passwort-Tresor](./sicherheit.md#passwort-tresor).
 - **[E-Mail](./e-mail.md)** – [E-Mail-Sync](./e-mail.md#e-mail-sync), [Signatur](./e-mail.md#signatur),
+  [Senden rückgängig machen](./e-mail.md#senden-rückgängig-machen),
   [automatische Antwort](./e-mail.md#automatische-antwort), [Weiterleitung](./e-mail.md#weiterleitung)
   und [Filter](./e-mail.md#filter).
 - **[Benutzeroberfläche](./benutzeroberflaeche.md)** – [Sprache](./benutzeroberflaeche.md#sprache)

@@ -10,7 +10,6 @@ export default function ConfigPlaceholder({ type, inline = true }: ConfigPlaceho
   const { config } = useMailConfig();
   const [localConfig, setLocalConfig] = React.useState<any>(null);
 
-  // Load from LocalStorage on mount (client-side only)
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('edulution-mail-config');
@@ -25,7 +24,6 @@ export default function ConfigPlaceholder({ type, inline = true }: ConfigPlaceho
     }
   }, []);
 
-  // Use localConfig if available, otherwise use context config
   const activeConfig = localConfig || config;
 
   const placeholders = {

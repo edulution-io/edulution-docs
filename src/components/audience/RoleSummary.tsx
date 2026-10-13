@@ -2,19 +2,8 @@ import React from 'react';
 import { ANY_ROLE, audienceClassNames, ORGS, ORG_ROLES } from './taxonomy';
 
 /**
- * Eine Zeile zur gewählten Rolle, unter den Rollen-Schaltflächen.
- *
- * Nennt die Rolle und wofür sie steht. Die Zeile ist bewusst in den Farben
- * der aktiven Schaltfläche gehalten – sie liest sich damit als Ergebnis der
- * Auswahl und nicht als weiteres Eingabefeld. Ohne gewählte Rolle steht dort
- * die Zeile zu *Egal*; eine Übersicht aller Rollen gibt es bewusst nicht
- * mehr, weil fremde Rollen niemandem weiterhelfen.
- *
- * Die Zeile hängt an beiden Achsen zugleich: Dieselbe Rollen-ID heißt in
- * einer Schule *Lehrkraft* und in einem Unternehmen *Führungskraft* und
- * beschreibt dort eine andere Aufgabe. Deshalb steht je Paar aus
- * Organisation und Rolle eine eigene Zeile im HTML, und CSS blendet alle
- * bis auf eine aus – so springt beim Laden nichts um.
+ * One line per org/role pair, because the same role ID has a different label and meaning per org
+ * type; CSS shows only the matching line, so nothing jumps on load.
  */
 export default function RoleSummary(): React.JSX.Element {
   return (

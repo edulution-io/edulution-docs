@@ -1,10 +1,13 @@
 import React, { JSX, useEffect, useRef, useState } from 'react';
+import { useHistory } from '@docusaurus/router';
+import Heading from '@theme/Heading';
 import './Changelog.css';
 
 export type ContentBlock =
   | { type: 'image'; url: string; alt: string }
   | { type: 'text'; content: string }
-  | { type: 'improvements'; title: string; items: string[] }
+  | { type: 'improvements'; title: string; items: string[]; subsections?: { title: string; items: string[] }[] }
+  | { type: 'section-label'; title: string }
   | { type: 'link'; text: string; url: string }
   | { type: 'text-with-tags'; text: string; tags: string[] };
 
@@ -15,7 +18,6 @@ export interface ChangelogEntry {
   description?: string;
   tag?: string;
   content?: ContentBlock[];
-  // Legacy support
   image?: string;
   images?: string[];
   improvements?: string[];
@@ -69,9 +71,7 @@ const ImageCarousel: React.FC<{ images: { url: string; alt: string }[] }> = ({ i
         const recalc = () => {
           try {
             instance?.recalculateWidth?.();
-          } catch {
-            /* noop */
-          }
+          } catch {}
         };
         el.querySelectorAll('img').forEach((img) => {
           if (!(img as HTMLImageElement).complete) {
@@ -90,15 +90,13 @@ const ImageCarousel: React.FC<{ images: { url: string; alt: string }[] }> = ({ i
       cancelled = true;
       try {
         instance?.destroy?.();
-      } catch {
-        /* noop */
-      }
+      } catch {}
       const w = window as any;
       if (Array.isArray(w.$hsCarouselCollection)) {
         w.$hsCarouselCollection = w.$hsCarouselCollection.filter((c: any) => c?.element?.el !== el);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- `images` is rebuilt on every render; `imagesKey` changes only with the URLs.
   }, [imagesKey]);
 
   if (images.length === 1) {
@@ -195,11 +193,24 @@ const CARD_CLASS =
 const CARD_HEADING_CLASS = 'flex items-center gap-3 text-lg font-semibold leading-6 text-gray-900 dark:text-white mb-6';
 const CARD_ITEM_CLASS =
   'relative pl-6 text-sm leading-7 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors';
+const SECTION_LABEL_CLASS =
+  'flex items-center gap-3 pt-4 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400';
+const SUBSECTION_CLASS = 'mt-6 pt-5 border-t border-[#8FC046]/20 dark:border-gray-800';
+const SUBSECTION_HEADING_CLASS = 'text-sm font-semibold text-[var(--edu-green-text)] mt-0 mb-3';
 const LINK_BUTTON_CLASS =
   'inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[var(--edu-green-text)] bg-[#8FC046]/5 rounded-lg border border-[#8FC046]/20 hover:bg-[#8FC046]/10 hover:border-[#8FC046]/40 transition-all duration-200';
 const FILTER_BUTTON_ACTIVE_CLASS = 'bg-[#8FC046] text-black shadow-lg shadow-[#8FC046]/20';
 const FILTER_BUTTON_IDLE_CLASS =
   'text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700/50 hover:border-[#8FC046]/50 hover:bg-[#8FC046]/5';
+
+// Versions repeat across products (app and plattform both have v2.1.0), so the anchor names the product.
+const entryAnchor = (entry: ChangelogEntry) => {
+  const product = (entry.tag || 'edulution-plattform').replace(/^edulution-/, '').replace(/^ui$/, 'plattform');
+  return `${product}-${entry.version ? `v${entry.version}` : entry.date.replace(/\//g, '-')}`;
+};
+
+// Clears the navbar and the sticky search bar; its height is set on the wrapper.
+const ANCHOR_SCROLL_MARGIN = 'calc(var(--ifm-navbar-height) + var(--changelog-bar-height, 0px) + 1rem)';
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
@@ -213,7 +224,7 @@ const formatDate = (dateString: string) => {
 const Tag: React.FC<{ tag: string }> = ({ tag }) => {
   const colors: Record<string, string> = {
     'edulution-plattform': GREEN_TAG_CLASS,
-    // Legacy-Tag früherer Releases
+    // Tag of entries written before the product was renamed to edulution Plattform.
     'edulution-ui': GREEN_TAG_CLASS,
     'edulution-mail': 'bg-[rgba(0,129,198,0.15)] text-[#0081c6] border-[#0081c6]/30',
     'edulution-fileproxy': 'bg-[rgba(220,38,38,0.15)] text-[#dc2626] border-[#dc2626]/30',
@@ -255,6 +266,20 @@ const FeatureTag: React.FC<{ type: string }> = ({ type }) => {
     <span className={`inline-block px-2 py-0.5 text-[0.625rem] font-medium rounded border ${colorClass}`}>{label}</span>
   );
 };
+
+const ItemList: React.FC<{ items: string[] }> = ({ items }) => (
+  <ul className="list-none pl-0 m-0 space-y-3">
+    {items.map((item, itemIdx) => (
+      <li
+        key={itemIdx}
+        className={CARD_ITEM_CLASS}
+      >
+        <span className="absolute left-0 top-[0.6rem] w-1.5 h-1.5 rounded-full bg-[#8FC046]"></span>
+        {renderTextWithTags(item)}
+      </li>
+    ))}
+  </ul>
+);
 
 const SparkleIcon: React.FC = () => (
   <svg
@@ -299,7 +324,7 @@ const renderMarkdown = (text: string) => {
   let currentIndex = 0;
   let key = 0;
 
-  const pattern = /(\[.*?\]\(.*?\)|\*\*.*?\*\*|\*(?!\*)[^*]+?\*|—)/g;
+  const pattern = /(`[^`]+`|\[.*?\]\(.*?\)|\*\*.*?\*\*|\*(?!\*)[^*]+?\*|—)/g;
   let match;
 
   while ((match = pattern.exec(text)) !== null) {
@@ -309,7 +334,9 @@ const renderMarkdown = (text: string) => {
 
     const matched = match[0];
 
-    if (matched.startsWith('[')) {
+    if (matched.startsWith('`')) {
+      parts.push(<code key={key++}>{matched.slice(1, -1)}</code>);
+    } else if (matched.startsWith('[')) {
       const linkMatch = matched.match(/\[(.*?)\]\((.*?)\)/);
       if (linkMatch) {
         parts.push(
@@ -350,7 +377,6 @@ const renderMarkdown = (text: string) => {
         );
       }
     }
-    // Italic: *text*
     else if (matched.startsWith('*') && matched.endsWith('*') && !matched.startsWith('**')) {
       parts.push(
         <em
@@ -361,7 +387,6 @@ const renderMarkdown = (text: string) => {
         </em>,
       );
     }
-    // Em dash
     else if (matched === '—') {
       parts.push(<span key={key++}> — </span>);
     } else {
@@ -371,7 +396,6 @@ const renderMarkdown = (text: string) => {
     currentIndex = match.index + matched.length;
   }
 
-  // Add remaining text
   if (currentIndex < text.length) {
     parts.push(text.substring(currentIndex));
   }
@@ -379,18 +403,16 @@ const renderMarkdown = (text: string) => {
   return parts.length > 0 ? parts : text;
 };
 
-// ContentWrapper - weniger Links-Abstand
 function ContentWrapper({ className = '', children }: { className?: string; children: React.ReactNode }) {
   return (
     <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
       <div className="lg:ml-48 lg:flex lg:w-full lg:justify-start lg:pl-16">
-        <div className={`mx-auto max-w-3xl lg:mx-0 lg:w-full lg:max-w-3xl ${className}`}>{children}</div>
+        <div className={`mx-auto max-w-5xl lg:mx-0 lg:w-full lg:max-w-5xl ${className}`}>{children}</div>
       </div>
     </div>
   );
 }
 
-// ArticleHeader
 function ArticleHeader({ id, date, tag }: { id: string; date: string; tag?: string }) {
   return (
     <header className="relative mb-10 xl:mb-0">
@@ -422,7 +444,6 @@ function ArticleHeader({ id, date, tag }: { id: string; date: string; tag?: stri
   );
 }
 
-// Article
 export const ChangelogItem: React.FC<{
   entry: ChangelogEntry;
 }> = ({ entry }) => {
@@ -450,7 +471,7 @@ export const ChangelogItem: React.FC<{
     };
   }, []);
 
-  const id = entry.version ? `v${entry.version}` : entry.date.replace(/\//g, '-');
+  const id = entryAnchor(entry);
 
   const contentImages = (entry.content?.filter((b) => b.type === 'image') ?? []) as Array<{
     type: 'image';
@@ -460,11 +481,7 @@ export const ChangelogItem: React.FC<{
   const firstImageIdx = entry.content?.findIndex((b) => b.type === 'image') ?? -1;
 
   return (
-    <article
-      id={id}
-      className="scroll-mt-16"
-      style={{ paddingBottom: `${heightAdjustment}px` }}
-    >
+    <article style={{ paddingBottom: `${heightAdjustment}px` }}>
       <div ref={heightRef}>
         <ArticleHeader
           id={id}
@@ -472,10 +489,16 @@ export const ChangelogItem: React.FC<{
           tag={entry.tag}
         />
         <ContentWrapper className="relative">
-          <h2 className="text-2xl font-semibold leading-7 text-gray-900 dark:text-white mb-4 mt-6">{entry.title}</h2>
+          <Heading
+            as="h2"
+            id={id}
+            className="text-2xl font-semibold leading-7 text-gray-900 dark:text-white mb-4 mt-6"
+            style={{ scrollMarginTop: ANCHOR_SCROLL_MARGIN }}
+          >
+            {entry.title}
+          </Heading>
           {entry.description && <p className="text-base leading-7 text-gray-700 dark:text-gray-300 mb-6">{entry.description}</p>}
 
-          {/* Content Blocks */}
           {entry.content && entry.content.length > 0 ? (
             <div className="space-y-6">
               {entry.content.map((block, idx) => {
@@ -521,6 +544,18 @@ export const ChangelogItem: React.FC<{
                   );
                 }
 
+                if (block.type === 'section-label') {
+                  return (
+                    <div
+                      key={idx}
+                      className={SECTION_LABEL_CLASS}
+                    >
+                      {block.title}
+                      <span className="h-px flex-1 bg-gray-200 dark:bg-gray-800" />
+                    </div>
+                  );
+                }
+
                 if (block.type === 'improvements') {
                   return (
                     <div
@@ -533,17 +568,16 @@ export const ChangelogItem: React.FC<{
                         </div>
                         {block.title}
                       </h3>
-                      <ul className="list-none pl-0 m-0 space-y-3">
-                        {block.items.map((item, itemIdx) => (
-                          <li
-                            key={itemIdx}
-                            className={CARD_ITEM_CLASS}
-                          >
-                            <span className="absolute left-0 top-[0.6rem] w-1.5 h-1.5 rounded-full bg-[#8FC046]"></span>
-                            {renderTextWithTags(item)}
-                          </li>
-                        ))}
-                      </ul>
+                      {block.items.length > 0 && <ItemList items={block.items} />}
+                      {block.subsections?.map((sub, subIdx) => (
+                        <div
+                          key={subIdx}
+                          className={subIdx === 0 && block.items.length === 0 ? '' : SUBSECTION_CLASS}
+                        >
+                          <h4 className={SUBSECTION_HEADING_CLASS}>{sub.title}</h4>
+                          <ItemList items={sub.items} />
+                        </div>
+                      ))}
                     </div>
                   );
                 }
@@ -583,7 +617,6 @@ export const ChangelogItem: React.FC<{
             </div>
           ) : (
             <>
-              {/* Legacy rendering */}
               {entry.image && <ImageCarousel images={[{ url: entry.image, alt: entry.title }]} />}
 
               {entry.images && entry.images.length > 0 && (
@@ -603,17 +636,7 @@ export const ChangelogItem: React.FC<{
                     </div>
                     Verbesserungen & Features
                   </h3>
-                  <ul className="list-none pl-0 m-0 space-y-3">
-                    {entry.improvements.map((improvement, idx) => (
-                      <li
-                        key={idx}
-                        className={CARD_ITEM_CLASS}
-                      >
-                        <span className="absolute left-0 top-[0.6rem] w-1.5 h-1.5 rounded-full bg-[#8FC046]"></span>
-                        {renderMarkdown(improvement)}
-                      </li>
-                    ))}
-                  </ul>
+                  <ItemList items={entry.improvements} />
                 </div>
               )}
 
@@ -656,12 +679,43 @@ export const ChangelogItem: React.FC<{
 export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState<string>('all');
+  const history = useHistory();
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
 
-  // Alle verfügbaren Tags sammeln
+  // Written straight to the DOM so a resize of the bar does not re-render every entry.
+  // The browser jumps to the hash before the bar is measured, so jump again once it is.
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper || !barRef.current) {
+      return;
+    }
+    let scrolledToHash = false;
+    const observer = new ResizeObserver(([e]) => {
+      wrapper.style.setProperty('--changelog-bar-height', `${e.borderBoxSize[0].blockSize}px`);
+      if (scrolledToHash) {
+        return;
+      }
+      scrolledToHash = true;
+      const hash = decodeURIComponent(window.location.hash.slice(1));
+      // A bare #v<version> link resolves to the plattform entry, the only product it was ever used for.
+      const id = /^v[\d.]+$/.test(hash) ? `plattform-${hash}` : hash;
+      const target = id && document.getElementById(id);
+      if (!target) {
+        return;
+      }
+      if (id !== hash) {
+        history.replace({ ...history.location, hash: `#${id}` });
+      }
+      target.scrollIntoView();
+    });
+    observer.observe(barRef.current);
+    return () => observer.disconnect();
+  }, [history]);
+
   const allTags = Array.from(new Set(entries.map((e) => e.tag).filter(Boolean))) as string[];
 
-  // Produktübergreifend nach Datum (neueste zuerst) sortieren, bei Gleichstand nach Version.
-  // Verhindert, dass die Reihenfolge von der Dateipfad-Sortierung in changelog.mdx abhängt.
+  // Sorted here so the order does not depend on how changelog.mdx joins the files.
   const sortedEntries = [...entries].sort((a, b) => {
     const dateCompare = (b.date || '').localeCompare(a.date || '');
     if (dateCompare !== 0) {
@@ -670,7 +724,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
     return (b.version || '').localeCompare(a.version || '', undefined, { numeric: true });
   });
 
-  // Filtern
   const filteredEntries = sortedEntries.filter((entry) => {
     const matchesSearch =
       searchTerm === '' ||
@@ -685,17 +738,17 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
 
   return (
     <div
+      ref={wrapperRef}
       id="tw-scope"
       className="relative flex-auto"
     >
-      {/* Suche und Filter */}
       <div
-        className="sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800/50 backdrop-blur-xl py-6"
+        ref={barRef}
+        className="sticky top-[var(--ifm-navbar-height)] z-50 border-b border-gray-200 dark:border-gray-800/50 backdrop-blur-xl py-6"
         style={{ background: 'var(--ifm-background-color)' }}
       >
         <ContentWrapper>
           <div className="flex flex-col md:flex-row gap-4">
-            {/* Suchfeld */}
             <div className="flex-1 relative">
               <svg
                 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500"
@@ -720,7 +773,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
               />
             </div>
 
-            {/* Filter-Buttons */}
             <div className="flex gap-2 flex-wrap">
               <button
                 onClick={() => setSelectedTag('all')}
@@ -750,7 +802,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
             </div>
           </div>
 
-          {/* Ergebnis-Counter */}
           {(searchTerm || selectedTag !== 'all') && (
             <div className="mt-4 text-sm font-medium text-gray-600 dark:text-gray-400">
               {filteredEntries.length} {filteredEntries.length === 1 ? 'Eintrag' : 'Einträge'} gefunden
@@ -759,7 +810,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
         </ContentWrapper>
       </div>
 
-      {/* Timeline - angepasst für weniger Links-Abstand */}
       <div className="pointer-events-none absolute inset-0 z-40 overflow-hidden lg:left-[180px] lg:overflow-visible">
         <svg
           className="absolute top-0 left-[max(0px,calc(50%-18.125rem))] h-full w-1.5 lg:left-0"
@@ -787,7 +837,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ entries }) => {
         </svg>
       </div>
 
-      {/* Content */}
       <main className="space-y-16 py-12 sm:space-y-20 sm:py-16">
         {filteredEntries.length > 0 ? (
           filteredEntries.map((entry, index) => (

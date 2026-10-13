@@ -12,7 +12,9 @@ interface ServerConfig {
   webmailUrl: string;
 }
 
-// Helper component for copyable code values
+const URL_SCHEME = /^https?:\/\//;
+const URL_PATH = /\/.*$/;
+
 function CopyableCode({ value }: { value: string | number }): React.JSX.Element {
   const handleCopy = () => {
     if (typeof window !== 'undefined' && navigator.clipboard) {
@@ -69,24 +71,20 @@ export default function MailServerConfig(): React.JSX.Element {
   const [email, setEmail] = useState<string>('');
   const [config, setConfig] = useState<ServerConfig | null>(null);
 
-  // Initialize from URL params or LocalStorage on mount
   React.useEffect(() => {
     if (typeof window === 'undefined') return;
 
     let initialDomain = '';
     let initialEmail = '';
 
-    // First check URL params
     const params = new URLSearchParams(window.location.search);
     const urlDomain = params.get('domain');
     const urlEmail = params.get('email');
 
     if (urlDomain || urlEmail) {
-      // URL params take priority
       initialDomain = urlDomain || '';
       initialEmail = urlEmail || '';
     } else {
-      // Try to load from LocalStorage
       const stored = localStorage.getItem('edulution-mail-config');
       if (stored) {
         try {
@@ -99,13 +97,12 @@ export default function MailServerConfig(): React.JSX.Element {
       }
     }
 
-    // Set state and update config
     if (initialDomain || initialEmail) {
       setDomain(initialDomain);
       setEmail(initialEmail);
       updateConfig(initialDomain, initialEmail);
     }
-  }, []); // Run only on mount
+  }, []);
 
   const generateAppleMobileConfig = () => {
     if (!config || !email || !domain) {
@@ -254,11 +251,9 @@ export default function MailServerConfig(): React.JSX.Element {
   };
 
   const extractDomain = (input: string): string => {
-    // Remove protocol
-    let cleaned = input.replace(/^https?:\/\//, '');
-    // Remove trailing slashes and paths
-    cleaned = cleaned.replace(/\/.*$/, '');
-    // EDU Domain = Mail Server (don't remove subdomains!)
+    let cleaned = input.replace(URL_SCHEME, '');
+    cleaned = cleaned.replace(URL_PATH, '');
+    // The edulution domain is also the mail server host, so subdomains are kept.
     return cleaned;
   };
 
@@ -284,7 +279,6 @@ export default function MailServerConfig(): React.JSX.Element {
 
       setConfig(newConfig);
 
-      // Save to context (and LocalStorage)
       const configToSave = {
         email: emailInput.trim(),
         domain: domainInput.trim(),
@@ -292,11 +286,6 @@ export default function MailServerConfig(): React.JSX.Element {
         smtpServer: baseDomain,
       };
       mailConfigContext.setConfig(configToSave);
-
-      // Also save directly to LocalStorage as backup
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('edulution-mail-config', JSON.stringify(configToSave));
-      }
     } else {
       setConfig(null);
       mailConfigContext.setConfig(null);
@@ -313,7 +302,6 @@ export default function MailServerConfig(): React.JSX.Element {
     const input = e.target.value;
     setEmail(input);
 
-    // Auto-fill domain from email if domain is empty
     if (!domain.trim() && input.includes('@')) {
       const emailDomain = getEmailDomain(input);
       if (emailDomain) {

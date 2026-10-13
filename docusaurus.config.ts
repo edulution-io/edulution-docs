@@ -2,36 +2,26 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import tagPlugin from './src/rehype/tagPlugin';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+import { version } from './package.json';
 
 const config: Config = {
   title: 'edulution',
   tagline: 'Dokumentation',
   favicon: '_static/icon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true,
   },
 
-  // Set the production url of your site here
   url: 'https://docs.edulution.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For custom domain deployment, this should be '/'
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'edulution-io', // Usually your GitHub org/user name.
-  projectName: 'edulution-docs', // Usually your repo name.
+  organizationName: 'edulution-io',
+  projectName: 'edulution-docs',
 
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'de',
     locales: ['de'],
@@ -43,53 +33,21 @@ const config: Config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
-        // Drei Umbauten liegen hinter uns, und alle drei sollen alte Links
-        // (Lesezeichen, Forenbeitraege, externe Verweise) am Leben lassen:
-        //
-        //   L1. Ein Bereich je Produkt (/docs/edulution-mail/,
-        //       /docs/edulution-moodle/ …) neben /docs/edulution-ui/, das
-        //       spaeter /docs/edulution-plattform/ hiess.
-        //   L2. Ein einziger Wurzelbereich: alle Produkte wanderten nach
-        //       edulution-plattform/apps/, aus administration/ wurde
-        //       konfiguration/.
-        //   L3. Zurueck zu einem Bereich je Komponente – denselben neun,
-        //       die auf edulution.io als Produktkarten stehen.
-        //
-        // `createRedirects` bekommt den *neuen* Pfad und liefert die alten.
-        // Weil die Umzuege im Wesentlichen Praefix-Ersetzungen waren,
-        // genuegen Regeln statt einer Tabelle mit hundert Zeilen — eine neue
-        // Seite in einer Komponente bekommt ihre Weiterleitungen damit
-        // automatisch.
-        //
-        // Achtung bei L1: einige der damaligen Adressen sind heute wieder
-        // echte Seiten (/docs/edulution-mail/, /docs/edulution-satellite/,
-        // /docs/edulution-fileproxy/). Wo alt und neu zusammenfallen, filtert
-        // die Funktion die Regel unten selbst heraus; wo sie sich nur
-        // ueberschneiden — /docs/edulution-mail/installation gegen
-        // /docs/edulution-mail/konfiguration/installation — muss die Regel
-        // den Unterschied treffen, sonst entsteht eine Weiterleitung auf
-        // eine existierende Seite und der Build bricht ab.
+        // Keeps URLs from earlier site layouts alive, mostly via prefix rules so a new page gets its redirects
+        // automatically. A rule must never yield a path that is a real page again, or the build fails.
         createRedirects(existingPath: string) {
-          // Einzelne Seiten, die beim Umzug auch den Namen gewechselt haben.
           const RENAMED: Record<string, string[]> = {
-            // --- edulution Mail ---------------------------------------
             '/docs/edulution-mail/': ['/docs/category/edulution-mail'],
             '/docs/edulution-mail/migration': ['/docs/edulution-mail/user_mail_migration'],
             '/docs/edulution-mail/konfiguration/migration-einrichten': ['/docs/edulution-mail/admin_mail_migration'],
             '/docs/edulution-mail/konfiguration/mailformate': ['/docs/edulution-mail/benutzer_mailformate'],
 
-            // --- edulution App ----------------------------------------
             '/docs/edulution-app/': ['/docs/category/edulution-app'],
-            // Die mobile Ansicht lag als native App in der Plattform.
             '/docs/edulution-app/mobile-ansicht': [
               '/docs/edulution-plattform/apps/native-apps/mobile-app',
               '/docs/edulution-plattform/features/mobile-app',
             ],
 
-            // --- edulution Server -------------------------------------
-            // Drei Seiten aus der Plattform: die Server-Vorbereitung aus der
-            // Installation, die Schulserver-App und die Benutzerverwaltung
-            // aus der Konfiguration.
             '/docs/edulution-server/installation': [
               '/docs/edulution-plattform/installation/configure_lmn-server',
               '/docs/edulution-plattform/configure-lmn-server/configure_lmn-server',
@@ -103,23 +61,16 @@ const config: Config = {
               '/docs/edulution-plattform/administration/benutzerverwaltung',
             ],
 
-            // --- edulution Satellite ----------------------------------
             '/docs/edulution-satellite/verwaltung': [
               '/docs/edulution-plattform/konfiguration/satelliten',
               '/docs/edulution-plattform/administration/satelliten',
             ],
 
-            // --- edulution MDM ----------------------------------------
             '/docs/edulution-mdm/': [
               '/docs/edulution-plattform/apps/mdm',
               '/docs/edulution-plattform/features/mdm',
             ],
 
-            // --- in der Plattform verbliebene Seiten -------------------
-            // Die drei Editor-Seiten sind zu einer geworden: Editor
-            // auswaehlen und Container installieren waren wortgleich, nur
-            // die Integrationswerte und die Traefik-Konfiguration
-            // unterscheiden sich.
             '/docs/edulution-fileproxy/dateien/konfiguration/dokumenten-editor': [
               '/docs/edulution-fileproxy/dateien/konfiguration/onlyoffice',
               '/docs/edulution-fileproxy/dateien/konfiguration/collabora',
@@ -135,11 +86,8 @@ const config: Config = {
               '/docs/category/edulution-eurooffice',
             ],
             '/docs/edulution-fileproxy/dateien/goodnotes': ['/docs/edulution-plattform/features/goodnotes'],
-            // Der Bereich hat jetzt zwei gleich gebaute Zweige - die App und
-            // den Proxy, jeder mit Uebersicht und Konfiguration. Die fuenf
-            // Proxy-Seiten lagen dafuer bisher zu weit oben. Neben ihrer
-            // alten Adresse braucht jede auch die aus L2, weil die
-            // Praefix-Regel unten jetzt einen Ordner tiefer greift.
+            // These pages moved into konfiguration/, which the /docs/edulution-fileproxy/ prefix rule does not
+            // reflect, so both old paths are listed explicitly.
             '/docs/edulution-fileproxy/konfiguration/package-server': [
               '/docs/edulution-fileproxy/package-server',
               '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/package-server',
@@ -160,35 +108,22 @@ const config: Config = {
               '/docs/edulution-fileproxy/wiki-infrastruktur',
               '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/wiki-infrastruktur',
             ],
-            // Die Benutzereinstellungen sind in Unterseiten zerlegt; die
-            // alte Sammelseite fuehrt auf die Uebersicht. Anker-Links von
-            // aussen landen damit oben statt am Abschnitt - der einzige
-            // Verlust, den der Umbau kostet.
+            // The old single page was split into subpages, so external anchor links land at the top of the
+            // overview instead of at their section.
             '/docs/edulution-plattform/uebersicht/benutzereinstellungen/': [
               '/docs/edulution-plattform/erste-schritte/mein-profil',
               '/docs/edulution-plattform/features/mein-profil',
               '/docs/edulution-plattform/benutzer/mein-profil',
             ],
-            // Der VPN-Zugang stand doppelt da: als Stichwort in den
-            // Benutzereinstellungen und als eigene App-Seite. Jetzt eine
-            // Seite, dort wo man den Zugang abruft.
             '/docs/edulution-plattform/uebersicht/benutzereinstellungen/vpn-zugang': [
               '/docs/edulution-plattform/apps/vpn-zugang',
               '/docs/edulution-plattform/features/vpn-zugang',
               '/docs/edulution-plattform/uebersicht/benutzereinstellungen/vpn-zugang',
             ],
-            // Die beiden Sicherheits-Seiten sind zusammengefuehrt: der
-            // Dialog und die Verfahren dahinter standen doppelt da. Beide
-            // Alt-Pfade fuehren auf die Seite in den Benutzereinstellungen.
             '/docs/edulution-plattform/uebersicht/benutzereinstellungen/sicherheit': [
               '/docs/edulution-plattform/features/sicherheit',
               '/docs/edulution-plattform/apps/native-apps/sicherheit',
             ],
-            // Vier Seiten standen als "Features" fuer sich, gehoerten aber
-            // dorthin, wo man ihnen begegnet: die Markdown-Hilfe zum
-            // Wiki-Editor, die Benachrichtigungen und die Schnellzugriffe in
-            // die Navigation, die Eltern-Schueler-Zuordnung in die
-            // Benutzereinstellungen. Der Bereich ist damit leer.
             '/docs/edulution-plattform/uebersicht/navigation': [
               '/docs/edulution-plattform/features/benachrichtigungen',
               '/docs/edulution-plattform/apps/native-apps/benachrichtigungen',
@@ -199,27 +134,19 @@ const config: Config = {
               '/docs/edulution-plattform/features/eltern-schueler-zuordnung',
               '/docs/edulution-plattform/apps/native-apps/eltern-schueler-zuordnung',
             ],
-            // Konferenzen war die einzige Seite direkt unter Apps und stand
-            // damit neben lauter Querverweisen; jetzt bei den nativen Apps.
             '/docs/edulution-plattform/apps/native-apps/konferenzen': [
               '/docs/edulution-plattform/apps/konferenzen',
             ],
-            // App-Store raus aus der Liste der nativen Apps, darueber - und
-            // die Eingebettete App gleich daneben: beide legen Apps an,
-            // statt eine zu sein.
             '/docs/edulution-plattform/apps/app-store': [
               '/docs/edulution-plattform/apps/native-apps/app-store',
             ],
             '/docs/edulution-plattform/apps/eingebettete-app': [
               '/docs/edulution-plattform/apps/native-apps/eingebettete-app',
             ],
-            // Impressum & Datenschutz ist eine Konfigurationsaufgabe.
             '/docs/edulution-plattform/konfiguration/impressum-datenschutz': [
               '/docs/edulution-plattform/apps/native-apps/impressum-datenschutz',
               '/docs/edulution-plattform/features/impressum-datenschutz',
             ],
-            // "Weitere Features" ist aufgeloest: Sprache und KI-Chat stehen
-            // laengst ausfuehrlicher in den Benutzereinstellungen und im Chat.
             '/docs/edulution-plattform/uebersicht/benutzereinstellungen/benutzeroberflaeche': [
               '/docs/edulution-plattform/apps/native-apps/weitere-features',
               '/docs/edulution-plattform/features/weitere-features',
@@ -230,15 +157,12 @@ const config: Config = {
             ],
           };
 
-          const PREFIXES: [string, string][] = [
-            // neu                                        // alt
-            // --- edulution Mail ---------------------------------------
+          const PREFIXES: [newPrefix: string, oldPrefix: string][] = [
             ['/docs/edulution-mail/konfiguration/', '/docs/edulution-plattform/apps/e-mail/konfiguration/'],
             ['/docs/edulution-mail/konfiguration/', '/docs/edulution-mail/'],
             ['/docs/edulution-mail/clients/', '/docs/edulution-plattform/apps/e-mail/clients/'],
             ['/docs/edulution-mail/', '/docs/edulution-plattform/apps/e-mail/'],
 
-            // --- edulution LMS ----------------------------------------
             ['/docs/edulution-lms/installation/', '/docs/edulution-plattform/apps/lernmanagement/installation/'],
             ['/docs/edulution-lms/installation/', '/docs/edulution-moodle/installation/'],
             [
@@ -251,17 +175,13 @@ const config: Config = {
             ['/docs/edulution-lms/', '/docs/edulution-plattform/apps/lernmanagement/'],
             ['/docs/edulution-lms/', '/docs/edulution-moodle/'],
 
-            // --- edulution FileProxy und Satellite --------------------
-            // L1 hiess wie L3, deshalb genuegt der Zwischenschritt.
-            // Die Dateien-App ist in den FileProxy-Bereich gezogen: die App
-            // und der Dienst, der ihre Netzlaufwerke bereitstellt, gehoeren
-            // zusammen. L1 lag unter features/, L2 unter apps/.
+            // FileProxy and Satellite had today's URLs before the single edulution-plattform root, so only
+            // that root's paths need rules.
             ['/docs/edulution-fileproxy/dateien/', '/docs/edulution-plattform/apps/dateien/'],
             ['/docs/edulution-fileproxy/dateien/', '/docs/edulution-plattform/features/dateien/'],
             ['/docs/edulution-fileproxy/', '/docs/edulution-plattform/apps/dateien/konfiguration/fileproxy/'],
             ['/docs/edulution-satellite/', '/docs/edulution-plattform/apps/satellite/'],
 
-            // --- edulution Plattform ----------------------------------
             ['/docs/edulution-plattform/uebersicht/', '/docs/edulution-plattform/erste-schritte/'],
             ['/docs/edulution-plattform/uebersicht/', '/docs/edulution-plattform/features/'],
             ['/docs/edulution-plattform/konfiguration/anbindungen/', '/docs/anbindungen/'],
@@ -271,10 +191,8 @@ const config: Config = {
             ['/docs/edulution-plattform/apps/', '/docs/edulution-plattform/features/'],
           ];
 
-          // Mehrere Regeln koennen passen - etwa konfiguration/ und
-          // konfiguration/anbindungen/. Nur die spezifischste beschreibt den
-          // tatsaechlichen Umzug; die kuerzere wuerde eine Alt-URL erfinden,
-          // die es nie gab.
+          // Only the most specific matching prefix reflects the actual move; a shorter one would invent an
+          // old URL that never existed.
           const matching = PREFIXES.filter(([to]) => existingPath.startsWith(to));
           const longest = Math.max(0, ...matching.map(([to]) => to.length));
 
@@ -283,8 +201,7 @@ const config: Config = {
             ...matching.filter(([to]) => to.length === longest).map(([to, old]) => old + existingPath.slice(to.length)),
           ];
 
-          // Jede Alt-URL, die selbst unter /docs/edulution-plattform/ lag,
-          // hatte zusaetzlich einen /docs/edulution-ui/-Zwilling.
+          // Every old URL under /docs/edulution-plattform/ also existed under its former name /docs/edulution-ui/.
           const all = [existingPath, ...from].flatMap((path) =>
             path.startsWith('/docs/edulution-plattform/')
               ? [path, path.replace('/docs/edulution-plattform/', '/docs/edulution-ui/')]
@@ -333,11 +250,8 @@ const config: Config = {
         docsRouteBasePath: '/docs',
         indexBlog: false,
         searchBarShortcutHint: false,
-        // Bewusst kein `ignoreCssSelectors`: Ohne Rollenauswahl ist alles
-        // sichtbar, ein Treffer geht also nie ins Leere. Wer eine Rolle
-        // gewählt hat und über die Suche auf einen Abschnitt einer anderen
-        // Zielgruppe kommt, bekommt genau diesen Abschnitt aufgedeckt
-        // (siehe HiddenContentSync in AudienceContext.tsx).
+        // Deliberately no `ignoreCssSelectors`: a hit in a section hidden for the chosen role is revealed on
+        // arrival (see HiddenContentSync in AudienceContext.tsx), so audience-specific content stays searchable.
       },
     ],
   ],
@@ -395,7 +309,6 @@ const config: Config = {
               to: '/docs/edulution-satellite/',
             },
             {
-              // Eine Seite fuer alle drei Editoren - siehe createRedirects.
               label: 'Dokumenten-Editor',
               to: '/docs/edulution-fileproxy/dateien/konfiguration/dokumenten-editor',
             },
@@ -469,7 +382,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} edulution.io`,
+      copyright: `Copyright © ${new Date().getFullYear()} edulution.io · v${version}`,
     },
     prism: {
       theme: prismThemes.github,

@@ -35,19 +35,25 @@ Dieser Befehl generiert statische Inhalte im `build` Verzeichnis.
 - `/docs` - Dokumentationsinhalte
 
   - `/edulution-plattform` - edulution Plattform Dokumentation
+  - `/edulution-server` - edulution Server Dokumentation
   - `/edulution-mail` - edulution Mail Dokumentation
+  - `/edulution-app` - edulution App Dokumentation
+  - `/edulution-satellite` - edulution Satellite Dokumentation
+  - `/edulution-lms` - edulution LMS Dokumentation
+  - `/edulution-vdi` - edulution VDI Dokumentation
+  - `/edulution-mdm` - edulution MDM Dokumentation
   - `/edulution-fileproxy` - edulution FileProxy Dokumentation
-  - `/edulution-onlyoffice` - edulution OnlyOffice Dokumentation
 
 - `/changelogs` - Versionshistorie und Änderungsprotokolle
 - `/static` - Statische Assets (Bilder, Icons, etc.)
 - `/src` - Custom React Komponenten und Styles
 
-## Zielgruppen (Rollen, Organisationstyp, Modul)
+## Zielgruppen (Rolle, Organisationstyp)
 
 Die Dokumentation lässt sich auf die Lesenden zuschneiden. Auf der [Startseite](docs/index.md)
-beantwortet man drei Fragen; die Auswahl liegt im LocalStorage und gilt für alle Seiten. Oben rechts
-in der Navigationsleiste zeigt ein Badge die aktive Rolle und erlaubt das schnelle Umschalten.
+beantwortet man zwei Fragen, nach Organisationstyp und Rolle; die Auswahl liegt im LocalStorage und
+gilt für alle Seiten. Ein Badge in der Navigationsleiste zeigt die aktive Auswahl und erlaubt das
+schnelle Umschalten.
 
 **Ohne Auswahl ist nichts ausgeblendet.** Wer die Fragen überspringt, sieht die vollständige
 Dokumentation – die Auswahl ist eine Lesehilfe, kein Zugriffsschutz.
@@ -55,13 +61,12 @@ Dokumentation – die Auswahl ist eine Lesehilfe, kein Zugriffsschutz.
 > **Kein Zugriffsschutz.** Docusaurus erzeugt statisches HTML – ausgeblendete Inhalte werden
 > weiterhin an jeden Besucher ausgeliefert und sind im Quelltext lesbar.
 
-### Die drei Achsen
+### Die zwei Achsen
 
 | Achse | Werte | Wirkung |
 | --- | --- | --- |
 | `role` | `student`, `teacher`, `parent`, `staff`, `admin-setup`, `admin-operate` | blendet Inhalte anderer Rollen aus |
 | `org` | `school`, `business`, `public-administration` | blendet Inhalte anderer Organisationstypen aus |
-| `module` | `plattform`, `mail`, `app`, `infrastruktur` | sortiert nur die Einstiegskarten, blendet nichts aus |
 
 Die Rollenwerte folgen den Benutzertypen von edulution, die Organisationstypen den Werten von
 `EDUI_ORGANIZATION_TYPE`. Definiert sind sie in
@@ -170,12 +175,14 @@ In `sidebars.ts` an der Kategorie:
 
 | Datei | Zweck |
 | --- | --- |
-| `src/components/audience/taxonomy.ts` | Rollen, Organisationstypen, Module, Auflösung der Kürzel |
+| `src/components/audience/taxonomy.ts` | Rollen, Organisationstypen, Zugriffsstufen, Auflösung der Kürzel |
 | `src/components/audience/AudienceContext.tsx` | Auswahl, LocalStorage, Inhaltsverzeichnis und Aufdecken |
 | `src/components/audience/Audience.tsx` | Wrapper für einzelne Abschnitte |
-| `src/components/audience/AudiencePicker.tsx` | Die drei Fragen auf der Startseite |
+| `src/components/audience/AudiencePicker.tsx` | Die Fragen nach Organisationstyp und Rolle auf der Startseite |
+| `src/components/audience/OrgSummary.tsx`, `RoleSummary.tsx` | Zeile unter der Frage, die die gewählte Antwort beschreibt |
 | `src/components/audience/AudienceBadge.tsx` | Anzeige und Umschalten in der Navigationsleiste |
-| `src/components/audience/ModuleCards.tsx` | Einstiegskarten, sortiert nach gewähltem Modul |
+| `src/components/audience/AppCards.tsx` | Einstiegskarten der Startseite; Text, Ziel und Sichtbarkeit je nach Organisationstyp und Rolle |
+| `src/components/audience/AudienceFaq.tsx` | Häufige Fragen auf der Startseite, je Rolle |
 | `src/plugins/audience.js` | Inline-Skript, setzt `data-role`/`data-org` vor dem ersten Paint |
 | `src/theme/DocSidebarItem/index.tsx` | Blendet Sidebar-Einträge aus |
 | `src/theme/DocItem/Content/index.tsx` | Blendet ganze Seiten aus, zeigt den Hinweis |
@@ -184,7 +191,11 @@ In `sidebars.ts` an der Kategorie:
 
 ## Deployment
 
-Die Dokumentation wird automatisch über GitHub Actions deployed, wenn Änderungen auf den `main` Branch gepusht werden.
+Ein Push auf `main` ändert die Live-Doku noch nicht – sie wird erst mit einem Release neu gebaut.
+
+Den Workflow **Release** unter **Actions** mit **Run workflow** auf `main` starten. Er baut die Doku und schreibt die nächste Version nach dem Schema `Jahr.Monat.Nummer` (z. B. `2026.10.0`, danach `2026.10.1`) als Commit in die `package.json` auf `main`. Dann legt er das Release mit dem Tag `v` + Version an (z. B. `v2026.10.0`) und startet den Deploy. Die Fußzeile der Doku zeigt diese Version.
+
+Ein Release, das von Hand in der GitHub-Oberfläche veröffentlicht wird, löst keinen Deploy aus, weil es die Version in der `package.json` nicht setzt. Um einen älteren Stand wieder live zu schalten, den Workflow **Deploy Docusaurus to GitHub Pages** mit **Run workflow** auf dessen Tag starten.
 
 ## Lizenz
 

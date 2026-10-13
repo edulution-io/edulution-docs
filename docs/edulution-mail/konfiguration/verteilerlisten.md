@@ -9,6 +9,8 @@ Verteilerlisten in der edulution Plattform basieren auf Projekten in
 Linuxmuster. Dies ermöglicht eine flexible Verwaltung von
 E-Mail-Verteilern direkt über die Linuxmuster-Oberfläche.
 
+Verteiler ohne Projekt auf dem Schulserver legen Sie direkt in edulution an, unter [Einstellungen → Gruppen](../../edulution-plattform/konfiguration/einstellungen.md#gruppen).
+
 ## Projekt als Verteiler anlegen
 
 Um eine Verteilerliste zu erstellen, legen Sie ein neues Projekt in

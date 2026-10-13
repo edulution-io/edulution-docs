@@ -59,17 +59,13 @@ Nach erfolgreicher Anmeldung werden Sie automatisch weitergeleitet – entweder 
 
 ![Die Anmeldeseite mit eingeblendetem QR-Code für die Anmeldung über die edulution.io App](/img/anmeldung/anmeldeseite-qr-login.webp)
 
-Mit der Schaltfläche **Anmelden mit QR-Login** melden Sie sich ohne Eingabe von Zugangsdaten über die edulution.io App an:
+Mit der Schaltfläche **Anmelden mit QR-Login** melden Sie sich ohne Eingabe von Zugangsdaten über die edulution.io App an. Die Schaltfläche erscheint nur, wenn ein Global-Admin die [Anmeldung per QR-Code erlaubt](../konfiguration/einstellungen.md#anmeldung-mit-der-app) hat.
 
 1. Klicken Sie auf **Anmelden mit QR-Login**. Anstelle der Eingabefelder erscheint ein QR-Code mit dem Hinweis *„Öffne die edulution.io APP um dich einfach mit dem QR-Code anzumelden."*
 2. Scannen Sie den QR-Code mit der [edulution.io App](../../edulution-app/mobile-ansicht.md).
 3. Die Anmeldung wird daraufhin automatisch abgeschlossen – Sie müssen am Rechner nichts weiter eingeben.
 
 Mit **Abbrechen** kehren Sie zum Anmeldeformular zurück.
-
-:::info[Nur wenn ein Administrator es erlaubt]
-Die Schaltfläche **Anmelden mit QR-Login** erscheint nur, wenn ein Administrator die Anmeldung per QR-Code in den [Einstellungen](../konfiguration/einstellungen.md#anmeldung-mit-der-app) erlaubt hat. Standardmäßig ist sie ausgeschaltet.
-:::
 
 :::caution[QR-Code läuft ab]
 Ein QR-Code ist **3 Minuten** gültig. Danach erscheint der Hinweis *„Zeit für Login mit edulution.io APP abgelaufen."* und die Seite kehrt zum Anmeldeformular zurück. Klicken Sie einfach erneut auf **Anmelden mit QR-Login**, um einen neuen Code zu erzeugen.

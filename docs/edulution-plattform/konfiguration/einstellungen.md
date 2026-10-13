@@ -104,9 +104,9 @@ Die Variable setzt nur den Ausgangswert. Danach ändern Sie den Organisationstyp
 
 ### Anmeldung mit der App
 
-Mit **Anmeldung per QR-Code erlauben** legen Sie fest, ob die Anmeldeseite die Schaltfläche **Anmelden mit QR-Login** anbietet. Damit melden Nutzer den Browser an, indem sie den angezeigten QR-Code mit der edulution.io App scannen (siehe [Anmelden mit QR-Login](../uebersicht/anmeldung.md#anmelden-mit-qr-login)).
+Mit **Anmeldung per QR-Code erlauben** legen Sie fest, ob die Anmeldeseite die Schaltfläche **Anmelden mit QR-Login** anbietet (siehe [Anmelden mit QR-Login](../uebersicht/anmeldung.md#anmelden-mit-qr-login)). Ist die Einstellung ausgeschaltet, kann auch die App keinen Browser anmelden.
 
-Die Einstellung ist aus Sicherheitsgründen ausgeschaltet, auch auf bestehenden Installationen nach dem Update. Schalten Sie sie nur ein, wenn Ihre Nutzer die Anmeldung mit der App brauchen. Solange sie ausgeschaltet ist, fehlt die Schaltfläche auf der Anmeldeseite, und die App kann keinen Browser anmelden.
+Aus Sicherheitsgründen ist sie voreingestellt ausgeschaltet. Das gilt auch für bestehende Installationen: Nach dem Update fehlt die Schaltfläche, bis Sie die Einstellung einschalten.
 
 ### LDAP
 

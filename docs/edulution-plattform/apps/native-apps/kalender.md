@@ -251,7 +251,7 @@ Das nachträgliche Ändern der Wiederholungsregel einer bereits bestehenden Seri
 
 ### Termine ohne gespeicherte Zeitzone
 
-Termine, die ohne Zeitzone gespeichert wurden, zeigt der Kalender in der **Standardzeitzone für Kalendertermine**, die die Administration in den [Globalen Einstellungen](../../konfiguration/einstellungen.md#globale-einstellungen) festlegt. Das betrifft Termine, die vor der Unterstützung von Zeitzonen angelegt wurden, und solche, die ein anderes Kalenderprogramm in UTC abgelegt hat.
+Termine, die ohne Zeitzone gespeichert wurden, zeigt der Kalender in der **Kalender-Standardzeitzone**, die die Administration in den [Globalen Einstellungen](../../konfiguration/einstellungen.md#globale-einstellungen) festlegt. Das betrifft Termine, die vor der Unterstützung von Zeitzonen angelegt wurden, und solche, die ein anderes Kalenderprogramm in UTC abgelegt hat.
 
 Bei Serienterminen sorgt das dafür, dass die Uhrzeit nach einer Zeitumstellung gleich bleibt, statt um eine Stunde zu springen. Bereits gelöschte oder einzeln geänderte Termine einer Serie bleiben dabei gelöscht beziehungsweise geändert. Die Zeitzone wird im Kalender gespeichert, sobald Sie den Termin ändern, verschieben oder einzelne Termine der Serie löschen.
 
@@ -593,7 +593,7 @@ Die Verbindung zum Kalender-Server richtet die Administration Ihrer Schule ein. 
 
 Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](../../konfiguration/einstellungen.md#kalender-caldav) als Global-Admin konfiguriert (CalDAV-URL, Authentifizierungsmodus und Zertifikatsprüfung). Das [Freigeben und Abonnieren von Kalendern](#kalender-freigeben) setzt dabei einen SoGo-Server voraus; die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server.
 
-Welche Zeitzone für [Termine ohne gespeicherte Zeitzone](#termine-ohne-gespeicherte-zeitzone) gilt, stellen Sie in den [Globalen Einstellungen](../../konfiguration/einstellungen.md#globale-einstellungen) unter **Standardzeitzone für Kalendertermine** ein.
+Welche Zeitzone für [Termine ohne gespeicherte Zeitzone](#termine-ohne-gespeicherte-zeitzone) gilt, stellen Sie in den [Globalen Einstellungen](../../konfiguration/einstellungen.md#globale-einstellungen) unter **Kalender-Standardzeitzone** ein.
 
 Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
 

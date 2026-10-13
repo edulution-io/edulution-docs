@@ -388,6 +388,7 @@ Jedes Feld trägt eine Kennzeichnung, woher der Satellit den Wert bezieht:
 | Diese Einstellungen konnten nicht geändert werden: *Felder* | Der Satellit lehnt einzelne Felder ab. Die übrigen Änderungen sind gespeichert, die abgelehnten stehen weiter im Formular. | Werte korrigieren und erneut speichern. |
 | Die Einstellungen konnten nicht geladen werden. | Der Satellit hat die Einstellungen nicht geliefert. | Erreichbarkeit prüfen. |
 | Das LINBO-Client-Passwort konnte nicht geändert werden. | Der Satellit hat die Änderung nicht übernommen. Die Eingabefelder sind danach leer. | Passwort erneut eingeben. |
+| Der Satellit hat nicht rechtzeitig geantwortet. Er baut linbofs64 möglicherweise noch mit dem neuen Passwort neu auf. Prüfe in einigen Minuten, ob sich ein LINBO-Client anmelden kann, und setze das Passwort sonst erneut. | Der Satellit hat innerhalb der Wartezeit nicht geantwortet. Ob er die Änderung übernommen hat, ist offen. Die Eingabefelder sind danach leer. | Wie in der Meldung beschrieben vorgehen. |
 | Der Schulserver ist erreichbar. | Ergebnis von **Verbindung testen**, mit Version der API und Antwortzeit. | – |
 | Der Schulserver antwortet, meldet aber keinen betriebsbereiten Zustand. Bitte Benutzer und Passwort prüfen. | Ergebnis von **Verbindung testen** | **Benutzer** und **Passwort** prüfen. |
 | Der Schulserver ist nicht erreichbar. | Ergebnis von **Verbindung testen** | **API-Adresse** und Netzwerkfreigaben prüfen. |

@@ -110,9 +110,13 @@ Die Spalte **Status** zeigt den Sophomorix-Status des Kontos:
 
 Der Dialog prüft ein Passwort gegen die Passwortrichtlinie der Linuxmuster-Installation. Sie legt die Mindestlänge fest, wie viele der Zeichenarten *Kleinbuchstaben*, *Großbuchstaben*, *Ziffern* und *Sonderzeichen* ein Passwort enthalten muss, und gilt je nach Rolle des Benutzers und Schule unterschiedlich. Ein Passwort darf außerdem den Benutzernamen nicht enthalten, höchstens 60 Zeichen lang sein und nur aus ASCII-Zeichen bestehen: Umlaute und ß werden beim Login nicht akzeptiert.
 
-Schul- und globale Administratoren sehen die Richtlinie des Kontos im Dialog unter **Passwortrichtlinie** als Liste, sobald die Linuxmuster-API in **Version 7.4.6** oder neuer vorliegt. Die Felder melden dann jeden Verstoß schon bei der Eingabe, und **Zufälliges setzen** erzeugt ein Passwort, das die Richtlinie erfüllt. Verletzt das hinterlegte Initiale Passwort die Richtlinie, lässt es sich mit **Initiales Passwort wiederherstellen** nicht als aktuelles Passwort setzen.
+Administratoren, Schuladministratoren und Lehrkräfte sehen die Richtlinie des Kontos im Dialog unter **Passwortrichtlinie** als Liste, sobald die Linuxmuster-API in **Version 7.4.6** oder neuer vorliegt und Lehrkräften die Richtlinie lesen lässt. Die Felder melden dann jeden Verstoß schon bei der Eingabe, und **Zufälliges setzen** erzeugt ein Passwort, das die Richtlinie erfüllt. Verletzt das hinterlegte Initiale Passwort die Richtlinie, lässt es sich mit **Initiales Passwort wiederherstellen** nicht als aktuelles Passwort setzen.
 
-Lehrkräfte und ältere API-Versionen sehen unter **Passwortrichtlinie** stattdessen den Hinweis *Der Server prüft das Passwort beim Speichern. Üblich sind mindestens 7 Zeichen und drei von vier Zeichenarten (Kleinbuchstaben, Großbuchstaben, Ziffern, Sonderzeichen). Umlaute und ß werden beim Login nicht akzeptiert.* Schon bei der Eingabe geprüft wird dann nur die ASCII-Regel; alles Weitere prüft der Server beim Speichern.
+:::note[Lehrkräfte und Linuxmuster-API]
+Lehrkräfte dürfen die Richtlinie erst lesen, wenn die Linuxmuster-API die Änderung [„Allow teachers to read password policies“](https://github.com/linuxmuster/linuxmuster-api/commit/45f01efb2ade7bf72402f2922ed2dd27382b1d58) enthält. Bis dahin lehnt der Server die Anfrage ab, und der Dialog verhält sich wie bei einer älteren API-Version.
+:::
+
+Ältere API-Versionen und Lehrkräfte, deren Richtlinie der Server nicht liefert, sehen unter **Passwortrichtlinie** stattdessen den Hinweis *Der Server prüft das Passwort beim Speichern. Üblich sind mindestens 7 Zeichen und drei von vier Zeichenarten (Kleinbuchstaben, Großbuchstaben, Ziffern, Sonderzeichen). Umlaute und ß werden beim Login nicht akzeptiert.* Schon bei der Eingabe geprüft wird dann nur die ASCII-Regel; alles Weitere prüft der Server beim Speichern.
 
 Lehnt der Dialog oder der Server ein Passwort ab, lautet die Meldung *Das Passwort erfüllt die Passwortrichtlinie nicht:* gefolgt von den verletzten Regeln, etwa *Mindestens 8 Zeichen* oder *Darf den Benutzernamen nicht enthalten*.
 

@@ -190,13 +190,13 @@ Bei **Wird geseedet** und **Eingeschränkt** nennt die Marke außerdem die Zahl 
 | **Cursor** | Stelle, bis zu der der Satellit Änderungen zuletzt übernommen hat; **Keiner – der nächste Lauf liest den gesamten Bestand** zeigt, dass **Cursor leeren** gegriffen hat |
 | **Letzter Sicherungspunkt**, **Zuletzt wiederhergestellt** | Zeitpunkte |
 
-Läuft gerade ein Lauf, vermerkt die Seite das. Einen zuletzt gemeldeten Fehler zeigt sie im Wortlaut des Satelliten.
+Läuft gerade ein Lauf, vermerkt die Seite das und nennt, sofern der Satellit sie meldet, die aktuelle Phase und die Kennung des Laufs. Einen zuletzt gemeldeten Fehler zeigt sie im Wortlaut des Satelliten.
 
 ### Zustände der Karten
 
 Jede Karte zeigt **Aktuell**, **Ausstehend**, **Fehler** oder **Keine Angabe** und eine gemeldete Fehlermeldung im Wortlaut. **Ausstehend** heißt, dass der Satellit noch auf eine Rückmeldung wartet, etwa darauf, dass der DHCP-Dienst die Konfiguration übernommen hat. **Keine Angabe** und **Nicht gemeldet** bedeuten fehlende Information, keine Störung.
 
-Nur die Karte **DHCP-Konfiguration** zeigt vier Stufen mit je eigenem Zustand:
+Nur die Karte **DHCP-Konfiguration** zeigt vier Stufen mit je eigenem Zustand; die übrigen Karten zeigen sie im Dialog **Details**:
 
 | Stufe | Zustände |
 |-------|----------|
@@ -212,6 +212,8 @@ Nur der Abschnitt **Synchronisationszustand** und die **Sicherungspunkte** zeige
 |---------|---------|---------|
 | Der Synchronisationszustand konnte nicht geladen werden. | Mindestens eine von vier Abfragen (Modus, Zustand, Sicherungspunkte, Stand der Bestandteile) ist gescheitert. | Erreichbarkeit des Satelliten prüfen. |
 | Die Aktion konnte nicht ausgeführt werden. | Start, Zurücksetzen oder Wiederherstellen ist gescheitert. | Erreichbarkeit prüfen, Aktion wiederholen. |
+| Synchronisation ist deaktiviert | Der Satellit läuft im Offline-Modus; die Aktionen der Seite sind gesperrt. | Modus in den **Einstellungen** auf **Synchronisation aktiv** stellen. |
+| Wiederherstellung abgeschlossen | Ein Sicherungspunkt wurde zurückgespielt; die Meldung nennt die Zahl der Dateien und Symlinks. | – |
 | Eine Synchronisation läuft. | Ein Lauf ist aktiv. | Abwarten. |
 | Auf dem Satelliten läuft bereits eine Synchronisation. | Der Satellit hat bereits einen Lauf; die Plattform startet keinen zweiten. | Abwarten. |
 | Auf dem Satelliten läuft gerade eine Synchronisation. Die Aktion lässt sich bestätigen, sobald sie abgeschlossen ist. | Die Rückfrage ist offen, während ein Lauf läuft. | Abwarten. |

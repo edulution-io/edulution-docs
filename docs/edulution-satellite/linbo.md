@@ -151,9 +151,9 @@ Beide Aktionen sind gesperrt, solange der Abgleich unbekannt ist. Das Ergebnis m
 
 ### Dienste neu starten
 
-**Dienste neu starten** in der Aktionsleiste braucht keine Auswahl. Nach Änderungen an Images startet es den Torrent-Dienst des Satelliten neu, damit er die geänderten Images verteilt. Der Satellit betreibt keinen Multicast-Dienst; die Plattform fasst ihn nicht an. Die Plattform fragt vorher nach, laufende Übertragungen werden beim Neustart unterbrochen. Danach nennt eine Meldung die neu gestarteten Dienste.
+**Dienste neu starten** in der Aktionsleiste braucht keine Auswahl. Nach Änderungen an Images startet es den Torrent-Dienst des Satelliten neu, damit er die geänderten Images verteilt. Der Satellit betreibt keinen Multicast-Dienst; die Plattform fasst ihn nicht an. Die Plattform fragt vorher nach, laufende Übertragungen werden beim Neustart unterbrochen. Danach meldet die Plattform „Neu gestartet: Torrent“.
 
-Scheitert der Neustart, nennt die Meldung den Grund, den der Satellit zurückgibt. Ist der Torrent-Dienst auf dem Satelliten abgeschaltet, startet nichts neu. Dauert der Neustart länger, als die Verbindung zum Satelliten zulässt, läuft er auf dem Satelliten weiter; die Plattform weist darauf hin. Während der Neustart läuft, ist der Knopf gesperrt. Ein Satellit, der den Neustart noch nicht kennt, lehnt ihn ab; die Meldung nennt dann den Fehler des Satelliten.
+Dauert der Neustart länger als etwa 15 Sekunden, meldet die Seite, dass er noch läuft, und fragt alle 3 Sekunden den Zustand ab. Das Ergebnis erscheint nur, solange dieser Satellit geöffnet ist; ein Seiten- oder Satellitenwechsel beendet das Nachfragen. Liegt nach 3 Minuten kein Ergebnis vor, gilt der Ausgang als unbekannt. Der Knopf bleibt gesperrt, bis ein Ergebnis da ist oder die 3 Minuten abgelaufen sind; der Grund steht am Knopf. Scheitert der Neustart, nennt die Meldung einen festen Text, etwa dass der Torrent-Dienst auf dem Satelliten nicht läuft, der Satellit nicht als All-in-One läuft oder der Neustart nicht rechtzeitig fertig wurde. Ein Satellit, der den Neustart noch nicht kennt, lehnt ihn ab; die Meldung fordert dann zur Aktualisierung des Satelliten auf. Die Texte stehen im [Nachschlagewerk](./linbo-referenz.md#images).
 
 ### Prüfsumme prüfen
 

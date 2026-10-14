@@ -249,6 +249,14 @@ Die aktuell eingestellte Wiederholung wird im Dialog als Text zusammengefasst.
 Das nachträgliche Ändern der Wiederholungsregel einer bereits bestehenden Serie wird derzeit nicht unterstützt. Beim Bearbeiten einer einzelnen Wiederholung wird die Regel daher nur als Text angezeigt.
 :::
 
+### Termine ohne gespeicherte Zeitzone
+
+Termine, die ohne Zeitzone gespeichert wurden, zeigt der Kalender in der **Kalender-Standardzeitzone**, die die Administration in den [Globalen Einstellungen](../../konfiguration/einstellungen.md#globale-einstellungen) festlegt. Das betrifft Termine, die vor der Unterstützung von Zeitzonen angelegt wurden, und solche, die ein anderes Kalenderprogramm in UTC abgelegt hat.
+
+Bei Serienterminen bleibt dadurch die Uhrzeit nach einer Zeitumstellung gleich, statt um eine Stunde zu springen. Bereits gelöschte oder einzeln geänderte Termine einer Serie bleiben dabei gelöscht beziehungsweise geändert. Sobald Sie den Termin ändern, verschieben oder einzelne Termine der Serie löschen, wird die Zeitzone im Kalender gespeichert.
+
+Ganztägige Termine bleiben ohne Zeitzone. Serien im Stunden- oder Minutentakt, sehr weit zurückliegende Termine und Serien, die kurz vor oder nach Mitternacht beginnen, behalten die gespeicherte Zeit. Das gilt auch für Termine, die in der Stunde beginnen oder enden, die bei der Umstellung auf die Winterzeit doppelt vorkommt, und für einzeln geänderte Termine einer Serie in dieser Stunde. Steht die Einstellung auf **Aus**, ändert sich an der Anzeige nichts.
+
 ### Geltungsbereich beim Bearbeiten oder Löschen
 
 Bearbeiten oder löschen Sie einen Termin, der Teil einer Serie ist – oder verschieben Sie ihn per Drag & Drop – werden Sie gefragt, für welche Termine die Änderung gelten soll:
@@ -584,6 +592,8 @@ Die Verbindung zum Kalender-Server richtet die Administration Ihrer Schule ein. 
 ## Einrichtung (für Administratoren)
 
 Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](../../konfiguration/einstellungen.md#kalender-caldav) als Global-Admin konfiguriert (CalDAV-URL, Authentifizierungsmodus und Zertifikatsprüfung). Das [Freigeben und Abonnieren von Kalendern](#kalender-freigeben) setzt dabei einen SoGo-Server voraus; die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server.
+
+Welche Zeitzone für [Termine ohne gespeicherte Zeitzone](#termine-ohne-gespeicherte-zeitzone) gilt, stellen Sie in den [Globalen Einstellungen](../../konfiguration/einstellungen.md#globale-einstellungen) unter **Kalender-Standardzeitzone** ein.
 
 Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
 

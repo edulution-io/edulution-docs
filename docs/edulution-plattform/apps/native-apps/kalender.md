@@ -59,6 +59,8 @@ Oben rechts öffnet die Schaltfläche **Erstellen** ein Menü mit den beiden Anl
 
 Das Menü steht in allen Ansichten zur Verfügung, auch in der [Stundenplan-Ansicht](#stundenplan).
 
+Auf dem Smartphone und in der edulution.io App steht zusätzlich unten rechts im Kalender die runde Schaltfläche **+**. Sie öffnet die [Schnellerfassung](#schnellerfassung-auf-dem-smartphone) für einen neuen Termin.
+
 Solange Sie über keinen Kalender verfügen, in den Sie Termine eintragen dürfen, ist **Termin erstellen** deaktiviert; im Menü erscheint dann der Hinweis, dass dafür ein beschreibbarer Kalender benötigt wird. **Kalender anlegen** bleibt in diesem Fall verfügbar – Sie können sich also zunächst einen eigenen Kalender anlegen und darin anschließend Termine erstellen.
 
 ### Ansicht aktualisieren
@@ -194,13 +196,14 @@ Das Quadrat erscheint nur an Terminen mit eigener Farbe und nur dort, wo die Zuo
 Einen neuen Termin legen Sie auf mehreren Wegen an:
 
 - oben rechts über die Schaltfläche **Erstellen** und darin den Eintrag **Termin erstellen**,
-- mit einem Klick auf einen Tag (Monatsansicht) oder einen Zeitabschnitt (Wochen- und Tagesansicht).
+- mit einem Klick auf einen Tag (Monatsansicht) oder einen Zeitabschnitt (Wochen- und Tagesansicht),
+- auf dem Smartphone und in der edulution.io App über die Schaltfläche **+** unten rechts, die die [Schnellerfassung](#schnellerfassung-auf-dem-smartphone) öffnet.
 
 Welcher Zeitpunkt dabei vorbelegt wird, hängt vom gewählten Weg ab:
 
 - Ein Klick auf einen **Zeitabschnitt** übernimmt Datum und Uhrzeit dieses Abschnitts.
 - Ein Klick auf einen **Tag** übernimmt das Datum; als Beginn wird die nächste volle Stunde eingetragen.
-- Die Schaltfläche **Termin erstellen** bezieht sich auf den angezeigten Zeitraum und trägt dessen Datum mit der nächsten vollen Stunde ein.
+- Die Schaltfläche **Termin erstellen** und die Schaltfläche **+** beziehen sich auf den angezeigten Zeitraum und tragen dessen Datum mit der nächsten vollen Stunde ein.
 
 Füllen Sie im Dialog die folgenden Felder aus:
 
@@ -209,20 +212,35 @@ Füllen Sie im Dialog die folgenden Felder aus:
 3. **Beschreibung** – Optionaler ausführlicher Text.
 4. **Ort** – Optionale Ortsangabe.
 5. **Ganztägig** – Schalten Sie diese Option ein, wenn der Termin keinen festen Zeitpunkt hat; die Uhrzeitfelder entfallen dann.
-6. **Beginn** und **Ende** – Start- und Endzeitpunkt des Termins. Das Ende darf nicht vor dem Beginn liegen.
+6. **Beginn** und **Ende** – Start- und Endzeitpunkt des Termins. Das Ende darf nicht vor dem Beginn liegen. Verschieben Sie den Beginn, rückt das Ende um denselben Abstand mit; ein ganztägiger Termin bleibt dabei gleich viele Tage lang. Haben Sie das Ende selbst geändert, bleibt es beim Verschieben des Beginns stehen.
 7. **Wiederholung** – Legt fest, ob der Termin als [Serientermin](#serientermine-und-wiederholungen) wiederkehrt.
 8. **Sichtbarkeit** – **Öffentlich**, **Privat** oder **Vertraulich**.
 9. **Zeit-Status** – Ob die Zeit als **Abwesend (gebucht)** oder **Verfügbar (frei)** gilt.
 10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Auswahl beginnt mit **Keine Farbe**, darauf folgen die vorgegebenen Farben; zuletzt öffnet **Eigene Farbe** den Farbwähler. Die Farbe wirkt sich in allen Ansichten aus; ohne eigene Farbe gilt die Farbe des Kalenders (siehe [Terminfarben in den Ansichten](#terminfarben-in-den-ansichten)). Die Beschriftung des Termins wird automatisch dunkel oder hell dargestellt, damit sie vor der gewählten Farbe lesbar bleibt (siehe [Farbwahl und Lesbarkeit](#farbwahl-und-lesbarkeit)).
 11. **Teilnehmer** – Weitere Benutzer, die zum Termin eingeladen werden.
 
-Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.
+Speichern Sie den Termin über **Speichern** oder mit der Eingabetaste in einem einzeiligen Feld wie **Titel** oder **Ort**. In der Kalenderauswahl, den übrigen Auswahllisten und im Feld **Teilnehmer** speichert die Eingabetaste nicht, sondern wählt nur einen Eintrag aus. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.
+
+Beim Anlegen steht der Cursor bereits im Feld **Titel**.
+
+### Schnellerfassung auf dem Smartphone
+
+Auf dem Smartphone und in der edulution.io App öffnet die Schaltfläche **+** unten rechts im Kalender ein kurzes Formular für einen neuen Termin. Es enthält nur die Felder **Titel**, **Beginn**, **Dauer** und **Kalender**:
+
+- **Dauer** bietet 15, 30, 45, 60, 90 und 120 Minuten an und ist mit 45 Minuten vorbelegt. Das Ende ergibt sich aus Beginn und Dauer.
+- **Kalender** ist wie im vollständigen Dialog vorbelegt. Dürfen Sie in keinen Kalender schreiben, erscheint an dieser Stelle der entsprechende Hinweis, und **Speichern** bleibt deaktiviert.
+
+Mit **Speichern** oder der Eingabetaste im Feld **Titel** wird der Termin angelegt; er erscheint sofort in der Ansicht. Schlägt das Speichern fehl, bleibt das Formular mit Ihren Eingaben geöffnet.
+
+**Weitere Optionen** öffnet den vollständigen Dialog zum Erstellen eines Termins. Titel, Beginn, Ende und Kalender übernimmt er aus der Schnellerfassung; dort ergänzen Sie etwa Ort, Beschreibung, Wiederholung oder Teilnehmer.
 
 ## Termine bearbeiten und löschen
 
 Ein Klick auf einen bestehenden Termin öffnet denselben Dialog wie beim Erstellen, sodass Sie alle Felder ändern können. Das gilt für Termine, die Sie ändern dürfen — bei einem freigegebenen Kalender also abhängig von den Ihnen erteilten Rechten. Termine, die Sie nur ansehen dürfen, öffnen sich stattdessen in einer reinen Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)).
 
 Auf dem Smartphone und in der edulution.io App öffnet jeder Termin zunächst die **Detailansicht**, auch wenn Sie ihn ändern dürfen. Das gilt in allen Ansichten, in der [Stundenplan-Ansicht](#stundenplan) und im Widget **Termine** auf dem Dashboard. Dürfen Sie den Termin ändern, öffnet dort die Schaltfläche **Bearbeiten** den Bearbeiten-Dialog; mit dem Recht zum Löschen im Kalender kommt **Löschen** hinzu. Die Detailansicht nennt dann zusätzlich die **Sichtbarkeit** des Termins.
+
+Auf dem Smartphone stehen die Schaltflächen des Bearbeiten-Dialogs untereinander: **Speichern** zuoberst, die Lösch-Schaltfläche zuunterst. Ebenso steht in der Detailansicht **Bearbeiten** oben und **Löschen** unten. Öffnen Sie einen Termin auf dem Smartphone oder in der edulution.io App zum Bearbeiten, öffnet sich die Bildschirmtastatur erst, wenn Sie in ein Feld tippen.
 
 Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Sie steht nur zur Verfügung, wenn Sie im betreffenden Kalender löschen dürfen. Vor dem endgültigen Entfernen erscheint eine Sicherheitsabfrage. Handelt es sich um einen Serientermin, werden Sie zusätzlich gefragt, für welche Termine die Löschung gelten soll (siehe [Serientermine und Wiederholungen](#serientermine-und-wiederholungen)). Löschen Sie einen Serientermin aus der Detailansicht, erscheint statt der Sicherheitsabfrage direkt diese Frage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen). Brechen Sie ab, bleibt die Detailansicht geöffnet. Schlägt das Löschen fehl, bleiben Abfrage und Detailansicht geöffnet, und eine Fehlermeldung erscheint.
 
@@ -519,7 +537,7 @@ Der Link überträgt die Termine von fünf Jahren in der Vergangenheit bis fünf
 
 Dieser Abschnitt beschreibt Kalender, die **andere Benutzer Ihrer Schule** für Sie freigegeben haben. Externe Kalender, die Sie selbst über eine Adresse abonnieren, sind etwas anderes und stehen in der eigenen Gruppe **Web-Kalender** (siehe [Web-Kalender abonnieren](#web-kalender-abonnieren)).
 
-Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
+Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Ihr Name nennt in Klammern die Person, der der Kalender gehört. In der Seitenleiste, in der Kalenderauswahl beim Erstellen und Bearbeiten, in der Detailansicht und in den Meldungen des Kalenderkontextmenüs fehlt dabei ihre E-Mail-Adresse. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
 
 Ein abonnierter Kalender ist **nicht grundsätzlich schreibgeschützt**. Was Sie darin tun dürfen, richtet sich nach den Rechten, die die freigebende Person Ihnen erteilt hat (siehe [Kalender freigeben](#kalender-freigeben)):
 

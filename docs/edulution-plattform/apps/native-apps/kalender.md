@@ -4,7 +4,7 @@ Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer 
 
 ## Übersicht
 
-Über der Kalenderfläche finden Sie links die Navigation und rechts die Umschaltung zwischen den Ansichten. Solange Termine geladen werden, erscheint oben rechts eine kleine Ladeanzeige.
+Über der Kalenderfläche finden Sie links die Navigation und rechts die Umschaltung zwischen den Ansichten. In der Wochen- und der Tagesansicht folgt rechts daneben die Schaltfläche **Ansichtsoptionen** (siehe [Arbeitszeit](#arbeitszeit)). Solange Termine geladen werden, erscheint oben rechts eine kleine Ladeanzeige.
 
 ### Navigation
 
@@ -120,11 +120,29 @@ Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervo
 
 ### Woche
 
-Die Wochenansicht zeigt die sieben Tage der Woche mit einer Stundenskala. Termine werden zeitlich passend platziert; überlappende Termine werden nebeneinander angeordnet. Ganztägige Termine erscheinen in einer eigenen Zeile oberhalb der Stundenskala. Ein Klick auf einen freien Zeitabschnitt öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit der gewählten Anfangszeit. Die Stundenskala umfasst den gesamten Tag von **00:00** bis **23:00**. Da selten alle Stunden gleichzeitig auf den Bildschirm passen, ist die Ansicht beim Öffnen auf **06:00 Uhr** eingestellt; die übrigen Stunden erreichen Sie, indem Sie im Zeitraster blättern (siehe [Zeitraster bedienen](#zeitraster-bedienen)).
+Die Wochenansicht zeigt die sieben Tage der Woche mit einer Stundenskala. Termine werden zeitlich passend platziert; überlappende Termine werden nebeneinander angeordnet. Ganztägige Termine erscheinen in einer eigenen Zeile oberhalb der Stundenskala. Ein Klick auf einen freien Zeitabschnitt öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit der gewählten Anfangszeit. Die Stundenskala umfasst den gesamten Tag von **00:00** bis **23:00**, sofern Sie sie nicht auf Ihre [Arbeitszeit](#arbeitszeit) beschränken. Da selten alle Stunden gleichzeitig auf den Bildschirm passen, stellt sich das Raster beim Öffnen und bei jedem Wechsel des Zeitraums auf **eine Stunde vor der aktuellen Uhrzeit** ein, wenn der heutige Tag angezeigt wird, sonst auf den Beginn Ihrer Arbeitszeit. Die übrigen Stunden erreichen Sie, indem Sie im Zeitraster blättern (siehe [Zeitraster bedienen](#zeitraster-bedienen)). In der Spalte des heutigen Tages markiert eine Linie die aktuelle Uhrzeit; sie rückt minütlich weiter, ohne das Raster zu verschieben.
 
 ### Tag
 
 Die Tagesansicht entspricht der Wochenansicht, beschränkt sie aber auf einen einzelnen Tag: Sie behalten die Stundenskala, die eigene Zeile für ganztägige Termine, das Anlegen eines Termins per Klick auf einen freien Zeitabschnitt und das Verschieben per Drag & Drop. Da nur ein Tag angezeigt wird, steht für die Termine die volle Breite zur Verfügung – hilfreich an Tagen mit vielen oder sich überschneidenden Terminen sowie auf schmalen Bildschirmen.
+
+### Arbeitszeit
+
+Die Wochen- und die Tagesansicht heben Ihre Arbeitszeit hervor: Stunden außerhalb der Arbeitszeit und arbeitsfreie Tage sind grau hinterlegt. Solange Sie nichts anderes festlegen, gilt **Montag bis Freitag von 07:00 bis 17:00 Uhr**.
+
+Die Schaltfläche **Ansichtsoptionen** (Schieberegler-Symbol) rechts neben der Umschaltung der Ansichten öffnet ein Menü mit drei Einträgen:
+
+- **Nur Arbeitszeit anzeigen** kürzt das Zeitraster auf die vollen Stunden, in die Ihre Arbeitszeit fällt. Endet sie etwa um 15:30 Uhr, reicht das Raster bis 16:00 Uhr, und die letzte halbe Stunde ist grau hinterlegt.
+- **Arbeitswoche** zeigt in der Wochenansicht nur Ihre Arbeitstage. Der Eintrag erscheint nur in der Wochenansicht.
+- **Arbeitszeit festlegen …** öffnet einen Dialog, in dem Sie **Beginn** und **Ende** in Schritten von 30 Minuten sowie Ihre **Arbeitstage** wählen. Das Ende muss nach dem Beginn liegen, und mindestens ein Arbeitstag muss gewählt sein.
+
+Ist das Raster auf die Arbeitszeit gekürzt, zeigt jede Tagesspalte die Termine an, die ganz vor dem Beginn oder ganz nach dem Ende des Rasters liegen: Am oberen beziehungsweise unteren Rand der Spalte steht rechts ein Pfeil mit der Anzahl dieser Termine. Ein Klick darauf listet sie auf, und ein Klick auf einen Eintrag öffnet den Termin. Termine, die nur teilweise in das Raster hineinreichen, erscheinen im Raster selbst.
+
+In der **Arbeitswoche** fehlen die übrigen Tage ganz, und ihre Termine werden nicht gezählt. Sehen Sie sie in der Monatsansicht nach, oder wählen Sie den Tag in der Tagesansicht: Sie zeigt den gewählten Tag auch dann, wenn er kein Arbeitstag ist.
+
+Arbeitszeit, Arbeitstage und die beiden Schalter werden in Ihrem Browser gespeichert. Sie bleiben über das Neuladen der Seite erhalten, gelten aber nur auf diesem Gerät und in diesem Browser. Beim Abmelden werden sie zurückgesetzt: Nach einer erneuten Anmeldung gilt wieder die Standardarbeitszeit, und beide Schalter sind ausgeschaltet.
+
+Die [Stundenplan-Ansicht](#stundenplan) verwendet Ihre Arbeitszeit nicht. Sie behält ihren festen Zeitausschnitt und hebt keine Stunden hervor, zeigt aber ebenfalls die Linie der aktuellen Uhrzeit und die Pfeile für Termine außerhalb des Ausschnitts.
 
 ### Zeitraster bedienen
 
@@ -163,7 +181,7 @@ Neue Termine legen Sie oben rechts über **Erstellen** und darin **Termin erstel
 Ist der geöffnete Stundenplan nicht mehr vorhanden – etwa weil der Kalender gelöscht oder seine Stundenplan-Markierung entfernt wurde –, wechselt die Ansicht selbsttätig zurück zur Kalenderübersicht. Lässt sich die Kalenderliste dagegen gar nicht laden, etwa weil der CalDAV-Server nicht erreichbar ist, bleiben Sie auf der Stundenplan-Ansicht und es erscheint der Hinweis **Stundenpläne konnten nicht geladen werden.** Ein Ladefehler wird also nicht als gelöschter Stundenplan behandelt; sobald die Verbindung wieder steht, genügt **Neu laden**.
 
 :::info[Termine außerhalb des angezeigten Zeitraums]
-Der Stundenplan zeigt Montag bis Freitag und einen festen Zeitausschnitt am Tag. Ein Termin, der auf ein Wochenende oder außerhalb dieses Zeitausschnitts fällt, erscheint dort nicht – und da Stundenplan-Termine auch in **Monat**, **Woche**, **Tag** und **Agenda** ausgeblendet sind, ist er dann über die Oberfläche nicht erreichbar. Legen Sie solche Termine in einem gewöhnlichen Kalender an oder entfernen Sie die Stundenplan-Markierung vorübergehend über das [Kalenderkontextmenü](#kalenderkontextmenü).
+Der Stundenplan zeigt Montag bis Freitag und einen festen Zeitausschnitt am Tag. Ein Termin, der ganz vor oder nach diesem Zeitausschnitt liegt, erscheint nicht im Raster, sondern wird am oberen beziehungsweise unteren Rand seiner Tagesspalte gezählt; ein Klick auf den Pfeil listet ihn auf (siehe [Arbeitszeit](#arbeitszeit)). Ein Termin am Wochenende erscheint dagegen gar nicht – und da Stundenplan-Termine auch in **Monat**, **Woche**, **Tag** und **Agenda** ausgeblendet sind, ist er dann über die Oberfläche nicht erreichbar. Legen Sie solche Termine in einem gewöhnlichen Kalender an oder entfernen Sie die Stundenplan-Markierung vorübergehend über das [Kalenderkontextmenü](#kalenderkontextmenü).
 :::
 
 :::info[Stundenplan-Termine erscheinen nur in dieser Ansicht]

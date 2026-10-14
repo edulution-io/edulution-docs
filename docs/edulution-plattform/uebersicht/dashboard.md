@@ -83,7 +83,7 @@ Was ein Klick auf einen Termin bewirkt, hängt von Ihren Rechten am zugehörigen
 
 | Ihr Recht am Termin | Verhalten beim Klick |
 |---|---|
-| Der Termin darf geändert werden | Der Bearbeiten-Dialog öffnet sich. |
+| Der Termin darf geändert werden | Der Bearbeiten-Dialog öffnet sich. Auf dem Smartphone und in der edulution.io App öffnen sich zuerst die **Termindetails** mit den Schaltflächen **Bearbeiten** und, wenn Sie im Kalender löschen dürfen, **Löschen**. |
 | Der Termin ist sichtbar, darf aber nicht geändert werden | Die schreibgeschützten **Termindetails** öffnen sich. |
 | Nur die belegte Zeit ist sichtbar | Die Termindetails öffnen sich und zeigen anstelle der Inhalte **Belegt**. |
 

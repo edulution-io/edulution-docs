@@ -59,7 +59,7 @@ Oben rechts öffnet die Schaltfläche **Erstellen** ein Menü mit den beiden Anl
 
 Das Menü steht in allen Ansichten zur Verfügung, auch in der [Stundenplan-Ansicht](#stundenplan).
 
-Auf dem Smartphone und in der edulution.io App steht zusätzlich unten rechts im Kalender die runde Schaltfläche **+**. Sie öffnet die [Schnellerfassung](#schnellerfassung-auf-dem-smartphone) für einen neuen Termin.
+Auf dem Smartphone und in der edulution.io App steht zusätzlich unten rechts im Kalender die runde Schaltfläche **+**, außer in der [Stundenplan-Ansicht](#stundenplan). Sie öffnet die [Schnellerfassung](#schnellerfassung-auf-dem-smartphone) für einen neuen Termin.
 
 Solange Sie über keinen Kalender verfügen, in den Sie Termine eintragen dürfen, ist **Termin erstellen** deaktiviert; im Menü erscheint dann der Hinweis, dass dafür ein beschreibbarer Kalender benötigt wird. **Kalender anlegen** bleibt in diesem Fall verfügbar – Sie können sich also zunächst einen eigenen Kalender anlegen und darin anschließend Termine erstellen.
 
@@ -219,18 +219,18 @@ Füllen Sie im Dialog die folgenden Felder aus:
 10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Auswahl beginnt mit **Keine Farbe**, darauf folgen die vorgegebenen Farben; zuletzt öffnet **Eigene Farbe** den Farbwähler. Die Farbe wirkt sich in allen Ansichten aus; ohne eigene Farbe gilt die Farbe des Kalenders (siehe [Terminfarben in den Ansichten](#terminfarben-in-den-ansichten)). Die Beschriftung des Termins wird automatisch dunkel oder hell dargestellt, damit sie vor der gewählten Farbe lesbar bleibt (siehe [Farbwahl und Lesbarkeit](#farbwahl-und-lesbarkeit)).
 11. **Teilnehmer** – Weitere Benutzer, die zum Termin eingeladen werden.
 
-Speichern Sie den Termin über **Speichern** oder mit der Eingabetaste in einem einzeiligen Feld wie **Titel** oder **Ort**. In der Kalenderauswahl, den übrigen Auswahllisten und im Feld **Teilnehmer** speichert die Eingabetaste nicht, sondern wählt nur einen Eintrag aus. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.
+Speichern Sie den Termin über **Speichern** oder mit der Eingabetaste in einem einzeiligen Feld wie **Titel** oder **Ort**. In der Kalenderauswahl, den übrigen Auswahllisten und im Feld **Teilnehmer** löst die Eingabetaste dagegen kein Speichern aus; dort wählt sie höchstens einen Eintrag der Liste aus. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.
 
-Beim Anlegen steht der Cursor bereits im Feld **Titel**.
+Beim Anlegen und beim Bearbeiten am Computer steht der Cursor bereits im Feld **Titel**.
 
 ### Schnellerfassung auf dem Smartphone
 
 Auf dem Smartphone und in der edulution.io App öffnet die Schaltfläche **+** unten rechts im Kalender ein kurzes Formular für einen neuen Termin. Es enthält nur die Felder **Titel**, **Beginn**, **Dauer** und **Kalender**:
 
 - **Dauer** bietet 15, 30, 45, 60, 90 und 120 Minuten an und ist mit 45 Minuten vorbelegt. Das Ende ergibt sich aus Beginn und Dauer.
-- **Kalender** ist wie im vollständigen Dialog vorbelegt. Dürfen Sie in keinen Kalender schreiben, erscheint an dieser Stelle der entsprechende Hinweis, und **Speichern** bleibt deaktiviert.
+- **Kalender** ist wie im vollständigen Dialog vorbelegt. Dürfen Sie in keinen Kalender schreiben, erscheint an dieser Stelle der Hinweis, dass zum Erstellen von Terminen ein beschreibbarer Kalender benötigt wird, und **Speichern** bleibt deaktiviert.
 
-Mit **Speichern** oder der Eingabetaste im Feld **Titel** wird der Termin angelegt; er erscheint sofort in der Ansicht. Schlägt das Speichern fehl, bleibt das Formular mit Ihren Eingaben geöffnet.
+Mit **Speichern** oder der Eingabetaste im Feld **Titel** wird der Termin angelegt, und das Formular schließt sich. Liegt der Termin in einem eingeblendeten Kalender, der nicht als Stundenplan markiert ist, erscheint er sofort in der Ansicht. Schlägt das Speichern fehl, bleibt das Formular mit Ihren Eingaben geöffnet, und eine Fehlermeldung erscheint.
 
 **Weitere Optionen** öffnet den vollständigen Dialog zum Erstellen eines Termins. Titel, Beginn, Ende und Kalender übernimmt er aus der Schnellerfassung; dort ergänzen Sie etwa Ort, Beschreibung, Wiederholung oder Teilnehmer.
 
@@ -240,7 +240,7 @@ Ein Klick auf einen bestehenden Termin öffnet denselben Dialog wie beim Erstell
 
 Auf dem Smartphone und in der edulution.io App öffnet jeder Termin zunächst die **Detailansicht**, auch wenn Sie ihn ändern dürfen. Das gilt in allen Ansichten, in der [Stundenplan-Ansicht](#stundenplan) und im Widget **Termine** auf dem Dashboard. Dürfen Sie den Termin ändern, öffnet dort die Schaltfläche **Bearbeiten** den Bearbeiten-Dialog; mit dem Recht zum Löschen im Kalender kommt **Löschen** hinzu. Die Detailansicht nennt dann zusätzlich die **Sichtbarkeit** des Termins.
 
-Auf dem Smartphone stehen die Schaltflächen des Bearbeiten-Dialogs untereinander: **Speichern** zuoberst, die Lösch-Schaltfläche zuunterst. Ebenso steht in der Detailansicht **Bearbeiten** oben und **Löschen** unten. Öffnen Sie einen Termin auf dem Smartphone oder in der edulution.io App zum Bearbeiten, öffnet sich die Bildschirmtastatur erst, wenn Sie in ein Feld tippen.
+Auf dem Smartphone im Hochformat stehen die Schaltflächen im Dialog zum Erstellen und Bearbeiten untereinander: **Speichern** zuoberst, darunter **Abbrechen** und beim Bearbeiten zuunterst die Lösch-Schaltfläche. In der Detailansicht steht entsprechend **Bearbeiten** oben, darunter **Schließen** und zuunterst **Löschen**. Öffnen Sie einen Termin auf dem Smartphone oder in der edulution.io App zum Bearbeiten, öffnet sich die Bildschirmtastatur erst, wenn Sie in ein Feld tippen.
 
 Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Sie steht nur zur Verfügung, wenn Sie im betreffenden Kalender löschen dürfen. Vor dem endgültigen Entfernen erscheint eine Sicherheitsabfrage. Handelt es sich um einen Serientermin, werden Sie zusätzlich gefragt, für welche Termine die Löschung gelten soll (siehe [Serientermine und Wiederholungen](#serientermine-und-wiederholungen)). Löschen Sie einen Serientermin aus der Detailansicht, erscheint statt der Sicherheitsabfrage direkt diese Frage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen). Brechen Sie ab, bleibt die Detailansicht geöffnet. Schlägt das Löschen fehl, bleiben Abfrage und Detailansicht geöffnet, und eine Fehlermeldung erscheint.
 

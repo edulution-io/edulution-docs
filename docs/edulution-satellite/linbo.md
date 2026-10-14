@@ -331,7 +331,7 @@ Die Registerkarte **WLAN** hinterlegt die Zugangsdaten, die LINBO-Clients beim S
 
 Der Dialog hat drei Teile: **Verbindung zum Schulserver** mit **Verbindung testen**, **Synchronisation** und **LINBO-Client-Passwort**.
 
-Weicht der eingestellte Wert von **Synchronisation aktiv** vom Modus ab, in dem der LINBO-Dienst läuft, zeigt der Teil **Synchronisation** einen Hinweis. Wortlaut und Abhilfe: [Nachschlagewerk](./linbo-referenz.md#einstellungen). Felder und Kennzeichnungen stehen im [Nachschlagewerk](./linbo-referenz.md#einstellungen).
+Weicht der eingestellte Wert von **Synchronisation aktiv** vom Modus ab, in dem der LINBO-Dienst läuft, zeigt der Teil **Synchronisation** einen Hinweis. Wortlaut und Abhilfe sowie Felder und Kennzeichnungen stehen im [Nachschlagewerk](./linbo-referenz.md#einstellungen).
 
 ### Schule vom LMN-Server laden
 

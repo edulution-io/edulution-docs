@@ -148,7 +148,7 @@ Beachten Sie dabei die folgenden Besonderheiten:
 
 - **Weitere Tage werden beim Blättern nachgeladen.** Sobald Sie sich dem Ende der Liste nähern, erscheinen die folgenden Tage, bis etwa ein Jahr ab dem gewählten Datum. Danach lädt die Schaltfläche **Spätere Termine anzeigen** am Ende der Liste weitere Tage.
 - **Frühere Termine anzeigen** am Anfang der Liste ergänzt die vorangehenden 30 Tage. Die Liste bleibt dabei an der Stelle stehen, an der Sie gerade lesen; die früheren Tage erscheinen darüber.
-- **Der heutige Tag wird immer angezeigt**, sofern er in der Liste liegt, und ist mit **Heute** beschriftet, der folgende Tag mit **Morgen**. Hat der heutige Tag keine Termine, steht dort **Heute keine Termine**. Ist die Zeile des heutigen Tages nicht zu sehen, weil Sie weitergeblättert haben oder zu einem anderen Datum gesprungen sind, führt die Schaltfläche **Zu heute** am oberen Rand der Liste dorthin zurück.
+- **Der heutige Tag wird immer angezeigt**, sofern er in der Liste liegt, und ist mit **Heute** beschriftet, der folgende Tag mit **Morgen**. Hat der heutige Tag keine Termine, steht dort **Heute keine Termine**. Ist die Zeile des heutigen Tages nicht zu sehen, weil Sie weitergeblättert haben oder zu einem anderen Datum gesprungen sind, führt die Schaltfläche **Zu heute** am unteren Rand der Liste dorthin zurück.
 - Alle anderen **Tage ohne Termine werden übersprungen**.
 - Das Datum bleibt beim Blättern am oberen Rand stehen, solange Termine dieses Tages zu sehen sind.
 - Jeder Eintrag zeigt **Beginn und Ende** des Termins, bei ganztägigen Terminen stattdessen **ganztägig**, und darunter, falls angegeben, den **Ort**. Lange Titel werden vollständig über mehrere Zeilen angezeigt.

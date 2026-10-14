@@ -578,6 +578,48 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
+        {
+          type: 'category',
+          label: '🖥️ Server einrichten',
+          collapsed: true,
+          // The VDI environment itself: Proxmox, the edulution-linbo-vdi service and the image on the school server.
+          customProps: { audience: 'admin' },
+          link: {
+            type: 'doc',
+            id: 'edulution-vdi/server/index',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'edulution-vdi/server/proxmox-vorbereiten',
+              label: 'Proxmox vorbereiten',
+              customProps: { audience: 'admin-setup' },
+            },
+            {
+              type: 'doc',
+              id: 'edulution-vdi/server/installation',
+              label: 'Installation',
+              customProps: { audience: 'admin-setup' },
+            },
+            {
+              type: 'doc',
+              id: 'edulution-vdi/server/image-vorbereiten',
+              label: 'Image vorbereiten',
+              customProps: { audience: 'admin-setup' },
+            },
+            {
+              type: 'doc',
+              id: 'edulution-vdi/server/betrieb',
+              label: 'Betrieb und Fehlersuche',
+              customProps: { audience: 'admin-operate' },
+            },
+            {
+              type: 'doc',
+              id: 'edulution-vdi/server/referenz',
+              label: 'Nachschlagewerk',
+            },
+          ],
+        },
       ],
     },
     {

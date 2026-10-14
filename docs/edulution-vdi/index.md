@@ -13,7 +13,7 @@ nicht liefen.
 In der Plattform heißt die App **Desktop-Bereitstellung**. Sie fordert beim Linuxmuster-Server eine freie virtuelle Maschine an und öffnet sie in einem Fenster innerhalb der Plattform. Eine zusätzliche Software auf dem Endgerät ist nicht nötig.
 
 :::info[Voraussetzung]
-Die App erscheint nur, wenn die Administration sie eingerichtet hat (siehe [Konfiguration](./konfiguration/index.md)). Die angebotenen Desktops stammen aus der VDI-Konfiguration des Linuxmuster-Servers – ohne dort eingerichtete virtuelle Maschinen bleiben die Karten auf der Seite leer. Auf dem Server muss außerdem das Paket `edulution-linbo-vdi` installiert sein. Es verwaltet die virtuellen Maschinen auf einem Proxmox-Host und gehört nicht zu den Standard-Paketquellen des Servers.
+Die App erscheint nur, wenn die Administration sie eingerichtet hat (siehe [Konfiguration](./konfiguration/index.md)). Die angebotenen Desktops stammen aus der VDI-Konfiguration des Linuxmuster-Servers – ohne dort eingerichtete virtuelle Maschinen bleiben die Karten auf der Seite leer. Auf dem Server muss außerdem das Paket `edulution-linbo-vdi` installiert sein. Es verwaltet die virtuellen Maschinen auf einem Proxmox-Server; wie es eingerichtet wird, steht unter [Server einrichten](./server/index.md).
 :::
 
 ## Die Übersichtsseite
@@ -75,4 +75,5 @@ Die letzten fünf Meldungen haben ihre Ursache in der Einrichtung – die zugeh�
 ## Weiter
 
 - [Konfiguration](./konfiguration/index.md) – die App verbinden und Desktops bereitstellen
+- [Server einrichten](./server/index.md) – Proxmox, Dienst und Image auf dem Linuxmuster-Server
 - [App-Store & Anwendungen](../edulution-plattform/apps/app-store.md) – Apps hinzufügen und verwalten

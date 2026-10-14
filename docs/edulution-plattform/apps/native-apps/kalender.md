@@ -350,6 +350,8 @@ Die Suche unter **Personen oder Gruppen hinzufügen** speist sich aus zwei getre
 - **Personen** stammen ausschließlich aus den Adressbüchern, auf die Sie in der [Kontakte](kontakte.md)-App Zugriff haben, nicht aus dem Verzeichnis. Wen Sie dort nicht als Kontakt führen, legen Sie zunächst in der Kontakte-App an.
 - **Verteiler** stammen aus dem Verzeichnis, einschließlich ihrer Kategorien. Angeboten werden dabei auch Verteiler, für die sich kein Kalender freigeben lässt (siehe [Freigabe an einen Verteiler](#freigabe-an-einen-verteiler)).
 
+Gesucht wird erst, wenn Sie kurz aufhören zu tippen; das gilt für Personen und Verteiler gleichermaßen. Ändern Sie den Suchbegriff, während noch Treffer geladen werden, bricht edulution die laufende Suche ab, sobald die Suche nach dem neuen Begriff beginnt. Treffer zu einem veralteten Suchbegriff verdrängen daher nie die zum aktuellen.
+
 Für die Personensuche gilt darüber hinaus:
 
 - Durchsucht werden alle Ihre Adressbücher gleichzeitig. Das Suchfeld der Kontakte-App bezieht sich immer nur auf das ausgewählte Adressbuch. Auf Schreibweisen von Umlauten kommt es dabei ebenso wenig an wie dort.

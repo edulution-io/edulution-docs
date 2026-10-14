@@ -134,13 +134,17 @@ Die Adressbücher und die Verbindung zum Adressbuch-Server richtet die Administr
 
 </Audience>
 
+### Kontakte in anderen Apps
+
+Ist die Kontakte-App eingerichtet, werden Ihre Kontakte auch außerhalb von ihr vorgeschlagen: beim Eingeben von Empfängern in der E-Mail-App (siehe [Empfängervorschläge im Adressfeld](../../../edulution-mail/index.md#empfängervorschläge-im-adressfeld)) und bei der Suche im [Freigabe-Dialog eines Kalenders](kalender.md#wen-die-suche-findet). Anders als beim Suchfeld der Kontakte-App werden dabei alle Ihre Adressbücher gleichzeitig durchsucht. Vorgeschlagen werden nur Kontakte mit E-Mail-Adresse, und erst ab zwei eingegebenen Zeichen. In der E-Mail-App nennt jeder vorgeschlagene Kontakt das Adressbuch, aus dem er stammt; steht er in mehreren, werden alle genannt.
+
 <Audience roles="admin">
 
 ## Einrichtung (für Administratoren)
 
 Die Anbindung der Kontakte-App an den CardDAV-Server wird in den [Einstellungen](../../konfiguration/einstellungen.md#kontakte-carddav) als Global-Admin konfiguriert (CardDAV-URL, Authentifizierungsmodus und Zertifikatsprüfung).
 
-Diese Verbindung gilt ausschließlich für die Kontakte-App. Die Kalender- und die E-Mail-App verwenden jeweils ihre eigene; eine hier abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die übrigen Apps aus, und eine fehlerhafte CardDAV-URL legt nur die Kontakte-App still.
+Die Kalender- und die E-Mail-App greifen auf Termine und Nachrichten über eigene Verbindungen zu; eine hier abgeschaltete Zertifikatsprüfung wirkt sich darauf nicht aus. Die [Kontaktvorschläge in diesen Apps](#kontakte-in-anderen-apps) laufen jedoch über diese Verbindung: Ist die CardDAV-URL fehlerhaft oder der Server nicht erreichbar, fehlen dort die Personen, ohne dass eine Fehlermeldung erscheint.
 
 ### Wenn keine Adressbücher erscheinen
 

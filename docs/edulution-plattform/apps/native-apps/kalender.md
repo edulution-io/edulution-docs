@@ -255,7 +255,7 @@ Termine, die ohne Zeitzone gespeichert wurden, zeigt der Kalender in der **Kalen
 
 Bei Serienterminen bleibt dadurch die Uhrzeit nach einer Zeitumstellung gleich, statt um eine Stunde zu springen. Bereits gelöschte oder einzeln geänderte Termine einer Serie bleiben dabei gelöscht beziehungsweise geändert. Sobald Sie den Termin ändern, verschieben oder einzelne Termine der Serie löschen, wird die Zeitzone im Kalender gespeichert.
 
-Ganztägige Termine bleiben ohne Zeitzone. Serien im Stunden- oder Minutentakt, sehr weit zurückliegende Termine und Serien, die kurz vor oder nach Mitternacht beginnen, behalten die gespeicherte Zeit. Ist keine Standardzeitzone eingetragen, ändert sich an der Anzeige nichts.
+Ganztägige Termine bleiben ohne Zeitzone. Serien im Stunden- oder Minutentakt, sehr weit zurückliegende Termine und Serien, die kurz vor oder nach Mitternacht beginnen, behalten die gespeicherte Zeit. Das gilt auch für Termine, die in der Stunde beginnen oder enden, die bei der Umstellung auf die Winterzeit doppelt vorkommt, und für einzeln geänderte Termine einer Serie in dieser Stunde. Steht die Einstellung auf **Aus**, ändert sich an der Anzeige nichts.
 
 ### Geltungsbereich beim Bearbeiten oder Löschen
 

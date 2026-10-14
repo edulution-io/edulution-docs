@@ -52,6 +52,7 @@ Die Einstellungen der einzelnen Apps – etwa [E-Mails](#e-mails), [Kalender](#k
 **Kalender-Standardzeitzone**
 - Zeitzone, die der [Kalender](../apps/native-apps/kalender.md#termine-ohne-gespeicherte-zeitzone) Terminen zuweist, die ohne Zeitzone gespeichert sind
 - Vorbelegt ist Europe/Berlin; die Auswahl umfasst alle vom Server unterstützten Zeitzonen
+- Mit **Aus** bleiben Termine ohne Zeitzone so, wie sie gespeichert sind
 - Damit bleiben Serientermine nach einer Zeitumstellung zur selben Uhrzeit
 
 **Standardanwendung nach dem Login**

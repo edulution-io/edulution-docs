@@ -211,11 +211,19 @@ Füllen Sie im Dialog die folgenden Felder aus:
 
 Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.
 
+**Titel** und **Ort** fassen jeweils höchstens 512 Zeichen, die **Beschreibung** höchstens 8192 Zeichen.
+
+Ein Teilnehmer wird nur mit einer gültigen E-Mail-Adresse gespeichert. Teilnehmer ohne gültige Adresse lässt edulution beim Speichern weg und nennt sie anschließend in einer Meldung: **Ohne E-Mail-Adresse nicht als Teilnehmer eingetragen: …**. Das betrifft auch Teilnehmer, die ein anderes Kalenderprogramm eingetragen hat, sobald Sie den Termin bearbeiten oder verschieben.
+
 ## Termine bearbeiten und löschen
 
 Ein Klick auf einen bestehenden Termin öffnet denselben Dialog wie beim Erstellen, sodass Sie alle Felder ändern können. Das gilt für Termine, die Sie ändern dürfen — bei einem freigegebenen Kalender also abhängig von den Ihnen erteilten Rechten. Termine, die Sie nur ansehen dürfen, öffnen sich stattdessen in einer reinen Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)).
 
 Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Sie steht nur zur Verfügung, wenn Sie im betreffenden Kalender löschen dürfen. Vor dem endgültigen Entfernen erscheint eine Sicherheitsabfrage. Handelt es sich um einen Serientermin, werden Sie zusätzlich gefragt, für welche Termine die Löschung gelten soll (siehe [Serientermine und Wiederholungen](#serientermine-und-wiederholungen)).
+
+:::info[Termine aus anderen Kalenderprogrammen]
+Andere Programme, die denselben Kalender über CalDAV mitbenutzen, können Termine speichern, die über die Grenzen von edulution hinausgehen, etwa mit einer stündlichen Wiederholung oder einem Zeilenumbruch im Namen eines Teilnehmers. Solche Termine lassen sich in edulution weiterhin bearbeiten und verschieben, solange Sie den betreffenden Wert unverändert lassen. Ändern Sie ihn in einen Wert, der die Grenzen ebenfalls überschreitet, lehnt edulution das Speichern mit der Meldung **Die Änderung überschreitet die Grenzen für Termine** ab. Eine Ausnahme ist eine Beschreibung mit mehr als 8192 Zeichen: Sie müssen sie kürzen, bevor sich der Termin in edulution speichern lässt.
+:::
 
 ## Termin in einen anderen Kalender verschieben
 
@@ -241,7 +249,7 @@ Im Feld **Wiederholung** legen Sie fest, ob ein Termin wiederkehrt. Es stehen fo
 - **Alle** und **Einheit** – Das Intervall, z. B. alle 2 Wochen.
 - **An folgenden Wochentagen** – Bei wöchentlicher Wiederholung wählen Sie hier die betroffenen Wochentage.
 - **Monatliches Muster** – Bei monatlicher Wiederholung wählen Sie zwischen einem festen Tag im Monat (z. B. „Am 15. des Monats“) und einem Muster nach Wochentag (z. B. „Am zweiten Dienstag des Monats“).
-- **Endet** – Wann die Serie endet: **Nie**, **Nach** einer Anzahl von Terminen oder **Am Datum**. Bei **Nach** ist die Anzahl mit 10 vorbelegt; zulässig sind ganze Zahlen ab 1, bei anderen Werten gilt das Feld als leer. Bei **Am Datum** ist das Datumsfeld zunächst leer. Solange kein Datum beziehungsweise keine gültige Anzahl eingetragen ist, bleibt **Speichern** deaktiviert – eine gesonderte Meldung erscheint nicht.
+- **Endet** – Wann die Serie endet: **Nie**, **Nach** einer Anzahl von Terminen oder **Am Datum**. Bei **Nach** ist die Anzahl mit 10 vorbelegt; zulässig sind ganze Zahlen ab 1, bei anderen Werten gilt das Feld als leer. Eine Zahl über 1000 wird auf 1000 gesetzt. Bei **Am Datum** ist das Datumsfeld zunächst leer. Solange kein Datum beziehungsweise keine gültige Anzahl eingetragen ist, bleibt **Speichern** deaktiviert – eine gesonderte Meldung erscheint nicht.
 
 Die aktuell eingestellte Wiederholung wird im Dialog als Text zusammengefasst.
 
@@ -307,7 +315,7 @@ Verschieben lassen sich nur Termine, für die Sie das Recht zum **Ändern** besi
 
 Oben rechts öffnen Sie über die Schaltfläche **Erstellen** und darin den Eintrag **Kalender anlegen** den gleichnamigen Dialog. Dort legen Sie fest:
 
-- **Name** – Der angezeigte Name des Kalenders.
+- **Name** – Der angezeigte Name des Kalenders, höchstens 128 Zeichen.
 - **Typ** – Optional die Kennzeichnung **Stundenplan**, mit der der Kalender als Stundenplan gekennzeichnet und in der entsprechenden Gruppe der Seitenleiste angezeigt wird.
 - **Beschreibung** – Eine optionale Beschreibung.
 - **Farbe** – Die Farbe, in der der Kalender und seine Termine dargestellt werden. Wählen Sie eine der vorgegebenen Farben aus oder legen Sie über die Schaltfläche **+** eine beliebige eigene Farbe fest.
@@ -319,7 +327,7 @@ Speichern Sie den Kalender über **Speichern**; ohne Namen ist das Speichern nic
 Die Beschriftung farbiger Termine wird automatisch dunkel oder hell dargestellt – je nachdem, welche Schriftfarbe sich vor der gewählten Farbe besser abhebt. Sie können daher auch sehr helle Farben wie ein blasses Gelb verwenden, ohne die Lesbarkeit selbst prüfen zu müssen. Dasselbe gilt für die Farbe eines einzelnen [Termins](#termine-erstellen).
 
 :::info[Namenszusatz bei Stundenplänen]
-Legen Sie einen Kalender mit dem Typ **Stundenplan** an, wird dem eingegebenen Namen beim Speichern automatisch das Wort „Stundenplan“ vorangestellt: Aus der Eingabe „10a“ entsteht der Kalender **Stundenplan 10a**. Der Zusatz wird nur beim **Anlegen** ergänzt – benennen Sie den Kalender später über die [Kalendereinstellungen](#kalender-bearbeiten-und-löschen) um, gilt genau der Name, den Sie dort eintragen.
+Legen Sie einen Kalender mit dem Typ **Stundenplan** an, wird dem eingegebenen Namen beim Speichern automatisch das Wort „Stundenplan“ vorangestellt: Aus der Eingabe „10a“ entsteht der Kalender **Stundenplan 10a**. Der Zusatz zählt zu den 128 Zeichen des Namens: Würde der Name mit ihm länger, bleibt **Speichern** deaktiviert, und ein Hinweis unter dem Feld nennt den Grund. Der Zusatz wird nur beim **Anlegen** ergänzt – benennen Sie den Kalender später über die [Kalendereinstellungen](#kalender-bearbeiten-und-löschen) um, gilt genau der Name, den Sie dort eintragen.
 :::
 
 ## Kalender bearbeiten und löschen
@@ -571,6 +579,7 @@ Ist eine Quelle vorübergehend nicht erreichbar, bleiben die zuletzt geladenen T
 - Sie können **bis zu 10 Web-Kalender** gleichzeitig abonnieren. Danach meldet edulution **Sie haben die maximale Anzahl an Web-Kalendern erreicht.**
 - Dieselbe Adresse lässt sich nur einmal abonnieren; ein zweiter Versuch meldet **Dieser Kalender ist bereits abonniert.**
 - Sehr große Quellen werden nur teilweise übernommen: edulution liest je Kalender bis zu 2 MB und bis zu 2000 Termine. Enthält eine Quelle mehr, fehlen die überzähligen Termine in der Ansicht.
+- Ein Serientermin, dessen Wiederholungsregel edulution nicht zulässt, wird ohne diese Regel übernommen und erscheint nur einmal. Zulässig sind tägliche bis jährliche Wiederholungen mit höchstens 1000 Terminen und höchstens 96 Terminen an einem Tag; eine stündliche Serie oder eine Serie mit 1500 Terminen erscheint also nur mit ihrem ersten Termin.
 - Aus Sicherheitsgründen werden nur Termindaten übernommen. Anhänge, Verknüpfungen und Erinnerungen einer externen Quelle wertet edulution nicht aus.
 
 <Audience roles="user">

@@ -570,7 +570,8 @@ Ist eine Quelle vorübergehend nicht erreichbar, bleiben die zuletzt geladenen T
 
 - Sie können **bis zu 10 Web-Kalender** gleichzeitig abonnieren. Danach meldet edulution **Sie haben die maximale Anzahl an Web-Kalendern erreicht.**
 - Dieselbe Adresse lässt sich nur einmal abonnieren; ein zweiter Versuch meldet **Dieser Kalender ist bereits abonniert.**
-- Sehr große Quellen werden nur teilweise übernommen: edulution liest je Kalender bis zu 2 MB und bis zu 2000 Termine. Enthält eine Quelle mehr, fehlen die überzähligen Termine in der Ansicht.
+- Sehr große Quellen werden nur teilweise übernommen: edulution liest je Kalender bis zu 2 MB und bis zu 2000 Termine. Enthält eine Quelle mehr, fehlen die überzähligen Termine in der Ansicht. Mitgezählt werden dabei alle Termine der Quelle, auch solche, die edulution nicht anzeigt.
+- Ein Termin, der statt eines Endes eine Dauer von mehr als zehn Jahren angibt, wird nicht angezeigt. Das gilt in jedem Kalender, auch für Termine, die ein anderes Kalenderprogramm über CalDAV gespeichert hat. Termine mit einem Ende bleiben davon unberührt, auch wenn sie länger dauern.
 - Aus Sicherheitsgründen werden nur Termindaten übernommen. Anhänge, Verknüpfungen und Erinnerungen einer externen Quelle wertet edulution nicht aus.
 
 <Audience roles="user">

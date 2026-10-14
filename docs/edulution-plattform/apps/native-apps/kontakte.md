@@ -128,6 +128,10 @@ Diese Einschränkung betrifft ausschließlich Ihre Eingabe, nicht die Kontakte s
 Die Suche bezieht sich immer nur auf das aktuell ausgewählte Adressbuch, nicht auf alle Adressbücher gleichzeitig.
 :::
 
+### Kontakte in anderen Apps
+
+Ihre Kontakte werden auch außerhalb der Kontakte-App vorgeschlagen: beim Eingeben von Empfängern in der E-Mail-App und bei der Suche im [Freigabe-Dialog eines Kalenders](kalender.md#wen-die-suche-findet). Anders als das Suchfeld der Kontakte-App durchsuchen diese Vorschläge alle Ihre Adressbücher gleichzeitig. Sie erscheinen ab zwei eingegebenen Zeichen und nur für Kontakte mit E-Mail-Adresse. In der E-Mail-App steht bei jedem vorgeschlagenen Kontakt das Adressbuch, aus dem er stammt.
+
 <Audience roles="user">
 
 Die Adressbücher und die Verbindung zum Adressbuch-Server richtet die Administration Ihrer Schule ein. Bleibt die Kontaktliste leer oder fehlen Ihnen Adressbücher, lässt sich das nicht in der Kontakte-App selbst beheben – wenden Sie sich in diesem Fall an Ihre Administration.

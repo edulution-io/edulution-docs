@@ -167,7 +167,7 @@ Der Abschnitt **Torrent** im Dialog der Beipack-Dateien nennt zum Image:
 | **Stand** | wann der Torrent-Dienst zuletzt berichtet hat |
 | **Probleme** | die Gründe, wenn der Zustand nicht **Wird geseedet** ist |
 
-Angaben, die der Satellit nicht meldet, fehlen in der Liste. Ist der Zustand veraltet, weist ein Hinweis darauf hin und die Liste bleibt leer. Lässt sich der Zustand nicht lesen, nennt der Abschnitt das. Verteilt der Satellit das Image nicht per Torrent, steht dort nur, dass es nicht per Torrent verteilt wird.
+Angaben, die der Satellit nicht meldet, fehlen in der Liste. Ist der Zustand veraltet, weist ein Hinweis darauf hin und der Abschnitt zeigt nur noch **Tracker**, **Stand** und die bekannten **Probleme**. Lässt sich der Zustand nicht lesen, nennt der Abschnitt das. Verteilt der Satellit das Image nicht per Torrent, steht dort nur, dass es nicht per Torrent verteilt wird.
 
 | Meldung | Ursache | Abhilfe |
 |---------|---------|---------|
@@ -192,6 +192,7 @@ Angaben, die der Satellit nicht meldet, fehlen in der Liste. Ist der Zustand ver
 | Der Vorgang läuft möglicherweise noch auf dem Satelliten. Bitte die Liste neu laden, bevor erneut wiederhergestellt wird. | Der Satellit meldet den Ausgang der Wiederherstellung nicht zurück. | **Sicherungen** des Images erneut öffnen, bevor Sie nochmals wiederherstellen. |
 | Übertragung von *Name* fehlgeschlagen: *Grund* | Der Satellit meldet den Auftrag als fehlgeschlagen und nennt den Grund, etwa eine abweichende MD5-Prüfsumme oder einen Neustart des Containers. | Grund beheben und die Übertragung neu starten. |
 | Übertragung von *Name* fehlgeschlagen. | Wie oben, der Satellit nennt aber keinen Grund. | Übertragung neu starten. |
+| Das Ergebnis der Übertragung von *Name* konnte nicht gelesen werden. Ob sie gelungen ist, zeigt der Abgleich der Images. | Die Abfrage des Ergebnisses beim Satelliten ist gescheitert. | Spalte **Abgleich** prüfen und die Übertragung bei Bedarf neu starten. |
 | Der Auftrag für *Name* ist aus der Warteschlange verschwunden, das Image ist aber nicht aktuell. Der Satellit wurde möglicherweise neu gestartet. | Der Satellit kennt die Abfrage des Ergebnisses nicht, und der Vergleich zeigt, dass die Kopie nicht angekommen ist. | Spalte **Abgleich** prüfen und die Übertragung bei Bedarf neu starten. |
 | Es gibt keine Sicherungen. | In **Alle Sicherungen** hat keines der Images eine Sicherung. | – |
 | Die Sicherungen von *n* Images konnten nicht gelesen werden. | Der Satellit hat die Sicherungen dieser Images nicht geliefert. | **Alle Sicherungen** erneut öffnen. |

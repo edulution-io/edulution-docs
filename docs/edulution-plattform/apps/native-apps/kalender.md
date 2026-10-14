@@ -182,6 +182,22 @@ Das Quadrat erscheint nur an Terminen mit eigener Farbe und nur dort, wo die Zuo
 - Als Stundenplan markierte Kalender zählen dabei **nicht mit**, da ihre Termine in **Monat**, **Woche**, **Tag** und **Agenda** ohnehin nicht erscheinen. Haben Sie neben einem Stundenplan nur einen gewöhnlichen Kalender, bleibt das Quadrat also aus.
 - In der **Stundenplan-Ansicht** erscheint es nicht, da diese stets die Termine eines einzelnen Stundenplans zeigt.
 
+## Kalender drucken
+
+Oben rechts zwischen **Web-Kalender abonnieren** und **Neu laden** finden Sie die Schaltfläche **Drucken**. Sie druckt die gerade gewählte Ansicht (**Monat**, **Woche**, **Tag** oder **Agenda**) für den angezeigten Zeitraum und öffnet dazu den Druckdialog des Browsers; dort können Sie auch eine PDF-Datei speichern. In der [Stundenplan-Ansicht](#stundenplan) gibt es die Schaltfläche nicht. Solange Kalender oder Termine laden, ist sie deaktiviert.
+
+Gedruckt wird, was die Ansicht zeigt: [Ausgeblendete Kalender](#kalender-ein--und-ausblenden) und Stundenplan-Kalender fehlen auch auf dem Papier. Im Kopf des Ausdrucks stehen der Zeitraum, in der Woche mit der Kalenderwoche, und die gedruckten Kalender mit ihrer Farbe. Ab dem dreizehnten Kalender steht dort nur noch deren Anzahl (**+n weitere Kalender**). Die Termine tragen dieselben Farben wie am Bildschirm. Der Ausdruck ist immer hell, auch wenn Sie edulution im dunklen Design verwenden.
+
+Je nach Ansicht sieht der Ausdruck so aus:
+
+| Ansicht | Format | Inhalt je Termin |
+| --- | --- | --- |
+| **Woche** | eine Seite A4 quer, eine Spalte je Tag | Uhrzeit, Titel (höchstens zwei Zeilen) und Ort (eine Zeile) |
+| **Monat** | eine Seite A4 quer, mit Kalenderwoche; Tage außerhalb des Monats sind grau | Uhrzeit und Titel in einer Zeile, ohne Ort |
+| **Tag** und **Agenda** | A4 hoch, bei Bedarf über mehrere Seiten | Uhrzeit, vollständiger Titel und Ort; ganztägige Termine stehen oben |
+
+Damit Woche und Monat auf eine Seite passen, druckt die Woche höchstens **10** Einträge je Tag und der Monat höchstens **5**, in Monaten mit sechs Wochenzeilen höchstens **4**. Hat ein Tag mehr Termine, endet seine Liste mit **+n weitere am …**, und im Kopf des Ausdrucks steht ein Hinweis darauf. Die vollständige Liste erhalten Sie, wenn Sie die **Agenda** ab diesem Tag drucken: Sie enthält immer alle Termine.
+
 ## Termine erstellen
 
 Einen neuen Termin legen Sie auf mehreren Wegen an:

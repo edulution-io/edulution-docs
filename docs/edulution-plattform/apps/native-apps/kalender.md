@@ -8,9 +8,9 @@ Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer 
 
 ### Navigation
 
-- **Zurück** / **Weiter** (Pfeil-Schaltflächen) – Blättern vor oder zurück. Wie weit gesprungen wird, richtet sich nach der aktiven Ansicht: um einen Monat, eine Woche, einen Tag oder – in der Agenda – um den gesamten angezeigten Zeitraum von 30 Tagen.
-- **Heute** – Springt zum aktuellen Datum zurück.
-- Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt – in der Monatsansicht der Monatsname mit Jahr, in der Wochenansicht der Datumsbereich der angezeigten Woche, in der Tagesansicht das vollständige Datum.
+- **Zurück** / **Weiter** (Pfeil-Schaltflächen) – Blättern vor oder zurück. Wie weit gesprungen wird, richtet sich nach der aktiven Ansicht: um einen Monat, eine Woche oder einen Tag. In der Agenda fehlen die beiden Schaltflächen, denn sie ist eine fortlaufende Liste, in der Sie einfach weiterblättern (siehe [Agenda](#agenda)).
+- **Heute** – Springt zum aktuellen Datum zurück. In der Agenda bringt **Heute** die Zeile des heutigen Tages wieder an den Anfang der Liste, auch wenn Sie weit nach unten geblättert haben.
+- Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt – in der Monatsansicht der Monatsname mit Jahr, in der Wochenansicht der Datumsbereich der angezeigten Woche, in der Tagesansicht das vollständige Datum und in der Agenda Monat und Jahr des gewählten Datums.
 - In der Wochen- und der Stundenplan-Ansicht wird zusätzlich die **Kalenderwoche** der angezeigten Woche als **KW _n_** (nach ISO 8601) eingeblendet.
 
 ### Zu einem Datum springen
@@ -18,8 +18,8 @@ Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer 
 Neben den Navigations-Schaltflächen finden Sie die Schaltfläche **Datum wählen**. Sie öffnet einen kleinen Monatskalender, mit dem Sie gezielt zu einem beliebigen Datum springen, ohne sich Woche für Woche oder Monat für Monat vorarbeiten zu müssen.
 
 - Über die Auswahllisten für **Monat** und **Jahr** am oberen Rand wechseln Sie direkt zu einem anderen Monat oder Jahr; mit den Pfeilen daneben blättern Sie monatsweise.
-- Ein Klick auf einen Tag schließt den Mini-Kalender und stellt die Hauptansicht auf das gewählte Datum um; die Termine des betreffenden Zeitraums werden automatisch geladen.
-- Der aktuell in der Hauptansicht sichtbare Zeitraum ist im Mini-Kalender hervorgehoben – in der Monatsansicht der gesamte Monat, in der Wochenansicht die aktuelle Woche. Der heutige Tag und das ausgewählte Datum sind zusätzlich gekennzeichnet.
+- Ein Klick auf einen Tag schließt den Mini-Kalender und stellt die Hauptansicht auf das gewählte Datum um; die Termine des betreffenden Zeitraums werden automatisch geladen. In der Agenda beginnt die Liste anschließend mit diesem Tag.
+- Der aktuell in der Hauptansicht sichtbare Zeitraum ist im Mini-Kalender hervorgehoben – in der Monatsansicht der gesamte Monat, in der Wochenansicht die aktuelle Woche. In der Agenda wird kein Zeitraum hervorgehoben, da sie keinen festen Ausschnitt hat. Der heutige Tag und das ausgewählte Datum sind zusätzlich gekennzeichnet.
 
 ### Ansichten umschalten
 
@@ -46,7 +46,9 @@ Sobald Sie selbst einen Kalender ein- oder ausblenden, endet die Ansicht des Lin
 
 Ein Link kann schließlich direkt **einen bestimmten Termin öffnen** – etwa aus einer Benachrichtigung oder einer E-Mail heraus. Ein solcher Link führt neben dem Termin auch den Zeitraum mit, in dem dieser liegt: Der Kalender zeigt diesen Zeitraum an und öffnet den Termin darin zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder, ohne Bearbeitungsrecht, in der [Detailansicht](#termine-ansehen-ohne-bearbeitungsrecht). Das gelingt auch dann, wenn der zugehörige Kalender gerade ausgeblendet ist. Wiederholt sich der Termin, wird der Eintrag des verlinkten Tages geöffnet. Gibt es den Termin nicht mehr, geschieht nichts – der Kalender bleibt einfach auf dem verlinkten Zeitraum stehen. Wenn Sie den Termin schließen, öffnet er sich nicht erneut; ein erneuter Aufruf des Links zeigt ihn wieder. Verweist der Link auf einen Termin, den es nicht mehr gibt, bleibt der Kalender auf dem verlinkten Zeitraum stehen – und der Termin wird auch dann nicht unvermittelt geöffnet, wenn Sie später in einen anderen Zeitraum blättern.
 
-Öffnen Sie den Kalender ohne einen solchen Link – etwa über die Seitenleiste –, wird die **zuletzt von Ihnen verwendete Ansicht** mit dem heutigen Datum angezeigt. Gemerkt wird dabei nur eine Ansicht, die Sie selbst über die Umschaltung gewählt haben: Öffnen Sie den Link einer Kollegin, ändert das nicht, mit welcher Ansicht Ihr eigener Kalender künftig startet. Die zuletzt verwendete Ansicht bleibt über das Abmelden hinaus nicht erhalten: Nach einer erneuten Anmeldung beginnt der Kalender wieder mit der Monatsansicht.
+Öffnen Sie den Kalender ohne einen solchen Link – etwa über die Seitenleiste –, wird die **zuletzt von Ihnen verwendete Ansicht** mit dem heutigen Datum angezeigt. Gemerkt wird dabei nur eine Ansicht, die Sie selbst über die Umschaltung gewählt haben: Öffnen Sie den Link einer Kollegin, ändert das nicht, mit welcher Ansicht Ihr eigener Kalender künftig startet.
+
+Smartphone und Computer merken sich ihre Ansicht getrennt voneinander. Ohne gemerkte Ansicht startet der Kalender auf dem Smartphone und in der [edulution.io App](/docs/edulution-app) mit der **Agenda**, am Computer mit der **Monatsansicht**. Wählen Sie am Computer etwa die Wochenansicht, öffnet sich der Kalender auf dem Smartphone weiterhin in der Ansicht, die Sie dort zuletzt verwendet haben. Ein Tablet im Browser zählt dabei als Computer. Die zuletzt verwendete Ansicht bleibt über das Abmelden hinaus nicht erhalten: Nach einer erneuten Anmeldung beginnt der Kalender wieder mit der jeweiligen Startansicht.
 
 ### Neue Einträge anlegen
 
@@ -140,15 +142,20 @@ Auch die freien Zeitabschnitte lassen sich mit der Tastatur ansteuern. Jeder Abs
 
 ### Agenda
 
-Die Agenda listet die Termine der **kommenden 30 Tage** ab dem gewählten Datum chronologisch untereinander auf, gruppiert nach Tag.
+Die Agenda listet die Termine ab dem gewählten Datum als **fortlaufende Liste** chronologisch untereinander auf, gruppiert nach Tag. Auf dem Smartphone und in der edulution.io App ist sie die Startansicht des Kalenders (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). Wechseln Sie aus einer anderen Ansicht in die Agenda, beginnt die Liste beim heutigen Tag.
 
 Beachten Sie dabei die folgenden Besonderheiten:
 
-- **Tage ohne Termine werden übersprungen**.
+- **Weitere Tage werden beim Blättern nachgeladen.** Sobald Sie sich dem Ende der Liste nähern, erscheinen die folgenden Tage, bis etwa ein Jahr im Voraus. Danach lädt die Schaltfläche **Spätere Termine anzeigen** am Ende der Liste weitere Tage.
+- **Frühere Termine anzeigen** am Anfang der Liste ergänzt die vorangehenden 30 Tage. Die Liste bleibt dabei an der Stelle stehen, an der Sie gerade lesen; die früheren Tage erscheinen darüber.
+- **Der heutige Tag wird immer angezeigt** und ist mit **Heute** beschriftet, der folgende Tag mit **Morgen**. Hat der heutige Tag keine Termine, steht dort **Heute keine Termine**. Haben Sie die Zeile des heutigen Tages aus dem Blick gescrollt, führt die Schaltfläche **Zu heute** am oberen Rand der Liste dorthin zurück.
+- Alle anderen **Tage ohne Termine werden übersprungen**.
+- Das Datum bleibt beim Blättern am oberen Rand stehen, solange Termine dieses Tages zu sehen sind.
+- Jeder Eintrag zeigt **Beginn und Ende** des Termins und darunter, falls angegeben, den **Ort**. Lange Titel werden vollständig über mehrere Zeilen angezeigt.
 - Innerhalb eines Tages stehen **ganztägige Termine** ganz oben, danach folgen die übrigen Termine nach Uhrzeit.
-- Ein Termin, der sich über mehrere Tage erstreckt, erscheint unter **jedem** dieser Tage. An den Folgetagen steht anstelle der Uhrzeit das Zeichen ↳, da der Termin dort nicht beginnt.
+- Ein Termin, der sich über mehrere Tage erstreckt, erscheint unter **jedem** dieser Tage. Das Zeichen ↳ steht dabei für die Zeit vor oder nach diesem Tag: Am ersten Tag lautet die Zeitangabe etwa **14:00 – ↳**, an den Tagen dazwischen nur **↳** und am letzten Tag **↳ – 09:00**.
 - Ein Klick auf einen Eintrag öffnet den Termin zum [Bearbeiten](#termine-bearbeiten-und-löschen). Termine lassen sich in der Agenda **nicht per Drag & Drop verschieben**; wechseln Sie dafür in eine der Rasteransichten.
-- Enthält der Zeitraum keine Termine, erscheint der Hinweis **Keine Termine in diesem Zeitraum.**
+- Enthält die Liste keinen einzigen Termin – etwa nachdem Sie zu einem Datum ohne folgende Termine gesprungen sind –, erscheint der Hinweis **Keine Termine in diesem Zeitraum.**
 
 ### Stundenplan
 

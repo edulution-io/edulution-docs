@@ -114,7 +114,7 @@ Welche Felder erscheinen, hängt von der Vorlage ab. Gebräuchlich sind:
 | **IP-Netzwerk**, **Adresse**, **DNS-Server** | Netzwerkparameter der WireGuard-Installation |
 | **WWW-Root**, **Admin E-Mail**, **Admin Passwort**, **Website-Name** | Grunddaten der Moodle-Installation |
 
-Zugangsdaten, die edulution bereits kennt – etwa API-Schlüssel der App-Konfiguration –, werden automatisch eingesetzt und nicht abgefragt. Passwörter und Schlüssel, die nur der Container selbst benötigt (z. B. die Datenbank-Passwörter von Moodle), erzeugt edulution bei der ersten Installation und verwendet sie bei einer erneuten Installation unverändert weiter.
+Zugangsdaten, die edulution bereits kennt – etwa API-Schlüssel der App-Konfiguration –, werden automatisch eingesetzt und nicht abgefragt. Aus der Serverkonfiguration der API übernimmt eine Vorlage nur die Werte, die für ihre App vorgesehen sind, zum Beispiel die edulution-Domain oder die Guacamole-Passwörter der Desktop-Bereitstellung. Andere Einstellungen der API, etwa die Zugangsdaten ihrer Datenbank, gelangen nicht in die Container. Passwörter und Schlüssel, die nur der Container selbst benötigt (z. B. die Datenbank-Passwörter von Moodle), erzeugt edulution bei der ersten Installation und verwendet sie bei einer erneuten Installation unverändert weiter.
 
 ### Wo die Konfiguration abgelegt wird
 

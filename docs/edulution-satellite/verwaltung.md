@@ -17,7 +17,7 @@ Ein Satellit ist ein edulution-Gerät an einem entfernten Standort. Nach der Kop
 Die gesamte Satellitenverwaltung steht nur Administratoren offen – in den **Einstellungen** ebenso wie in der App.
 :::
 
-Die Erstinbetriebnahme eines Geräts beschreibt [Einrichtung mit edulution](./einrichtung-mit-edulution.md). LINBO behandelt [LINBO am Satelliten](./linbo.md).
+Die Erstinbetriebnahme eines Geräts beschreibt [Einrichtung mit edulution](./einrichtung-mit-edulution.md). LINBO behandelt [LINBO am Satelliten](./linbo.md). Fehlt LINBO am Satelliten, richten Sie es dort direkt im Bereich **LINBO** ein, siehe [LINBO einrichten](./linbo.md#linbo-einrichten).
 
 ## Status eines Satelliten
 

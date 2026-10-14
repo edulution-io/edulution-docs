@@ -98,7 +98,7 @@ Um eine bestimmte Kategorie anzupassen, kann einfach auf die Kategorie geklickt 
 
 ![Infoboard - Kategorie Einstellungen](/img/schwarzes-brett/schwarzes-brett-category-settings-menu.png)
 
-- **Name** – Der angezeigte Name der Kategorie. Er muss mindestens drei Zeichen lang sein und darf noch keiner anderen Kategorie gehören. Ob der Name frei ist, prüft edulution, sobald Sie kurz aufhören zu tippen: Ein Häkchen neben dem Feld zeigt einen freien Namen an, ein Ausrufezeichen einen vergebenen. Solange die Prüfung läuft oder der Name vergeben ist, lässt sich die Kategorie nicht speichern; der bisherige Name einer bearbeiteten Kategorie gilt dabei nicht als vergeben.
+- **Name** – Der angezeigte Name der Kategorie. Er muss zwischen drei und 30 Zeichen lang sein und darf noch keiner anderen Kategorie gehören; Groß- und Kleinschreibung spielt dabei keine Rolle. Ob der Name frei ist, prüft edulution, sobald Sie kurz aufhören zu tippen: Ein Häkchen neben dem Feld zeigt einen freien Namen an, ein Ausrufezeichen einen vergebenen oder einen, der sich gerade nicht prüfen ließ. Solange die Prüfung läuft oder der Name vergeben ist, lässt sich die Kategorie nicht speichern. Der unveränderte bisherige Name einer bearbeiteten Kategorie gilt dabei nicht als vergeben.
 - **Aktiv** – Die Sichtbarkeit der ganzen Kategorie.
 - **Standardsichtbarkeit der Mitteilungen** – Die Mitteilungen werden in auf-/zuklappbaren Kacheln dargestellt. Diese Einstellung legt fest, ob sie standardmäßig auf- oder zugeklappt sind:
   - **Vollständig sichtbar** – Standardmäßig aufgeklappt.

@@ -104,7 +104,7 @@ Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktion
 
 Bei einem als Stundenplan markierten Kalender führt der Eintrag in der Seitenleiste direkt in die [Stundenplan-Ansicht](#stundenplan); sein Kontextmenü enthält deshalb keine Anzeige-Aktionen, sondern **Stundenplan-Markierung entfernen**, **Einstellungen**, **Freigeben** und **Löschen**. Ein Stundenplan lässt sich nicht als Standardkalender festlegen.
 
-Die Festlegung als Standardkalender wird in Ihrem Browser gespeichert: Sie bleibt über das Neuladen der Seite und die nächste Anmeldung hinaus erhalten, gilt aber nur auf diesem Gerät und in diesem Browser. An einem anderen Arbeitsplatz legen Sie den Standardkalender daher erneut fest.
+Die Festlegung als Standardkalender wird in Ihrem Browser gespeichert: Sie bleibt über das Neuladen der Seite erhalten, gilt aber nur auf diesem Gerät und in diesem Browser. Beim Abmelden wird sie aufgehoben; nach einer erneuten Anmeldung ist wieder der erste beschreibbare Kalender vorausgewählt. An einem anderen Arbeitsplatz legen Sie den Standardkalender daher erneut fest.
 
 Steht der festgelegte Kalender nicht mehr als eigener, beschreibbarer Kalender zur Verfügung – etwa weil Sie ihn gelöscht haben oder Ihnen die Schreibrechte daran entzogen wurden –, wird die Festlegung automatisch aufgehoben.
 

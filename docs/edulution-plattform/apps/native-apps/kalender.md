@@ -59,6 +59,8 @@ Das Menü steht in allen Ansichten zur Verfügung, auch in der [Stundenplan-Ansi
 
 Solange Sie über keinen Kalender verfügen, in den Sie Termine eintragen dürfen, ist **Termin erstellen** deaktiviert; im Menü erscheint dann der Hinweis, dass dafür ein beschreibbarer Kalender benötigt wird. **Kalender anlegen** bleibt in diesem Fall verfügbar – Sie können sich also zunächst einen eigenen Kalender anlegen und darin anschließend Termine erstellen.
 
+Sind alle Kalender, in die Sie schreiben dürfen, als Stundenplan markiert, ist **Termin erstellen** außerhalb der [Stundenplan-Ansicht](#stundenplan) ebenfalls deaktiviert. Der Hinweis im Menü verweist dann auf den Stundenplan: Öffnen Sie ihn über die Seitenleiste und legen Sie den Termin dort an.
+
 ### Ansicht aktualisieren
 
 Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die Termine des aktuell angezeigten Zeitraums und der aktiven Kalender erneut vom Server, ohne dass Sie die Seite neu laden oder wegblättern müssen – nützlich, um zwischenzeitlich an anderer Stelle geänderte Termine anzuzeigen. Während des Aktualisierens dreht sich das Symbol der Schaltfläche, sie ist vorübergehend deaktiviert und es erscheint die kleine Ladeanzeige.
@@ -79,6 +81,8 @@ Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet d
 ### Kalender ein- und ausblenden
 
 Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Neu abonnierte Kalender sind zunächst eingeblendet.
+
+Auf dem Smartphone liegt die Kalenderliste im Menü, das Sie über die Menü-Schaltfläche oben links öffnen. Das Menü bleibt geöffnet, während Sie Kalender ein- und ausblenden oder das Kontextmenü eines Kalenders verwenden, sodass Sie mehrere Kalender nacheinander umschalten können. Es schließt sich, sobald ein Eintrag die Ansicht wechselt, etwa ein Stundenplan, oder wenn Sie außerhalb des Menüs tippen. Lange Kalendernamen werden im Menü auf zwei Zeilen umbrochen. Auf Geräten mit Touchbedienung, auch auf Notebooks mit Touchscreen, ist das Drei-Punkte-Symbol des [Kalenderkontextmenüs](#kalenderkontextmenü) ständig sichtbar und erscheint nicht erst, wenn Sie mit der Maus auf den Eintrag zeigen.
 
 Ihre Auswahl wird benutzerbezogen auf dem Server gespeichert. Sie bleibt daher über das Neuladen der Seite, eine erneute Anmeldung und einen Gerätewechsel hinweg erhalten – ein einmal ausgeblendeter Kalender bleibt ausgeblendet, bis Sie ihn wieder einblenden.
 
@@ -158,7 +162,7 @@ Auch im Stundenplan steht die angezeigte Woche in der Adresse (URL). Sie können
 
 Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)). Wie in den übrigen Rasteransichten verschieben Sie einen Termin auch hier [per Drag & Drop](#termine-per-drag--drop-verschieben) auf einen anderen Zeitabschnitt. Über der Stundenskala liegt wie in der Wochenansicht eine eigene Zeile für **ganztägige** Termine.
 
-Neue Termine legen Sie oben rechts über **Erstellen** und darin **Termin erstellen** an; ein Klick auf einen leeren Zeitabschnitt öffnet hier – anders als in der Wochen- und der Tagesansicht – keinen neuen Termin. Im Dialog ist der geöffnete Stundenplan bereits als Kalender vorausgewählt, auch wenn Sie an anderer Stelle einen [Standardkalender](#kalenderkontextmenü) festgelegt haben.
+Neue Termine legen Sie oben rechts über **Erstellen** und darin **Termin erstellen** an; ein Klick auf einen leeren Zeitabschnitt öffnet hier – anders als in der Wochen- und der Tagesansicht – keinen neuen Termin. Im Dialog ist der geöffnete Stundenplan bereits als Kalender vorausgewählt, auch wenn Sie an anderer Stelle einen [Standardkalender](#kalenderkontextmenü) festgelegt haben. Nur hier stehen im Feld **Kalender** auch Ihre übrigen Stundenpläne zur Auswahl.
 
 Ist der geöffnete Stundenplan nicht mehr vorhanden – etwa weil der Kalender gelöscht oder seine Stundenplan-Markierung entfernt wurde –, wechselt die Ansicht selbsttätig zurück zur Kalenderübersicht. Lässt sich die Kalenderliste dagegen gar nicht laden, etwa weil der CalDAV-Server nicht erreichbar ist, bleiben Sie auf der Stundenplan-Ansicht und es erscheint der Hinweis **Stundenpläne konnten nicht geladen werden.** Ein Ladefehler wird also nicht als gelöschter Stundenplan behandelt; sobald die Verbindung wieder steht, genügt **Neu laden**.
 
@@ -197,7 +201,7 @@ Welcher Zeitpunkt dabei vorbelegt wird, hängt vom gewählten Weg ab:
 
 Füllen Sie im Dialog die folgenden Felder aus:
 
-1. **Kalender** – Der Kalender, in dem der Termin gespeichert wird. Zur Auswahl stehen nur Kalender, in die Sie schreiben dürfen. Vorausgewählt ist der über das [Kalenderkontextmenü](#kalenderkontextmenü) als Standard festgelegte Kalender, andernfalls der erste beschreibbare Kalender.
+1. **Kalender** – Der Kalender, in dem der Termin gespeichert wird. Zur Auswahl stehen nur Kalender, in die Sie schreiben dürfen. Als Stundenplan markierte Kalender werden nur in der [Stundenplan-Ansicht](#stundenplan) angeboten; in **Monat**, **Woche**, **Tag** und **Agenda** fehlen sie, da ihre Termine dort nicht erscheinen. Bearbeiten Sie einen bestehenden Stundenplan-Termin außerhalb der Stundenplan-Ansicht, bleibt sein eigener Kalender auswählbar. Vorausgewählt ist der über das [Kalenderkontextmenü](#kalenderkontextmenü) als Standard festgelegte Kalender, andernfalls der erste beschreibbare Kalender.
 2. **Titel** – Die Bezeichnung des Termins.
 3. **Beschreibung** – Optionaler ausführlicher Text.
 4. **Ort** – Optionale Ortsangabe.
@@ -215,7 +219,7 @@ Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender
 
 Ein Klick auf einen bestehenden Termin öffnet denselben Dialog wie beim Erstellen, sodass Sie alle Felder ändern können. Das gilt für Termine, die Sie ändern dürfen — bei einem freigegebenen Kalender also abhängig von den Ihnen erteilten Rechten. Termine, die Sie nur ansehen dürfen, öffnen sich stattdessen in einer reinen Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)).
 
-Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Sie steht nur zur Verfügung, wenn Sie im betreffenden Kalender löschen dürfen. Vor dem endgültigen Entfernen erscheint eine Sicherheitsabfrage. Handelt es sich um einen Serientermin, werden Sie zusätzlich gefragt, für welche Termine die Löschung gelten soll (siehe [Serientermine und Wiederholungen](#serientermine-und-wiederholungen)).
+Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Sie steht nur zur Verfügung, wenn Sie im betreffenden Kalender löschen dürfen. Vor dem endgültigen Entfernen erscheint eine Sicherheitsabfrage. Bei einem Serientermin übernimmt diese Rolle die Abfrage **Wiederkehrenden Termin löschen**, in der Sie wählen, für welche Termine die Löschung gelten soll (siehe [Geltungsbereich beim Bearbeiten oder Löschen](#geltungsbereich-beim-bearbeiten-oder-löschen)). Mit **Löschen** in dieser Abfrage wird sofort gelöscht; eine weitere Sicherheitsabfrage folgt nicht.
 
 ## Termin in einen anderen Kalender verschieben
 

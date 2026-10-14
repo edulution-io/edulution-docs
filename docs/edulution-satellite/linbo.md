@@ -149,6 +149,12 @@ Die Rückfrage nennt, welche Dateien fehlen, sich geändert haben oder entfallen
 
 Beide Aktionen sind gesperrt, solange der Abgleich unbekannt ist. Das Ergebnis meldet die Plattform in den Meldungen des [Nachschlagewerks](./linbo-referenz.md#images).
 
+### Dienste neu starten
+
+**Dienste neu starten** in der Aktionsleiste braucht keine Auswahl. Nach Änderungen an Images startet es (ab Satellit 2.7.25) den Torrent-Dienst des Satelliten neu, damit er die geänderten Images verteilt. Der Satellit betreibt keinen Multicast-Dienst; die Plattform fasst ihn nicht an. Die Plattform fragt vorher nach, laufende Übertragungen werden beim Neustart unterbrochen. Danach meldet die Plattform „Neu gestartet: Torrent“.
+
+Dauert der Neustart länger als etwa 15 Sekunden, meldet die Seite, dass er noch läuft, und fragt alle 3 Sekunden den Zustand ab. Das Ergebnis erscheint nur, solange dieser Satellit geöffnet ist; ein Seiten- oder Satellitenwechsel beendet das Nachfragen. Liegt nach 3 Minuten kein Ergebnis vor, gilt der Ausgang als unbekannt. Der Knopf bleibt gesperrt, bis ein Ergebnis da ist oder die 3 Minuten abgelaufen sind; der Grund steht am Knopf. Scheitert der Neustart, nennt die Meldung einen festen Text, etwa dass der Torrent-Dienst auf dem Satelliten nicht läuft, der Satellit nicht als All-in-One läuft oder der Neustart nicht rechtzeitig fertig wurde. Ein Satellit, der den Neustart noch nicht kennt, lehnt ihn ab; die Meldung fordert dann zur Aktualisierung des Satelliten auf. Die Texte stehen im [Nachschlagewerk](./linbo-referenz.md#images).
+
 ### Prüfsumme prüfen
 
 Der Satellit berechnet die Prüfsumme und meldet, ob sie zur hinterlegten passt. Einen Fortschritt meldet er nicht. Bei großen Images dauert das länger, als die Verbindung zum Satelliten zulässt; die Prüfung läuft dann weiter, ihr Ergebnis ist aber nicht mehr abrufbar. Meldet der Satellit, dass keine Prüfsumme hinterlegt ist, sperrt die Plattform **Prüfsumme prüfen** für dieses Image. Haben Sie inzwischen einen anderen Satelliten gewählt, erscheint das Ergebnis trotzdem, mit dem Zusatz „Auf dem Satelliten …“.

@@ -9,7 +9,7 @@ Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer 
 ### Navigation
 
 - **Zurück** / **Weiter** (Pfeil-Schaltflächen) – Blättern vor oder zurück. Wie weit gesprungen wird, richtet sich nach der aktiven Ansicht: um einen Monat, eine Woche oder einen Tag. In der Agenda fehlen die beiden Schaltflächen, denn sie ist eine fortlaufende Liste, in der Sie einfach weiterblättern (siehe [Agenda](#agenda)).
-- **Heute** – Springt zum aktuellen Datum zurück. In der Agenda bringt **Heute** die Zeile des heutigen Tages wieder an den Anfang der Liste, auch wenn Sie weit nach unten geblättert haben.
+- **Heute** – Springt zum aktuellen Datum zurück. In der Agenda bringt **Heute** die Zeile des heutigen Tages wieder an den oberen Rand, auch wenn Sie weit nach unten geblättert haben.
 - Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt – in der Monatsansicht der Monatsname mit Jahr, in der Wochenansicht der Datumsbereich der angezeigten Woche, in der Tagesansicht das vollständige Datum und in der Agenda Monat und Jahr des gewählten Datums.
 - In der Wochen- und der Stundenplan-Ansicht wird zusätzlich die **Kalenderwoche** der angezeigten Woche als **KW _n_** (nach ISO 8601) eingeblendet.
 
@@ -48,7 +48,7 @@ Ein Link kann schließlich direkt **einen bestimmten Termin öffnen** – etwa a
 
 Öffnen Sie den Kalender ohne einen solchen Link – etwa über die Seitenleiste –, wird die **zuletzt von Ihnen verwendete Ansicht** mit dem heutigen Datum angezeigt. Gemerkt wird dabei nur eine Ansicht, die Sie selbst über die Umschaltung gewählt haben: Öffnen Sie den Link einer Kollegin, ändert das nicht, mit welcher Ansicht Ihr eigener Kalender künftig startet.
 
-Smartphone und Computer merken sich ihre Ansicht getrennt voneinander. Ohne gemerkte Ansicht startet der Kalender auf dem Smartphone und in der [edulution.io App](/docs/edulution-app) mit der **Agenda**, am Computer mit der **Monatsansicht**. Wählen Sie am Computer etwa die Wochenansicht, öffnet sich der Kalender auf dem Smartphone weiterhin in der Ansicht, die Sie dort zuletzt verwendet haben. Ein Tablet im Browser zählt dabei als Computer. Die zuletzt verwendete Ansicht bleibt über das Abmelden hinaus nicht erhalten: Nach einer erneuten Anmeldung beginnt der Kalender wieder mit der jeweiligen Startansicht.
+Die zuletzt verwendete Ansicht merkt sich der Kalender in Ihrem Browser, und zwar getrennt für die Smartphone- und die Computer-Darstellung. Ohne gemerkte Ansicht startet der Kalender auf dem Smartphone und in der [edulution.io App](/docs/edulution-app) mit der **Agenda**, am Computer mit der **Monatsansicht**. Maßgeblich ist die Breite des Browserfensters: Unter 768 Pixeln gilt es als Smartphone, sonst als Computer. Ein Tablet im Browser zählt daher meist als Computer, ein kleines Tablet im Hochformat oder ein schmal gezogenes Fenster dagegen als Smartphone. Wechselt dasselbe Fenster die Darstellung, etwa beim Drehen eines Tablets, startet der Kalender mit der Ansicht, die Sie in dieser Darstellung zuletzt gewählt haben. Die zuletzt verwendete Ansicht bleibt über das Abmelden hinaus nicht erhalten: Nach einer erneuten Anmeldung beginnt der Kalender wieder mit der jeweiligen Startansicht.
 
 ### Neue Einträge anlegen
 
@@ -146,12 +146,12 @@ Die Agenda listet die Termine ab dem gewählten Datum als **fortlaufende Liste**
 
 Beachten Sie dabei die folgenden Besonderheiten:
 
-- **Weitere Tage werden beim Blättern nachgeladen.** Sobald Sie sich dem Ende der Liste nähern, erscheinen die folgenden Tage, bis etwa ein Jahr im Voraus. Danach lädt die Schaltfläche **Spätere Termine anzeigen** am Ende der Liste weitere Tage.
+- **Weitere Tage werden beim Blättern nachgeladen.** Sobald Sie sich dem Ende der Liste nähern, erscheinen die folgenden Tage, bis etwa ein Jahr nach dem ersten Tag der Liste. Danach lädt die Schaltfläche **Spätere Termine anzeigen** am Ende der Liste weitere Tage.
 - **Frühere Termine anzeigen** am Anfang der Liste ergänzt die vorangehenden 30 Tage. Die Liste bleibt dabei an der Stelle stehen, an der Sie gerade lesen; die früheren Tage erscheinen darüber.
-- **Der heutige Tag wird immer angezeigt** und ist mit **Heute** beschriftet, der folgende Tag mit **Morgen**. Hat der heutige Tag keine Termine, steht dort **Heute keine Termine**. Haben Sie die Zeile des heutigen Tages aus dem Blick gescrollt, führt die Schaltfläche **Zu heute** am oberen Rand der Liste dorthin zurück.
+- **Der heutige Tag wird immer angezeigt**, sofern er in der Liste liegt, und ist mit **Heute** beschriftet, der folgende Tag mit **Morgen**. Hat der heutige Tag keine Termine, steht dort **Heute keine Termine**. Ist die Zeile des heutigen Tages nicht zu sehen, weil Sie weitergeblättert haben oder zu einem anderen Datum gesprungen sind, führt die Schaltfläche **Zu heute** am oberen Rand der Liste dorthin zurück.
 - Alle anderen **Tage ohne Termine werden übersprungen**.
 - Das Datum bleibt beim Blättern am oberen Rand stehen, solange Termine dieses Tages zu sehen sind.
-- Jeder Eintrag zeigt **Beginn und Ende** des Termins und darunter, falls angegeben, den **Ort**. Lange Titel werden vollständig über mehrere Zeilen angezeigt.
+- Jeder Eintrag zeigt **Beginn und Ende** des Termins, bei ganztägigen Terminen stattdessen **ganztägig**, und darunter, falls angegeben, den **Ort**. Lange Titel werden vollständig über mehrere Zeilen angezeigt.
 - Innerhalb eines Tages stehen **ganztägige Termine** ganz oben, danach folgen die übrigen Termine nach Uhrzeit.
 - Ein Termin, der sich über mehrere Tage erstreckt, erscheint unter **jedem** dieser Tage. Das Zeichen ↳ steht dabei für die Zeit vor oder nach diesem Tag: Am ersten Tag lautet die Zeitangabe etwa **14:00 – ↳**, an den Tagen dazwischen nur **↳** und am letzten Tag **↳ – 09:00**.
 - Ein Klick auf einen Eintrag öffnet den Termin zum [Bearbeiten](#termine-bearbeiten-und-löschen). Termine lassen sich in der Agenda **nicht per Drag & Drop verschieben**; wechseln Sie dafür in eine der Rasteransichten.

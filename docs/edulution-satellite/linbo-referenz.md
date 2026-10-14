@@ -70,7 +70,7 @@ Im Auftrag nennt jeder Rechner, soweit der Satellit sie meldet, diese Angaben:
 | **Meldung des Satelliten** | Zusammenfassung der Diagnose im Wortlaut des Satelliten, nicht übersetzt. Dazu gehören der **Hinweis** und der Code der Diagnose. |
 | **Ausführung** | Womit der Satellit den Rechner bedient hat: `native` oder `node`. |
 | **Exit-Code** | Rückgabewert der Ausführung; `0` heißt, sie ist ohne Fehler beendet. |
-| **Unterbrochen** | Der Satellit wurde neu gestartet, bevor der Rechner fertig war. Der Rechner und der Auftrag gelten dann als fehlgeschlagen. |
+| **Unterbrochen** | Der Satellit wurde neu gestartet, bevor der Rechner fertig war. Wie der Rechner dastand, ist dann unbekannt. |
 
 ### Meldungen beim Senden von Aktionen
 

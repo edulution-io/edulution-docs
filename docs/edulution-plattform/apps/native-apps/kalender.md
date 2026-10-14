@@ -213,7 +213,7 @@ Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender
 
 **Titel** und **Ort** fassen jeweils höchstens 512 Zeichen, die **Beschreibung** höchstens 8192 Zeichen.
 
-Ein Teilnehmer wird nur mit einer gültigen E-Mail-Adresse gespeichert. Teilnehmer ohne gültige Adresse lässt edulution beim Speichern weg und nennt sie anschließend in einer Meldung: **Ohne E-Mail-Adresse nicht als Teilnehmer eingetragen: …**. Das betrifft auch Teilnehmer, die ein anderes Kalenderprogramm eingetragen hat, sobald Sie den Termin bearbeiten oder verschieben.
+Ein Teilnehmer wird nur mit einer gültigen E-Mail-Adresse gespeichert. Teilnehmer ohne gültige Adresse lässt edulution beim Speichern weg und nennt sie anschließend in einer Meldung: **Ohne gültige E-Mail-Adresse nicht als Teilnehmer eingetragen: …**. Das betrifft auch Teilnehmer, die ein anderes Kalenderprogramm eingetragen hat, sobald Sie den Termin bearbeiten oder verschieben.
 
 ## Termine bearbeiten und löschen
 
@@ -222,7 +222,9 @@ Ein Klick auf einen bestehenden Termin öffnet denselben Dialog wie beim Erstell
 Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Sie steht nur zur Verfügung, wenn Sie im betreffenden Kalender löschen dürfen. Vor dem endgültigen Entfernen erscheint eine Sicherheitsabfrage. Handelt es sich um einen Serientermin, werden Sie zusätzlich gefragt, für welche Termine die Löschung gelten soll (siehe [Serientermine und Wiederholungen](#serientermine-und-wiederholungen)).
 
 :::info[Termine aus anderen Kalenderprogrammen]
-Andere Programme, die denselben Kalender über CalDAV mitbenutzen, können Termine speichern, die über die Grenzen von edulution hinausgehen, etwa mit einer stündlichen Wiederholung oder einem Zeilenumbruch im Namen eines Teilnehmers. Solche Termine lassen sich in edulution weiterhin bearbeiten und verschieben, solange Sie den betreffenden Wert unverändert lassen. Ändern Sie ihn in einen Wert, der die Grenzen ebenfalls überschreitet, lehnt edulution das Speichern mit der Meldung **Die Änderung überschreitet die Grenzen für Termine** ab. Eine Ausnahme ist eine Beschreibung mit mehr als 8192 Zeichen: Sie müssen sie kürzen, bevor sich der Termin in edulution speichern lässt.
+Andere Programme, die denselben Kalender über CalDAV mitbenutzen, können Termine speichern, die über die Grenzen von edulution hinausgehen, etwa eine Serie mit 1500 Terminen oder einen Zeilenumbruch im Namen eines Teilnehmers. Solche Termine lassen sich in edulution weiterhin bearbeiten und verschieben, solange Sie den betreffenden Wert unverändert lassen. Ändern Sie ihn in einen Wert, der die Grenzen ebenfalls überschreitet, lehnt edulution das Speichern mit der Meldung **Die Änderung überschreitet die Grenzen für Termine** ab. Ist der Titel oder der Ort länger als 512 Zeichen oder die Beschreibung länger als 8192 Zeichen, müssen Sie den Text im Dialog kürzen, bevor Sie dort speichern können. Per Drag & Drop lässt sich ein solcher Termin ohne Kürzen verschieben.
+
+Eine Wiederholungsregel, die edulution nicht zulässt, etwa eine stündliche Wiederholung, blendet edulution aus: Der Termin erscheint nur einmal, ohne seine Wiederholungen. Bearbeiten oder verschieben lässt er sich erst, wenn Sie im Dialog eine neue **Wiederholung** festlegen. Bis dahin lehnt edulution das Speichern mit der Meldung **Die gespeicherte Wiederholungsregel dieser Serie überschreitet die erlaubten Grenzen …** ab, damit die Serie nicht unbemerkt zu einem einzelnen Termin wird.
 :::
 
 ## Termin in einen anderen Kalender verschieben
@@ -579,7 +581,7 @@ Ist eine Quelle vorübergehend nicht erreichbar, bleiben die zuletzt geladenen T
 - Sie können **bis zu 10 Web-Kalender** gleichzeitig abonnieren. Danach meldet edulution **Sie haben die maximale Anzahl an Web-Kalendern erreicht.**
 - Dieselbe Adresse lässt sich nur einmal abonnieren; ein zweiter Versuch meldet **Dieser Kalender ist bereits abonniert.**
 - Sehr große Quellen werden nur teilweise übernommen: edulution liest je Kalender bis zu 2 MB und bis zu 2000 Termine. Enthält eine Quelle mehr, fehlen die überzähligen Termine in der Ansicht.
-- Ein Serientermin, dessen Wiederholungsregel edulution nicht zulässt, wird ohne diese Regel übernommen; seine Wiederholungen fehlen dann in der Ansicht. Zulässig sind tägliche bis jährliche Wiederholungen mit höchstens 1000 Terminen und höchstens 96 Terminen an einem Tag. Eine stündliche Serie oder eine mit 1500 Terminen erscheint daher nicht als Serie.
+- Ein Serientermin, dessen Wiederholungsregel edulution nicht zulässt, wird ohne diese Regel übernommen; seine Wiederholungen fehlen dann in der Ansicht. Zulässig sind tägliche bis jährliche Wiederholungen mit einem Intervall von höchstens 1000 (etwa „alle 1000 Tage“) und höchstens 24 Terminen an einem Tag. Eine stündliche Serie erscheint daher nicht als Serie.
 - Aus Sicherheitsgründen werden nur Termindaten übernommen. Anhänge, Verknüpfungen und Erinnerungen einer externen Quelle wertet edulution nicht aus.
 
 <Audience roles="user">

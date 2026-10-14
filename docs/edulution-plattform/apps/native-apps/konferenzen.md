@@ -101,7 +101,9 @@ Schließen Sie das Konferenzfenster, verwirft die Plattform die gemerkte Größe
 
 Über **In neuem Tab öffnen** verschieben Sie die laufende Konferenz in einen Browser-Tab; das Fenster in der Plattform schließt sich dabei. Im Tab entfallen Minimieren, Maximieren und der beschriebene Wechsel zwischen den Apps.
 
-Diesen Weg schlägt die Plattform von sich aus vor, wenn sie die Konferenz nicht einbetten kann – etwa weil der Browser Cookies von Drittanbietern blockiert oder weil Sie die edulution-App verwenden. Es erscheint dann der Dialog **An dieser Konferenz teilnehmen** mit der Schaltfläche **In neuem Tab öffnen**.
+Kann die Plattform die Konferenz nicht einbetten, weil der Browser Cookies von Drittanbietern blockiert, öffnet sie die Konferenz beim Beitreten direkt in einem eigenen Tab. In der edulution-App erscheint stattdessen der Dialog **An dieser Konferenz teilnehmen** mit der Schaltfläche **In neuem Tab öffnen**.
+
+Hat die Administration **Konferenzen immer in neuem Tab öffnen** eingeschaltet, bettet die Plattform keine Konferenz mehr ein: Jede Konferenz öffnet sich beim Beitreten direkt in einem eigenen Tab. Eine Konferenz, die beim Einschalten bereits im Fenster läuft, bleibt dort, bis Sie sie schließen; die Einstellung greift ab dem nächsten Beitritt.
 
 :::note[Blockierte Pop-ups]
 Verhindert der Browser das Öffnen des Tabs, bleibt der Dialog **An dieser Konferenz teilnehmen** stehen. Erlauben Sie Pop-ups für die Plattform und wählen Sie **In neuem Tab öffnen** erneut. Ist die Konferenz bereits in einem Tab offen, meldet die Plattform „Diese Konferenz ist bereits in einem anderen Tab geöffnet.“
@@ -166,6 +168,8 @@ Löschen können Sie eigene Konferenzen – einzeln über **Löschen** auf der K
 :::caution[Konfiguration erforderlich]
 Die App setzt einen konfigurierten BigBlueButton-Server voraus. Die ausführliche Anleitung zur Einrichtung folgt in einem eigenen Administrations-Dokument.
 :::
+
+Manche BigBlueButton-Server verbieten, dass fremde Seiten sie einbetten. Das Konferenzfenster bleibt dann leer oder der Browser meldet, dass er die eingebettete Seite nicht öffnen darf, während **In neuem Tab öffnen** funktioniert. Schalten Sie für solche Server [**Konferenzen immer in neuem Tab öffnen**](../../konfiguration/einstellungen.md#konferenzen) ein.
 
 </Audience>
 

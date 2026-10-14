@@ -410,6 +410,16 @@ Global-Admins haben unabhängig von dieser Auswahl immer Zugriff auf den KI-Chat
 
 ---
 
+## Konferenzen
+
+Unter **Allgemein** legen Sie fest, ob die Plattform [Konferenzen](../apps/native-apps/konferenzen.md#das-konferenzfenster) in einem Fenster einbettet. Mit **Konferenzen immer in neuem Tab öffnen** öffnet sich jede Konferenz beim Beitreten in einem eigenen Browser-Tab. Nach der Installation ist der Schalter aus.
+
+Schalten Sie ihn ein, wenn Ihr BigBlueButton-Server das Einbetten auf fremden Seiten verbietet. Solche Server senden die Header `Content-Security-Policy: frame-ancestors 'self'` oder `X-Frame-Options: SAMEORIGIN`; der Browser blockiert das Konferenzfenster dann, obwohl die Konferenz in einem eigenen Tab funktioniert. Alternativ kann der Betreiber des BigBlueButton-Servers die Adresse Ihrer edulution-Instanz in `frame-ancestors` erlauben.
+
+Die Einstellung gilt für alle Nutzer. Eine bereits eingebettete Konferenz bleibt beim Umschalten geöffnet, die Änderung greift erst beim nächsten Beitritt.
+
+---
+
 ## Klassenraum (Veyon-Proxy)
 
 Der Klassenraum bindet die Bildschirmüberwachung der Schüler-Geräte über einen Veyon-WebAPI-Proxy an. In den Einstellungen der Klassenraum-App legen Sie unter **Veyon Proxy** fest, über welche Adresse edulution die Veyon-WebAPI erreicht.

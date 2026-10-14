@@ -253,7 +253,7 @@ Das nachträgliche Ändern der Wiederholungsregel einer bereits bestehenden Seri
 
 Termine, die ohne Zeitzone gespeichert wurden, zeigt der Kalender in der **Kalender-Standardzeitzone**, die die Administration in den [Globalen Einstellungen](../../konfiguration/einstellungen.md#globale-einstellungen) festlegt. Das betrifft Termine, die vor der Unterstützung von Zeitzonen angelegt wurden, und solche, die ein anderes Kalenderprogramm in UTC abgelegt hat.
 
-Bei Serienterminen sorgt das dafür, dass die Uhrzeit nach einer Zeitumstellung gleich bleibt, statt um eine Stunde zu springen. Bereits gelöschte oder einzeln geänderte Termine einer Serie bleiben dabei gelöscht beziehungsweise geändert. Die Zeitzone wird im Kalender gespeichert, sobald Sie den Termin ändern, verschieben oder einzelne Termine der Serie löschen.
+Bei Serienterminen bleibt dadurch die Uhrzeit nach einer Zeitumstellung gleich, statt um eine Stunde zu springen. Bereits gelöschte oder einzeln geänderte Termine einer Serie bleiben dabei gelöscht beziehungsweise geändert. Sobald Sie den Termin ändern, verschieben oder einzelne Termine der Serie löschen, wird die Zeitzone im Kalender gespeichert.
 
 Ganztägige Termine bleiben ohne Zeitzone. Serien im Stunden- oder Minutentakt, sehr weit zurückliegende Termine und Serien, die kurz vor oder nach Mitternacht beginnen, behalten die gespeicherte Zeit. Ist keine Standardzeitzone eingetragen, ändert sich an der Anzeige nichts.
 

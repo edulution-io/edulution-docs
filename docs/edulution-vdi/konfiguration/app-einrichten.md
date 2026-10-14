@@ -12,7 +12,7 @@ Die Desktop-Bereitstellung wird als native App über den [App-Store](../../edulu
 ## App verbinden
 
 1. Fügen Sie im **App-Store** die App **Desktop-Bereitstellung** hinzu.
-2. Hinterlegen Sie in den App-Einstellungen die **URL** des Guacamole-Dienstes. Ohne diesen Wert schlägt jeder Verbindungsversuch mit dem Hinweis auf eine fehlende Konfiguration fehl. Eine Änderung greift sofort – die Plattform verwirft die zwischengespeicherte Anmeldung am Dienst beim Speichern.
+2. Hinterlegen Sie in den App-Einstellungen die **URL** des Guacamole-Dienstes. Tragen Sie sie ohne Pfad ein, zum Beispiel `http://edulution-guacamole:8080`; die Plattform ergänzt `/guacamole` selbst. Ohne diesen Wert schlägt jeder Verbindungsversuch mit dem Hinweis auf eine fehlende Konfiguration fehl. Eine Änderung greift sofort – die Plattform verwirft die zwischengespeicherte Anmeldung am Dienst beim Speichern.
 3. Installieren Sie im Abschnitt **Docker Anwendungen** derselben App den Container `edulution-guacamole` (siehe [Container-Verwaltung](../../edulution-plattform/konfiguration/container-verwaltung.md)).
 
 Die **Proxy-Konfiguration** dieser App pflegt die Plattform selbst: Sie wird beim Installieren des Plugins übernommen und bei neuen Versionen automatisch nachgezogen. Ein Eingriff ist im Normalfall nicht nötig.

@@ -19,7 +19,7 @@ Bevor Sie mit der Installation der edulution Plattform beginnen, stellen Sie bit
 
 | Komponente | Anforderung |
 |------------|-------------|
-| Betriebssystem | Ubuntu 22.04 oder 24.04 Server (VM empfohlen) |
+| Betriebssystem | Ubuntu 24.04 oder 26.04 Server (VM empfohlen) |
 | Arbeitsspeicher | Mindestens 4 GB RAM |
 | Festplattenspeicher | Mindestens 10 GB frei |
 | Virtualisierung | Bei Proxmox: Prozessor-Typ "host" verwenden |

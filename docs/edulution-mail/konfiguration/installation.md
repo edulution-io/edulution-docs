@@ -425,6 +425,15 @@ docker exec edulution-api nc -vz dovecot 4190   # muss nun verbinden
 
 Der Neustart von edulution-mail bindet den aktuellen edu-api-Container wieder in das Mailcow-Netzwerk ein. Danach kehrt das Aktivieren der Abwesenheitsnotiz von 10s→502 auf eine Antwort im Millisekundenbereich zurück.
 
+### „Mailcow-Mailboxen konnten nicht abgerufen werden"
+
+Diese Meldung erscheint, wenn die edulution-api die Mailcow-API nicht nutzen kann. Welche Ursache vorliegt, zeigt der Fehler im Log der edulution-api (`docker logs edulution-api`):
+
+- `MailcowNotReachable` / `getaddrinfo ENOTFOUND mailcowdockerized-nginx-mailcow-1` → `edulution-api` ist nicht im Mailcow-Netzwerk. Gehen Sie vor wie unter [Abwesenheitsnotiz schlägt fehl](#abwesenheitsnotiz-schlägt-fehl-502--lange-ladezeiten) beschrieben und starten Sie edulution-mail neu.
+- `MailcowAccessDenied` / `api access denied for ip …` → Mailcow lehnt die Anfrage ab, obwohl der Server erreichbar ist. Der API-Schlüssel erlaubt den Zugriff nur von bestimmten IP-Adressen, und die Adresse des `edulution-api` Containers im Mailcow-Netzwerk gehört nicht dazu. edulution-mail legt den Schlüssel nur für `172.16.0.0/12` (IPv4) an. Aktiviert Mailcow im Docker-Netzwerk automatisch IPv6, sieht Mailcow die Anfragen der edulution-api mit einer IPv6-Absenderadresse und lehnt sie ab.
+
+Bei `api access denied for ip …` nennt die Meldung die abgelehnte Adresse. Tragen Sie diese in der [Mailcow-Administrationsoberfläche](#zugriff-auf-die-mailcow-administrationsoberfläche) unter **System → Konfiguration → Zugang → API** beim verwendeten API-Schlüssel in der Liste der erlaubten IP-Adressen (**Allow API access from these IPs**) ein. Eine IPv6-Adresse wie `fd4d:6169:6c63:6f77::14` muss dort ebenfalls stehen; ein reiner IPv4-Eintrag genügt nicht.
+
 ## Nächste Schritte
 
 Nach der Installation können Sie:

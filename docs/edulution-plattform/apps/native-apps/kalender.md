@@ -63,6 +63,17 @@ Solange Sie über keinen Kalender verfügen, in den Sie Termine eintragen dürfe
 
 Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die Termine des aktuell angezeigten Zeitraums und der aktiven Kalender erneut vom Server, ohne dass Sie die Seite neu laden oder wegblättern müssen – nützlich, um zwischenzeitlich an anderer Stelle geänderte Termine anzuzeigen. Während des Aktualisierens dreht sich das Symbol der Schaltfläche, sie ist vorübergehend deaktiviert und es erscheint die kleine Ladeanzeige.
 
+Meist ist das gar nicht nötig: Öffnen Sie den Kalender oder den Stundenplan oder kehren Sie aus einem anderen Browser-Tab oder einem minimierten Fenster zurück, lädt edulution die angezeigten Termine von selbst neu, sobald sie älter als eine Minute sind. So erscheinen Termine, die Sie oder andere inzwischen auf einem anderen Gerät oder in einem Kalenderprogramm geändert haben, ohne Ihr Zutun.
+
+### Wenn Termine nicht geladen werden können
+
+Schlägt das Laden der Termine fehl – etwa weil der Kalenderserver nicht erreichbar ist –, zeigt die Ansicht das deutlich an, statt einen leeren Zeitraum darzustellen:
+
+- **Noch keine Termine geladen:** An Stelle der Ansicht erscheint der Hinweis **Termine konnten nicht geladen werden.** mit der Schaltfläche **Erneut versuchen**.
+- **Termine bereits geladen:** Die Ansicht bleibt mit den bisher geladenen Terminen stehen. Darüber erscheint der Hinweis, dass die angezeigten Termine möglicherweise unvollständig oder veraltet sind, ebenfalls mit **Erneut versuchen**. Das betrifft etwa einen Zeitraum, in den Sie gerade geblättert haben, oder eine fehlgeschlagene Aktualisierung.
+
+Der Hinweis verschwindet, sobald die Termine wieder geladen werden konnten – über **Erneut versuchen**, über **Neu laden** oder beim Zurückblättern in einen bereits vollständig geladenen Zeitraum. Dasselbe gilt für den [Stundenplan](#stundenplan).
+
 ### Seitenleiste und Kalenderliste
 
 In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
@@ -251,7 +262,7 @@ Das nachträgliche Ändern der Wiederholungsregel einer bereits bestehenden Seri
 
 ### Geltungsbereich beim Bearbeiten oder Löschen
 
-Bearbeiten oder löschen Sie einen Termin, der Teil einer Serie ist – oder verschieben Sie ihn per Drag & Drop – werden Sie gefragt, für welche Termine die Änderung gelten soll:
+Bearbeiten oder löschen Sie einen Termin, der Teil einer Serie ist – oder verschieben Sie ihn per Drag & Drop – werden Sie gefragt, für welche Termine die Änderung gelten soll. Vorausgewählt ist bei jeder Abfrage **Nur dieser Termin**, unabhängig davon, was Sie beim letzten Mal gewählt haben:
 
 - **Nur dieser Termin**
 - **Dieser und alle folgenden Termine**
@@ -522,7 +533,7 @@ Da die Rechte je Sichtbarkeit vergeben werden, können sich die Termine **eines 
 
 ### Termine ansehen ohne Bearbeitungsrecht
 
-Termine, die Sie sehen, aber nicht bearbeiten dürfen, öffnen sich beim Anklicken in einer reinen **Detailansicht** statt im Bearbeiten-Dialog. Sie zeigt Zeitraum, Kalender, Ort, Beschreibung, Sichtbarkeit, Zeit-Status und Teilnehmer, bietet aber keine Eingabefelder.
+Termine, die Sie sehen, aber nicht bearbeiten dürfen, öffnen sich beim Anklicken in einer reinen **Detailansicht** statt im Bearbeiten-Dialog. Sie zeigt Zeitraum, Kalender, Ort, Beschreibung, Sichtbarkeit, Zeit-Status und Teilnehmer, bietet aber keine Eingabefelder. Bei ganztägigen Terminen nennt der Zeitraum den ersten und den letzten Tag des Termins; ein eintägiger Termin erscheint mit einem einzigen Datum.
 
 Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit sehen**, nennt die Detailansicht ausschließlich den Zeitraum und den Kalender und weist die Zeit als belegt aus — Titel, Ort, Beschreibung und Teilnehmer bleiben verborgen. Termine, für die Sie die Rolle **Keine** besitzen, erscheinen gar nicht erst im Kalender.
 

@@ -579,7 +579,7 @@ Ist eine Quelle vorübergehend nicht erreichbar, bleiben die zuletzt geladenen T
 - Sie können **bis zu 10 Web-Kalender** gleichzeitig abonnieren. Danach meldet edulution **Sie haben die maximale Anzahl an Web-Kalendern erreicht.**
 - Dieselbe Adresse lässt sich nur einmal abonnieren; ein zweiter Versuch meldet **Dieser Kalender ist bereits abonniert.**
 - Sehr große Quellen werden nur teilweise übernommen: edulution liest je Kalender bis zu 2 MB und bis zu 2000 Termine. Enthält eine Quelle mehr, fehlen die überzähligen Termine in der Ansicht.
-- Ein Serientermin, dessen Wiederholungsregel edulution nicht zulässt, wird ohne diese Regel übernommen und erscheint nur einmal. Zulässig sind tägliche bis jährliche Wiederholungen mit höchstens 1000 Terminen und höchstens 96 Terminen an einem Tag; eine stündliche Serie oder eine Serie mit 1500 Terminen erscheint also nur mit ihrem ersten Termin.
+- Ein Serientermin, dessen Wiederholungsregel edulution nicht zulässt, wird ohne diese Regel übernommen; seine Wiederholungen fehlen dann in der Ansicht. Zulässig sind tägliche bis jährliche Wiederholungen mit höchstens 1000 Terminen und höchstens 96 Terminen an einem Tag. Eine stündliche Serie oder eine mit 1500 Terminen erscheint daher nicht als Serie.
 - Aus Sicherheitsgründen werden nur Termindaten übernommen. Anhänge, Verknüpfungen und Erinnerungen einer externen Quelle wertet edulution nicht aus.
 
 <Audience roles="user">

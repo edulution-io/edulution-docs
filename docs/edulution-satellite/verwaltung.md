@@ -114,6 +114,7 @@ Die **Übersicht** gibt es nur für erreichbare Satelliten. Sie zeigt:
 
 - **Satellite-Übersicht** – Status, Version, Laufzeit und Seriennummer.
 - Kacheln für **Netzwerke**, **Container** und **Auth-Anbieter**; sie führen zur jeweiligen Unterseite.
+- **LINBO** – die Kachel zeigt **Hosts online** als „online / gesamt“ (zum Beispiel „3 / 10“), die Zahl der **Gruppen**, den **Schulserver** (erreichbar oder nicht erreichbar) und den **Aktiven Kernel** (Variante und Version). Fehlen Werte, steht dort „—“ ohne Fehlermeldung: bei den ersten drei Angaben gemeinsam, beim Kernel für sich. Die Kachel fehlt, wenn der Satellit keinen LINBO-Dienst meldet ([Wenn LINBO nicht verfügbar ist](./linbo.md#wenn-linbo-nicht-verfügbar-ist)); die Hosts im Einzelnen stehen unter [Hosts](./linbo.md#hosts).
 - **Container-Status** – wie viele Container laufen und wie viele gestoppt sind.
 - **Ressourcen** – Auslastung von CPU, Arbeitsspeicher und Speicher, dazu die Plattform des Geräts.
 

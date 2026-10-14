@@ -13,7 +13,7 @@ nicht liefen.
 In der Plattform heißt die App **Desktop-Bereitstellung**. Sie fordert beim Linuxmuster-Server eine freie virtuelle Maschine an und öffnet sie in einem Fenster innerhalb der Plattform. Eine zusätzliche Software auf dem Endgerät ist nicht nötig.
 
 :::info[Voraussetzung]
-Die App erscheint nur, wenn die Administration sie eingerichtet hat (siehe [Konfiguration](./konfiguration/index.md)). Die angebotenen Desktops stammen aus der VDI-Konfiguration des Linuxmuster-Servers – ohne dort eingerichtete virtuelle Maschinen bleiben die Karten auf der Seite leer.
+Die App erscheint nur, wenn die Administration sie eingerichtet hat (siehe [Konfiguration](./konfiguration/index.md)). Die angebotenen Desktops stammen aus der VDI-Konfiguration des Linuxmuster-Servers – ohne dort eingerichtete virtuelle Maschinen bleiben die Karten auf der Seite leer. Auf dem Server muss außerdem das Paket `edulution-linbo-vdi` installiert sein. Es verwaltet die virtuellen Maschinen auf einem Proxmox-Host und gehört nicht zu den Standard-Paketquellen des Servers.
 :::
 
 ## Die Übersichtsseite
@@ -65,11 +65,12 @@ Haben Sie das Fenster von Hand über **Minimieren** in die Leiste gelegt, bleibt
 | „Aktuell ist kein virtueller Desktop für dich verfügbar. Bitte versuche es später erneut." | Alle Clients dieses Systems sind belegt oder werden noch vorbereitet. Warten Sie und aktualisieren Sie die Übersicht. |
 | „Diese virtuelle Maschine wird bereits von einem anderen Benutzer verwendet." | Der angefragte Client ist an ein anderes Konto vergeben. |
 | „Linuxmuster VDI-Dienst antwortet nicht." | Der Schulserver liefert keine VDI-Daten. Wenden Sie sich an die Administration. |
+| „Auf dem Schulserver ist das Paket edulution-linbo-vdi nicht installiert. Bitte wende dich an deinen Administrator." | Die Linuxmuster-API kann das Paket `edulution-linbo-vdi` nicht laden, weil es fehlt oder nicht vollständig installiert ist. Die Karten zeigen dann keine Clients an. Prüfen Sie auf dem Linuxmuster-Server, ob das Paket installiert ist. |
 | „RDP-Dienst nicht verfügbar." | Der Guacamole-Container läuft nicht oder ist nicht erreichbar. |
 | „Guacamole ist nicht korrekt konfiguriert, bitte kontaktiere den Systemadministrator." | In den App-Einstellungen fehlt die URL des Guacamole-Dienstes. |
 | „Verbindung konnte nicht hergestellt werden. Bitte überprüfe die Anmeldedaten." | Guacamole hat die Sitzung abgelehnt; meist stimmen die hinterlegten Dienst-Zugangsdaten nicht. |
 
-Die letzten vier Meldungen haben ihre Ursache in der Einrichtung – die zugehörigen Stellschrauben beschreibt die [Konfiguration](./konfiguration/index.md).
+Die letzten fünf Meldungen haben ihre Ursache in der Einrichtung – die zugehörigen Stellschrauben beschreibt die [Konfiguration](./konfiguration/index.md).
 
 ## Weiter
 

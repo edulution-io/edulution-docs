@@ -169,6 +169,13 @@ Bei **Wird geseedet** und **Eingeschränkt** nennt die Marke außerdem die Zahl 
 | Die Zusatzdateien dieses Images sind bereits aktuell. | Das Image hat keine veralteten Zusatzdateien. Der Hinweis steht auch, solange der Abgleich unbekannt ist, und trifft dann nicht zu. | – |
 | Zusatzdateien für *n* Images abgeglichen, bei *m* Images ist es fehlgeschlagen: *Namen* | Der Abgleich ist bei einzelnen Images gescheitert. Die übrigen sind abgeglichen. | **Zusatzdateien holen** für die genannten Images wiederholen. |
 | Der Vorgang läuft möglicherweise noch auf dem Satelliten. Der Abgleich wird aktualisiert, sobald er abgeschlossen ist. | Der Vorgang dauert länger, als die Verbindung zum Satelliten zulässt. | Abwarten. |
+| Der Neustart läuft möglicherweise noch auf dem Satelliten. Prüfe den Zustand der Images in einem Moment erneut. | Die Verbindung zum Satelliten ist bei der Anfrage abgerissen, oder nach 3 Minuten liegt kein Ergebnis vor, weil der Satellit den Lauf vergessen hat oder einen anderen Lauf meldet. | Zustand der Images in einem Moment prüfen. |
+| Der Neustart läuft noch auf dem Satelliten. Das Ergebnis wird hier gemeldet, solange du diesen Satelliten geöffnet hast. | Der Neustart dauert länger als etwa 15 Sekunden, oder auf dem Satelliten läuft bereits ein Neustart. Die Seite fragt alle 3 Sekunden den Zustand ab. Der Knopf bleibt gesperrt. | Satelliten geöffnet lassen und abwarten. |
+| Der Torrent-Dienst läuft auf diesem Satelliten nicht, ein Neustart ist nicht möglich. | Der Torrent-Dienst ist auf dem Satelliten abgeschaltet. | – |
+| Der Neustart der Dienste ist auf diesem Satelliten nicht möglich, er läuft nicht als All-in-One. | Nur ein Satellit als All-in-One kann seinen Torrent-Dienst neu starten. | – |
+| Der Torrent-Dienst konnte nicht neu gestartet werden. | Der Torrent-Dienst ist nach dem Neustart nicht wieder gestartet. Der LINBO-Container beendet sich dann und wird durch seine Neustart-Richtlinie automatisch neu gestartet. LINBO ist dabei einige Minuten nicht erreichbar. | Warten, bis der Satellit wieder erreichbar ist, und den Zustand der Images prüfen. Bleibt der Fehler, steht die Ursache im Protokoll des LINBO-Containers auf dem Satelliten (Meldung „torrent did not come back after a requested restart“). |
+| Der Neustart wurde auf dem Satelliten nicht rechtzeitig abgeschlossen. | Der Satellit hat nach etwa 2 Minuten kein Ergebnis des Neustarts gemeldet. | Zustand der Images prüfen und den Neustart später einmal wiederholen. Bleibt er aus, das Protokoll des LINBO-Containers auf dem Satelliten prüfen. |
+| Dieser Satellit unterstützt den Neustart der Dienste noch nicht. Aktualisiere den Satelliten. | Der Satellit antwortet auf den Neustart mit „nicht gefunden“ oder „nicht erlaubt“ (404/405). | Satelliten aktualisieren. |
 | Die Prüfung von *Name* dauert länger als die Verbindung zum Satelliten zulässt. Sie läuft auf dem Satelliten weiter, das Ergebnis ist hier aber nicht abrufbar. | Die Berechnung der Prüfsumme dauert bei großen Images länger als die Verbindung. | – |
 | Für *Name* ist keine Prüfsumme hinterlegt. | Der Satellit kennt keine Prüfsumme zu diesem Image. **Prüfsumme prüfen** ist dafür gesperrt. | – |
 | Der Vorgang läuft möglicherweise noch auf dem Satelliten. Bitte die Liste neu laden, bevor erneut wiederhergestellt wird. | Der Satellit meldet den Ausgang der Wiederherstellung nicht zurück. | **Sicherungen** des Images erneut öffnen, bevor Sie nochmals wiederherstellen. |
@@ -190,13 +197,13 @@ Bei **Wird geseedet** und **Eingeschränkt** nennt die Marke außerdem die Zahl 
 | **Cursor** | Stelle, bis zu der der Satellit Änderungen zuletzt übernommen hat; **Keiner – der nächste Lauf liest den gesamten Bestand** zeigt, dass **Cursor leeren** gegriffen hat |
 | **Letzter Sicherungspunkt**, **Zuletzt wiederhergestellt** | Zeitpunkte |
 
-Läuft gerade ein Lauf, vermerkt die Seite das. Einen zuletzt gemeldeten Fehler zeigt sie im Wortlaut des Satelliten.
+Läuft gerade ein Lauf, vermerkt die Seite das und nennt, sofern der Satellit sie meldet, die aktuelle Phase und die Kennung des Laufs. Einen zuletzt gemeldeten Fehler zeigt sie im Wortlaut des Satelliten.
 
 ### Zustände der Karten
 
 Jede Karte zeigt **Aktuell**, **Ausstehend**, **Fehler** oder **Keine Angabe** und eine gemeldete Fehlermeldung im Wortlaut. **Ausstehend** heißt, dass der Satellit noch auf eine Rückmeldung wartet, etwa darauf, dass der DHCP-Dienst die Konfiguration übernommen hat. **Keine Angabe** und **Nicht gemeldet** bedeuten fehlende Information, keine Störung.
 
-Nur die Karte **DHCP-Konfiguration** zeigt vier Stufen mit je eigenem Zustand:
+Nur die Karte **DHCP-Konfiguration** zeigt vier Stufen mit je eigenem Zustand; die übrigen Karten zeigen sie im Dialog **Details**:
 
 | Stufe | Zustände |
 |-------|----------|
@@ -212,6 +219,8 @@ Nur der Abschnitt **Synchronisationszustand** und die **Sicherungspunkte** zeige
 |---------|---------|---------|
 | Der Synchronisationszustand konnte nicht geladen werden. | Mindestens eine von vier Abfragen (Modus, Zustand, Sicherungspunkte, Stand der Bestandteile) ist gescheitert. | Erreichbarkeit des Satelliten prüfen. |
 | Die Aktion konnte nicht ausgeführt werden. | Start, Zurücksetzen oder Wiederherstellen ist gescheitert. | Erreichbarkeit prüfen, Aktion wiederholen. |
+| Synchronisation ist deaktiviert | Der Satellit läuft im Offline-Modus; die Aktionen der Seite sind gesperrt. | Modus in den **Einstellungen** auf **Synchronisation aktiv** stellen. |
+| Wiederherstellung abgeschlossen | Ein Sicherungspunkt wurde zurückgespielt; die Meldung nennt die Zahl der Dateien und Symlinks. | – |
 | Eine Synchronisation läuft. | Ein Lauf ist aktiv. | Abwarten. |
 | Auf dem Satelliten läuft bereits eine Synchronisation. | Der Satellit hat bereits einen Lauf; die Plattform startet keinen zweiten. | Abwarten. |
 | Auf dem Satelliten läuft gerade eine Synchronisation. Die Aktion lässt sich bestätigen, sobald sie abgeschlossen ist. | Die Rückfrage ist offen, während ein Lauf läuft. | Abwarten. |
@@ -241,13 +250,29 @@ Der **Status** einer Adresse ist **Aktiv**, **Frei**, **Reserve** oder **Verworf
 
 ## Protokolle
 
-Die Tabelle zeigt **Stufe**, **Zeit**, **Meldung** und **Aktionen**. Die **Stufe** ist **Fehler**, **Warnung**, **Info** oder **Debug**.
+Registerkarte **Protokolle**: Die Tabelle zeigt **Stufe**, **Zeit**, **Meldung** und **Aktionen**. Die **Stufe** ist **Fehler**, **Warnung**, **Info** oder **Debug**.
 
 | Meldung | Ursache | Abhilfe |
 |---------|---------|---------|
 | Das Protokoll des Satelliten konnte nicht aktualisiert werden. | Eine Aktualisierung ist gescheitert. Die Seite behält den zuletzt geladenen Stand. | Erreichbarkeit prüfen. |
 | Das Protokoll des Satelliten konnte nicht gelesen werden. | Es war noch nichts geladen, als der Fehler auftrat. | Erreichbarkeit prüfen. |
 | Der Satellit hat noch keine Protokolleinträge. | Es gibt keine Einträge. | – |
+
+### Boot-Logs
+
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| Der Satellit hat keine Boot-Logs. | Es liegen keine Dateien vor. | – |
+| Die Boot-Logs konnten nicht gelesen werden. | Die Liste war nicht abrufbar. | Erreichbarkeit prüfen. |
+| Dieses Log ist größer als 5 MB und kann nicht angezeigt werden. | Der Satellit liefert größere Dateien nicht aus. | Datei auf dem Satelliten ansehen oder löschen. |
+| Das Boot-Log konnte nicht gelesen werden. | Der Satellit hat die Datei nicht geliefert. | Erneut öffnen, Erreichbarkeit prüfen. |
+
+### Überwachung
+
+| Meldung | Ursache | Abhilfe |
+|---------|---------|---------|
+| Eine kritische Prüfung ist fehlgeschlagen | Mindestens eine kritische Prüfung hat das Ergebnis **Fehlgeschlagen**. | Die Prüfung mit dem Zusatz **Kritisch** und dem Ergebnis **Fehlgeschlagen** in der Liste ansehen; ihre Zeile nennt die Einzelheit. |
+| Die Überwachungsprüfungen konnten nicht gelesen werden. | Der Satellit hat keinen Bericht geliefert. | Erreichbarkeit prüfen. |
 
 ## Hardware
 
@@ -286,6 +311,17 @@ Die Liste zeigt **Ordner**, **Hersteller**, **Produkt**, **Image**, **Dateien** 
 
 ## System
 
+### LINBO-Stack
+
+| Angabe | Inhalt |
+|--------|--------|
+| **Version** | Version des LINBO-Stacks auf dem Satelliten |
+| **Laufzeit** | Zeit seit dem Start des Stacks, etwa „2 d 3 h“, „5 h 12 min“ oder „7 min“ |
+| **Stand** | Zeitpunkt, zu dem der Satellit die Angaben erhoben hat |
+| **API**, **Redis**, **WebSocket** | **Läuft**, **Ausgefallen** oder **Unbekannt** |
+
+Die Karte erscheint nur, wenn der Satellit seinen Zustand meldet. Die Angaben werden mit der Seite alle 30 Sekunden aktualisiert und bei **Neu laden**.
+
 ### linbofs64
 
 Die Karte zeigt **Zustand**, **Größe**, **MD5**, **Geändert**, **Zuletzt gebaut** und **Hooks** („*n* ausgeführt, *m* mit Warnung“). Der **Zustand** ist **Bereit**, **Fehlt**, **Beschädigt**, **Nicht eingerichtet**, **Unvollständig** oder **Unbekannt**. Bei **Fehlt**, **Beschädigt**, **Nicht eingerichtet** und **Unvollständig** weist die Karte darauf hin, dass ein Neubau das behebt.
@@ -300,6 +336,7 @@ Die Karte nennt **Installiert**, **Verfügbar** und **Paketgröße**. Der Schrit
 |---------|---------|---------|
 | Die Boot-Dateien sind aktuell. | Es gibt keine neuere Version. | – |
 | Es gibt eine neuere LINBO-Version. Der Satellit läuft mit alten Boot-Dateien. | Die Paketquelle bietet eine neuere Version. | **LINBO aktualisieren** wählen. |
+| Der Satellit läuft mit alten Boot-Dateien, weil die Aktualisierung beim letzten Start fehlgeschlagen ist. | Beim Start des Satelliten ist die Einrichtung der neuen Boot-Dateien gescheitert, etwa weil die Paketquelle nicht erreichbar war. Er läuft mit den Boot-Dateien der vorherigen Version. Erst eine erfolgreiche Aktualisierung oder ein erfolgreicher Start nimmt die Meldung zurück. | Internetzugang und DNS des Satelliten prüfen. Wird **LINBO aktualisieren** angeboten, die Aktualisierung starten. |
 | Ob die Boot-Dateien aktuell sind, lässt sich nicht prüfen: Die Paketquelle ist nicht erreichbar. | Der Satellit erreicht die Paketquelle nicht. Ein Satellit mit alten Boot-Dateien aktualisiert sie erst, wenn er sie erreicht. | Internetzugang und DNS des Satelliten prüfen. |
 | Die installierte LINBO-Version ist nicht bekannt. | Der Satellit meldet die Version nicht. | – |
 | Die Version des LINBO-Pakets konnte nicht gelesen werden. | Die Abfrage ist gescheitert. | **Neu laden** wählen. |
@@ -398,6 +435,11 @@ Jedes Feld trägt eine Kennzeichnung, woher der Satellit den Wert bezieht:
 | Diese Einstellungen konnten nicht geändert werden: *Felder* | Der Satellit lehnt einzelne Felder ab. Die übrigen Änderungen sind gespeichert, die abgelehnten stehen weiter im Formular. | Werte korrigieren und erneut speichern. |
 | Die Einstellungen konnten nicht geladen werden. | Der Satellit hat die Einstellungen nicht geliefert. | Erreichbarkeit prüfen. |
 | Das LINBO-Client-Passwort konnte nicht geändert werden. | Der Satellit hat die Änderung nicht übernommen. Die Eingabefelder sind danach leer. | Passwort erneut eingeben. |
+| Der Satellit hat nicht rechtzeitig geantwortet. Er baut linbofs64 möglicherweise noch mit dem neuen Passwort neu auf. Prüfe in einigen Minuten, ob sich ein LINBO-Client anmelden kann, und setze das Passwort sonst erneut. | Der Satellit hat innerhalb der Wartezeit nicht geantwortet. Ob er die Änderung übernommen hat, ist offen. Die Eingabefelder sind danach leer. | Wie in der Meldung beschrieben vorgehen. |
 | Der Schulserver ist erreichbar. | Ergebnis von **Verbindung testen**, mit Version der API und Antwortzeit. | – |
 | Der Schulserver antwortet, meldet aber keinen betriebsbereiten Zustand. Bitte Benutzer und Passwort prüfen. | Ergebnis von **Verbindung testen** | **Benutzer** und **Passwort** prüfen. |
 | Der Schulserver ist nicht erreichbar. | Ergebnis von **Verbindung testen** | **API-Adresse** und Netzwerkfreigaben prüfen. |
+| Der LMN-Server hat die Zugangsdaten abgelehnt. | Ergebnis von **Schulen laden**: Der LMN-Server hat **LMN-Benutzer** oder **LMN-Passwort** nicht angenommen. | Zugangsdaten prüfen. |
+| Die Schulen konnten nicht vom LMN-Server geladen werden. | Ergebnis von **Schulen laden**: Die Abfrage ist gescheitert, etwa weil der LMN-Server, der Tunnel oder der Satellit nicht erreichbar ist. | **API-Adresse** und Erreichbarkeit prüfen; die Schule von Hand eintragen. |
+| Der LMN-Server meldet keine Schulen. | Ergebnis von **Schulen laden**: Die Antwort enthält keine Schule. | Die Schule von Hand eintragen. |
+| Die gespeicherte Einstellung für die Synchronisation gilt erst nach einem Neustart des LINBO-Dienstes auf dem Satelliten. Bis dahin läuft er noch im bisherigen Modus. | Der Wert von **Synchronisation aktiv** weicht vom Modus ab, in dem der Dienst läuft. | LINBO-Dienst auf dem Satelliten neu starten. |

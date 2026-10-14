@@ -128,7 +128,13 @@ Was Sie im Protokoll jetzt sehen sollten und wie lange es dauert, steht in [Betr
 
 ## Gruppe in der Plattform bearbeiten
 
-Die Einstellungen einer VDI-Gruppe lassen sich später auch in edulution ändern: In der App **Schulserver** unter **LINBO → Gruppen** öffnet die Aktion **VDI** die [VDI-Konfiguration](../../edulution-server/linuxmuster.md#vdi-konfiguration) der Gruppe. Dort stehen Name, Adressen, Kerne, Arbeitsspeicher, Speicher, Festplattengröße, VLAN und die Nummern der Master. Felder, die der Dialog nicht zeigt, bleiben erhalten. Eine Änderung an Kernen, Arbeitsspeicher oder Festplatte lässt den Dienst die Vorlage und danach alle Klone neu bauen.
+Die Einstellungen einer VDI-Gruppe lassen sich später auch in edulution ändern: In der App **Schulserver** unter **LINBO → Gruppen** öffnet die Aktion **VDI** die [VDI-Konfiguration](../../edulution-server/linuxmuster.md#vdi-konfiguration) der Gruppe. Dort stehen Name, Adressen, Kerne, Arbeitsspeicher, Speicher, Festplattengröße, VLAN und die Nummern der Master. Felder, die der Dialog nicht zeigt, bleiben erhalten.
+
+![Dialog VDI-Konfiguration der Gruppe win11 in der App Schulserver](/img/vdi/vdi-dialog.png)
+
+:::caution[VDI aktiviert muss angehakt sein]
+Der Dialog versteht für **VDI aktiviert** nur die Werte `true` und `false`. Eine von Hand oder von einer älteren Version geschriebene Datei mit `"activated": "yes"` erscheint hier als nicht aktiviert; ein **Speichern** würde die Gruppe abschalten. Haken Sie das Feld in dem Fall an, bevor Sie speichern.
+::: Eine Änderung an Kernen, Arbeitsspeicher oder Festplatte lässt den Dienst die Vorlage und danach alle Klone neu bauen.
 
 ## Aktualisieren
 

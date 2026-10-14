@@ -25,7 +25,9 @@ In der Proxmox-Weboberfläche erscheint die Vorlage mit dem Namen aus der VDI-Ko
 
 ![Vorlage und Klone einer VDI-Gruppe in Proxmox; die Notizen der Vorlage zeigen die Verwaltungsdaten](/img/vdi/proxmox-vorlage-und-klone.png)
 
-Sobald mindestens ein Klon fertig ist, zeigt die App **Desktop-Bereitstellung** auf der Karte **Windows 11** „1 Client verfügbar“.
+Sobald Klone fertig sind, zeigt die App **Desktop-Bereitstellung** deren Zahl auf der Karte der Gruppe. Die Karte **Ubuntu** bleibt bei „0 Clients verfügbar“, solange es keine Gruppe `ubuntu` gibt.
+
+![Desktop-Bereitstellung mit fünf verfügbaren Windows-11-Clients](/img/vdi/desktop-karten.png)
 
 ## Zustand prüfen
 

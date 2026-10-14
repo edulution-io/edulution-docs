@@ -146,7 +146,7 @@ Die Jahresansicht zeigt die zwölf Monate des angezeigten Jahres als kleine Mona
 - Ein Termin über mehrere Tage, etwa ganztägige Ferien, zählt an **jedem** dieser Tage. Ein Serientermin zählt an jedem Tag, an dem er stattfindet.
 - Gezählt werden nur die Termine der eingeblendeten Kalender. Ausgeblendete Kalender und als [Stundenplan](#stundenplan) markierte Kalender fließen nicht ein.
 - Ein Klick auf einen **Tag** öffnet die [Tagesansicht](#tag) für dieses Datum, ein Klick auf einen **Monatsnamen** die [Monatsansicht](#monat) dieses Monats. Die so geöffnete Ansicht gilt als zuletzt verwendet (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). Termine anlegen oder verschieben können Sie in der Jahresansicht nicht.
-- Auf schmalen Bildschirmen wie dem Smartphone stehen die Monate untereinander, und die Ansicht springt beim Öffnen zum Monat des gewählten Datums. Ein Tipp auf einen Tag öffnet dort statt der Tagesansicht die [Agenda](#agenda) ab diesem Tag.
+- Beim Öffnen springt die Ansicht zum Monat des gewählten Datums, wenn er nicht ohnehin zu sehen ist. Auf dem Smartphone stehen die Monate untereinander, und ein Tipp auf einen Tag öffnet dort statt der Tagesansicht die [Agenda](#agenda) ab diesem Tag.
 - Mit der Tastatur: Von den Tagen des Jahres liegt nur der gewählte Tag in der Reihenfolge der Tabulatortaste. Von dort erreichen Sie die übrigen Tage mit den **Pfeiltasten** (Vortag, Folgetag, Vor- und Folgewoche) und mit **Bild auf** und **Bild ab** (einen Monat zurück oder vor). Die Eingabetaste öffnet den Tag. Screenreader lesen zu jedem Tag das Datum und die Zahl seiner Termine vor.
 
 ### Agenda

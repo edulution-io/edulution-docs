@@ -63,13 +63,13 @@ Solange Sie über keinen Kalender verfügen, in den Sie Termine eintragen dürfe
 
 Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die Termine des aktuell angezeigten Zeitraums und der aktiven Kalender erneut vom Server, ohne dass Sie die Seite neu laden oder wegblättern müssen – nützlich, um zwischenzeitlich an anderer Stelle geänderte Termine anzuzeigen. Während des Aktualisierens dreht sich das Symbol der Schaltfläche, sie ist vorübergehend deaktiviert und es erscheint die kleine Ladeanzeige.
 
-Meist ist das gar nicht nötig: Öffnen Sie den Kalender oder den Stundenplan oder kehren Sie aus einem anderen Browser-Tab oder Fenster zurück, lädt edulution die angezeigten Termine von selbst neu, sobald sie älter als eine Minute sind. So erscheinen Termine, die Sie oder andere inzwischen auf einem anderen Gerät oder in einem Kalenderprogramm geändert haben, ohne Ihr Zutun.
+Meist ist das gar nicht nötig: Öffnen Sie den Kalender oder den Stundenplan oder kehren Sie aus einem anderen Browser-Tab oder einem minimierten Fenster zurück, lädt edulution die angezeigten Termine von selbst neu, sobald sie älter als eine Minute sind. So erscheinen Termine, die Sie oder andere inzwischen auf einem anderen Gerät oder in einem Kalenderprogramm geändert haben, ohne Ihr Zutun.
 
 ### Wenn Termine nicht geladen werden können
 
 Schlägt das Laden der Termine fehl – etwa weil der Kalenderserver nicht erreichbar ist –, zeigt die Ansicht das deutlich an, statt einen leeren Zeitraum darzustellen:
 
-- **Noch keine Termine geladen:** An Stelle der Ansicht erscheint der Hinweis **Termine konnten nicht geladen werden** mit der Schaltfläche **Erneut versuchen**.
+- **Noch keine Termine geladen:** An Stelle der Ansicht erscheint der Hinweis **Termine konnten nicht geladen werden.** mit der Schaltfläche **Erneut versuchen**.
 - **Termine bereits geladen:** Die Ansicht bleibt mit den bisher geladenen Terminen stehen. Darüber erscheint der Hinweis, dass die angezeigten Termine möglicherweise unvollständig oder veraltet sind, ebenfalls mit **Erneut versuchen**. Das betrifft etwa einen Zeitraum, in den Sie gerade geblättert haben, oder eine fehlgeschlagene Aktualisierung.
 
 Der Hinweis verschwindet, sobald die Termine wieder geladen werden konnten – über **Erneut versuchen**, über **Neu laden** oder beim Zurückblättern in einen bereits vollständig geladenen Zeitraum. Dasselbe gilt für den [Stundenplan](#stundenplan).

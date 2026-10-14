@@ -20,11 +20,27 @@ Die Unterseiten sind **Gruppen**, **Hosts**, **Images**, **Synchronisation**, **
 
 Meldet der Satellit keinen LINBO-Dienst, zeigen alle Unterseiten statt ihres Inhalts den Hinweis „LINBO ist auf diesem Satelliten nicht verfügbar.“ mit einer Erklärung.
 
-1. Richten Sie LINBO in der Verwaltungsoberfläche des Satelliten auf der Seite **Satellite Linbo** ein, siehe [Einrichtung mit edulution](./einrichtung-mit-edulution.md#9-linbo-einrichten-optional).
+1. Wählen Sie unter dem Hinweis **LINBO einrichten** und folgen Sie dem [Einrichtungsdialog](#linbo-einrichten). Sie müssen dafür nicht in die Verwaltungsoberfläche des Satelliten wechseln.
 2. Prüfen Sie unter **Einstellungen → Satellites** das Abzeichen **Linbo** am Satelliten. Es zeigt, ob der Dienst läuft.
 3. Wählen Sie **Erneut versuchen**. Das lädt die Satellitenliste der Plattform neu.
 
 Ist der Satellit nicht erreichbar, bleibt die Unterseite stehen und meldet einen Fehler.
+
+### LINBO einrichten
+
+Der Dialog **LINBO einrichten** legt die Konfiguration an und startet die LINBO-Installation auf dem Satelliten. Er hat drei Schritte:
+
+1. **Verbinden.** Geben Sie die IP-Adresse des Linuxmuster-Servers sowie den API-Benutzer und sein Passwort ein. Als Benutzer ist `global-admin` vorbelegt. Mit **Verbinden** liest der Dialog das Netzwerk des Servers und die IP-Adresse und den Hostnamen des Satelliten aus. Das Passwort dient nur dem Verbinden und wird nicht wieder angezeigt.
+2. **Werte prüfen.** Hostname, Domäne, IP-Adresse von LINBO, VLAN-ID, Gateway, DNS-Server, Subnetz, Netzmaske und Schule sind vorausgefüllt, soweit sie sich ermitteln ließen. Liefert der Server keine Netzwerkdaten, oder erkennt der Satellit seine eigene Adresse nicht, weist der Dialog darauf hin und Sie tragen die Werte selbst ein. Fehlerhafte Felder sind markiert.
+3. **Speichern und einrichten.** Der Dialog speichert die Konfiguration und startet die Installation. Er zeigt den Fortschritt und das Protokoll des Satelliten, bis die Installation endet. Solange sie läuft, lässt sich der Dialog nicht schließen.
+
+Endet die Installation erfolgreich, ist der Hinweis verschwunden und die Unterseiten zeigen ihren Inhalt. Schlägt sie fehl, steht die Meldung des Satelliten im Dialog, und **Erneut versuchen** startet die Installation neu.
+
+Die Installation kann länger dauern als die Verbindung zum Satelliten offen bleibt. Reißt die Verbindung ab, fragt der Dialog den Stand weiter ab und meldet, dass die Verbindung unterbrochen ist. Lässt sich der Stand zehnmal hintereinander nicht abrufen oder dauert die Installation länger als 30 Minuten, zeigt der Dialog „Ergebnis unbekannt“. Die Installation läuft dann unter Umständen auf dem Satelliten weiter. Prüfen Sie den Stand später am Abzeichen **Linbo** oder wählen Sie **Erneut versuchen**. Läuft bereits eine Installation, schließt sich der Dialog ihr an, statt eine zweite zu starten. Merkt sich der Satellit den Stand nicht mehr, etwa nach einem Neustart, ist das Ergebnis ebenfalls unbekannt.
+
+### Einrichtung ändern oder löschen
+
+Ist LINBO schon eingerichtet, öffnet **Einstellungen** in der Aktionsleiste den [Einstellungsdialog](#einstellungen). Dessen Schaltfläche **LINBO-Einrichtung verwalten** schließt ihn und öffnet den Einrichtungsdialog mit der gespeicherten Konfiguration. Das Passwort bleibt leer. Lassen Sie es leer, bleibt das gespeicherte Passwort unverändert. **Speichern und neu einrichten** übernimmt die Änderungen und installiert LINBO neu. **Konfiguration löschen** stoppt LINBO auf dem Satelliten und löscht die Konfiguration, nach einer Bestätigung.
 
 ## Gruppen
 

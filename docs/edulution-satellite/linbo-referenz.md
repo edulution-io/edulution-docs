@@ -86,6 +86,7 @@ Im Auftrag nennt jeder Rechner, soweit der Satellit sie meldet, diese Angaben:
 | Ohne MAC-Adresse übersprungen: *Namen* | Für den Rechner ist keine MAC-Adresse hinterlegt. | MAC-Adresse am Server eintragen. |
 | Ohne LINBO-Netzwerkstart übersprungen: *Namen* | In der Geräteliste ist für den Rechner kein LINBO-Netzwerkstart eingetragen. | LINBO-Netzwerkstart am Server eintragen. |
 | *n* von *m* Rechnern konnten nicht geplant werden: *Namen* | Der Satellit konnte die Kette für den nächsten Start nicht vormerken. | Aktion für die genannten Rechner wiederholen. |
+| *n* von *m* Rechnern konnten nicht geplant werden: *Namen* (beim Aufwecken mit Kette) | Planen und Wecken laufen in einer Anfrage (Satellit ab 2.7.25). Der Satellit hat die Kette für diese Rechner nicht vormerken können. Ab Satellit 2.7.26 weckt er sie nicht; Satellit 2.7.25 weckt sie trotzdem. | Aktion für die genannten Rechner wiederholen. |
 | *n* von *m* Weckpaketen gesendet – ob die Rechner starten, zeigt erst ihr Status | Die Zahl zählt gesendete Pakete, nicht gestartete Rechner. | Spalte **Status** beobachten. |
 | *n* Weckpakete konnten nicht gesendet werden | Der Satellit konnte einzelne Pakete nicht senden. | Aufwecken wiederholen. |
 | Der Satellit hat *n* von *m* Rechnern übernommen. Die übrigen kennt er nicht oder sie starten nicht über das Netzwerk. | Der Satellit hat weniger Rechner übernommen als gesendet. Die Plattform zeigt den Hinweis nur für Aufträge, die Sie in dieser Browsersitzung gesendet haben. | Synchronisation anstoßen und LINBO-Netzwerkstart in der Geräteliste am Server prüfen. |
@@ -363,7 +364,7 @@ Die Karte erscheint nur, wenn der Satellit seinen Zustand meldet. Die Angaben we
 
 ### linbofs64
 
-Die Karte zeigt **Zustand**, **Größe**, **MD5**, **Geändert**, **Zuletzt gebaut** und **Hooks** („*n* ausgeführt, *m* mit Warnung“). Der **Zustand** ist **Bereit**, **Fehlt**, **Beschädigt**, **Nicht eingerichtet**, **Unvollständig** oder **Unbekannt**. Bei **Fehlt**, **Beschädigt**, **Nicht eingerichtet** und **Unvollständig** weist die Karte darauf hin, dass ein Neubau das behebt.
+Die Karte zeigt **Zustand**, **Größe**, **MD5**, **Geändert**, **Zuletzt gebaut** und **Hooks** („*n* ausgeführt, *m* mit Warnung“). Darunter stehen, soweit der Satellit sie meldet, **Autorisierte Schlüssel**, **Dropbear-Schlüssel**, **SSH-Schlüssel** und **Passwort-Hash** (jeweils *Ja* oder *Nein*) sowie **Schlüsseldateien** (Anzahl der Dropbear-, SSH- und öffentlichen Schlüssel). Warnt ein Hook, steht dessen Meldung unter der Karte. Eine Liste nennt jeden installierten Hook mit **Vor dem Bauen** oder **Nach dem Bauen**; ein Hook, der nicht ausführbar ist, trägt den Zusatz „nicht ausführbar“. Der **Zustand** ist **Bereit**, **Fehlt**, **Beschädigt**, **Nicht eingerichtet**, **Unvollständig** oder **Unbekannt**. Bei **Fehlt**, **Beschädigt**, **Nicht eingerichtet** und **Unvollständig** weist die Karte darauf hin, dass ein Neubau das behebt.
 
 Der Hinweis auf wartende Änderungen gilt nur in dieser Browsersitzung.
 
@@ -383,11 +384,13 @@ Die Karte nennt **Installiert**, **Verfügbar** und **Paketgröße**. Der Schrit
 
 ### Kernel
 
-Varianten sind **Stable**, **Longterm** und **Legacy**. Die Karte zeigt **Aktive Variante**, **Version**, **Größe von linbo64**, **MD5 von linbo64** und **Letzter Wechsel**.
+Varianten sind **Stable**, **Longterm** und **Legacy**. Die Karte zeigt **Aktive Variante**, **Version**, **Größe von linbo64**, **MD5 von linbo64** und **Letzter Wechsel**. Zu jeder Variante stehen Version sowie Größe von Kernel und Modulen („Kernel … · Module …“).
 
 | Meldung | Ursache | Abhilfe |
 |---------|---------|---------|
 | Die Kernel-Konfiguration ist ungültig. | Der Wechsel ist gesperrt. | **Konfiguration reparieren** oder **Reparieren und neu bauen** wählen. Beides setzt auf **Stable** zurück. |
+| Vorlage fehlt: Im Kernel-Set wurde keine Basis-initramfs gefunden. | Dem Kernel-Satz fehlt die Basis-initramfs. | LINBO aktualisieren. |
+| Unvollständig (Hinweis: Variante unvollständig: Es fehlen Dateien.) | Eine Variante ist nur teilweise installiert. Sie lässt sich nicht aktivieren. | LINBO aktualisieren. |
 | Diese LINBO-Version liefert nur einen Kernel. Eine Variante lässt sich nicht wählen. | Es gibt nur einen Kernel. | – |
 | Letzter Fehler: *Text des Satelliten* | Der letzte Wechsel ist fehlgeschlagen. | Fehlertext prüfen, Wechsel wiederholen. |
 
@@ -400,6 +403,7 @@ Die Clients zeigen **In Ordnung**, **Firmware fehlt** oder **Kein Protokoll**. D
 | Noch kein Client hat ein Boot-Protokoll geliefert. | Es gibt nichts auszuwerten. | Clients starten. |
 | Keine Firmware gefunden. | Die Suche hat keinen Treffer. | Suchbegriff ändern. |
 | Die Suche ist fehlgeschlagen. | Der Satellit hat die Suche nicht beantwortet. | Erneut suchen. |
+| *n* eingetragen, *m* nicht gefunden, *k* bereits vorhanden | Ergebnis beim Eintragen mehrerer Dateien, auch beim empfohlenen Set. „Nicht gefunden“: Die Datei oder das Verzeichnis liegt nicht auf dem Satelliten. Sind alle nicht gefunden, erscheint die Meldung als Fehler. | Katalog prüfen: Einträge mit „Nicht auf dem Satelliten“ lassen sich erst eintragen, wenn die Firmware dort liegt. |
 | Die IP-Adresse ist ungültig. | Die Eingabe bei **Firmware von einem Client erkennen** ist keine IPv4-Adresse. | Adresse prüfen. |
 | Die SSH-Verbindung zum Client ist fehlgeschlagen oder der Satellit war nicht erreichbar. Ist der Client gestartet und erreichbar? | Der Client ist nicht in LINBO gestartet oder nicht erreichbar, oder die Verbindung zum Satelliten ist unterbrochen. | Client in LINBO starten, Netzwerk und Satellitenstatus prüfen, erneut erkennen. |
 | Die Anfrage hat zu lange gedauert. Das Ergebnis ist unbekannt, bitte erneut versuchen. | Der Client hat den Befehl nicht innerhalb von 15 Sekunden beantwortet, oder der Satellit hat der Plattform nicht rechtzeitig geantwortet. | Erneut erkennen. |

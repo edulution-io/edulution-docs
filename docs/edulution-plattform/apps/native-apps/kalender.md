@@ -473,12 +473,14 @@ Während eine [Freigabe](#kalender-freigeben) sich an Benutzer und Gruppen Ihrer
 Wer den Link besitzt, sieht die Inhalte des Kalenders **ohne Anmeldung**. Es gibt keine weitere Zugangsprüfung. Geben Sie den Link deshalb nur an den vorgesehenen Personenkreis weiter und bedenken Sie, dass er über Browser-Verläufe, Chat-Vorschauen oder Server-Protokolle weitergetragen werden kann.
 :::
 
-Nach dem Klick auf **Veröffentlichen** zeigt der Dialog zwei Adressen zum gleichen Kalender:
+Nach dem Klick auf **Veröffentlichen** zeigt der Dialog vier Adressen zum gleichen Kalender:
 
 - Den **Abonnement-Link** (`https://…`), den Sie in Google Kalender oder Outlook unter „Per URL hinzufügen“ einfügen.
 - Den **Link für einen Klick** (`webcal://…`), der auf macOS, iOS und vielen Desktop-Programmen das Abonnieren direkt startet.
+- Die **Webansicht**, eine Terminliste zum Öffnen im Browser (siehe [Webansicht und Termine als JSON](#webansicht-und-termine-als-json)).
+- **Termine als JSON**, dieselben Termine als Daten für eigene Anzeigen, etwa auf der Schul-Homepage.
 
-Solange der Kalender veröffentlicht ist, zeigt der Dialog beide Adressen bei jedem Öffnen erneut an — Sie müssen den Link also nicht aufbewahren.
+Solange der Kalender veröffentlicht ist, zeigt der Dialog alle vier Adressen bei jedem Öffnen erneut an — Sie müssen den Link also nicht aufbewahren.
 
 ### Was der Link preisgibt
 
@@ -496,6 +498,8 @@ Termine, die ein anderes Kalender-Programm mit einer edulution unbekannten Sicht
 - **Veröffentlichung zurückziehen** beendet die Veröffentlichung. Der Link liefert ab dem nächsten Abruf keine Termine mehr.
 - **Neuen Link erzeugen** ersetzt die Adresse durch eine neue. Der bisherige Link wird dabei sofort ungültig — verwenden Sie dies, wenn ein Link in falsche Hände geraten ist, und verteilen Sie anschließend die neue Adresse an alle vorgesehenen Abonnenten.
 
+Beides gilt für alle vier Adressen zugleich: Webansicht und Termine als JSON enden bzw. wechseln mit dem Abonnement-Link.
+
 :::info[Bereits abonnierte Programme aktualisieren verzögert]
 Wie schnell ein Abonnement die Änderung bemerkt, bestimmt das abonnierende Programm, nicht edulution. Google Kalender ruft einen abonnierten Kalender erfahrungsgemäß nur alle acht bis vierundzwanzig Stunden ab, Outlook in ähnlich großen Abständen. Nach dem Zurückziehen oder Erneuern eines Links können dort also noch eine Zeit lang zwischengespeicherte Termine erscheinen. Enthält ein Kalender Termine, die sofort niemand mehr sehen darf, genügt das Zurückziehen des Links allein daher nicht.
 :::
@@ -505,6 +509,31 @@ Löschen Sie einen veröffentlichten Kalender, wird seine Veröffentlichung auto
 ### Umfang des veröffentlichten Kalenders
 
 Der Link überträgt die Termine von fünf Jahren in der Vergangenheit bis fünf Jahre in der Zukunft. Serientermine werden als Serie übertragen, sodass das abonnierende Programm auch Wiederholungen außerhalb dieses Zeitraums fortschreibt. Termine, die Sie in edulution ändern, erscheinen beim nächsten Abruf des abonnierenden Programms.
+
+### Webansicht und Termine als JSON
+
+Die **Webansicht** zeigt die kommenden Termine des Kalenders als schlichte Liste, nach Monaten und Tagen gegliedert, ohne Anmeldung und ohne JavaScript. Am Ende der Seite steht ein Link zum Abonnieren des Kalenders. **Termine als JSON** liefert dieselben Termine als Daten, die eine eigene Anzeige auf jeder Website abrufen darf. Rufen Sie die Adresse dafür mit einem einfachen GET ohne eigene Header ab, sonst blockiert der Browser die Antwort. Scheitert der Abruf, etwa weil die Veröffentlichung zurückgezogen wurde, erfährt eine andere Website nur, dass er gescheitert ist, nicht warum.
+
+Beide zeigen ab heute die nächsten acht Wochen. Uhrzeiten gelten in deutscher Zeit (Europe/Berlin), Serientermine erscheinen als einzelne Termine. Über Parameter am Ende der Adresse passen Sie die Webansicht an, zum Beispiel `…?weeks=4&theme=dark&accent=%230081c6`:
+
+| Parameter | Werte | Ohne Angabe |
+|---|---|---|
+| `weeks` | 1 bis 26 Wochen (gilt auch für Termine als JSON) | 8 |
+| `lang` | `de`, `en`, `fr` | Sprache des Browsers, sonst Deutsch |
+| `theme` | `light`, `dark`, `system` | folgt der Einstellung des Besuchers |
+| `accent` | Farbe als `#rrggbb` (`#` in der Adresse als `%23`) | edulution-Blau |
+
+Ein ungültiger Wert wird durch die Vorgabe ersetzt. Bei `weeks` gilt `0` als 1 und eine zweistellige Zahl über 26 als 26; die Seite bleibt in jedem Fall erreichbar.
+
+Eine eigene Farbe übernimmt die Webansicht unverändert für Datumsangaben und Trennlinien. Ob sie auf hellem und auf dunklem Hintergrund gut lesbar ist, liegt bei Ihnen; prüfen Sie sie deshalb auch mit `theme=dark`.
+
+Für beide gelten die Einstellungen unter [Was der Link preisgibt](#was-der-link-preisgibt), mit zwei Einschränkungen: Teilnehmer und Organisator erscheinen nie, auch wenn Sie die E-Mail-Adressen freigegeben haben, und Titel, Ort und Beschreibung werden nach 200, 300 und 500 Zeichen abgeschnitten. Termine, die nur als belegte Zeit erscheinen, heißen in der Webansicht „Belegt“ in der gewählten Sprache, in den Daten `Busy`.
+
+Die Liste umfasst höchstens 500 Termine. Enthält der Zeitraum mehr als 500 Termine, oder lässt sich eine Serie mit einer ungewöhnlichen Wiederholungsregel nicht vollständig darstellen, weist die Webansicht darauf hin (in den Daten als `"truncated": true`); vollständig sind die Termine dann nur im Abonnement.
+
+:::info[Einbetten in andere Websites]
+Die Webansicht lässt sich derzeit nicht per `iframe` in eine andere Website einbinden; die Seite verbietet das Einbetten. Verlinken Sie sie stattdessen, oder bauen Sie mit **Termine als JSON** eine eigene Anzeige. Setzt ein Webserver oder Reverse-Proxy Ihrer Schule eigene Sicherheits-Header wie `X-Frame-Options` oder `Content-Security-Policy`, gelten diese zusätzlich.
+:::
 
 ## Abonnierte und schreibgeschützte Kalender
 

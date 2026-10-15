@@ -68,6 +68,7 @@ Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die 
 In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 
 - **Meine Kalender** – Kalender, die Ihnen gehören.
+- **Klassen**, **Projekte** und **Gruppen** – Kalender, die die Schule für Ihre Klassen, Projekte und Gruppen verwaltet (siehe [Von der Schule verwaltete Kalender](#von-der-schule-verwaltete-kalender)). Diese Gruppen erscheinen nur, wenn Sie mindestens einen solchen Kalender haben.
 - **Abonnierte Kalender** – Kalender, die andere für Sie freigegeben haben.
 - **Web-Kalender** – Externe Kalender, die Sie über ihre Adresse abonniert haben (siehe [Web-Kalender abonnieren](#web-kalender-abonnieren)).
 - **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
@@ -78,7 +79,7 @@ Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet d
 
 ### Kalender ein- und ausblenden
 
-Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Neu abonnierte Kalender sind zunächst eingeblendet.
+Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender**, **Klassen**, **Projekte**, **Gruppen** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Neu abonnierte Kalender sind zunächst eingeblendet.
 
 Ihre Auswahl wird benutzerbezogen auf dem Server gespeichert. Sie bleibt daher über das Neuladen der Seite, eine erneute Anmeldung und einen Gerätewechsel hinweg erhalten – ein einmal ausgeblendeter Kalender bleibt ausgeblendet, bis Sie ihn wieder einblenden.
 
@@ -101,6 +102,8 @@ Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalen
 - **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
 
 Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben**, **Kalender veröffentlichen** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
+
+Bei einem von der Schule verwalteten Kalender bietet das Kontextmenü nur die Anzeige-Aktionen und gegebenenfalls **Als Standardkalender festlegen**; Administratoren erhalten zusätzlich **Einstellungen** (siehe [Von der Schule verwaltete Kalender](#von-der-schule-verwaltete-kalender)).
 
 Bei einem als Stundenplan markierten Kalender führt der Eintrag in der Seitenleiste direkt in die [Stundenplan-Ansicht](#stundenplan); sein Kontextmenü enthält deshalb keine Anzeige-Aktionen, sondern **Stundenplan-Markierung entfernen**, **Einstellungen**, **Freigeben** und **Löschen**. Ein Stundenplan lässt sich nicht als Standardkalender festlegen.
 
@@ -333,7 +336,7 @@ Bestehende eigene Kalender verwalten Sie über die Einträge **Einstellungen** u
 
 Löschen Sie einen Kalender, dessen [Stundenplan-Ansicht](#stundenplan) Sie gerade geöffnet haben, kehren Sie automatisch zur Kalenderübersicht zurück. Schlägt das Löschen fehl, bleibt die Sicherheitsabfrage geöffnet und es erscheint eine Fehlermeldung, sodass Sie den Vorgang erneut auslösen können.
 
-Bei abonnierten oder schreibgeschützten Kalendern werden **Einstellungen** und **Löschen** nicht angeboten (siehe [Abonnierte und schreibgeschützte Kalender](#abonnierte-und-schreibgeschützte-kalender)). Der Server lässt Änderungen an fremden Kalendern auch dann nicht zu, wenn sie auf anderem Weg angefordert werden – Sie können ausschließlich eigene Kalender bearbeiten und löschen.
+Bei abonnierten oder schreibgeschützten Kalendern werden **Einstellungen** und **Löschen** nicht angeboten (siehe [Abonnierte und schreibgeschützte Kalender](#abonnierte-und-schreibgeschützte-kalender)). Der Server lässt Änderungen an fremden Kalendern auch dann nicht zu, wenn sie auf anderem Weg angefordert werden – Sie können ausschließlich eigene Kalender bearbeiten und löschen. Für [von der Schule verwaltete Kalender](#von-der-schule-verwaltete-kalender) gelten eigene Regeln.
 
 ## Kalender freigeben
 
@@ -525,6 +528,18 @@ Da die Rechte je Sichtbarkeit vergeben werden, können sich die Termine **eines 
 Termine, die Sie sehen, aber nicht bearbeiten dürfen, öffnen sich beim Anklicken in einer reinen **Detailansicht** statt im Bearbeiten-Dialog. Sie zeigt Zeitraum, Kalender, Ort, Beschreibung, Sichtbarkeit, Zeit-Status und Teilnehmer, bietet aber keine Eingabefelder.
 
 Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit sehen**, nennt die Detailansicht ausschließlich den Zeitraum und den Kalender und weist die Zeit als belegt aus — Titel, Ort, Beschreibung und Teilnehmer bleiben verborgen. Termine, für die Sie die Rolle **Keine** besitzen, erscheinen gar nicht erst im Kalender.
+
+## Von der Schule verwaltete Kalender
+
+Kalender für Klassen, Projekte und Gruppen verwaltet die Schule zentral. Sie stehen in der Seitenleiste unter **Klassen**, **Projekte** und **Gruppen** und nicht unter **Meine Kalender** oder **Abonnierte Kalender**, auch wenn Sie selbst Termine darin anlegen dürfen. Am Farbquadrat erkennen Sie sie an einem kleinen Gebäude-Symbol; der Hinweis beim Darüberfahren lautet **Von der Schule verwaltet**.
+
+Wer einen solchen Kalender sieht und darin schreiben darf, ergibt sich aus der Mitgliedschaft in der Klasse, dem Projekt oder der Gruppe. Deshalb lässt sich ein verwalteter Kalender weder freigeben noch veröffentlichen, abbestellen, als Stundenplan markieren oder löschen. Das gilt auch für Administratoren. Termine legen Sie darin wie gewohnt an, soweit Ihre Rechte es erlauben.
+
+Ein- und ausblenden können Sie einen verwalteten Kalender wie jeden anderen; Ihre Auswahl wird ebenso gespeichert (siehe [Kalender ein- und ausblenden](#kalender-ein--und-ausblenden)).
+
+**Einstellungen** erhalten nur Global-Admins sowie die Schul-Admins der Schule, zu der der Kalender gehört. Sie ändern dort **Name**, **Beschreibung** und **Farbe**; die Auswahl **Typ** fehlt. Ein neuer Name bleibt auch dann erhalten, wenn die Schule den Kalender später erneut abgleicht. Solange Sie den Namen nicht ändern, folgt er weiterhin dem Namen der Klasse, des Projekts oder der Gruppe.
+
+Auch auf anderem Weg lässt der Server keine dieser Änderungen zu. Er antwortet dann mit der Meldung „Dieser Kalender wird von der Schule verwaltet und kann hier nicht geändert werden.“
 
 ## Web-Kalender abonnieren
 

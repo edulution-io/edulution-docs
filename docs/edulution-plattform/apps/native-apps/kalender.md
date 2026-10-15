@@ -523,7 +523,7 @@ Beide zeigen ab heute die nächsten acht Wochen. Uhrzeiten gelten in deutscher Z
 | `theme` | `light`, `dark` | folgt der Einstellung des Besuchers |
 | `accent` | Farbe als `#rrggbb` (`#` in der Adresse als `%23`) | edulution-Blau |
 
-Ein ungültiger Wert wird durch die Vorgabe ersetzt, eine Wochenzahl außerhalb von 1 bis 26 auf den nächsten erlaubten Wert gesetzt; die Seite bleibt in jedem Fall erreichbar.
+Ein ungültiger Wert wird durch die Vorgabe ersetzt. Bei `weeks` gilt `0` als 1 und eine zweistellige Zahl über 26 als 26; die Seite bleibt in jedem Fall erreichbar.
 
 Für beide gelten die Einstellungen unter [Was der Link preisgibt](#was-der-link-preisgibt), mit zwei Einschränkungen: Teilnehmer und Organisator erscheinen nie, auch wenn Sie die E-Mail-Adressen freigegeben haben, und eine Beschreibung wird nach 500 Zeichen abgeschnitten.
 

@@ -71,11 +71,16 @@ jobs:
           npx docusaurus docs:version "$VERSION"
           echo "cut=true" >> "$GITHUB_OUTPUT"
 
+      # Both builds, because the one that is deployed is the one the version
+      # options can break: it leaves the development version out. A snapshot
+      # that fails here never reaches main, so main is never left with a
+      # version that cannot be released.
       - name: Verify the snapshot builds
         if: steps.cut.outputs.cut == 'true'
-        env:
-          DOCS_INCLUDE_NEXT: 'true'
-        run: npm run build
+        run: |
+          set -euo pipefail
+          npm run build
+          DOCS_INCLUDE_NEXT=true npm run build -- --out-dir build-check
 
       - name: Commit to main
         if: steps.cut.outputs.cut == 'true'

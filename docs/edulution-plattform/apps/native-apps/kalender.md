@@ -528,7 +528,7 @@ Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit s
 
 ### Wenn sich Ihre Rechte nicht ermitteln lassen
 
-Kann edulution Ihre Rechte an einem abonnierten Kalender nicht beim Server abfragen, behandelt es **alle Termine dieses Kalenders** wie mit der Rolle **Datum & Uhrzeit sehen**. Sie stehen dann als **Belegt** im Kalender, und ein Klick öffnet dieselbe eingeschränkte Detailansicht wie oben. Bearbeiten oder verschieben lassen sie sich nicht. Eigene Kalender und Web-Kalender betrifft das nicht. Gelingt die Abfrage beim nächsten Laden der Kalenderliste, zeigen die Termine wieder alles, was Ihre Rolle erlaubt. Die Kalenderliste lädt neu, wenn Sie auf **Neu laden** klicken oder die Kalender-App erneut öffnen.
+Kann edulution Ihre Rechte an einem abonnierten Kalender nicht beim Server abfragen, behandelt es **alle Termine dieses Kalenders** wie mit der Rolle **Datum & Uhrzeit sehen**. Die Termine stehen dann als **Belegt** im Kalender, und ein Klick öffnet dieselbe eingeschränkte Detailansicht wie oben. Bearbeiten oder verschieben lassen sie sich nicht. Eigene Kalender und Web-Kalender betrifft das nicht. Gelingt die Abfrage beim nächsten Laden der Kalenderliste, zeigen die Termine wieder alles, was Ihre Rolle erlaubt. Die Kalenderliste lädt neu, wenn Sie auf **Neu laden** klicken oder die Kalender-App erneut öffnen.
 
 Ebenso erscheinen Termine aus einem Kalender, der noch nicht in Ihrer Kalenderliste steht, nur als **Belegt**; sie lassen sich weder öffnen noch verschieben. Das kommt etwa vor, wenn jemand einen Kalender für Sie freigegeben und abonniert hat, während Sie die Kalender-App schon geöffnet hatten. Nach **Neu laden** oder einem erneuten Öffnen der Kalender-App erscheinen die Termine mit Ihren Rechten.
 

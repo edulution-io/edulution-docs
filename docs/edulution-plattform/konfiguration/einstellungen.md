@@ -671,9 +671,11 @@ Gelöscht wird ein Verteiler über **Löschen** im Bearbeitungsdialog. Ist die G
 
 Auf der Registerkarte **Unterricht** pflegen Sie in der Karte **Schulfächer** die Fächer, die an einer Schule unterrichtet werden. edulution bringt keine Fächer mit und übernimmt auch keine aus linuxmuster.net oder WebUntis: Es gibt nur die Fächer, die ein Administrator hier angelegt hat.
 
+Darunter legen Sie in der Karte **Schuljahr** fest, an welchem Tag das [Schuljahr](#schuljahr) einer Schule beginnt.
+
 ### Schule wählen
 
-Steht die [**Plattform**](#allgemein) auf **Linuxmuster**, gehört jedes Fach zu genau einer Schule. In der Kopfzeile der Karte wählen Sie die Schule, deren Fächer Sie sehen und bearbeiten; beim Öffnen ist bereits eine Schule ausgewählt. Administratoren, die selbst einer Schule angehören, sehen nur ihre eigene Schule.
+Steht die [**Plattform**](#allgemein) auf **Linuxmuster**, gehört jedes Fach zu genau einer Schule. In der Kopfzeile der Karte wählen Sie die Schule, deren Fächer Sie sehen und bearbeiten; beim Öffnen ist bereits eine Schule ausgewählt. Die Auswahl gilt auch für die Karte **Schuljahr**. Administratoren, die selbst einer Schule angehören, sehen nur ihre eigene Schule.
 
 Bei **Generisch** gibt es keine Schulauswahl; alle Fächer bilden eine gemeinsame Liste.
 
@@ -707,6 +709,22 @@ Ist der [Sitzplan](#klassenraum-sitzplan) eingeschaltet, löscht edulution mit e
 Pflichtangaben sind **Kürzel** und **Anzeigename**, alles Weitere ist optional. Das Kürzel muss innerhalb einer Schule eindeutig sein; Groß- und Kleinschreibung zählen dabei nicht, „MA“ und „ma“ sind also dasselbe Kürzel.
 
 Ein Fach, das nicht mehr unterrichtet wird, müssen Sie nicht löschen: Deaktivieren Sie **Aktiv**. Das Fach bleibt samt seinen Sitzplänen erhalten, wird aber nicht mehr zur Auswahl angeboten.
+
+### Schuljahr
+
+Jede Schule hat einen eigenen Schuljahresbeginn, der jedes Jahr auf denselben Tag fällt. Solange niemand einen Tag festlegt, beginnt das Schuljahr am 1. August.
+
+So ändern Sie den Schuljahresbeginn:
+
+1. Wählen Sie bei **Linuxmuster** in der Kopfzeile der Karte **Schulfächer** die [Schule](#schule-wählen).
+2. Wählen Sie in der Karte **Schuljahr** den **Monat des Schuljahresbeginns** und den **Tag des Schuljahresbeginns**.
+3. Klicken Sie auf **Speichern**.
+
+Unter den Auswahlfeldern zeigt die Karte das Schuljahr an, das mit Ihrer Auswahl gerade läuft, zum Beispiel „Aktuelles Schuljahr: 2026/27 (01.08.2026 – 31.07.2027)“. Die Anzeige folgt Ihrer Auswahl schon vor dem Speichern.
+
+Den 29. Februar bietet die Auswahl nicht an, weil es ihn nicht in jedem Jahr gibt. Wechseln Sie zu einem Monat, der den gewählten Tag nicht hat, rückt der Tag auf den letzten Tag dieses Monats: Aus dem 31. August wird beim Wechsel auf Februar der 28. Februar.
+
+Bei **Generisch** gibt es keine Schulauswahl; ein Schuljahresbeginn gilt für die ganze Installation.
 
 ---
 

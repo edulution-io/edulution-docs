@@ -15,7 +15,7 @@ Die Umfragen-App basiert auf SurveyJS. Da SurveyJS sehr umfangreich ist, beschr�
 
 ## Offene Umfragen
 
-In diesem Bereich sehen Sie alle Umfragen, an denen Sie teilnehmen können, aber noch nicht teilgenommen haben.
+In diesem Bereich sehen Sie alle Umfragen, an denen Sie teilnehmen können, aber noch nicht teilgenommen haben. Dazu gehören Umfragen, zu denen Sie selbst oder eine Ihrer Gruppen eingeladen wurden, und die öffentlichen Umfragen Ihrer Schule. Öffentliche Umfragen anderer Schulen erscheinen hier nicht (siehe [Sichtbarkeit der Umfragen](#sichtbarkeit-der-umfragen)).
 
 ### Teilnahme
 
@@ -395,27 +395,32 @@ In der Vorschau können Sie die Umfrage einmal durchklicken und prüfen, ob alle
 
 ### Benutzer-Ansicht
 
-![Umfrage speichern - Benutzer-Ansicht](/img/umfragen/Screenshot_20260506_143511.png)
+Oben im Dialog legen Sie fest, wer an der Umfrage teilnehmen kann:
 
-- **Teilnehmer**: Hier können bestimmte Benutzer ausgewählt werden, die an der Umfrage teilnehmen sollen.
-- **Gruppen**: Hier können ganze Benutzergruppen ausgewählt werden, deren Mitglieder an der Umfrage teilnehmen sollen. Die Gruppensuche zeigt nur Gruppen an, die Zugriff auf die Umfragen-App haben.
+- **Öffentlich**: Alle, die den Link zur Umfrage haben, können teilnehmen, auch ohne Benutzerkonto. Siehe [Öffentliche Teilnahme](#öffentliche-teilnahme). Unter **Offene Umfragen** erscheint die Umfrage nur bei den Benutzern Ihrer Schule, siehe [Sichtbarkeit der Umfragen](#sichtbarkeit-der-umfragen). Wechseln Sie zu **Öffentlich**, werden bereits ausgewählte Teilnehmer und Gruppen entfernt.
+- **Eingeschränkt**: Nur die ausgewählten Benutzer und Gruppen können teilnehmen. Darunter erscheinen die Felder zur Auswahl:
+  - **Teilnehmer**: Hier können bestimmte Benutzer ausgewählt werden, die an der Umfrage teilnehmen sollen.
+  - **Gruppen**: Hier können ganze Benutzergruppen ausgewählt werden, deren Mitglieder an der Umfrage teilnehmen sollen. Die Gruppensuche zeigt nur Gruppen an, die Zugriff auf die Umfragen-App haben.
+
+Weitere Angaben:
+
 - **Ablaufdatum**: Ab diesem Datum ist die Teilnahme an der Umfrage nicht mehr möglich. Wird nach Ablauf des Datums noch versucht, eine Antwort abzugeben, wird diese mit dem Hinweis *„Umfrage ist abgelaufen."* abgewiesen.
-- **Soll die Umfrage anonym sein?**: Anonymisiert die Antworten der Teilnehmer. In diesem Fall ist keine Verknüpfung zwischen Antwort und Teilnehmer möglich.
-- **Soll die Umfrage öffentlich sein?**: Öffentliche Umfragen können von allen geteilt werden, und die Teilnahme ist auch ohne Benutzerkonto möglich. Siehe [Öffentliche Teilnahme](#öffentliche-teilnahme).
-- **Soll ein Teilnehmer die Umfrage mehrmals beantworten können?**: Ermöglicht demselben Benutzer die wiederholte Teilnahme an der Umfrage.
-- **Sollen Antworten nachträglich bearbeitbar sein?**: Die vorherige Abgabe kann nachträglich verändert werden.
 
-:::info[Einladbare Gruppen bei nicht-öffentlichen Umfragen]
-Bei nicht-öffentlichen Umfragen können ausschließlich Gruppen eingeladen werden, die Zugriff auf die Umfragen-App haben. Wählen Sie beim Speichern eine Gruppe ohne App-Zugriff, wird der Vorgang mit dem Hinweis *„Sie können nur Gruppen einladen, die Zugriff auf die Umfragen-App haben."* abgewiesen. Welche Gruppen Zugriff auf die App haben, legen Administratoren über die Zugriffsgruppen der Umfragen-App fest. Bei [öffentlichen Umfragen](#öffentliche-teilnahme) entfällt diese Einschränkung, da die Teilnahme dort auch ohne Benutzerkonto möglich ist. Die Auswahl einzelner **Teilnehmer** ist von dieser Einschränkung nicht betroffen.
+Unter **Einstellungen**:
+
+- **Soll die Umfrage anonym sein?**: Anonymisiert die Antworten der Teilnehmer. In diesem Fall ist keine Verknüpfung zwischen Antwort und Teilnehmer möglich. Antworten lassen sich dann nicht nachträglich bearbeiten.
+- **Soll ein Teilnehmer die Umfrage mehrmals beantworten können?**: Ermöglicht demselben Benutzer die wiederholte Teilnahme an der Umfrage.
+- **Sollen Antworten nachträglich bearbeitbar sein?**: Die vorherige Abgabe kann nachträglich verändert werden. Diese Option lässt sich nicht mit mehrfachen Antworten oder einer anonymen Umfrage kombinieren.
+
+:::info[Einladbare Gruppen bei eingeschränkten Umfragen]
+Bei eingeschränkten Umfragen können ausschließlich Gruppen eingeladen werden, die Zugriff auf die Umfragen-App haben. Wählen Sie beim Speichern eine Gruppe ohne App-Zugriff, wird der Vorgang mit dem Hinweis *„Sie können nur Gruppen einladen, die Zugriff auf die Umfragen-App haben."* abgewiesen. Welche Gruppen Zugriff auf die App haben, legen Administratoren über die Zugriffsgruppen der Umfragen-App fest. Bei [öffentlichen Umfragen](#öffentliche-teilnahme) werden keine Gruppen eingeladen, da alle mit dem Link teilnehmen können. Die Auswahl einzelner **Teilnehmer** ist von dieser Einschränkung nicht betroffen.
 :::
 
 <Audience roles="admin">
 
 ### Administrator-Ansicht
 
-![Umfrage speichern - Administrator-Ansicht](/img/umfragen/Screenshot_20260506_143406.png)
-
-Als Administrator können Sie die aktuell bearbeitete Umfrage auch als Vorlage speichern.
+Als Administrator sehen Sie oben im Dialog zusätzlich die Option **Als Vorlage speichern**. Damit speichern Sie die aktuell bearbeitete Umfrage als Vorlage.
 
 - **Name der Vorlage**: Unter diesem Namen wird die Vorlage in der Kachelansicht angezeigt.
 - **Zugriffsgruppen**: Die Vorlage wird in der Kachelansicht nur den Benutzern angezeigt, die Mitglied in mindestens einer der ausgewählten Gruppen sind.
@@ -426,9 +431,21 @@ Auf diesem Weg können Administratoren auch bestehende Vorlagen bearbeiten. Dazu
 
 ### Sichtbarkeit der Umfragen
 
-Eine Umfrage kann beim Speichern als öffentlich deklariert werden.
+Ob eine Umfrage öffentlich ist, legen Sie beim [Speichern](#umfrage-speichern) mit **Öffentlich** oder **Eingeschränkt** fest. In den Tabellen zeigt die Spalte **Sichtbarkeit** *Öffentlich* oder *Privat* an.
 
 ![Sichtbarkeit der Umfragen](/img/umfragen/Screenshot_20260506_121918.png)
+
+Eine öffentliche Umfrage erscheint unter **Offene Umfragen** nur bei den Benutzern der Schule, an der sie erstellt wurde. Maßgeblich ist die Schule des Erstellers beim Anlegen der Umfrage. Sie bleibt erhalten, wenn die Umfrage später bearbeitet wird.
+
+- Öffentliche Umfragen, die ein globaler Administrator erstellt, erscheinen bei allen Benutzern.
+- Globale Administratoren sehen unter **Offene Umfragen** die öffentlichen Umfragen aller Schulen.
+- Über den Link aus dem Teilen-Fenster können weiterhin alle teilnehmen, auch Benutzer anderer Schulen und Personen ohne Benutzerkonto.
+
+Diese Einschränkung gilt nur, wenn unter [Globale Einstellungen](../../konfiguration/einstellungen.md#allgemein) die Plattform **Linuxmuster** gewählt ist. Bei **Generisch** erscheinen öffentliche Umfragen weiterhin bei allen Benutzern.
+
+:::info[Bestehende öffentliche Umfragen]
+Umfragen, die vor dieser Einschränkung angelegt wurden, erhalten beim Start von edulution einmalig die Schule ihres Erstellers. Gibt es den Ersteller nicht mehr und hat die Instanz mehrere Schulen, erscheint eine solche Umfrage unter **Offene Umfragen** nur noch bei globalen Administratoren. Über ihren Link bleibt die Teilnahme möglich.
+:::
 
 ## Als PDF exportieren
 

@@ -71,6 +71,7 @@ Schlägt das Laden der Termine fehl – etwa weil der Kalenderserver nicht errei
 
 - **Noch keine Termine geladen:** An Stelle der Ansicht erscheint der Hinweis **Termine konnten nicht geladen werden.** mit der Schaltfläche **Erneut versuchen**.
 - **Termine bereits geladen:** Die Ansicht bleibt mit den bisher geladenen Terminen stehen. Darüber erscheint der Hinweis, dass die angezeigten Termine möglicherweise unvollständig oder veraltet sind, ebenfalls mit **Erneut versuchen**. Das betrifft etwa einen Zeitraum, in den Sie gerade geblättert haben, oder eine fehlgeschlagene Aktualisierung.
+- **Einzelner Kalender nicht geladen:** Die Ansicht zeigt die Termine der übrigen Kalender an und nennt den betroffenen Kalender in einer Meldung. Seine bereits geladenen Termine bleiben sichtbar. Ein Hinweis über der Ansicht erscheint in diesem Fall nicht; edulution lädt den Kalender beim nächsten Blättern oder über **Neu laden** erneut.
 
 Der Hinweis verschwindet, sobald die Termine wieder geladen werden konnten – über **Erneut versuchen**, über **Neu laden** oder beim Zurückblättern in einen bereits vollständig geladenen Zeitraum. Dasselbe gilt für den [Stundenplan](#stundenplan).
 

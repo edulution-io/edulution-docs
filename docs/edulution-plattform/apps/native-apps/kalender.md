@@ -525,7 +525,9 @@ Beide zeigen ab heute die nächsten acht Wochen. Uhrzeiten gelten in deutscher Z
 
 Ein ungültiger Wert wird durch die Vorgabe ersetzt. Bei `weeks` gilt `0` als 1 und eine zweistellige Zahl über 26 als 26; die Seite bleibt in jedem Fall erreichbar.
 
-Für beide gelten die Einstellungen unter [Was der Link preisgibt](#was-der-link-preisgibt), mit zwei Einschränkungen: Teilnehmer und Organisator erscheinen nie, auch wenn Sie die E-Mail-Adressen freigegeben haben, und eine Beschreibung wird nach 500 Zeichen abgeschnitten.
+Eine eigene Farbe übernimmt die Webansicht unverändert für Datumsangaben und Trennlinien. Ob sie auf hellem und auf dunklem Hintergrund gut lesbar ist, liegt bei Ihnen; prüfen Sie sie deshalb auch mit `theme=dark`.
+
+Für beide gelten die Einstellungen unter [Was der Link preisgibt](#was-der-link-preisgibt), mit zwei Einschränkungen: Teilnehmer und Organisator erscheinen nie, auch wenn Sie die E-Mail-Adressen freigegeben haben, und eine Beschreibung wird nach 500 Zeichen abgeschnitten. Termine, die nur als belegte Zeit erscheinen, heißen in der Webansicht „Belegt“ in der gewählten Sprache, in den Daten `Busy`.
 
 Die Liste umfasst höchstens 500 Termine. Passen nicht alle in den gewählten Zeitraum, oder lässt sich eine Serie mit einer ungewöhnlichen Wiederholungsregel nicht vollständig darstellen, weist die Webansicht darauf hin (in den Daten als `"truncated": true`); vollständig sind die Termine dann nur im Abonnement.
 

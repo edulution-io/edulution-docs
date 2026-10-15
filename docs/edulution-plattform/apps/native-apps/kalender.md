@@ -69,6 +69,7 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 
 - **Meine Kalender** – Kalender, die Ihnen gehören.
 - **Klassen**, **Projekte** und **Gruppen** – Kalender, die die Schule für Ihre Klassen, Projekte und Gruppen verwaltet (siehe [Von der Schule verwaltete Kalender](#von-der-schule-verwaltete-kalender)). Diese Gruppen erscheinen nur, wenn Sie mindestens einen solchen Kalender haben.
+- **Ferien und Feiertage** – Der Ferienkalender Ihrer Schule (siehe [Ferien und Feiertage](#ferien-und-feiertage)). Diese Gruppe erscheint erst, wenn die Schule Ferien und Feiertage eingeschaltet hat.
 - **Abonnierte Kalender** – Kalender, die andere für Sie freigegeben haben.
 - **Web-Kalender** – Externe Kalender, die Sie über ihre Adresse abonniert haben (siehe [Web-Kalender abonnieren](#web-kalender-abonnieren)).
 - **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
@@ -79,7 +80,7 @@ Vor jedem Kalendereintrag steht ein farbiges Quadrat. Diese Farbe kennzeichnet d
 
 ### Kalender ein- und ausblenden
 
-Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender**, **Klassen**, **Projekte**, **Gruppen** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Neu abonnierte Kalender sind zunächst eingeblendet.
+Ein Klick auf einen Kalendereintrag in den Gruppen **Meine Kalender**, **Klassen**, **Projekte**, **Gruppen**, **Ferien und Feiertage** oder **Abonnierte Kalender** blendet die zugehörigen Termine ein oder aus. Ausgeblendete Kalender werden in der Liste abgeschwächt dargestellt. Neu abonnierte Kalender sind zunächst eingeblendet.
 
 Ihre Auswahl wird benutzerbezogen auf dem Server gespeichert. Sie bleibt daher über das Neuladen der Seite, eine erneute Anmeldung und einen Gerätewechsel hinweg erhalten – ein einmal ausgeblendeter Kalender bleibt ausgeblendet, bis Sie ihn wieder einblenden.
 
@@ -540,6 +541,14 @@ Ein- und ausblenden können Sie einen verwalteten Kalender wie jeden anderen; Ih
 **Einstellungen** erhalten nur Global-Admins sowie die Schul-Admins der Schule, zu der der Kalender gehört. Sie ändern dort **Name**, **Beschreibung** und **Farbe**; die Auswahl **Typ** fehlt. Ein neuer Name bleibt auch dann erhalten, wenn die Schule den Kalender später erneut abgleicht. Solange Sie den Namen nicht ändern, folgt er weiterhin dem Namen der Klasse, des Projekts oder der Gruppe.
 
 Auch auf anderem Weg lässt der Server keine dieser Änderungen zu. Er antwortet dann mit der Meldung „Dieser Kalender wird von der Schule verwaltet und kann hier nicht geändert werden.“
+
+### Ferien und Feiertage
+
+Den Kalender **Ferien und Feiertage** richtet die Schule ein, sobald ein Administrator in den [Unterrichtseinstellungen](../../konfiguration/einstellungen.md#ferien-und-feiertage) Ferien und Feiertage für sie einschaltet. Er gehört zu den von der Schule verwalteten Kalendern, steht aber in der Seitenleiste in einer eigenen Gruppe **Ferien und Feiertage**.
+
+Lesen dürfen ihn alle Mitglieder der Schule außer Eltern. Termine legt darin niemand selbst an, auch Administratoren nicht. Wer die Schule verlässt, verliert den Zugriff beim nächsten Abgleich.
+
+Schaltet ein Administrator Ferien und Feiertage wieder aus, bleibt der Kalender bestehen. Neue Mitglieder der Schule erhalten dann keinen Zugriff mehr, wer die Schule verlässt, verliert ihn weiterhin. Solange niemand den Namen ändert, heißt der Kalender **Ferien und Feiertage**.
 
 ## Web-Kalender abonnieren
 

@@ -737,6 +737,8 @@ So schalten Sie sie für eine Schule ein:
 3. Wählen Sie das **Land** (Deutschland oder Österreich) und das **Bundesland**. In Mecklenburg-Vorpommern wählen Sie zusätzlich die **Schulart**, weil allgemeinbildende und berufliche Schulen dort unterschiedliche Ferien haben.
 4. Klicken Sie auf **Speichern**.
 
+Die Schule erhält damit den Kalender **Ferien und Feiertage**, den alle Mitglieder der Schule außer Eltern lesen (siehe [Kalender](../apps/native-apps/kalender.md#ferien-und-feiertage)).
+
 Ohne Bundesland lässt sich die Einstellung nicht einschalten, denn Schulferien legt jedes Bundesland selbst fest. Die Karte nennt dann, was noch fehlt, und **Speichern** bleibt gesperrt. Dasselbe gilt in Mecklenburg-Vorpommern ohne Schulart.
 
 Mit **Gesetzliche Feiertage** und **Schulferien** wählen Sie, welche der beiden Listen gelten; nach der Installation sind beide eingeschaltet. Mindestens eine muss eingeschaltet bleiben. **Jahre im Voraus** legt fest, wie viele Jahre über das laufende hinaus berücksichtigt werden, von 0 bis 5; voreingestellt ist 1.

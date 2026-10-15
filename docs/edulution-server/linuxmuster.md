@@ -327,7 +327,7 @@ Hier geben Sie die Verknüpfungen frei, die Eltern und Schüler selbst über ein
 angefragt haben. Wie die Anfrage entsteht, beschreibt
 [Benutzereinstellungen → Meine Kinder/Eltern](../edulution-plattform/uebersicht/benutzereinstellungen/meine-kinder-eltern.md).
 
-![Tabelle der Eltern-Schüler-Zuweisungen mit Spalten Elternteil, Schüler, Status und Erstellt am](/img/eltern-schueler-zuordnung/elternzuweisung-tabelle.png)
+![Tabelle der Eltern-Schüler-Zuweisungen mit Spalten Elternteil, Schüler, Status und Erstellt am](../img/eltern-schueler-zuordnung/elternzuweisung-tabelle.png)
 
 Die Tabelle zeigt **Elternteil**, **Schüler**, **Status** und **Erstellt am**.
 

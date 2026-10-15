@@ -14,11 +14,11 @@ Wähle den QR-Code für dein Betriebssystem und scanne ihn, um die edulution App
 
 <div style={{display: 'flex', justifyContent: 'center', gap: '40px'}}>
   <div style={{textAlign: 'center'}}>
-    <img src="/img/app/iosAppDownloadQrCode.png" alt="QR Code zum App Store" width="200" />
+    <img src="../img/app/iosAppDownloadQrCode.png" alt="QR Code zum App Store" width="200" />
     <p>iOS</p>
   </div>
   <div style={{textAlign: 'center'}}>
-    <img src="/img/app/androidAppDownloadQrCode.png" alt="QR Code zum Play Store" width="200" />
+    <img src="../img/app/androidAppDownloadQrCode.png" alt="QR Code zum Play Store" width="200" />
     <p>Android</p>
   </div>
 </div>
@@ -77,7 +77,7 @@ Schneller Login ohne Passwort-Eingabe:
 3. Scanne den angezeigten QR-Code mit der edulution App
 4. Du wirst automatisch angemeldet
 
-<img src="/img/app/qrLogin.png" alt="QR-Login im Web-Interface" width="50%" />
+<img src="../img/app/qrLogin.png" alt="QR-Login im Web-Interface" width="50%" />
 
 ---
 
@@ -95,14 +95,14 @@ Greife auf deine edulution-Dateien direkt über die iOS Files-App zu, indem du F
 
 In den Account-Einstellungen findest du den Bereich **"File System"**:
 
-<img src="/img/app/fileSystemInactive.png" alt="File System Einstellungen" width="50%" />
+<img src="../img/app/fileSystemInactive.png" alt="File System Einstellungen" width="50%" />
 
 1. Unter **"Choose which shares to display in the Files app"** siehst du alle verfügbaren Freigaben
 2. Wähle den gewünschten Share (z.B. "netzint-teacher Home")
 3. Tippe auf **"Add Share"**
 4. Der Status wechselt von **"Inaktiv"** zu **"Aktiv"**
 
-<img src="/img/app/fileSystemActive.png" alt="Aktiver Share" width="50%" />
+<img src="../img/app/fileSystemActive.png" alt="Aktiver Share" width="50%" />
 
 ### Schritt 3: Dateien nutzen
 
@@ -133,5 +133,5 @@ Wenn Sie die edulution App für Ihre Schule oder Organisation bereitstellen, sol
 **Wie?**
 Eine ausführliche Anleitung zum Erstellen und Hinterlegen von Impressum und Datenschutzerklärung finden Sie hier:
 
-[→ Anleitung: Impressum und Datenschutzerklärung einrichten](/docs/edulution-plattform/konfiguration/impressum-datenschutz)
+[→ Anleitung: Impressum und Datenschutzerklärung einrichten](../edulution-plattform/konfiguration/impressum-datenschutz.md)
 :::

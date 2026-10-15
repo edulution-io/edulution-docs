@@ -46,7 +46,7 @@ Den Benutzertyp **Globaladmins** sehen nur Globaladmins; einem Schuladmin fehlt 
 
 ## Registerkarte „Benutzer“
 
-![Benutzerverwaltung](/img/benutzerverwaltung/benutzerverwaltung01.png)
+![Benutzerverwaltung](../img/benutzerverwaltung/benutzerverwaltung01.png)
 
 Die Registerkarte **Benutzer** zeigt die vorhandenen Konten des gewählten Benutzertyps in einer Tabelle. Über das Suchfeld (*„Benutzer filtern...“*) grenzen Sie die Liste ein.
 
@@ -61,7 +61,7 @@ Die Registerkarte **Benutzer** zeigt die vorhandenen Konten des gewählten Benut
 
 Können die Konten der gewählten Schule nicht geladen werden, erscheint anstelle der Tabelle die Meldung *„Abrufen der Benutzer nach Rolle fehlgeschlagen“* mit dem Hinweis *„Die Benutzer dieser Schule konnten nicht geladen werden. Versuchen Sie es erneut.“* und der Schaltfläche **Erneut versuchen**. Waren die Konten zuvor bereits geladen, bleibt die Tabelle mit diesem Stand sichtbar.
 
-![Benutzerverwaltung-Benutzer-ContextMenu](/img/benutzerverwaltung/benutzerverwaltung02-contextMenu.png)
+![Benutzerverwaltung-Benutzer-ContextMenu](../img/benutzerverwaltung/benutzerverwaltung02-contextMenu.png)
 
 ### Sophomorix-Status
 
@@ -89,9 +89,9 @@ Die Spalte **Status** zeigt den Sophomorix-Status des Kontos:
 - **Gruppenmitgliedschaft** – die regulären Gruppen sowie die Verwaltungsgruppen des Kontos.
 - **Quota** – die Speicherkontingente des Kontos, sofern verfügbar.
 
-![Benutzerverwaltung-Benutzer-Details-01](/img/benutzerverwaltung/benutzerverwaltung03-userDetails.png)
+![Benutzerverwaltung-Benutzer-Details-01](../img/benutzerverwaltung/benutzerverwaltung03-userDetails.png)
 
-![Benutzerverwaltung-Benutzer-Details-02](/img/benutzerverwaltung/benutzerverwaltung04-userDetails.png)
+![Benutzerverwaltung-Benutzer-Details-02](../img/benutzerverwaltung/benutzerverwaltung04-userDetails.png)
 
 ### Passwörter
 
@@ -104,7 +104,7 @@ Die Spalte **Status** zeigt den Sophomorix-Status des Kontos:
 | **Aktuelles Passwort** | **Speichern** | setzt das aktuelle Passwort des Benutzers |
 | **Aktuelles Passwort** | **Initiales Passwort wiederherstellen** | setzt das aktuelle Passwort auf das Initiale zurück; nicht verfügbar, solange das Initiale bereits das aktuelle Passwort ist |
 
-![Benutzerverwaltung-Benutzer-Passwort](/img/benutzerverwaltung/benutzerverwaltung05-userPasswort.png)
+![Benutzerverwaltung-Benutzer-Passwort](../img/benutzerverwaltung/benutzerverwaltung05-userPasswort.png)
 
 #### Passwortrichtlinie
 
@@ -122,7 +122,7 @@ Lehnt der Dialog oder der Server ein Passwort ab, lautet die Meldung *Das Passwo
 
 ## Registerkarte „Import“
 
-![Benutzerverwaltung-Import](/img/benutzerverwaltung/benutzerverwaltung06-import.png)
+![Benutzerverwaltung-Import](../img/benutzerverwaltung/benutzerverwaltung06-import.png)
 
 Die Registerkarte **Import** zeigt die Verwaltungsliste des Benutzertyps als bearbeitbare Tabelle. Sie entspricht der Datei `<Schule>/<Typ>.csv` auf dem Server (z.B. `/etc/linuxmuster/sophomorix/<Schule>/students.csv`). Neu hinzugefügte Zeilen, geänderte Zellen und zur Löschung markierte Zeilen werden farblich hervorgehoben, sodass Sie Ihre Änderungen vor dem Speichern nachvollziehen können.
 
@@ -178,13 +178,13 @@ Vor dem Speichern werden die Einträge geprüft. Solange eine Zelle ungültig is
 - **Klasse**, **Kategorie** und **Gewünschter Login** dürfen nur Buchstaben (inklusive Umlaute und `ß`), Ziffern, Leerzeichen sowie die Zeichen `_` und `-` enthalten.
 - **Vorname**, **Nachname** und **ID** unterliegen keiner Formatprüfung.
 
-![Benutzerverwaltung-Import-Pruefen](/img/benutzerverwaltung/benutzerverwaltung08-import-pruefen.png)
+![Benutzerverwaltung-Import-Pruefen](../img/benutzerverwaltung/benutzerverwaltung08-import-pruefen.png)
 
 ## CSV importieren und exportieren
 
 Über die Schaltfläche **CSV** öffnen Sie den CSV-Dialog. Sein Titel zeigt den vollständigen Pfad der Datei auf dem Server (z.B. `/etc/linuxmuster/sophomorix/<Schule>/<Liste>.csv`).
 
-![Benutzerverwaltung-Import-CSV](/img/benutzerverwaltung/benutzerverwaltung07-import-csv.png)
+![Benutzerverwaltung-Import-CSV](../img/benutzerverwaltung/benutzerverwaltung07-import-csv.png)
 
 - **Importieren** – Sie fügen den CSV-Inhalt direkt in das Textfeld ein und bearbeiten ihn dort, oder Sie ziehen eine Datei per **Drag & Drop** in den Auswahlbereich bzw. wählen sie über den Dateidialog aus. Zulässig sind Dateien mit der Endung `.csv` und `.txt`.
 - **Exportieren** – über **Herunterladen** laden Sie den Inhalt des Textfelds als Datei `<Liste>.csv` herunter, etwa als Vorlage für die weitere Bearbeitung.

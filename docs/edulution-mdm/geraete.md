@@ -10,7 +10,7 @@ Der Bereich **Geräte** ist in zwei Unterreiter gegliedert: **Inventar** und **E
 
 ## Inventar
 
-![Geräte-Inventar](/img/features/mdm-devices.png)
+![Geräte-Inventar](../img/features/mdm-devices.png)
 
 Das Inventar listet alle aktuell in Relution eingebuchten Geräte:
 

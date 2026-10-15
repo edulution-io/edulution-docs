@@ -1,8 +1,66 @@
+import * as fs from 'node:fs';
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import tagPlugin from './src/rehype/tagPlugin';
 import { version } from './package.json';
+
+/**
+ * Wie viele veroeffentlichte Staende gebaut werden.
+ *
+ * Geschnitten wird von Hand, im Regelfall einmal im Monat – acht Staende sind
+ * damit ungefaehr ein Jahr. Alle zu bauen laesst Bauzeit und Suchindex
+ * unbegrenzt wachsen; die aelteren Schnappschuesse bleiben aber im Git und
+ * koennen jederzeit wieder in den Build genommen werden, indem diese Zahl
+ * steigt.
+ */
+const BUILT_VERSIONS = 8;
+
+/** Alle bisher geschnittenen Staende, neueste zuerst. Vor dem ersten Schnitt leer. */
+const releasedVersions: string[] = fs.existsSync('./versions.json')
+  ? (JSON.parse(fs.readFileSync('./versions.json', 'utf8')) as string[])
+  : [];
+
+/**
+ * `npm start` zeigt nur die Dateien, an denen gerade gearbeitet wird – mit
+ * allen Altversionen dauert der Start ein Vielfaches.
+ * `DOCS_ALL_VERSIONS=true npm start`, um die Auswahl zu testen.
+ *
+ * Nur, wenn es ueberhaupt Versionen abzuschalten gibt: Docusaurus weist die
+ * Einstellung auf einer noch unversionierten Seite zurueck.
+ */
+const disableVersioning =
+  releasedVersions.length > 0 && process.env.NODE_ENV === 'development' && process.env.DOCS_ALL_VERSIONS !== 'true';
+
+/**
+ * Die Versionen, die dieser Lauf kennt.
+ *
+ * `disableVersioning` nimmt Docusaurus die geschnittenen Versionen wieder weg,
+ * und jede Einstellung, die sie danach noch nennt, bricht ab – `docs:version`
+ * und `npm start` laufen beide mit NODE_ENV=development, dort gibt es also nur
+ * den Entwicklungsstand.
+ */
+const builtVersions = disableVersioning ? [] : releasedVersions;
+
+/**
+ * Der Stand aus `docs/` – also `edulution-ui:dev` – gehoert nicht ins
+ * oeffentliche Portal.
+ *
+ * Er muss aber hinein, solange noch keine Version geschnitten ist – sonst
+ * baut die Seite ohne eine einzige Version – und bei `npm start`, denn das
+ * sind genau die Dateien, an denen gearbeitet wird.
+ */
+const includeCurrentVersion =
+  process.env.DOCS_INCLUDE_NEXT === 'true' || process.env.NODE_ENV === 'development' || builtVersions.length === 0;
+
+/**
+ * `onlyIncludeVersions` darf erst gesetzt werden, wenn es ueberhaupt
+ * Versionen gibt – und `current` muss mit hinein, sonst faellt die
+ * Entwicklungsversion aus dem Build, auch wenn sie eingeschaltet ist.
+ */
+const onlyIncludeVersions = builtVersions.length
+  ? [...(includeCurrentVersion ? ['current'] : []), ...builtVersions.slice(0, BUILT_VERSIONS)]
+  : undefined;
 
 const config: Config = {
   title: 'edulution',
@@ -33,9 +91,19 @@ const config: Config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
+        // The changelog is a timeline across all versions and therefore lives outside docs/; otherwise every
+        // frozen version would carry its own copy, showing entries released after it.
+        redirects: [{ from: '/docs/changelog', to: '/changelog' }],
+
         // Keeps URLs from earlier site layouts alive, mostly via prefix rules so a new page gets its redirects
         // automatically. A rule must never yield a path that is a real page again, or the build fails.
         createRedirects(existingPath: string) {
+          // Only the served version at /docs/… ever had bookmarks; versioned paths (/docs/next/…, /docs/2.2.6/…)
+          // are left alone. Safe because no product section starts with a digit.
+          if (/^\/docs\/(next|\d)/.test(existingPath)) {
+            return undefined;
+          }
+
           const RENAMED: Record<string, string[]> = {
             '/docs/edulution-mail/': ['/docs/category/edulution-mail'],
             '/docs/edulution-mail/migration': ['/docs/edulution-mail/user_mail_migration'],
@@ -229,6 +297,37 @@ const config: Config = {
           showLastUpdateTime: false,
           breadcrumbs: true,
           rehypePlugins: [tagPlugin],
+
+          // `docs/` ist der Stand von edulution-ui:dev und beschreibt damit
+          // auch Funktionen, die noch bei niemandem angekommen sind. Im
+          // oeffentlichen Portal steht deshalb nur, was als Stand
+          // veroeffentlicht wurde.
+          //
+          // Die CI baut zusaetzlich mit `DOCS_INCLUDE_NEXT=true`: sonst
+          // pruefte `onBrokenLinks` ausgerechnet die 129 Dateien nicht mehr,
+          // an denen tatsaechlich gearbeitet wird.
+          includeCurrentVersion,
+          // Nur, solange die Entwicklungsversion mitgebaut wird: ohne sie kennt
+          // Docusaurus den Namen `current` nicht und weist jede Einstellung
+          // dazu zurueck.
+          versions: includeCurrentVersion
+            ? {
+                // Solange nichts geschnitten ist, ist der Entwicklungsstand der
+                // einzige und liegt wie bisher unter /docs/ – sonst liefen in der
+                // Zwischenzeit alle Verweise aus der Anwendung ins Leere. Erst
+                // mit dem ersten Schnitt rueckt er nach /docs/next/.
+                current: builtVersions.length
+                  ? { label: 'Entwicklung (dev)', path: 'next', banner: 'unreleased', noIndex: true }
+                  : { label: 'Entwicklung (dev)' },
+              }
+            : {},
+          // Kein `lastVersion`: der erste Eintrag in `versions.json` ist
+          // automatisch der neueste Stand und liegt ohne Praefix unter /docs/.
+          // Ein fest eingetragener Name waere eine Falle – er laesst den Build
+          // scheitern, sobald dieser Stand aus dem Build faellt.
+          onlyIncludeVersions,
+
+          disableVersioning,
         },
         blog: false,
         theme: {
@@ -249,6 +348,13 @@ const config: Config = {
         explicitSearchResultPath: true,
         docsRouteBasePath: '/docs',
         indexBlog: false,
+        // Der Changelog und die Startseite liegen ausserhalb von docs/ und
+        // waeren sonst nicht auffindbar.
+        indexPages: true,
+        // Eine Suche, die auf einer Seite ausserhalb von docs/ beginnt, kennt
+        // keine aktive Version. Ohne diese Angabe landet sie immer im neuesten
+        // Stand, auch wenn der Leser einen anderen gewaehlt hat.
+        docsPluginIdForPreferredVersion: 'default',
         searchBarShortcutHint: false,
         // Deliberately no `ignoreCssSelectors`: a hit in a section hidden for the chosen role is revealed on
         // arrival (see HiddenContentSync in AudienceContext.tsx), so audience-specific content stays searchable.
@@ -292,32 +398,45 @@ const config: Config = {
           label: 'Produkte',
           position: 'left',
           items: [
+            // `type: 'doc'` statt `to:` – der Eintrag bleibt damit in der
+            // Version, die gerade gelesen wird, und faellt auf die naechste
+            // Version zurueck, falls ein Schnappschuss die Seite nicht kennt.
             {
+              type: 'doc',
               label: 'edulution Plattform',
-              to: '/docs/edulution-plattform/uebersicht/navigation',
+              docId: 'edulution-plattform/uebersicht/navigation',
             },
             {
+              type: 'doc',
               label: 'edulution Mail',
-              to: '/docs/edulution-mail/',
+              docId: 'edulution-mail/index',
             },
             {
+              type: 'doc',
               label: 'edulution App',
-              to: '/docs/edulution-app/',
+              docId: 'edulution-app/index',
             },
             {
+              type: 'doc',
               label: 'edulution Satellite',
-              to: '/docs/edulution-satellite/',
+              docId: 'edulution-satellite/index',
             },
             {
+              type: 'doc',
               label: 'Dokumenten-Editor',
-              to: '/docs/edulution-fileproxy/dateien/konfiguration/dokumenten-editor',
+              docId: 'edulution-fileproxy/dateien/konfiguration/dokumenten-editor',
             },
           ],
         },
         {
-          to: '/docs/changelog',
+          to: '/changelog',
           label: 'Changelog',
           position: 'left',
+        },
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownItemsAfter: [{ to: '/versionen', label: 'Welche Version sehe ich?' }],
         },
         {
           type: 'custom-audienceBadge',

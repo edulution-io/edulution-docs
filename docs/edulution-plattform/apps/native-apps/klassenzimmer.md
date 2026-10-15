@@ -14,7 +14,7 @@ Der Klassenraum nutzt die Linuxmuster-Funktionen für Klassenverwaltung und Proj
 
 ## Übersicht
 
-![Klassenraum ohne laufende Stunde mit Seitenleiste](/img/klassenraum/uebersicht.webp)
+![Klassenraum ohne laufende Stunde mit Seitenleiste](../../../img/klassenraum/uebersicht.webp)
 
 1. Über die Seitenleiste erreichen Sie die Bereiche des Klassenraums:
    - **Unterricht** – eine Stunde starten und durchführen
@@ -30,7 +30,7 @@ Der Klassenraum nutzt die Linuxmuster-Funktionen für Klassenverwaltung und Proj
 
 ### Stunde starten
 
-![Dialog Sitzung starten mit Klasse, Fach und Raum](/img/klassenraum/sitzplan-sitzung-starten.webp)
+![Dialog Sitzung starten mit Klasse, Fach und Raum](../../../img/klassenraum/sitzplan-sitzung-starten.webp)
 
 So starten Sie eine Stunde. Ist der [Sitzplan](#sitzplan) eingeschaltet, kommen die Schritte Fach und Raum hinzu.
 
@@ -47,7 +47,7 @@ So starten Sie eine Stunde. Ist der [Sitzplan](#sitzplan) eingeschaltet, kommen 
 
 ### Mitglieder hinzufügen
 
-![Dialog Mitglieder hinzufügen mit Suche und Treffer](/img/klassenraum/mitglieder-hinzufuegen.webp)
+![Dialog Mitglieder hinzufügen mit Suche und Treffer](../../../img/klassenraum/mitglieder-hinzufuegen.webp)
 
 Über **Mitglieder hinzufügen** nehmen Sie einzelne Schüler, ganze Klassen oder Projekte in die Stunde auf. Das geht auf der leeren Unterrichtsseite und während einer Stunde über das Personen-Symbol der Schülerliste.
 
@@ -61,7 +61,7 @@ Schüler aus Klassen, in die Sie nicht eingeschrieben sind, sehen Sie in der Stu
 
 ### Arbeitsbereich
 
-![Laufende Stunde in der Kachelansicht](/img/klassenraum/unterricht-kacheln.webp)
+![Laufende Stunde in der Kachelansicht](../../../img/klassenraum/unterricht-kacheln.webp)
 
 1. **Mitglieder hinzufügen**, siehe [Mitglieder hinzufügen](#mitglieder-hinzufügen).
 2. **Alle auswählen**
@@ -72,7 +72,7 @@ Schüler aus Klassen, in die Sie nicht eingeschrieben sind, sehen Sie in der Stu
 
 ### Schalter je Schüler
 
-![Schalter in einer Zeile der Schülerliste](/img/klassenraum/schueler-zeile.webp)
+![Schalter in einer Zeile der Schülerliste](../../../img/klassenraum/schueler-zeile.webp)
 
 Grün bedeutet eingeschaltet, ein Klick schaltet um.
 
@@ -87,7 +87,7 @@ Grün bedeutet eingeschaltet, ein Klick schaltet um.
 
 ### Aktionen für mehrere Schüler
 
-![Ausgewählte Schüler und die Aktionsleiste](/img/klassenraum/aktionsleiste.webp)
+![Ausgewählte Schüler und die Aktionsleiste](../../../img/klassenraum/aktionsleiste.webp)
 
 Wählen Sie Schüler über ihre Häkchen (1) oder alle auf einmal (2) aus, zeigt die Aktionsleiste die Aktionen für diese Auswahl:
 
@@ -97,7 +97,7 @@ Wählen Sie Schüler über ihre Häkchen (1) oder alle auf einmal (2) aus, zeigt
 
 ### Einzelansicht eines Schülers
 
-![Einzelansicht eines Schülers mit großer Bildschirmvorschau](/img/klassenraum/einzelansicht.webp)
+![Einzelansicht eines Schülers mit großer Bildschirmvorschau](../../../img/klassenraum/einzelansicht.webp)
 
 1. Klicken Sie in der Schülerliste auf einen Schüler.
 2. Die Veyon-Aktionen **Bildschirm sperren**, **Eingabe sperren**, **System neu starten** und **System herunterfahren**.
@@ -177,7 +177,7 @@ Die Sitzordnungen einer Klasse oder eines Projekts sehen und ändern nur Lehrkr�
 
 ### Räume und Layouts anlegen
 
-![Seite Räume mit Raumliste und einem Raum ohne Layout](/img/klassenraum/sitzplan-raeume.webp)
+![Seite Räume mit Raumliste und einem Raum ohne Layout](../../../img/klassenraum/sitzplan-raeume.webp)
 
 1. Öffnen Sie im Klassenraum **Räume**.
 2. Legen Sie über **Raum anlegen** einen Raum an. Als globaler Administrator wählen Sie dabei auch die Schule.
@@ -188,7 +188,7 @@ Die Sitzordnungen einer Klasse oder eines Projekts sehen und ändern nur Lehrkr�
 
 Ein Raum kann mehrere Layouts haben, zum Beispiel „Frontalunterricht“ und „Gruppentische“.
 
-![Dialog Layout anlegen mit Name und Vorlage](/img/klassenraum/sitzplan-layout-anlegen.webp)
+![Dialog Layout anlegen mit Name und Vorlage](../../../img/klassenraum/sitzplan-layout-anlegen.webp)
 
 1. Geben Sie dem Layout einen **Namen**.
 2. Wählen Sie eine **Vorlage**: **Leer beginnen**, eine der mitgelieferten Vorlagen (Frontalunterricht, Gruppentische, U-Form, Sitzkreis) oder eine Vorlage Ihrer Schule. Nur bei **Leer beginnen** wählen Sie zusätzlich die **Raumgröße**: Klein (12 × 8), Normal (20 × 12), Groß (28 × 16) oder **Eigene Größe** mit 4 bis 40 Spalten und Zeilen. Die erste Zahl ist jeweils die Zahl der Spalten. Eine Vorlage bringt ihre Größe mit.
@@ -196,7 +196,7 @@ Ein Raum kann mehrere Layouts haben, zum Beispiel „Frontalunterricht“ und �
 
 #### Layout bearbeiten
 
-![Layout-Editor mit Objektarten, Raster und Layouts des Raums](/img/klassenraum/sitzplan-editor.webp)
+![Layout-Editor mit Objektarten, Raster und Layouts des Raums](../../../img/klassenraum/sitzplan-editor.webp)
 
 1. Wählen Sie eine Objektart und klicken Sie auf eine freie Zelle im Raster, um das Objekt dort zu setzen. Vorhandene Objekte ziehen Sie mit der Maus an eine andere Stelle.
 2. Das Raster ist der Raum. Tische bringen ihre Sitzplätze mit, ein Doppeltisch zum Beispiel zwei.
@@ -207,7 +207,7 @@ Ein Raum kann mehrere Layouts haben, zum Beispiel „Frontalunterricht“ und �
 
 edulution speichert jede Änderung im Editor sofort.
 
-![Angeklicktes Objekt mit den Schaltflächen zum Drehen, Beschriften und Löschen](/img/klassenraum/sitzplan-editor-objekt.webp)
+![Angeklicktes Objekt mit den Schaltflächen zum Drehen, Beschriften und Löschen](../../../img/klassenraum/sitzplan-editor-objekt.webp)
 
 Klicken Sie ein Objekt an (1), erscheinen seine Schaltflächen:
 
@@ -224,7 +224,7 @@ Löschen oder verkleinern Sie ein Objekt, auf dem schon Schüler sitzen, fragt e
 
 ### Schüler auf Plätze setzen
 
-![Raumplan im Unterricht mit Schülerliste und belegten Plätzen](/img/klassenraum/sitzplan-unterricht.webp)
+![Raumplan im Unterricht mit Schülerliste und belegten Plätzen](../../../img/klassenraum/sitzplan-unterricht.webp)
 
 1. Wechseln Sie auf **Raumplan**.
 2. Raum und Layout der Stunde.
@@ -235,7 +235,7 @@ Löschen oder verkleinern Sie ein Objekt, auf dem schon Schüler sitzen, fragt e
 7. Um einen Schüler zu setzen, klicken Sie ihn in der Liste an und danach einen freien Platz.
 8. Belegte Plätze zeigen das Kürzel des Schülers. Den Namen sehen Sie, wenn Sie mit der Maus darauf zeigen.
 
-![Ausgewählter Schüler im Raumplan mit freien Plätzen und seinen Schaltflächen](/img/klassenraum/sitzplan-platz.webp)
+![Ausgewählter Schüler im Raumplan mit freien Plätzen und seinen Schaltflächen](../../../img/klassenraum/sitzplan-platz.webp)
 
 Ein Klick auf einen belegten Platz (1) wählt den Schüler aus, genau wie das Häkchen in der Liste. Die [Aktionen der Aktionsleiste](#aktionen-für-mehrere-schüler) gelten dann für ihn, und die freien Plätze sind markiert:
 
@@ -245,7 +245,7 @@ Ein Klick auf einen belegten Platz (1) wählt den Schüler aus, genau wie das H�
 
 ### Pläne und Varianten
 
-![Planauswahl mit Standardplan, neuer Variante und der Variante Klassenarbeit](/img/klassenraum/sitzplan-varianten.webp)
+![Planauswahl mit Standardplan, neuer Variante und der Variante Klassenarbeit](../../../img/klassenraum/sitzplan-varianten.webp)
 
 1. Jede Gruppe hat je Layout und Fach einen **Standardplan**. Der Balken zeigt, wie viele Plätze belegt sind.
 2. Über **Neue Variante …** legen Sie weitere benannte Pläne an, etwa für Klassenarbeiten, bis zu 20 je Layout und Fach, den Standardplan nicht mitgezählt. Eine neue Variante beginnt leer.
@@ -277,7 +277,7 @@ Die Bildschirmüberwachung setzt einen konfigurierten Veyon-WebAPI-Proxy voraus.
 
 ## Einschreiben
 
-![Seite Einschreiben mit Klassen, Druckern und Projekten](/img/klassenraum/einschreiben.webp)
+![Seite Einschreiben mit Klassen, Druckern und Projekten](../../../img/klassenraum/einschreiben.webp)
 
 Hier schreiben Sie sich in Klassen, Druckergruppen und Projekte ein. Aktivieren Sie das Häkchen auf einer Karte, sind Sie sofort eingeschrieben. Deaktivieren Sie es, sind Sie wieder ausgeschrieben.
 
@@ -298,7 +298,7 @@ Projekte sind ideal für:
 
 ## Klassenlisten
 
-![Seite Klassenlisten mit Download als PDF oder CSV](/img/klassenraum/klassenlisten.webp)
+![Seite Klassenlisten mit Download als PDF oder CSV](../../../img/klassenraum/klassenlisten.webp)
 
 Hier laden Sie die Schülerlisten Ihrer Klassen herunter.
 
@@ -308,7 +308,7 @@ Hier laden Sie die Schülerlisten Ihrer Klassen herunter.
 
 ## Meine Projekte
 
-![Seite Meine Projekte](/img/klassenraum/projekte.webp)
+![Seite Meine Projekte](../../../img/klassenraum/projekte.webp)
 
 Hier sehen Sie alle Projekte, in denen Sie Admin sind.
 
@@ -318,7 +318,7 @@ Hier sehen Sie alle Projekte, in denen Sie Admin sind.
 
 ## Passwörter drucken
 
-![Seite Passwörter drucken mit Download als PDF oder CSV](/img/klassenraum/passwoerter.webp)
+![Seite Passwörter drucken mit Download als PDF oder CSV](../../../img/klassenraum/passwoerter.webp)
 
 Hier erzeugen Sie Dateien mit den Zugangsdaten einer Klasse zum Ausdrucken.
 

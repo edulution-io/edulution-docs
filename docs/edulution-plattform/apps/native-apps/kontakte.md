@@ -4,7 +4,7 @@ Die **Kontakte**-App zeigt und verwaltet Kontakte aus den CardDAV-Adressbüchern
 
 ## Übersicht
 
-![Kontakte-App mit Adressbuch-Leiste, Kontaktliste und Detailansicht](/img/kontakte/uebersicht.webp)
+![Kontakte-App mit Adressbuch-Leiste, Kontaktliste und Detailansicht](../../../img/kontakte/uebersicht.webp)
 
 Die Kontakte-App ist in drei Bereiche aufgeteilt:
 
@@ -28,7 +28,7 @@ Adressbücher können **beschreibbar** (eigene Adressbücher) oder **schreibgesc
 
 Über das Kontextmenü eines Adressbuchs stehen je nach Berechtigung folgende Aktionen zur Verfügung:
 
-![Kontextmenü eines Adressbuchs mit den verfügbaren Aktionen](/img/kontakte/adressbuch-kontextmenu.webp)
+![Kontextmenü eines Adressbuchs mit den verfügbaren Aktionen](../../../img/kontakte/adressbuch-kontextmenu.webp)
 
 | Aktion | Verfügbar | Beschreibung |
 |--------|-----------|--------------|
@@ -51,7 +51,7 @@ Das Löschen eines Adressbuchs entfernt das Adressbuch und alle darin enthaltene
 
 Wählen Sie einen Kontakt in der Liste aus, um seine Details anzuzeigen. Es werden nur die Felder angezeigt, die tatsächlich gepflegt sind:
 
-![Detailansicht eines Kontakts](/img/kontakte/kontakt-detailansicht.webp)
+![Detailansicht eines Kontakts](../../../img/kontakte/kontakt-detailansicht.webp)
 
 - **Anrede / Titel**, **Vorname**, **Zweiter Vorname**, **Nachname** und **Namenssuffix**
 - **E-Mail-Adressen** (als anklickbare Mail-Links, je mit Bezeichnung)
@@ -69,7 +69,7 @@ In der Kontaktliste wird zu jedem Eintrag der **Anzeigename** sowie – sofern v
 
 Einen neuen Kontakt legen Sie über **Neuer Kontakt** an; einen bestehenden bearbeiten Sie über **Kontakt bearbeiten**. Beide Aktionen öffnen denselben Dialog.
 
-![Dialog zum Erstellen und Bearbeiten eines Kontakts](/img/kontakte/kontakt-bearbeiten.webp)
+![Dialog zum Erstellen und Bearbeiten eines Kontakts](../../../img/kontakte/kontakt-bearbeiten.webp)
 
 Folgende Felder stehen zur Verfügung:
 
@@ -96,7 +96,7 @@ Beim Speichern werden die Eingaben geprüft. Ein **Anzeigename** ist Pflicht. E-
 
 Über **Kontakte importieren** fügen Sie einem beschreibbaren Adressbuch Kontakte aus einer **vCard-Datei** (`.vcf`) hinzu. Wählen Sie die gewünschte Datei über den Dateidialog aus oder ziehen Sie sie per **Drag & Drop** in den Auswahlbereich; sie kann einen oder mehrere Kontakte enthalten.
 
-![Dialog zum Importieren von Kontakten mit Drag-&-Drop-Auswahlbereich](/img/kontakte/kontakte-importieren.webp)
+![Dialog zum Importieren von Kontakten mit Drag-&-Drop-Auswahlbereich](../../../img/kontakte/kontakte-importieren.webp)
 
 Nach dem Import erhalten Sie eine Rückmeldung, wie viele Kontakte importiert wurden und wie viele fehlgeschlagen sind (z.B. *„12 Kontakte importiert, 1 fehlgeschlagen."*). Gültige Kontakte werden auch dann übernommen, wenn einzelne Einträge nicht verarbeitet werden konnten.
 
@@ -116,7 +116,7 @@ Während ein Export oder Download vorbereitet wird, erscheint ein kurzer Hinweis
 
 Ebenso wenig kommt es auf die **Schreibweise von Umlauten und Sonderzeichen** an: `Müller`, `Mueller` und `Muller` finden einander gegenseitig – unabhängig davon, welche der drei Schreibweisen im Kontakt hinterlegt ist und welche Sie eintippen. Das gilt für alle Umlaute und Akzentzeichen, etwa `ß` und `ss`, `é` und `e` oder `Öztürk`, `Oeztuerk` und `Ozturk`. So finden Sie einen Kontakt auch dann, wenn Sie seinen Namen an einer fremden Tastatur ohne Umlaute eingeben.
 
-![Kontaktliste mit aktivem Suchfilter](/img/kontakte/suche.webp)
+![Kontaktliste mit aktivem Suchfilter](../../../img/kontakte/suche.webp)
 
 :::note[Sehr kurze Suchbegriffe]
 Bei sehr kurzen Eingaben wird die Schreibweise nur so weit vereinfacht, dass die Ergebnisliste aussagekräftig bleibt: Die Eingabe `ue` wird nicht zusätzlich zu `u` verkürzt, weil sonst nahezu jeder Kontakt aufgelistet würde.

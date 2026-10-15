@@ -24,7 +24,7 @@ Die Seite heißt je nach Rolle unterschiedlich:
 Lehrer und Mitarbeiter zählen dabei als Elternteil, damit Beschäftigte der Schule ihre eigenen
 Kinder verknüpfen können. Die Funktion gibt es nur in Schulumgebungen.
 
-![Die Seite „Meine Kinder“ mit den Bereichen Mein Zuweisungs-Code, Code eingeben und Zuweisungen](/img/eltern-schueler-zuordnung/meine-kinder-uebersicht.png)
+![Die Seite „Meine Kinder“ mit den Bereichen Mein Zuweisungs-Code, Code eingeben und Zuweisungen](../../../img/eltern-schueler-zuordnung/meine-kinder-uebersicht.png)
 
 ## Kind und Elternteil verknüpfen
 

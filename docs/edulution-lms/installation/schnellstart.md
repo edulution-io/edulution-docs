@@ -10,7 +10,7 @@ sidebar_custom_props:
 Diese Anleitung führt Sie in wenigen Minuten zu einer funktionierenden Moodle-Installation.
 
 :::info Voraussetzungen
-Stellen Sie sicher, dass alle [Voraussetzungen](/docs/edulution-lms/installation/voraussetzungen) erfüllt sind.
+Stellen Sie sicher, dass alle [Voraussetzungen](./voraussetzungen.md) erfüllt sind.
 :::
 
 ## 1. Repository klonen
@@ -217,7 +217,7 @@ docker compose exec moodle python3 /opt/sync/sync.py --test
 
 ## Nächste Schritte
 
-- [Detaillierte Installation](/docs/edulution-lms/installation/detailliert) - Erweiterte Optionen
-- [Konfiguration](/docs/edulution-lms/konfiguration/umgebungsvariablen) - Alle Einstellungen
-- [Synchronisation](/docs/edulution-lms/konfiguration/synchronisation) - Sync-Details
-- [Admin-UI](/docs/edulution-lms/konfiguration/administration/admin-ui) - Verwaltungsoberfläche
+- [Detaillierte Installation](./detailliert.md) - Erweiterte Optionen
+- [Konfiguration](../konfiguration/umgebungsvariablen.md) - Alle Einstellungen
+- [Synchronisation](../konfiguration/synchronisation.md) - Sync-Details
+- [Admin-UI](../konfiguration/administration/admin-ui.md) - Verwaltungsoberfläche

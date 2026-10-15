@@ -32,6 +32,15 @@ Mit der Umschaltung wechseln Sie zwischen den vier Hauptansichten:
 
 Die **Stundenplan**-Ansicht ist eine eigenständige Darstellung. Sie erreichen Sie nicht über diese Umschaltung, sondern über die Seitenleiste (siehe [Stundenplan](#stundenplan)).
 
+### Kopfzeile auf dem Smartphone
+
+Auf dem Smartphone und in der edulution.io App passt die Kopfzeile des Kalenders in eine einzige Zeile. Darüber steht die Seitenüberschrift **Kalender** in einer schmalen Zeile ohne Beschreibungstext, weiterhin mit **Erstellen** und **Mehr**.
+
+- Links stehen die Pfeil-Schaltflächen und dazwischen der angezeigte Zeitraum in Kurzform: **Do., 15. Okt.** in der Tagesansicht, **KW 42** in der Wochenansicht und **Okt 2026** im Monat und in der Agenda. In der Agenda entfallen die Pfeile.
+- Ein Tipp auf diesen Zeitraum öffnet den Monatskalender aus [Zu einem Datum springen](#zu-einem-datum-springen) als Fenster **Datum wählen** am unteren Bildschirmrand. Eine eigene Schaltfläche dafür gibt es hier nicht.
+- Direkt daneben folgt **Heute**; ganz rechts steht ein Menü mit dem Namen der aktiven Ansicht. Es ersetzt die vier Schaltflächen der Ansichtsumschaltung; die aktive Ansicht ist darin abgehakt.
+- **Wischen** Sie in der Kalenderfläche nach links, um einen Zeitraum vorzublättern, und nach rechts, um zurückzublättern: je nach Ansicht einen Tag, eine Woche oder einen Monat, in der Agenda einen Monat. Am äußersten linken oder rechten Bildschirmrand beginnt keine Wischgeste, damit die Zurück-Geste des Smartphones frei bleibt. Nicht umgeblättert wird bei schrägen Wischbewegungen, beim Blättern im Zeitraster oder in der Agenda und beim Halten eines Termins zum [Verschieben](#termine-per-drag--drop-verschieben). Im Stundenplan blättert Wischen nicht.
+
 ### Ansicht merken, verlinken und zurückblättern
 
 Die gewählte Ansicht und der angezeigte Zeitraum sind in der Adresse (URL) der Kalender-App enthalten. Daraus ergeben sich drei Dinge:
@@ -122,9 +131,11 @@ Markieren Sie ausgerechnet den Kalender als Stundenplan, der derzeit Ihr Standar
 
 Im Monatsraster wird jeder Tag als Zelle dargestellt. Der aktuelle Tag ist hervorgehoben, Tage außerhalb des angezeigten Monats sind abgeschwächt. Am linken Rand jeder Wochenzeile steht in einer eigenen, mit **KW** überschriebenen Spalte die zugehörige **Kalenderwoche** nach ISO 8601. Pro Tag werden die ersten Termine als farbige Einträge angezeigt; passen nicht alle Termine in die Zelle, erscheint darunter die Schaltfläche **+n weitere**. Ein Klick darauf öffnet ein kleines Überblendfenster mit der Überschrift des vollständigen Datums, das alle Termine dieses Tages auflistet – auch die bereits in der Zelle sichtbaren. Die Einträge werden wie in der Zelle dargestellt, mit Uhrzeit beziehungsweise dem Zeichen ↳ bei einem Termin, der an einem früheren Tag beginnt. Ein Klick auf einen Eintrag schließt das Fenster und öffnet den Termin zum [Bearbeiten](#termine-bearbeiten-und-löschen) – oder, ohne Bearbeitungsrecht, in der [Detailansicht](#termine-ansehen-ohne-bearbeitungsrecht). Auf dem Smartphone und in der edulution.io App öffnet ein Termin immer zuerst die Detailansicht. Das Fenster schließt sich auch, wenn Sie einen anderen Tag anklicken; klicken Sie dabei auf die Schaltfläche **+n weitere** eines anderen Tages, wechselt die Anzeige unmittelbar zu dessen Terminen. Ein Klick auf einen freien Bereich eines Tages öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit dem passenden Datum. Auf dem Smartphone und in der edulution.io App öffnet ein Tipp auf einen freien Bereich eines Tages stattdessen die [Agenda](#agenda) ab diesem Tag; mit der Zurück-Funktion des Browsers oder Smartphones gelangen Sie wieder in die Monatsansicht. Die gemerkte Startansicht ändert sich dadurch nicht.
 
+Ist das Fenster schmaler als 480 Pixel, etwa auf einem Smartphone im Hochformat, zeigt jeder Tag statt der Einträge bis zu drei farbige Punkte in der Farbe der Termine, bei weiteren Terminen ergänzt um **+n**. Ein Tipp auf den Tag öffnet die Agenda ab diesem Tag, wo Sie die Termine lesen. Für Bildschirmleser nennt jeder Tag mit Terminen deren Anzahl. Per Drag & Drop verschieben lassen sich Termine in dieser Darstellung nicht; wechseln Sie dafür in die Wochen- oder Tagesansicht.
+
 ### Woche
 
-Die Wochenansicht zeigt die sieben Tage der Woche mit einer Stundenskala. Termine werden zeitlich passend platziert; überlappende Termine werden nebeneinander angeordnet. Ganztägige Termine erscheinen in einer eigenen Zeile oberhalb der Stundenskala. Ein Klick auf einen freien Zeitabschnitt öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit der gewählten Anfangszeit. Die Stundenskala umfasst den gesamten Tag von **00:00** bis **23:00**. Da selten alle Stunden gleichzeitig auf den Bildschirm passen, ist die Ansicht beim Öffnen auf **06:00 Uhr** eingestellt; die übrigen Stunden erreichen Sie, indem Sie im Zeitraster blättern (siehe [Zeitraster bedienen](#zeitraster-bedienen)).
+Die Wochenansicht zeigt die sieben Tage der Woche mit einer Stundenskala. Termine werden zeitlich passend platziert; überlappende Termine werden nebeneinander angeordnet. Ganztägige Termine erscheinen in einer eigenen Zeile oberhalb der Stundenskala. Ein Klick auf einen freien Zeitabschnitt öffnet den Dialog zum [Erstellen eines Termins](#termine-erstellen) mit der gewählten Anfangszeit. Unter 480 Pixeln Fensterbreite werden die Termine zu farbigen Blöcken ohne Text, deren Höhe der Dauer entspricht. Tippen Sie auf einen Block, öffnet sich der Termin. Ganztägige Termine zeigt die Zeile darüber als farbige Punkte, und ein Tipp darauf öffnet die [Agenda](#agenda) ab diesem Tag. Mit Text bleiben die Termine dagegen in der Tagesansicht und im Stundenplan. Die Stundenskala umfasst den gesamten Tag von **00:00** bis **23:00**. Da selten alle Stunden gleichzeitig auf den Bildschirm passen, ist die Ansicht beim Öffnen auf **06:00 Uhr** eingestellt; die übrigen Stunden erreichen Sie, indem Sie im Zeitraster blättern (siehe [Zeitraster bedienen](#zeitraster-bedienen)).
 
 ### Tag
 
@@ -144,7 +155,7 @@ Auch die freien Zeitabschnitte lassen sich mit der Tastatur ansteuern. Jeder Abs
 
 ### Agenda
 
-Die Agenda listet die Termine ab dem gewählten Datum als **fortlaufende Liste** chronologisch untereinander auf, gruppiert nach Tag. Auf dem Smartphone und in der edulution.io App ist sie die Startansicht des Kalenders (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). Wechseln Sie über die Ansichtsumschaltung in die Agenda, beginnt die Liste beim heutigen Tag. Tippen Sie auf dem Smartphone und in der edulution.io App in der [Monatsansicht](#monat) auf einen Tag, beginnt sie bei diesem Tag.
+Die Agenda listet die Termine ab dem gewählten Datum als **fortlaufende Liste** chronologisch untereinander auf, gruppiert nach Tag. Auf dem Smartphone und in der edulution.io App ist sie die Startansicht des Kalenders (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). Wechseln Sie über die Ansichtsumschaltung in die Agenda, beginnt die Liste beim heutigen Tag. Wählen Sie die Agenda erneut, während sie bereits angezeigt wird, beginnt die Liste weiterhin am bisher gewählten Tag. Tippen Sie auf dem Smartphone und in der edulution.io App in der [Monatsansicht](#monat) auf einen Tag, beginnt sie bei diesem Tag.
 
 Beachten Sie dabei die folgenden Besonderheiten:
 
@@ -166,6 +177,8 @@ Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansich
 Auch im Stundenplan steht die angezeigte Woche in der Adresse (URL). Sie können die Seite also neu laden, ohne die Woche zu verlieren, und einen bestimmten Stundenplan mitsamt Woche als Lesezeichen speichern oder als Link weitergeben. Die Schaltflächen **Zurück** und **Vorwärts** des Browsers blättern durch die zuvor angezeigten Wochen (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). Ein Link auf einen Stundenplan führt auch die Ansicht mit, aus der er erstellt wurde: Wer ihn öffnet, gelangt über **Zurück** in eben diese Ansicht. Das gilt selbst für eine Ansicht, die Sie über den Link einer Kollegin erreicht haben – sie übersteht den Weg über den Stundenplan, ohne deshalb zu Ihrer künftigen Startansicht zu werden.
 
 Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)); auf dem Smartphone und in der edulution.io App zuerst in der Detailansicht. Wie in den übrigen Rasteransichten verschieben Sie einen Termin auch hier [per Drag & Drop](#termine-per-drag--drop-verschieben) auf einen anderen Zeitabschnitt. Über der Stundenskala liegt wie in der Wochenansicht eine eigene Zeile für **ganztägige** Termine.
+
+Auf dem Smartphone und in der edulution.io App zeigt die Kopfzeile des Stundenplans die Schaltfläche **Zurück** zur Kalenderansicht nur als Pfeil und die Woche in Kurzform als **KW _n_**, damit alles in eine Zeile passt. Bei einem abonnierten Stundenplan nennt die Überschrift die Person, der er gehört, ohne ihre E-Mail-Adresse.
 
 Neue Termine legen Sie oben rechts über **Erstellen** und darin **Termin erstellen** an; ein Klick auf einen leeren Zeitabschnitt öffnet hier – anders als in der Wochen- und der Tagesansicht – keinen neuen Termin. Im Dialog ist der geöffnete Stundenplan bereits als Kalender vorausgewählt, auch wenn Sie an anderer Stelle einen [Standardkalender](#kalenderkontextmenü) festgelegt haben.
 
@@ -190,6 +203,7 @@ Das Quadrat erscheint nur an Terminen mit eigener Farbe und nur dort, wo die Zuo
 - Es entfällt, solange **nur ein einziger Kalender eingeblendet** ist – dann können die Termine nur aus diesem einen Kalender stammen. Blenden Sie einen weiteren Kalender ein, erscheint es wieder (siehe [Kalender ein- und ausblenden](#kalender-ein--und-ausblenden)).
 - Als Stundenplan markierte Kalender zählen dabei **nicht mit**, da ihre Termine in **Monat**, **Woche**, **Tag** und **Agenda** ohnehin nicht erscheinen. Haben Sie neben einem Stundenplan nur einen gewöhnlichen Kalender, bleibt das Quadrat also aus.
 - In der **Stundenplan-Ansicht** erscheint es nicht, da diese stets die Termine eines einzelnen Stundenplans zeigt.
+- In **Monat** und **Woche** entfällt es unter 480 Pixeln Fensterbreite ebenfalls, da Punkte und Blöcke ohne Text keinen Platz dafür bieten. Welchem Kalender ein Termin angehört, zeigt dann seine Detailansicht.
 
 ## Termine erstellen
 

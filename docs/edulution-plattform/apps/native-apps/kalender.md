@@ -201,13 +201,14 @@ Füllen Sie im Dialog die folgenden Felder aus:
 2. **Titel** – Die Bezeichnung des Termins.
 3. **Beschreibung** – Optionaler ausführlicher Text.
 4. **Ort** – Optionale Ortsangabe.
-5. **Ganztägig** – Schalten Sie diese Option ein, wenn der Termin keinen festen Zeitpunkt hat; die Uhrzeitfelder entfallen dann.
+5. **Ganztägig** – Schalten Sie diese Option ein, wenn der Termin keinen festen Zeitpunkt hat; die Uhrzeitfelder und das Feld **Zeitzone** entfallen dann.
 6. **Beginn** und **Ende** – Start- und Endzeitpunkt des Termins. Das Ende darf nicht vor dem Beginn liegen.
-7. **Wiederholung** – Legt fest, ob der Termin als [Serientermin](#serientermine-und-wiederholungen) wiederkehrt.
-8. **Sichtbarkeit** – **Öffentlich**, **Privat** oder **Vertraulich**.
-9. **Zeit-Status** – Ob die Zeit als **Abwesend (gebucht)** oder **Verfügbar (frei)** gilt.
-10. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Auswahl beginnt mit **Keine Farbe**, darauf folgen die vorgegebenen Farben; zuletzt öffnet **Eigene Farbe** den Farbwähler. Die Farbe wirkt sich in allen Ansichten aus; ohne eigene Farbe gilt die Farbe des Kalenders (siehe [Terminfarben in den Ansichten](#terminfarben-in-den-ansichten)). Die Beschriftung des Termins wird automatisch dunkel oder hell dargestellt, damit sie vor der gewählten Farbe lesbar bleibt (siehe [Farbwahl und Lesbarkeit](#farbwahl-und-lesbarkeit)).
-11. **Teilnehmer** – Weitere Benutzer, die zum Termin eingeladen werden.
+7. **Zeitzone** – Die Zeitzone, an die die Uhrzeiten des Termins gebunden sind. Vorbelegt ist die Zeitzone Ihres Geräts; mit **Keine Zeitzone** verzichten Sie darauf (siehe [Zeitzonen und Zeitumstellung](#zeitzonen-und-zeitumstellung)).
+8. **Wiederholung** – Legt fest, ob der Termin als [Serientermin](#serientermine-und-wiederholungen) wiederkehrt.
+9. **Sichtbarkeit** – **Öffentlich**, **Privat** oder **Vertraulich**.
+10. **Zeit-Status** – Ob die Zeit als **Abwesend (gebucht)** oder **Verfügbar (frei)** gilt.
+11. **Farbe** – Eine Farbe aus der Palette, eine eigene Farbe oder **Keine Farbe**. Die Auswahl beginnt mit **Keine Farbe**, darauf folgen die vorgegebenen Farben; zuletzt öffnet **Eigene Farbe** den Farbwähler. Die Farbe wirkt sich in allen Ansichten aus; ohne eigene Farbe gilt die Farbe des Kalenders (siehe [Terminfarben in den Ansichten](#terminfarben-in-den-ansichten)). Die Beschriftung des Termins wird automatisch dunkel oder hell dargestellt, damit sie vor der gewählten Farbe lesbar bleibt (siehe [Farbwahl und Lesbarkeit](#farbwahl-und-lesbarkeit)).
+12. **Teilnehmer** – Weitere Benutzer, die zum Termin eingeladen werden.
 
 Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.
 
@@ -257,7 +258,7 @@ Bearbeiten oder löschen Sie einen Termin, der Teil einer Serie ist – oder ver
 - **Dieser und alle folgenden Termine**
 - **Alle Termine der Serie**
 
-Wählen Sie **Alle Termine der Serie** und haben Sie dabei den Zeitpunkt geändert, wird die gesamte Serie um denselben Zeitversatz verschoben. Dabei wird die Wiederholungsregel auf den neuen Zeitpunkt umgerechnet: Verschieben Sie eine wöchentliche Serie von Montag auf Dienstag, wiederholt sie sich anschließend dienstags. Bei einem monatlichen Muster nach Wochentag wird der Anker ebenfalls neu bestimmt – aus „Am zweiten Dienstag des Monats“ wird beim Verschieben um eine Woche „Am dritten Dienstag des Monats“. Zuvor gelöschte Einzeltermine der Serie bleiben gelöscht, und einzeln verschobene Termine behalten ihre Abweichung.
+Wählen Sie **Alle Termine der Serie** und haben Sie dabei den Zeitpunkt geändert, wird die gesamte Serie um denselben Zeitversatz verschoben. Dabei wird die Wiederholungsregel auf den neuen Zeitpunkt umgerechnet: Verschieben Sie eine wöchentliche Serie von Montag auf Dienstag, wiederholt sie sich anschließend dienstags. Bei einem monatlichen Muster nach Wochentag wird der Anker ebenfalls neu bestimmt – aus „Am zweiten Dienstag des Monats“ wird beim Verschieben um eine Woche „Am dritten Dienstag des Monats“. Zuvor gelöschte Einzeltermine der Serie bleiben gelöscht, und einzeln verschobene Termine behalten ihre Abweichung. Das gilt auch, wenn Sie die Zeitzone der Serie ändern.
 
 Ändern Sie die Dauer eines Termins und wählen **Alle Termine der Serie**, gilt die neue Dauer für sämtliche Termine der Serie. Alle übrigen Änderungen – etwa Titel oder Ort – gelten ebenfalls unverändert für die gesamte Serie.
 
@@ -299,9 +300,29 @@ Ganztägige Termine behalten beim Verschieben ihre Länge und bleiben ganztägig
 
 Ziehen Sie einen Serientermin, erscheint anschließend dieselbe Abfrage nach dem [Geltungsbereich](#geltungsbereich-beim-bearbeiten-oder-löschen).
 
+Ein Termin mit Uhrzeit, der noch keine Zeitzone trägt, erhält beim Verschieben die Zeitzone Ihres Geräts, auch ein Serientermin (siehe [Termine ohne Zeitzone](#termine-ohne-zeitzone)).
+
 :::info[Termine ohne Bearbeitungsrecht]
 Verschieben lassen sich nur Termine, für die Sie das Recht zum **Ändern** besitzen. In einem freigegebenen Kalender kann das je Sichtbarkeit unterschiedlich sein (siehe [Abonnierte und schreibgeschützte Kalender](#abonnierte-und-schreibgeschützte-kalender)). Auch einzelne Ausnahmen innerhalb einer Serie lassen sich nicht frei verschieben.
 :::
+
+## Zeitzonen und Zeitumstellung
+
+Termine mit Uhrzeit sind an eine Zeitzone gebunden, in der Regel an die Ihres Geräts beim Anlegen. **Beginn** und **Ende** gelten als Ortszeit dieser Zeitzone, ein Termin um 08:00 Uhr Berliner Zeit bleibt also auch nach der Zeitumstellung um 08:00 Uhr. Auf einem Gerät in einer anderen Zeitzone erscheint er zur dortigen Ortszeit. Die Detailansicht zeigt dann eine zusätzliche Zeile **Zeitzone** mit Beginn und Ende in der Ortszeit des Termins.
+
+Beim Bearbeiten behält ein Termin seine Zeitzone, auch wenn Ihr Gerät inzwischen in einer anderen Zeitzone ist. Wechseln Sie im Dialog die Zeitzone, bleiben die eingetragenen Uhrzeiten stehen, und der Termin rückt auf den entsprechenden Zeitpunkt der neuen Zeitzone. Ganztägige Termine haben keine Zeitzone.
+
+### Termine ohne Zeitzone
+
+Termine aus der Zeit vor der Zeitzonen-Unterstützung tragen keine Zeitzone; ihre Uhrzeit bleibt unverändert gespeichert. Öffnen Sie einen solchen Einzeltermin zum Bearbeiten, ist die Zeitzone Ihres Geräts vorbelegt und wird beim Speichern übernommen. Einen Serientermin lässt der Dialog dagegen ohne Zeitzone, damit seine bisherigen Termine ihre Uhrzeiten behalten. Beim [Verschieben per Drag & Drop](#termine-per-drag--drop-verschieben) erhalten beide die Zeitzone Ihres Geräts.
+
+Bei einem Beginn vor 2015 entfällt diese Vorbelegung, bei neuen Terminen ebenso wie beim Verschieben. Einige Zeitzonen kann der Server für diese Jahre nicht exakt abbilden.
+
+### Zeitumstellung
+
+In der Nacht der Umstellung auf Winterzeit gibt es eine Uhrzeit zweimal, in Berliner Zeit etwa 02:30 Uhr. Ein Termin auf dieser Uhrzeit liegt immer auf dem **späteren** der beiden Zeitpunkte. Ein bereits auf dem früheren Zeitpunkt gespeicherter Termin bleibt dort, bis Sie seine Uhrzeit ändern. In der Nacht der Umstellung auf Sommerzeit fehlt dagegen eine Stunde: Ein Termin auf 02:30 Uhr rückt auf 03:30 Uhr.
+
+In den Ansichten **Woche**, **Tag** und **Stundenplan** belegt die doppelte Stunde nur eine Zeile, die für den späteren Zeitpunkt steht. Ein Termin, der über diese Umstellung hinweg läuft, erscheint deshalb kürzer, als er dauert; seine gespeicherten Zeiten ändern sich nicht. Die Zeilen der fehlenden Stunde bleiben sichtbar, lassen sich aber weder anklicken noch als Ziel beim Verschieben verwenden.
 
 ## Kalender anlegen
 

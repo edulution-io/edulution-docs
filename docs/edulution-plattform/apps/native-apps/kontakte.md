@@ -152,7 +152,7 @@ Erscheinen keine Adressbücher, benennt die Fehlermeldung, welche Ursache vorlie
 
 Wird einem Benutzer, der zuvor Adressbücher sehen konnte, plötzlich keines mehr angezeigt, prüft edulution die Zugangsdaten erneut und meldet die Ablehnung ausdrücklich, statt eine leere Liste darzustellen. Ein Benutzer, der schlicht kein Adressbuch besitzt, sieht weiterhin eine leere Liste ohne Fehlermeldung.
 
-Auch bei einer Störung des CardDAV-Servers zeigt edulution keine leere Liste an. Ist die Adressbuchliste bereits geladen, bleibt sie während der Störung sichtbar. Andernfalls erscheint eine Fehlermeldung. Das gilt auch beim Öffnen eines Adressbuchs: edulution meldet die Störung, statt das Adressbuch als nicht vorhanden anzuzeigen. Verweigert der Server dagegen den Zugriff auf ein einzelnes Adressbuch oder meldet es als nicht vorhanden, erscheint beim Öffnen **"Adressbuch nicht gefunden"**. Die Kontaktsuche überspringt dieses Adressbuch und durchsucht die übrigen.
+Auch bei einer Störung des CardDAV-Servers zeigt edulution keine leere Liste an. Ist die Adressbuchliste bereits geladen, bleibt sie während der Störung sichtbar. Andernfalls erscheint eine Fehlermeldung. Das gilt auch beim Öffnen eines Adressbuchs: edulution meldet die Störung, statt das Adressbuch als nicht vorhanden anzuzeigen. Verweigert der Server dagegen den Zugriff auf ein einzelnes Adressbuch oder meldet es als nicht vorhanden, erscheint **"Adressbuch nicht gefunden"**: beim Öffnen und Exportieren des Adressbuchs ebenso wie beim Bearbeiten, Löschen und Importieren von Kontakten darin. Die Kontaktsuche überspringt dieses Adressbuch und durchsucht die übrigen.
 
 </Audience>
 

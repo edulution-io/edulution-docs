@@ -533,7 +533,7 @@ Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit s
 
 Kalender für Klassen, Projekte und Gruppen verwaltet die Schule zentral. Sie stehen in der Seitenleiste unter **Klassen**, **Projekte** und **Gruppen** und nicht unter **Meine Kalender** oder **Abonnierte Kalender**, auch wenn Sie selbst Termine darin anlegen dürfen. Am Farbquadrat erkennen Sie sie an einem kleinen Gebäude-Symbol; der Hinweis beim Darüberfahren lautet **Von der Schule verwaltet**.
 
-Wer einen solchen Kalender sieht und darin schreiben darf, ergibt sich aus der Mitgliedschaft in der Klasse, dem Projekt oder der Gruppe. Deshalb lässt sich ein verwalteter Kalender weder freigeben noch veröffentlichen, abbestellen, als Stundenplan markieren oder löschen. Das gilt auch für Administratoren. Termine legen Sie darin wie gewohnt an, soweit Ihre Rechte es erlauben.
+Wer einen solchen Kalender sieht und darin schreiben darf, ergibt sich aus der Mitgliedschaft in der Klasse, dem Projekt oder der Gruppe. Deshalb lässt sich ein verwalteter Kalender weder freigeben noch veröffentlichen, abbestellen, als Stundenplan markieren noch löschen. Das gilt auch für Administratoren. Termine legen Sie darin wie gewohnt an, soweit Ihre Rechte es erlauben.
 
 Ein- und ausblenden können Sie einen verwalteten Kalender wie jeden anderen; Ihre Auswahl wird ebenso gespeichert (siehe [Kalender ein- und ausblenden](#kalender-ein--und-ausblenden)).
 

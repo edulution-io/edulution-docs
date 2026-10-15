@@ -12,6 +12,12 @@ on:
       notes:
         description: 'What the snapshot changes, in German'
         required: false
+      milestone:
+        description: 'Milestone the snapshot belongs to'
+        required: false
+      milestone_url:
+        description: 'Address of that milestone'
+        required: false
 
 permissions:
   contents: read
@@ -65,14 +71,17 @@ jobs:
       # A release created with GITHUB_TOKEN triggers no `release` event, so the deploy is started explicitly,
       # on the tag, which is the only ref the github-pages environment accepts.
       # The notes carry what the tag cannot say: which documentation snapshot
-      # this release publishes, and which edulution version that snapshot
-      # describes. `docs-version.yml` passes both; a redeploy started by hand
-      # passes neither and gets the generated notes alone.
+      # this release publishes, which edulution version that snapshot
+      # describes, and the milestone it belongs to. `docs-version.yml` passes
+      # them; a redeploy started by hand passes none and gets the generated
+      # notes alone.
       - name: Release and deploy
         env:
           DOCS_VERSION: ${{ inputs.docs_version }}
           EDULUTION_VERSION: ${{ inputs.edulution_version }}
           NOTES: ${{ inputs.notes }}
+          MILESTONE: ${{ inputs.milestone }}
+          MILESTONE_URL: ${{ inputs.milestone_url }}
         run: |
           month=$(TZ=Europe/Berlin date +%Y.%-m)
           n=$(gh api "repos/$GH_REPO/git/matching-refs/tags/v$month." \
@@ -92,7 +101,15 @@ jobs:
             if [ -n "$DOCS_VERSION" ]; then
               printf '## Dokumentationsstand %s\n\n' "$DOCS_VERSION"
               if [ -n "$EDULUTION_VERSION" ]; then
-                printf 'Dokumentiert edulution %s.\n\n' "$EDULUTION_VERSION"
+                printf 'Dokumentiert edulution %s.\n' "$EDULUTION_VERSION"
+              fi
+              if [ -n "$MILESTONE" ] && [ -n "$MILESTONE_URL" ]; then
+                printf 'Meilenstein: [%s](%s)\n' "$MILESTONE" "$MILESTONE_URL"
+              elif [ -n "$MILESTONE" ]; then
+                printf 'Meilenstein: %s\n' "$MILESTONE"
+              fi
+              if [ -n "$EDULUTION_VERSION" ] || [ -n "$MILESTONE" ]; then
+                printf '\n'
               fi
               if [ -n "$NOTES" ]; then
                 printf '%s\n\n' "$NOTES"

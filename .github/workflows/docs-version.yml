@@ -9,9 +9,9 @@ name: Cut docs version
 # is therefore `2026.10.1` and leaves `2026.10.0` readable instead of replacing
 # it.
 #
-# Which edulution version a snapshot describes is not derivable from a date, so
-# the person cutting it says, and it is recorded in the commit and in the
-# release notes.
+# Which edulution version a snapshot describes, and which milestone it belongs
+# to, are not derivable from a date, so the person cutting it says. Both end up
+# in the release notes, the version also in the commit.
 
 on:
   workflow_dispatch:
@@ -22,6 +22,9 @@ on:
       notes:
         description: 'What this snapshot changes, in German — it becomes the release notes'
         required: true
+      milestone:
+        description: 'Milestone this snapshot belongs to (e.g. Release 2.4) — empty takes the only open one'
+        required: false
 
 permissions:
   contents: read
@@ -35,9 +38,48 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      issues: read
     outputs:
       version: ${{ steps.cut.outputs.version }}
+      milestone: ${{ steps.milestone.outputs.title }}
+      milestone_url: ${{ steps.milestone.outputs.url }}
     steps:
+      # First, so a name that does not exist costs nothing: an unknown
+      # milestone would otherwise be found out after the snapshot was already
+      # committed, and the release notes would carry a dangling link. An empty
+      # input takes the only open milestone — the normal case — and refuses to
+      # guess when there are several.
+      - name: Resolve the milestone
+        id: milestone
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          MILESTONE: ${{ inputs.milestone }}
+        run: |
+          set -euo pipefail
+          milestones=$(gh api "repos/$GH_REPO/milestones?state=all&per_page=100")
+
+          if [ -n "$MILESTONE" ]; then
+            title="$MILESTONE"
+            url=$(jq -r --arg title "$title" 'map(select(.title == $title)) | .[0].html_url // empty' <<< "$milestones")
+            if [ -z "$url" ]; then
+              echo "::error::$GH_REPO has no milestone named '$title'."
+              exit 1
+            fi
+          else
+            open=$(jq -c 'map(select(.state == "open"))' <<< "$milestones")
+            if [ "$(jq -r 'length' <<< "$open")" != '1' ]; then
+              echo "::error::$(jq -r 'length' <<< "$open") open milestones in $GH_REPO — name the one this snapshot belongs to."
+              exit 1
+            fi
+            title=$(jq -r '.[0].title' <<< "$open")
+            url=$(jq -r '.[0].html_url' <<< "$open")
+          fi
+
+          echo "title=$title" >> "$GITHUB_OUTPUT"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "::notice::Snapshot belongs to the milestone $title."
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -111,9 +153,13 @@ jobs:
           VERSION: ${{ needs.cut.outputs.version }}
           EDULUTION_VERSION: ${{ inputs.edulution_version }}
           NOTES: ${{ inputs.notes }}
+          MILESTONE: ${{ needs.cut.outputs.milestone }}
+          MILESTONE_URL: ${{ needs.cut.outputs.milestone_url }}
         run: |
           set -euo pipefail
           gh workflow run release.yml --ref main \
             -f "docs_version=$VERSION" \
             -f "edulution_version=$EDULUTION_VERSION" \
-            -f "notes=$NOTES"
+            -f "notes=$NOTES" \
+            -f "milestone=$MILESTONE" \
+            -f "milestone_url=$MILESTONE_URL"

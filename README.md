@@ -93,18 +93,28 @@ einem Umbau der Seitenstruktur werden sie **nicht** mitgezogen.
 
 ### Schnitt auslösen
 
-Actions → *Cut docs version* → *Run workflow*. Der Workflow fragt zwei Angaben
-ab, die niemand sonst kennt:
+Actions → *Cut docs version* → *Run workflow*. Der Workflow fragt ab, was er
+nicht selbst wissen kann:
 
 | Eingabe | Beispiel | Wofür |
 | --- | --- | --- |
 | `edulution_version` | `2.3` | Welche edulution-Version dieser Stand beschreibt. Ein Datum sagt das nicht, und die Leser brauchen es. |
 | `notes` | `- Satelliten-LINBO neu` | Was der Stand ändert. Wird zu den Release Notes. |
+| `milestone` | `Release 2.4` | Der Meilenstein, zu dem der Stand gehört. Leer nimmt den einzigen offenen; einen Namen, den es nicht gibt, weist der Workflow zurück, bevor er schneidet. |
 
 Die Nummer des Stands berechnet der Workflow selbst. Er schneidet, baut beide
 Builds, committet nach `main` und startet das Release, das den Stand live
-stellt; `edulution_version` steht danach in der Commit-Nachricht und zusammen
-mit `notes` in den Release Notes.
+stellt; `edulution_version` steht danach in der Commit-Nachricht, und
+`edulution_version`, `milestone` und `notes` stehen in den Release Notes:
+
+```markdown
+## Dokumentationsstand 2026.10.0
+
+Dokumentiert edulution 2.3.
+Meilenstein: [Release 2.4](https://github.com/edulution-io/edulution-docs/milestone/4)
+
+- Satelliten-LINBO neu
+```
 
 Lokal, zum Ausprobieren – der Schnitt wird nicht committet:
 

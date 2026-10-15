@@ -89,6 +89,8 @@ Was ein Klick auf einen Termin bewirkt, hängt von Ihren Rechten am zugehörigen
 
 Ein Termin aus einem eigenen Kalender lässt sich damit direkt vom Dashboard aus bearbeiten, ein freigegebener nur dann, wenn Ihnen der Besitzer das Recht **Ändern** für dessen Sichtbarkeit eingeräumt hat – siehe [Kalender freigeben](../apps/native-apps/kalender.md#kalender-freigeben).
 
+Sehen Sie von einem Termin nur die belegte Zeit, trägt er schon in der Stundenleiste, in der Reihe der ganztägigen Termine und in der Fußzeile den Titel **Belegt**, ohne Ort. So erscheinen auch alle Termine eines abonnierten Kalenders, dessen Rechte sich nicht ermitteln lassen. Termine aus einem Kalender, der noch nicht in Ihrer Kalenderliste steht, zeigt das Widget ebenfalls als **Belegt**; ein Klick darauf bewirkt nichts (siehe [Wenn sich Ihre Rechte nicht ermitteln lassen](../apps/native-apps/kalender.md#wenn-sich-ihre-rechte-nicht-ermitteln-lassen)).
+
 ### Current Affairs
 
 Aktuelle Aktivitäten und Benachrichtigungen:

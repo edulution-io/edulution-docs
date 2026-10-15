@@ -61,7 +61,7 @@ Solange Sie über keinen Kalender verfügen, in den Sie Termine eintragen dürfe
 
 ### Ansicht aktualisieren
 
-Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die Termine des aktuell angezeigten Zeitraums und der aktiven Kalender erneut vom Server, ohne dass Sie die Seite neu laden oder wegblättern müssen – nützlich, um zwischenzeitlich an anderer Stelle geänderte Termine anzuzeigen. Während des Aktualisierens dreht sich das Symbol der Schaltfläche, sie ist vorübergehend deaktiviert und es erscheint die kleine Ladeanzeige.
+Oben rechts steht die Schaltfläche **Neu laden** zur Verfügung. Sie lädt die Termine des aktuell angezeigten Zeitraums und der aktiven Kalender erneut vom Server, ohne dass Sie die Seite neu laden oder wegblättern müssen – nützlich, um zwischenzeitlich an anderer Stelle geänderte Termine anzuzeigen. Dabei lädt sie auch die Kalenderliste neu. Während des Aktualisierens dreht sich das Symbol der Schaltfläche, sie ist vorübergehend deaktiviert und es erscheint die kleine Ladeanzeige.
 
 ### Seitenleiste und Kalenderliste
 
@@ -524,7 +524,13 @@ Da die Rechte je Sichtbarkeit vergeben werden, können sich die Termine **eines 
 
 Termine, die Sie sehen, aber nicht bearbeiten dürfen, öffnen sich beim Anklicken in einer reinen **Detailansicht** statt im Bearbeiten-Dialog. Sie zeigt Zeitraum, Kalender, Ort, Beschreibung, Sichtbarkeit, Zeit-Status und Teilnehmer, bietet aber keine Eingabefelder.
 
-Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit sehen**, nennt die Detailansicht ausschließlich den Zeitraum und den Kalender und weist die Zeit als belegt aus — Titel, Ort, Beschreibung und Teilnehmer bleiben verborgen. Termine, für die Sie die Rolle **Keine** besitzen, erscheinen gar nicht erst im Kalender.
+Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit sehen**, steht der Termin in den Ansichten, im Stundenplan und im Dashboard-Widget **Termine** nur mit dem Titel **Belegt**, ohne Ort, Beschreibung und eigene Terminfarbe. Die Detailansicht nennt ausschließlich den Zeitraum und den Kalender und weist die Zeit als belegt aus — Titel, Ort, Beschreibung und Teilnehmer bleiben verborgen. Termine, für die Sie die Rolle **Keine** besitzen, erscheinen gar nicht erst im Kalender.
+
+### Wenn sich Ihre Rechte nicht ermitteln lassen
+
+Kann edulution Ihre Rechte an einem abonnierten Kalender nicht beim Server abfragen, behandelt es **alle Termine dieses Kalenders** wie mit der Rolle **Datum & Uhrzeit sehen**. Sie stehen dann als **Belegt** im Kalender, und ein Klick öffnet dieselbe eingeschränkte Detailansicht wie oben. Bearbeiten oder verschieben lassen sie sich nicht. Eigene Kalender und Web-Kalender betrifft das nicht. Gelingt die Abfrage beim nächsten Laden der Kalenderliste, zeigen die Termine wieder alles, was Ihre Rolle erlaubt. Die Kalenderliste lädt neu, wenn Sie auf **Neu laden** klicken oder die Kalender-App erneut öffnen.
+
+Ebenso erscheinen Termine aus einem Kalender, der noch nicht in Ihrer Kalenderliste steht, nur als **Belegt**; sie lassen sich weder öffnen noch verschieben. Das kommt etwa vor, wenn jemand einen Kalender für Sie freigegeben und abonniert hat, während Sie die Kalender-App schon geöffnet hatten. Nach **Neu laden** oder einem erneuten Öffnen der Kalender-App erscheinen die Termine mit Ihren Rechten.
 
 ## Web-Kalender abonnieren
 

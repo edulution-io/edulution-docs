@@ -97,11 +97,12 @@ Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalen
 - **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
 - **Kalender veröffentlichen** – Öffnet den [Veröffentlichen-Dialog](#kalender-veröffentlichen), über den Sie den Kalender als Abonnement-Link bereitstellen; nur bei eigenen Kalendern verfügbar.
 - **Exportieren** – Lädt den Kalender als `.ics`-Datei herunter (siehe [Kalender und Termine exportieren](#kalender-und-termine-exportieren)); bei allen Kalendern außer Web-Kalendern verfügbar.
+- **Importieren …** – Übernimmt die Termine einer `.ics`-Datei in den Kalender (siehe [Termine importieren](#termine-importieren)); bei eigenen Kalendern und bei freigegebenen Kalendern verfügbar, in denen Sie Termine anlegen dürfen, nicht bei Stundenplänen und Web-Kalendern.
 - **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht bei abonnierten Kalendern als letzter Eintrag.
 - **Jetzt aktualisieren** – Lädt einen [Web-Kalender](#web-kalender-abonnieren) sofort neu, ohne auf die nächste automatische Aktualisierung zu warten; nur bei Web-Kalendern verfügbar.
 - **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
 
-Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen, **Exportieren** und **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben**, **Kalender veröffentlichen** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
+Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen, **Exportieren** und **Abbestellen** zur Verfügung, dazu **Importieren …**, wenn Sie in dem Kalender Termine anlegen dürfen. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben**, **Kalender veröffentlichen** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
 
 Bei einem als Stundenplan markierten Kalender führt der Eintrag in der Seitenleiste direkt in die [Stundenplan-Ansicht](#stundenplan); sein Kontextmenü enthält deshalb keine Anzeige-Aktionen, sondern **Stundenplan-Markierung entfernen**, **Einstellungen**, **Freigeben**, **Exportieren** und **Löschen**. Ein Stundenplan lässt sich nicht als Standardkalender festlegen.
 
@@ -520,6 +521,26 @@ Teilnehmer und Organisator stehen in keiner exportierten Datei, auch nicht bei I
 Die Datei gibt den Stand zum Zeitpunkt des Herunterladens wieder; spätere Änderungen erreichen das andere Programm nicht. Soll ein Kalender dort laufend aktuell bleiben, stellen Sie ihn stattdessen über [Kalender veröffentlichen](#kalender-veröffentlichen) als Abonnement-Link bereit.
 
 Web-Kalender lassen sich nicht exportieren, da ihre Quelle bereits eine solche Datei ist.
+
+## Termine importieren
+
+Über **Importieren …** im [Kalenderkontextmenü](#kalenderkontextmenü) übernehmen Sie die Termine einer Datei im iCalendar-Format (`.ics`) in einen Kalender, etwa einer Datei, die ein anderes Kalenderprogramm exportiert hat. Im Dialog ist dieser Kalender als Ziel vorausgewählt. Sie können stattdessen jeden anderen Kalender wählen, in dem Sie Termine anlegen dürfen, außer einem Stundenplan. Ziehen Sie die Datei in den Dialog oder wählen Sie sie per Klick aus. Sie darf höchstens 2 MB groß sein und höchstens 1000 Termine enthalten; einzeln geänderte Termine einer Serie zählen dabei mit.
+
+Bevor etwas gespeichert wird, prüft edulution die Datei für den gewählten Kalender; wechseln Sie danach das Ziel, wird sie erneut geprüft. Der Dialog zeigt dann, wie viele Termine importiert werden, wie viele davon Serien sind und welche Termine aus welchem Grund übersprungen werden. Erst **Importieren** schreibt die Termine in den Kalender. Danach meldet eine Nachricht, wie viele Termine importiert, übersprungen oder nicht gespeichert wurden.
+
+Übersprungen werden:
+
+- Termine, die der Kalender schon enthält. Eine Datei lässt sich deshalb ein zweites Mal importieren, ohne dass Termine doppelt entstehen.
+- Termine ohne Beginn oder ohne Kennung (UID), Termine, die mehrfach in der Datei stehen, und einzeln geänderte Termine, deren Serie in der Datei fehlt.
+- Termine, die edulution auch beim [Erstellen](#termine-erstellen) ablehnen würde, etwa wegen zu langer Texte, einer nicht unterstützten Wiederholung oder eines Datums, das zu weit in der Zukunft liegt.
+- Termine, deren Wiederholung edulution nur unvollständig übernehmen könnte, etwa weil sie zusätzliche Einzeldaten enthält.
+- Abgesagte Termine. Ist nur ein einzelner Termin einer Serie abgesagt, wird die Serie ohne diesen Termin importiert.
+
+Eine Serie wird nur als Ganzes importiert: Lässt sich einer ihrer einzeln geänderten Termine nicht übernehmen, entfällt die ganze Serie.
+
+Übernommen werden **Titel**, **Beschreibung**, **Ort**, **Beginn** und **Ende**, **Wiederholung**, **Sichtbarkeit**, **Zeit-Status** und **Farbe**. Teilnehmer, Organisator, Erinnerungen und Anhänge übernimmt der Import nicht; er verschickt also keine Einladungen.
+
+Ein Import lässt sich nicht rückgängig machen. Scheitert das Speichern einzelner Termine, bleiben die schon importierten im Kalender. Wollen Sie eine Datei erst ausprobieren, importieren Sie sie in einen eigens dafür [angelegten Kalender](#kalender-anlegen), den Sie anschließend wieder löschen.
 
 ## Abonnierte und schreibgeschützte Kalender
 

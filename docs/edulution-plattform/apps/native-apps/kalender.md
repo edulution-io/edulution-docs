@@ -223,6 +223,8 @@ Wenn Sie einen Termin bearbeiten, können Sie über das Feld **Kalender** einen 
 
 Serientermine lassen sich nur als Ganzes in einen anderen Kalender verschieben: Wählen Sie in der anschließenden Abfrage **Alle Termine der Serie**, wird die gesamte Serie einschließlich ihrer Wiederholungsregel und Teilnehmer in den Zielkalender übernommen. Das Verschieben nur eines einzelnen Termins oder der folgenden Termine einer Serie in einen anderen Kalender ist nicht möglich und wird mit einer entsprechenden Meldung abgelehnt.
 
+Liegt im Zielkalender bereits ein Termin mit derselben internen Kennung, etwa weil der Termin dort schon einmal gespeichert wurde, lehnt edulution das Verschieben mit der Meldung **"Dieser Termin ist im Zielkalender bereits vorhanden."** ab. Beide Kalender bleiben dann unverändert. Termine, zu denen Sie eingeladen wurden, verschieben Sie auf dieselbe Weise.
+
 ## Wenn der Kalenderserver eine Änderung ablehnt
 
 Lehnt der Kalenderserver das Anlegen, Ändern, Verschieben oder Löschen eines Termins ab, nennt die Fehlermeldung den Grund.
@@ -230,7 +232,7 @@ Lehnt der Kalenderserver das Anlegen, Ändern, Verschieben oder Löschen eines T
 - **"Der Termin wurde inzwischen an anderer Stelle geändert. …"** – Während Ihre Änderung gespeichert wurde, hat jemand den Termin an anderer Stelle geändert, etwa in einem anderen Kalenderprogramm oder als anderer Benutzer mit Schreibrecht für diesen Kalender. Laden Sie den Kalender neu, prüfen Sie den aktuellen Stand und nehmen Sie Ihre Änderung danach erneut vor.
 - **"Der Kalenderserver hat die Änderung abgelehnt, …"** – Der Server weist den Termin in dieser Form zurück, zum Beispiel weil ein eingeladener Raum zu dieser Zeit bereits belegt ist oder ein Teilnehmer keine Einladungen annimmt. Ein erneuter Versuch führt zum selben Ergebnis; passen Sie zuerst den Termin an, etwa die Zeit oder die Teilnehmer.
 - **"Termin nicht gefunden"** – Der Termin wurde inzwischen gelöscht. Nach dem Neuladen des Kalenders wird er nicht mehr angezeigt.
-- **"Dieser Termin ist im Zielkalender bereits vorhanden."** – Im Kalender, in dem der Termin gespeichert werden soll, liegt bereits ein Termin mit derselben internen Kennung, etwa aus einem anderen Kalenderprogramm.
+- **"Dieser Termin ist im Zielkalender bereits vorhanden."** – Im Kalender, in dem der Termin gespeichert werden soll, liegt bereits ein Termin mit derselben internen Kennung, etwa weil der Termin dort schon einmal gespeichert wurde oder der vorhandene aus einem anderen Kalenderprogramm stammt. Gespeichert wird in diesem Fall nichts.
 - **"Dieser Kalender kann nicht bearbeitet werden."** – In diesem Kalender lässt der Server keine Änderungen zu, beispielsweise weil Ihnen das Schreibrecht für einen freigegebenen Kalender inzwischen entzogen wurde.
 - **"Der Speicherplatz für Ihre Kalender ist voll. …"** – Ihr Speicherkontingent auf dem Kalenderserver ist ausgeschöpft. Dieselbe Meldung erscheint auch, wenn Sie einen Kalender anlegen oder bearbeiten.
 

@@ -219,7 +219,7 @@ Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Sie st
 
 ## Termin in einen anderen Kalender verschieben
 
-Wenn Sie einen Termin bearbeiten, können Sie über das Feld **Kalender** einen anderen Zielkalender auswählen. Beim Speichern wird der Termin in den gewählten Kalender verschoben. Als Ziel stehen nur Kalender zur Verfügung, in die Sie schreiben dürfen.
+Wenn Sie einen Termin bearbeiten, können Sie über das Feld **Kalender** einen anderen Zielkalender auswählen. Beim Speichern wird der Termin in den gewählten Kalender verschoben. Als Ziel stehen nur Kalender zur Verfügung, in die Sie schreiben dürfen. Eine Serie aus einem für Sie freigegebenen Kalender lässt sich nicht verschieben, wenn sie Termine enthält, die Sie nicht vollständig sehen dürfen.
 
 Serientermine lassen sich nur als Ganzes in einen anderen Kalender verschieben: Wählen Sie in der anschließenden Abfrage **Alle Termine der Serie**, wird die gesamte Serie einschließlich ihrer Wiederholungsregel und Teilnehmer in den Zielkalender übernommen. Das Verschieben nur eines einzelnen Termins oder der folgenden Termine einer Serie in einen anderen Kalender ist nicht möglich und wird mit einer entsprechenden Meldung abgelehnt.
 

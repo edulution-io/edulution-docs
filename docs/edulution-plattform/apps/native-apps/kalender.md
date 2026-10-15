@@ -512,7 +512,7 @@ Der Link überträgt die Termine von fünf Jahren in der Vergangenheit bis fünf
 
 ### Webansicht und Termine als JSON
 
-Die **Webansicht** zeigt die kommenden Termine des Kalenders als schlichte Liste, nach Monaten und Tagen gegliedert, ohne Anmeldung und ohne JavaScript. Am Ende der Seite steht ein Link zum Abonnieren des Kalenders. **Termine als JSON** liefert dieselben Termine als Daten, die eine eigene Anzeige auf jeder Website abrufen darf.
+Die **Webansicht** zeigt die kommenden Termine des Kalenders als schlichte Liste, nach Monaten und Tagen gegliedert, ohne Anmeldung und ohne JavaScript. Am Ende der Seite steht ein Link zum Abonnieren des Kalenders. **Termine als JSON** liefert dieselben Termine als Daten, die eine eigene Anzeige auf jeder Website abrufen darf. Rufen Sie die Adresse dafür mit einem einfachen GET ohne eigene Header ab, sonst blockiert der Browser die Antwort. Scheitert der Abruf, etwa weil die Veröffentlichung zurückgezogen wurde, erfährt eine andere Website nur, dass er gescheitert ist, nicht warum.
 
 Beide zeigen ab heute die nächsten acht Wochen. Uhrzeiten gelten in deutscher Zeit (Europe/Berlin), Serientermine erscheinen als einzelne Termine. Über Parameter am Ende der Adresse passen Sie die Webansicht an, zum Beispiel `…?weeks=4&theme=dark&accent=%230081c6`:
 
@@ -520,16 +520,16 @@ Beide zeigen ab heute die nächsten acht Wochen. Uhrzeiten gelten in deutscher Z
 |---|---|---|
 | `weeks` | 1 bis 26 Wochen (gilt auch für Termine als JSON) | 8 |
 | `lang` | `de`, `en`, `fr` | Sprache des Browsers, sonst Deutsch |
-| `theme` | `light`, `dark` | folgt der Einstellung des Besuchers |
+| `theme` | `light`, `dark`, `system` | folgt der Einstellung des Besuchers |
 | `accent` | Farbe als `#rrggbb` (`#` in der Adresse als `%23`) | edulution-Blau |
 
 Ein ungültiger Wert wird durch die Vorgabe ersetzt. Bei `weeks` gilt `0` als 1 und eine zweistellige Zahl über 26 als 26; die Seite bleibt in jedem Fall erreichbar.
 
 Eine eigene Farbe übernimmt die Webansicht unverändert für Datumsangaben und Trennlinien. Ob sie auf hellem und auf dunklem Hintergrund gut lesbar ist, liegt bei Ihnen; prüfen Sie sie deshalb auch mit `theme=dark`.
 
-Für beide gelten die Einstellungen unter [Was der Link preisgibt](#was-der-link-preisgibt), mit zwei Einschränkungen: Teilnehmer und Organisator erscheinen nie, auch wenn Sie die E-Mail-Adressen freigegeben haben, und eine Beschreibung wird nach 500 Zeichen abgeschnitten. Termine, die nur als belegte Zeit erscheinen, heißen in der Webansicht „Belegt“ in der gewählten Sprache, in den Daten `Busy`.
+Für beide gelten die Einstellungen unter [Was der Link preisgibt](#was-der-link-preisgibt), mit zwei Einschränkungen: Teilnehmer und Organisator erscheinen nie, auch wenn Sie die E-Mail-Adressen freigegeben haben, und Titel, Ort und Beschreibung werden nach 200, 300 und 500 Zeichen abgeschnitten. Termine, die nur als belegte Zeit erscheinen, heißen in der Webansicht „Belegt“ in der gewählten Sprache, in den Daten `Busy`.
 
-Die Liste umfasst höchstens 500 Termine. Passen nicht alle in den gewählten Zeitraum, oder lässt sich eine Serie mit einer ungewöhnlichen Wiederholungsregel nicht vollständig darstellen, weist die Webansicht darauf hin (in den Daten als `"truncated": true`); vollständig sind die Termine dann nur im Abonnement.
+Die Liste umfasst höchstens 500 Termine. Enthält der Zeitraum mehr als 500 Termine, oder lässt sich eine Serie mit einer ungewöhnlichen Wiederholungsregel nicht vollständig darstellen, weist die Webansicht darauf hin (in den Daten als `"truncated": true`); vollständig sind die Termine dann nur im Abonnement.
 
 :::info[Einbetten in andere Websites]
 Die Webansicht lässt sich derzeit nicht per `iframe` in eine andere Website einbinden; die Seite verbietet das Einbetten. Verlinken Sie sie stattdessen, oder bauen Sie mit **Termine als JSON** eine eigene Anzeige. Setzt ein Webserver oder Reverse-Proxy Ihrer Schule eigene Sicherheits-Header wie `X-Frame-Options` oder `Content-Security-Policy`, gelten diese zusätzlich.

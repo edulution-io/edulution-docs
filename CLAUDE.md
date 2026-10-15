@@ -60,10 +60,10 @@ Sparsam und gezielt: dort, wo ein Element schwer zu finden ist oder eine Entsche
 
 ## Versionen
 
-Das Portal zeigt die Doku zur ausgelieferten Version. `docs/` ist der Entwicklungsstand und liegt unter `/docs/next/`; jeder veröffentlichte Release von `edulution-ui` bekommt einen Schnappschuss unter `versioned_docs/`. Einzelheiten im [README](README.md#versionen).
+Das Portal zeigt den veröffentlichten Stand. `docs/` ist der Entwicklungsstand und liegt unter `/docs/next/`; ein Schnitt – von Hand, im Regelfall monatlich, benannt nach dem Monat (`2026.10.0`) – legt einen Schnappschuss unter `versioned_docs/` ab. Einzelheiten im [README](README.md#versionen).
 
-- Geschrieben wird weiterhin in `docs/`. Ein Merge nach `main` ändert nur den Entwicklungsstand und wird mit dem nächsten Release ausgeliefert.
-- Eine **bereits veröffentlichte** Seite korrigiert man direkt in `versioned_docs/version-<release>/…`. Sonst erreicht die Korrektur die Leser erst mit dem nächsten Release.
+- Geschrieben wird weiterhin in `docs/`. Ein Merge nach `main` ändert nur den Entwicklungsstand und wird mit dem nächsten Schnitt veröffentlicht.
+- Eine **bereits veröffentlichte** Seite korrigiert man direkt in `versioned_docs/version-<stand>/…`. Sonst erreicht die Korrektur die Leser erst mit dem nächsten Schnitt.
 - `versioned_docs/` und `versioned_sidebars/` sind eingefrorene Geschichte: bei einem Umbau der Seitenstruktur **nicht** mitziehen, nicht umbenennen.
 - Rollen- und Organisations-IDs in `src/components/audience/taxonomy.ts` nur erweitern, nie umbenennen oder entfernen – die eingefrorenen Stände werden von der lebenden Taxonomie gerendert, die bei unbekannter ID den Build abbricht. Dasselbe gilt für die Eigenschaften der global registrierten MDX-Komponenten.
 

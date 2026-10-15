@@ -56,47 +56,60 @@ Dieser Befehl generiert statische Inhalte im `build` Verzeichnis.
 
 ## Versionen
 
-Das Portal zeigt die Dokumentation zu der Version, die beim Kunden läuft, und
+Das Portal zeigt den jeweils veröffentlichten Stand der Dokumentation und
 nicht den Stand von `edulution-ui:dev`.
 
 | Ort | Adresse | Inhalt |
 | --- | --- | --- |
 | `docs/` | `/docs/next/…` | Entwicklungsstand, Spiegel von `edulution-ui:dev`. **Nicht im öffentlichen Portal.** |
-| `versioned_docs/version-<release>/` | `/docs/…` | Neueste Auslieferung – ohne Präfix, damit Verweise aus der Anwendung weiter auflösen |
-| ältere `versioned_docs/…` | `/docs/<release>/…` | Eingefrorene frühere Auslieferungen |
+| `versioned_docs/version-<stand>/` | `/docs/…` | Neuester veröffentlichter Stand – ohne Präfix, damit Verweise aus der Anwendung weiter auflösen |
+| ältere `versioned_docs/…` | `/docs/<stand>/…` | Eingefrorene frühere Stände |
 
-Geschnitten wird bei **jedem veröffentlichten Release** von `edulution-ui`.
-Gebaut werden die neuesten acht (`BUILT_VERSIONS` in `docusaurus.config.ts`);
-alle älteren bleiben im Git und lassen sich jederzeit wieder dazunehmen.
+Geschnitten wird **von Hand**, im Regelfall einmal im Monat, und unabhängig
+davon, wann edulution ausgeliefert wird. Die Nummer ist der Monat des Schnitts,
+innerhalb des Monats von null an gezählt: `2026.10.0`, ein zweiter Stand im
+Oktober `2026.10.1`. Ein neuer Stand ersetzt keinen älteren – der bleibt unter
+seiner Adresse lesbar. Gebaut werden die neuesten acht (`BUILT_VERSIONS` in
+`docusaurus.config.ts`); alle älteren bleiben im Git und lassen sich jederzeit
+wieder dazunehmen.
 
 Solange noch nichts geschnitten ist, gibt es keine `versions.json`: Der
-Entwicklungsstand ist dann die einzige Version und liegt wie bisher unter
-`/docs/`. Der erste Schnappschuss entsteht mit dem nächsten Release – bewusst
-nicht vorab, weil `docs/` den Stand von `dev` beschreibt und nicht den der
-letzten Auslieferung.
+Entwicklungsstand ist dann der einzige und liegt wie bisher unter `/docs/`. Der
+erste Schnappschuss entsteht mit dem ersten Schnitt – bewusst nicht vorab, weil
+`docs/` den Stand von `dev` beschreibt und damit auch Funktionen, die noch bei
+niemandem angekommen sind.
 
 ### Was das für die tägliche Arbeit bedeutet
 
-Ein Merge nach `main` ändert nur noch `/docs/next/…`. Er wird mit dem nächsten
-Release ausgeliefert – dann entsteht ein neuer Schnappschuss aus `docs/`.
+Ein Merge nach `main` ändert nur noch `/docs/next/…`. Veröffentlicht wird er mit
+dem nächsten Schnitt – dann entsteht ein neuer Schnappschuss aus `docs/`.
 
 Eine **bereits veröffentlichte** Seite korrigiert man direkt in
-`versioned_docs/version-<release>/…`. Das ist der einzige Weg, eine Korrektur
-vor dem nächsten Release zu den Lesern zu bringen.
+`versioned_docs/version-<stand>/…`. Das ist der einzige Weg, eine Korrektur vor
+dem nächsten Schnitt zu den Lesern zu bringen.
 
 `versioned_docs/` und `versioned_sidebars/` sind eingefrorene Geschichte: bei
 einem Umbau der Seitenstruktur werden sie **nicht** mitgezogen.
 
 ### Schnitt auslösen
 
-Im Regelfall von selbst: `notify-docs-release.yml` in `edulution-ui` meldet
-jedes veröffentlichte Release, `docs-version.yml` schneidet und startet das
-Release, das den Schnitt live stellt.
+Actions → *Cut docs version* → *Run workflow*. Der Workflow fragt zwei Angaben
+ab, die niemand sonst kennt:
 
-Von Hand über Actions → *Cut docs version* mit der Release-Nummer, oder lokal:
+| Eingabe | Beispiel | Wofür |
+| --- | --- | --- |
+| `edulution_version` | `2.3` | Welche edulution-Version dieser Stand beschreibt. Ein Datum sagt das nicht, und die Leser brauchen es. |
+| `notes` | `- Satelliten-LINBO neu` | Was der Stand ändert. Wird zu den Release Notes. |
+
+Die Nummer des Stands berechnet der Workflow selbst. Er schneidet, baut beide
+Builds, committet nach `main` und startet das Release, das den Stand live
+stellt; `edulution_version` steht danach in der Commit-Nachricht und zusammen
+mit `notes` in den Release Notes.
+
+Lokal, zum Ausprobieren – der Schnitt wird nicht committet:
 
 ```bash
-npm run docs:version 2.2.7
+npm run docs:version 2026.10.0
 ```
 
 ### Lokal arbeiten

@@ -6,16 +6,17 @@ import tagPlugin from './src/rehype/tagPlugin';
 import { version } from './package.json';
 
 /**
- * Wie viele ausgelieferte Versionen gebaut werden.
+ * Wie viele veroeffentlichte Staende gebaut werden.
  *
- * Geschnitten wird bei jedem Release, das sind rund fuenfzehn im Jahr. Alle
- * zu bauen laesst Bauzeit und Suchindex unbegrenzt wachsen; die aelteren
- * Schnappschuesse bleiben aber im Git und koennen jederzeit wieder in den
- * Build genommen werden, indem diese Zahl steigt.
+ * Geschnitten wird von Hand, im Regelfall einmal im Monat – acht Staende sind
+ * damit ungefaehr ein Jahr. Alle zu bauen laesst Bauzeit und Suchindex
+ * unbegrenzt wachsen; die aelteren Schnappschuesse bleiben aber im Git und
+ * koennen jederzeit wieder in den Build genommen werden, indem diese Zahl
+ * steigt.
  */
 const BUILT_VERSIONS = 8;
 
-/** Alle bisher geschnittenen Versionen, neueste zuerst. Vor dem ersten Schnitt leer. */
+/** Alle bisher geschnittenen Staende, neueste zuerst. Vor dem ersten Schnitt leer. */
 const releasedVersions: string[] = fs.existsSync('./versions.json')
   ? (JSON.parse(fs.readFileSync('./versions.json', 'utf8')) as string[])
   : [];
@@ -299,7 +300,8 @@ const config: Config = {
 
           // `docs/` ist der Stand von edulution-ui:dev und beschreibt damit
           // auch Funktionen, die noch bei niemandem angekommen sind. Im
-          // oeffentlichen Portal steht deshalb nur Ausgeliefertes.
+          // oeffentlichen Portal steht deshalb nur, was als Stand
+          // veroeffentlicht wurde.
           //
           // Die CI baut zusaetzlich mit `DOCS_INCLUDE_NEXT=true`: sonst
           // pruefte `onBrokenLinks` ausgerechnet die 129 Dateien nicht mehr,
@@ -310,20 +312,19 @@ const config: Config = {
           // dazu zurueck.
           versions: includeCurrentVersion
             ? {
-                // Solange nichts geschnitten ist, ist der Entwicklungsstand die
-                // einzige Version und liegt wie bisher unter /docs/ – sonst
-                // liefen in der Zwischenzeit alle Verweise aus der Anwendung ins
-                // Leere. Erst mit dem ersten Schnitt rueckt er nach /docs/next/.
+                // Solange nichts geschnitten ist, ist der Entwicklungsstand der
+                // einzige und liegt wie bisher unter /docs/ – sonst liefen in der
+                // Zwischenzeit alle Verweise aus der Anwendung ins Leere. Erst
+                // mit dem ersten Schnitt rueckt er nach /docs/next/.
                 current: builtVersions.length
                   ? { label: 'Entwicklung (dev)', path: 'next', banner: 'unreleased', noIndex: true }
                   : { label: 'Entwicklung (dev)' },
               }
             : {},
           // Kein `lastVersion`: der erste Eintrag in `versions.json` ist
-          // automatisch die ausgelieferte Version und liegt ohne Praefix
-          // unter /docs/. Ein fest eingetragener Name waere eine Falle – er
-          // laesst den Build scheitern, sobald diese Version aus dem Build
-          // faellt.
+          // automatisch der neueste Stand und liegt ohne Praefix unter /docs/.
+          // Ein fest eingetragener Name waere eine Falle – er laesst den Build
+          // scheitern, sobald dieser Stand aus dem Build faellt.
           onlyIncludeVersions,
 
           disableVersioning,
@@ -351,8 +352,8 @@ const config: Config = {
         // waeren sonst nicht auffindbar.
         indexPages: true,
         // Eine Suche, die auf einer Seite ausserhalb von docs/ beginnt, kennt
-        // keine aktive Version. Ohne diese Angabe landet sie immer in der
-        // ausgelieferten Version, auch wenn der Leser eine andere gewaehlt hat.
+        // keine aktive Version. Ohne diese Angabe landet sie immer im neuesten
+        // Stand, auch wenn der Leser einen anderen gewaehlt hat.
         docsPluginIdForPreferredVersion: 'default',
         searchBarShortcutHint: false,
         // Deliberately no `ignoreCssSelectors`: a hit in a section hidden for the chosen role is revealed on

@@ -146,6 +146,7 @@ Die Jahresansicht zeigt die zwölf Monate des angezeigten Jahres als kleine Mona
 - Ein Termin über mehrere Tage, etwa ganztägige Ferien, zählt an **jedem** dieser Tage. Ein Serientermin zählt an jedem Tag, an dem er stattfindet.
 - Gezählt werden nur die Termine der eingeblendeten Kalender. Ausgeblendete Kalender und als [Stundenplan](#stundenplan) markierte Kalender fließen nicht ein.
 - Ein Klick auf einen **Tag** öffnet die [Tagesansicht](#tag) für dieses Datum, ein Klick auf einen **Monatsnamen** die [Monatsansicht](#monat) dieses Monats. Die so geöffnete Ansicht gilt als zuletzt verwendet (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). Anders als in der Monats-, Wochen- und Tagesansicht legt ein Klick auf einen Tag hier keinen Termin an, und Termine lassen sich nicht per Drag & Drop verschieben. Neue Termine erstellen Sie wie in jeder Ansicht über **Erstellen** und **Termin erstellen** (siehe [Neue Einträge anlegen](#neue-einträge-anlegen)).
+- Über **Drucken** erhalten Sie das ganze Jahr auf einer Seite (siehe [Kalender drucken](#kalender-drucken)).
 - Beim Öffnen springt die Ansicht zum Monat des gewählten Datums, wenn er nicht ohnehin zu sehen ist. Auf dem Smartphone stehen die Monate untereinander, und ein Tipp auf einen Tag öffnet dort statt der Tagesansicht die [Agenda](#agenda) ab diesem Tag.
 - Mit der Tastatur: Von den Tagen des Jahres liegt nur der gewählte Tag in der Reihenfolge der Tabulatortaste. Von dort erreichen Sie die übrigen Tage mit den **Pfeiltasten** (Vortag, Folgetag, Vor- und Folgewoche) und mit **Bild auf** und **Bild ab** (einen Monat zurück oder vor). Die Eingabetaste öffnet den Tag. Screenreader lesen zu jedem Tag das Datum und die Zahl seiner Termine vor.
 
@@ -195,7 +196,7 @@ Das Quadrat erscheint nur an Terminen mit eigener Farbe und nur dort, wo die Zuo
 
 ## Kalender drucken
 
-Oben rechts zwischen **Web-Kalender abonnieren** und **Neu laden** finden Sie die Schaltfläche **Drucken**. Sie druckt die gerade gewählte Ansicht (**Monat**, **Woche**, **Tag** oder **Agenda**) für den angezeigten Zeitraum und öffnet dazu den Druckdialog des Browsers; dort können Sie auch eine PDF-Datei speichern. In der [Stundenplan-Ansicht](#stundenplan) gibt es die Schaltfläche nicht. Solange Kalender oder Termine laden, ist sie deaktiviert.
+Oben rechts zwischen **Web-Kalender abonnieren** und **Neu laden** finden Sie die Schaltfläche **Drucken**. Sie druckt die gerade gewählte Ansicht (**Jahr**, **Monat**, **Woche**, **Tag** oder **Agenda**) für den angezeigten Zeitraum und öffnet dazu den Druckdialog des Browsers; dort können Sie auch eine PDF-Datei speichern. Ist die Kopfzeile zu schmal für alle Schaltflächen, etwa auf dem Smartphone, erreichen Sie **Drucken** über **Mehr**. In der [Stundenplan-Ansicht](#stundenplan) gibt es die Schaltfläche nicht. Solange Kalender oder Termine laden, ist sie deaktiviert.
 
 Gedruckt wird, was die Ansicht zeigt: [Ausgeblendete Kalender](#kalender-ein--und-ausblenden) und Stundenplan-Kalender fehlen auch auf dem Papier. Im Kopf des Ausdrucks stehen der Zeitraum, in der Woche mit der Kalenderwoche, und die gedruckten Kalender mit ihrer Farbe. Sind es mehr als zwölf Kalender, steht für die übrigen nur ihre Anzahl (**+n weitere Kalender**). Die Termine tragen dieselben [Farben](#terminfarben-in-den-ansichten) wie am Bildschirm. Der Ausdruck ist immer hell, auch wenn Sie edulution im dunklen Design verwenden.
 
@@ -203,11 +204,14 @@ Je nach Ansicht sieht der Ausdruck so aus:
 
 | Ansicht | Format | Inhalt je Termin |
 | --- | --- | --- |
+| **Jahr** | eine Seite A4 quer, die zwölf Monate in drei Reihen zu je vier, mit Kalenderwoche | keiner; jeder Tag ist in Graustufen nach der Zahl seiner Termine abgestuft, mit denselben Stufen wie die [Jahresansicht](#jahr) |
 | **Woche** | eine Seite A4 quer, eine Spalte je Tag | Uhrzeit, Titel (höchstens zwei Zeilen) und Ort (eine Zeile) |
 | **Monat** | eine Seite A4 quer, mit Kalenderwoche; Tage außerhalb des Monats sind abgeschwächt | Uhrzeit und Titel in einer Zeile, ohne Ort |
 | **Tag** und **Agenda** | A4 hoch, bei Bedarf über mehrere Seiten | Uhrzeit, vollständiger Titel und Ort; ganztägige Termine stehen oben |
 
 Damit Woche und Monat auf eine Seite passen, druckt die Woche höchstens **10** Einträge je Tag und der Monat höchstens **5**, in Monaten mit sechs Wochenzeilen höchstens **4**. Hat ein Tag mehr Termine, endet seine Liste mit **+n weitere am …**, und im Kopf des Ausdrucks steht ein Hinweis darauf. Die vollständige Liste erhalten Sie, wenn Sie die **Agenda** ab diesem Tag drucken: Sie enthält immer alle Termine.
+
+Der Jahresausdruck zeigt nur, an welchen Tagen Termine liegen. Eine Legende über den Monaten erklärt die drei Graustufen (**1 Termin**, **2–3 Termine**, **4 oder mehr Termine**), und ein Hinweis im Kopf verweist für Titel und Uhrzeiten auf die [Agenda](#agenda) ab dem gewählten Tag. Die Graustufen bleiben auch erhalten, wenn Sie im Druckdialog das Drucken von Hintergründen ausschalten. Der heutige Tag ist im Ausdruck nicht hervorgehoben.
 
 ## Termine erstellen
 

@@ -147,10 +147,12 @@ Diese Verbindung gilt ausschließlich für die Kontakte-App. Die Kalender- und d
 Erscheinen keine Adressbücher, benennt die Fehlermeldung, welche Ursache vorliegt:
 
 - **"Der CardDAV-Server hat die Anmeldung abgelehnt"** – Der Server ist erreichbar, weist die Zugangsdaten dieses Benutzers aber zurück. Der häufigste Fall ist ein Konto, für das auf dem SOGo-Server kein Postfach existiert; die CardDAV-URL ist dann korrekt. Prüfen Sie stattdessen, ob der Benutzer auf dem Mailserver angelegt ist. Betrifft die Meldung nur einzelne Benutzer, ist dies die wahrscheinliche Ursache.
-- **"Verbindung zum CardDAV-Server fehlgeschlagen"** – Der Server war nicht erreichbar. Prüfen Sie die [CardDAV-URL](../../konfiguration/einstellungen.md#carddav-verbindung), die Namensauflösung des dort eingetragenen Hostnamens und das Zertifikat. Diese Meldung betrifft in der Regel alle Benutzer gleichzeitig.
+- **"Verbindung zum CardDAV-Server fehlgeschlagen"** – Der Server war nicht erreichbar, hat mit einem Serverfehler geantwortet oder nicht rechtzeitig. Prüfen Sie die [CardDAV-URL](../../konfiguration/einstellungen.md#carddav-verbindung), die Namensauflösung des dort eingetragenen Hostnamens und das Zertifikat. Diese Meldung betrifft in der Regel alle Benutzer gleichzeitig.
 - **"Für den Kontakteserver sind in Ihrer edulution-Sitzung keine E-Mail-Adresse und kein Passwort hinterlegt"** – Der Server wurde gar nicht erst kontaktiert. Der Sitzung dieses Benutzers fehlen die Anmeldedaten für den Mailserver; prüfen Sie, ob für das Konto eine E-Mail-Adresse hinterlegt ist, und lassen Sie den Benutzer sich neu anmelden. Die CardDAV-Einstellungen sind in diesem Fall nicht die Ursache.
 
 Wird einem Benutzer, der zuvor Adressbücher sehen konnte, plötzlich keines mehr angezeigt, prüft edulution die Zugangsdaten erneut und meldet die Ablehnung ausdrücklich, statt eine leere Liste darzustellen. Ein Benutzer, der schlicht kein Adressbuch besitzt, sieht weiterhin eine leere Liste ohne Fehlermeldung.
+
+Auch bei einer Störung des CardDAV-Servers zeigt edulution keine leere Liste an. Ist die Adressbuchliste bereits geladen, bleibt sie während der Störung sichtbar. Andernfalls erscheint eine Fehlermeldung. Das gilt auch beim Öffnen eines Adressbuchs: edulution meldet die Störung, statt das Adressbuch als nicht vorhanden anzuzeigen.
 
 </Audience>
 

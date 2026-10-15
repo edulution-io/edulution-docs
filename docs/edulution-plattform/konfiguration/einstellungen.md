@@ -726,8 +726,6 @@ Den 29. Februar bietet die Auswahl nicht an, weil es ihn nicht in jedem Jahr gib
 
 Bei **Generisch** gibt es keine Schulauswahl; ein Schuljahresbeginn gilt für die ganze Installation.
 
-Mit dem Schuljahresbeginn wechseln die Gruppenkalender für Klassen, Projekte und das Kollegium in das neue Schuljahr. Diese Kalender legt edulution nur an, wenn ein Administrator sie einschaltet. In der Grundeinstellung ist keine Kalenderart eingeschaltet, und der Schuljahresbeginn wirkt sich auf keinen Kalender aus.
-
 ---
 
 ## Lizenz

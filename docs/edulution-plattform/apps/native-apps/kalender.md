@@ -223,6 +223,18 @@ Wenn Sie einen Termin bearbeiten, können Sie über das Feld **Kalender** einen 
 
 Serientermine lassen sich nur als Ganzes in einen anderen Kalender verschieben: Wählen Sie in der anschließenden Abfrage **Alle Termine der Serie**, wird die gesamte Serie einschließlich ihrer Wiederholungsregel und Teilnehmer in den Zielkalender übernommen. Das Verschieben nur eines einzelnen Termins oder der folgenden Termine einer Serie in einen anderen Kalender ist nicht möglich und wird mit einer entsprechenden Meldung abgelehnt.
 
+## Wenn der Kalenderserver eine Änderung ablehnt
+
+Lehnt der Kalenderserver das Anlegen, Ändern, Verschieben oder Löschen eines Termins ab, nennt die Fehlermeldung den Grund.
+
+- **"Der Termin wurde inzwischen an anderer Stelle geändert. …"** – Seit Sie den Termin geöffnet haben, wurde er an anderer Stelle geändert, etwa in einem anderen Kalenderprogramm oder von einem anderen Benutzer mit Schreibrecht für diesen Kalender. Laden Sie den Kalender neu, prüfen Sie den aktuellen Stand und nehmen Sie Ihre Änderung danach erneut vor.
+- **"Termin nicht gefunden"** – Der Termin wurde inzwischen gelöscht. Nach dem Neuladen des Kalenders wird er nicht mehr angezeigt.
+- **"Dieser Termin ist im Zielkalender bereits vorhanden."** – Im Kalender, in dem der Termin gespeichert werden soll, liegt bereits ein Termin mit derselben internen Kennung, zum Beispiel weil er schon einmal dorthin verschoben wurde.
+- **"Dieser Kalender kann nicht bearbeitet werden."** – In diesem Kalender lässt der Server keine Änderungen zu, beispielsweise weil Ihnen das Schreibrecht für einen freigegebenen Kalender inzwischen entzogen wurde.
+- **"Der Speicherplatz für Ihre Kalender ist voll. …"** – Ihr Speicherkontingent auf dem Kalenderserver ist ausgeschöpft. Dieselbe Meldung erscheint auch, wenn Sie einen Kalender anlegen oder bearbeiten.
+
+Erscheint nur die allgemeine Meldung, etwa **"Termin konnte nicht aktualisiert werden"**, war der Kalenderserver nicht erreichbar oder hat die Änderung aus einem anderen Grund abgelehnt. Versuchen Sie es dann später erneut.
+
 ## Serientermine und Wiederholungen
 
 Im Feld **Wiederholung** legen Sie fest, ob ein Termin wiederkehrt. Es stehen folgende Voreinstellungen zur Verfügung:
@@ -331,7 +343,7 @@ Bestehende eigene Kalender verwalten Sie über die Einträge **Einstellungen** u
 
 Ändern Sie im Dialog **Kalendereinstellungen** den **Typ**, wechselt der Kalender die Gruppe in der Seitenleiste: Mit gesetzter Kennzeichnung **Stundenplan** erscheint er unter **Stundenplan**, ohne sie wieder unter **Meine Kalender**. Ein Kalender, dem bisher keine Farbe zugewiesen ist, bleibt ohne Farbe, solange Sie im Dialog keine auswählen – ein bloßes Umbenennen weist ihm also keine Farbe zu.
 
-Löschen Sie einen Kalender, dessen [Stundenplan-Ansicht](#stundenplan) Sie gerade geöffnet haben, kehren Sie automatisch zur Kalenderübersicht zurück. Schlägt das Löschen fehl, bleibt die Sicherheitsabfrage geöffnet und es erscheint eine Fehlermeldung, sodass Sie den Vorgang erneut auslösen können.
+Löschen Sie einen Kalender, dessen [Stundenplan-Ansicht](#stundenplan) Sie gerade geöffnet haben, kehren Sie automatisch zur Kalenderübersicht zurück. Schlägt das Löschen fehl, bleibt die Sicherheitsabfrage geöffnet und es erscheint eine Fehlermeldung, sodass Sie den Vorgang erneut auslösen können. Lehnt der Kalenderserver das Löschen ab, lautet sie **"Dieser Kalender kann nicht gelöscht werden."**; der Kalender bleibt dann mit allen Terminen erhalten.
 
 Bei abonnierten oder schreibgeschützten Kalendern werden **Einstellungen** und **Löschen** nicht angeboten (siehe [Abonnierte und schreibgeschützte Kalender](#abonnierte-und-schreibgeschützte-kalender)). Der Server lässt Änderungen an fremden Kalendern auch dann nicht zu, wenn sie auf anderem Weg angefordert werden – Sie können ausschließlich eigene Kalender bearbeiten und löschen.
 

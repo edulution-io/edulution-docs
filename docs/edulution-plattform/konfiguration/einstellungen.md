@@ -716,7 +716,7 @@ Jede Schule hat einen eigenen Schuljahresbeginn, der jedes Jahr auf denselben Ta
 
 So ändern Sie den Schuljahresbeginn:
 
-1. Wählen Sie in der Kopfzeile der Karte **Schulfächer** die [Schule](#schule-wählen).
+1. Wählen Sie bei **Linuxmuster** in der Kopfzeile der Karte **Schulfächer** die [Schule](#schule-wählen).
 2. Wählen Sie in der Karte **Schuljahr** den **Monat des Schuljahresbeginns** und den **Tag des Schuljahresbeginns**.
 3. Klicken Sie auf **Speichern**.
 

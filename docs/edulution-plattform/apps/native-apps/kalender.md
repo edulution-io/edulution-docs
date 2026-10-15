@@ -217,7 +217,7 @@ Ein Klick auf einen bestehenden Termin öffnet denselben Dialog wie beim Erstell
 
 Zum Löschen verwenden Sie im Bearbeiten-Dialog die Lösch-Schaltfläche. Sie steht nur zur Verfügung, wenn Sie im betreffenden Kalender löschen dürfen. Vor dem endgültigen Entfernen erscheint eine Sicherheitsabfrage. Handelt es sich um einen Serientermin, werden Sie zusätzlich gefragt, für welche Termine die Löschung gelten soll (siehe [Serientermine und Wiederholungen](#serientermine-und-wiederholungen)).
 
-Termine aus anderen Kalenderprogrammen, deren Termin-Kennung nur aus „.“ oder „..“ besteht oder länger als 255 Zeichen ist, können Sie in edulution ansehen, aber nicht bearbeiten, verschieben oder löschen; edulution lehnt die Änderung mit einer Fehlermeldung ab. Ändern Sie solche Termine in dem Kalenderprogramm, aus dem sie stammen.
+Termine aus anderen Kalenderprogrammen, deren Termin-Kennung nur aus `.` oder `..` besteht, länger als 255 Zeichen ist oder ein Steuerzeichen wie einen Tabulator oder Zeilenumbruch enthält, öffnet edulution wie gewohnt, lehnt aber jedes Speichern, Verschieben und Löschen mit einer Fehlermeldung ab. Ändern Sie solche Termine in dem Kalenderprogramm, aus dem sie stammen.
 
 ## Termin in einen anderen Kalender verschieben
 

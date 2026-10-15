@@ -671,11 +671,11 @@ Gelöscht wird ein Verteiler über **Löschen** im Bearbeitungsdialog. Ist die G
 
 Auf der Registerkarte **Unterricht** pflegen Sie in der Karte **Schulfächer** die Fächer, die an einer Schule unterrichtet werden. edulution bringt keine Fächer mit und übernimmt auch keine aus linuxmuster.net oder WebUntis: Es gibt nur die Fächer, die ein Administrator hier angelegt hat.
 
-Darunter legen Sie in der Karte **Schuljahr** fest, an welchem Tag das [Schuljahr](#schuljahr) einer Schule beginnt.
+Darunter legen Sie in der Karte **Schuljahr** fest, an welchem Tag das [Schuljahr](#schuljahr) einer Schule beginnt, und in der Karte **Ferien und Feiertage**, welche [Ferien und Feiertage](#ferien-und-feiertage) für sie gelten.
 
 ### Schule wählen
 
-Steht die [**Plattform**](#allgemein) auf **Linuxmuster**, gehört jedes Fach zu genau einer Schule. In der Kopfzeile der Karte wählen Sie die Schule, deren Fächer Sie sehen und bearbeiten; beim Öffnen ist bereits eine Schule ausgewählt. Die Auswahl gilt auch für die Karte **Schuljahr**. Administratoren, die selbst einer Schule angehören, sehen nur ihre eigene Schule.
+Steht die [**Plattform**](#allgemein) auf **Linuxmuster**, gehört jedes Fach zu genau einer Schule. In der Kopfzeile der Karte wählen Sie die Schule, deren Fächer Sie sehen und bearbeiten; beim Öffnen ist bereits eine Schule ausgewählt. Die Auswahl gilt auch für die Karten **Schuljahr** und **Ferien und Feiertage**. Administratoren, die selbst einer Schule angehören, sehen nur ihre eigene Schule.
 
 Bei **Generisch** gibt es keine Schulauswahl; alle Fächer bilden eine gemeinsame Liste.
 
@@ -725,6 +725,25 @@ Unter den Auswahlfeldern zeigt die Karte das Schuljahr an, das mit Ihrer Auswahl
 Den 29. Februar bietet die Auswahl nicht an, weil es ihn nicht in jedem Jahr gibt. Wechseln Sie zu einem Monat, der den gewählten Tag nicht hat, rückt der Tag auf den letzten Tag dieses Monats: Aus dem 31. August wird beim Wechsel auf Februar der 28. Februar.
 
 Bei **Generisch** gibt es keine Schulauswahl; ein Schuljahresbeginn gilt für die ganze Installation.
+
+### Ferien und Feiertage
+
+Die Karte **Ferien und Feiertage** gibt es nur, wenn die [**Plattform**](#allgemein) auf **Linuxmuster** steht. Jede Schule legt ihre Ferien und Feiertage selbst fest. Nach der Installation sind sie für jede Schule ausgeschaltet.
+
+So schalten Sie sie für eine Schule ein:
+
+1. Wählen Sie in der Kopfzeile der Karte **Schulfächer** die [Schule](#schule-wählen).
+2. Schalten Sie in der Karte **Ferien und Feiertage** den Schalter **Ferien und Feiertage für diese Schule einschalten** ein.
+3. Wählen Sie das **Land** (Deutschland oder Österreich) und das **Bundesland**. In Mecklenburg-Vorpommern wählen Sie zusätzlich die **Schulart**, weil allgemeinbildende und berufliche Schulen dort unterschiedliche Ferien haben.
+4. Klicken Sie auf **Speichern**.
+
+Gespeichert ist damit zunächst nur die Einstellung. Den Kalender **Ferien und Feiertage**, den alle Mitglieder der Schule außer Eltern lesen (siehe [Kalender](../apps/native-apps/kalender.md#ferien-und-feiertage)), erhält die Schule erst, wenn der Kalenderserver dafür eingerichtet ist. Die Ferien und Feiertage selbst werden in einem späteren Schritt eingelesen; bis dahin bleibt der Kalender leer.
+
+Ohne Bundesland lässt sich die Einstellung nicht einschalten, denn Schulferien legt jedes Bundesland selbst fest. Die Karte nennt dann, was noch fehlt, und **Speichern** bleibt gesperrt. Dasselbe gilt in Mecklenburg-Vorpommern ohne Schulart.
+
+Mit **Gesetzliche Feiertage** und **Schulferien** wählen Sie, welche der beiden Listen der Kalender enthalten soll; nach der Installation sind beide eingeschaltet. Mindestens eine muss eingeschaltet bleiben. **Jahre im Voraus** legt fest, wie viele Jahre über das laufende hinaus darin stehen sollen, von 0 bis 5; voreingestellt ist 1. Beide Angaben wirken erst, wenn die Ferien und Feiertage eingelesen werden.
+
+Schalten Sie die Ferien und Feiertage aus, bleiben Land, Bundesland und die übrigen Angaben gespeichert. Beim nächsten Einschalten müssen Sie sie nicht neu wählen.
 
 ---
 

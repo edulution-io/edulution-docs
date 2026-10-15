@@ -102,7 +102,7 @@ Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalen
 - **Jetzt aktualisieren** – Lädt einen [Web-Kalender](#web-kalender-abonnieren) sofort neu, ohne auf die nächste automatische Aktualisierung zu warten; nur bei Web-Kalendern verfügbar.
 - **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
 
-Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen, **Exportieren** und **Abbestellen** zur Verfügung, dazu **Importieren …**, wenn Sie in dem Kalender Termine anlegen dürfen. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben**, **Kalender veröffentlichen** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
+Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen, **Exportieren** und **Abbestellen** zur Verfügung. Bei abonnierten Kalendern, in denen Sie Termine anlegen dürfen, kommt **Importieren …** hinzu. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben**, **Kalender veröffentlichen** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
 
 Bei einem als Stundenplan markierten Kalender führt der Eintrag in der Seitenleiste direkt in die [Stundenplan-Ansicht](#stundenplan); sein Kontextmenü enthält deshalb keine Anzeige-Aktionen, sondern **Stundenplan-Markierung entfernen**, **Einstellungen**, **Freigeben**, **Exportieren** und **Löschen**. Ein Stundenplan lässt sich nicht als Standardkalender festlegen.
 
@@ -524,7 +524,7 @@ Web-Kalender lassen sich nicht exportieren, da ihre Quelle bereits eine solche D
 
 ## Termine importieren
 
-Über **Importieren …** im [Kalenderkontextmenü](#kalenderkontextmenü) übernehmen Sie die Termine einer Datei im iCalendar-Format (`.ics`) in einen Kalender, etwa einer Datei, die ein anderes Kalenderprogramm exportiert hat. Im Dialog ist dieser Kalender als Ziel vorausgewählt. Sie können stattdessen jeden anderen Kalender wählen, in dem Sie Termine anlegen dürfen, außer einem Stundenplan. Ziehen Sie die Datei in den Dialog oder wählen Sie sie per Klick aus. Sie darf höchstens 2 MB groß sein und höchstens 1000 Termine enthalten; einzeln geänderte Termine einer Serie zählen dabei mit.
+Über **Importieren …** im [Kalenderkontextmenü](#kalenderkontextmenü) übernehmen Sie die Termine einer Kalenderdatei im iCalendar-Format (`.ics`) in einen Kalender, etwa einer Datei, die ein anderes Kalenderprogramm exportiert hat. Im Dialog ist dieser Kalender als Ziel vorausgewählt. Sie können stattdessen jeden anderen Kalender wählen, in dem Sie Termine anlegen dürfen, außer einem Stundenplan. Ziehen Sie die Datei in den Dialog oder wählen Sie sie per Klick aus. Sie darf höchstens 2 MB groß sein und höchstens 1000 Termine enthalten; einzeln geänderte Termine einer Serie zählen dabei mit.
 
 Bevor etwas gespeichert wird, prüft edulution die Datei für den gewählten Kalender; wechseln Sie danach das Ziel, wird sie erneut geprüft. Der Dialog zeigt dann, wie viele Termine importiert werden, wie viele davon Serien sind und welche Termine aus welchem Grund übersprungen werden. Erst **Importieren** schreibt die Termine in den Kalender. Danach meldet eine Nachricht, wie viele Termine importiert, übersprungen oder nicht gespeichert wurden.
 

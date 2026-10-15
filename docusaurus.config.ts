@@ -21,21 +21,44 @@ const releasedVersions: string[] = fs.existsSync('./versions.json')
   : [];
 
 /**
+ * `npm start` zeigt nur die Dateien, an denen gerade gearbeitet wird – mit
+ * allen Altversionen dauert der Start ein Vielfaches.
+ * `DOCS_ALL_VERSIONS=true npm start`, um die Auswahl zu testen.
+ *
+ * Nur, wenn es ueberhaupt Versionen abzuschalten gibt: Docusaurus weist die
+ * Einstellung auf einer noch unversionierten Seite zurueck.
+ */
+const disableVersioning =
+  releasedVersions.length > 0 && process.env.NODE_ENV === 'development' && process.env.DOCS_ALL_VERSIONS !== 'true';
+
+/**
+ * Die Versionen, die dieser Lauf kennt.
+ *
+ * `disableVersioning` nimmt Docusaurus die geschnittenen Versionen wieder weg,
+ * und jede Einstellung, die sie danach noch nennt, bricht ab – `docs:version`
+ * und `npm start` laufen beide mit NODE_ENV=development, dort gibt es also nur
+ * den Entwicklungsstand.
+ */
+const builtVersions = disableVersioning ? [] : releasedVersions;
+
+/**
  * Der Stand aus `docs/` – also `edulution-ui:dev` – gehoert nicht ins
  * oeffentliche Portal.
  *
- * Solange noch keine Version geschnitten ist, gibt es nichts anderes: dann
- * muss er hinein, sonst baut die Seite ohne eine einzige Version.
+ * Er muss aber hinein, solange noch keine Version geschnitten ist – sonst
+ * baut die Seite ohne eine einzige Version – und bei `npm start`, denn das
+ * sind genau die Dateien, an denen gearbeitet wird.
  */
-const includeCurrentVersion = process.env.DOCS_INCLUDE_NEXT === 'true' || releasedVersions.length === 0;
+const includeCurrentVersion =
+  process.env.DOCS_INCLUDE_NEXT === 'true' || process.env.NODE_ENV === 'development' || builtVersions.length === 0;
 
 /**
  * `onlyIncludeVersions` darf erst gesetzt werden, wenn es ueberhaupt
  * Versionen gibt – und `current` muss mit hinein, sonst faellt die
  * Entwicklungsversion aus dem Build, auch wenn sie eingeschaltet ist.
  */
-const onlyIncludeVersions = releasedVersions.length
-  ? [...(includeCurrentVersion ? ['current'] : []), ...releasedVersions.slice(0, BUILT_VERSIONS)]
+const onlyIncludeVersions = builtVersions.length
+  ? [...(includeCurrentVersion ? ['current'] : []), ...builtVersions.slice(0, BUILT_VERSIONS)]
   : undefined;
 
 const config: Config = {
@@ -282,15 +305,20 @@ const config: Config = {
           // pruefte `onBrokenLinks` ausgerechnet die 129 Dateien nicht mehr,
           // an denen tatsaechlich gearbeitet wird.
           includeCurrentVersion,
-          versions: {
-            // Solange nichts geschnitten ist, ist der Entwicklungsstand die
-            // einzige Version und liegt wie bisher unter /docs/ – sonst
-            // liefen in der Zwischenzeit alle Verweise aus der Anwendung ins
-            // Leere. Erst mit dem ersten Schnitt rueckt er nach /docs/next/.
-            current: releasedVersions.length
-              ? { label: 'Entwicklung (dev)', path: 'next', banner: 'unreleased', noIndex: true }
-              : { label: 'Entwicklung (dev)' },
-          },
+          // Nur, solange die Entwicklungsversion mitgebaut wird: ohne sie kennt
+          // Docusaurus den Namen `current` nicht und weist jede Einstellung
+          // dazu zurueck.
+          versions: includeCurrentVersion
+            ? {
+                // Solange nichts geschnitten ist, ist der Entwicklungsstand die
+                // einzige Version und liegt wie bisher unter /docs/ – sonst
+                // liefen in der Zwischenzeit alle Verweise aus der Anwendung ins
+                // Leere. Erst mit dem ersten Schnitt rueckt er nach /docs/next/.
+                current: builtVersions.length
+                  ? { label: 'Entwicklung (dev)', path: 'next', banner: 'unreleased', noIndex: true }
+                  : { label: 'Entwicklung (dev)' },
+              }
+            : {},
           // Kein `lastVersion`: der erste Eintrag in `versions.json` ist
           // automatisch die ausgelieferte Version und liegt ohne Praefix
           // unter /docs/. Ein fest eingetragener Name waere eine Falle – er
@@ -298,17 +326,7 @@ const config: Config = {
           // faellt.
           onlyIncludeVersions,
 
-          // `npm start` zeigt nur die Dateien, an denen gerade gearbeitet
-          // wird – mit allen Altversionen dauert der Start ein Vielfaches.
-          // `DOCS_ALL_VERSIONS=true npm start`, um die Auswahl zu testen.
-          //
-          // Nur, wenn es ueberhaupt Versionen abzuschalten gibt: `docs:version`
-          // laeuft selbst mit NODE_ENV=development und weist die Einstellung
-          // auf einer noch unversionierten Seite zurueck.
-          disableVersioning:
-            releasedVersions.length > 0 &&
-            process.env.NODE_ENV === 'development' &&
-            process.env.DOCS_ALL_VERSIONS !== 'true',
+          disableVersioning,
         },
         blog: false,
         theme: {

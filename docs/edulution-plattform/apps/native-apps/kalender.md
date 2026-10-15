@@ -69,7 +69,7 @@ In der Seitenleiste sind Ihre Kalender nach Gruppen geordnet:
 
 - **Meine Kalender** – Kalender, die Ihnen gehören.
 - **Klassen**, **Projekte** und **Gruppen** – Kalender, die die Schule für Ihre Klassen, Projekte und Gruppen verwaltet (siehe [Von der Schule verwaltete Kalender](#von-der-schule-verwaltete-kalender)). Diese Gruppen erscheinen nur, wenn Sie mindestens einen solchen Kalender haben.
-- **Ferien und Feiertage** – Der Ferienkalender Ihrer Schule (siehe [Ferien und Feiertage](#ferien-und-feiertage)). Diese Gruppe erscheint erst, wenn die Schule Ferien und Feiertage eingeschaltet hat.
+- **Ferien und Feiertage** – Der Ferienkalender Ihrer Schule (siehe [Ferien und Feiertage](#ferien-und-feiertage)). Diese Gruppe erscheint erst, wenn die Schule Ferien und Feiertage eingeschaltet hat und der Kalenderserver dafür eingerichtet ist.
 - **Abonnierte Kalender** – Kalender, die andere für Sie freigegeben haben.
 - **Web-Kalender** – Externe Kalender, die Sie über ihre Adresse abonniert haben (siehe [Web-Kalender abonnieren](#web-kalender-abonnieren)).
 - **Stundenplan** – Als Stundenplan markierte Kalender, die direkt zur [Stundenplan-Ansicht](#stundenplan) führen.
@@ -544,7 +544,7 @@ Auch auf anderem Weg lässt der Server keine dieser Änderungen zu. Er antwortet
 
 ### Ferien und Feiertage
 
-Den Kalender **Ferien und Feiertage** richtet die Schule ein, sobald ein Administrator in den [Unterrichtseinstellungen](../../konfiguration/einstellungen.md#ferien-und-feiertage) Ferien und Feiertage für sie einschaltet. Er gehört zu den von der Schule verwalteten Kalendern, steht aber in der Seitenleiste in einer eigenen Gruppe **Ferien und Feiertage**.
+Den Kalender **Ferien und Feiertage** richtet die Schule ein, sobald ein Administrator in den [Unterrichtseinstellungen](../../konfiguration/einstellungen.md#ferien-und-feiertage) Ferien und Feiertage für sie einschaltet und der Kalenderserver dafür eingerichtet ist. Die Termine selbst werden in einem späteren Schritt eingelesen; bis dahin bleibt der Kalender leer. Er gehört zu den von der Schule verwalteten Kalendern, steht aber in der Seitenleiste in einer eigenen Gruppe **Ferien und Feiertage**.
 
 Lesen dürfen ihn alle Mitglieder der Schule außer Eltern. Termine legt darin niemand selbst an, auch Administratoren nicht. Wer die Schule verlässt, verliert den Zugriff beim nächsten Abgleich.
 

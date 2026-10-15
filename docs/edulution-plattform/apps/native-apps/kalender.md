@@ -34,7 +34,7 @@ Die **Stundenplan**-Ansicht ist eine eigenständige Darstellung. Sie erreichen S
 
 ### Kopfzeile auf dem Smartphone
 
-Auf dem Smartphone und in der edulution.io App passt die Kopfzeile des Kalenders in eine einzige Zeile. Darüber steht die Seitenüberschrift **Kalender** in einer schmalen Zeile ohne Beschreibungstext, weiterhin mit **Erstellen** und **Mehr**.
+Auf dem Smartphone und in der edulution.io App passt die Kopfzeile des Kalenders in eine einzige Zeile. Ist das Fenster zudem schmaler als 768 Pixel, steht darüber die Seitenüberschrift **Kalender** in einer schmalen Zeile ohne Beschreibungstext, weiterhin mit **Erstellen** und **Mehr**; in sehr schmalen Fenstern finden Sie **Erstellen** unter **Mehr**.
 
 - Links stehen die Pfeil-Schaltflächen und dazwischen der angezeigte Zeitraum in Kurzform: **Do., 15. Okt.** in der Tagesansicht, **KW 42** in der Wochenansicht und **Okt 2026** im Monat und in der Agenda. In der Agenda entfallen die Pfeile.
 - Ein Tipp auf diesen Zeitraum öffnet den Monatskalender aus [Zu einem Datum springen](#zu-einem-datum-springen) als Fenster **Datum wählen** am unteren Bildschirmrand. Eine eigene Schaltfläche dafür gibt es hier nicht.
@@ -172,13 +172,13 @@ Beachten Sie dabei die folgenden Besonderheiten:
 
 ### Stundenplan
 
-Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansicht: Sie zeigt nur die Tage **Montag bis Freitag** und einen festen Zeitausschnitt am Tag in feiner Rasterung. Sie öffnen sie über einen als Stundenplan markierten Kalender in der Seitenleiste; über **Zurück** kehren Sie zur normalen Kalenderansicht zurück – und zwar in die Woche, die Sie im Stundenplan zuletzt angezeigt haben, und in die Ansicht, aus der Sie den Stundenplan geöffnet haben.
+Die Stundenplan-Ansicht ist eine auf den Schulalltag zugeschnittene Wochenansicht: Sie zeigt nur die Tage **Montag bis Freitag** und einen festen Zeitausschnitt am Tag in feiner Rasterung. Sie öffnen sie über einen als Stundenplan markierten Kalender in der Seitenleiste; über **Zurück** kehren Sie zur normalen Kalenderansicht zurück – und zwar in die Woche, die Sie im Stundenplan zuletzt angezeigt haben, und in die Ansicht, aus der Sie den Stundenplan geöffnet haben. Die Überschrift eines abonnierten Stundenplans zeigt keine E-Mail-Adresse, sondern nur den Namen der Person, der er gehört, sofern einer hinterlegt ist.
 
 Auch im Stundenplan steht die angezeigte Woche in der Adresse (URL). Sie können die Seite also neu laden, ohne die Woche zu verlieren, und einen bestimmten Stundenplan mitsamt Woche als Lesezeichen speichern oder als Link weitergeben. Die Schaltflächen **Zurück** und **Vorwärts** des Browsers blättern durch die zuvor angezeigten Wochen (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). Ein Link auf einen Stundenplan führt auch die Ansicht mit, aus der er erstellt wurde: Wer ihn öffnet, gelangt über **Zurück** in eben diese Ansicht. Das gilt selbst für eine Ansicht, die Sie über den Link einer Kollegin erreicht haben – sie übersteht den Weg über den Stundenplan, ohne deshalb zu Ihrer künftigen Startansicht zu werden.
 
 Ein Klick auf einen Termin öffnet ihn – je nach Ihren Rechten am zugehörigen Kalender zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder in der schreibgeschützten Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)); auf dem Smartphone und in der edulution.io App zuerst in der Detailansicht. Wie in den übrigen Rasteransichten verschieben Sie einen Termin auch hier [per Drag & Drop](#termine-per-drag--drop-verschieben) auf einen anderen Zeitabschnitt. Über der Stundenskala liegt wie in der Wochenansicht eine eigene Zeile für **ganztägige** Termine.
 
-Auf dem Smartphone und in der edulution.io App zeigt die Kopfzeile des Stundenplans die Schaltfläche **Zurück** zur Kalenderansicht nur als Pfeil und die Woche in Kurzform als **KW _n_**, damit alles in eine Zeile passt. Bei einem abonnierten Stundenplan nennt die Überschrift die Person, der er gehört, ohne ihre E-Mail-Adresse.
+Auf dem Smartphone und in der edulution.io App zeigt die Kopfzeile des Stundenplans die Schaltfläche **Zurück** zur Kalenderansicht nur als Pfeil und die Woche in Kurzform als **KW _n_**, damit alles in eine Zeile passt.
 
 Neue Termine legen Sie oben rechts über **Erstellen** und darin **Termin erstellen** an; ein Klick auf einen leeren Zeitabschnitt öffnet hier – anders als in der Wochen- und der Tagesansicht – keinen neuen Termin. Im Dialog ist der geöffnete Stundenplan bereits als Kalender vorausgewählt, auch wenn Sie an anderer Stelle einen [Standardkalender](#kalenderkontextmenü) festgelegt haben.
 

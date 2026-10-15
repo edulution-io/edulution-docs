@@ -96,13 +96,14 @@ Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalen
 - **Als Standardkalender festlegen** bzw. **Als Standardkalender entfernen** – Bestimmt, welcher Kalender beim [Erstellen eines Termins](#termine-erstellen) vorausgewählt ist.
 - **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
 - **Kalender veröffentlichen** – Öffnet den [Veröffentlichen-Dialog](#kalender-veröffentlichen), über den Sie den Kalender als Abonnement-Link bereitstellen; nur bei eigenen Kalendern verfügbar.
-- **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht an derselben Stelle wie **Freigeben**.
+- **Exportieren** – Lädt den Kalender als `.ics`-Datei herunter (siehe [Kalender und Termine exportieren](#kalender-und-termine-exportieren)); bei allen Kalendern außer Web-Kalendern verfügbar.
+- **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht bei abonnierten Kalendern als letzter Eintrag.
 - **Jetzt aktualisieren** – Lädt einen [Web-Kalender](#web-kalender-abonnieren) sofort neu, ohne auf die nächste automatische Aktualisierung zu warten; nur bei Web-Kalendern verfügbar.
 - **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
 
-Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen sowie **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben**, **Kalender veröffentlichen** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
+Bei abonnierten oder schreibgeschützten Kalendern stehen nur die Anzeige-Aktionen, **Exportieren** und **Abbestellen** zur Verfügung. Das Markieren als Stundenplan, das Festlegen als Standardkalender sowie **Einstellungen**, **Freigeben**, **Kalender veröffentlichen** und **Löschen** bleiben eigenen, beschreibbaren Kalendern vorbehalten.
 
-Bei einem als Stundenplan markierten Kalender führt der Eintrag in der Seitenleiste direkt in die [Stundenplan-Ansicht](#stundenplan); sein Kontextmenü enthält deshalb keine Anzeige-Aktionen, sondern **Stundenplan-Markierung entfernen**, **Einstellungen**, **Freigeben** und **Löschen**. Ein Stundenplan lässt sich nicht als Standardkalender festlegen.
+Bei einem als Stundenplan markierten Kalender führt der Eintrag in der Seitenleiste direkt in die [Stundenplan-Ansicht](#stundenplan); sein Kontextmenü enthält deshalb keine Anzeige-Aktionen, sondern **Stundenplan-Markierung entfernen**, **Einstellungen**, **Freigeben**, **Exportieren** und **Löschen**. Ein Stundenplan lässt sich nicht als Standardkalender festlegen.
 
 Die Festlegung als Standardkalender wird in Ihrem Browser gespeichert: Sie bleibt über das Neuladen der Seite und die nächste Anmeldung hinaus erhalten, gilt aber nur auf diesem Gerät und in diesem Browser. An einem anderen Arbeitsplatz legen Sie den Standardkalender daher erneut fest.
 
@@ -506,6 +507,20 @@ Löschen Sie einen veröffentlichten Kalender, wird seine Veröffentlichung auto
 
 Der Link überträgt die Termine von fünf Jahren in der Vergangenheit bis fünf Jahre in der Zukunft. Serientermine werden als Serie übertragen, sodass das abonnierende Programm auch Wiederholungen außerhalb dieses Zeitraums fortschreibt. Termine, die Sie in edulution ändern, erscheinen beim nächsten Abruf des abonnierenden Programms.
 
+## Kalender und Termine exportieren
+
+Über **Exportieren** im [Kalenderkontextmenü](#kalenderkontextmenü) laden Sie einen Kalender als Datei im iCalendar-Format herunter, die sich in andere Kalenderprogramme importieren lässt. Die Datei trägt den Namen des Kalenders und enthält alle seine Termine. Serientermine stehen darin mit ihrer Wiederholungsregel und allen einzeln geänderten oder gelöschten Terminen. Zeichen, die in Dateinamen nicht erlaubt sind, etwa `/`, werden dabei durch `_` ersetzt.
+
+Für einen einzelnen Termin gibt es im Bearbeiten-Dialog und in der [Detailansicht](#termine-ansehen-ohne-bearbeitungsrecht) eines bestehenden Termins die Schaltfläche **Als .ics herunterladen**. Gehört der Termin zu einer Serie, enthält die Datei die ganze Serie und nicht nur den angeklickten Termin.
+
+Exportiert wird nur, was Sie im Kalender selbst sehen. Bei einem freigegebenen Kalender richtet sich die Datei deshalb nach Ihren Rechten (siehe [Rechte je Sichtbarkeit](#rechte-je-sichtbarkeit)): Ein Termin, für den Sie nur **Datum & Uhrzeit sehen** dürfen, steht darin nur mit seinem Zeitraum und dem Titel „Busy“, ohne Ort, Beschreibung und Teilnehmer. Laden Sie einen solchen Termin einzeln herunter, heißt die Datei `Belegt.ics`. Termine, für die Sie die Rolle **Keine** besitzen, fehlen in der Datei.
+
+Teilnehmer und Organisator stehen in keiner exportierten Datei, auch nicht bei Ihren eigenen Kalendern. So verschickt das andere Programm beim Importieren weder Einladungen noch Absagen an die Teilnehmer.
+
+Die Datei gibt den Stand zum Zeitpunkt des Herunterladens wieder; spätere Änderungen erreichen das andere Programm nicht. Soll ein Kalender dort laufend aktuell bleiben, stellen Sie ihn stattdessen über [Kalender veröffentlichen](#kalender-veröffentlichen) als Abonnement-Link bereit.
+
+Web-Kalender lassen sich nicht exportieren, da ihre Quelle bereits eine solche Datei ist.
+
 ## Abonnierte und schreibgeschützte Kalender
 
 Dieser Abschnitt beschreibt Kalender, die **andere Benutzer Ihrer Schule** für Sie freigegeben haben. Externe Kalender, die Sie selbst über eine Adresse abonnieren, sind etwas anderes und stehen in der eigenen Gruppe **Web-Kalender** (siehe [Web-Kalender abonnieren](#web-kalender-abonnieren)).
@@ -550,7 +565,7 @@ Adressen, die einen Benutzernamen und ein Kennwort enthalten (`https://benutzer:
 
 Ein Web-Kalender zeigt ausschließlich die Termine seiner Quelle. Sie können darin **keine Termine anlegen, bearbeiten, verschieben oder löschen**; im Feld **Kalender** des Dialogs zum [Erstellen eines Termins](#termine-erstellen) erscheint er deshalb nicht. Termine eines Web-Kalenders öffnen sich beim Anklicken in der reinen [Detailansicht](#termine-ansehen-ohne-bearbeitungsrecht).
 
-Auch das Freigeben an andere Benutzer, das Markieren als Stundenplan und das Festlegen als Standardkalender stehen für Web-Kalender nicht zur Verfügung.
+Auch das Freigeben an andere Benutzer, das Markieren als Stundenplan, das Festlegen als Standardkalender und das [Exportieren](#kalender-und-termine-exportieren) stehen für Web-Kalender nicht zur Verfügung.
 
 ### Automatische Aktualisierung
 

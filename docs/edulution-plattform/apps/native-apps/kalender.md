@@ -182,6 +182,10 @@ Das Quadrat erscheint nur an Terminen mit eigener Farbe und nur dort, wo die Zuo
 - Als Stundenplan markierte Kalender zählen dabei **nicht mit**, da ihre Termine in **Monat**, **Woche**, **Tag** und **Agenda** ohnehin nicht erscheinen. Haben Sie neben einem Stundenplan nur einen gewöhnlichen Kalender, bleibt das Quadrat also aus.
 - In der **Stundenplan-Ansicht** erscheint es nicht, da diese stets die Termine eines einzelnen Stundenplans zeigt.
 
+### Hinweis bei sehr häufigen Wiederholungen
+
+Wiederholt sich ein Serientermin so oft, dass er sich im angezeigten Zeitraum nicht vollständig berechnen lässt, erscheint über den Terminen der Hinweis **Nicht alle Termine werden angezeigt** mit der Zahl der betroffenen Serien. Das betrifft vor allem Termine, die ein externes CalDAV-Programm minütlich oder sekündlich wiederholt. Den Hinweis sehen Sie in **Monat**, **Woche**, **Tag**, **Agenda** und **Stundenplan**. Er zählt nur Serien aus eingeblendeten Kalendern und nennt weder Titel noch Kalender. Von einer betroffenen Serie bleibt der ursprüngliche Termin sichtbar. Die übrigen Wiederholungen fehlen in der Ansicht, bleiben im Kalender aber erhalten.
+
 ## Termine erstellen
 
 Einen neuen Termin legen Sie auf mehreren Wegen an:

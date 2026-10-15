@@ -92,7 +92,7 @@ Beim Speichern werden die Eingaben geprüft. Ein **Anzeigename** ist Pflicht. E-
 
 Über **Kontakt löschen** (in der Detailansicht oder im Kontextmenü) entfernen Sie einen Kontakt. Vor dem Löschen erscheint eine Sicherheitsabfrage mit dem Namen des Kontakts. Das Löschen erfolgt sofort und kann nicht rückgängig gemacht werden.
 
-Wurde ein Kontakt seit dem Laden der Liste auf dem Server geändert, etwa auf einem eingerichteten Gerät, speichert edulution Ihre Änderungen nicht und löscht den Kontakt nicht. Stattdessen erscheint **"Der Kontakt wurde inzwischen auf dem Server geändert. Die Kontakte wurden neu geladen, bitte versuchen Sie es erneut."**, und die Kontakte werden mit dem aktuellen Stand neu geladen. Bearbeiten oder löschen Sie den Kontakt danach erneut.
+Ändert sich ein Kontakt auf dem Server genau in dem Moment, in dem edulution Ihre Änderungen speichert oder den Kontakt löscht, etwa weil er gleichzeitig auf einem eingerichteten Gerät bearbeitet wird, bricht edulution den Vorgang ab. Es erscheint **"Der Kontakt wurde inzwischen auf dem Server geändert. Die Kontakte wurden neu geladen, bitte versuchen Sie es erneut."**, und die Kontakte werden mit dem aktuellen Stand neu geladen. Bearbeiten oder löschen Sie den Kontakt danach erneut.
 
 ## Kontakte importieren
 

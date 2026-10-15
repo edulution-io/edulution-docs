@@ -106,28 +106,34 @@ Wir haben einige standardmäßige Vorlagen vordefiniert, an denen Sie sich orien
 
 #### Benutzer-Ansicht
 
-![Vorlagen - Kachel-Ansicht - Benutzer](../../../img/umfragen/Screenshot_20260506_113106.png)
+- **Vorlage öffnen**: Klicken Sie die Kachel an. Die Vorlage wird als Grundgerüst in den Editor geladen, an dem Sie sich orientieren können. Mit der Tastatur erreichen Sie die Kacheln über die **Tabulatortaste** und öffnen die Kachel mit **Enter** oder der **Leertaste**.
+- **Neue Umfrage**: Die letzte Kachel des Rasters trägt ein Plus-Symbol und startet mit einer leeren Umfrage, also ohne Vorlage.
+- **Vorschau** (Augen-Symbol): Öffnet eine Vorschau der Vorlage, ohne sie in den Editor zu laden.
 
-Wenn Sie die Kachelansicht öffnen, können Sie eine der Vorlagen nutzen, um ein Grundgerüst zu haben, an dem Sie sich orientieren können.
+:::note[Lange Namen und Beschreibungen]
+Die Beschreibung wird nach zwei Zeilen abgeschnitten und vollständig als Kurzinfo eingeblendet, wenn Sie sie mit der Maus oder der Tastatur ansteuern.
+:::
+
+Über das Suchfeld der Kachelansicht filtern Sie die Vorlagen nach ihrem Namen. Die eingegebenen Buchstaben müssen dabei nicht zusammenhängend vorkommen, sondern nur in der richtigen Reihenfolge im Namen enthalten sein. Gibt es keinen Treffer, erscheint **Keine Vorlage gefunden**; sind überhaupt keine Vorlagen vorhanden, erscheint **Keine Vorlagen vorhanden**. Die Kachel **Neue Umfrage** bleibt in beiden Fällen verfügbar.
 
 <Audience roles="admin">
 
 #### Administrator-Ansicht
 
-![Vorlagen - Kachel-Ansicht - Administrator](../../../img/umfragen/Screenshot_20260506_113129.png)
-
 Im Gegensatz zum Standard-Benutzer stehen einem Administrator auf jeder Vorlagen-Kachel zusätzliche Schaltflächen zur Verfügung:
 
 - **Aktivieren / Deaktivieren**: Schaltet den Aktiv-Status der Vorlage um. Nur aktive Vorlagen werden den Benutzern in der Kachelansicht angezeigt.
-- **Vorschau** (Augen-Symbol): Öffnet eine Vorschau der Vorlage, ohne sie zu bearbeiten.
 - **Löschen** (Papierkorb-Symbol): Entfernt die Vorlage dauerhaft.
+
+Deaktivierte Vorlagen bleiben für Sie sichtbar: Sie werden abgeblendet dargestellt, mit **Inaktiv** gekennzeichnet und hinter den aktiven Vorlagen einsortiert.
 
 :::info[Mitgelieferte Vorlagen]
 Bei den mitgelieferten Standard-Vorlagen lässt sich ausschließlich der Aktiv-Status umschalten; sie können nicht gelöscht werden.
 :::
 
+Welche Gruppen über diese zusätzlichen Rechte verfügen, legen Sie unter [Administratorengruppe festlegen](../../konfiguration/einstellungen.md#administratorengruppe-festlegen) fest.
 
-Administratoren können Vorlagen auch bearbeiten. Dazu muss die Vorlage ausgewählt werden, und beim [Speichern der Umfrage](#umfrage-speichern) muss der Haken an der Checkbox "Als Vorlage speichern" gesetzt werden.
+Administratoren können Vorlagen auch bearbeiten. Dazu muss die Vorlage ausgewählt werden, und beim [Speichern der Umfrage](#umfrage-speichern) muss **Als Vorlage speichern** aktiviert sein.
 
 </Audience>
 
@@ -281,6 +287,10 @@ Vom Teilnehmer wird erwartet, dass er die Objekte anordnet. Ob nach Zeit, Vorlie
 Um das Backend nicht zu stark zu belasten, werden keine Dateien größer als **50 MB** akzeptiert.
 :::
 
+:::note[Namen von Upload-Fragen]
+Der Name einer Frage vom Typ **Datei**, **Bild** oder **Bildauswahl** darf weder „/“ noch „\“ enthalten und nicht „.“ oder „..“ lauten. Sonst lässt sich die Umfrage nicht speichern.
+:::
+
 **Datei**
 
 ![Datei](../../../img/umfragen/Screenshot_20260507_151539.png)
@@ -291,7 +301,7 @@ Es wird erwartet, dass der Teilnehmer eine Datei anheftet.
 
 :::info[Speichern von Bildern im Backend]
 Die Bilder werden serverseitig gespeichert.
-Damit das Backend nicht zu sehr belastet wird, werden Bilder der Formate JPEG, PNG, WebP und GIF bereits im Browser in das WebP-Format (.webp) konvertiert und komprimiert, bevor sie ans Backend gesendet werden. Andere Formate werden unverändert hochgeladen.
+Damit das Backend nicht zu sehr belastet wird, werden Bilder der Formate JPEG, PNG, WebP und GIF bereits im Browser in das WebP-Format (.webp) konvertiert und komprimiert, bevor sie ans Backend gesendet werden. Andere Formate werden unverändert hochgeladen. Beim Erstellen der Umfrage, etwa für eine **Bildauswahl** oder das Logo, nimmt das Backend davon nur SVG an.
 :::
 
 **Bild**
@@ -410,7 +420,7 @@ Als Administrator können Sie die aktuell bearbeitete Umfrage auch als Vorlage s
 - **Name der Vorlage**: Unter diesem Namen wird die Vorlage in der Kachelansicht angezeigt.
 - **Zugriffsgruppen**: Die Vorlage wird in der Kachelansicht nur den Benutzern angezeigt, die Mitglied in mindestens einer der ausgewählten Gruppen sind.
 
-Auf diesem Weg können Administratoren auch bestehende Vorlagen bearbeiten. Dazu muss die entsprechende Vorlage ausgewählt werden. Beim [Speichern der Umfrage](#umfrage-speichern) muss dann der Haken an der Checkbox "Als Vorlage speichern" gesetzt werden.
+Auf diesem Weg können Administratoren auch bestehende Vorlagen bearbeiten. Dazu muss die entsprechende Vorlage ausgewählt werden. Beim [Speichern der Umfrage](#umfrage-speichern) muss dann **Als Vorlage speichern** aktiviert sein.
 
 </Audience>
 

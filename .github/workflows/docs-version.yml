@@ -89,13 +89,17 @@ jobs:
           git commit -m "Publish the documentation for edulution $VERSION"
           git push origin main
 
-  # A push made with GITHUB_TOKEN does not trigger `push` workflows, so the
-  # deploy has to be called rather than waited for.
-  deploy:
+  # The site is only ever deployed from a release tag, and a push made with GITHUB_TOKEN triggers no
+  # workflow, so the snapshot reaches readers through a release of its own rather than through a deploy.
+  release:
     needs: cut
     if: needs.cut.outputs.cut == 'true'
-    uses: ./.github/workflows/static.yml
+    runs-on: ubuntu-latest
     permissions:
-      contents: read
-      pages: write
-      id-token: write
+      actions: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Start the release
+        run: gh workflow run release.yml --ref main

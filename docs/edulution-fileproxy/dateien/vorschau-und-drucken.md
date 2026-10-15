@@ -157,7 +157,7 @@ Es erscheint nur bei textbasierten Dateien und nur in der Ansicht. Wechseln Sie 
 Die Adresse eines Vorschau-Tabs gilt nur im eigenen Browser und lässt sich nicht weitergeben. Erstellen Sie zum Teilen einen [Freigabe-Link](./teilen.md). Siehe [Der Link zur Vorschau im eigenen Tab](#der-link-zur-vorschau-im-eigenen-tab).
 
 **Statt eines Vorschaubildes sehe ich das allgemeine Dateisymbol.**
-Vorschaubilder werden nur für Bilddateien erzeugt. Bei sehr großen oder beschädigten Bildern kann die Erzeugung fehlschlagen – die Datei selbst bleibt davon unberührt.
+Vorschaubilder gibt es nur für Bilddateien bis 25 MB. Auch beschädigte Bilder und Dateien, die trotz Bild-Endung kein Bild enthalten, behalten das allgemeine Dateisymbol. Die Datei selbst bleibt davon unberührt.
 
 ## Siehe auch
 

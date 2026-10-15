@@ -22,12 +22,12 @@ flowchart TD
 ```
 
 1. **Aktuelles Passwort prüfen** – edulution fordert mit Benutzername und altem Passwort ein Token am OIDC-Token-Endpunkt des edulution-Realms an. Schlägt das fehl, ist das eingegebene Passwort falsch.
-2. **Neues Passwort setzen** – über die Keycloak-Administrationsschnittstelle wird das Passwort des Benutzers ersetzt, womit von nun an dass neue Passwort gültig ist.
-3. **Hinterlegte Kopie aktualisieren** – edulution hält eine verschlüsselte Kopie des Passworts vor, die Dienste wie WebDAV und das Mailsystem benötigen. Sie wird mitgeführt, und das zwischengespeicherte Linuxmuster-API-Token wird verworfen, damit die nächste Anfrage ein neues Token mit dem geänderten Passwort erhält muss die Kopie aktualisiert werden.
-4. **Rückfallweg Linuxmuster** – schlägt einer der Schritte fehl, wiederholt edulution die Änderung über `linuxmuster-api7`. Das geschieht nur, wenn die **Zielplattform** auf **Linuxmuster** steht und für den Benutzer ein gültiges Linuxmuster-API-Token vorliegt. In allen anderen Fällen erhält der Benutzer die Fehlermeldung.
+2. **Neues Passwort setzen** – über die Keycloak-Administrationsschnittstelle wird das Passwort des Benutzers ersetzt, womit von nun an das neue Passwort gültig ist.
+3. **Hinterlegte Kopie aktualisieren** – edulution hält eine verschlüsselte Kopie des Passworts vor, die Dienste wie WebDAV und das Mailsystem benötigen. Sie wird mitgeführt, und das zwischengespeicherte Linuxmuster-API-Token wird verworfen, damit die nächste Anfrage ein neues Token mit dem geänderten Passwort erhält.
+4. **Rückfallweg Linuxmuster** – schlägt einer der Schritte fehl, wiederholt edulution die Änderung über `linuxmuster-api7` – außer das Passwort wurde wegen der Passwortrichtlinie abgewiesen. Das geschieht nur, wenn die **Zielplattform** auf **Linuxmuster** steht und für den Benutzer ein gültiges Linuxmuster-API-Token vorliegt. In allen anderen Fällen erhält der Benutzer die Fehlermeldung.
 
 :::note[Prüfung des alten Passworts auf Linuxmuster-Systemen]
-Der Rückfallweg greift bei **jedem** Fehler des Keycloak-Wegs – also auch dann, wenn das eingegebene aktuelle Passwort nicht stimmt. Die Linuxmuster-API prüft es in diesem Fall gegen die in edulution hinterlegte Kopie. Eine falsche Eingabe wird also weiterhin abgewiesen, die Meldung stammt dann jedoch aus dem zweiten Durchlauf.
+Der Rückfallweg greift auch dann, wenn das eingegebene aktuelle Passwort nicht stimmt. Die Linuxmuster-API prüft es in diesem Fall gegen die in edulution hinterlegte Kopie. Eine falsche Eingabe wird also weiterhin abgewiesen, die Meldung stammt dann jedoch aus dem zweiten Durchlauf.
 :::
 
 ## Voraussetzungen in Keycloak
@@ -63,8 +63,16 @@ Die folgenden Einstellungen nehmen Sie in der Keycloak-Administrationsoberfläch
 | Passwortrichtlinie | **Authentication → Policies → Password policy** | Das neue Passwort muss der Richtlinie des Realms genügen, sonst weist Keycloak es zurück. |
 | LDAP-Verbund im Modus **WRITABLE** | **User federation → *LDAP-Verbund* → Edit mode** | Stammen die Benutzer aus einem LDAP-Verzeichnis, kann Keycloak das Passwort nur bei `WRITABLE` zurückschreiben. Bei `READ_ONLY` oder `UNSYNCED` landet die Änderung nicht im Verzeichnis. |
 
-:::warning[Passwortrichtlinie und Eingabemaske]
-Das Formular in den Benutzereinstellungen prüft lediglich, ob das neue Passwort mindestens **8 Zeichen** lang ist. Alle weiteren Anforderungen stammen aus der Passwortrichtlinie des Realms und werden erst beim Speichern geprüft. Legen Sie eine strengere Richtlinie fest, weisen Sie Ihre Benutzer darauf hin – sie erhalten sonst erst nach dem Absenden eine allgemeine Fehlermeldung.
+:::info[Passwortrichtlinie und Eingabemaske]
+edulution liest die Passwortrichtlinie des Realms und zeigt sie im Formular als Hinweise an, zum Beispiel „Mindestens 12 Zeichen“ oder „Mindestens 2 Ziffern“. Das Formular prüft das neue Passwort vorab auf Mindestlänge, Mindestanzahl je Zeichenart (Kleinbuchstaben, Großbuchstaben, Ziffern, Sonderzeichen) und – wenn die Richtlinie es verlangt – darauf, dass es nicht mit dem Benutzernamen identisch ist. Mindestens 8 Zeichen verlangt es auch dann, wenn die Richtlinie weniger verlangt.
+
+Weitere Regeln der Richtlinie, etwa Passwort-Verlauf oder reguläre Ausdrücke, prüft das Formular nicht. Sie greifen erst beim Speichern in Keycloak.
+
+Lässt sich die Richtlinie des Realms nicht lesen, gilt im Formular nur die Mindestlänge von 8 Zeichen.
+:::
+
+:::note[Reihenfolge der Prüfung]
+Der Server prüft die Richtlinie, bevor er das aktuelle Passwort prüft. Wer ein falsches aktuelles und ein regelwidriges neues Passwort eingibt, erhält deshalb die Meldung zur Passwortrichtlinie, nicht *Das aktuelle Passwort ist nicht korrekt*.
 :::
 
 :::info[LDAP-Verbund auf Linuxmuster-Systemen]
@@ -95,9 +103,9 @@ Diese Seite beschreibt die Passwortänderung durch den Benutzer selbst. Das **Zu
 | Meldung | Ursache | Abhilfe |
 |---|---|---|
 | *Das aktuelle Passwort ist nicht korrekt* | Keycloak hat die Anmeldung mit dem eingegebenen alten Passwort abgelehnt. | Eingabe prüfen. Tritt die Meldung trotz korrektem Passwort auf, prüfen Sie, ob **Direct access grants** für den edu-ui-Client aktiviert ist. |
-| *Passwort konnte nicht geändert werden* | Keycloak hat das neue Passwort abgelehnt oder konnte es nicht schreiben. | Passwortrichtlinie des Realms und den **Edit mode** des LDAP-Verbunds prüfen. Auf Linuxmuster-Systemen zusätzlich die Erreichbarkeit der Linuxmuster-API. |
+| *Passwort konnte nicht geändert werden* | Keycloak konnte das neue Passwort nicht schreiben, etwa weil der Benutzer schreibgeschützt ist oder Keycloak aus anderem Grund ablehnt. | Den **Edit mode** des LDAP-Verbunds prüfen. Auf Linuxmuster-Systemen zusätzlich die Erreichbarkeit der Linuxmuster-API. |
+| *Das Passwort erfüllt die Passwortrichtlinie nicht* | Die Passwortrichtlinie des Realms oder – auf Linuxmuster-Systemen – die [Passwortrichtlinie](../../edulution-server/benutzerverwaltung.md#passwortrichtlinie) der Linuxmuster-Installation hat das neue Passwort abgelehnt. Die Meldung nennt die verletzten Regeln. | Ein Passwort wählen, das den genannten Regeln genügt. Auf Linuxmuster-Systemen sind Umlaute und ß nicht zulässig. |
 | *Verbindung zum Authentifizierungsserver fehlgeschlagen* | Keycloak war nicht erreichbar. | Zustand des Containers `edu-keycloak` prüfen. |
-| *Das Passwort muss mindestens 8 Zeichen lang sein* | Vorabprüfung im Formular. | Längeres Passwort wählen. |
 
 ## Siehe auch
 

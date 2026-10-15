@@ -1,24 +1,8 @@
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 /**
- * Die Dokumentation folgt den Komponenten von edulution – denselben neun,
- * die auf edulution.io als Produktkarten stehen: Plattform, Server, Mail,
- * App, Satellite, LMS, VDI, MDM, FileProxy. Wer ein Produkt gekauft hat,
- * findet alles dazu an einer Stelle: Installation, Konfiguration, Nutzung.
- *
- * Unter `edulution Plattform` steht deshalb nur noch, was ohne eigenen
- * Serverdienst auskommt – die nativen Apps, Dateien, Konferenzen, VPN.
- * Alles mit eigener Installationsstrecke ist eine Komponente daneben.
- *
- * Innerhalb jeder Komponente wiederholt sich dieselbe Gliederung:
- * Installation, Konfiguration, Übersicht, Nutzung. Die administrativen
- * Zweige tragen `customProps: { audience: … }` und sind für Endnutzer
- * ausgeblendet (siehe src/theme/DocSidebarItem/index.tsx).
- *
- * Die Rollen-IDs stehen in src/components/audience/taxonomy.ts; ein Tippfehler
- * hält den Build an.
+ * One top-level category per edulution component. Admin-only branches carry `customProps: { audience: … }` with role
+ * IDs from src/components/audience/taxonomy.ts and are hidden for end users; an unknown ID fails the build.
  */
 const sidebars: SidebarsConfig = {
   mainSidebar: [
@@ -47,9 +31,7 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Benutzereinstellungen',
               collapsed: true,
-              // Der laengste Block der Nutzerdokumentation. Jeder Bereich
-              // des Dialogs ist eine Seite, damit sich einzelne Stellen
-              // verlinken lassen - die Uebersicht bleibt der Einstieg.
+              // Each section of the dialog is its own page so it can be linked directly; the overview stays the entry.
               link: {
                 type: 'doc',
                 id: 'edulution-plattform/uebersicht/benutzereinstellungen/index',
@@ -71,7 +53,6 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: '⚙️ Installation',
           collapsed: true,
-          // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
           customProps: { audience: 'admin-setup' },
           items: [
             'edulution-plattform/installation/voraussetzungen',
@@ -84,7 +65,6 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: '⚙️ Konfiguration',
           collapsed: true,
-          // Nur für Administrations-Rollen (siehe src/components/audience/taxonomy.ts)
           customProps: { audience: 'admin' },
           link: {
             type: 'doc',
@@ -128,7 +108,6 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Upgrade',
               collapsed: true,
-              // Betrifft nur bereits laufende Instanzen.
               customProps: { audience: 'admin-operate' },
               items: [
                 {
@@ -168,18 +147,14 @@ const sidebars: SidebarsConfig = {
             id: 'edulution-plattform/apps/index',
           },
           items: [
-            // Zuerst die beiden Seiten, mit denen Apps ueberhaupt entstehen:
-            // im App-Store entscheidet sich, welche der Apps darunter in der
-            // Seitenleiste erscheinen, und die Eingebettete App ist keine
-            // einzelne Anwendung, sondern die Huelle fuer eigene Inhalte.
+            // These two come first because they create apps rather than being one: the App Store decides which apps
+            // appear in the sidebar, and the embedded app wraps custom content.
             'edulution-plattform/apps/app-store',
             'edulution-plattform/apps/eingebettete-app',
             {
               type: 'category',
               label: 'Native Apps',
               collapsed: true,
-              // Teil der Plattform - hier ist nichts zu installieren,
-              // hoechstens im App-Store zu aktivieren.
               items: [
                 'edulution-plattform/apps/native-apps/chat',
                 'edulution-plattform/apps/native-apps/kontakte',
@@ -195,16 +170,8 @@ const sidebars: SidebarsConfig = {
                 'edulution-plattform/apps/native-apps/umfragen',
               ],
             },
-            // Das Gegenstueck zu den nativen Apps: eine Kachel in edulution
-            // hat jede von ihnen auch, aber dahinter steht ein eigener
-            // Dienst mit eigener Installationsstrecke. Dokumentiert sind
-            // sie deshalb in ihrer Komponente, nicht hier.
-            //
-            // Jeder Eintrag ist nur ein Link: `href` bleibt ein Platzhalter,
-            // das echte Ziel steht in `customProps.crossRef` und wird in
-            // src/theme/DocSidebarItem eingesetzt. So gilt der Eintrag
-            // nirgends als aktive Seite - sonst klappte beim Oeffnen der
-            // Dateien-App dieser Ast hier mit auf.
+            // Cross-references to the components' own docs: `href: '#'` is a placeholder that keeps this branch from
+            // expanding when the target is open (see CROSS_REF_PLACEHOLDER in src/theme/DocSidebarItem).
             {
               type: 'category',
               label: 'Angebundene Apps',
@@ -259,8 +226,6 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'edulution Server',
       collapsed: true,
-      // Der Schulserver wird aufgesetzt und betrieben, nicht bedient -
-      // fuer Endnutzer ist der ganze Bereich ausgeblendet.
       customProps: { audience: 'admin' },
       items: [
         {
@@ -300,8 +265,6 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: '⚙️ Konfiguration',
           collapsed: true,
-          // Mailserver aufsetzen und betreiben - fuer Endnutzer
-          // ausgeblendet (siehe src/components/audience/taxonomy.ts).
           customProps: { audience: 'admin' },
           items: [
             {
@@ -439,11 +402,6 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'edulution Satellite',
       collapsed: true,
-      // Eine Appliance fuer entfernte Standorte - es gibt dazu nichts
-      // fuer Endnutzer, deshalb ist der ganze Block ausgezeichnet.
-      // Nicht mit dem VPN-Zugang der Plattform verwechseln: der ist der
-      // WireGuard-Tunnel einzelner Benutzer, nicht die Kopplung von
-      // Appliances.
       customProps: { audience: 'admin' },
       items: [
         {
@@ -471,6 +429,16 @@ const sidebars: SidebarsConfig = {
           id: 'edulution-satellite/verwaltung',
           label: 'Satelliten verwalten',
         },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/linbo',
+          label: 'LINBO am Satelliten',
+        },
+        {
+          type: 'doc',
+          id: 'edulution-satellite/linbo-referenz',
+          label: 'LINBO – Nachschlagewerk',
+        },
       ],
     },
     {
@@ -487,7 +455,6 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: '⚙️ Installation',
           collapsed: true,
-          // Moodle bereitstellen - nur fuer die Ersteinrichtung.
           customProps: { audience: 'admin-setup' },
           link: {
             type: 'doc',
@@ -520,7 +487,6 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: '⚙️ Konfiguration',
           collapsed: true,
-          // Moodle-Anbindung betreiben - fuer Endnutzer ausgeblendet.
           customProps: { audience: 'admin' },
           link: {
             type: 'doc',
@@ -587,9 +553,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: '⚙️ Konfiguration',
           collapsed: true,
-          // Die Anbindung an eine vorhandene VDI-Umgebung - fuer
-          // Endnutzer ausgeblendet. Die Umgebung selbst entsteht auf dem
-          // Schulserver, nicht hier.
+          // Only the connection to an existing VDI environment; the environment itself is built on the school server.
           customProps: { audience: 'admin' },
           link: {
             type: 'doc',
@@ -620,11 +584,6 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'edulution MDM',
       collapsed: true,
-      // Wie bei den uebrigen Komponenten: die Uebersicht als Einstieg, die
-      // Anbindung an Relution im ausgeblendeten Einrichtungs-Zweig, und
-      // darunter die Bereiche der App in der Reihenfolge ihrer Seitenleiste.
-      // Der Bereich Benutzer verwaltet Relution-Konten und ist deshalb
-      // einzeln als Administrationsthema ausgezeichnet.
       items: [
         {
           type: 'doc',
@@ -635,8 +594,6 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: '⚙️ Einrichtung',
           collapsed: true,
-          // Relution anbinden - fuer Endnutzer ausgeblendet
-          // (siehe src/components/audience/taxonomy.ts).
           customProps: { audience: 'admin' },
           link: {
             type: 'doc',
@@ -687,6 +644,7 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'edulution-mdm/benutzer',
           label: 'Benutzer',
+          // Manages Relution accounts, so it is an admin topic although the MDM category is not.
           customProps: { audience: 'admin' },
         },
       ],
@@ -695,11 +653,8 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'edulution FileProxy',
       collapsed: true,
-      // Zwei Zweige, wie der Name sagt: die Dateien-App, die alle nutzen,
-      // und der Proxy, der ihre Netzlaufwerke bereitstellt. Kein `audience`
-      // auf der Kategorie - die App darin ist die meistgenutzte Anwendung
-      // der Plattform. Administrationsthema ist nur, was in den beiden
-      // Konfigurations-Ordnern steht.
+      // No `audience` here because the Dateien app inside is for everyone; only its configuration and the FileProxy
+      // branch are admin topics.
       items: [
         {
           type: 'category',
@@ -715,8 +670,6 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: '⚙️ Konfiguration',
               collapsed: true,
-              // Office-Server aufsetzen - fuer Endnutzer ausgeblendet
-              // (siehe src/components/audience/taxonomy.ts).
               customProps: { audience: 'admin' },
               items: [
                 {
@@ -750,9 +703,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'FileProxy',
           collapsed: true,
-          // Der Dienst hinter der Dateien-App. Auch die Uebersicht beschreibt
-          // Architektur und Installationsstrecke - fuer Endnutzer ist der
-          // ganze Zweig ausgeblendet, sie lesen 'Dateien' daneben.
+          // Even the overview covers architecture and installation, so the whole branch is hidden for end users.
           customProps: { audience: 'admin' },
           items: [
             {
@@ -764,8 +715,6 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: '⚙️ Konfiguration',
               collapsed: true,
-              // Der Dienst hinter der Dateien-App - Endnutzer merken von ihm
-              // nichts und bekommen den Block nicht zu sehen.
               customProps: { audience: 'admin' },
               items: [
                 {

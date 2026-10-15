@@ -17,8 +17,16 @@ starten.
 :::note
 Die E-Mails werden alle 15 Minuten abgerufen, bis der Benutzer die
 Synchronisierung in seinem Profil wieder beendet oder löscht. Die
-migrierten E-Mails erscheinen in einem neuen Unterordner im Posteingang,
-der nach dem Sync-Profil benannt ist (z.B. "Altes Postfach BelWue").
+migrierten E-Mails erscheinen in einem neuen Ordner, der nach dem
+Sync-Profil benannt ist (z.B. "Altes Postfach BelWue"); darunter finden
+Sie die Ordnerstruktur des alten Postfachs mit dessen Posteingang,
+Gesendet-Ordner usw.
+
+Die übernommenen Ordner sind in edulution gewöhnliche Ordner – auch ein
+dort enthaltener Papierkorb oder Spam-Ordner. Ungelesene Nachrichten
+darin zählen deshalb zur Gesamtzahl ungelesener Nachrichten, und
+Nachrichten, die Sie dort löschen, landen im Papierkorb Ihres
+edulution-Postfachs.
 :::
 
 **Status der Migration prüfen**

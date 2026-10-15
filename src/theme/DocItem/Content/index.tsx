@@ -17,17 +17,9 @@ import {
 type Props = WrapperProps<typeof ContentType>;
 
 /**
- * Seiten koennen sich im Front Matter komplett an eine Zielgruppe richten:
- *
- * ```yaml
- * sidebar_custom_props:
- *   audience: admin
- * ```
- *
- * Passt die Auswahl nicht, tritt an die Stelle des Inhalts ein Hinweis mit
- * den passenden Rollen und einem Knopf zum Umschalten. Beides wird immer
- * gerendert und per CSS umgeschaltet – kein Flackern, keine
- * Hydration-Mismatches.
+ * A page restricts itself to an audience with `sidebar_custom_props.audience` (or `audienceOrg`) in its
+ * front matter. Content and fallback notice are both rendered and toggled by CSS, which avoids flicker
+ * and hydration mismatches.
  */
 export default function ContentWrapper(props: Props): React.JSX.Element {
   const { frontMatter } = useDoc();
@@ -43,8 +35,7 @@ export default function ContentWrapper(props: Props): React.JSX.Element {
     return <OriginalContent {...props} />;
   }
 
-  // Rollen in der Sprache der gewaehlten Organisation benennen – wer
-  // "Fuehrungskraft" ausgewaehlt hat, soll hier nicht "Lehrkraft" lesen.
+  // Use the selected organisation type's role names, e.g. "Führungskraft" instead of "Lehrkraft".
   const audiences = [
     ...roles.map((id) => roleLabel(audience.org, id)),
     ...orgs.map((id) => labelFor(ORGS, id)),

@@ -68,3 +68,4 @@ Läuft der Satellit als VM, entfällt der Management-Port. Der Zugang erfolgt da
 - [Standalone einrichten](./standalone.md) – Satellit ohne zentrale edulution-Instanz in Betrieb nehmen.
 - [WireGuard-Server über Traefik](./wireguard-traefik.md) – einmalige Vorbereitung auf dem edulution-Server.
 - [Satelliten verwalten](./verwaltung.md) – laufender Betrieb in der edulution Plattform.
+- [LINBO am Satelliten](./linbo.md) – Rechner am Standort per LINBO bereitstellen; das [Nachschlagewerk](./linbo-referenz.md) listet Felder, Zustände und Meldungen.

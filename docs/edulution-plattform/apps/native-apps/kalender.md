@@ -1,6 +1,6 @@
 # Kalender
 
-Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer Schule. Sie sehen Ihre eigenen und mit Ihnen geteilten Kalender wahlweise als Monat, Woche, Tag oder Agenda, legen neue Termine an, verschieben sie per Drag & Drop und erstellen bei Bedarf eigene Kalender, die Sie für andere Benutzer und Gruppen freigeben.
+Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer Schule. Sie sehen Ihre eigenen und mit Ihnen geteilten Kalender wahlweise als Jahr, Monat, Woche, Tag oder Agenda, legen neue Termine an, verschieben sie per Drag & Drop und erstellen bei Bedarf eigene Kalender, die Sie für andere Benutzer und Gruppen freigeben.
 
 ## Übersicht
 
@@ -8,9 +8,9 @@ Die **Kalender**-App zeigt und verwaltet Termine aus den CalDAV-Kalendern Ihrer 
 
 ### Navigation
 
-- **Zurück** / **Weiter** (Pfeil-Schaltflächen) – Blättern vor oder zurück. Wie weit gesprungen wird, richtet sich nach der aktiven Ansicht: um einen Monat, eine Woche, einen Tag oder – in der Agenda – um den gesamten angezeigten Zeitraum von 30 Tagen.
+- **Zurück** / **Weiter** (Pfeil-Schaltflächen) – Blättern vor oder zurück. Wie weit gesprungen wird, richtet sich nach der aktiven Ansicht: um ein Jahr, einen Monat, eine Woche, einen Tag oder – in der Agenda – um den gesamten angezeigten Zeitraum von 30 Tagen.
 - **Heute** – Springt zum aktuellen Datum zurück.
-- Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt – in der Monatsansicht der Monatsname mit Jahr, in der Wochenansicht der Datumsbereich der angezeigten Woche, in der Tagesansicht das vollständige Datum.
+- Daneben wird der angezeigte Zeitraum als Beschriftung dargestellt – in der Jahresansicht die Jahreszahl, in der Monatsansicht der Monatsname mit Jahr, in der Wochenansicht der Datumsbereich der angezeigten Woche, in der Tagesansicht das vollständige Datum.
 - In der Wochen- und der Stundenplan-Ansicht wird zusätzlich die **Kalenderwoche** der angezeigten Woche als **KW _n_** (nach ISO 8601) eingeblendet.
 
 ### Zu einem Datum springen
@@ -23,11 +23,12 @@ Neben den Navigations-Schaltflächen finden Sie die Schaltfläche **Datum wähle
 
 ### Ansichten umschalten
 
-Mit der Umschaltung wechseln Sie zwischen den vier Hauptansichten:
+Mit der Umschaltung wechseln Sie zwischen den fünf Hauptansichten:
 
 - **Monat** – Zeigt den gesamten Monat als Raster mit den Wochentagen als Spalten.
 - **Woche** – Zeigt die aktuelle Woche mit einer Stundenskala. Eine separate Zeile am oberen Rand fasst die **ganztägigen** Termine zusammen.
 - **Tag** – Zeigt einen einzelnen Tag mit derselben Stundenskala wie die Wochenansicht.
+- **Jahr** – Zeigt alle zwölf Monate des Jahres und markiert, an welchen Tagen Termine liegen.
 - **Agenda** – Listet die kommenden Termine untereinander auf, statt sie in ein Raster einzuzeichnen.
 
 Die **Stundenplan**-Ansicht ist eine eigenständige Darstellung. Sie erreichen Sie nicht über diese Umschaltung, sondern über die Seitenleiste (siehe [Stundenplan](#stundenplan)).
@@ -46,7 +47,7 @@ Sobald Sie selbst einen Kalender ein- oder ausblenden, endet die Ansicht des Lin
 
 Ein Link kann schließlich direkt **einen bestimmten Termin öffnen** – etwa aus einer Benachrichtigung oder einer E-Mail heraus. Ein solcher Link führt neben dem Termin auch den Zeitraum mit, in dem dieser liegt: Der Kalender zeigt diesen Zeitraum an und öffnet den Termin darin zum [Bearbeiten](#termine-bearbeiten-und-löschen) oder, ohne Bearbeitungsrecht, in der [Detailansicht](#termine-ansehen-ohne-bearbeitungsrecht). Das gelingt auch dann, wenn der zugehörige Kalender gerade ausgeblendet ist. Wiederholt sich der Termin, wird der Eintrag des verlinkten Tages geöffnet. Gibt es den Termin nicht mehr, geschieht nichts – der Kalender bleibt einfach auf dem verlinkten Zeitraum stehen. Wenn Sie den Termin schließen, öffnet er sich nicht erneut; ein erneuter Aufruf des Links zeigt ihn wieder. Verweist der Link auf einen Termin, den es nicht mehr gibt, bleibt der Kalender auf dem verlinkten Zeitraum stehen – und der Termin wird auch dann nicht unvermittelt geöffnet, wenn Sie später in einen anderen Zeitraum blättern.
 
-Öffnen Sie den Kalender ohne einen solchen Link – etwa über die Seitenleiste –, wird die **zuletzt von Ihnen verwendete Ansicht** mit dem heutigen Datum angezeigt. Gemerkt wird dabei nur eine Ansicht, die Sie selbst über die Umschaltung gewählt haben: Öffnen Sie den Link einer Kollegin, ändert das nicht, mit welcher Ansicht Ihr eigener Kalender künftig startet. Die zuletzt verwendete Ansicht bleibt über das Abmelden hinaus nicht erhalten: Nach einer erneuten Anmeldung beginnt der Kalender wieder mit der Monatsansicht.
+Öffnen Sie den Kalender ohne einen solchen Link – etwa über die Seitenleiste –, wird die **zuletzt von Ihnen verwendete Ansicht** mit dem heutigen Datum angezeigt. Gemerkt wird dabei nur eine Ansicht, die Sie selbst über die Umschaltung oder per Klick in der [Jahresansicht](#jahr) gewählt haben: Öffnen Sie den Link einer Kollegin, ändert das nicht, mit welcher Ansicht Ihr eigener Kalender künftig startet. Die zuletzt verwendete Ansicht bleibt über das Abmelden hinaus nicht erhalten: Nach einer erneuten Anmeldung beginnt der Kalender wieder mit der Monatsansicht.
 
 ### Neue Einträge anlegen
 
@@ -138,6 +139,17 @@ Die Kopfzeile mit den Wochentagen und die Zeile für ganztägige Termine bleiben
 
 Auch die freien Zeitabschnitte lassen sich mit der Tastatur ansteuern. Jeder Abschnitt trägt seinen Wochentag und seine Uhrzeit als Beschriftung, sodass Sie mit der Eingabetaste gezielt einen Termin zur gewünschten Zeit anlegen können.
 
+### Jahr
+
+Die Jahresansicht zeigt die zwölf Monate des angezeigten Jahres als kleine Monatsraster, jeweils mit den Wochentagen als Spalten und der **Kalenderwoche** nach ISO 8601 am linken Rand. Einzelne Termine sehen Sie hier nicht. Stattdessen ist jeder Tag umso kräftiger eingefärbt, je mehr Termine auf ihn fallen, in drei Stufen: **ein Termin**, **zwei bis drei Termine** und **vier oder mehr Termine**. So erkennen Sie bei der Jahresplanung auf einen Blick, welche Wochen schon verplant sind. Der heutige Tag ist mit einem Rahmen markiert.
+
+- Ein Termin über mehrere Tage, etwa ganztägige Ferien, zählt an **jedem** dieser Tage. Ein Serientermin zählt an jedem Tag, an dem er stattfindet.
+- Gezählt werden nur die Termine der eingeblendeten Kalender. Ausgeblendete Kalender und als [Stundenplan](#stundenplan) markierte Kalender fließen nicht ein.
+- Ein Klick auf einen **Tag** öffnet die [Tagesansicht](#tag) für dieses Datum, ein Klick auf einen **Monatsnamen** die [Monatsansicht](#monat) dieses Monats. Die so geöffnete Ansicht gilt als zuletzt verwendet (siehe [Ansicht merken, verlinken und zurückblättern](#ansicht-merken-verlinken-und-zurückblättern)). Anders als in der Monats-, Wochen- und Tagesansicht legt ein Klick auf einen Tag hier keinen Termin an, und Termine lassen sich nicht per Drag & Drop verschieben. Neue Termine erstellen Sie wie in jeder Ansicht über **Erstellen** und **Termin erstellen** (siehe [Neue Einträge anlegen](#neue-einträge-anlegen)).
+- Über **Drucken** erhalten Sie das ganze Jahr auf einer Seite (siehe [Kalender drucken](#kalender-drucken)).
+- Beim Öffnen springt die Ansicht zum Monat des gewählten Datums, wenn er nicht ohnehin zu sehen ist. Auf dem Smartphone stehen die Monate untereinander, und ein Tipp auf einen Tag öffnet dort statt der Tagesansicht die [Agenda](#agenda) ab diesem Tag.
+- Mit der Tastatur: Von den Tagen des Jahres liegt nur der gewählte Tag in der Reihenfolge der Tabulatortaste. Von dort erreichen Sie die übrigen Tage mit den **Pfeiltasten** (Vortag, Folgetag, Vor- und Folgewoche) und mit **Bild auf** und **Bild ab** (einen Monat zurück oder vor). Die Eingabetaste öffnet den Tag. Screenreader lesen zu jedem Tag das Datum und die Zahl seiner Termine vor.
+
 ### Agenda
 
 Die Agenda listet die Termine der **kommenden 30 Tage** ab dem gewählten Datum chronologisch untereinander auf, gruppiert nach Tag.
@@ -163,11 +175,11 @@ Neue Termine legen Sie oben rechts über **Erstellen** und darin **Termin erstel
 Ist der geöffnete Stundenplan nicht mehr vorhanden – etwa weil der Kalender gelöscht oder seine Stundenplan-Markierung entfernt wurde –, wechselt die Ansicht selbsttätig zurück zur Kalenderübersicht. Lässt sich die Kalenderliste dagegen gar nicht laden, etwa weil der CalDAV-Server nicht erreichbar ist, bleiben Sie auf der Stundenplan-Ansicht und es erscheint der Hinweis **Stundenpläne konnten nicht geladen werden.** Ein Ladefehler wird also nicht als gelöschter Stundenplan behandelt; sobald die Verbindung wieder steht, genügt **Neu laden**.
 
 :::info[Termine außerhalb des angezeigten Zeitraums]
-Der Stundenplan zeigt Montag bis Freitag und einen festen Zeitausschnitt am Tag. Ein Termin, der auf ein Wochenende oder außerhalb dieses Zeitausschnitts fällt, erscheint dort nicht – und da Stundenplan-Termine auch in **Monat**, **Woche**, **Tag** und **Agenda** ausgeblendet sind, ist er dann über die Oberfläche nicht erreichbar. Legen Sie solche Termine in einem gewöhnlichen Kalender an oder entfernen Sie die Stundenplan-Markierung vorübergehend über das [Kalenderkontextmenü](#kalenderkontextmenü).
+Der Stundenplan zeigt Montag bis Freitag und einen festen Zeitausschnitt am Tag. Ein Termin, der auf ein Wochenende oder außerhalb dieses Zeitausschnitts fällt, erscheint dort nicht – und da Stundenplan-Termine auch in **Jahr**, **Monat**, **Woche**, **Tag** und **Agenda** ausgeblendet sind, ist er dann über die Oberfläche nicht erreichbar. Legen Sie solche Termine in einem gewöhnlichen Kalender an oder entfernen Sie die Stundenplan-Markierung vorübergehend über das [Kalenderkontextmenü](#kalenderkontextmenü).
 :::
 
 :::info[Stundenplan-Termine erscheinen nur in dieser Ansicht]
-Die Termine eines als Stundenplan markierten Kalenders werden ausschließlich in der Stundenplan-Ansicht angezeigt – in **Monat**, **Woche**, **Tag** und **Agenda** erscheinen sie nicht. Vermissen Sie dort einen Termin, prüfen Sie, ob sein Kalender als Stundenplan markiert ist, und entfernen Sie die Markierung bei Bedarf über das [Kalenderkontextmenü](#kalenderkontextmenü).
+Die Termine eines als Stundenplan markierten Kalenders werden ausschließlich in der Stundenplan-Ansicht angezeigt – in **Jahr**, **Monat**, **Woche**, **Tag** und **Agenda** erscheinen sie nicht. Vermissen Sie dort einen Termin, prüfen Sie, ob sein Kalender als Stundenplan markiert ist, und entfernen Sie die Markierung bei Bedarf über das [Kalenderkontextmenü](#kalenderkontextmenü).
 :::
 
 ### Terminfarben in den Ansichten
@@ -184,19 +196,22 @@ Das Quadrat erscheint nur an Terminen mit eigener Farbe und nur dort, wo die Zuo
 
 ## Kalender drucken
 
-Oben rechts zwischen **Web-Kalender abonnieren** und **Neu laden** finden Sie die Schaltfläche **Drucken**. Sie druckt die gerade gewählte Ansicht (**Monat**, **Woche**, **Tag** oder **Agenda**) für den angezeigten Zeitraum und öffnet dazu den Druckdialog des Browsers; dort können Sie auch eine PDF-Datei speichern. In der [Stundenplan-Ansicht](#stundenplan) gibt es die Schaltfläche nicht. Solange Kalender oder Termine laden, ist sie deaktiviert.
+Oben rechts zwischen **Web-Kalender abonnieren** und **Neu laden** finden Sie die Schaltfläche **Drucken**. Sie druckt die gerade gewählte Ansicht (**Jahr**, **Monat**, **Woche**, **Tag** oder **Agenda**) für den angezeigten Zeitraum und öffnet dazu den Druckdialog des Browsers; dort können Sie auch eine PDF-Datei speichern. Ist die Kopfzeile zu schmal für alle Schaltflächen, etwa auf dem Smartphone, erreichen Sie **Drucken** über **Mehr**. In der [Stundenplan-Ansicht](#stundenplan) gibt es die Schaltfläche nicht. Solange Kalender oder Termine laden, ist sie deaktiviert.
 
-Gedruckt wird, was die Ansicht zeigt: [Ausgeblendete Kalender](#kalender-ein--und-ausblenden) und Stundenplan-Kalender fehlen auch auf dem Papier. Im Kopf des Ausdrucks stehen der Zeitraum, in der Woche mit der Kalenderwoche, und die gedruckten Kalender mit ihrer Farbe. Sind es mehr als zwölf Kalender, steht für die übrigen nur ihre Anzahl (**+n weitere Kalender**). Die Termine tragen dieselben [Farben](#terminfarben-in-den-ansichten) wie am Bildschirm. Der Ausdruck ist immer hell, auch wenn Sie edulution im dunklen Design verwenden.
+Gedruckt wird, was die Ansicht zeigt: [Ausgeblendete Kalender](#kalender-ein--und-ausblenden) und Stundenplan-Kalender fehlen auch auf dem Papier. Im Kopf des Ausdrucks stehen der Zeitraum, in der Woche mit der Kalenderwoche, und die gedruckten Kalender mit ihrer Farbe. Sind es mehr als zwölf Kalender, steht für die übrigen nur ihre Anzahl (**+n weitere Kalender**). In Woche, Monat, Tag und Agenda tragen die Termine dieselben [Farben](#terminfarben-in-den-ansichten) wie am Bildschirm; der Jahresausdruck zeigt nur Graustufen. Der Ausdruck ist immer hell, auch wenn Sie edulution im dunklen Design verwenden.
 
 Je nach Ansicht sieht der Ausdruck so aus:
 
 | Ansicht | Format | Inhalt je Termin |
 | --- | --- | --- |
+| **Jahr** | eine Seite A4 quer, die zwölf Monate in drei Reihen zu je vier, mit Kalenderwoche | keiner; jeder Tag ist in Graustufen nach der Zahl seiner Termine abgestuft, mit denselben Stufen wie die [Jahresansicht](#jahr) |
 | **Woche** | eine Seite A4 quer, eine Spalte je Tag | Uhrzeit, Titel (höchstens zwei Zeilen) und Ort (eine Zeile) |
 | **Monat** | eine Seite A4 quer, mit Kalenderwoche; Tage außerhalb des Monats sind abgeschwächt | Uhrzeit und Titel in einer Zeile, ohne Ort |
 | **Tag** und **Agenda** | A4 hoch, bei Bedarf über mehrere Seiten | Uhrzeit, vollständiger Titel und Ort; ganztägige Termine stehen oben |
 
 Damit Woche und Monat auf eine Seite passen, druckt die Woche höchstens **10** Einträge je Tag und der Monat höchstens **5**, in Monaten mit sechs Wochenzeilen höchstens **4**. Hat ein Tag mehr Termine, endet seine Liste mit **+n weitere am …**, und im Kopf des Ausdrucks steht ein Hinweis darauf. Die vollständige Liste erhalten Sie, wenn Sie die **Agenda** ab diesem Tag drucken: Sie enthält immer alle Termine.
+
+Der Jahresausdruck zeigt nur, an welchen Tagen Termine liegen. Eine Legende über den Monaten erklärt die drei Graustufen (**1 Termin**, **2–3 Termine**, **4 oder mehr Termine**), und ein Hinweis im Kopf verweist für Titel und Uhrzeiten auf die [Agenda](#agenda) ab dem gewählten Tag. Die Graustufen bleiben auch erhalten, wenn Sie im Druckdialog das Drucken von Hintergründen ausschalten. Der heutige Tag ist im Ausdruck nicht hervorgehoben.
 
 ## Termine erstellen
 

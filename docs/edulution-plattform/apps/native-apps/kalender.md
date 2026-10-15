@@ -227,9 +227,10 @@ Serientermine lassen sich nur als Ganzes in einen anderen Kalender verschieben: 
 
 Lehnt der Kalenderserver das Anlegen, Ändern, Verschieben oder Löschen eines Termins ab, nennt die Fehlermeldung den Grund.
 
-- **"Der Termin wurde inzwischen an anderer Stelle geändert. …"** – Seit Sie den Termin geöffnet haben, wurde er an anderer Stelle geändert, etwa in einem anderen Kalenderprogramm oder von einem anderen Benutzer mit Schreibrecht für diesen Kalender. Laden Sie den Kalender neu, prüfen Sie den aktuellen Stand und nehmen Sie Ihre Änderung danach erneut vor.
+- **"Der Termin wurde inzwischen an anderer Stelle geändert. …"** – Während Ihre Änderung gespeichert wurde, hat jemand den Termin an anderer Stelle geändert, etwa in einem anderen Kalenderprogramm oder als anderer Benutzer mit Schreibrecht für diesen Kalender. Laden Sie den Kalender neu, prüfen Sie den aktuellen Stand und nehmen Sie Ihre Änderung danach erneut vor.
+- **"Der Kalenderserver hat die Änderung abgelehnt, …"** – Der Server weist den Termin in dieser Form zurück, zum Beispiel weil ein eingeladener Raum zu dieser Zeit bereits belegt ist oder ein Teilnehmer keine Einladungen annimmt. Ein erneuter Versuch führt zum selben Ergebnis; passen Sie zuerst den Termin an, etwa die Zeit oder die Teilnehmer.
 - **"Termin nicht gefunden"** – Der Termin wurde inzwischen gelöscht. Nach dem Neuladen des Kalenders wird er nicht mehr angezeigt.
-- **"Dieser Termin ist im Zielkalender bereits vorhanden."** – Im Kalender, in dem der Termin gespeichert werden soll, liegt bereits ein Termin mit derselben internen Kennung, zum Beispiel weil er schon einmal dorthin verschoben wurde.
+- **"Dieser Termin ist im Zielkalender bereits vorhanden."** – Im Kalender, in dem der Termin gespeichert werden soll, liegt bereits ein Termin mit derselben internen Kennung, etwa aus einem anderen Kalenderprogramm.
 - **"Dieser Kalender kann nicht bearbeitet werden."** – In diesem Kalender lässt der Server keine Änderungen zu, beispielsweise weil Ihnen das Schreibrecht für einen freigegebenen Kalender inzwischen entzogen wurde.
 - **"Der Speicherplatz für Ihre Kalender ist voll. …"** – Ihr Speicherkontingent auf dem Kalenderserver ist ausgeschöpft. Dieselbe Meldung erscheint auch, wenn Sie einen Kalender anlegen oder bearbeiten.
 

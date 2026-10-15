@@ -97,7 +97,7 @@ Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalen
 - **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
 - **Kalender veröffentlichen** – Öffnet den [Veröffentlichen-Dialog](#kalender-veröffentlichen), über den Sie den Kalender als Abonnement-Link bereitstellen; nur bei eigenen Kalendern verfügbar.
 - **Exportieren** – Lädt den Kalender als `.ics`-Datei herunter (siehe [Kalender und Termine exportieren](#kalender-und-termine-exportieren)); bei allen Kalendern außer Web-Kalendern verfügbar.
-- **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht an derselben Stelle wie **Freigeben**.
+- **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht bei abonnierten Kalendern als letzter Eintrag.
 - **Jetzt aktualisieren** – Lädt einen [Web-Kalender](#web-kalender-abonnieren) sofort neu, ohne auf die nächste automatische Aktualisierung zu warten; nur bei Web-Kalendern verfügbar.
 - **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
 
@@ -514,6 +514,8 @@ Der Link überträgt die Termine von fünf Jahren in der Vergangenheit bis fünf
 Für einen einzelnen Termin gibt es im Bearbeiten-Dialog und in der [Detailansicht](#termine-ansehen-ohne-bearbeitungsrecht) eines bestehenden Termins die Schaltfläche **Als .ics herunterladen**. Gehört der Termin zu einer Serie, enthält die Datei die ganze Serie und nicht nur den angeklickten Termin.
 
 Exportiert wird nur, was Sie im Kalender selbst sehen. Bei einem freigegebenen Kalender richtet sich die Datei deshalb nach Ihren Rechten (siehe [Rechte je Sichtbarkeit](#rechte-je-sichtbarkeit)): Ein Termin, für den Sie nur **Datum & Uhrzeit sehen** dürfen, steht darin nur mit seinem Zeitraum und dem Titel „Busy“, ohne Ort, Beschreibung und Teilnehmer. Laden Sie einen solchen Termin einzeln herunter, heißt die Datei `Belegt.ics`. Termine, für die Sie die Rolle **Keine** besitzen, fehlen in der Datei.
+
+Teilnehmer und Organisator stehen in keiner exportierten Datei, auch nicht bei Ihren eigenen Kalendern. So verschickt das andere Programm beim Importieren weder Einladungen noch Absagen an die Teilnehmer.
 
 Die Datei gibt den Stand zum Zeitpunkt des Herunterladens wieder; spätere Änderungen erreichen das andere Programm nicht. Soll ein Kalender dort laufend aktuell bleiben, stellen Sie ihn stattdessen über [Kalender veröffentlichen](#kalender-veröffentlichen) als Abonnement-Link bereit.
 

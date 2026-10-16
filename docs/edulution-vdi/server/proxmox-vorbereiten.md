@@ -12,13 +12,29 @@ Der Dienst steuert Proxmox über dessen Schnittstelle. Dafür braucht er einen e
 
 ## Benutzer und Zugangsschlüssel anlegen
 
-Melden Sie sich auf dem Proxmox-Server als `root` an (per SSH oder über die Konsole in der Weboberfläche) und führen Sie diese vier Befehle aus:
+Melden Sie sich auf dem Proxmox-Server als `root` an (per SSH oder über die Konsole in der Weboberfläche). Welche Version läuft, zeigt `pveversion`. Die Rolle hängt davon ab, denn Proxmox VE 9 hat das Recht `VM.Monitor` abgeschafft und durch `VM.GuestAgent.Audit` ersetzt. Jede Version lehnt den Namen der anderen ab.
+
+Rolle anlegen unter **Proxmox VE 8**:
 
 ```bash
 pveum role add VDI -privs "VM.Allocate VM.Clone VM.Config.CDROM VM.Config.CPU VM.Config.Cloudinit \
   VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Audit \
-  VM.Console VM.PowerMgmt VM.Monitor VM.GuestAgent.Audit \
+  VM.Console VM.PowerMgmt VM.Monitor \
   Datastore.Allocate Datastore.AllocateSpace Datastore.Audit Sys.Audit SDN.Use"
+```
+
+Rolle anlegen unter **Proxmox VE 9**:
+
+```bash
+pveum role add VDI -privs "VM.Allocate VM.Clone VM.Config.CDROM VM.Config.CPU VM.Config.Cloudinit \
+  VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Audit \
+  VM.Console VM.PowerMgmt VM.GuestAgent.Audit \
+  Datastore.Allocate Datastore.AllocateSpace Datastore.Audit Sys.Audit SDN.Use"
+```
+
+Danach, für beide Versionen gleich, Benutzer und Zugangsschlüssel:
+
+```bash
 pveum user add vdi@pve --comment "edulution-linbo-vdi"
 pveum acl modify / -user vdi@pve -role VDI
 pveum user token add vdi@pve vdi --privsep 0
@@ -28,17 +44,13 @@ Der letzte Befehl zeigt eine Tabelle mit dem Wert des Zugangsschlüssels (**valu
 
 | Begriff | Bedeutung |
 |---------|-----------|
-| Rolle `VDI` | Die Liste der Rechte. Sie erlaubt alles, was der Dienst mit Maschinen, Speicher und Netzwerk tun muss, und sonst nichts |
+| Rolle `VDI` | Die Liste der Rechte. Sie erlaubt alles, was der Dienst mit Maschinen, Speicher und Netzwerk tun muss, und sonst nichts. `VM.Monitor` (PVE 8) bzw. `VM.GuestAgent.Audit` (PVE 9) braucht er, um angemeldete Benutzer über den Guest Agent abzufragen |
 | Benutzer `vdi@pve` | Ein Konto nur für den Dienst. Es hat kein Passwort und kann sich nicht an der Weboberfläche anmelden |
-| Token `vdi` | Der Zugangsschlüssel des Dienstes. Lässt er sich jederzeit mit `pveum user token remove vdi@pve vdi` zurückziehen, ohne ein Passwort ändern zu müssen |
+| Token `vdi` | Der Zugangsschlüssel des Dienstes. Er lässt sich jederzeit mit `pveum user token remove vdi@pve vdi` zurückziehen, ohne ein Passwort ändern zu müssen |
 
 Den angelegten Zugangsschlüssel zeigt die Weboberfläche unter **Rechenzentrum → Berechtigungen → API-Token**; den Wert selbst zeigt sie dort nicht mehr an.
 
 ![API-Token vdi des Benutzers vdi@pve in der Proxmox-Weboberfläche](/img/vdi/proxmox-api-token.png)
-
-:::note[Proxmox VE 9]
-Ab Proxmox VE 9 gibt es zusätzlich das Recht `VM.GuestAgent.Audit`. Ergänzen Sie es in der Rolle, damit der Dienst angemeldete Benutzer über den Guest Agent abfragen kann. Proxmox VE 8 kennt das Recht nicht und lehnt es ab.
-:::
 
 :::caution[Ordnerfreigabe braucht root]
 Die Proxmox-Option *Ordnerfreigabe* für SPICE (`spice_enhancements`) darf nur `root@pam` setzen. Der Dienst lässt sie mit einem Hinweis im Protokoll weg, wenn der Benutzer sie nicht setzen darf. Sitzungen über die edulution-App nutzen RDP und brauchen die Option nicht.

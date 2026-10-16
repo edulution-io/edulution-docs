@@ -53,6 +53,7 @@ Die Zusammenfassung der Klone nennt:
 | Ereignis | Verhalten |
 |----------|-----------|
 | Ein Benutzer fordert einen Desktop an | Er bekommt einen freien Klon. Der bleibt ihm 1000 Sekunden lang vorbehalten, danach so lange, wie er angemeldet ist |
+| Ein freier Klon antwortet nicht mehr | Der Dienst prüft laufende, freie Klone jede Minute. Antwortet einer 10 Minuten lang auf keinem Prüf-Port, wird er gelöscht und neu gebaut. Belegte Klone prüft er nicht |
 | Ein Benutzer meldet sich ab | Der Klon wird gelöscht und aus der Vorlage neu erzeugt. Daten des Benutzers bleiben nicht zurück |
 | Neues Image hochgeladen | Eine neue Vorlage wird gebaut; danach werden die alten Klone nach und nach ersetzt. Belegte Klone bleiben, bis ihre Sitzung endet |
 | Kerne, Arbeitsspeicher oder Festplatte in der VDI-Konfiguration geändert | Wie beim neuen Image |
@@ -79,7 +80,9 @@ Der Dienst baut fehlende Klone anschließend wieder auf, solange die Gruppe akti
 | `Master 1701 failed (no open port after imaging), removing` | Die Maschine hat nicht geantwortet: Sie startet nicht in LINBO (DHCP/Netzwerkstart im Netz der Desktops?), das Image fehlt, oder die Firewall des Images blockiert die Prüf-Ports | In Proxmox die Konsole der Maschine öffnen, während der Dienst sie das nächste Mal baut |
 | `Master 1701 ignored ACPI shutdown, stopping it` | Guest Agent fehlt im Image | Unschädlich; die Maschine wird hart ausgeschaltet. Agent nachinstallieren |
 | `Clone 1801 did not come up, marked as failed` | Wie beim Master: Firewall oder Netzwerk | Prüf-Ports im Image freigeben |
-| `linbo-remote failed` | LINBO kennt den Master-Rechner nicht | `linuxmuster-import-devices` ausführen |
+| `linbo-remote failed` | LINBO kennt den Master-Rechner nicht | `linuxmuster-import-devices -s <Schule>` ausführen |
+| Dieselben Klone werden alle paar Minuten neu gebaut (`Clone … did not come up, marked as failed`) | Die Klone starten mit der `start.conf` einer anderen Gruppe und bleiben im LINBO-Menü. Das LINBO-Protokoll `/var/log/linuxmuster/linbo/<Schule>-<Host>_linbo.log` nennt die Gruppe. Meist lief der Geräteimport ohne `-s <Schule>` | `linuxmuster-import-devices -s <Schule>` ausführen |
+| `Clone … answered on no health-check port for …s, marking it failed` | Ein laufender, freier Klon antwortet nicht mehr, etwa weil er im LINBO-Menü hängt oder Windows abgestürzt ist | Keine; der Klon wird neu gebaut. Die Wartezeit steuert `livenessTimeout` |
 | `Storage local-zfs not available on node pve01` | Speichername falsch geschrieben oder nicht auf diesem Node | Name in Proxmox unter **Storage** nachsehen |
 | `TLS verification for the Proxmox API is disabled` | Zertifikatsprüfung ist aus (ältere Konfiguration) | `vdi-setup` erneut ausführen und das Zertifikat holen lassen |
 | `occupies a VDI VMID but was not created by the VDI service` | Eine fremde Maschine liegt im Nummernbereich | Maschine verschieben oder andere Nummern wählen |

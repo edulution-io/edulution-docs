@@ -83,7 +83,7 @@ Den Rechnernamen setzt LINBO über das übliche Post-Sync-Skript aus der Geräte
 - [ ] Windows: `.reg` und `.prestart` liegen neben dem Image
 - [ ] Firewall des Images lässt die Prüf-Ports vom Server zu
 - [ ] Guest Agent ist installiert
-- [ ] Geräteliste importiert (`linuxmuster-import-devices`)
+- [ ] Geräteliste importiert (`linuxmuster-import-devices -s <Schule>`)
 - [ ] **VDI aktiviert** in der VDI-Konfiguration der Gruppe
 
 ## Weiter

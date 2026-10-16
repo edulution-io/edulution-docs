@@ -25,6 +25,7 @@ Nur für `root` lesbar. Der Assistent `vdi-setup` schreibt sie; Änderungen von 
 | `useGuestAgent` | `true` | Angemeldete Benutzer zusätzlich über den Guest Agent erkennen |
 | `loopInterval` | `5` | Sekunden zwischen zwei Durchläufen |
 | `maxParallelBuilds` | `2` | Klone, die gleichzeitig gebaut werden |
+| `livenessTimeout` | `600` | Sekunden, die ein laufender, freier Klon auf keinem Prüf-Port antworten darf, bevor er als fehlgeschlagen gilt und neu gebaut wird; `0` schaltet die Prüfung ab |
 | `proxy_url` | leer | Hostname des SPICE-Proxys für *Remote Viewer* |
 | `debugging` | `false` | Ausführliches Protokoll |
 
@@ -82,7 +83,7 @@ vdi;win11-02;win11;aa:ee:4e:b5:5c:02;10.0.0.202;;;;classroom-studentcomputer;;1;
 | 11 PXE | `1` |
 | 12 VM-ID | Proxmox-Nummer des Klons; beim Master leer |
 
-Nach jeder Änderung: `linuxmuster-import-devices`.
+Nach jeder Änderung: `linuxmuster-import-devices -s <Schule>`; nur für `default-school` reicht der Befehl ohne `-s`.
 
 ## Befehle
 

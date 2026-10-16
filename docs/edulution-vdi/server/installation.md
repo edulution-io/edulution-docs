@@ -109,11 +109,16 @@ Der Assistent prüft die Geräteliste (`devices.csv`) auf Überschneidungen bei 
 
 ### Geräte importieren
 
-Damit LINBO, DHCP und die Benutzerverwaltung die neuen Rechner kennen:
+Damit LINBO, DHCP und die Benutzerverwaltung die neuen Rechner kennen, importieren Sie die Geräte der Schule, in deren Geräteliste der Assistent geschrieben hat. Er nennt den passenden Befehl.
 
 ```bash
-linuxmuster-import-devices
+linuxmuster-import-devices -s aabk    # Schule aabk
+linuxmuster-import-devices            # nur für default-school
 ```
+
+:::warning[Bei mehreren Schulen immer mit -s]
+Ohne `-s` aktualisiert der Import zwar die Benutzerverwaltung aller Schulen, DHCP und LINBO aber nur für `default-school`. Die Klone einer anderen Schule starten dann mit der `start.conf` ihrer alten Gruppe, bleiben im LINBO-Menü hängen und werden alle paar Minuten neu gebaut.
+:::
 
 ### Dienst starten
 

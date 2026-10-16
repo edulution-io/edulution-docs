@@ -11,18 +11,21 @@ Die Desktops selbst verwaltet nicht edulution, sondern der Linuxmuster-Server. D
 
 ## Woher die Angebote kommen
 
-Ob eine Gruppe einen virtuellen Desktop bereitstellt, ist Teil ihrer `start.conf` – das Datenblatt der Gruppe in der [Linuxmuster-App](../../edulution-server/linuxmuster.md) zeigt den Wert an, bearbeiten lässt er sich in dieser Version dort nicht.
+Eine LINBO-Hardwaregruppe stellt virtuelle Desktops bereit, wenn sie eine VDI-Konfiguration (`start.conf.<Gruppe>.vdi`) hat und darin **VDI aktiviert** ist. Angelegt wird sie auf dem Linuxmuster-Server mit dem Assistenten `vdi-setup` ([Installation](../server/installation.md#vdi-gruppe-anlegen)); bearbeiten lässt sie sich danach in der App **Schulserver** unter **LINBO → Gruppen** mit der Aktion **VDI** ([VDI-Konfiguration](../../edulution-server/linuxmuster.md#vdi-konfiguration)).
 
-Die Namen der VDI-Gruppen auf dem Server bestimmen, welche Karte in der App gefüllt wird:
+Der Name der Gruppe bestimmt, welche Karte in der App gefüllt wird:
 
 | Gruppe auf dem Server | Karte in der App |
 | --- | --- |
 | `win11` | **Windows 11** |
 | `ubuntu` | **Ubuntu** |
 
-Gibt es zu einer Karte keine passende Gruppe, bleibt sie ohne verfügbare Clients.
+Eine Gruppe mit einem anderen Namen wird vom Dienst zwar verwaltet, erscheint in der App aber nicht. Gibt es zu einer Karte keine passende Gruppe oder sind deren Klone noch nicht fertig, zeigt die Karte „Keine Clients gefunden“.
+
+Die Zahl auf der Karte ist `available_vms` aus der Zusammenfassung des Dienstes: fertige, laufende Klone, die niemand belegt ([Betrieb](../server/betrieb.md#zustand-prüfen)).
 
 ## Weiter
 
 - [RDP-Verbindung](rdp-verbindung.md) – mit welchen Vorgaben die Sitzungen aufgebaut werden
+- [Server einrichten](../server/index.md) – wie Master, Vorlage und Klone auf dem Linuxmuster-Server entstehen
 - [Schulserver: Linuxmuster](../../edulution-server/linuxmuster.md) – Gruppen und deren `start.conf` am Schulserver

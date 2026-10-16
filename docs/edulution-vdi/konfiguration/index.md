@@ -12,13 +12,13 @@ Damit die App **Desktop-Bereitstellung** in der Plattform erscheint und Sitzunge
 | Teil | Wo er eingerichtet wird | Beschrieben in |
 | --- | --- | --- |
 | Die App und ihr Guacamole-Dienst | edulution Plattform | [App einrichten](app-einrichten.md) |
-| Die virtuellen Desktops selbst | Linuxmuster-Server | [Virtuelle Maschinen](virtuelle-maschinen.md) |
+| Die virtuellen Desktops selbst | Linuxmuster-Server | [Virtuelle Maschinen](virtuelle-maschinen.md) und [Server einrichten](../server/index.md) |
 | Die Eigenschaften der Verbindung | fest vorgegeben | [RDP-Verbindung](rdp-verbindung.md) |
 
 Die Reihenfolge ist frei: Ohne virtuelle Maschinen auf dem Server bleiben die Karten in der App leer, ohne eingerichtete App sind die Maschinen aus der Plattform heraus nicht erreichbar.
 
-:::warning[Die VDI-Umgebung selbst wird hier nicht aufgesetzt]
-Diese Seiten beschreiben, wie edulution an eine vorhandene VDI-Umgebung angebunden wird. Das Aufsetzen der Umgebung auf dem Linuxmuster-Server – Klone anlegen, Images vorbereiten, Gruppen für den virtuellen Desktop aktivieren – gehört zur Server-Administration. Eine Anleitung dazu wird ergänzt, sobald sie vorliegt; bis dahin hilft der [Support](https://edulution.io) weiter.
+:::info[Die VDI-Umgebung selbst]
+Diese Seiten beschreiben, wie edulution an die VDI-Umgebung angebunden wird. Wie die Umgebung auf dem Linuxmuster-Server entsteht – Proxmox vorbereiten, den Dienst `edulution-linbo-vdi` installieren, Image vorbereiten –, steht unter [Server einrichten](../server/index.md).
 :::
 
 ## Wenn etwas nicht funktioniert

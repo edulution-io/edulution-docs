@@ -59,10 +59,30 @@ Der Messenger überträgt Text und Emojis. Datei- oder Bildanhänge sind im Chat
 Sie öffnet ein Menü mit folgenden Aktionen:
 
 - **Kopieren** – bei jeder Nachricht möglich
+- **Antworten** – bei jeder Nachricht, die nicht gelöscht ist; siehe [Auf Nachrichten antworten](#auf-nachrichten-antworten)
 - **Bearbeiten** – nur bei eigenen Nachrichten; bearbeitete Nachrichten erhalten den Zusatz „(bearbeitet)"
 - **Löschen** – nur bei eigenen Nachrichten; nach einer Bestätigung wird der Text durch „Diese Nachricht wurde gelöscht" ersetzt
 
 ![Menü der Nachrichtenaktionen mit Kopieren, Bearbeiten und Löschen](/img/chat/10-nachrichtenaktionen-menu.png)
+
+## Auf Nachrichten antworten
+
+Um gezielt auf eine Nachricht zu antworten, wählen Sie in ihren Nachrichtenaktionen **Antworten**. Auf Tablets und Smartphones wischen Sie die Nachricht alternativ nach links.
+
+Über dem Eingabefeld erscheint dann der Hinweis „Antwort an …" mit dem Namen der Person und einem Auszug ihrer Nachricht. Die nächste Nachricht, die Sie senden, geht als Antwort darauf in die Unterhaltung. Um die Antwort abzubrechen, klicken Sie auf das Kreuz neben dem Hinweis (**Antwort verwerfen**) oder drücken im Eingabefeld **Esc**. Bereits geschriebener Text bleibt erhalten. Wechseln Sie in eine andere Unterhaltung, wird die begonnene Antwort ebenfalls verworfen.
+
+### Zitat in der Antwort
+
+Die gesendete Antwort zeigt über Ihrem Text ein Zitat mit dem Namen der Person und einem Auszug der ursprünglichen Nachricht. Der Auszug umfasst höchstens 140 Zeichen und erscheint als einfacher Text, also ohne Formatierungen wie Überschriften oder Fettdruck.
+
+Ein Klick auf das Zitat führt zur ursprünglichen Nachricht und hebt sie kurz hervor. Ist sie nicht mehr geladen, lädt die Chat-App ältere Nachrichten automatisch nach, bis zu 500 weitere. Liegt die Nachricht noch weiter zurück oder lässt sie sich nicht finden, erscheint ein entsprechender Hinweis.
+
+### Wenn die ursprüngliche Nachricht geändert wird
+
+- **Bearbeitet** – alle Antworten zeigen im Zitat den neuen Text
+- **Gelöscht** – im Zitat steht „Diese Nachricht wurde gelöscht"; der ursprüngliche Text ist auch über die Antworten nicht mehr lesbar
+
+Auf gelöschte Nachrichten können Sie nicht antworten. Wird eine Nachricht gelöscht, während Sie eine Antwort darauf schreiben, verschwindet der Hinweis über dem Eingabefeld. Ihr Text bleibt stehen und lässt sich als normale Nachricht senden.
 
 ## Lesebestätigungen
 
@@ -85,7 +105,7 @@ Bei einer neuen Nachricht erhalten **alle Gruppenmitglieder außer dem Absender*
 
 - **Titel** – Name der Gruppe
 - **Absender** – Vor- und Nachname
-- **Inhalt** – Text der Nachricht
+- **Inhalt** – Text der Nachricht als einfacher Text ohne Formatierungen, bei langen Nachrichten auf 140 Zeichen gekürzt
 
 Pro Unterhaltung gibt es **eine** Benachrichtigung, die bei jeder neuen Nachricht aktualisiert wird – es entsteht also keine Flut einzelner Meldungen. Sobald Sie die Unterhaltung öffnen und damit als gelesen markieren, wird auch die zugehörige Benachrichtigung entfernt.
 

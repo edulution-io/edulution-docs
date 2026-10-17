@@ -243,6 +243,14 @@ Ein Klick auf einen belegten Platz (1) wählt den Schüler aus, genau wie das H�
 3. **Öffnen** zeigt den Schüler in der [Einzelansicht](#einzelansicht-eines-schülers).
 4. **Platz freigeben** nimmt ihn von seinem Platz.
 
+### Raumplan drehen
+
+Ist die Tafel im Layout oben gezeichnet, sehen Sie die Klasse im Raumplan von hinten: Wer von Ihnen aus links sitzt, erscheint im Plan rechts. **Ansicht um 180° drehen** rechts neben **Sitzordnung leeren** dreht den Plan so, wie Sie die Klasse von vorn sehen. Namen, Kürzel und Beschriftungen bleiben lesbar.
+
+Gedreht wird nur die Ansicht. Layout und Sitzordnung bleiben unverändert: Sie setzen Schüler im gedrehten Plan wie gewohnt, und nach dem Zurückdrehen sitzen alle auf denselben Plätzen.
+
+edulution merkt sich die Drehung je Raum in Ihrem Browser. Alle Layouts und Pläne dieses Raums öffnen sich danach gedreht, ebenso die kleinen Raumvorschauen bei der Auswahl von Raum und Layout. Auf anderen Geräten und für andere Lehrkräfte erscheint der Raum so, wie er gezeichnet ist. Nach dem Abmelden zeigt edulution wieder alle Räume ungedreht. Den Layout-Editor unter **Räume** betrifft die Drehung nicht.
+
 ### Pläne und Varianten
 
 ![Planauswahl mit Standardplan, neuer Variante und der Variante Klassenarbeit](/img/klassenraum/sitzplan-varianten.webp)

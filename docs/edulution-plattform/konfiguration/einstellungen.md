@@ -22,7 +22,7 @@ Links stehen die Apps, deren Einstellungen Sie bearbeiten können, darüber der 
 | Registerkarte | Inhalt |
 |---------------|--------|
 | **[Container](#container)** | die Docker-Container der Installation verwalten |
-| **[Allgemein](#globale-einstellungen)** | Plattform, Organisationstyp, Standardanwendung nach dem Login, Zwei-Faktor-Authentisierung, LDAP, Branding, Design-Anpassung, Organisationsinformationen und [Webhooks](./webhooks.md) |
+| **[Allgemein](#globale-einstellungen)** | Plattform, Organisationstyp, Standardanwendung nach dem Login, Zwei-Faktor-Authentisierung, Anmeldung mit der App, LDAP, Branding, Design-Anpassung, Organisationsinformationen und [Webhooks](./webhooks.md) |
 | **[Benutzer](#benutzerverwaltung)** | Zwei-Faktor-Authentisierung einzelner Benutzer zurücksetzen und die Administratorengruppe festlegen |
 | **[Gruppen](#gruppen)** | die von edulution verwalteten Gruppen einer Schule einsehen und Verteiler pflegen |
 | **[Unterricht](#unterrichtsverwaltung)** | die Schulfächer je Schule pflegen |
@@ -101,6 +101,12 @@ Die Variable setzt nur den Ausgangswert. Danach ändern Sie den Organisationstyp
 - Legen Sie fest, für welche Benutzergruppen 2FA verpflichtend ist
 - Suchfeld: "Tippen um zu suchen"
 - MFA-Einrichtung wird für ausgewählte Gruppen erzwungen
+
+### Anmeldung mit der App
+
+Mit **Anmeldung per QR-Code erlauben** legen Sie fest, ob die Anmeldeseite die Schaltfläche **Anmelden mit QR-Login** anbietet (siehe [Anmelden mit QR-Login](../uebersicht/anmeldung.md#anmelden-mit-qr-login)). Ist die Einstellung ausgeschaltet, kann auch die App keinen Browser anmelden.
+
+Aus Sicherheitsgründen ist sie voreingestellt ausgeschaltet. Das gilt auch für bestehende Installationen: Nach dem Update fehlt die Schaltfläche, bis Sie die Einstellung einschalten.
 
 ### LDAP
 

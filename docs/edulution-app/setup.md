@@ -77,6 +77,8 @@ Schneller Login ohne Passwort-Eingabe:
 3. Scanne den angezeigten QR-Code mit der edulution App
 4. Du wirst automatisch angemeldet
 
+Fehlt die Schaltfläche, hat die Administration deiner Schule die Anmeldung mit der App nicht erlaubt (siehe [Anmelden mit QR-Login](../edulution-plattform/uebersicht/anmeldung.md#anmelden-mit-qr-login)).
+
 <img src="/img/app/qrLogin.png" alt="QR-Login im Web-Interface" width="50%" />
 
 ---

@@ -12,7 +12,7 @@ Die Seite ist zweigeteilt:
 
 | Bereich | Inhalt |
 | --- | --- |
-| **Links: Anmeldeformular** | edulution-Logo, Überschrift **Anmelden** mit dem Hinweis *„Willkommen zurück! Bitte gib deine Zugangsdaten ein."*, die Felder **Benutzername** und **Passwort**, die Schaltflächen **Anmelden** und **Anmelden mit QR-Login** sowie die Fußzeile |
+| **Links: Anmeldeformular** | edulution-Logo, Überschrift **Anmelden** mit dem Hinweis *„Willkommen zurück! Bitte gib deine Zugangsdaten ein."*, die Felder **Benutzername** und **Passwort**, die Schaltflächen **Anmelden** und – sofern erlaubt – **Anmelden mit QR-Login** sowie die Fußzeile |
 | **Rechts: Organisationsbereich** | Login-Bild als Hintergrund, darauf das Logo Ihrer Organisation sowie ein abgesetzter Kasten mit **Organisationsname** und **Login-Text** |
 
 Die Fußzeile enthält die Versionsnummer der Oberfläche und – sofern eingerichtet – die Links zu **Impressum** und **Datenschutz** (siehe [Impressum und Datenschutz einrichten](../konfiguration/impressum-datenschutz.md)).
@@ -59,7 +59,7 @@ Nach erfolgreicher Anmeldung werden Sie automatisch weitergeleitet – entweder 
 
 ![Die Anmeldeseite mit eingeblendetem QR-Code für die Anmeldung über die edulution.io App](/img/anmeldung/anmeldeseite-qr-login.webp)
 
-Mit der Schaltfläche **Anmelden mit QR-Login** melden Sie sich ohne Eingabe von Zugangsdaten über die edulution.io App an:
+Mit der Schaltfläche **Anmelden mit QR-Login** melden Sie sich ohne Eingabe von Zugangsdaten über die edulution.io App an. Die Schaltfläche erscheint nur, wenn ein Global-Admin die [Anmeldung per QR-Code erlaubt](../konfiguration/einstellungen.md#anmeldung-mit-der-app) hat.
 
 1. Klicken Sie auf **Anmelden mit QR-Login**. Anstelle der Eingabefelder erscheint ein QR-Code mit dem Hinweis *„Öffne die edulution.io APP um dich einfach mit dem QR-Code anzumelden."*
 2. Scannen Sie den QR-Code mit der [edulution.io App](../../edulution-app/mobile-ansicht.md).

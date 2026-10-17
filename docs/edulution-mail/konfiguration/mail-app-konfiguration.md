@@ -23,7 +23,7 @@ Die Seite ist in mehrere Abschnitte gegliedert:
 | **URL** | Adresse der Mailcow-API |
 | **API-Schlüssel** | Schlüssel für die Mailcow-API |
 | **Allgemein** | Theme der Webmail-Oberfläche |
-| **Mailserver** | IMAP, SMTP, ManageSieve, DAV und Standard-Signatur des integrierten Clients |
+| **Mailserver** | IMAP, SMTP, ManageSieve, DAV, Standard-Signatur und Standardschrift des integrierten Clients |
 | **Mailbox-Verwaltung** | Mailcow-Mailboxen anlegen, bearbeiten und löschen – siehe [Mailboxen und geteilte Postfächer](./mailbox-verwaltung.md) |
 | **Externe Mail-Provider** | Vorlagen für die Sync-Jobs der Benutzer |
 | **Container** | Zustand der zugehörigen Docker-Container |
@@ -119,6 +119,10 @@ Die hier hinterlegte Signatur wird beim Verfassen einer neuen E-Mail automatisch
 :::tip[Bilder klein halten]
 Eingebettete Bilder vergrößern jede gesendete E-Mail. Der Editor warnt ab einer Bildgröße, die spürbar ins Gewicht fällt – verwenden Sie nach Möglichkeit ein Logo unter 100 KB.
 :::
+
+### Standardschrift
+
+Mit **Standard-Schriftart** und **Standard-Schriftgröße** legen Sie die Schrift fest, in der neue Nachrichten, Antworten und Weiterleitungen beginnen und versendet werden. Beide stehen anfangs auf **Keine**; edulution fügt dann keine Schrift hinzu. Die Vorgabe gilt für alle Benutzer, eine eigene Wahl haben sie nicht. Wie die Vorgabe wirkt, beschreibt [Einstellungen → E-Mails](../../edulution-plattform/konfiguration/einstellungen.md#e-mails).
 
 ## Externe Mail-Provider
 

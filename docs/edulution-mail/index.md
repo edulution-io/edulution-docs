@@ -105,9 +105,15 @@ Beim Senden prüft edulution, ob Empfänger mit einer Adresse Ihrer Organisation
 
 Beim **Verwerfen** einer neuen Nachricht löscht edulution auch den bereits automatisch gespeicherten Entwurf. Bearbeiten Sie einen vorhandenen Entwurf, stellt **Verwerfen** dessen vorherige Fassung wieder her. Ist die Nachricht zu groß für einen Entwurf, fehlt **Als Entwurf speichern**; Sie können sie dann nur verwerfen oder weiter bearbeiten.
 
+### Standardschrift
+
+Neue Nachrichten, Antworten und Weiterleitungen beginnen in der Standardschrift, die Ihre Administration vorgibt. Solange Sie keinen Text von Hand formatieren, nennt die Formatierungsleiste diese Schriftart und Schriftgröße. Fest in den Text schreibt edulution die Schrift erst beim Senden, in die versendete Nachricht ebenso wie in ihre Kopie unter den gesendeten Nachrichten. Ein gespeicherter Entwurf enthält sie noch nicht.
+
+![Verfassen-Fenster mit der Standardschrift Arial in 24pt; die Formatierungsleiste nennt Schriftart und Schriftgröße](/img/edulution-mail/verfassen-standardschrift.webp)
+
 ### HTML-Quelltext bearbeiten
 
-Mit **HTML-Quellcode** in der Formatierungsleiste wechseln Sie zur direkten HTML-Bearbeitung, mit **Editor** zurück. Fertiges HTML, etwa einen gestalteten Newsletter aus einer Vorlage, fügen Sie im HTML-Quellcode ein. Aufbau und Gestaltung übernimmt edulution; ergänzt werden nur Umbruchregeln, damit lange Wörter und Links in allen Mailprogrammen umbrechen.
+Mit **HTML-Quellcode** in der Formatierungsleiste wechseln Sie zur direkten HTML-Bearbeitung, mit **Editor** zurück. Fertiges HTML, etwa einen gestalteten Newsletter aus einer Vorlage, fügen Sie im HTML-Quellcode ein. Aufbau und Gestaltung übernimmt edulution; ergänzt werden nur Umbruchregeln, damit lange Wörter und Links in allen Mailprogrammen umbrechen, und, falls festgelegt, die [Standardschrift](#standardschrift) für Text ohne eigene Schriftangabe.
 
 :::warning[Wechsel zurück in die formatierte Ansicht]
 Der formatierte Editor unterstützt nicht alle HTML-Bestandteile, etwa eigene Formatvorlagen (`<style>`), eingebettete Frames oder SVG-Grafiken. Schalten Sie mit solchem HTML zurück zu **Editor**, gehen diese Bestandteile verloren. Der Dialog **Nicht unterstütztes HTML** listet sie vorher auf; bleiben Sie im Zweifel im HTML-Quellcode, bis Sie die Nachricht versenden.
@@ -141,7 +147,7 @@ Ob die E-Mail-App für Sie sichtbar ist, an welcher Stelle sie in der App-Liste 
 
 ## Einrichtung (für Administratoren)
 
-Welche Nutzergruppen die E-Mail-App überhaupt sehen, an welcher Stelle sie in der App-Liste erscheint und welches Theme der SOGo-Webmailer verwendet, legen Administratoren unter [Einstellungen → E-Mails](../edulution-plattform/konfiguration/einstellungen.md#e-mails) fest.
+Welche Nutzergruppen die E-Mail-App überhaupt sehen, an welcher Stelle sie in der App-Liste erscheint, welches Theme der SOGo-Webmailer verwendet und mit welcher Standardschrift neue Nachrichten beginnen, legen Administratoren unter [Einstellungen → E-Mails](../edulution-plattform/konfiguration/einstellungen.md#e-mails) fest.
 
 Die Postfächer selbst — anlegen, Speicherplatz vergeben, löschen sowie ein Postfach als **freigegebenes Postfach** an weitere Benutzer freigeben — verwalten Administratoren unter [Mailboxen und geteilte Postfächer](./konfiguration/mailbox-verwaltung.md).
 

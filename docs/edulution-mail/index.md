@@ -5,7 +5,7 @@ description: Der integrierte Mailserver auf Mailcow-Basis – Postfächer, Verte
 
 # E-Mail
 
-Die **E-Mail-App** ist der in edulution integrierte Mail-Client. Sie lesen, schreiben und verwalten darin Ihre Nachrichten, ohne die Plattform zu verlassen. Grundlage ist das edulution-Mailsystem (SOGo/mailcow); die App greift über die Standardprotokolle auf Ihr Postfach zu. Über **In SOGo öffnen** erreichen Sie zusätzlich das vollständige SOGo-Webmail in einem neuen Tab.
+Die **E-Mail-App** ist der in edulution integrierte Mail-Client. Sie lesen, schreiben und verwalten darin Ihre Nachrichten, ohne die Plattform zu verlassen. Grundlage ist das edulution-Mailsystem, entweder auf mailcow-Basis (mit SOGo) oder auf Stalwart-Basis; die App greift über die Standardprotokolle auf Ihr Postfach zu. Auf einer mailcow-Installation erreichen Sie über **In SOGo öffnen** zusätzlich das vollständige SOGo-Webmail in einem neuen Tab.
 
 ## Ordner und Postfächer
 
@@ -131,6 +131,10 @@ Signatur, verzögertes Senden, automatische Antwort, Weiterleitung und Filter ve
 
 Die Sprache des über **In SOGo öffnen** erreichbaren Webmailers richtet sich nach der Sprache, die Sie unter [Mein Profil → Sprache](../edulution-plattform/uebersicht/benutzereinstellungen/benutzeroberflaeche.md#sprache) gewählt haben; dasselbe gilt für Benachrichtigungen, die das Mailsystem selbst verschickt. Das **Theme** des Webmailers legt dagegen die Administration fest.
 
+## Passwörter für Mail-Programme
+
+Mit Stalwart als Mailserver melden sich Thunderbird, Outlook und Handy-Apps nicht mit Ihrem Schulpasswort an, sondern mit je einem eigenen **Gerätepasswort** pro Gerät. Sie erzeugen und widerrufen es unter [Mein Profil → E-Mail](../edulution-plattform/uebersicht/benutzereinstellungen/e-mail.md#passwörter-für-mail-programme). Das Passwort zeigt edulution nur beim Erzeugen einmal an. Die E-Mail-App in edulution selbst benötigt kein Gerätepasswort.
+
 <Audience roles="user">
 
 Ob die E-Mail-App für Sie sichtbar ist, an welcher Stelle sie in der App-Liste erscheint und welches Theme der Webmailer verwendet, legt die Administration Ihrer Schule fest. Dasselbe gilt für den Zugriff auf **freigegebene Postfächer**: Fehlt Ihnen ein Postfach, für das Sie berechtigt sein sollten, kann nur die Administration das einrichten.
@@ -152,5 +156,39 @@ Auf einer Mailcow-Installation stellt SOGo jedem Benutzer zusätzlich systemweit
 Die Mitglieder von Verteilern einer anderen Schule und von schulübergreifenden Verteilern zeigt edulution beim Verfassen nicht an (siehe [Verteiler als Empfänger](#verteiler-als-empfänger)). Für solche Verteiler lässt sich auch kein Kalender freigeben (siehe [Freigabe an einen Verteiler](../edulution-plattform/apps/native-apps/kalender.md#freigabe-an-einen-verteiler)). Ausgenommen sind Global-Admins: Sie gehören keiner einzelnen Schule an, sehen die Mitglieder aller Verteiler und können Kalender für jeden Verteiler freigeben.
 
 Postfach-Freigaben und die Übernahme der Profilsprache in den Webmailer laufen nicht über IMAP, sondern über die [DAV-Verbindung](../edulution-plattform/konfiguration/einstellungen.md#dav-verbindung) der E-Mail-App. Diese Verbindung gilt ausschließlich für die E-Mail-App: Die Kalender- und die Kontakte-App bringen jeweils eine eigene mit, und eine dort abgeschaltete Zertifikatsprüfung lockert die Prüfung der E-Mail-Verbindung nicht. Ist die DAV-URL fehlerhaft eingetragen, betrifft das nur diese Funktionen — Nachrichten lesen, verfassen, Ordner und Filter bleiben davon unberührt.
+
+## Mailserver wählen
+
+edulution Mail läuft wahlweise auf **mailcow** (mit SOGo, bisher der einzige Mailserver) oder auf **Stalwart**, das Mail, Kalender und Kontakte allein bereitstellt. Die Oberfläche für Ihre Nutzer bleibt dieselbe. Welcher Mailserver gilt, legen Sie in den Einstellungen der E-Mail-App unter **Mailserver** fest (siehe [Einstellungen → E-Mails](../edulution-plattform/konfiguration/einstellungen.md#mailserver)). Bestehende Installationen bleiben auf mailcow. Bei Stalwart tragen Sie zusätzlich den **Benutzer der Verwaltungs-API** ein, mit dem edulution den Mailserver verwaltet; mailcow braucht dafür nur den API-Schlüssel. Die Einrichtung eines neuen Stalwart-Servers trägt diese Werte selbst ein (siehe unten).
+
+:::caution[Umschalten nur mit bereitem Zielserver]
+Stellen Sie erst um, wenn der neue Mailserver erreichbar ist und die Postfächer dorthin übertragen sind. edulution überträgt keine Postfächer beim Umschalten.
+:::
+
+Einige Funktionen gibt es nur mit Stalwart: Mail-Domains und Zweitadressen verwalten Sie dann in edulution, und die Nutzer erzeugen Gerätepasswörter. Auf mailcow bleibt beides in mailcow selbst; die beiden Bereiche in den Einstellungen verweisen darauf.
+
+## Stalwart einrichten
+
+Stalwart installieren Sie wie andere Anwendungen im Bereich **Container**: Im Dialog **Plugin zur Installation auswählen** wählen Sie die App **E-Mail** und darunter die Grundlage **Stalwart**; ohne Auswahl wird mailcow installiert (siehe [Container-Verwaltung → E-Mail: mailcow oder Stalwart wählen](../edulution-plattform/konfiguration/container-verwaltung.md#e-mail-mailcow-oder-stalwart-wählen)).
+
+Nach dem Anlegen des Containers richtet edulution den neuen Server selbst ein: Es legt die erste Domain an, richtet ein Dienstkonto für die Verwaltung ein, startet den Container bei Bedarf neu und trägt die Zugangsdaten in der Konfiguration ein. Die Zugangsdaten stammen aus der Container-Konfiguration; Sie müssen sie nicht erneut eingeben. Dauert der Start zu lang oder schlägt ein Schritt fehl, erscheint eine Meldung wie **Die Ersteinrichtung des Mailservers ist fehlgeschlagen** oder **Der Mailserver hat nicht rechtzeitig geantwortet**.
+
+:::info[Zertifikatsprüfung]
+Die Prüfung des Zertifikats lässt sich bei der Einrichtung nur für den Stalwart-Container selbst abschalten, nicht für eine andere Adresse. Andernfalls erscheint **Die Zertifikatsprüfung lässt sich nur für den Stalwart-Container abschalten**. Solange die Zugangsdaten aus dem Container kommen, nimmt die Einrichtung außerdem nur die Adresse des Containers oder dessen öffentliche Adresse an.
+:::
+
+## Mail-Domains
+
+Mit Stalwart verwalten Sie die Domains des Mailservers in den Einstellungen der E-Mail-App im Bereich **Mail-Domains** (siehe [Einstellungen → E-Mails](../edulution-plattform/konfiguration/einstellungen.md#mail-domains)). Die Tabelle zeigt je Domain die Zahl der Postfächer und Verteiler sowie den Stand der DNS-Einträge.
+
+- **Domain hinzufügen**: Nach dem Anlegen erzeugt der Mailserver die DKIM-Schlüssel. Die zugehörigen Einträge sehen Sie anschließend unter **DNS-Einträge**.
+- **DNS-Einträge**: Der Dialog listet die Einträge, die in die DNS-Zone der Domain gehören (etwa MX, SPF, DKIM, DMARC), und prüft live, ob sie dort vorhanden sind. Jeder Eintrag steht auf **Gefunden**, **Weicht ab** (der Dialog nennt, was stattdessen im DNS steht) oder **Fehlt**. Einzelne Werte oder alle Einträge lassen sich kopieren. Ohne diese Einträge nehmen andere Mailserver keine Post für die Domain an.
+- **Domain entfernen**: Hat die Domain noch Postfächer, nimmt das Entfernen diese mit; die Sicherheitsabfrage nennt deren Zahl.
+
+Auf einer Installation mit mailcow zeigt der Bereich nur den Hinweis, dass der Mailserver seine Domains selbst verwaltet.
+
+## Zweitadressen und Verteiler
+
+Im Bereich **Zweitadressen und Verteiler** legen Sie zusätzliche Adressen an, die Post an ein oder mehrere Postfächer weiterleiten. Mehrere Ziele machen aus einer Zweitadresse einen Verteiler. Eine Beschreibung ist optional. Die Spalte **Herkunft** unterscheidet Adressen **Von Hand** von solchen **Aus dem Verzeichnis**; Letztere stammen aus Gruppen in edulution und werden dort geändert, nicht hier. Optionen im Detail: [Einstellungen → E-Mails](../edulution-plattform/konfiguration/einstellungen.md#zweitadressen-und-verteiler). Auf mailcow verwalten Sie Adressen in mailcow selbst.
 
 </Audience>

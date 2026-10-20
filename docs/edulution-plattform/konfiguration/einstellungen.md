@@ -216,6 +216,32 @@ Ein Logo in der Standard-Signatur wird jeder gesendeten E-Mail beigefügt. Verwe
 
 Die Verbindung des integrierten E-Mail-Clients zum Mailserver richten Sie im Abschnitt **Mailserver** ein: IMAP-, SMTP- und ManageSieve-Server mit ihren Ports sowie die Zertifikatsprüfung. Felder, Voreinstellungen und Verschlüsselung beschreibt [Mail-App konfigurieren → Mailserver](../../edulution-mail/konfiguration/mail-app-konfiguration.md#mailserver).
 
+**Mailserver** (Auswahl des Backends)
+- Legt fest, welchen Mailserver diese Installation betreibt: **mailcow (bisher)** oder **Stalwart**
+- Voreinstellung: mailcow
+- Stellen Sie erst um, wenn der neue Server erreichbar ist und die Postfächer übertragen sind
+- Bei Stalwart verwaltet edulution Mail-Domains, Zweitadressen und Verteiler selbst, siehe [Mail-Domains](#mail-domains) und [Zweitadressen und Verteiler](#zweitadressen-und-verteiler). Außerdem gibt es Gerätepasswörter für Mail-Programme; bei mailcow gilt das Schulpasswort
+
+**Benutzer der Verwaltungs-API**
+- Anmeldename, mit dem edulution den Mailserver verwaltet
+- Nur bei Stalwart erforderlich; mailcow benötigt allein den API-Schlüssel
+- Voreinstellung: leer
+
+### Mail-Domains
+
+Die Tabelle **Mail-Domains** zeigt je Domain die Zahl der Postfächer und Verteiler sowie den DNS-Status. Neue Domains legen Sie über **Domain hinzufügen** an.
+
+- Nach dem Anlegen erzeugt der Mailserver die DKIM-Schlüssel. Über **DNS-Einträge** sehen Sie, welche Einträge Sie in der DNS-Zone der Domain setzen müssen. Jeder Eintrag trägt den Status **Gefunden**, **Weicht ab** oder **Fehlt**; bei einer Abweichung steht dabei, was stattdessen im DNS hinterlegt ist. Ohne diese Einträge nehmen andere Server keine Mail für die Domain an
+- Eine Domain mit Postfächern lässt sich löschen, die Postfächer werden dabei mit gelöscht. Der Bestätigungsdialog nennt deren Anzahl
+- Verwaltet der Mailserver seine Domains selbst (mailcow), zeigt die Tabelle stattdessen einen Hinweis: Anlegen und Löschen erfolgen dann in dessen eigener Oberfläche
+
+### Zweitadressen und Verteiler
+
+In der Tabelle **Zweitadressen und Verteiler** legen Sie zusätzliche Adressen an, deren Post an ein oder mehrere Postfächer zugestellt wird (Feld **Stellt zu an**, mehrere Ziele durch Komma getrennt). Mit mehreren Zielen wird die Adresse zum Verteiler. Die Beschreibung ist optional.
+
+- Die Spalte **Herkunft** unterscheidet Adressen **Aus dem Verzeichnis** und **Von Hand** angelegte. Adressen aus dem Verzeichnis ändern Sie im Verzeichnis selbst; sie sind hier schreibgeschützt
+- Verwaltet der Mailserver seine Adressen selbst (mailcow), erscheint wie bei den Domains ein Hinweis statt der Tabelle
+
 ### DAV-Verbindung
 
 Neben IMAP und SMTP spricht edulution den Mailserver für einige Funktionen über dessen DAV-Schnittstelle an – für Postfach-Freigaben und dafür, die im Profil gewählte Sprache in den SOGo-Webmailer zu übernehmen.
@@ -278,6 +304,41 @@ Die Kalender-App bindet die Kalender der Schule über einen CalDAV-Server (z.B. 
 - Mehrfachauswahl möglich
 - Nur ausgewählte Gruppen sehen die Kalender-App in ihrer Anwendungsübersicht
 
+### Gemeinsame Kalender
+
+In der Tabelle **Gemeinsame Kalender** legen Sie Kalender an, die für ganze Gruppen bereitstehen, etwa einen Schulkalender. Über **Kalender anlegen** erfassen Sie:
+
+- **Bezeichnung**: der Name, unter dem der Kalender bei den Nutzern erscheint
+- **Konto**: das Konto auf dem Mailserver, das den Kalender trägt. Erlaubt sind Kleinbuchstaben, Ziffern, Punkt, Bindestrich und Unterstrich; der Name beginnt mit einem Buchstaben oder einer Ziffer. Nach dem Anlegen lässt sich das Konto nicht mehr ändern
+- **Sichtbar für**: mindestens eine Gruppe. Mitglieder dieser Gruppen sehen den Kalender und dürfen darin eintragen
+
+edulution gleicht die gemeinsamen Kalender regelmäßig mit dem Mailserver ab (alle 15 Minuten); Änderungen an Gruppen oder Mitgliedschaften wirken daher mit Verzögerung. Entfernen Sie einen Eintrag aus der Tabelle, pflegt der Abgleich den Kalender danach nicht mehr: Konto, Termine und der Zugriff der bisherigen Mitglieder bleiben auf dem Mailserver bestehen. Soll niemand mehr zugreifen, löschen Sie das Konto auf dem Mailserver.
+
+### Feiertage und Schulferien
+
+edulution kann Feiertage und Schulferien selbsttätig in einen gemeinsamen Kalender eintragen und gleicht sie einmal täglich ab.
+
+**Feiertage und Schulferien automatisch eintragen**
+- Toggle-Schalter, Voreinstellung: aus
+- Die Daten stammen von openholidaysapi.org, einem Dienst außerhalb Ihrer Schule. Solange der Schalter aus ist, wird dieser Dienst nicht aufgerufen
+
+**Zielkalender**
+- Konto des gemeinsamen Kalenders aus der Tabelle **Gemeinsame Kalender**, in den die Einträge geschrieben werden
+- Ist das Konto dort nicht zu finden, wird nichts geschrieben und nichts gelöscht
+
+**Jahre im Voraus**
+- Wie viele Jahre über das laufende hinaus eingetragen werden
+- Erlaubt sind 0 bis 5, Voreinstellung: 1
+
+**Land**
+- Deutschland, Österreich oder die Schweiz; Voreinstellung: Deutschland
+
+**Bundesland**
+- Bestimmt, welche Schulferien gelten. Ohne Auswahl werden nur die landesweiten Termine eingetragen. Für die Schweiz stehen keine Kantone zur Verfügung
+
+**Feiertage eintragen** und **Schulferien eintragen**
+- Zwei Schalter, die festlegen, welche der beiden Arten eingetragen wird; beide sind voreingestellt aktiv
+
 ### CalDAV-Verbindung
 
 **CalDAV-URL**
@@ -298,11 +359,11 @@ Das SSL-Zertifikat ist nicht auf diesen internen Namen ausgestellt. Schalten Sie
 :::
 
 :::info[Backend-Voraussetzung]
-Die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server. Das [Freigeben und Abonnieren von Kalendern](../apps/native-apps/kalender.md#kalender-freigeben) nutzt dagegen die proprietären ACL-Funktionen von **SoGo** und steht nur zur Verfügung, wenn hier ein SoGo-Server hinterlegt ist.
+Die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server. Das [Freigeben und Abonnieren von Kalendern](../apps/native-apps/kalender.md#kalender-freigeben) nutzt auf einer mailcow-Installation die proprietären ACL-Funktionen von **SoGo** und steht dort nur zur Verfügung, wenn hier ein SoGo-Server hinterlegt ist. Nutzt die Installation den [Mailserver](#mailserver) **Stalwart**, gibt edulution Kalender über dessen Zugriffsrechte frei.
 :::
 
 :::warning[CalDAV-URL ohne /dav bricht die Freigabe]
-Endet die CalDAV-URL nicht auf `/dav`, funktionieren Kalender und Termine trotzdem — die Freigabe- und Abonnement-Funktionen jedoch nicht. edulution leitet die SoGo-Schnittstelle aus dem `/dav`-Pfad ab; fehlt er, meldet die Freigabe **"Kalender-Backend ist nicht konfiguriert"**, obwohl der Kalender sichtbar ist und Termine synchronisiert werden. Ergänzen Sie in diesem Fall den Pfad und speichern Sie erneut.
+Endet die CalDAV-URL auf einer mailcow-Installation nicht auf `/dav`, funktionieren Kalender und Termine trotzdem — die Freigabe- und Abonnement-Funktionen jedoch nicht. edulution leitet die SoGo-Schnittstelle aus dem `/dav`-Pfad ab; fehlt er, meldet die Freigabe **"Kalender-Backend ist nicht konfiguriert"**, obwohl der Kalender sichtbar ist und Termine synchronisiert werden. Ergänzen Sie in diesem Fall den Pfad und speichern Sie erneut.
 :::
 
 **Authentifizierungsmodus**
@@ -350,6 +411,17 @@ Die Kontakte-App bindet die Adressbücher der Schule über einen CardDAV-Server 
 - Wählen Sie die Nutzergruppen aus, die Zugriff auf die Kontakte-App bekommen sollen
 - Mehrfachauswahl möglich
 - Nur ausgewählte Gruppen sehen die Kontakte-App in ihrer Anwendungsübersicht
+
+### Gemeinsame Adressbücher
+
+In der Tabelle **Gemeinsame Adressbücher** legen Sie Adressbücher an, die für ganze Gruppen bereitstehen. Über **Adressbuch anlegen** erfassen Sie:
+
+- **Bezeichnung**: der Name, unter dem das Adressbuch bei den Nutzern erscheint
+- **Konto**: das Konto auf dem Mailserver, das das Adressbuch trägt. Erlaubt sind Kleinbuchstaben, Ziffern, Punkt, Bindestrich und Unterstrich; der Name beginnt mit einem Buchstaben oder einer Ziffer. Nach dem Anlegen lässt sich das Konto nicht mehr ändern
+- **Sichtbar für**: mindestens eine Gruppe. Mitglieder dieser Gruppen sehen das Adressbuch
+- **Enthält**: die Gruppen, deren Mitglieder als Kontakte im Adressbuch stehen
+
+edulution gleicht die gemeinsamen Adressbücher regelmäßig mit dem Mailserver ab (alle 15 Minuten); Änderungen an Gruppen oder Mitgliedschaften wirken daher mit Verzögerung. Entfernen Sie einen Eintrag aus der Tabelle, pflegt der Abgleich das Adressbuch danach nicht mehr: Konto, Kontakte und der Zugriff der bisherigen Mitglieder bleiben auf dem Mailserver bestehen. Soll niemand mehr zugreifen, löschen Sie das Konto auf dem Mailserver.
 
 ### CardDAV-Verbindung
 

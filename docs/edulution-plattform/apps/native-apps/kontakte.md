@@ -32,8 +32,9 @@ Adressbücher können **beschreibbar** (eigene Adressbücher) oder **schreibgesc
 
 | Aktion | Verfügbar | Beschreibung |
 |--------|-----------|--------------|
-| **Adressbuch hinzufügen** | immer | Legt ein neues, eigenes Adressbuch an |
+| **Adressbuch hinzufügen** | immer | Legt ein neues, eigenes Adressbuch an; bei der Sichtbarkeit wählen Sie zwischen **Nur für mich** und **Für andere freigeben** |
 | **Eigenschaften** | nur beschreibbare | Bearbeitet den Namen des Adressbuchs |
+| **Freigeben** | nur eigene, beschreibbare | Öffnet den [Freigabe-Dialog](#adressbuch-freigeben) |
 | **Kontakte importieren** | nur beschreibbare | Importiert Kontakte aus einer vCard-Datei |
 | **Kontakte exportieren** | alle | Lädt alle Kontakte des Adressbuchs als `.vcf`-Datei herunter |
 | **Konfigurationsprofil herunterladen** | alle | Lädt ein Apple-Profil (`.mobileconfig`) zur Geräteeinrichtung herunter |
@@ -43,9 +44,26 @@ Adressbücher können **beschreibbar** (eigene Adressbücher) oder **schreibgesc
 Das Löschen eines Adressbuchs entfernt das Adressbuch und alle darin enthaltenen Kontakte unwiderruflich. Das Standard-Adressbuch kann nicht gelöscht werden.
 :::
 
+Beim Anlegen eines Adressbuchs bestimmen Sie die **Sichtbarkeit**. Wählen Sie **Für andere freigeben**, öffnet sich nach dem Anlegen unmittelbar der [Freigabe-Dialog](#adressbuch-freigeben), in dem Sie festlegen, wer Zugriff bekommt.
+
 ### Eigenschaften
 
 Über **Eigenschaften** können Sie den **Namen** eines beschreibbaren Adressbuchs ändern. Ein Name ist erforderlich.
+
+## Adressbuch freigeben
+
+Eigene Adressbücher geben Sie für andere Personen und für Gruppen frei: Öffnen Sie das Kontextmenü des Adressbuchs und wählen Sie **Freigeben**. Die Aktion steht nur bei eigenen, beschreibbaren Adressbüchern zur Verfügung; ein Adressbuch, das ein anderer Benutzer mit Ihnen geteilt hat, können Sie nicht weitergeben.
+
+Im Dialog suchen Sie unter **Personen hinzufügen** nach Personen und unter **Gruppen** nach Verzeichnisgruppen; unter **Freigegeben für** stehen anschließend alle bestehenden Freigaben. Die Zugriffsstufe vergeben Sie je Eintrag in der Auswahlliste: **Ansehen**, **Bearbeiten** oder **Verwalten**. Neu hinzugefügte Personen und Gruppen erhalten zunächst **Ansehen**. Über das Mülleimer-Symbol entziehen Sie eine Freigabe wieder.
+
+Anders als beim Kalender gibt es im Freigabe-Dialog keine Option zum Abonnieren: Das Hinzufügen einer Person oder Gruppe vergibt ausschließlich den Zugriff.
+
+### Freigabe an Gruppen
+
+- Zur Auswahl stehen nur Gruppen **Ihrer eigenen Schule**, die zudem für die Kontakte-App freigegeben sind. Andere Gruppen bietet die Suche nicht an; versuchen Sie dennoch, eine solche Gruppe freizugeben, lehnt edulution das mit dem Hinweis ab, dass Sie das Adressbuch mit dieser Gruppe nicht teilen dürfen. Auf einer Installation ohne linuxmuster gibt es keine Schulgrenze; dort gilt nur die Einschränkung auf die für die App freigegebenen Gruppen.
+- In der Liste steht pro Gruppe eine Zeile mit der Anzahl der Mitglieder. Die Mitglieder erscheinen nicht einzeln.
+- Der Zugriff folgt der Gruppenmitgliedschaft automatisch: Wer der Gruppe beitritt, erhält Zugriff, wer sie verlässt, verliert ihn. edulution gleicht das kurz nach einer Änderung der Mitglieder ab (nach etwa 30 Sekunden), zusätzlich stündlich sowie jedes Mal, wenn Sie den Freigabe-Dialog öffnen. Hat der Abgleich dabei etwas geändert, wird die Liste aktualisiert.
+- Gehört eine freigegebene Gruppe nicht mehr zu Ihrer Schule oder ist sie nicht mehr für die Kontakte-App freigegeben, zieht edulution die Freigabe beim nächsten Abgleich zurück.
 
 ## Kontakte anzeigen
 
@@ -142,6 +160,8 @@ Die Anbindung der Kontakte-App an den CardDAV-Server wird in den [Einstellungen]
 
 Diese Verbindung gilt ausschließlich für die Kontakte-App. Die Kalender- und die E-Mail-App verwenden jeweils ihre eigene; eine hier abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die übrigen Apps aus, und eine fehlerhafte CardDAV-URL legt nur die Kontakte-App still.
 
+Zusätzlich zu den Adressbüchern der Benutzer können Sie **gemeinsame Adressbücher** für ganze Gruppen bereitstellen; sie werden ebenfalls in den Einstellungen angelegt, siehe [Gemeinsame Adressbücher](../../konfiguration/einstellungen.md#gemeinsame-adressbücher). Der Abgleich dieser Adressbücher ist nur möglich, wenn die Installation den Mailserver **Stalwart** nutzt; welchen Mailserver die Installation betreibt, legen Sie unter [Mailserver](../../konfiguration/einstellungen.md#mailserver) fest.
+
 ### Wenn keine Adressbücher erscheinen
 
 Erscheinen keine Adressbücher, benennt die Fehlermeldung, welche Ursache vorliegt:
@@ -156,7 +176,7 @@ Wird einem Benutzer, der zuvor Adressbücher sehen konnte, plötzlich keines meh
 
 ## Aktuelle Einschränkungen
 
-- Das **Teilen von Adressbüchern** kann derzeit nicht über die Oberfläche verwaltet werden. Geteilte und schreibgeschützte Adressbücher werden angezeigt, die Freigabe selbst erfolgt serverseitig.
+- Adressbücher, die andere für Sie freigegeben haben, werden in der Kontakte-App schreibgeschützt angezeigt.
 - Als Authentifizierungsmodus ist aktuell ausschließlich **Basic Auth** verfügbar; ein anderweitig hinterlegter Modus wird übergangen.
 - Kontakte lassen sich über **Kategorien** verschlagworten; **Verteilerlisten** (SOGo-Listen) werden in der Oberfläche derzeit noch nicht angezeigt.
 - Es gibt keine Sammelaktionen (z.B. Mehrfachauswahl oder Sammellöschung).

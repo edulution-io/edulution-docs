@@ -96,7 +96,7 @@ Gespeichert wird jeder Weg, die Sichtbarkeit zu ändern: der Klick auf den Kalen
 - **Als Standardkalender festlegen** bzw. **Als Standardkalender entfernen** – Bestimmt, welcher Kalender beim [Erstellen eines Termins](#termine-erstellen) vorausgewählt ist.
 - **Freigeben** – Öffnet den [Freigabe-Dialog](#kalender-freigeben); nur bei eigenen Kalendern verfügbar.
 - **Kalender veröffentlichen** – Öffnet den [Veröffentlichen-Dialog](#kalender-veröffentlichen), über den Sie den Kalender als Abonnement-Link bereitstellen; nur bei eigenen Kalendern verfügbar.
-- **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht an derselben Stelle wie **Freigeben**.
+- **Abbestellen** – Entfernt einen [abonnierten Kalender](#abonnierte-und-schreibgeschützte-kalender) aus Ihrer Liste; steht an derselben Stelle wie **Freigeben**. Mit dem Mailserver Stalwart gibt es **Abbestellen** nicht: Ein für Sie freigegebener Kalender bleibt in Ihrer Liste, solange die Freigabe besteht; blenden Sie ihn bei Bedarf aus.
 - **Jetzt aktualisieren** – Lädt einen [Web-Kalender](#web-kalender-abonnieren) sofort neu, ohne auf die nächste automatische Aktualisierung zu warten; nur bei Web-Kalendern verfügbar.
 - **Löschen** – Löscht den Kalender samt seiner Termine (siehe [Kalender bearbeiten und löschen](#kalender-bearbeiten-und-löschen)); steht als letzter Eintrag und ist nur bei eigenen Kalendern verfügbar.
 
@@ -273,6 +273,16 @@ Bei einem monatlichen Muster nach Wochentag richtet sich der Anker nach der Woch
 Manche Wiederholungsregeln lassen sich nicht auf einen neuen Zeitpunkt umrechnen – etwa „Am letzten Freitag des Monats“. Solche Regeln legen Sie in edulution nicht selbst an; sie entstehen in anderen Kalenderprogrammen, die denselben Kalender über CalDAV mitbenutzen. Wählen Sie bei einer solchen Serie **Alle Termine der Serie** oder **Dieser und alle folgenden Termine**, wird die Änderung mit einer Meldung abgelehnt, damit die Serie nicht mit einer unpassenden Regel gespeichert wird. Über **Nur dieser Termin** lassen sich einzelne Termine einer solchen Serie weiterhin verschieben.
 :::
 
+## Auf Einladungen antworten
+
+Sind Sie zu einem Termin eingeladen, den eine andere Person organisiert, beantworten Sie die Einladung direkt am Termin. Öffnen Sie den Termin: Im Bearbeiten-Dialog stehen die Schaltflächen oberhalb der Dialog-Schaltflächen, in der [Detailansicht](#termine-ansehen-ohne-bearbeitungsrecht) am Ende der Angaben. Sie wählen zwischen **Zusagen**, **Vielleicht** und **Absagen**; die Frage **Nehmen Sie an diesem Termin teil?** nennt in Klammern Ihre bisherige Antwort (**Zugesagt**, **Abgesagt** oder **Vielleicht**), und die Schaltfläche der aktuellen Antwort ist deaktiviert.
+
+Die Antwort wird sofort gespeichert und bestätigt; Sie müssen den Dialog dafür nicht mit **Speichern** abschließen. Die Schaltflächen erscheinen nur, wenn Sie als Teilnehmer eingetragen sind, und nie beim Organisator des Termins.
+
+In der Detailansicht nennt die Zeile **Organisation** den Organisator, und hinter jedem Teilnehmer steht dessen Antwort; wer noch nicht geantwortet hat, erscheint mit **Offen**.
+
+Bei einem [Serientermin](#serientermine-und-wiederholungen) gilt Ihre Antwort **nur für den Termin, den Sie geöffnet haben**. Die übrigen Termine der Serie behalten ihre bisherige Antwort. So sagen Sie einzelne Wiederholungen ab, ohne die ganze Serie zu verlassen. Eine Antwort für die gesamte Serie auf einmal bietet die Oberfläche nicht an.
+
 ## Termine per Drag & Drop verschieben
 
 Termine lassen sich direkt mit der Maus verschieben:
@@ -343,9 +353,13 @@ Jede Freigabe ist eine aufklappbare Zeile. Zugeklappt sehen Sie Name, E-Mail-Adr
 
 Ist ein Empfänger im Verzeichnis nicht mehr auffindbar — etwa weil sein Konto zwischenzeitlich gelöscht wurde —, erscheint seine Zeile mit der Rolle **Keine** für alle drei Sichtbarkeiten. Die übrigen Freigaben bleiben davon unberührt und bearbeitbar; die verwaiste Zeile entfernen Sie über das Mülleimer-Symbol.
 
+:::info[SoGo und Stalwart]
+Der Freigabe-Dialog arbeitet je nach Mailserver der Installation unterschiedlich. Die folgenden Abschnitte beschreiben die Freigabe mit **SoGo** (mailcow). Bei **Stalwart** gelten Abweichungen, die der Abschnitt [Freigabe mit Stalwart](#freigabe-mit-stalwart) zusammenfasst. Welchen Mailserver Ihre Installation nutzt, sagt Ihnen die Administration.
+:::
+
 ### Wen die Suche findet
 
-Die Suche unter **Personen oder Gruppen hinzufügen** speist sich aus zwei getrennten Quellen:
+Bei SoGo speist sich die Suche unter **Personen oder Gruppen hinzufügen** aus zwei getrennten Quellen:
 
 - **Personen** stammen ausschließlich aus den Adressbüchern, auf die Sie in der [Kontakte](kontakte.md)-App Zugriff haben, nicht aus dem Verzeichnis. Wen Sie dort nicht als Kontakt führen, legen Sie zunächst in der Kontakte-App an.
 - **Verteiler** stammen aus dem Verzeichnis, einschließlich ihrer Kategorien. Angeboten werden dabei auch Verteiler, für die sich kein Kalender freigeben lässt (siehe [Freigabe an einen Verteiler](#freigabe-an-einen-verteiler)).
@@ -422,11 +436,11 @@ Entziehen Sie die Freigabe des Verteilers über das Mülleimer-Symbol, verlieren
 - Mitglieder, die den Kalender zusätzlich über einen **zweiten freigegebenen Verteiler** erhalten, behalten den Zugriff mit den Rechten dieses zweiten Verteilers.
 - Personen, die bereits **vor** der Freigabe des Verteilers eine **eigene Freigabe** besaßen, behalten diese unverändert. Ihre Zeile bleibt in der Liste stehen, ihre Rechte werden nicht durch die des Verteilers ersetzt, und der Zugriff bleibt auch nach dem Entziehen der Verteiler-Freigabe bestehen.
 
-#### Mitgliederänderungen werden beim Öffnen abgeglichen
+#### Mitgliederänderungen werden abgeglichen
 
-Tritt jemand dem Verteiler bei oder verlässt ihn, wird der Zugriff **nicht sofort** angepasst. Der Abgleich läuft, sobald Sie den Freigabe-Dialog des betreffenden Kalenders das nächste Mal öffnen. Währenddessen sind die Bedienelemente des Dialogs gesperrt; hat sich etwas geändert, nennt anschließend ein Hinweis je Verteiler, wie viele Mitglieder hinzugefügt und wie viele entfernt wurden.
+Tritt jemand dem Verteiler bei oder verlässt ihn, passt edulution den Zugriff **automatisch** an, ohne dass Sie den Freigabe-Dialog öffnen müssen: kurz nach der Änderung der Mitglieder (nach etwa 30 Sekunden) und zusätzlich stündlich für alle freigegebenen Kalender. Außerdem läuft der Abgleich jedes Mal, wenn Sie den Freigabe-Dialog des betreffenden Kalenders öffnen. Währenddessen sind die Bedienelemente des Dialogs gesperrt; hat sich etwas geändert, nennt anschließend ein Hinweis je Verteiler, wie viele Mitglieder hinzugefügt und wie viele entfernt wurden.
 
-Daraus folgt: Wer den Verteiler verlässt, behält den Zugriff auf den Kalender so lange, bis Sie den Freigabe-Dialog erneut öffnen. Bei einem Kalender, der einmal freigegeben und danach nicht wieder angefasst wird, kann das beliebig lange dauern. Öffnen Sie den Dialog daher gezielt, wenn sich die Zusammensetzung eines Verteilers geändert hat.
+Wer den Verteiler verlässt, verliert den Zugriff auf den Kalender also spätestens nach der nächsten stündlichen Runde; wer neu hinzukommt, erhält ihn auf demselben Weg. Voraussetzung ist, dass für den Besitzer des Kalenders ein Mail-Zugang in edulution hinterlegt ist. Fehlt er, läuft der Abgleich weiterhin beim Öffnen des Dialogs.
 
 Eine bestehende Freigabe an einen Verteiler, den Sie heute nicht mehr freigeben könnten (etwa aus einer früheren Version von edulution), gleicht edulution nicht mehr ab: Die Mitglieder behalten den Zugriff, den sie zuletzt erhalten haben; wer dem Verteiler beitritt, erhält keinen, und wer ihn verlässt, verliert ihn nicht. Auch die Rechte einer solchen Freigabe lassen sich nicht mehr ändern; der Versuch scheitert mit derselben Meldung wie eine neue Freigabe. Entziehen können Sie die Freigabe weiterhin über das Mülleimer-Symbol.
 
@@ -440,7 +454,7 @@ Für einen [Verteiler](#freigabe-an-einen-verteiler) steht das Häkchen nicht zu
 
 ### Alle authentifizierten Benutzer und öffentlicher Zugang
 
-Neben den einzelnen Personen und Gruppen enthält die Liste immer zwei feste Einträge. Beide lassen sich nicht löschen und nicht abonnieren; Sie entziehen ihnen den Zugriff, indem Sie ihre Rollen auf **Keine** setzen.
+Dieser Abschnitt gilt für SoGo. Neben den einzelnen Personen und Gruppen enthält die Liste immer zwei feste Einträge. Beide lassen sich nicht löschen und nicht abonnieren; Sie entziehen ihnen den Zugriff, indem Sie ihre Rollen auf **Keine** setzen.
 
 | Eintrag                             | Rollen                                                    | Hinzufügen / Löschen |
 | ----------------------------------- | --------------------------------------------------------- | -------------------- |
@@ -457,9 +471,19 @@ Schlägt diese Korrektur fehl, wird die betroffene Zeile mit **Überzählige Rec
 
 Ändern sich die Freigaben eines Kalenders, werden die betroffenen Benutzer zusätzlich per E-Mail benachrichtigt. Diese Benachrichtigung erhalten sie automatisch in der Sprache, die sie in edulution verwenden — maßgeblich ist dabei die Sprache des jeweiligen **Empfängers**, die er unter [Mein Profil → Sprache](../../uebersicht/benutzereinstellungen/benutzeroberflaeche.md#sprache) auswählt.
 
+### Freigabe mit Stalwart
+
+Nutzt die Installation den Mailserver **Stalwart**, unterscheidet sich der Freigabe-Dialog in folgenden Punkten:
+
+- **Zwei Suchfelder.** Unter **Personen oder Gruppen hinzufügen** suchen Sie Personen, unter **Gruppen** Verzeichnisgruppen. Das Gruppenfeld gibt es nur bei Stalwart. Die Personen findet die Suche über den Mailserver, nicht in Ihren Adressbüchern.
+- **Eine Zugriffsstufe statt Rechte je Sichtbarkeit.** Je Eintrag wählen Sie unter **Zugriffsstufe** eine von fünf Stufen: **Kein Zugriff**, **Nur Frei/Belegt**, **Ansehen**, **Bearbeiten** oder **Verwalten**. Die Stufe gilt für alle Termine des Kalenders gleichermaßen, unabhängig von deren Sichtbarkeit. Die Rolle **Antworten**, die beiden Häkchen zum Hinzufügen und Löschen, **Für den Benutzer abonnieren** sowie die Einträge **Alle authentifizierten Benutzer** und **Öffentlicher Zugang** gibt es bei Stalwart nicht. Neu hinzugefügte Personen und Gruppen erhalten zunächst **Ansehen**.
+- **Gruppen aus der eigenen Schule.** Zur Auswahl stehen nur Gruppen **Ihrer eigenen Schule**, die zudem für die Kalender-App freigegeben sind. Für andere Gruppen lehnt edulution die Freigabe mit dem Hinweis ab, dass Sie den Kalender mit dieser Gruppe nicht teilen dürfen. Auf einer Installation ohne linuxmuster gibt es keine Schulgrenze; dort gilt nur die Einschränkung auf die für die App freigegebenen Gruppen.
+- **Eine Zeile je Gruppe.** In der Liste **Freigegeben für** steht pro Gruppe eine Zeile mit der Anzahl der Mitglieder; die Mitglieder erscheinen nicht einzeln. Die Zugriffsstufe gilt für alle Mitglieder.
+- **Automatischer Abgleich.** Der Zugriff folgt der Gruppenmitgliedschaft: Wer der Gruppe beitritt, erhält Zugriff, wer sie verlässt, verliert ihn, auch wenn Sie den Freigabe-Dialog nicht öffnen. edulution gleicht das kurz nach einer Änderung der Mitglieder ab (nach etwa 30 Sekunden), zusätzlich stündlich sowie jedes Mal, wenn Sie den Dialog öffnen. Gehört eine freigegebene Gruppe nicht mehr zu Ihrer Schule oder ist sie nicht mehr für die Kalender-App freigegeben, zieht edulution die Freigabe beim nächsten Abgleich zurück.
+
 :::info[Backend-Voraussetzung]
 
-Das Freigeben und Abonnieren von Kalendern nutzt die proprietären ACL-Funktionen von **SoGo** und ist nur verfügbar, wenn als CalDAV-Server SoGo eingesetzt wird. Die reine Terminsynchronisierung funktioniert dagegen mit jedem standardkonformen CalDAV-Server. Welcher CalDAV-Server verwendet wird, legt die Administration in den [Einstellungen der Kalender-App](../../konfiguration/einstellungen.md#kalender-caldav) fest.
+Das Freigeben von Kalendern ist mit **SoGo** (über dessen ACL-Funktionen) und mit **Stalwart** möglich. Die reine Terminsynchronisierung funktioniert dagegen mit jedem standardkonformen CalDAV-Server. Welcher Mailserver und welcher CalDAV-Server verwendet wird, legt die Administration in den [Einstellungen](../../konfiguration/einstellungen.md#mailserver) und den [Einstellungen der Kalender-App](../../konfiguration/einstellungen.md#kalender-caldav) fest.
 
 :::
 
@@ -510,7 +534,7 @@ Der Link überträgt die Termine von fünf Jahren in der Vergangenheit bis fünf
 
 Dieser Abschnitt beschreibt Kalender, die **andere Benutzer Ihrer Schule** für Sie freigegeben haben. Externe Kalender, die Sie selbst über eine Adresse abonnieren, sind etwas anderes und stehen in der eigenen Gruppe **Web-Kalender** (siehe [Web-Kalender abonnieren](#web-kalender-abonnieren)).
 
-Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste.
+Kalender, die andere für Sie freigegeben haben, erscheinen unter **Abonnierte Kalender** und sind mit einem Freigabe-Symbol sowie einem gestrichelten Rahmen gekennzeichnet. Über das Kontextmenü eines abonnierten Kalenders entfernen Sie ihn mit **Abbestellen** wieder aus Ihrer Liste. Mit dem Mailserver Stalwart steht **Abbestellen** nicht zur Verfügung; dort blenden Sie den Kalender stattdessen aus.
 
 Ein abonnierter Kalender ist **nicht grundsätzlich schreibgeschützt**. Was Sie darin tun dürfen, richtet sich nach den Rechten, die die freigebende Person Ihnen erteilt hat (siehe [Kalender freigeben](#kalender-freigeben)):
 
@@ -525,6 +549,20 @@ Da die Rechte je Sichtbarkeit vergeben werden, können sich die Termine **eines 
 Termine, die Sie sehen, aber nicht bearbeiten dürfen, öffnen sich beim Anklicken in einer reinen **Detailansicht** statt im Bearbeiten-Dialog. Sie zeigt Zeitraum, Kalender, Ort, Beschreibung, Sichtbarkeit, Zeit-Status und Teilnehmer, bietet aber keine Eingabefelder.
 
 Besitzen Sie für die Sichtbarkeit des Termins nur die Rolle **Datum & Uhrzeit sehen**, nennt die Detailansicht ausschließlich den Zeitraum und den Kalender und weist die Zeit als belegt aus — Titel, Ort, Beschreibung und Teilnehmer bleiben verborgen. Termine, für die Sie die Rolle **Keine** besitzen, erscheinen gar nicht erst im Kalender.
+
+## Gemeinsame Kalender der Schule
+
+Zusätzlich zu den Kalendern der Benutzer kann die Administration **gemeinsame Kalender** für ganze Gruppen bereitstellen, etwa einen Schulkalender. Gehören Sie zu einer der Gruppen, für die ein solcher Kalender sichtbar ist, sehen Sie ihn in Ihrer Kalenderliste und dürfen darin Termine eintragen. Sie müssen ihn dafür nicht selbst anlegen und es muss ihn niemand für Sie freigeben.
+
+Wer in die Gruppe aufgenommen oder aus ihr entfernt wird, erhält bzw. verliert den Zugang mit einer Verzögerung von bis zu 15 Minuten.
+
+Gemeinsame Kalender gibt es nur, wenn die Installation den Mailserver **Stalwart** nutzt.
+
+### Feiertage und Schulferien
+
+Hat die Administration den automatischen Eintrag von Feiertagen und Schulferien eingeschaltet, stehen diese als Termine in dem gemeinsamen Kalender, den sie dafür festgelegt hat. Welche Feiertage und Ferien erscheinen und für wie viele Jahre im Voraus, bestimmt die Administration (Land, Bundesland, Feiertage und/oder Schulferien).
+
+edulution gleicht die Einträge einmal täglich neu ab. Änderungen, die Sie selbst an einem solchen Termin vornehmen, bleiben deshalb nicht dauerhaft erhalten; legen Sie eigene Hinweise besser als eigene Termine in einem anderen Kalender an.
 
 ## Web-Kalender abonnieren
 
@@ -583,7 +621,14 @@ Die Verbindung zum Kalender-Server richtet die Administration Ihrer Schule ein. 
 
 ## Einrichtung (für Administratoren)
 
-Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](../../konfiguration/einstellungen.md#kalender-caldav) als Global-Admin konfiguriert (CalDAV-URL, Authentifizierungsmodus und Zertifikatsprüfung). Das [Freigeben und Abonnieren von Kalendern](#kalender-freigeben) setzt dabei einen SoGo-Server voraus; die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server.
+Die Anbindung der Kalender-App an den CalDAV-Server wird in den [Einstellungen](../../konfiguration/einstellungen.md#kalender-caldav) als Global-Admin konfiguriert (CalDAV-URL, Authentifizierungsmodus und Zertifikatsprüfung). Das [Freigeben von Kalendern](#kalender-freigeben) funktioniert mit einem SoGo-Server und mit dem Mailserver Stalwart, der unter [Mailserver](../../konfiguration/einstellungen.md#mailserver) ausgewählt wird; die reine Terminsynchronisierung funktioniert mit jedem standardkonformen CalDAV-Server.
+
+Nur bei Stalwart stehen zwei weitere Funktionen zur Verfügung, die Sie in den Einstellungen der Kalender-App einrichten:
+
+- [Gemeinsame Kalender](../../konfiguration/einstellungen.md#gemeinsame-kalender) für ganze Gruppen, die den Benutzern als [gemeinsame Kalender der Schule](#gemeinsame-kalender-der-schule) erscheinen.
+- [Feiertage und Schulferien](../../konfiguration/einstellungen.md#feiertage-und-schulferien), die edulution in einen dieser gemeinsamen Kalender einträgt (siehe [Feiertage und Schulferien](#feiertage-und-schulferien)).
+
+Der automatische Abgleich der Gruppenfreigaben (siehe [Freigabe mit Stalwart](#freigabe-mit-stalwart)) setzt voraus, dass für den Besitzer des Kalenders ein Mail-Zugang in edulution hinterlegt ist; ohne ihn überspringt edulution dessen Freigaben und gleicht erst wieder ab, wenn der Besitzer den Freigabe-Dialog öffnet.
 
 Diese Verbindung gilt ausschließlich für die Kalender-App. Die Kontakte- und die E-Mail-App verwenden jeweils ihre eigene; eine dort abgeschaltete Zertifikatsprüfung wirkt sich daher nicht auf die Kalender-Verbindung aus.
 

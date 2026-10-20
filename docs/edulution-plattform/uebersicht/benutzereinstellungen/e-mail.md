@@ -24,6 +24,27 @@ Der formatierte Editor unterstützt nicht alle HTML-Formatierungen. Enthält Ihr
 
 Dieselbe Umschaltung steht Ihnen auch beim [Verfassen einer E-Mail](../../../edulution-mail/index.md#html-quelltext-bearbeiten) zur Verfügung.
 
+## Passwörter für Mail-Programme
+
+Mail-Programme wie Thunderbird oder Outlook und Mail-Apps auf dem Handy melden sich nicht mit Ihrem edulution-Passwort an. Stattdessen erzeugen Sie hier für jedes Gerät ein eigenes **Gerätepasswort**. Der Abschnitt erscheint nur, wenn Ihre Schule das Mail-Backend Stalwart verwendet. Andernfalls meldet er, dass Sie sich im Mail-Programm mit Ihrem Schulpasswort anmelden und keine Gerätepasswörter benötigen.
+
+Im Abschnitt sehen Sie die **Serverdaten** für Ihr Mail-Programm: Benutzername (Ihre E-Mail-Adresse) sowie Server, Port und Verschlüsselung für den Posteingang (IMAP) und den Postausgang (SMTP). Ein Klick auf einen Wert kopiert ihn in die Zwischenablage. Darunter listet die Tabelle **Gerätepasswörter** Ihre bisherigen Geräte mit dem Erstelldatum.
+
+### Gerätepasswort erzeugen
+
+1. Wählen Sie **Gerätepasswort erzeugen** und vergeben Sie einen Gerätenamen, an dem Sie das Gerät später wiedererkennen, z. B. „Diensthandy“.
+2. edulution zeigt Ihnen Benutzername, Passwort und Serverdaten. Tragen Sie diese im Mail-Programm ein.
+
+:::warning[Passwort wird nur einmal angezeigt]
+Das Passwort ist nur in diesem Dialog sichtbar. Nach dem Schließen lässt es sich nicht mehr auslesen, sondern nur durch ein neues Gerätepasswort ersetzen.
+:::
+
+Für iPhone, iPad und Mac bietet der Dialog zusätzlich **Profil für Apple-Geräte laden**, sofern edulution ein Profil erstellen konnte. Die heruntergeladene Datei richtet Mail sowie, soweit in edulution eingerichtet, Kalender und Kontakte samt Passwort auf dem Gerät ein.
+
+### Gerätepasswort widerrufen
+
+Markieren Sie in der Tabelle ein oder mehrere Geräte und wählen Sie **Widerrufen**. Das Passwort gilt danach sofort nicht mehr, und das Gerät erreicht Ihr Postfach nicht mehr. Widerrufen Sie das Passwort daher z. B. bei einem verlorenen Gerät. Die übrigen Geräte bleiben unverändert eingerichtet.
+
 ## Senden rückgängig machen
 
 Mit dieser Option verzögern Sie den Versand Ihrer E-Mails um ein kurzes Zeitfenster, in dem Sie das Senden noch abbrechen können. Das **Zeitfenster** gilt auch bei ausgeschaltetem verzögertem Senden für das [endgültige Löschen](../../../edulution-mail/index.md#endgültiges-löschen-rückgängig-machen).

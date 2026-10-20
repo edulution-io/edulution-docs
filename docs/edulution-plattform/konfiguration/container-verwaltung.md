@@ -30,7 +30,7 @@ Eine App-eigene Sektion **Docker Anwendungen** besitzen die Apps, deren Dienste 
 
 | App | Container |
 |-----|-----------|
-| E-Mail | `edulution-mail` |
+| E-Mail | `edulution-mail` (mailcow) oder `edulution-stalwart` (Stalwart) |
 | Klassenzimmer | `edulution-veyon` |
 | Desktop-Bereitstellung | `edulution-guacamole` |
 | Lernplattform (Moodle) | `edulution-moodle` |
@@ -103,6 +103,27 @@ Die Container zusätzlicher Dienste werden nicht von Hand angelegt, sondern aus 
 
 Alternativ starten Sie die Installation direkt aus der App: **Einstellungen → *App* → Docker Anwendungen → Installieren**. Der Ablauf ist identisch, die App ist dabei bereits vorausgewählt.
 
+### E-Mail: mailcow oder Stalwart wählen
+
+edulution Mail gibt es auf zwei Grundlagen. Wählen Sie im Dialog **Plugin zur Installation auswählen** die App **E-Mail**, erscheint unter der Auswahl eine zweite Liste, in der Sie den Mailserver festlegen:
+
+| Auswahl | Installiert |
+|---------|-------------|
+| **mailcow (bisher)** | den bisherigen Mailserver `edulution-mail` |
+| **Stalwart** | den Mailserver `edulution-stalwart` |
+
+Die Oberfläche der Mail-App bleibt in beiden Fällen dieselbe. Voreingestellt ist mailcow. Für andere Apps erscheint die Liste nicht.
+
+Welchen Container edulution als den Mailserver ansieht, richtet sich nach der Einstellung **Mailserver** (Auswahl des Backends) unter **Einstellungen → E-Mails**. Sie wirkt zum Beispiel darauf, welcher Container bei **Neu starten** der Mail-App angesprochen wird. Die Einstellung und die zugehörigen Zugangsdaten beschreibt [Einstellungen → Mailserver](./einstellungen.md#mailserver).
+
+#### Nach der Installation von Stalwart
+
+Ein frisch gestarteter Stalwart-Container ist noch leer: Er kennt weder Ihre Maildomain noch ein Dienstkonto für edulution. Deshalb richtet edulution ihn im Anschluss an die Installation **automatisch** ein. Dafür ist kein weiterer Schritt nötig; der Vorgang gehört zum Klick auf **Installieren** und endet erst, wenn die Einrichtung abgeschlossen ist. Dabei stellt edulution die Einstellung **Mailserver** der E-Mail-App auf **Stalwart** um und trägt den **Benutzer der Verwaltungs-API** ein; Sie müssen beides nicht von Hand setzen.
+
+Die Maildomain, die Sie bei der Installation angeben, wird dabei auf dem Mailserver angelegt. Die DNS-Einträge dazu (unter anderem die DKIM-Schlüssel) finden Sie danach in den Mail-Einstellungen unter [Domains](./einstellungen.md#mail-domains).
+
+Schlägt die Einrichtung fehl, zeigt edulution die Fehlermeldung an (siehe [Fehlerbehebung](#fehlerbehebung)). Der Container selbst bleibt dann angelegt.
+
 ### Abgefragte Werte
 
 Welche Felder erscheinen, hängt von der Vorlage ab. Gebräuchlich sind:
@@ -110,11 +131,14 @@ Welche Felder erscheinen, hängt von der Vorlage ab. Gebräuchlich sind:
 | Feld | Erläuterung |
 |------|-------------|
 | **Installations-Token** | Token aus dem Edulution-Manager (nur beim Edulution-Manager-Agent) |
-| **Hostname** | Hostname des Mailservers, kann von der edulution-Domain abweichen |
+| **Hostname** | Hostname der edulution-Instanz (z. B. `schule.de`). Verwenden Sie keine eigene Mail-Domain, die E-Mail-Dienste werden über die edulution-URL bereitgestellt |
+| **Maildomain** | Nur bei Stalwart: die Domain hinter dem @ der Mailadressen (z. B. `schule.de`). Ohne sie nimmt der Server keine Post an |
 | **IP-Netzwerk**, **Adresse**, **DNS-Server** | Netzwerkparameter der WireGuard-Installation |
 | **WWW-Root**, **Admin E-Mail**, **Admin Passwort**, **Website-Name** | Grunddaten der Moodle-Installation |
 
 Zugangsdaten, die edulution bereits kennt – etwa API-Schlüssel der App-Konfiguration –, werden automatisch eingesetzt und nicht abgefragt. Passwörter und Schlüssel, die nur der Container selbst benötigt (z. B. die Datenbank-Passwörter von Moodle), erzeugt edulution bei der ersten Installation und verwendet sie bei einer erneuten Installation unverändert weiter.
+
+Bei Stalwart gilt das für das Administrator-Passwort, das Passwort des edulution-Dienstkontos und das Geheimnis für den Abgleich mit Keycloak. Sie müssen keines davon eintragen. Eine erneute Installation behält die bereits erzeugten Passwörter bei, sodass Stalwart nicht plötzlich andere Zugangsdaten erwartet als die, die edulution gespeichert hat.
 
 ### Wo die Konfiguration abgelegt wird
 
@@ -221,6 +245,9 @@ Fehlt die Schaltfläche, prüfen Sie, ob unter **Einstellungen → Desktop-Berei
 |---------|---------------------|
 | *Docker-Verbindung fehlgeschlagen* | Die API erreicht den Docker-Socket nicht. Prüfen Sie, ob `/var/run/docker.sock` in den Container `edulution-api` eingebunden ist. |
 | *Docker Image konnte nicht gefunden werden* | Das Image ließ sich nicht laden. Prüfen Sie die Internetverbindung des Servers und den Zugriff auf die Registry. |
+| *Die Ersteinrichtung des Mailservers ist fehlgeschlagen*, *Die Domain konnte bei der Einrichtung nicht angelegt werden* oder *Das Dienstkonto konnte nicht eingerichtet werden* | Der Stalwart-Container wurde angelegt, die automatische Einrichtung danach aber nicht abgeschlossen. Prüfen Sie über **Neu laden**, ob `edulution-stalwart` läuft, und installieren Sie ihn bei Bedarf erneut: Bereits erzeugte Passwörter bleiben dabei erhalten. Bleibt der Fehler, nennt das Log des API-Containers die Ursache. |
+| *Der Mailserver hat nicht rechtzeitig geantwortet* | Stalwart war bei der Einrichtung noch nicht erreichbar, etwa weil der Container noch startet. Warten Sie einen Moment, prüfen Sie, dass der Container läuft, und installieren Sie erneut. |
+| *Mit den Zugangsdaten aus dem Container ist nur die Adresse des Containers oder seine öffentliche Adresse erlaubt* | Die Adresse des Mailservers, mit der die Einrichtung arbeiten soll, passt weder zum Container noch zu dessen öffentlicher Adresse. Prüfen Sie die Mailserver-Angaben unter [Einstellungen → Mailserver](./einstellungen.md#mailserver). |
 | *Docker Container konnte nicht erstellt werden* | Die Installation ist fehlgeschlagen – häufig, weil ein Name oder Port bereits belegt ist. Der Fortschrittsbereich des Dialogs nennt den letzten erfolgreichen Schritt. |
 | *Docker Befehl konnte nicht ausgeführt werden* | Die Aktion wurde abgewiesen. Bei einem [geschützten Container](#geschützte-container) ist das beabsichtigt. |
 | *Docker Container konnte nicht aktualisiert werden* | Das Update wurde abgebrochen. Prüfen Sie über **Neu laden**, ob der Container läuft, und starten Sie ihn andernfalls neu. |

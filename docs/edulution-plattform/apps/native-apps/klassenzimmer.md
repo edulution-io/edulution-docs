@@ -196,9 +196,9 @@ Ein Raum kann mehrere Layouts haben, zum Beispiel „Frontalunterricht“ und �
 
 #### Layout bearbeiten
 
-![Layout-Editor mit Objektarten, Raster und Layouts des Raums](/img/klassenraum/sitzplan-editor.webp)
+![Layout-Editor mit Raster, Objektarten in der Spalte rechts daneben und Layouts des Raums](/img/klassenraum/sitzplan-editor.webp)
 
-1. Wählen Sie eine Objektart und klicken Sie auf eine freie Zelle im Raster, um das Objekt dort zu setzen. Vorhandene Objekte ziehen Sie mit der Maus an eine andere Stelle.
+1. Wählen Sie in der Spalte rechts neben dem Raster eine Objektart und klicken Sie auf eine freie Zelle im Raster, um das Objekt dort zu setzen. Vorhandene Objekte ziehen Sie mit der Maus an eine andere Stelle.
 2. Das Raster ist der Raum. Tische bringen ihre Sitzplätze mit, ein Doppeltisch zum Beispiel zwei.
 3. Vergrößern oder verkleinern Sie die Ansicht.
 4. An den Rändern des Rasters ziehen Sie den Raum breiter, schmaler, höher oder flacher. Ziehen Sie am linken oder oberen Rand, rücken die Objekte mit.

@@ -14,6 +14,26 @@ Standardmäßig werden die Kategorien in einer Zeile von links nach rechts aufge
 ![Infoboard - Mehrzeilig](/img/schwarzes-brett/schwarzes-brett-change-row-count.png)
 :::
 
+### Leere Kategorien
+
+Kategorien ohne aktive Mitteilungen werden nicht angezeigt. Dadurch stehen die Spalten mit aktuellen Mitteilungen immer vorne, und eine wichtige Mitteilung rutscht nicht hinter mehrere leere Kategorien.
+
+Wird in einer leeren Kategorie eine Mitteilung veröffentlicht, erscheint die Kategorie sofort wieder – auch ohne die Seite neu zu laden. Bei einer geplanten Mitteilung, deren Startdatum erst später erreicht wird, erscheint die Kategorie dagegen erst, wenn Sie das Infoboard das nächste Mal öffnen oder die Seite neu laden. Enthält keine der für Sie freigegebenen Kategorien eine aktive Mitteilung, erscheint anstelle der Spalten der Hinweis **Derzeit gibt es in keiner Kategorie aktuelle Mitteilungen.**
+
+<Audience roles="advanced">
+
+:::tip[Eigene leere Kategorien einblenden]
+Wenn Sie Mitteilungen verwalten dürfen, blendet die Einstellung **Ansicht** → **Leere Kategorien anzeigen** zusätzlich die leeren Kategorien ein, für die Sie Schreibrechte besitzen – etwa um dort die erste Mitteilung zu erstellen. Die Einstellung ist standardmäßig ausgeschaltet und wird pro Benutzer gespeichert, gilt also auf allen Ihren Geräten.
+
+Leere Kategorien, für die Sie nur Leserechte besitzen, bleiben unabhängig davon ausgeblendet.
+
+Enthält keine Ihrer Kategorien eine aktive Mitteilung, weist der Hinweis in der leeren Übersicht Sie darauf hin und bietet **Leere Kategorien anzeigen** direkt als Schaltfläche an – Sie müssen dafür nicht ins Menü **Ansicht** wechseln.
+
+Unabhängig von dieser Einstellung können Sie über **Erstellen** in der Menüleiste jederzeit eine Mitteilung in jeder Kategorie anlegen, für die Sie Schreibrechte besitzen.
+:::
+
+</Audience>
+
 ### Tabelle
 
 Übersicht aller Mitteilungen, filterbar nach Kategorien.
@@ -65,6 +85,8 @@ Bestehende Mitteilungen lassen sich jederzeit nachträglich anpassen oder entfer
 
 :::tip[Mitteilung deaktivieren statt löschen]
 Über die Einstellung **Aktiv** einer Mitteilung lässt sich diese vorübergehend ausblenden, ohne sie zu löschen. So bleibt der Inhalt erhalten und kann später wieder eingeblendet werden.
+
+War es die letzte aktive Mitteilung der Kategorie, verschwindet damit auch deren Spalte aus der Übersicht (siehe [Leere Kategorien](#leere-kategorien)). Dasselbe geschieht, wenn die letzte Mitteilung ihr Datum **Aktiv bis** überschreitet.
 :::
 
 </Audience>

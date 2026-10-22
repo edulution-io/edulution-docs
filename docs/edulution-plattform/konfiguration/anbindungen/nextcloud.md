@@ -6,7 +6,7 @@ sidebar_custom_props:
 
 # Nextcloud Cookie Auth
 
-<img src="/img/anbindungen/edulution.io_NEXTCLOUD.svg" alt="Nextcloud Logo" width="200" />
+<img src="../../../img/anbindungen/edulution.io_NEXTCLOUD.svg" alt="Nextcloud Logo" width="200" />
 
 Nextcloud-Plugin für automatischen Login via edulution.
 
@@ -41,6 +41,6 @@ Nextcloud muss unter einer **Subdomain von edulution** laufen, z.B. `cloud.edu.s
 
 ## Installation
 
-1. **[Voraussetzungen prüfen](/docs/edulution-plattform/konfiguration/anbindungen/voraussetzungen)**
-2. **[Plugin installieren](/docs/edulution-plattform/konfiguration/anbindungen/installation)**
-3. **[Konfigurieren](/docs/edulution-plattform/konfiguration/anbindungen/konfiguration)**
+1. **[Voraussetzungen prüfen](./voraussetzungen.md)**
+2. **[Plugin installieren](./installation.md)**
+3. **[Konfigurieren](./konfiguration.md)**

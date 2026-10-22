@@ -11,7 +11,7 @@ Die App **MDM** verwaltet die mobilen Geräte Ihrer Einrichtung – Tablets, Sma
 Alle Daten stammen aus einer angebundenen **Relution**-Instanz und werden live über deren API geladen. Die edulution Plattform hält dafür keinen eigenen Zwischenspeicher. Der Name **Relution** taucht in der Oberfläche nur in Beschreibungen, der Benutzerverwaltung und in Fehlermeldungen auf – überall sonst heißt die App schlicht **MDM**.
 :::
 
-![MDM Übersicht](/img/features/mdm-overview.png)
+![MDM Übersicht](../img/features/mdm-overview.png)
 
 ## Aufbau der App
 

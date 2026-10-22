@@ -49,7 +49,7 @@ sudo -u www-data php occ config:app:delete nextcloud-app-cookieauth cached_publi
 
 **Ursache:** Framing ist in Nextcloud nicht erlaubt.
 
-**Lösung:** Siehe [Voraussetzungen → Framing erlauben](/docs/edulution-plattform/konfiguration/anbindungen/voraussetzungen#framing-erlauben)
+**Lösung:** Siehe [Voraussetzungen → Framing erlauben](./voraussetzungen.md#framing-erlauben)
 
 ### Session funktioniert nicht im iFrame
 

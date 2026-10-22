@@ -15,7 +15,7 @@ Diese Einstellungen sind ausschließlich für Global-Admins zugänglich.
 
 Öffnen Sie als Global-Admin die **Einstellungen** (Zahnrad-Symbol unten im Menü) und wählen Sie in der Seitenleiste **Wiki**. Scrollen Sie im Hauptbereich zum ausklappbaren Abschnitt **Wiki-Sichtbarkeit**.
 
-![Wiki Sichtbarkeit](/img/wiki/sichtbarkeit-tabelle.png)
+![Wiki Sichtbarkeit](../../img/wiki/sichtbarkeit-tabelle.png)
 
 ## Tabelle der Freigaben
 
@@ -33,7 +33,7 @@ Die Tabelle listet alle WebDAV-Freigaben des Systems mit ihren Wiki-relevanten E
 
 ## Wiki einer Freigabe konfigurieren
 
-![Wiki bearbeiten](/img/wiki/sichtbarkeit-dialog.png)
+![Wiki bearbeiten](../../img/wiki/sichtbarkeit-dialog.png)
 
 ### Wiki aktivieren
 

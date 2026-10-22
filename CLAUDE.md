@@ -55,7 +55,17 @@ Sparsam und gezielt: dort, wo ein Element schwer zu finden ist oder eine Entsche
 - Admonitions mit Titel in eckigen Klammern: `:::warning[Titel]`. Typ nach Gewicht wählen: `note` < `info` < `caution` < `warning` < `danger`.
 - Feldlisten, Meldungen und Fehlerursachen als Tabelle, nicht als Fließtext.
 - Frontmatter `sidebar_custom_props.audience` und vorhandene `<Audience roles="…">`-Blöcke beibehalten. Rollen, Organisationstypen und Syntax des Zielgruppen-Systems stehen im [README](README.md#zielgruppen-rolle-organisationstyp).
-- Interne Verweise als relative Links auf die `.md`-Datei, nie als absolute URL.
+- Interne Verweise als relative Links auf die `.md`-Datei, nie als absolute URL. Ein absoluter `/docs/…`-Link führt aus der Version heraus, die gerade gelesen wird – die CI bricht darauf ab.
+- Bilder liegen unter `docs/img/` und werden ebenfalls relativ eingebunden (`../img/umfragen/uebersicht.png`), damit jeder Versionsschnitt seine eigenen mitnimmt.
+
+## Versionen
+
+Das Portal zeigt den veröffentlichten Stand. `docs/` ist der Entwicklungsstand und liegt unter `/docs/next/`; ein Schnitt – von Hand, im Regelfall monatlich, benannt nach dem Monat (`2026.10.0`) – legt einen Schnappschuss unter `versioned_docs/` ab. Einzelheiten im [README](README.md#versionen).
+
+- Geschrieben wird weiterhin in `docs/`. Ein Merge nach `main` ändert nur den Entwicklungsstand und wird mit dem nächsten Schnitt veröffentlicht.
+- Eine **bereits veröffentlichte** Seite korrigiert man direkt in `versioned_docs/version-<stand>/…`. Sonst erreicht die Korrektur die Leser erst mit dem nächsten Schnitt.
+- `versioned_docs/` und `versioned_sidebars/` sind eingefrorene Geschichte: bei einem Umbau der Seitenstruktur **nicht** mitziehen, nicht umbenennen.
+- Rollen- und Organisations-IDs in `src/components/audience/taxonomy.ts` nur erweitern, nie umbenennen oder entfernen – die eingefrorenen Stände werden von der lebenden Taxonomie gerendert, die bei unbekannter ID den Build abbricht. Dasselbe gilt für die Eigenschaften der global registrierten MDX-Komponenten.
 
 ## Kommentare im Code
 
@@ -71,6 +81,8 @@ Gilt für Code (`src/`, `docusaurus.config.ts`, `sidebars.ts`, CSS), nicht für 
 ## Vor dem Commit
 
 - `npm run build` ausführen. `onBrokenLinks` und `onBrokenAnchors` stehen auf `throw`, ein erfolgreicher Build belegt also, dass alle internen Verweise auflösen – auf die Seite ebenso wie auf den Abschnitt (`#anker`).
+- `DOCS_INCLUDE_NEXT=true npm run build` prüft zusätzlich den Entwicklungsstand – genau das, woran gerade gearbeitet wird. Der Bau ohne die Variable lässt ihn aus.
+- Der Build umfasst alle eingebundenen Versionen; ein Fehler kann also aus einem Schnappschuss kommen, den man gar nicht angefasst hat.
 - Beim Verschieben oder Umbenennen von Seiten prüfen, ob eingehende Links und `docusaurus.config.ts` (Redirects) nachgezogen werden müssen.
 
 ## Grundlage

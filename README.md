@@ -43,10 +43,109 @@ Dieser Befehl generiert statische Inhalte im `build` Verzeichnis.
   - `/edulution-vdi` - edulution VDI Dokumentation
   - `/edulution-mdm` - edulution MDM Dokumentation
   - `/edulution-fileproxy` - edulution FileProxy Dokumentation
+  - `/img` - Bildschirmfotos der Dokumentation. Sie liegen bewusst unter
+    `/docs` und nicht unter `/static`, damit jeder Versionsschnitt seine
+    eigenen mitnimmt. Verweise darauf sind **relativ**
+    (`../img/umfragen/uebersicht.png`).
 
-- `/changelogs` - Versionshistorie und Änderungsprotokolle
-- `/static` - Statische Assets (Bilder, Icons, etc.)
+- `/versioned_docs`, `/versioned_sidebars`, `versions.json` - die
+  ausgelieferten Stände, siehe [Versionen](#versionen)
+- `/changelogs` - Versionshistorie, gerendert von `/src/pages/changelog.mdx`
+- `/static` - Statische Assets des Portals selbst (Logos, Changelog-Bilder)
 - `/src` - Custom React Komponenten und Styles
+
+## Versionen
+
+Das Portal zeigt den jeweils veröffentlichten Stand der Dokumentation und
+nicht den Stand von `edulution-ui:dev`.
+
+| Ort | Adresse | Inhalt |
+| --- | --- | --- |
+| `docs/` | `/docs/next/…` | Entwicklungsstand, Spiegel von `edulution-ui:dev`. **Nicht im öffentlichen Portal.** |
+| `versioned_docs/version-<stand>/` | `/docs/…` | Neuester veröffentlichter Stand – ohne Präfix, damit Verweise aus der Anwendung weiter auflösen |
+| ältere `versioned_docs/…` | `/docs/<stand>/…` | Eingefrorene frühere Stände |
+
+Geschnitten wird **von Hand**, im Regelfall einmal im Monat, und unabhängig
+davon, wann edulution ausgeliefert wird. Die Nummer ist der Monat des Schnitts,
+innerhalb des Monats von null an gezählt: `2026.10.0`, ein zweiter Stand im
+Oktober `2026.10.1`. Ein neuer Stand ersetzt keinen älteren – der bleibt unter
+seiner Adresse lesbar. Gebaut werden die neuesten acht (`BUILT_VERSIONS` in
+`docusaurus.config.ts`); alle älteren bleiben im Git und lassen sich jederzeit
+wieder dazunehmen.
+
+Solange noch nichts geschnitten ist, gibt es keine `versions.json`: Der
+Entwicklungsstand ist dann der einzige und liegt wie bisher unter `/docs/`. Der
+erste Schnappschuss entsteht mit dem ersten Schnitt – bewusst nicht vorab, weil
+`docs/` den Stand von `dev` beschreibt und damit auch Funktionen, die noch bei
+niemandem angekommen sind.
+
+### Was das für die tägliche Arbeit bedeutet
+
+Ein Merge nach `main` ändert nur noch `/docs/next/…`. Veröffentlicht wird er mit
+dem nächsten Schnitt – dann entsteht ein neuer Schnappschuss aus `docs/`.
+
+Eine **bereits veröffentlichte** Seite korrigiert man direkt in
+`versioned_docs/version-<stand>/…`. Das ist der einzige Weg, eine Korrektur vor
+dem nächsten Schnitt zu den Lesern zu bringen.
+
+`versioned_docs/` und `versioned_sidebars/` sind eingefrorene Geschichte: bei
+einem Umbau der Seitenstruktur werden sie **nicht** mitgezogen.
+
+### Schnitt auslösen
+
+Actions → *Cut docs version* → *Run workflow*. Der Workflow fragt ab, was er
+nicht selbst wissen kann:
+
+| Eingabe | Beispiel | Wofür |
+| --- | --- | --- |
+| `edulution_version` | `2.3` | Welche edulution-Version dieser Stand beschreibt. Ein Datum sagt das nicht, und die Leser brauchen es. |
+| `notes` | `- Satelliten-LINBO neu` | Was der Stand ändert. Wird zu den Release Notes. |
+| `milestone` | `Release 2.4` | Der Meilenstein, zu dem der Stand gehört. Leer nimmt den einzigen offenen; einen Namen, den es nicht gibt, weist der Workflow zurück, bevor er schneidet. |
+
+Die Nummer des Stands berechnet der Workflow selbst. Er schneidet, baut beide
+Builds, committet nach `main` und startet das Release, das den Stand live
+stellt; `edulution_version` steht danach in der Commit-Nachricht, und
+`edulution_version`, `milestone` und `notes` stehen in den Release Notes:
+
+```markdown
+## Dokumentationsstand 2026.10.0
+
+Dokumentiert edulution 2.3.
+Meilenstein: [Release 2.4](https://github.com/edulution-io/edulution-docs/milestone/4)
+
+- Satelliten-LINBO neu
+```
+
+Lokal, zum Ausprobieren – der Schnitt wird nicht committet:
+
+```bash
+npm run docs:version 2026.10.0
+```
+
+### Lokal arbeiten
+
+```bash
+npm start                          # nur docs/, ohne Altversionen – schneller Start
+DOCS_ALL_VERSIONS=true npm start   # mit Versionsauswahl
+DOCS_INCLUDE_NEXT=true npm run build   # wie die CI prüft: mit Entwicklungsversion
+```
+
+`npm run build` ohne `DOCS_INCLUDE_NEXT` ist der Bau, der deployt wird – ohne
+Entwicklungsversion.
+
+### Zwei Regeln, die der Build nicht immer abfängt
+
+- **Keine absoluten `/docs/…`-Links** in `docs/**`. Sie zeigen aus einer
+  Version in eine andere, und `onBrokenLinks` sieht das nicht, weil das Ziel
+  ja existiert. Die CI bricht darauf ab.
+- **Rollen- und Organisations-IDs in `src/components/audience/taxonomy.ts` nur
+  erweitern.** Die eingefrorenen Seitenleisten und Front-Matter-Angaben werden
+  von der *lebenden* Taxonomie gerendert, die bei unbekannter ID den Build
+  abbricht. Eine Umbenennung muss in einem Zug über `docs`, `sidebars.ts`,
+  `versioned_docs` und `versioned_sidebars` laufen. Dasselbe gilt für die
+  global registrierten MDX-Komponenten (`Audience`, `AudiencePicker`,
+  `AppCards`, `RoleSummary`, `AudienceFaq`, `Cards`, `Card`): eingefrorene
+  Seiten rufen sie weiter mit den heutigen Eigenschaften auf.
 
 ## Zielgruppen (Rolle, Organisationstyp)
 
@@ -194,6 +293,8 @@ In `sidebars.ts` an der Kategorie:
 Ein Push auf `main` ändert die Live-Doku noch nicht – sie wird erst mit einem Release neu gebaut.
 
 Den Workflow **Release** unter **Actions** mit **Run workflow** auf `main` starten. Er baut die Doku und schreibt die nächste Version nach dem Schema `Jahr.Monat.Nummer` (z. B. `2026.10.0`, danach `2026.10.1`) als Commit in die `package.json` auf `main`. Dann legt er das Release mit dem Tag `v` + Version an (z. B. `v2026.10.0`) und startet den Deploy. Die Fußzeile der Doku zeigt diese Version.
+
+Ein Versionsschnitt braucht keinen Handgriff: `docs-version.yml` committet den Schnappschuss nach `main` und startet anschließend **Release**, damit die neue Auslieferung dieselbe Strecke nimmt wie jede andere Änderung (siehe [Versionen](#versionen)).
 
 Ein Release, das von Hand in der GitHub-Oberfläche veröffentlicht wird, löst keinen Deploy aus, weil es die Version in der `package.json` nicht setzt. Um einen älteren Stand wieder live zu schalten, den Workflow **Deploy Docusaurus to GitHub Pages** mit **Run workflow** auf dessen Tag starten.
 

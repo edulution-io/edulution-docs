@@ -4,7 +4,7 @@ Die edulution App bietet vollständigen Zugriff auf alle Funktionen auch auf Sma
 
 ## Mobile Kopfleiste
 
-Auf Smartphones und Tablets erscheint über dem Seiteninhalt eine Kopfleiste. Sie ersetzt die dauerhaft eingeblendete Seitenleiste der Desktop-Ansicht – App-Menü und Seitenleiste fahren stattdessen nur bei Bedarf ein. Öffnen Sie die Plattform über die [edulution.io App](/docs/edulution-app), erscheint die Kopfleiste unabhängig von der Bildschirmgröße, also auch auf einem iPad im Querformat.
+Auf Smartphones und Tablets erscheint über dem Seiteninhalt eine Kopfleiste. Sie ersetzt die dauerhaft eingeblendete Seitenleiste der Desktop-Ansicht – App-Menü und Seitenleiste fahren stattdessen nur bei Bedarf ein. Öffnen Sie die Plattform über die [edulution.io App](./index.md), erscheint die Kopfleiste unabhängig von der Bildschirmgröße, also auch auf einem iPad im Querformat.
 
 ### Aufbau
 
@@ -38,7 +38,7 @@ Wird die Plattform über die edulution.io App geöffnet, öffnet das **Handy-Sym
 | **Schülerausweis** bzw. **Mitarbeiterausweis** | den digitalen Ausweis Ihres Kontos | angemeldet |
 | **OTP anzeigen** | das Einmalpasswort (TOTP) des aktiven Kontos | angemeldet, [Zwei-Faktor-Authentifizierung](../edulution-plattform/uebersicht/benutzereinstellungen/sicherheit.md#zwei-faktor-authentifizierung) aktiv, App ab Version 2.1.11 |
 
-Wie der Ausweis heißt, richtet sich nach dem Organisationstyp der Installation: In Schulen ist es der **Schülerausweis**, in Unternehmen und in der öffentlichen Verwaltung der **Mitarbeiterausweis**. Was der Ausweis enthält, steht unter [Die edulution.io App](/docs/edulution-app).
+Wie der Ausweis heißt, richtet sich nach dem Organisationstyp der Installation: In Schulen ist es der **Schülerausweis**, in Unternehmen und in der öffentlichen Verwaltung der **Mitarbeiterausweis**. Was der Ausweis enthält, steht unter [Die edulution.io App](./index.md).
 
 **OTP anzeigen** erscheint nur, wenn Sie die Zwei-Faktor-Authentifizierung für Ihr Konto eingerichtet haben. Ohne 2FA gibt es kein Einmalpasswort, das die App anzeigen könnte.
 
@@ -46,7 +46,7 @@ Wie der Ausweis heißt, richtet sich nach dem Organisationstyp der Installation:
 
 In der App bietet jede Zeile der [Dateiverwaltung](../edulution-fileproxy/dateien/index.md) zusätzlich die Aktion **In App öffnen**. Damit übergibt die Plattform die Datei an die App, die sie mit den Mitteln des Betriebssystems anzeigt – unter iOS über die Dateien-App. Im Browser entfällt die Aktion.
 
-Dauerhaften Zugriff auf ganze Freigaben richten Sie stattdessen in den Konto-Einstellungen der App ein, siehe [Dateien in iOS Files-App integrieren](/docs/edulution-app/setup).
+Dauerhaften Zugriff auf ganze Freigaben richten Sie stattdessen in den Konto-Einstellungen der App ein, siehe [Dateien in iOS Files-App integrieren](./setup.md).
 
 ## App-Version und Funktionsumfang [tags: ios, android]
 
@@ -59,7 +59,7 @@ Die App meldet der Plattform ihre Version. Danach entscheidet sich, welche App-F
 | ab 2.1.11 | zusätzlich die Schnellaktion **OTP anzeigen** |
 
 :::tip[Ältere App-Versionen]
-Fehlt das Handy-Symbol, obwohl Sie die App verwenden, ist die App zu alt. Aktualisieren Sie sie im App Store beziehungsweise im Play Store. Bei Versionen älter als 2.1.0 empfehlen wir, die App zu deinstallieren und neu zu installieren – siehe [Einrichtung der edulution App](/docs/edulution-app/setup).
+Fehlt das Handy-Symbol, obwohl Sie die App verwenden, ist die App zu alt. Aktualisieren Sie sie im App Store beziehungsweise im Play Store. Bei Versionen älter als 2.1.0 empfehlen wir, die App zu deinstallieren und neu zu installieren – siehe [Einrichtung der edulution App](./setup.md).
 :::
 
 ## Weitere Unterschiede zur Browser-Ansicht [tags: ios, android]
@@ -107,7 +107,7 @@ Speichernutzung im Überblick:
 
 ## App-Download
 
-![QR-Code App](/img/features/qr-code-app.jpeg)
+![QR-Code App](../img/features/qr-code-app.jpeg)
 
 ### Installation
 
@@ -125,7 +125,7 @@ Die Progressive Web App kann direkt im Browser verwendet werden:
 
 ## Whiteboard-Synchronisation
 
-![Whiteboard Sync](/img/features/whiteboard-sync.png)
+![Whiteboard Sync](../img/features/whiteboard-sync.png)
 
 Zeichnungen und Notizen werden in Echtzeit zwischen Desktop und Mobile synchronisiert:
 

@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import { DocLink } from '@site/src/components/useVersionedDocPath';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
@@ -20,12 +21,12 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link
+          <DocLink
             className="button button--secondary button--lg"
             to="/docs"
           >
             Zur Dokumentation →
-          </Link>
+          </DocLink>
         </div>
       </div>
     </header>
@@ -43,12 +44,12 @@ function HomepageContent() {
               Eine moderne Weboberfläche für Schulnetzwerke mit Linuxmuster.net Integration. Einfache Installation und
               intuitive Bedienung.
             </p>
-            <Link
+            <DocLink
               className="button button--primary button--sm"
               to="/docs/edulution-plattform/installation/einrichtung"
             >
               Installation starten
-            </Link>
+            </DocLink>
           </div>
         </div>
         <div className="col col--4">
@@ -58,12 +59,12 @@ function HomepageContent() {
               Mailserver-Lösung basierend auf Mailcow mit vollständiger Integration in die edulution Plattform und
               Linuxmuster.net.
             </p>
-            <Link
+            <DocLink
               className="button button--primary button--sm"
               to="/docs/edulution-mail/konfiguration/installation"
             >
               Mail Setup
-            </Link>
+            </DocLink>
           </div>
         </div>
         <div className="col col--4">

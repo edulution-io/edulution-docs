@@ -35,7 +35,7 @@ Der Wizard begrüßt Sie mit *Welcome to edulution-satellite – Choose how you 
 - **Standalone** – *Configure manually – set up networks, services, and credentials yourself.* Das ist der eigenständige Betrieb.
 - **Edulution** – Anbindung an eine zentrale edulution-Instanz; hier nicht gewünscht.
 
-![Modus-Auswahl: Standalone](/img/satellite/wizard-modus-standalone.png)
+![Modus-Auswahl: Standalone](../img/satellite/wizard-modus-standalone.png)
 
 :::note[Auto-Provisioning-Bildschirm erscheint zuerst?]
 Zeigt der Wizard zunächst den Hinweis *This satellite was auto-provisioned…*, klicken Sie unten auf **Configure manually instead** – dann erscheint diese Modus-Auswahl.
@@ -45,7 +45,7 @@ Zeigt der Wizard zunächst den Hinweis *This satellite was auto-provisioned…*,
 
 Im Schritt **Admin Credentials** vergeben Sie die Zugangsdaten für die Satelliten-Oberfläche – **Username**, **Password** und **Confirm Password** – und klicken unten rechts auf **Apply & Finish**.
 
-![Admin-Zugangsdaten setzen](/img/satellite/wizard-admin-zugangsdaten.png)
+![Admin-Zugangsdaten setzen](../img/satellite/wizard-admin-zugangsdaten.png)
 
 :::note[Schritt „Geräteverbindung"]
 Auf MikroTik-Geräten richtet der Installer die Geräteverbindung bereits ein; der Wizard überspringt diesen Schritt automatisch.
@@ -57,11 +57,11 @@ Anschließend läuft ein kurzes Setup, danach erscheint die **Login-Seite**.
 
 Melden Sie sich mit den soeben gesetzten Zugangsdaten an.
 
-![Login-Seite](/img/satellite/satellit-login.png)
+![Login-Seite](../img/satellite/satellit-login.png)
 
 Fertig – der Satellit läuft standalone und zeigt das **Dashboard**.
 
-![Dashboard des Satelliten](/img/satellite/satellit-dashboard.png)
+![Dashboard des Satelliten](../img/satellite/satellit-dashboard.png)
 
 ## Satellit als virtuelle Maschine
 
@@ -71,7 +71,7 @@ Der Satellit läuft nicht nur auf MikroTik-Hardware, sondern auch als **Linux-VM
 - **Wizard:** identisch – **Standalone** wählen → **Admin Credentials** setzen → **Apply & Finish** → anmelden. Der MikroTik-Schritt zur Geräteverbindung entfällt, der Wizard geht direkt von der Modus-Auswahl zu den Zugangsdaten.
 - **Danach:** dasselbe Dashboard und dieselbe lokale Verwaltung.
 
-![VM-Modus – Dashboard nach dem Standalone-Setup](/img/satellite/vm-dashboard.png)
+![VM-Modus – Dashboard nach dem Standalone-Setup](../img/satellite/vm-dashboard.png)
 
 :::note[Netzwerk-Scans in der VM]
 Im VM-Modus laufen Netzwerk-Scans über einen Helfer-Container. Bis dieser läuft, erscheint der Hinweis *Enable NAPI to perform network scans*.
@@ -85,7 +85,7 @@ Alles Weitere passiert lokal in der Satelliten-Oberfläche – eine edulution-In
 - **Services** – Dienste wie mDNS, RADIUS, KMS, DHCP-Relay oder File Server konfigurieren und starten.
 - **Settings** – unter anderem das Admin-Passwort ändern.
 
-![Einstellungen des Satelliten](/img/satellite/satellit-einstellungen.png)
+![Einstellungen des Satelliten](../img/satellite/satellit-einstellungen.png)
 
 Ein Beispiel für das Konfigurieren und Starten eines Dienstes finden Sie unter [Dienste starten](./einrichtung-mit-edulution.md#8-dienste-starten-optional).
 

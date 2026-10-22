@@ -69,7 +69,7 @@ Der Organisationstyp gilt systemweit für alle Nutzer. Er ist unabhängig von de
 |---------|--------|------------------------|-------------|
 | edulution-Logo auf der Login-Seite | sichtbar | sichtbar | ausgeblendet |
 | Bezeichnung der Server-App in Seitenleiste und App-Leiste | Schulserver | Schulserver | Server |
-| Ausweis in der mobilen Ansicht | Schülerausweis | Mitarbeiterausweis | Mitarbeiterausweis |
+| Ausweis in der mobilen Ansicht | nach Rolle, siehe [Mobile Ansicht](../../edulution-app/mobile-ansicht.md) | Mitarbeiterausweis | Mitarbeiterausweis |
 | Elternzuweisung in der Serververwaltung | vorhanden | vorhanden | entfällt |
 | Spaltenbeschriftungen der Benutzerverwaltung | Klasse, Schulname | Klasse, Schulname | Primärgruppe, Organisationskürzel |
 | Geräterollen in der Geräteverwaltung | vollständig | vollständig | ohne Klassenraum- und Fachraum-Rollen, **Lehrer-PC** heißt **Computer** |

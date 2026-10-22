@@ -211,6 +211,10 @@ Füllen Sie im Dialog die folgenden Felder aus:
 
 Speichern Sie den Termin über **Speichern**. Steht kein beschreibbarer Kalender zur Verfügung, ist das Speichern nicht möglich.
 
+:::info[Termine nach dem Jahr 2200]
+Termine, die nach dem Jahr 2200 beginnen oder enden, zeigt edulution nicht an. Das gilt auch für solche Termine aus Web-Kalendern und aus anderen Kalenderprogrammen. Eine Serie, die vorher beginnt, bleibt sichtbar, auch wenn sie erst danach endet.
+:::
+
 ## Termine bearbeiten und löschen
 
 Ein Klick auf einen bestehenden Termin öffnet denselben Dialog wie beim Erstellen, sodass Sie alle Felder ändern können. Das gilt für Termine, die Sie ändern dürfen — bei einem freigegebenen Kalender also abhängig von den Ihnen erteilten Rechten. Termine, die Sie nur ansehen dürfen, öffnen sich stattdessen in einer reinen Detailansicht (siehe [Termine ansehen ohne Bearbeitungsrecht](#termine-ansehen-ohne-bearbeitungsrecht)).

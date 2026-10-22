@@ -13,6 +13,8 @@ Haben Sie Zugriff auf **freigegebene Postfächer** (z. B. ein Funktionspostfach 
 
 Die Gesamtzahl ungelesener Nachrichten lässt **Spam**, **Papierkorb** und **Entwürfe** außen vor, am Postfach in der Ordnerliste ebenso wie am E-Mail-Symbol in der Seitenleiste und im Dashboard. Neben diesen Ordnern selbst steht ihre Zahl weiterhin.
 
+Lässt sich die Ordnerliste beim Öffnen der E-Mail-App nicht laden, steht unten in der Ordnerliste der Hinweis **Ordner konnten nicht geladen werden** mit der Schaltfläche **Erneut versuchen**. Die Nachrichten des geöffneten Ordners lädt edulution unabhängig davon; die Liste kann also gefüllt sein, obwohl die Ordner fehlen. Scheitert ein späteres Neuladen, bleiben die bereits angezeigten Ordner stehen.
+
 ## Nachrichten lesen und verwalten
 
 **Anhänge** speichern Sie außer auf Ihrem Gerät auch direkt in Ihrem edulution-Dateibereich (**In Dateien speichern**).
@@ -24,6 +26,8 @@ Die Gesamtzahl ungelesener Nachrichten lässt **Spam**, **Papierkorb** und **Ent
 :::caution[Postfach ohne Papierkorb]
 Besitzt ein Postfach keinen Papierkorb, löscht **In den Papierkorb verschieben** die Nachrichten endgültig. Die Schaltfläche behält ihre Beschriftung; erst die Sicherheitsabfrage weist darauf hin: „Es gibt keinen Papierkorb-Ordner. Diese E-Mail wird endgültig gelöscht.“ Für ein kurzes Zeitfenster lässt sich das Löschen trotzdem rückgängig machen (siehe [Endgültiges Löschen rückgängig machen](#endgültiges-löschen-rückgängig-machen)).
 :::
+
+Solange die Ordnerliste nicht geladen ist, kennt edulution den Papierkorb noch nicht. **In den Papierkorb verschieben** verschiebt und löscht dann nichts, und eine Sicherheitsabfrage zum endgültigen Löschen erscheint nicht. Stattdessen meldet edulution: „Die Ordner sind noch nicht geladen, deshalb kann die E-Mail nicht in den Papierkorb verschoben werden. Versuch es gleich noch einmal.“ Das gilt in der Nachrichtenliste ebenso wie in der geöffneten Nachricht.
 
 ### Endgültiges Löschen rückgängig machen
 

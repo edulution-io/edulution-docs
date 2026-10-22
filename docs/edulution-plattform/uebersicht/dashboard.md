@@ -107,6 +107,7 @@ Aktuelle Aktivitäten und Benachrichtigungen:
 - Anzahl ungelesener E-Mails
 - Schnellzugriff zum Mail-Client
 - Benachrichtigung bei neuen Nachrichten
+- Solange die Ordner Ihres Postfachs noch nicht geladen sind, zeigt die Kachel keine Anzahl, denn ob ungelesene E-Mails vorliegen, steht zu diesem Zeitpunkt noch nicht fest. Lässt sich die Ordnerliste nicht laden, steht dort **E-Mails konnten nicht geladen werden**; die Kachel meldet in diesem Fall bewusst nicht **Keine ungelesenen E-Mails**. **Öffnen** führt weiterhin in die [E-Mail-App](../../edulution-mail/index.md).
 
 #### Surveys
 - Offene Umfragen

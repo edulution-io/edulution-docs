@@ -7,6 +7,46 @@ sidebar_custom_props:
 
 Diese Seite dokumentiert Konfigurationsänderungen, die bei einem Update von edulution manuell nachgezogen werden müssen.
 
+## Sicherheitsupdate php2shell (Oktober 2026)
+
+Am 21. Oktober 2026 wurden zwei kritische Sicherheitslücken in PHP veröffentlicht (CVE-2026-109618 und CVE-2026-109619, „php2shell“). Sie erlauben Angreifern ohne Anmeldung, Code auf dem Server auszuführen. Betroffen ist der PHP-Container von Mailcow, der die Mailcow-Oberfläche und die SOGo-Anmeldung bedient. Die Lücken sind ab PHP 8.2.35 geschlossen; bisher läuft dort PHP 8.2.28.
+
+:::danger[Aktualisieren Sie edulution-mail umgehend]
+Das Update steckt im edulution-mail-Container und wird beim nächsten Start automatisch auf Mailcow angewendet. Ein Neustart allein genügt nicht – der Container muss das neue Image laden. Benötigt wird das Image vom 22. Oktober 2026 oder neuer.
+:::
+
+### Container aktualisieren
+
+Aktualisieren Sie den Container `edulution-mail` in der [Container-Verwaltung](../../edulution-plattform/konfiguration/container-verwaltung.md#container-aktualisieren) mit **Update**.
+
+Alternativ auf dem Server:
+
+```bash
+docker pull ghcr.io/edulution-io/edulution-mail:latest
+```
+
+Erstellen Sie den Container danach mit seiner bisherigen Konfiguration neu, etwa mit `docker compose up -d` im Verzeichnis seiner `docker-compose.yml`.
+
+Beim ersten Start nach dem Update lädt edulution-mail das gepatchte PHP-Image von Mailcow und erstellt die Container `php-fpm-mailcow` und `nginx-mailcow` neu. Die Mailcow-Oberfläche und die SOGo-Anmeldung sind dabei einige Sekunden nicht erreichbar. E-Mail-Versand und -Empfang laufen weiter.
+
+### Update prüfen
+
+```bash
+docker exec mailcowdockerized-php-fpm-mailcow-1 php -v
+```
+
+Die erste Zeile muss `PHP 8.2.35` oder höher zeigen. Andernfalls lohnt ein Blick ins Log von edulution-mail:
+
+```bash
+docker logs edulution-mail 2>&1 | grep -A2 "Compose override"
+```
+
+| Meldung | Bedeutung | Abhilfe |
+|---|---|---|
+| `Pinning php-fpm to ghcr.io/mailcow/phpfpm:8.2.35-1 (php2shell fix)` | Das Update wird angewendet. | – |
+| `Could not recreate php-fpm and nginx, so the override is not applied` | Das gepatchte Image ließ sich nicht laden, meist wegen fehlender Verbindung zu `ghcr.io`. Die bisherigen Container laufen unverändert weiter. | Verbindung prüfen und `edulution-mail` neu starten. Der Start versucht das Update erneut. |
+| `Not pinning php-fpm` | Mailcow liefert bereits ein anderes PHP-Image aus, edulution-mail ändert daher nichts. | Mit `php -v` (siehe oben) prüfen, ob mindestens PHP 8.2.35 läuft. |
+
 ## edulution-mail v1.3.2
 
 Mit v1.3.2 ändert sich die Erreichbarkeit der Mailcow-Administrationsoberfläche, und die Proxy-Konfiguration wird angepasst. Beide Punkte betreffen bestehende Installationen.

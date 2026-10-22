@@ -258,6 +258,14 @@ const config: Config = {
 
   themeConfig: {
     image: '_static/edulution_docs.png',
+    announcementBar: {
+      id: 'php2shell-2026-10',
+      content:
+        '<strong>Sicherheitsupdate:</strong> Kritische PHP-Lücken (CVE-2026-109618, CVE-2026-109619) betreffen edulution-mail. Bitte aktualisieren Sie den Container umgehend – <a href="/docs/edulution-mail/konfiguration/changelog-config-anpassungen#sicherheitsupdate-php2shell-oktober-2026">zur Anleitung</a>.',
+      backgroundColor: '#b91c1c',
+      textColor: '#ffffff',
+      isCloseable: true,
+    },
     docs: {
       sidebar: {
         hideable: true,

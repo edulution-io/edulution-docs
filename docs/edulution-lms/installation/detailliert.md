@@ -464,6 +464,45 @@ healthcheck:
 
 ## Updates
 
+### Sicherheitsupdate php2shell (Oktober 2026)
+
+Am 21. Oktober 2026 wurden zwei kritische Sicherheitslücken in PHP veröffentlicht (CVE-2026-109618 und CVE-2026-109619, „php2shell“). Sie erlauben Angreifern ohne Anmeldung, Code auf dem Server auszuführen. Betroffen ist der Moodle-Container `edulution-moodle-app`, der PHP 8.3 aus Ubuntu 24.04 nutzt. Ubuntu hat die Lücken im Paket `8.3.6-0ubuntu0.24.04.13` geschlossen (USN-8948-1).
+
+:::danger[Aktualisieren Sie das Lernmanagement umgehend]
+Das Update steckt im Image `ghcr.io/edulution-io/edulution-moodle` ab Version 2.0.4. Ein Neustart allein genügt nicht – der Container muss das neue Image laden.
+:::
+
+Das Image bringt zugleich das Plugin `local_edulution` 2.0.4 mit. Moodle führt beim ersten Start ein Datenbank-Upgrade aus; das Lernmanagement ist dabei einige Minuten nicht erreichbar. Legen Sie vorher eine [Sicherung](../konfiguration/administration/backup.md) an und stoppen Sie den Container nicht, solange das Upgrade läuft.
+
+#### Container aktualisieren
+
+Aktualisieren Sie den Container `edulution-moodle-app` in der [Container-Verwaltung](../../edulution-plattform/konfiguration/container-verwaltung.md#container-aktualisieren) mit **Update**.
+
+Alternativ auf dem Server, im Verzeichnis der `docker-compose.yml` des Lernmanagements:
+
+```bash
+docker compose pull edulution-moodle-app
+docker compose up -d --no-deps edulution-moodle-app
+```
+
+`--no-deps` verhindert, dass Compose dabei die Datenbank neu anlegen will. Ist in der `docker-compose.yml` ein fester Image-Tag eingetragen, setzen Sie ihn vorher auf `2.0.4`.
+
+Liefert das Lernmanagement nach dem Start dauerhaft den Fehler 502, fehlt dem neu erstellten Container das Netzwerk von edulution:
+
+```bash
+docker network connect edulution-ui_default edulution-moodle-app
+```
+
+#### Update prüfen
+
+`php -v` zeigt vor und nach dem Update `PHP 8.3.6`, weil Ubuntu den Fix in das bestehende Paket einspielt. Maßgeblich ist die Paketversion:
+
+```bash
+docker exec edulution-moodle-app dpkg-query -W libapache2-mod-php8.3
+```
+
+Die Ausgabe muss `8.3.6-0ubuntu0.24.04.13` oder höher zeigen.
+
 ### Moodle-Updates
 
 ```bash
